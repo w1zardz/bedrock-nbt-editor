@@ -144,6 +144,16 @@ header .badge{font-size:0.7rem;background:var(--accent2);color:#fff;padding:2px 
 .node-value textarea{resize:vertical;min-height:60px}
 .node-children{display:none;padding-left:16px}
 .node-children.open{display:block}
+/* LevelName jump highlight */
+.node-row.ln-flash{animation:lnFlash 1.6s ease}
+@keyframes lnFlash{0%,100%{background:transparent}15%{background:rgba(88,166,255,.28)}}
+.ln-jump{
+  margin-left:auto;display:inline-flex;align-items:center;gap:6px;
+  background:var(--accent2);color:#fff;border:none;border-radius:6px;
+  padding:6px 12px;font-size:.82rem;font-weight:600;cursor:pointer;min-height:32px;
+  -webkit-tap-highlight-color:transparent;
+}
+.ln-jump:active{opacity:.8}
 .node-actions{display:flex;gap:4px;flex-shrink:0;margin-left:auto}
 .node-actions button{
   width:32px;height:32px;min-width:32px;border:none;background:var(--bg3);color:var(--text2);
@@ -642,6 +652,37 @@ function showEditor(){
   contentSections.classList.add("hidden");
   fileInfo.innerHTML='<span class="fname">'+escHtml(fileName)+'</span><span class="fmeta">Version: '+headerVersion+'</span>';
   renderTree();
+  /* jump straight to LevelName — the most common reason people open this editor */
+  if(hasLevelName()){
+    const jumpBtn=document.createElement("button");
+    jumpBtn.className="ln-jump";
+    jumpBtn.type="button";
+    jumpBtn.textContent="✎ Edit LevelName";
+    jumpBtn.addEventListener("click",function(){jumpToLevelName(true)});
+    fileInfo.appendChild(jumpBtn);
+    setTimeout(function(){jumpToLevelName(true)},60);
+  }
+}
+
+function hasLevelName(){
+  return!!(currentRoot&&currentRoot.value&&currentRoot.value.some(function(t){return t.name==="LevelName"}));
+}
+
+/* scroll to top-level LevelName, flash it, and (optionally) open inline edit */
+function jumpToLevelName(startEdit){
+  const row=treeRoot.querySelector(".ln-row");
+  if(!row)return false;
+  row.scrollIntoView({behavior:"smooth",block:"center"});
+  row.classList.remove("ln-flash");
+  void row.offsetWidth; /* restart animation */
+  row.classList.add("ln-flash");
+  if(startEdit){
+    const valEl=row.querySelector(".node-value");
+    if(valEl&&valEl._tag){
+      setTimeout(function(){startEditing(valEl._tag,valEl)},420);
+    }
+  }
+  return true;
 }
 
 function closeEditor(){
@@ -725,6 +766,12 @@ function createTreeNode(tag,parentTag,indexInParent){
   valEl.className="node-value";
   valEl.textContent=formatValue(tag);
   row.appendChild(valEl);
+
+  /* mark top-level LevelName for quick jump */
+  if(tag.name==="LevelName"&&parentTag===currentRoot){
+    row.classList.add("ln-row");
+    valEl._tag=tag;
+  }
 
   if(isEditable(tag)){
     valEl.addEventListener("click",function(e){
