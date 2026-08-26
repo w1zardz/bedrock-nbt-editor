@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>level.dat Editor Online — Edit Minecraft World Settings</title>
+<meta name="description" content="Edit Minecraft level.dat online: world name, game mode, difficulty, spawn, seed and game rules, for Java and Bedrock worlds. Nothing is uploaded.">
+<meta name="keywords" content="level.dat editor, edit level.dat, level dat editor online, minecraft level.dat, level.dat editor online free, change world name level.dat, level.dat viewer, world settings editor">
+<meta name="robots" content="noindex, follow">
+<meta name="author" content="w1zardz">
+<link rel="canonical" href="https://w1zardz.github.io/bedrock-nbt-editor/tr/level-dat-editor/">
+<link rel="alternate" hreflang="x-default" href="https://w1zardz.github.io/bedrock-nbt-editor/level-dat-editor/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="../../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="manifest" href="../../site.webmanifest">
+<meta property="og:type" content="article">
+<meta property="og:title" content="level.dat Editor — edit any world setting online">
+<meta property="og:description" content="Edit Minecraft level.dat online: world name, game mode, difficulty, spawn, seed and game rules, for Java and Bedrock worlds. Nothing is uploaded.">
+<meta property="og:url" content="https://w1zardz.github.io/bedrock-nbt-editor/tr/level-dat-editor/">
+<meta property="og:site_name" content="Minecraft NBT Editor">
+<meta property="og:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/level-dat.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="level.dat Editor — edit any world setting online">
+<meta name="twitter:description" content="Edit Minecraft level.dat online: world name, game mode, difficulty, spawn, seed and game rules, for Java and Bedrock worlds. Nothing is uploaded.">
+<meta name="twitter:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/level-dat.png">
+<meta property="article:modified_time" content="2026-08-26">
+<meta property="og:updated_time" content="2026-08-26">
+<meta name="theme-color" content="#0d1117">
+<meta name="application-name" content="Minecraft NBT Editor">
+<meta name="apple-mobile-web-app-title" content="NBT Editor">
+<link rel="preload" href="../../assets/nbt.js?v=da7967b1" as="script">
+<script>window.__LANG_URLS__={"en":"../../level-dat-editor/","ru":"../../ru/level-dat-editor/","es":"../../es/level-dat-editor/","pt-br":"../../pt-br/level-dat-editor/","de":"../../de/level-dat-editor/","fr":"../../fr/level-dat-editor/","it":"../../it/level-dat-editor/","pl":"../../pl/level-dat-editor/","uk":"../../uk/level-dat-editor/","tr":"./","id":"../../id/level-dat-editor/","vi":"../../vi/level-dat-editor/","th":"../../th/level-dat-editor/","zh-hans":"../../zh-hans/level-dat-editor/","ja":"../../ja/level-dat-editor/","ko":"../../ko/level-dat-editor/","ar":"../../ar/level-dat-editor/"};window.__NBT_STRINGS__={"loaded":"Loaded as {0}","trailing":"{0} trailing byte(s) after the root tag were ignored","error":"Error: {0}","readfail":"Could not read the file","nofile":"No file loaded","saved":"Saved {0} ({1}, {2})","savefail":"Save error: {0}","exported":"Exported {0}","snbtfail":"SNBT error: {0}","tagadded":"Tag added","tagremoved":"Tag removed","arrayupdated":"Array updated","badvalue":"Invalid value: {0}","badarray":"Invalid array: {0}","nameneeded":"Tag name is required","nametaken":"A tag named {0} already exists here","listtype":"List already holds {0} entries","editlevelname":"✎ Edit LevelName","showmore":"Show {0} more of {1} …","matches":"{0} match(es)","nomatch":"No tag matches \"{0}\"","arraytoobig":"Array has {0} entries — expand it and edit elements individually","uncompressed":"uncompressed","storage":"storage v{0}","entries":"{0} entries","langprompt":"Open this page in {0}?","langyes":"Switch","langno":"Stay"};</script>
+<script src="../../assets/lang.js?v=a3a1db0e" defer></script>
+<link rel="stylesheet" href="../../assets/app.css?v=2a10a6ce">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"level.dat Editor Online \u2014 Edit Minecraft World Settings","headline":"level.dat Editor \u2014 Edit Minecraft World Settings Online","description":"Edit Minecraft level.dat online: world name, game mode, difficulty, spawn, seed and game rules, for Java and Bedrock worlds. Nothing is uploaded.","url":"https://w1zardz.github.io/bedrock-nbt-editor/tr/level-dat-editor/","inLanguage":"tr","datePublished":"2026-05-29","dateModified":"2026-08-26","isPartOf":{"@type":"WebSite","name":"Minecraft NBT Editor","url":"https://w1zardz.github.io/bedrock-nbt-editor/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/level-dat.png"},"about":{"@type":"Thing","name":"Minecraft NBT data format"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT Editor","item":"https://w1zardz.github.io/bedrock-nbt-editor/tr/"},{"@type":"ListItem","position":2,"name":"level.dat Editor \u2014 Edit Minecraft World Settings Online","item":"https://w1zardz.github.io/bedrock-nbt-editor/tr/level-dat-editor/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I edit level.dat without downloading software?","acceptedAnswer":{"@type":"Answer","text":"Yes \u2014 that is what this page is. The parser runs in your browser, so there is nothing to install and no operating system requirement beyond a current browser."}},{"@type":"Question","name":"Why does my world still show the old name?","acceptedAnswer":{"@type":"Answer","text":"Because the name in the world list comes from LevelName inside level.dat, not from the folder name. Copying or renaming a folder leaves the tag untouched. Edit the tag and the list updates."}},{"@type":"Question","name":"Does this work with level.dat_old?","acceptedAnswer":{"@type":"Answer","text":"Yes. level.dat_old is the previous save in the same format. If the current file is corrupt, open the _old copy, confirm it looks sane, and restore it under the original name."}},{"@type":"Question","name":"Can I change the world seed here?","acceptedAnswer":{"@type":"Answer","text":"You can edit the seed tag, but it only affects terrain generated after the change \u2014 chunks already on disk keep the shape they were generated with, so the join between old and new terrain will be visible."}},{"@type":"Question","name":"Will editing level.dat get me banned or corrupt my world?","acceptedAnswer":{"@type":"Answer","text":"It is your own save file, so there is nothing to ban. Corruption comes from editing while the server is running, or from changing tag types and names rather than values. Stop the server, edit values, keep a backup."}}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#editor">Skip to the editor</a>
+<header class="site-header">
+<div class="container">
+<a class="brand" href="../"><span>Minecraft</span> NBT Editor</a>
+<span class="badge">Java + Bedrock</span>
+<nav class="site-nav" aria-label="Tools">
+<a href="../">Editor</a>
+<a href="./" class="active">level.dat</a>
+<a href="../java-nbt-editor/">Java</a>
+<a href="../mcpe-nbt-editor/">Bedrock</a>
+<a href="../mcstructure-editor/">.mcstructure</a>
+<a href="../schematic-editor/">.schem</a>
+<a href="../playerdata-editor/">playerdata</a>
+<a href="../nbt-format/">NBT format</a>
+</nav>
+<details class="lang-switch"><summary aria-label="Language"><span aria-hidden="true">🌐</span> Türkçe</summary><div class="lang-menu"><a href="../../level-dat-editor/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../ru/level-dat-editor/" hreflang="ru" data-lang="ru" rel="alternate">Русский (beta)</a><a href="../../es/level-dat-editor/" hreflang="es" data-lang="es" rel="alternate">Español (beta)</a><a href="../../pt-br/level-dat-editor/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR) (beta)</a><a href="../../de/level-dat-editor/" hreflang="de" data-lang="de" rel="alternate">Deutsch (beta)</a><a href="../../fr/level-dat-editor/" hreflang="fr" data-lang="fr" rel="alternate">Français (beta)</a><a href="../../it/level-dat-editor/" hreflang="it" data-lang="it" rel="alternate">Italiano (beta)</a><a href="../../pl/level-dat-editor/" hreflang="pl" data-lang="pl" rel="alternate">Polski (beta)</a><a href="../../uk/level-dat-editor/" hreflang="uk" data-lang="uk" rel="alternate">Українська (beta)</a><a href="../../id/level-dat-editor/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia (beta)</a><a href="../../vi/level-dat-editor/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt (beta)</a><a href="../../th/level-dat-editor/" hreflang="th" data-lang="th" rel="alternate">ไทย (beta)</a><a href="../../zh-hans/level-dat-editor/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文 (beta)</a><a href="../../ja/level-dat-editor/" hreflang="ja" data-lang="ja" rel="alternate">日本語 (beta)</a><a href="../../ko/level-dat-editor/" hreflang="ko" data-lang="ko" rel="alternate">한국어 (beta)</a><a href="../../ar/level-dat-editor/" hreflang="ar" data-lang="ar" rel="alternate">العربية (beta)</a></div></details>
+</div>
+</header>
+<main>
+<nav class="breadcrumbs container" aria-label="Breadcrumb"><a href="../">NBT Editor</a> <span class="sep">/</span> <span>level.dat editor</span></nav>
+<section class="hero" aria-label="Introduction">
+<div class="container">
+<h1>level.dat Editor — Edit Minecraft World Settings Online</h1>
+<p class="support-line"><strong>Supports Minecraft Bedrock Edition and Java Edition</strong> — and every server core for both, popular or obscure: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina and the rest. <a href="../#server-software">Full list</a>.</p>
+<p class="lede"><code>level.dat</code> is the file that holds everything a Minecraft world knows about itself: its name, game mode, difficulty, spawn point, game rules, weather state and the version it was last opened with. Drop it below to edit any of those values directly. Java files (gzip, big-endian) and Bedrock files (little-endian with an 8-byte header) are both handled, and the file is written back in the format it arrived in.</p>
+<div class="chips"><span class="chip">Java level.dat</span><span class="chip">Bedrock level.dat</span><span class="chip">level.dat_old</span><span class="chip">gzip</span><span class="chip">8-byte header</span></div>
+</div>
+</section>
+<div id="editor">
+
+<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="Drop an NBT file here or click to browse">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 16V4m0 0L8 8m4-4l4 4"/><path d="M20 16v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2"/></svg>
+<p>Drop <strong>level.dat</strong> here</p>
+<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">Choose File</button>
+<span class="hint">level.dat &middot; .nbt &middot; .mcstructure &middot; .schem &middot; .schematic &middot; .dat &middot; chunk dumps</span>
+<input type="file" id="fileInput">
+</div>
+
+<div id="editorArea">
+<div class="file-info" id="fileInfo"></div>
+
+<div class="out-bar" id="outBar">
+<label>Output format
+<select id="outFormat">
+<option value="java">Java — big-endian, named root</option>
+<option value="java-network">Java network — big-endian, nameless root</option>
+<option value="bedrock-level">Bedrock level.dat — little-endian + 8-byte header</option>
+<option value="bedrock">Bedrock raw — little-endian</option>
+<option value="bedrock-network">Bedrock network — little-endian varint</option>
+</select>
+</label>
+<label>Compression
+<select id="outCompression">
+<option value="none">None (raw)</option>
+<option value="gzip">gzip</option>
+<option value="zlib">zlib (deflate)</option>
+</select>
+</label>
+</div>
+
+<div class="search-bar">
+<input type="search" id="searchInput" placeholder="Search tag name or value…" autocomplete="off" spellcheck="false" aria-label="Search NBT tags">
+<button type="button" id="btnSearch">Search</button>
+<button type="button" id="btnCollapse">Collapse all</button>
+</div>
+<div class="search-results" id="searchResults"></div>
+
+<div class="tree" id="treeRoot"></div>
+</div>
+
+<div class="bottom-bar" id="bottomBar">
+<button class="btn-add" id="btnAddRoot" type="button">+ Add Tag</button>
+<button class="btn-save" id="btnSave" type="button">Save &amp; Download</button>
+<button class="btn-snbt" id="btnSnbt" type="button">Export SNBT</button>
+<button class="btn-close" id="btnCloseFile" type="button">Close</button>
+</div>
+
+</div>
+<div id="contentSections">
+
+<section class="content" aria-label="Tags in level.dat">
+<h2 id="the-tags-people-actually-edit">The tags people actually edit</h2>
+<p>A Java <code>level.dat</code> keeps almost everything inside a single <code>Data</code> compound; a Bedrock <code>level.dat</code> keeps its tags flat at the root. The names below are the ones worth knowing — search for any of them in the tree and the editor will jump to it.</p>
+<div class="table-wrap">
+<table class="matrix">
+<thead><tr><th>Tag</th><th>Type</th><th>Edition</th><th>What it controls</th></tr></thead>
+<tbody>
+<tr><td><code>LevelName</code></td><td>String</td><td>Both</td><td>The world's display name. Stale after copying a world folder — the <a href="../guides/change-world-name/">rename guide</a> covers it.</td></tr>
+<tr><td><code>GameType</code> / <code>gameType</code></td><td>Int</td><td>Both</td><td>0 survival, 1 creative, 2 adventure, 3 spectator.</td></tr>
+<tr><td><code>Difficulty</code></td><td>Byte / Int</td><td>Both</td><td>0 peaceful, 1 easy, 2 normal, 3 hard.</td></tr>
+<tr><td><code>hardcore</code></td><td>Byte</td><td>Both</td><td>1 locks the world to hardcore rules.</td></tr>
+<tr><td><code>allowCommands</code> / <code>commandsEnabled</code></td><td>Byte</td><td>Java / Bedrock</td><td>Whether cheats are enabled.</td></tr>
+<tr><td><code>SpawnX</code>, <code>SpawnY</code>, <code>SpawnZ</code></td><td>Int</td><td>Both</td><td>World spawn coordinates.</td></tr>
+<tr><td><code>Time</code>, <code>DayTime</code></td><td>Long</td><td>Java</td><td>Total ticks and the time of day.</td></tr>
+<tr><td><code>currentTick</code></td><td>Int</td><td>Bedrock</td><td>Bedrock's equivalent world clock.</td></tr>
+<tr><td><code>RandomSeed</code> / <code>WorldGenSettings.seed</code></td><td>Long</td><td>Java</td><td>World seed. Held as a real 64-bit value here, not a rounded double.</td></tr>
+<tr><td><code>GameRules</code> / individual gamerule tags</td><td>Compound / Byte</td><td>Java / Bedrock</td><td>Everything <code>/gamerule</code> sets — see the <a href="../guides/edit-gamerules/">game rules guide</a>.</td></tr>
+<tr><td><code>DataVersion</code></td><td>Int</td><td>Java</td><td>The world format version. Check it before moving a world between Minecraft versions.</td></tr>
+<tr><td><code>lastOpenedWithVersion</code></td><td>List of Int</td><td>Bedrock</td><td>The Bedrock client or server build that last wrote the world.</td></tr>
+<tr><td><code>Player</code></td><td>Compound</td><td>Both</td><td>Single-player inventory, position and stats embedded in the world file.</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="content" aria-label="Where to find level.dat">
+<h2 id="where-level-dat-lives">Where <code>level.dat</code> lives</h2>
+<div class="table-wrap">
+<table class="matrix">
+<thead><tr><th>Platform</th><th>Path</th></tr></thead>
+<tbody>
+<tr><td>Java server (Vanilla, Paper, Spigot, Fabric, Forge)</td><td><code>world/level.dat</code>, next to <code>region/</code> and <code>playerdata/</code></td></tr>
+<tr><td>Java client, Windows</td><td><code>%APPDATA%\.minecraft\saves\&lt;World&gt;\level.dat</code></td></tr>
+<tr><td>Java client, macOS</td><td><code>~/Library/Application Support/minecraft/saves/&lt;World&gt;/level.dat</code></td></tr>
+<tr><td>Java client, Linux</td><td><code>~/.minecraft/saves/&lt;World&gt;/level.dat</code></td></tr>
+<tr><td>Bedrock Dedicated Server, PocketMine-MP, Nukkit</td><td><code>worlds/&lt;World&gt;/level.dat</code></td></tr>
+<tr><td>Bedrock on Android</td><td><code>Android/data/com.mojang.minecraftpe/files/games/com.mojang/minecraftWorlds/&lt;id&gt;/level.dat</code></td></tr>
+<tr><td>Bedrock on Windows</td><td><code>%LOCALAPPDATA%\Packages\Microsoft.MinecraftUWP_*\LocalState\games\com.mojang\minecraftWorlds\&lt;id&gt;\level.dat</code></td></tr>
+</tbody>
+</table>
+</div>
+<p>Minecraft also writes a <code>level.dat_old</code> next to it — the previous save. It opens in this editor too, and it is the first thing to try if the current file will not load.</p>
+</section>
+
+<section class="content" aria-label="Safety">
+<h2 id="editing-safely">Editing safely</h2>
+<div class="card">
+<ul>
+<li><strong>Stop the server or close the game first.</strong> Minecraft rewrites <code>level.dat</code> on autosave and on shutdown, and a running server will overwrite your edit — or worse, write over a half-copied file.</li>
+<li><strong>Keep the original.</strong> This editor never modifies the file you dropped in; it produces a new download. Keep the old copy until the world has loaded once.</li>
+<li><strong>Do not change tag types.</strong> Changing <code>Difficulty</code> from Byte to Int, or renaming a tag Minecraft expects, is how a world stops loading. Edit values, not the structure, unless you know why.</li>
+<li><strong>Keep the Bedrock header intact.</strong> The 8-byte header carries the storage version and payload length. The editor rewrites the length automatically and preserves the version; hand-edited files that lose it will not load.</li>
+</ul>
+</div>
+</section>
+
+<section class="content" aria-label="Frequently asked questions"><h2>Frequently Asked Questions</h2><details><summary>Can I edit level.dat without downloading software?</summary><div class="faq-body"><p>Yes — that is what this page is. The parser runs in your browser, so there is nothing to install and no operating system requirement beyond a current browser.</p></div></details><details><summary>Why does my world still show the old name?</summary><div class="faq-body"><p>Because the name in the world list comes from <code>LevelName</code> inside <code>level.dat</code>, not from the folder name. Copying or renaming a folder leaves the tag untouched. Edit the tag and the list updates.</p></div></details><details><summary>Does this work with level.dat_old?</summary><div class="faq-body"><p>Yes. <code>level.dat_old</code> is the previous save in the same format. If the current file is corrupt, open the <code>_old</code> copy, confirm it looks sane, and restore it under the original name.</p></div></details><details><summary>Can I change the world seed here?</summary><div class="faq-body"><p>You can edit the seed tag, but it only affects terrain generated after the change — chunks already on disk keep the shape they were generated with, so the join between old and new terrain will be visible.</p></div></details><details><summary>Will editing level.dat get me banned or corrupt my world?</summary><div class="faq-body"><p>It is your own save file, so there is nothing to ban. Corruption comes from editing while the server is running, or from changing tag types and names rather than values. Stop the server, edit values, keep a backup.</p></div></details></section>
+<section class="content" aria-label="Related tools"><h2>Related tools</h2><div class="rel-grid"><a class="rel-card" href="../"><strong>Minecraft NBT editor</strong><span>The universal editor — every edition, every NBT file type.</span></a><a class="rel-card" href="../java-nbt-editor/"><strong>Java Edition NBT editor</strong><span>Big-endian, gzip — Vanilla, Paper, Spigot, Fabric, Forge.</span></a><a class="rel-card" href="../mcpe-nbt-editor/"><strong>MCPE NBT editor</strong><span>Little-endian NBT and the 8-byte level.dat header.</span></a><a class="rel-card" href="../guides/change-world-name/"><strong>Rename a world</strong><span>Fix LevelName after copying a world folder.</span></a><a class="rel-card" href="../guides/fix-corrupted-level-dat/"><strong>Fix a broken level.dat</strong><span>Diagnose why a world refuses to load, and repair it.</span></a><a class="rel-card" href="../guides/edit-gamerules/"><strong>Edit game rules</strong><span>keepInventory and friends, without loading the world.</span></a></div></section>
+</div>
+</main>
+
+<footer class="site-footer">
+<div class="container footer-grid">
+<div><h4>Editors</h4><a href="../">Minecraft NBT editor</a><a href="./">level.dat editor</a><a href="../java-nbt-editor/">Java Edition NBT editor</a><a href="../mcpe-nbt-editor/">MCPE NBT editor</a><a href="../pocketmine-nbt-editor/">PocketMine-MP editor</a></div>
+<div><h4>File types</h4><a href="../mcstructure-editor/">.mcstructure editor</a><a href="../schematic-editor/">Schematic editor</a><a href="../playerdata-editor/">playerdata editor</a><a href="../nbt-viewer/">NBT viewer</a><a href="../nbtexplorer-online/">NBTExplorer online</a></div>
+<div><h4>Reference</h4><a href="../nbt-format/">NBT format reference</a><a href="../guides/change-world-name/">Rename a world</a><a href="../guides/fix-corrupted-level-dat/">Fix a broken level.dat</a><a href="../guides/edit-gamerules/">Edit game rules</a></div>
+<div><h4>Source</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">Code on GitHub</a><a href="../../llms.txt">llms.txt</a></div>
+</div>
+<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+</footer>
+
+<div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+<div class="modal-overlay" id="addTagModal">
+<div class="modal">
+<h3>Add New Tag</h3>
+<label for="newTagName">Tag Name</label>
+<input type="text" id="newTagName" placeholder="e.g. MyTag" autocomplete="off">
+<label for="newTagType">Tag Type</label>
+<select id="newTagType">
+<option value="1">TAG_Byte</option>
+<option value="2">TAG_Short</option>
+<option value="3">TAG_Int</option>
+<option value="4">TAG_Long</option>
+<option value="5">TAG_Float</option>
+<option value="6">TAG_Double</option>
+<option value="7">TAG_Byte_Array</option>
+<option value="8" selected>TAG_String</option>
+<option value="9">TAG_List</option>
+<option value="10">TAG_Compound</option>
+<option value="11">TAG_Int_Array</option>
+<option value="12">TAG_Long_Array</option>
+</select>
+<label for="newTagValue">Value</label>
+<input type="text" id="newTagValue" placeholder="Value" autocomplete="off">
+<div id="listSubtypeRow" style="display:none">
+<label for="newListSubtype">List Element Type</label>
+<select id="newListSubtype">
+<option value="1">TAG_Byte</option>
+<option value="2">TAG_Short</option>
+<option value="3">TAG_Int</option>
+<option value="4">TAG_Long</option>
+<option value="5">TAG_Float</option>
+<option value="6">TAG_Double</option>
+<option value="7">TAG_Byte_Array</option>
+<option value="8">TAG_String</option>
+<option value="9">TAG_List</option>
+<option value="10">TAG_Compound</option>
+<option value="11">TAG_Int_Array</option>
+<option value="12">TAG_Long_Array</option>
+</select>
+</div>
+<div class="modal-btns">
+<button class="btn-cancel" type="button" id="addTagCancel">Cancel</button>
+<button class="btn-confirm" type="button" id="addTagConfirm">Add</button>
+</div>
+</div>
+</div>
+
+<div class="modal-overlay" id="arrayModal">
+<div class="modal">
+<h3 id="arrayModalTitle">Edit Array</h3>
+<label for="arrayModalText">Comma-separated values</label>
+<textarea id="arrayModalText" spellcheck="false" autocomplete="off"></textarea>
+<div class="modal-btns">
+<button class="btn-cancel" type="button" id="arrayModalCancel">Cancel</button>
+<button class="btn-confirm" type="button" id="arrayModalConfirm">Apply</button>
+</div>
+</div>
+</div>
+
+<script src="../../assets/nbt.js?v=da7967b1" defer></script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Minecraft playerdata Editor — Edit player .dat Files Online</title>
+<meta name="description" content="Edit Minecraft playerdata .dat files online: fix a stuck player position, drop a corrupted inventory item, adjust health, XP or game mode.">
+<meta name="keywords" content="playerdata editor, minecraft player.dat editor, edit player inventory nbt, player data nbt editor, uuid.dat minecraft, stuck player position fix, minecraft inventory editor online">
+<meta name="robots" content="noindex, follow">
+<meta name="author" content="w1zardz">
+<link rel="canonical" href="https://w1zardz.github.io/bedrock-nbt-editor/ko/playerdata-editor/">
+<link rel="alternate" hreflang="x-default" href="https://w1zardz.github.io/bedrock-nbt-editor/playerdata-editor/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="../../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="manifest" href="../../site.webmanifest">
+<meta property="og:type" content="article">
+<meta property="og:title" content="playerdata editor — inventory, position, stats">
+<meta property="og:description" content="Edit Minecraft playerdata .dat files online: fix a stuck player position, drop a corrupted inventory item, adjust health, XP or game mode.">
+<meta property="og:url" content="https://w1zardz.github.io/bedrock-nbt-editor/ko/playerdata-editor/">
+<meta property="og:site_name" content="Minecraft NBT Editor">
+<meta property="og:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/playerdata.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="playerdata editor — inventory, position, stats">
+<meta name="twitter:description" content="Edit Minecraft playerdata .dat files online: fix a stuck player position, drop a corrupted inventory item, adjust health, XP or game mode.">
+<meta name="twitter:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/playerdata.png">
+<meta property="article:modified_time" content="2026-08-26">
+<meta property="og:updated_time" content="2026-08-26">
+<meta name="theme-color" content="#0d1117">
+<meta name="application-name" content="Minecraft NBT Editor">
+<meta name="apple-mobile-web-app-title" content="NBT Editor">
+<link rel="preload" href="../../assets/nbt.js?v=da7967b1" as="script">
+<script>window.__LANG_URLS__={"en":"../../playerdata-editor/","ru":"../../ru/playerdata-editor/","es":"../../es/playerdata-editor/","pt-br":"../../pt-br/playerdata-editor/","de":"../../de/playerdata-editor/","fr":"../../fr/playerdata-editor/","it":"../../it/playerdata-editor/","pl":"../../pl/playerdata-editor/","uk":"../../uk/playerdata-editor/","tr":"../../tr/playerdata-editor/","id":"../../id/playerdata-editor/","vi":"../../vi/playerdata-editor/","th":"../../th/playerdata-editor/","zh-hans":"../../zh-hans/playerdata-editor/","ja":"../../ja/playerdata-editor/","ko":"./","ar":"../../ar/playerdata-editor/"};window.__NBT_STRINGS__={"loaded":"Loaded as {0}","trailing":"{0} trailing byte(s) after the root tag were ignored","error":"Error: {0}","readfail":"Could not read the file","nofile":"No file loaded","saved":"Saved {0} ({1}, {2})","savefail":"Save error: {0}","exported":"Exported {0}","snbtfail":"SNBT error: {0}","tagadded":"Tag added","tagremoved":"Tag removed","arrayupdated":"Array updated","badvalue":"Invalid value: {0}","badarray":"Invalid array: {0}","nameneeded":"Tag name is required","nametaken":"A tag named {0} already exists here","listtype":"List already holds {0} entries","editlevelname":"✎ Edit LevelName","showmore":"Show {0} more of {1} …","matches":"{0} match(es)","nomatch":"No tag matches \"{0}\"","arraytoobig":"Array has {0} entries — expand it and edit elements individually","uncompressed":"uncompressed","storage":"storage v{0}","entries":"{0} entries","langprompt":"Open this page in {0}?","langyes":"Switch","langno":"Stay"};</script>
+<script src="../../assets/lang.js?v=a3a1db0e" defer></script>
+<link rel="stylesheet" href="../../assets/app.css?v=2a10a6ce">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Minecraft playerdata Editor \u2014 Edit player .dat Files Online","headline":"playerdata Editor \u2014 Minecraft Player .dat Files","description":"Edit Minecraft playerdata .dat files online: fix a stuck player position, drop a corrupted inventory item, adjust health, XP or game mode.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ko/playerdata-editor/","inLanguage":"ko","datePublished":"2026-05-29","dateModified":"2026-08-26","isPartOf":{"@type":"WebSite","name":"Minecraft NBT Editor","url":"https://w1zardz.github.io/bedrock-nbt-editor/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/playerdata.png"},"about":{"@type":"Thing","name":"Minecraft NBT data format"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT Editor","item":"https://w1zardz.github.io/bedrock-nbt-editor/ko/"},{"@type":"ListItem","position":2,"name":"playerdata Editor \u2014 Minecraft Player .dat Files","item":"https://w1zardz.github.io/bedrock-nbt-editor/ko/playerdata-editor/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which file is my player?","acceptedAnswer":{"@type":"Answer","text":"Files are named by UUID. Look the player's UUID up on a Mojang API viewer, or sort playerdata/ by modification time and match against the last login."}},{"@type":"Question","name":"Can I give myself items by editing playerdata?","acceptedAnswer":{"@type":"Answer","text":"On your own server, yes \u2014 add an entry to the Inventory list with id, Count and Slot. On someone else's server that is an intrusion, and it will not work anyway because the live server rewrites the file."}},{"@type":"Question","name":"Why did my edit disappear?","acceptedAnswer":{"@type":"Answer","text":"The server or the player was online when you edited. Player state in memory wins on the next save."}},{"@type":"Question","name":"Is playerdata the same in Bedrock?","acceptedAnswer":{"@type":"Answer","text":"No. Bedrock keeps players inside the world LevelDB rather than in per-UUID files. The NBT inside those values is little-endian and opens here once extracted."}}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#editor">Skip to the editor</a>
+<header class="site-header">
+<div class="container">
+<a class="brand" href="../"><span>Minecraft</span> NBT Editor</a>
+<span class="badge">Java + Bedrock</span>
+<nav class="site-nav" aria-label="Tools">
+<a href="../">Editor</a>
+<a href="../level-dat-editor/">level.dat</a>
+<a href="../java-nbt-editor/">Java</a>
+<a href="../mcpe-nbt-editor/">Bedrock</a>
+<a href="../mcstructure-editor/">.mcstructure</a>
+<a href="../schematic-editor/">.schem</a>
+<a href="./" class="active">playerdata</a>
+<a href="../nbt-format/">NBT format</a>
+</nav>
+<details class="lang-switch"><summary aria-label="Language"><span aria-hidden="true">🌐</span> 한국어</summary><div class="lang-menu"><a href="../../playerdata-editor/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../ru/playerdata-editor/" hreflang="ru" data-lang="ru" rel="alternate">Русский (beta)</a><a href="../../es/playerdata-editor/" hreflang="es" data-lang="es" rel="alternate">Español (beta)</a><a href="../../pt-br/playerdata-editor/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR) (beta)</a><a href="../../de/playerdata-editor/" hreflang="de" data-lang="de" rel="alternate">Deutsch (beta)</a><a href="../../fr/playerdata-editor/" hreflang="fr" data-lang="fr" rel="alternate">Français (beta)</a><a href="../../it/playerdata-editor/" hreflang="it" data-lang="it" rel="alternate">Italiano (beta)</a><a href="../../pl/playerdata-editor/" hreflang="pl" data-lang="pl" rel="alternate">Polski (beta)</a><a href="../../uk/playerdata-editor/" hreflang="uk" data-lang="uk" rel="alternate">Українська (beta)</a><a href="../../tr/playerdata-editor/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe (beta)</a><a href="../../id/playerdata-editor/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia (beta)</a><a href="../../vi/playerdata-editor/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt (beta)</a><a href="../../th/playerdata-editor/" hreflang="th" data-lang="th" rel="alternate">ไทย (beta)</a><a href="../../zh-hans/playerdata-editor/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文 (beta)</a><a href="../../ja/playerdata-editor/" hreflang="ja" data-lang="ja" rel="alternate">日本語 (beta)</a><a href="../../ar/playerdata-editor/" hreflang="ar" data-lang="ar" rel="alternate">العربية (beta)</a></div></details>
+</div>
+</header>
+<main>
+<nav class="breadcrumbs container" aria-label="Breadcrumb"><a href="../">NBT Editor</a> <span class="sep">/</span> <span>playerdata</span></nav>
+<section class="hero" aria-label="Introduction">
+<div class="container">
+<h1>playerdata Editor — Minecraft Player .dat Files</h1>
+<p class="support-line"><strong>Supports Minecraft Bedrock Edition and Java Edition</strong> — and every server core for both, popular or obscure: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina and the rest. <a href="../#server-software">Full list</a>.</p>
+<p class="lede">Java Edition writes one gzip big-endian NBT file per player in <code>world/playerdata/&lt;uuid&gt;.dat</code>, holding inventory, ender chest, position, dimension, health, hunger, XP and attributes. Drop one below to fix a player stuck inside terrain, drop a crash-inducing item, or reset stats — with the server stopped, or at least with that player offline.</p>
+<div class="chips"><span class="chip">Java playerdata</span><span class="chip">Ender chest</span><span class="chip">Inventory</span><span class="chip">Position</span><span class="chip">Attributes</span><span class="chip">Advancement-adjacent</span></div>
+</div>
+</section>
+<div id="editor">
+
+<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="Drop an NBT file here or click to browse">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 16V4m0 0L8 8m4-4l4 4"/><path d="M20 16v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2"/></svg>
+<p>Drop <strong>a playerdata .dat file</strong> here</p>
+<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">Choose File</button>
+<span class="hint">level.dat &middot; .nbt &middot; .mcstructure &middot; .schem &middot; .schematic &middot; .dat &middot; chunk dumps</span>
+<input type="file" id="fileInput">
+</div>
+
+<div id="editorArea">
+<div class="file-info" id="fileInfo"></div>
+
+<div class="out-bar" id="outBar">
+<label>Output format
+<select id="outFormat">
+<option value="java">Java — big-endian, named root</option>
+<option value="java-network">Java network — big-endian, nameless root</option>
+<option value="bedrock-level">Bedrock level.dat — little-endian + 8-byte header</option>
+<option value="bedrock">Bedrock raw — little-endian</option>
+<option value="bedrock-network">Bedrock network — little-endian varint</option>
+</select>
+</label>
+<label>Compression
+<select id="outCompression">
+<option value="none">None (raw)</option>
+<option value="gzip">gzip</option>
+<option value="zlib">zlib (deflate)</option>
+</select>
+</label>
+</div>
+
+<div class="search-bar">
+<input type="search" id="searchInput" placeholder="Search tag name or value…" autocomplete="off" spellcheck="false" aria-label="Search NBT tags">
+<button type="button" id="btnSearch">Search</button>
+<button type="button" id="btnCollapse">Collapse all</button>
+</div>
+<div class="search-results" id="searchResults"></div>
+
+<div class="tree" id="treeRoot"></div>
+</div>
+
+<div class="bottom-bar" id="bottomBar">
+<button class="btn-add" id="btnAddRoot" type="button">+ Add Tag</button>
+<button class="btn-save" id="btnSave" type="button">Save &amp; Download</button>
+<button class="btn-snbt" id="btnSnbt" type="button">Export SNBT</button>
+<button class="btn-close" id="btnCloseFile" type="button">Close</button>
+</div>
+
+</div>
+<div id="contentSections">
+
+<section class="content" aria-label="playerdata tags">
+<h2 id="the-tags-in-a-player-file">The tags in a player file</h2>
+<div class="table-wrap">
+<table class="matrix">
+<thead><tr><th>Tag</th><th>Type</th><th>What it is</th></tr></thead>
+<tbody>
+<tr><td><code>Pos</code></td><td>List of Double</td><td>X, Y, Z. The fix for a player stuck in a wall or below bedrock.</td></tr>
+<tr><td><code>Rotation</code></td><td>List of Float</td><td>Yaw and pitch.</td></tr>
+<tr><td><code>Dimension</code></td><td>String / Int</td><td>Which dimension the player logs into.</td></tr>
+<tr><td><code>Inventory</code></td><td>List of Compound</td><td>One entry per stack: <code>id</code>, <code>Count</code>, <code>Slot</code>, <code>components</code> or <code>tag</code>.</td></tr>
+<tr><td><code>EnderItems</code></td><td>List of Compound</td><td>Ender chest contents, same shape.</td></tr>
+<tr><td><code>Health</code>, <code>foodLevel</code>, <code>XpLevel</code>, <code>XpTotal</code></td><td>Float / Int</td><td>Vitals and experience.</td></tr>
+<tr><td><code>playerGameType</code></td><td>Int</td><td>Per-player game mode.</td></tr>
+<tr><td><code>abilities</code></td><td>Compound</td><td>Flying, invulnerable, walk and fly speed.</td></tr>
+<tr><td><code>Attributes</code></td><td>List of Compound</td><td>Max health, movement speed and other modifiers.</td></tr>
+<tr><td><code>SpawnX</code>/<code>SpawnY</code>/<code>SpawnZ</code> or <code>respawn</code></td><td>Int / Compound</td><td>Personal respawn point, depending on version.</td></tr>
+<tr><td><code>UUID</code></td><td>Int[4]</td><td>The player's UUID as four ints in modern versions.</td></tr>
+</tbody>
+</table>
+</div>
+<p>Item stacks changed shape in 1.20.5: custom data moved from a single <code>tag</code> compound to individual <code>components</code>. Both shapes open here; edit whichever your version writes.</p>
+</section>
+
+<section class="content" aria-label="Common repairs">
+<h2 id="common-repairs">Common repairs</h2>
+<div class="card">
+<ul>
+<li><strong>Player stuck in terrain or falling forever.</strong> Set <code>Pos</code> to safe coordinates — three doubles, in order X, Y, Z — and clear <code>Motion</code> if it holds a huge value.</li>
+<li><strong>Client crashes on login.</strong> A malformed item is the usual cause. Remove the offending entry from <code>Inventory</code> rather than wiping the whole list.</li>
+<li><strong>Wrong dimension after a portal bug.</strong> Set <code>Dimension</code> back to <code>minecraft:overworld</code> and give <code>Pos</code> matching coordinates.</li>
+<li><strong>Stuck in spectator.</strong> Set <code>playerGameType</code> to 0 for survival, 1 for creative.</li>
+<li><strong>Attribute modifiers left by a removed plugin.</strong> Delete the stale entries in <code>Attributes</code>.</li>
+</ul>
+</div>
+</section>
+
+<section class="content" aria-label="Server safety">
+<h2 id="do-it-with-the-player-offline">Do it with the player offline</h2>
+<p>The server holds player state in memory and writes it out on logout and on autosave. Editing the file while that player is online guarantees your changes are overwritten, and editing during a save can truncate the file. Take the player offline — or stop the server — copy the file, edit, and put it back before they reconnect. Keep the original until the login works.</p>
+<p>Bedrock servers do not use this layout: player data lives in the world's LevelDB under keys such as <code>player_&lt;uuid&gt;</code>, whose values are little-endian NBT. Extract a value and it opens here as <em>Bedrock raw</em>.</p>
+</section>
+
+<section class="content" aria-label="Frequently asked questions"><h2>Frequently Asked Questions</h2><details><summary>Which file is my player?</summary><div class="faq-body"><p>Files are named by UUID. Look the player's UUID up on a Mojang API viewer, or sort <code>playerdata/</code> by modification time and match against the last login.</p></div></details><details><summary>Can I give myself items by editing playerdata?</summary><div class="faq-body"><p>On your own server, yes — add an entry to the <code>Inventory</code> list with <code>id</code>, <code>Count</code> and <code>Slot</code>. On someone else's server that is an intrusion, and it will not work anyway because the live server rewrites the file.</p></div></details><details><summary>Why did my edit disappear?</summary><div class="faq-body"><p>The server or the player was online when you edited. Player state in memory wins on the next save.</p></div></details><details><summary>Is playerdata the same in Bedrock?</summary><div class="faq-body"><p>No. Bedrock keeps players inside the world LevelDB rather than in per-UUID files. The NBT inside those values is little-endian and opens here once extracted.</p></div></details></section>
+<section class="content" aria-label="Related tools"><h2>Related tools</h2><div class="rel-grid"><a class="rel-card" href="../java-nbt-editor/"><strong>Java Edition NBT editor</strong><span>Big-endian, gzip — Vanilla, Paper, Spigot, Fabric, Forge.</span></a><a class="rel-card" href="../"><strong>Minecraft NBT editor</strong><span>The universal editor — every edition, every NBT file type.</span></a><a class="rel-card" href="../level-dat-editor/"><strong>level.dat editor</strong><span>World name, game mode, spawn, difficulty and game rules.</span></a><a class="rel-card" href="../nbt-format/"><strong>NBT format reference</strong><span>All 13 tag types, every encoding, byte by byte.</span></a><a class="rel-card" href="../nbt-viewer/"><strong>NBT viewer</strong><span>Read-only inspection, search and SNBT export.</span></a><a class="rel-card" href="../guides/fix-corrupted-level-dat/"><strong>Fix a broken level.dat</strong><span>Diagnose why a world refuses to load, and repair it.</span></a></div></section>
+</div>
+</main>
+
+<footer class="site-footer">
+<div class="container footer-grid">
+<div><h4>Editors</h4><a href="../">Minecraft NBT editor</a><a href="../level-dat-editor/">level.dat editor</a><a href="../java-nbt-editor/">Java Edition NBT editor</a><a href="../mcpe-nbt-editor/">MCPE NBT editor</a><a href="../pocketmine-nbt-editor/">PocketMine-MP editor</a></div>
+<div><h4>File types</h4><a href="../mcstructure-editor/">.mcstructure editor</a><a href="../schematic-editor/">Schematic editor</a><a href="./">playerdata editor</a><a href="../nbt-viewer/">NBT viewer</a><a href="../nbtexplorer-online/">NBTExplorer online</a></div>
+<div><h4>Reference</h4><a href="../nbt-format/">NBT format reference</a><a href="../guides/change-world-name/">Rename a world</a><a href="../guides/fix-corrupted-level-dat/">Fix a broken level.dat</a><a href="../guides/edit-gamerules/">Edit game rules</a></div>
+<div><h4>Source</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">Code on GitHub</a><a href="../../llms.txt">llms.txt</a></div>
+</div>
+<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+</footer>
+
+<div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+<div class="modal-overlay" id="addTagModal">
+<div class="modal">
+<h3>Add New Tag</h3>
+<label for="newTagName">Tag Name</label>
+<input type="text" id="newTagName" placeholder="e.g. MyTag" autocomplete="off">
+<label for="newTagType">Tag Type</label>
+<select id="newTagType">
+<option value="1">TAG_Byte</option>
+<option value="2">TAG_Short</option>
+<option value="3">TAG_Int</option>
+<option value="4">TAG_Long</option>
+<option value="5">TAG_Float</option>
+<option value="6">TAG_Double</option>
+<option value="7">TAG_Byte_Array</option>
+<option value="8" selected>TAG_String</option>
+<option value="9">TAG_List</option>
+<option value="10">TAG_Compound</option>
+<option value="11">TAG_Int_Array</option>
+<option value="12">TAG_Long_Array</option>
+</select>
+<label for="newTagValue">Value</label>
+<input type="text" id="newTagValue" placeholder="Value" autocomplete="off">
+<div id="listSubtypeRow" style="display:none">
+<label for="newListSubtype">List Element Type</label>
+<select id="newListSubtype">
+<option value="1">TAG_Byte</option>
+<option value="2">TAG_Short</option>
+<option value="3">TAG_Int</option>
+<option value="4">TAG_Long</option>
+<option value="5">TAG_Float</option>
+<option value="6">TAG_Double</option>
+<option value="7">TAG_Byte_Array</option>
+<option value="8">TAG_String</option>
+<option value="9">TAG_List</option>
+<option value="10">TAG_Compound</option>
+<option value="11">TAG_Int_Array</option>
+<option value="12">TAG_Long_Array</option>
+</select>
+</div>
+<div class="modal-btns">
+<button class="btn-cancel" type="button" id="addTagCancel">Cancel</button>
+<button class="btn-confirm" type="button" id="addTagConfirm">Add</button>
+</div>
+</div>
+</div>
+
+<div class="modal-overlay" id="arrayModal">
+<div class="modal">
+<h3 id="arrayModalTitle">Edit Array</h3>
+<label for="arrayModalText">Comma-separated values</label>
+<textarea id="arrayModalText" spellcheck="false" autocomplete="off"></textarea>
+<div class="modal-btns">
+<button class="btn-cancel" type="button" id="arrayModalCancel">Cancel</button>
+<button class="btn-confirm" type="button" id="arrayModalConfirm">Apply</button>
+</div>
+</div>
+</div>
+
+<script src="../../assets/nbt.js?v=da7967b1" defer></script>
+</body>
+</html>

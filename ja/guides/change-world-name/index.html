@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>How to Change a Minecraft World Name (Java &amp;amp; Bedrock)</title>
+<meta name="description" content="Rename a Minecraft world properly by editing LevelName in level.dat: Java and Bedrock, single player and servers, plus the duplicate-name fix.">
+<meta name="keywords" content="how to change minecraft world name, rename minecraft world, change world name server, levelname level.dat, rename bedrock world, minecraft world still shows old name, duplicate world name server">
+<meta name="robots" content="noindex, follow">
+<meta name="author" content="w1zardz">
+<link rel="canonical" href="https://w1zardz.github.io/bedrock-nbt-editor/ja/guides/change-world-name/">
+<link rel="alternate" hreflang="x-default" href="https://w1zardz.github.io/bedrock-nbt-editor/guides/change-world-name/">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="../../../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
+<link rel="manifest" href="../../../site.webmanifest">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to change a Minecraft world name">
+<meta property="og:description" content="Rename a Minecraft world properly by editing LevelName in level.dat: Java and Bedrock, single player and servers, plus the duplicate-name fix.">
+<meta property="og:url" content="https://w1zardz.github.io/bedrock-nbt-editor/ja/guides/change-world-name/">
+<meta property="og:site_name" content="Minecraft NBT Editor">
+<meta property="og:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/rename.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to change a Minecraft world name">
+<meta name="twitter:description" content="Rename a Minecraft world properly by editing LevelName in level.dat: Java and Bedrock, single player and servers, plus the duplicate-name fix.">
+<meta name="twitter:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/rename.png">
+<meta property="article:modified_time" content="2026-08-26">
+<meta property="og:updated_time" content="2026-08-26">
+<meta name="theme-color" content="#0d1117">
+<meta name="application-name" content="Minecraft NBT Editor">
+<meta name="apple-mobile-web-app-title" content="NBT Editor">
+<link rel="preload" href="../../../assets/nbt.js?v=da7967b1" as="script">
+<script>window.__LANG_URLS__={"en":"../../../guides/change-world-name/","ru":"../../../ru/guides/change-world-name/","es":"../../../es/guides/change-world-name/","pt-br":"../../../pt-br/guides/change-world-name/","de":"../../../de/guides/change-world-name/","fr":"../../../fr/guides/change-world-name/","it":"../../../it/guides/change-world-name/","pl":"../../../pl/guides/change-world-name/","uk":"../../../uk/guides/change-world-name/","tr":"../../../tr/guides/change-world-name/","id":"../../../id/guides/change-world-name/","vi":"../../../vi/guides/change-world-name/","th":"../../../th/guides/change-world-name/","zh-hans":"../../../zh-hans/guides/change-world-name/","ja":"./","ko":"../../../ko/guides/change-world-name/","ar":"../../../ar/guides/change-world-name/"};window.__NBT_STRINGS__={"loaded":"Loaded as {0}","trailing":"{0} trailing byte(s) after the root tag were ignored","error":"Error: {0}","readfail":"Could not read the file","nofile":"No file loaded","saved":"Saved {0} ({1}, {2})","savefail":"Save error: {0}","exported":"Exported {0}","snbtfail":"SNBT error: {0}","tagadded":"Tag added","tagremoved":"Tag removed","arrayupdated":"Array updated","badvalue":"Invalid value: {0}","badarray":"Invalid array: {0}","nameneeded":"Tag name is required","nametaken":"A tag named {0} already exists here","listtype":"List already holds {0} entries","editlevelname":"✎ Edit LevelName","showmore":"Show {0} more of {1} …","matches":"{0} match(es)","nomatch":"No tag matches \"{0}\"","arraytoobig":"Array has {0} entries — expand it and edit elements individually","uncompressed":"uncompressed","storage":"storage v{0}","entries":"{0} entries","langprompt":"Open this page in {0}?","langyes":"Switch","langno":"Stay"};</script>
+<script src="../../../assets/lang.js?v=a3a1db0e" defer></script>
+<link rel="stylesheet" href="../../../assets/app.css?v=2a10a6ce">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"How to Change a Minecraft World Name (Java & Bedrock)","headline":"How to Change a Minecraft World Name","description":"Rename a Minecraft world properly by editing LevelName in level.dat: Java and Bedrock, single player and servers, plus the duplicate-name fix.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ja/guides/change-world-name/","inLanguage":"ja","datePublished":"2026-05-29","dateModified":"2026-08-26","isPartOf":{"@type":"WebSite","name":"Minecraft NBT Editor","url":"https://w1zardz.github.io/bedrock-nbt-editor/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/rename.png"},"about":{"@type":"Thing","name":"Minecraft NBT data format"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT Editor","item":"https://w1zardz.github.io/bedrock-nbt-editor/ja/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://w1zardz.github.io/bedrock-nbt-editor/ja/guides/"},{"@type":"ListItem","position":3,"name":"How to Change a Minecraft World Name","item":"https://w1zardz.github.io/bedrock-nbt-editor/ja/guides/change-world-name/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does renaming a world delete anything?","acceptedAnswer":{"@type":"Answer","text":"No. LevelName is a label. Terrain, players, inventories and entities live in other files and are untouched."}},{"@type":"Question","name":"Can I use spaces, colours or emoji in a world name?","acceptedAnswer":{"@type":"Answer","text":"Spaces are fine. Section-sign colour codes work on some server software and show as literal characters elsewhere. Emoji survive the round trip here because the editor uses the right string encoding per edition, but consoles and log files may render them badly."}},{"@type":"Question","name":"Do I have to rename the folder too?","acceptedAnswer":{"@type":"Answer","text":"No, and often you should not \u2014 a server's level-name setting or a plugin config may point at the folder path. Change one thing at a time."}},{"@type":"Question","name":"Will players see the new name immediately?","acceptedAnswer":{"@type":"Answer","text":"After the world reloads, yes. Clients that cached a server list entry may need a refresh."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"Change a Minecraft world name by editing level.dat","description":"Rename a Minecraft world properly by editing LevelName in level.dat: Java and Bedrock, single player and servers, plus the duplicate-name fix.","totalTime":"PT3M","tool":[{"@type":"HowToTool","name":"Minecraft NBT Editor"}],"step":[{"@type":"HowToStep","position":1,"name":"Stop the game or server","text":"Close the world or stop the server. Minecraft rewrites level.dat on autosave and shutdown, and a running instance will overwrite the edit.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ja/guides/change-world-name/#step-1"},{"@type":"HowToStep","position":2,"name":"Locate level.dat","text":"Java: world/level.dat on a server, or saves/<World>/level.dat in the client. Bedrock: worlds/<World>/level.dat on a server, or the world id folder under minecraftWorlds on a device.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ja/guides/change-world-name/#step-2"},{"@type":"HowToStep","position":3,"name":"Open it in the editor","text":"Drop the file into the NBT editor. It detects the edition and encoding and jumps to the LevelName tag automatically.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ja/guides/change-world-name/#step-3"},{"@type":"HowToStep","position":4,"name":"Edit LevelName","text":"Click the value, type the new name, press Enter. Keep it to plain characters if the name has to survive being printed in a console.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ja/guides/change-world-name/#step-4"},{"@type":"HowToStep","position":5,"name":"Save and download","text":"Click Save & Download. The output format and compression stay exactly as the file arrived, so nothing else about the file changes.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ja/guides/change-world-name/#step-5"},{"@type":"HowToStep","position":6,"name":"Replace the original","text":"Copy the downloaded file over the original, keeping a backup, then start the game or server and confirm the new name in the world list.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ja/guides/change-world-name/#step-6"}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#editor">Skip to the editor</a>
+<header class="site-header">
+<div class="container">
+<a class="brand" href="../../"><span>Minecraft</span> NBT Editor</a>
+<span class="badge">Java + Bedrock</span>
+<nav class="site-nav" aria-label="Tools">
+<a href="../../">Editor</a>
+<a href="../../level-dat-editor/">level.dat</a>
+<a href="../../java-nbt-editor/">Java</a>
+<a href="../../mcpe-nbt-editor/">Bedrock</a>
+<a href="../../mcstructure-editor/">.mcstructure</a>
+<a href="../../schematic-editor/">.schem</a>
+<a href="../../playerdata-editor/">playerdata</a>
+<a href="../../nbt-format/">NBT format</a>
+</nav>
+<details class="lang-switch"><summary aria-label="Language"><span aria-hidden="true">🌐</span> 日本語</summary><div class="lang-menu"><a href="../../../guides/change-world-name/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../../ru/guides/change-world-name/" hreflang="ru" data-lang="ru" rel="alternate">Русский (beta)</a><a href="../../../es/guides/change-world-name/" hreflang="es" data-lang="es" rel="alternate">Español (beta)</a><a href="../../../pt-br/guides/change-world-name/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR) (beta)</a><a href="../../../de/guides/change-world-name/" hreflang="de" data-lang="de" rel="alternate">Deutsch (beta)</a><a href="../../../fr/guides/change-world-name/" hreflang="fr" data-lang="fr" rel="alternate">Français (beta)</a><a href="../../../it/guides/change-world-name/" hreflang="it" data-lang="it" rel="alternate">Italiano (beta)</a><a href="../../../pl/guides/change-world-name/" hreflang="pl" data-lang="pl" rel="alternate">Polski (beta)</a><a href="../../../uk/guides/change-world-name/" hreflang="uk" data-lang="uk" rel="alternate">Українська (beta)</a><a href="../../../tr/guides/change-world-name/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe (beta)</a><a href="../../../id/guides/change-world-name/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia (beta)</a><a href="../../../vi/guides/change-world-name/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt (beta)</a><a href="../../../th/guides/change-world-name/" hreflang="th" data-lang="th" rel="alternate">ไทย (beta)</a><a href="../../../zh-hans/guides/change-world-name/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文 (beta)</a><a href="../../../ko/guides/change-world-name/" hreflang="ko" data-lang="ko" rel="alternate">한국어 (beta)</a><a href="../../../ar/guides/change-world-name/" hreflang="ar" data-lang="ar" rel="alternate">العربية (beta)</a></div></details>
+</div>
+</header>
+<main>
+<nav class="breadcrumbs container" aria-label="Breadcrumb"><a href="../../">NBT Editor</a> <span class="sep">/</span> <span>Guides</span> <span class="sep">/</span> <span>Change world name</span></nav>
+<section class="hero" aria-label="Introduction">
+<div class="container">
+<h1>How to Change a Minecraft World Name</h1>
+<p class="support-line"><strong>Supports Minecraft Bedrock Edition and Java Edition</strong> — and every server core for both, popular or obscure: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina and the rest. <a href="../../#server-software">Full list</a>.</p>
+<p class="lede">A world's display name lives in the <code>LevelName</code> tag inside <code>level.dat</code>, not in the folder name. Renaming the folder changes nothing the game shows, which is why a copied world keeps announcing itself under the original name. Drop <code>level.dat</code> into the editor below — it jumps straight to <code>LevelName</code> — change the value, save, and put the file back.</p>
+<div class="chips"><span class="chip">Java</span><span class="chip">Bedrock</span><span class="chip">Servers</span><span class="chip">Single player</span><span class="chip">2 minutes</span></div>
+</div>
+</section>
+<div id="editor">
+
+<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="Drop an NBT file here or click to browse">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 16V4m0 0L8 8m4-4l4 4"/><path d="M20 16v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2"/></svg>
+<p>Drop <strong>level.dat</strong> here</p>
+<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">Choose File</button>
+<span class="hint">level.dat &middot; .nbt &middot; .mcstructure &middot; .schem &middot; .schematic &middot; .dat &middot; chunk dumps</span>
+<input type="file" id="fileInput">
+</div>
+
+<div id="editorArea">
+<div class="file-info" id="fileInfo"></div>
+
+<div class="out-bar" id="outBar">
+<label>Output format
+<select id="outFormat">
+<option value="java">Java — big-endian, named root</option>
+<option value="java-network">Java network — big-endian, nameless root</option>
+<option value="bedrock-level">Bedrock level.dat — little-endian + 8-byte header</option>
+<option value="bedrock">Bedrock raw — little-endian</option>
+<option value="bedrock-network">Bedrock network — little-endian varint</option>
+</select>
+</label>
+<label>Compression
+<select id="outCompression">
+<option value="none">None (raw)</option>
+<option value="gzip">gzip</option>
+<option value="zlib">zlib (deflate)</option>
+</select>
+</label>
+</div>
+
+<div class="search-bar">
+<input type="search" id="searchInput" placeholder="Search tag name or value…" autocomplete="off" spellcheck="false" aria-label="Search NBT tags">
+<button type="button" id="btnSearch">Search</button>
+<button type="button" id="btnCollapse">Collapse all</button>
+</div>
+<div class="search-results" id="searchResults"></div>
+
+<div class="tree" id="treeRoot"></div>
+</div>
+
+<div class="bottom-bar" id="bottomBar">
+<button class="btn-add" id="btnAddRoot" type="button">+ Add Tag</button>
+<button class="btn-save" id="btnSave" type="button">Save &amp; Download</button>
+<button class="btn-snbt" id="btnSnbt" type="button">Export SNBT</button>
+<button class="btn-close" id="btnCloseFile" type="button">Close</button>
+</div>
+
+</div>
+<div id="contentSections">
+
+<section class="content" aria-label="Why the folder name is not the world name">
+<h2 id="why-renaming-the-folder-does-nothing">Why renaming the folder does nothing</h2>
+<p>Minecraft treats the folder as an address and <code>LevelName</code> as the label. The world list, the server console, world-manager plugins and anything printing "world" to chat read the tag. So a folder copy — <code>cp -r worlds/hub worlds/hub2</code> — produces two worlds that insist they are both <em>hub</em>, and the only fix is inside the file.</p>
+<p>On a server the duplicate is worse than confusing. Plugins that resolve worlds by internal name can act on the wrong one: teleport pads, per-world configs, protection regions, economy multipliers. Rename the tag the moment you copy a world, before anything caches it.</p>
+</section>
+
+<section class="content" aria-label="Per platform">
+<h2 id="per-platform">Per platform</h2>
+<div class="card">
+<h3>Java single player</h3>
+<p>The client offers a rename in the world options screen and it edits <code>LevelName</code> for you. Editing the file by hand matters when the world will not load, when you are working on a copy, or when you want the folder and the label to differ deliberately.</p>
+<h3>Java server</h3>
+<p><code>level-name</code> in <code>server.properties</code> selects the <em>folder</em> to load. It does not rename anything. Change <code>LevelName</code> in <code>world/level.dat</code> for the label.</p>
+<h3>Bedrock and MCPE</h3>
+<p>The in-game world edit screen renames the world. When the world lives on a server, or you are patching an exported <code>.mcworld</code>, edit <code>LevelName</code> in <code>level.dat</code> directly — Bedrock stores it flat at the root, uncompressed, behind the 8-byte header the editor handles for you.</p>
+<h3>Bedrock servers (PocketMine-MP, Nukkit, BDS)</h3>
+<p>Same file, same tag, and the same warning about stopping the server first. The <a href="../../pocketmine-nbt-editor/">server page</a> has the full workflow including the folder-copy case.</p>
+</div>
+</section>
+
+<section class="content" aria-label="Troubleshooting">
+<h2 id="if-the-name-does-not-change">If the name does not change</h2>
+<ul>
+<li><strong>The server was running.</strong> Its in-memory copy was written back over your file on the next save. Stop it and redo the edit.</li>
+<li><strong>You edited the wrong world.</strong> Bedrock world folders are random ids. Open the file and read <code>LevelName</code> to confirm you have the right one before editing.</li>
+<li><strong>You edited <code>level.dat_old</code>.</strong> That is the previous save, not the live file.</li>
+<li><strong>A launcher or panel caches the name.</strong> Some hosting panels show a name from their own database rather than the world file; the game itself will be correct.</li>
+<li><strong>The world will not load at all now.</strong> Restore the backup and see <a href="../fix-corrupted-level-dat/">fixing a broken level.dat</a>.</li>
+</ul>
+</section>
+
+<section class="content" aria-label="Frequently asked questions"><h2>Frequently Asked Questions</h2><details><summary>Does renaming a world delete anything?</summary><div class="faq-body"><p>No. <code>LevelName</code> is a label. Terrain, players, inventories and entities live in other files and are untouched.</p></div></details><details><summary>Can I use spaces, colours or emoji in a world name?</summary><div class="faq-body"><p>Spaces are fine. Section-sign colour codes work on some server software and show as literal characters elsewhere. Emoji survive the round trip here because the editor uses the right string encoding per edition, but consoles and log files may render them badly.</p></div></details><details><summary>Do I have to rename the folder too?</summary><div class="faq-body"><p>No, and often you should not — a server's <code>level-name</code> setting or a plugin config may point at the folder path. Change one thing at a time.</p></div></details><details><summary>Will players see the new name immediately?</summary><div class="faq-body"><p>After the world reloads, yes. Clients that cached a server list entry may need a refresh.</p></div></details></section>
+<section class="content" aria-label="Related tools"><h2>Related tools</h2><div class="rel-grid"><a class="rel-card" href="../../level-dat-editor/"><strong>level.dat editor</strong><span>World name, game mode, spawn, difficulty and game rules.</span></a><a class="rel-card" href="../../pocketmine-nbt-editor/"><strong>PocketMine-MP editor</strong><span>Server-side level.dat for PMMP, Nukkit and BDS.</span></a><a class="rel-card" href="../../mcpe-nbt-editor/"><strong>MCPE NBT editor</strong><span>Little-endian NBT and the 8-byte level.dat header.</span></a><a class="rel-card" href="../fix-corrupted-level-dat/"><strong>Fix a broken level.dat</strong><span>Diagnose why a world refuses to load, and repair it.</span></a><a class="rel-card" href="../../"><strong>Minecraft NBT editor</strong><span>The universal editor — every edition, every NBT file type.</span></a><a class="rel-card" href="../edit-gamerules/"><strong>Edit game rules</strong><span>keepInventory and friends, without loading the world.</span></a></div></section>
+</div>
+</main>
+
+<footer class="site-footer">
+<div class="container footer-grid">
+<div><h4>Editors</h4><a href="../../">Minecraft NBT editor</a><a href="../../level-dat-editor/">level.dat editor</a><a href="../../java-nbt-editor/">Java Edition NBT editor</a><a href="../../mcpe-nbt-editor/">MCPE NBT editor</a><a href="../../pocketmine-nbt-editor/">PocketMine-MP editor</a></div>
+<div><h4>File types</h4><a href="../../mcstructure-editor/">.mcstructure editor</a><a href="../../schematic-editor/">Schematic editor</a><a href="../../playerdata-editor/">playerdata editor</a><a href="../../nbt-viewer/">NBT viewer</a><a href="../../nbtexplorer-online/">NBTExplorer online</a></div>
+<div><h4>Reference</h4><a href="../../nbt-format/">NBT format reference</a><a href="./">Rename a world</a><a href="../fix-corrupted-level-dat/">Fix a broken level.dat</a><a href="../edit-gamerules/">Edit game rules</a></div>
+<div><h4>Source</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">Code on GitHub</a><a href="../../../llms.txt">llms.txt</a></div>
+</div>
+<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+</footer>
+
+<div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+<div class="modal-overlay" id="addTagModal">
+<div class="modal">
+<h3>Add New Tag</h3>
+<label for="newTagName">Tag Name</label>
+<input type="text" id="newTagName" placeholder="e.g. MyTag" autocomplete="off">
+<label for="newTagType">Tag Type</label>
+<select id="newTagType">
+<option value="1">TAG_Byte</option>
+<option value="2">TAG_Short</option>
+<option value="3">TAG_Int</option>
+<option value="4">TAG_Long</option>
+<option value="5">TAG_Float</option>
+<option value="6">TAG_Double</option>
+<option value="7">TAG_Byte_Array</option>
+<option value="8" selected>TAG_String</option>
+<option value="9">TAG_List</option>
+<option value="10">TAG_Compound</option>
+<option value="11">TAG_Int_Array</option>
+<option value="12">TAG_Long_Array</option>
+</select>
+<label for="newTagValue">Value</label>
+<input type="text" id="newTagValue" placeholder="Value" autocomplete="off">
+<div id="listSubtypeRow" style="display:none">
+<label for="newListSubtype">List Element Type</label>
+<select id="newListSubtype">
+<option value="1">TAG_Byte</option>
+<option value="2">TAG_Short</option>
+<option value="3">TAG_Int</option>
+<option value="4">TAG_Long</option>
+<option value="5">TAG_Float</option>
+<option value="6">TAG_Double</option>
+<option value="7">TAG_Byte_Array</option>
+<option value="8">TAG_String</option>
+<option value="9">TAG_List</option>
+<option value="10">TAG_Compound</option>
+<option value="11">TAG_Int_Array</option>
+<option value="12">TAG_Long_Array</option>
+</select>
+</div>
+<div class="modal-btns">
+<button class="btn-cancel" type="button" id="addTagCancel">Cancel</button>
+<button class="btn-confirm" type="button" id="addTagConfirm">Add</button>
+</div>
+</div>
+</div>
+
+<div class="modal-overlay" id="arrayModal">
+<div class="modal">
+<h3 id="arrayModalTitle">Edit Array</h3>
+<label for="arrayModalText">Comma-separated values</label>
+<textarea id="arrayModalText" spellcheck="false" autocomplete="off"></textarea>
+<div class="modal-btns">
+<button class="btn-cancel" type="button" id="arrayModalCancel">Cancel</button>
+<button class="btn-confirm" type="button" id="arrayModalConfirm">Apply</button>
+</div>
+</div>
+</div>
+
+<script src="../../../assets/nbt.js?v=da7967b1" defer></script>
+</body>
+</html>

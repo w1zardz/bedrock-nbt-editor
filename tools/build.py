@@ -27,8 +27,24 @@ TODAY = datetime.date.today().isoformat()
 # "draft" locales are built (so the switcher works) but marked noindex until the
 # translation lands in tools/locales/<code>.json.
 LOCALES = [
-    {"code": "en", "dir": "", "name": "English", "status": "ready"},
-    {"code": "ru", "dir": "ru", "name": "Русский", "status": "draft"},
+    # code / directory / native name / hreflang / og:locale / rtl / status
+    {"code": "en",      "dir": "",       "name": "English",           "hreflang": "en",      "og": "en_US", "status": "ready"},
+    {"code": "ru",      "dir": "ru",     "name": "Русский",           "hreflang": "ru",      "og": "ru_RU", "status": "draft"},
+    {"code": "es",      "dir": "es",     "name": "Español",           "hreflang": "es",      "og": "es_ES", "status": "draft"},
+    {"code": "pt-br",   "dir": "pt-br",  "name": "Português (BR)",    "hreflang": "pt-BR",   "og": "pt_BR", "status": "draft"},
+    {"code": "de",      "dir": "de",     "name": "Deutsch",           "hreflang": "de",      "og": "de_DE", "status": "draft"},
+    {"code": "fr",      "dir": "fr",     "name": "Français",          "hreflang": "fr",      "og": "fr_FR", "status": "draft"},
+    {"code": "it",      "dir": "it",     "name": "Italiano",          "hreflang": "it",      "og": "it_IT", "status": "draft"},
+    {"code": "pl",      "dir": "pl",     "name": "Polski",            "hreflang": "pl",      "og": "pl_PL", "status": "draft"},
+    {"code": "uk",      "dir": "uk",     "name": "Українська",        "hreflang": "uk",      "og": "uk_UA", "status": "draft"},
+    {"code": "tr",      "dir": "tr",     "name": "Türkçe",            "hreflang": "tr",      "og": "tr_TR", "status": "draft"},
+    {"code": "id",      "dir": "id",     "name": "Bahasa Indonesia",  "hreflang": "id",      "og": "id_ID", "status": "draft"},
+    {"code": "vi",      "dir": "vi",     "name": "Tiếng Việt",        "hreflang": "vi",      "og": "vi_VN", "status": "draft"},
+    {"code": "th",      "dir": "th",     "name": "ไทย",                "hreflang": "th",      "og": "th_TH", "status": "draft"},
+    {"code": "zh-hans", "dir": "zh-hans","name": "简体中文",            "hreflang": "zh-Hans", "og": "zh_CN", "status": "draft"},
+    {"code": "ja",      "dir": "ja",     "name": "日本語",              "hreflang": "ja",      "og": "ja_JP", "status": "draft"},
+    {"code": "ko",      "dir": "ko",     "name": "한국어",              "hreflang": "ko",      "og": "ko_KR", "status": "draft"},
+    {"code": "ar",      "dir": "ar",     "name": "العربية",            "hreflang": "ar",      "og": "ar_AR", "status": "draft", "rtl": True},
 ]
 LOCALE_BY_CODE = {loc["code"]: loc for loc in LOCALES}
 TRANSLATABLE = ("title", "ogtitle", "desc", "keywords", "h1", "crumb", "reltitle",
@@ -158,7 +174,7 @@ def lang_switch_html(slug, code):
             continue
         label = loc["name"] + ("" if loc["status"] == "ready" else " (beta)")
         items.append('<a href="%s" hreflang="%s" data-lang="%s" rel="alternate">%s</a>'
-                     % (href_between(slug, code, slug, loc["code"]), loc["code"],
+                     % (href_between(slug, code, slug, loc["code"]), loc["hreflang"],
                         loc["code"], esc(label)))
     if not items:
         return ""
@@ -179,7 +195,7 @@ def hreflang_html(slug, code):
         if loc["status"] != "ready":
             continue
         out.append('<link rel="alternate" hreflang="%s" href="%s">'
-                   % (loc["code"], url(slug, loc["code"])))
+                   % (loc["hreflang"], url(slug, loc["code"])))
     out.append('<link rel="alternate" hreflang="x-default" href="%s">' % url(slug, "en"))
     return "\n".join(out)
 
@@ -392,7 +408,7 @@ def howto_schema(page, code="en"):
 # ---------------------------------------------------------------- page shell
 
 HEAD = """<!DOCTYPE html>
-<html lang="{lang}">
+<html lang="{lang}"{dirattr}>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -585,12 +601,12 @@ def render(page_en, code):
         ogtitle=esc(plain(page.get("ogtitle", page["h1"]))), site=SITE_NAME,
         ogimage=BASE + page["og"], schema=schema_html, nav=nav_html(slug, code),
         author=AUTHOR, today=TODAY, jsv=asset_version("nbt.js"), cssv=asset_version("app.css"),
-        langv=asset_version("lang.js"), lang=code,
+        langv=asset_version("lang.js"), lang=loc["hreflang"],
         robots=("index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
                 if ready else "noindex, follow"),
         hreflang=hreflang_html(slug, code) if ready else
                  '<link rel="alternate" hreflang="x-default" href="%s">' % url(slug, "en"),
-        oglocale={"en": "en_US", "ru": "ru_RU"}.get(code, code),
+        oglocale=loc["og"], dirattr=' dir="rtl"' if loc.get("rtl") else "",
         home=href_between(slug, code, "", code), badge=esc(page.get("badge", "Java + Bedrock")),
         langswitch=lang_switch_html(slug, code), langurls=lang_urls_json(slug, code),
         uistrings=json.dumps(ui, separators=(",", ":"), ensure_ascii=False))
@@ -1693,7 +1709,7 @@ def sitemap():
         for loc in ready:
             alts = "".join(
                 '\n    <xhtml:link rel="alternate" hreflang="%s" href="%s"/>'
-                % (alt["code"], url(p["slug"], alt["code"])) for alt in ready)
+                % (alt["hreflang"], url(p["slug"], alt["code"])) for alt in ready)
             alts += ('\n    <xhtml:link rel="alternate" hreflang="x-default" href="%s"/>'
                      % url(p["slug"], "en"))
             rows.append(

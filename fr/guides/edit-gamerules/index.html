@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Edit Minecraft Game Rules in level.dat — Java &amp;amp; Bedrock</title>
+<meta name="description" content="Change keepInventory, doDaylightCycle, mobGriefing and other game rules by editing level.dat, for Java and Bedrock. No commands, no cheats needed.">
+<meta name="keywords" content="edit gamerules level.dat, keepinventory nbt, minecraft gamerules file, change gamerule without commands, bedrock gamerules level.dat, dodaylightcycle nbt, gamerules server">
+<meta name="robots" content="noindex, follow">
+<meta name="author" content="w1zardz">
+<link rel="canonical" href="https://w1zardz.github.io/bedrock-nbt-editor/fr/guides/edit-gamerules/">
+<link rel="alternate" hreflang="x-default" href="https://w1zardz.github.io/bedrock-nbt-editor/guides/edit-gamerules/">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="../../../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
+<link rel="manifest" href="../../../site.webmanifest">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Edit game rules in level.dat">
+<meta property="og:description" content="Change keepInventory, doDaylightCycle, mobGriefing and other game rules by editing level.dat, for Java and Bedrock. No commands, no cheats needed.">
+<meta property="og:url" content="https://w1zardz.github.io/bedrock-nbt-editor/fr/guides/edit-gamerules/">
+<meta property="og:site_name" content="Minecraft NBT Editor">
+<meta property="og:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/gamerules.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Edit game rules in level.dat">
+<meta name="twitter:description" content="Change keepInventory, doDaylightCycle, mobGriefing and other game rules by editing level.dat, for Java and Bedrock. No commands, no cheats needed.">
+<meta name="twitter:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/gamerules.png">
+<meta property="article:modified_time" content="2026-08-26">
+<meta property="og:updated_time" content="2026-08-26">
+<meta name="theme-color" content="#0d1117">
+<meta name="application-name" content="Minecraft NBT Editor">
+<meta name="apple-mobile-web-app-title" content="NBT Editor">
+<link rel="preload" href="../../../assets/nbt.js?v=da7967b1" as="script">
+<script>window.__LANG_URLS__={"en":"../../../guides/edit-gamerules/","ru":"../../../ru/guides/edit-gamerules/","es":"../../../es/guides/edit-gamerules/","pt-br":"../../../pt-br/guides/edit-gamerules/","de":"../../../de/guides/edit-gamerules/","fr":"./","it":"../../../it/guides/edit-gamerules/","pl":"../../../pl/guides/edit-gamerules/","uk":"../../../uk/guides/edit-gamerules/","tr":"../../../tr/guides/edit-gamerules/","id":"../../../id/guides/edit-gamerules/","vi":"../../../vi/guides/edit-gamerules/","th":"../../../th/guides/edit-gamerules/","zh-hans":"../../../zh-hans/guides/edit-gamerules/","ja":"../../../ja/guides/edit-gamerules/","ko":"../../../ko/guides/edit-gamerules/","ar":"../../../ar/guides/edit-gamerules/"};window.__NBT_STRINGS__={"loaded":"Loaded as {0}","trailing":"{0} trailing byte(s) after the root tag were ignored","error":"Error: {0}","readfail":"Could not read the file","nofile":"No file loaded","saved":"Saved {0} ({1}, {2})","savefail":"Save error: {0}","exported":"Exported {0}","snbtfail":"SNBT error: {0}","tagadded":"Tag added","tagremoved":"Tag removed","arrayupdated":"Array updated","badvalue":"Invalid value: {0}","badarray":"Invalid array: {0}","nameneeded":"Tag name is required","nametaken":"A tag named {0} already exists here","listtype":"List already holds {0} entries","editlevelname":"✎ Edit LevelName","showmore":"Show {0} more of {1} …","matches":"{0} match(es)","nomatch":"No tag matches \"{0}\"","arraytoobig":"Array has {0} entries — expand it and edit elements individually","uncompressed":"uncompressed","storage":"storage v{0}","entries":"{0} entries","langprompt":"Open this page in {0}?","langyes":"Switch","langno":"Stay"};</script>
+<script src="../../../assets/lang.js?v=a3a1db0e" defer></script>
+<link rel="stylesheet" href="../../../assets/app.css?v=2a10a6ce">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Edit Minecraft Game Rules in level.dat \u2014 Java & Bedrock","headline":"Editing Game Rules in level.dat","description":"Change keepInventory, doDaylightCycle, mobGriefing and other game rules by editing level.dat, for Java and Bedrock. No commands, no cheats needed.","url":"https://w1zardz.github.io/bedrock-nbt-editor/fr/guides/edit-gamerules/","inLanguage":"fr","datePublished":"2026-05-29","dateModified":"2026-08-26","isPartOf":{"@type":"WebSite","name":"Minecraft NBT Editor","url":"https://w1zardz.github.io/bedrock-nbt-editor/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/gamerules.png"},"about":{"@type":"Thing","name":"Minecraft NBT data format"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT Editor","item":"https://w1zardz.github.io/bedrock-nbt-editor/fr/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://w1zardz.github.io/bedrock-nbt-editor/fr/guides/"},{"@type":"ListItem","position":3,"name":"Editing Game Rules in level.dat","item":"https://w1zardz.github.io/bedrock-nbt-editor/fr/guides/edit-gamerules/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why is my game rule stored as a string in Java?","acceptedAnswer":{"@type":"Answer","text":"Java's game rule storage is string-based for every rule, including booleans and numbers. Write \"true\", not a byte of 1."}},{"@type":"Question","name":"Why is it a byte in Bedrock?","acceptedAnswer":{"@type":"Answer","text":"Bedrock stores toggles as byte tags at the root and numeric rules as ints. There is no GameRules compound."}},{"@type":"Question","name":"A rule is missing from the file entirely.","acceptedAnswer":{"@type":"Answer","text":"That means it is at its default. Add the tag with the exact name and correct type and the world will use your value."}},{"@type":"Question","name":"Do game rules copy with a world folder?","acceptedAnswer":{"@type":"Answer","text":"Yes \u2014 they live in level.dat, so a copied world inherits them along with its stale world name."}}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#editor">Skip to the editor</a>
+<header class="site-header">
+<div class="container">
+<a class="brand" href="../../"><span>Minecraft</span> NBT Editor</a>
+<span class="badge">Java + Bedrock</span>
+<nav class="site-nav" aria-label="Tools">
+<a href="../../">Editor</a>
+<a href="../../level-dat-editor/">level.dat</a>
+<a href="../../java-nbt-editor/">Java</a>
+<a href="../../mcpe-nbt-editor/">Bedrock</a>
+<a href="../../mcstructure-editor/">.mcstructure</a>
+<a href="../../schematic-editor/">.schem</a>
+<a href="../../playerdata-editor/">playerdata</a>
+<a href="../../nbt-format/">NBT format</a>
+</nav>
+<details class="lang-switch"><summary aria-label="Language"><span aria-hidden="true">🌐</span> Français</summary><div class="lang-menu"><a href="../../../guides/edit-gamerules/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../../ru/guides/edit-gamerules/" hreflang="ru" data-lang="ru" rel="alternate">Русский (beta)</a><a href="../../../es/guides/edit-gamerules/" hreflang="es" data-lang="es" rel="alternate">Español (beta)</a><a href="../../../pt-br/guides/edit-gamerules/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR) (beta)</a><a href="../../../de/guides/edit-gamerules/" hreflang="de" data-lang="de" rel="alternate">Deutsch (beta)</a><a href="../../../it/guides/edit-gamerules/" hreflang="it" data-lang="it" rel="alternate">Italiano (beta)</a><a href="../../../pl/guides/edit-gamerules/" hreflang="pl" data-lang="pl" rel="alternate">Polski (beta)</a><a href="../../../uk/guides/edit-gamerules/" hreflang="uk" data-lang="uk" rel="alternate">Українська (beta)</a><a href="../../../tr/guides/edit-gamerules/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe (beta)</a><a href="../../../id/guides/edit-gamerules/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia (beta)</a><a href="../../../vi/guides/edit-gamerules/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt (beta)</a><a href="../../../th/guides/edit-gamerules/" hreflang="th" data-lang="th" rel="alternate">ไทย (beta)</a><a href="../../../zh-hans/guides/edit-gamerules/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文 (beta)</a><a href="../../../ja/guides/edit-gamerules/" hreflang="ja" data-lang="ja" rel="alternate">日本語 (beta)</a><a href="../../../ko/guides/edit-gamerules/" hreflang="ko" data-lang="ko" rel="alternate">한국어 (beta)</a><a href="../../../ar/guides/edit-gamerules/" hreflang="ar" data-lang="ar" rel="alternate">العربية (beta)</a></div></details>
+</div>
+</header>
+<main>
+<nav class="breadcrumbs container" aria-label="Breadcrumb"><a href="../../">NBT Editor</a> <span class="sep">/</span> <span>Guides</span> <span class="sep">/</span> <span>Edit game rules</span></nav>
+<section class="hero" aria-label="Introduction">
+<div class="container">
+<h1>Editing Game Rules in <code>level.dat</code></h1>
+<p class="support-line"><strong>Supports Minecraft Bedrock Edition and Java Edition</strong> — and every server core for both, popular or obscure: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina and the rest. <a href="../../#server-software">Full list</a>.</p>
+<p class="lede">Game rules are stored in <code>level.dat</code>, so you can change them without loading the world or having cheats enabled — useful when a world will not start, when cheats are off, or when you are preparing a copied world before players join. Java keeps them in a <code>GameRules</code> compound as strings; Bedrock keeps each one as its own lowercase byte tag at the root.</p>
+<div class="chips"><span class="chip">keepInventory</span><span class="chip">doDaylightCycle</span><span class="chip">mobGriefing</span><span class="chip">commandBlockOutput</span><span class="chip">randomTickSpeed</span></div>
+</div>
+</section>
+<div id="editor">
+
+<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="Drop an NBT file here or click to browse">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 16V4m0 0L8 8m4-4l4 4"/><path d="M20 16v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2"/></svg>
+<p>Drop <strong>level.dat</strong> here</p>
+<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">Choose File</button>
+<span class="hint">level.dat &middot; .nbt &middot; .mcstructure &middot; .schem &middot; .schematic &middot; .dat &middot; chunk dumps</span>
+<input type="file" id="fileInput">
+</div>
+
+<div id="editorArea">
+<div class="file-info" id="fileInfo"></div>
+
+<div class="out-bar" id="outBar">
+<label>Output format
+<select id="outFormat">
+<option value="java">Java — big-endian, named root</option>
+<option value="java-network">Java network — big-endian, nameless root</option>
+<option value="bedrock-level">Bedrock level.dat — little-endian + 8-byte header</option>
+<option value="bedrock">Bedrock raw — little-endian</option>
+<option value="bedrock-network">Bedrock network — little-endian varint</option>
+</select>
+</label>
+<label>Compression
+<select id="outCompression">
+<option value="none">None (raw)</option>
+<option value="gzip">gzip</option>
+<option value="zlib">zlib (deflate)</option>
+</select>
+</label>
+</div>
+
+<div class="search-bar">
+<input type="search" id="searchInput" placeholder="Search tag name or value…" autocomplete="off" spellcheck="false" aria-label="Search NBT tags">
+<button type="button" id="btnSearch">Search</button>
+<button type="button" id="btnCollapse">Collapse all</button>
+</div>
+<div class="search-results" id="searchResults"></div>
+
+<div class="tree" id="treeRoot"></div>
+</div>
+
+<div class="bottom-bar" id="bottomBar">
+<button class="btn-add" id="btnAddRoot" type="button">+ Add Tag</button>
+<button class="btn-save" id="btnSave" type="button">Save &amp; Download</button>
+<button class="btn-snbt" id="btnSnbt" type="button">Export SNBT</button>
+<button class="btn-close" id="btnCloseFile" type="button">Close</button>
+</div>
+
+</div>
+<div id="contentSections">
+
+<section class="content" aria-label="Java gamerules">
+<h2 id="java-a-gamerules-compound-of-strings">Java: a <code>GameRules</code> compound of strings</h2>
+<p>In Java Edition, <code>Data</code> → <code>GameRules</code> holds one <code>TAG_String</code> per rule, keyed by the exact name <code>/gamerule</code> uses, with the value written as text: <code>"true"</code>, <code>"false"</code> or a number. Rules the world has never set are simply absent and fall back to their defaults — adding the tag with the correct name and a string value works exactly like running the command.</p>
+<div class="table-wrap">
+<table class="matrix">
+<thead><tr><th>Rule</th><th>Value</th><th>Effect</th></tr></thead>
+<tbody>
+<tr><td><code>keepInventory</code></td><td><code>"true"</code></td><td>Keep items on death</td></tr>
+<tr><td><code>doDaylightCycle</code></td><td><code>"false"</code></td><td>Freeze the time of day</td></tr>
+<tr><td><code>doWeatherCycle</code></td><td><code>"false"</code></td><td>Freeze the weather</td></tr>
+<tr><td><code>mobGriefing</code></td><td><code>"false"</code></td><td>Stop creepers and endermen changing blocks</td></tr>
+<tr><td><code>doMobSpawning</code></td><td><code>"false"</code></td><td>Stop natural mob spawning</td></tr>
+<tr><td><code>doFireTick</code></td><td><code>"false"</code></td><td>Fire stops spreading</td></tr>
+<tr><td><code>commandBlockOutput</code></td><td><code>"false"</code></td><td>Silence command block chat spam</td></tr>
+<tr><td><code>randomTickSpeed</code></td><td><code>"3"</code></td><td>Crop growth and fire spread rate</td></tr>
+<tr><td><code>playersSleepingPercentage</code></td><td><code>"50"</code></td><td>Share of players needed to skip the night</td></tr>
+<tr><td><code>spawnRadius</code></td><td><code>"10"</code></td><td>Spread of the spawn area</td></tr>
+</tbody>
+</table>
+</div>
+<p>Case matters. <code>keepinventory</code> in a Java file is not the same tag as <code>keepInventory</code> and will be ignored.</p>
+</section>
+
+<section class="content" aria-label="Bedrock gamerules">
+<h2 id="bedrock-individual-lowercase-byte-tags">Bedrock: individual lowercase byte tags</h2>
+<p>Bedrock does not group rules. Each one is a <code>TAG_Byte</code> at the root of <code>level.dat</code>, named in lowercase, holding 1 or 0 — <code>keepinventory</code>, <code>domobspawning</code>, <code>domobloot</code>, <code>dodaylightcycle</code>, <code>doweathercycle</code>, <code>mobgriefing</code>, <code>firedamage</code>, <code>falldamage</code>, <code>drowningdamage</code>, <code>pvp</code>, <code>showcoordinates</code>, <code>commandblockoutput</code>, <code>sendcommandfeedback</code>, <code>naturalregeneration</code>, <code>tntexplodes</code>, <code>respawnblocksexplode</code>, <code>showdeathmessages</code>, <code>doimmediaterespawn</code>. Numeric rules such as <code>randomtickspeed</code> and <code>functioncommandlimit</code> are <code>TAG_Int</code> instead.</p>
+<p>Setting a rule that is not yet present means adding the tag with the right type: Byte for a toggle, Int for a number. A rule stored with the wrong type is ignored, or refuses to load.</p>
+</section>
+
+<section class="content" aria-label="Why edit the file">
+<h2 id="when-editing-the-file-beats-the-command">When editing the file beats the command</h2>
+<ul>
+<li><strong>Cheats are off</strong> and you do not want to toggle them on and off to run one command.</li>
+<li><strong>The world will not load</strong> — a rule such as <code>doImmediateRespawn</code> can be set before the first join.</li>
+<li><strong>You are preparing a template world</strong> to be copied for many servers, and want the rules baked into the copy.</li>
+<li><strong>A plugin changed a rule</strong> and you want to see what is actually stored rather than what a command reports.</li>
+<li><strong>Bulk edits.</strong> Setting a dozen rules across several worlds is faster in the file than in chat.</li>
+</ul>
+<p>Stop the server first, as with any <code>level.dat</code> edit — a running world rewrites the file on save and will discard the change.</p>
+</section>
+
+<section class="content" aria-label="Frequently asked questions"><h2>Frequently Asked Questions</h2><details><summary>Why is my game rule stored as a string in Java?</summary><div class="faq-body"><p>Java's game rule storage is string-based for every rule, including booleans and numbers. Write <code>"true"</code>, not a byte of 1.</p></div></details><details><summary>Why is it a byte in Bedrock?</summary><div class="faq-body"><p>Bedrock stores toggles as byte tags at the root and numeric rules as ints. There is no <code>GameRules</code> compound.</p></div></details><details><summary>A rule is missing from the file entirely.</summary><div class="faq-body"><p>That means it is at its default. Add the tag with the exact name and correct type and the world will use your value.</p></div></details><details><summary>Do game rules copy with a world folder?</summary><div class="faq-body"><p>Yes — they live in <code>level.dat</code>, so a copied world inherits them along with its stale <a href="../change-world-name/">world name</a>.</p></div></details></section>
+<section class="content" aria-label="Related tools"><h2>Related tools</h2><div class="rel-grid"><a class="rel-card" href="../../level-dat-editor/"><strong>level.dat editor</strong><span>World name, game mode, spawn, difficulty and game rules.</span></a><a class="rel-card" href="../change-world-name/"><strong>Rename a world</strong><span>Fix LevelName after copying a world folder.</span></a><a class="rel-card" href="../../mcpe-nbt-editor/"><strong>MCPE NBT editor</strong><span>Little-endian NBT and the 8-byte level.dat header.</span></a><a class="rel-card" href="../../java-nbt-editor/"><strong>Java Edition NBT editor</strong><span>Big-endian, gzip — Vanilla, Paper, Spigot, Fabric, Forge.</span></a><a class="rel-card" href="../../"><strong>Minecraft NBT editor</strong><span>The universal editor — every edition, every NBT file type.</span></a><a class="rel-card" href="../../pocketmine-nbt-editor/"><strong>PocketMine-MP editor</strong><span>Server-side level.dat for PMMP, Nukkit and BDS.</span></a></div></section>
+</div>
+</main>
+
+<footer class="site-footer">
+<div class="container footer-grid">
+<div><h4>Editors</h4><a href="../../">Minecraft NBT editor</a><a href="../../level-dat-editor/">level.dat editor</a><a href="../../java-nbt-editor/">Java Edition NBT editor</a><a href="../../mcpe-nbt-editor/">MCPE NBT editor</a><a href="../../pocketmine-nbt-editor/">PocketMine-MP editor</a></div>
+<div><h4>File types</h4><a href="../../mcstructure-editor/">.mcstructure editor</a><a href="../../schematic-editor/">Schematic editor</a><a href="../../playerdata-editor/">playerdata editor</a><a href="../../nbt-viewer/">NBT viewer</a><a href="../../nbtexplorer-online/">NBTExplorer online</a></div>
+<div><h4>Reference</h4><a href="../../nbt-format/">NBT format reference</a><a href="../change-world-name/">Rename a world</a><a href="../fix-corrupted-level-dat/">Fix a broken level.dat</a><a href="./">Edit game rules</a></div>
+<div><h4>Source</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">Code on GitHub</a><a href="../../../llms.txt">llms.txt</a></div>
+</div>
+<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+</footer>
+
+<div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+<div class="modal-overlay" id="addTagModal">
+<div class="modal">
+<h3>Add New Tag</h3>
+<label for="newTagName">Tag Name</label>
+<input type="text" id="newTagName" placeholder="e.g. MyTag" autocomplete="off">
+<label for="newTagType">Tag Type</label>
+<select id="newTagType">
+<option value="1">TAG_Byte</option>
+<option value="2">TAG_Short</option>
+<option value="3">TAG_Int</option>
+<option value="4">TAG_Long</option>
+<option value="5">TAG_Float</option>
+<option value="6">TAG_Double</option>
+<option value="7">TAG_Byte_Array</option>
+<option value="8" selected>TAG_String</option>
+<option value="9">TAG_List</option>
+<option value="10">TAG_Compound</option>
+<option value="11">TAG_Int_Array</option>
+<option value="12">TAG_Long_Array</option>
+</select>
+<label for="newTagValue">Value</label>
+<input type="text" id="newTagValue" placeholder="Value" autocomplete="off">
+<div id="listSubtypeRow" style="display:none">
+<label for="newListSubtype">List Element Type</label>
+<select id="newListSubtype">
+<option value="1">TAG_Byte</option>
+<option value="2">TAG_Short</option>
+<option value="3">TAG_Int</option>
+<option value="4">TAG_Long</option>
+<option value="5">TAG_Float</option>
+<option value="6">TAG_Double</option>
+<option value="7">TAG_Byte_Array</option>
+<option value="8">TAG_String</option>
+<option value="9">TAG_List</option>
+<option value="10">TAG_Compound</option>
+<option value="11">TAG_Int_Array</option>
+<option value="12">TAG_Long_Array</option>
+</select>
+</div>
+<div class="modal-btns">
+<button class="btn-cancel" type="button" id="addTagCancel">Cancel</button>
+<button class="btn-confirm" type="button" id="addTagConfirm">Add</button>
+</div>
+</div>
+</div>
+
+<div class="modal-overlay" id="arrayModal">
+<div class="modal">
+<h3 id="arrayModalTitle">Edit Array</h3>
+<label for="arrayModalText">Comma-separated values</label>
+<textarea id="arrayModalText" spellcheck="false" autocomplete="off"></textarea>
+<div class="modal-btns">
+<button class="btn-cancel" type="button" id="arrayModalCancel">Cancel</button>
+<button class="btn-confirm" type="button" id="arrayModalConfirm">Apply</button>
+</div>
+</div>
+</div>
+
+<script src="../../../assets/nbt.js?v=da7967b1" defer></script>
+</body>
+</html>

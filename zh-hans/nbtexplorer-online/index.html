@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>NBTExplorer Online — Browser Alternative, No Download</title>
+<meta name="description" content="A browser alternative to NBTExplorer: the same tag tree editing for Minecraft files, plus Bedrock little-endian support, with nothing to install.">
+<meta name="keywords" content="nbtexplorer online, nbtexplorer alternative, nbt editor no download, nbtexplorer mac, nbtexplorer bedrock, online nbt explorer, nbtexplorer web, nbt editor without java">
+<meta name="robots" content="noindex, follow">
+<meta name="author" content="w1zardz">
+<link rel="canonical" href="https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/nbtexplorer-online/">
+<link rel="alternate" hreflang="x-default" href="https://w1zardz.github.io/bedrock-nbt-editor/nbtexplorer-online/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="../../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="manifest" href="../../site.webmanifest">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NBTExplorer online — the browser alternative">
+<meta property="og:description" content="A browser alternative to NBTExplorer: the same tag tree editing for Minecraft files, plus Bedrock little-endian support, with nothing to install.">
+<meta property="og:url" content="https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/nbtexplorer-online/">
+<meta property="og:site_name" content="Minecraft NBT Editor">
+<meta property="og:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/nbtexplorer.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NBTExplorer online — the browser alternative">
+<meta name="twitter:description" content="A browser alternative to NBTExplorer: the same tag tree editing for Minecraft files, plus Bedrock little-endian support, with nothing to install.">
+<meta name="twitter:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/nbtexplorer.png">
+<meta property="article:modified_time" content="2026-08-26">
+<meta property="og:updated_time" content="2026-08-26">
+<meta name="theme-color" content="#0d1117">
+<meta name="application-name" content="Minecraft NBT Editor">
+<meta name="apple-mobile-web-app-title" content="NBT Editor">
+<link rel="preload" href="../../assets/nbt.js?v=da7967b1" as="script">
+<script>window.__LANG_URLS__={"en":"../../nbtexplorer-online/","ru":"../../ru/nbtexplorer-online/","es":"../../es/nbtexplorer-online/","pt-br":"../../pt-br/nbtexplorer-online/","de":"../../de/nbtexplorer-online/","fr":"../../fr/nbtexplorer-online/","it":"../../it/nbtexplorer-online/","pl":"../../pl/nbtexplorer-online/","uk":"../../uk/nbtexplorer-online/","tr":"../../tr/nbtexplorer-online/","id":"../../id/nbtexplorer-online/","vi":"../../vi/nbtexplorer-online/","th":"../../th/nbtexplorer-online/","zh-hans":"./","ja":"../../ja/nbtexplorer-online/","ko":"../../ko/nbtexplorer-online/","ar":"../../ar/nbtexplorer-online/"};window.__NBT_STRINGS__={"loaded":"Loaded as {0}","trailing":"{0} trailing byte(s) after the root tag were ignored","error":"Error: {0}","readfail":"Could not read the file","nofile":"No file loaded","saved":"Saved {0} ({1}, {2})","savefail":"Save error: {0}","exported":"Exported {0}","snbtfail":"SNBT error: {0}","tagadded":"Tag added","tagremoved":"Tag removed","arrayupdated":"Array updated","badvalue":"Invalid value: {0}","badarray":"Invalid array: {0}","nameneeded":"Tag name is required","nametaken":"A tag named {0} already exists here","listtype":"List already holds {0} entries","editlevelname":"✎ Edit LevelName","showmore":"Show {0} more of {1} …","matches":"{0} match(es)","nomatch":"No tag matches \"{0}\"","arraytoobig":"Array has {0} entries — expand it and edit elements individually","uncompressed":"uncompressed","storage":"storage v{0}","entries":"{0} entries","langprompt":"Open this page in {0}?","langyes":"Switch","langno":"Stay"};</script>
+<script src="../../assets/lang.js?v=a3a1db0e" defer></script>
+<link rel="stylesheet" href="../../assets/app.css?v=2a10a6ce">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"NBTExplorer Online \u2014 Browser Alternative, No Download","headline":"NBTExplorer Online \u2014 Browser Alternative","description":"A browser alternative to NBTExplorer: the same tag tree editing for Minecraft files, plus Bedrock little-endian support, with nothing to install.","url":"https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/nbtexplorer-online/","inLanguage":"zh-hans","datePublished":"2026-05-29","dateModified":"2026-08-26","isPartOf":{"@type":"WebSite","name":"Minecraft NBT Editor","url":"https://w1zardz.github.io/bedrock-nbt-editor/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/nbtexplorer.png"},"about":{"@type":"Thing","name":"Minecraft NBT data format"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT Editor","item":"https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/"},{"@type":"ListItem","position":2,"name":"NBTExplorer Online \u2014 Browser Alternative","item":"https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/nbtexplorer-online/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is there an official NBTExplorer web version?","acceptedAnswer":{"@type":"Answer","text":"No. NBTExplorer is a desktop application; this is an independent editor that covers the same everyday tasks in the browser and adds Bedrock support."}},{"@type":"Question","name":"Does it work on macOS and Linux without Mono?","acceptedAnswer":{"@type":"Answer","text":"Yes \u2014 it is a web page. Any current browser on macOS, Linux, Windows, Android or ChromeOS runs it."}},{"@type":"Question","name":"Can it open a whole region file like NBTExplorer does?","acceptedAnswer":{"@type":"Answer","text":"No. It edits a single NBT document at a time. Extract a chunk from the .mca first, then drop the payload here."}},{"@type":"Question","name":"Is it safe to use for my only save?","acceptedAnswer":{"@type":"Answer","text":"It never writes to the file you open \u2014 edits come back as a new download \u2014 but keep your own backup anyway, as with any editor."}}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#editor">Skip to the editor</a>
+<header class="site-header">
+<div class="container">
+<a class="brand" href="../"><span>Minecraft</span> NBT Editor</a>
+<span class="badge">Java + Bedrock</span>
+<nav class="site-nav" aria-label="Tools">
+<a href="../">Editor</a>
+<a href="../level-dat-editor/">level.dat</a>
+<a href="../java-nbt-editor/">Java</a>
+<a href="../mcpe-nbt-editor/">Bedrock</a>
+<a href="../mcstructure-editor/">.mcstructure</a>
+<a href="../schematic-editor/">.schem</a>
+<a href="../playerdata-editor/">playerdata</a>
+<a href="../nbt-format/">NBT format</a>
+</nav>
+<details class="lang-switch"><summary aria-label="Language"><span aria-hidden="true">🌐</span> 简体中文</summary><div class="lang-menu"><a href="../../nbtexplorer-online/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../ru/nbtexplorer-online/" hreflang="ru" data-lang="ru" rel="alternate">Русский (beta)</a><a href="../../es/nbtexplorer-online/" hreflang="es" data-lang="es" rel="alternate">Español (beta)</a><a href="../../pt-br/nbtexplorer-online/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR) (beta)</a><a href="../../de/nbtexplorer-online/" hreflang="de" data-lang="de" rel="alternate">Deutsch (beta)</a><a href="../../fr/nbtexplorer-online/" hreflang="fr" data-lang="fr" rel="alternate">Français (beta)</a><a href="../../it/nbtexplorer-online/" hreflang="it" data-lang="it" rel="alternate">Italiano (beta)</a><a href="../../pl/nbtexplorer-online/" hreflang="pl" data-lang="pl" rel="alternate">Polski (beta)</a><a href="../../uk/nbtexplorer-online/" hreflang="uk" data-lang="uk" rel="alternate">Українська (beta)</a><a href="../../tr/nbtexplorer-online/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe (beta)</a><a href="../../id/nbtexplorer-online/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia (beta)</a><a href="../../vi/nbtexplorer-online/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt (beta)</a><a href="../../th/nbtexplorer-online/" hreflang="th" data-lang="th" rel="alternate">ไทย (beta)</a><a href="../../ja/nbtexplorer-online/" hreflang="ja" data-lang="ja" rel="alternate">日本語 (beta)</a><a href="../../ko/nbtexplorer-online/" hreflang="ko" data-lang="ko" rel="alternate">한국어 (beta)</a><a href="../../ar/nbtexplorer-online/" hreflang="ar" data-lang="ar" rel="alternate">العربية (beta)</a></div></details>
+</div>
+</header>
+<main>
+<nav class="breadcrumbs container" aria-label="Breadcrumb"><a href="../">NBT Editor</a> <span class="sep">/</span> <span>NBTExplorer online</span></nav>
+<section class="hero" aria-label="Introduction">
+<div class="container">
+<h1>NBTExplorer Online — Browser Alternative</h1>
+<p class="support-line"><strong>Supports Minecraft Bedrock Edition and Java Edition</strong> — and every server core for both, popular or obscure: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina and the rest. <a href="../#server-software">Full list</a>.</p>
+<p class="lede">NBTExplorer is the desktop tag editor most Minecraft players know, and it needs .NET or Mono, a download and a desktop. This page does the same job — tag tree, inline editing, add and remove tags — in the browser, on any operating system including phones, and it also reads Bedrock little-endian files, which NBTExplorer does not.</p>
+<div class="chips"><span class="chip">No install</span><span class="chip">Windows</span><span class="chip">macOS</span><span class="chip">Linux</span><span class="chip">Android</span><span class="chip">ChromeOS</span></div>
+</div>
+</section>
+<div id="editor">
+
+<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="Drop an NBT file here or click to browse">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 16V4m0 0L8 8m4-4l4 4"/><path d="M20 16v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2"/></svg>
+<p>Drop <strong>any NBT file</strong> here</p>
+<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">Choose File</button>
+<span class="hint">level.dat &middot; .nbt &middot; .mcstructure &middot; .schem &middot; .schematic &middot; .dat &middot; chunk dumps</span>
+<input type="file" id="fileInput">
+</div>
+
+<div id="editorArea">
+<div class="file-info" id="fileInfo"></div>
+
+<div class="out-bar" id="outBar">
+<label>Output format
+<select id="outFormat">
+<option value="java">Java — big-endian, named root</option>
+<option value="java-network">Java network — big-endian, nameless root</option>
+<option value="bedrock-level">Bedrock level.dat — little-endian + 8-byte header</option>
+<option value="bedrock">Bedrock raw — little-endian</option>
+<option value="bedrock-network">Bedrock network — little-endian varint</option>
+</select>
+</label>
+<label>Compression
+<select id="outCompression">
+<option value="none">None (raw)</option>
+<option value="gzip">gzip</option>
+<option value="zlib">zlib (deflate)</option>
+</select>
+</label>
+</div>
+
+<div class="search-bar">
+<input type="search" id="searchInput" placeholder="Search tag name or value…" autocomplete="off" spellcheck="false" aria-label="Search NBT tags">
+<button type="button" id="btnSearch">Search</button>
+<button type="button" id="btnCollapse">Collapse all</button>
+</div>
+<div class="search-results" id="searchResults"></div>
+
+<div class="tree" id="treeRoot"></div>
+</div>
+
+<div class="bottom-bar" id="bottomBar">
+<button class="btn-add" id="btnAddRoot" type="button">+ Add Tag</button>
+<button class="btn-save" id="btnSave" type="button">Save &amp; Download</button>
+<button class="btn-snbt" id="btnSnbt" type="button">Export SNBT</button>
+<button class="btn-close" id="btnCloseFile" type="button">Close</button>
+</div>
+
+</div>
+<div id="contentSections">
+
+<section class="content" aria-label="Comparison">
+<h2 id="how-it-compares">How it compares</h2>
+<div class="table-wrap">
+<table class="matrix">
+<thead><tr><th>Capability</th><th>NBTExplorer (desktop)</th><th>This editor (browser)</th></tr></thead>
+<tbody>
+<tr><td>Install required</td><td>Yes — .NET / Mono runtime</td><td>No</td></tr>
+<tr><td>Java big-endian NBT</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>gzip / zlib</td><td>Yes</td><td>Yes, via the browser's native compression streams</td></tr>
+<tr><td>Bedrock little-endian NBT</td><td>No</td><td>Yes, including the 8-byte <code>level.dat</code> header</td></tr>
+<tr><td>Bedrock network / varint NBT</td><td>No</td><td>Yes</td></tr>
+<tr><td>Browse <code>.mca</code> regions and folders</td><td>Yes — its main advantage</td><td>No, one document at a time</td></tr>
+<tr><td>Bedrock LevelDB browsing</td><td>No</td><td>No, extract the value first</td></tr>
+<tr><td>Search across the tree</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>SNBT export</td><td>No</td><td>Yes</td></tr>
+<tr><td>Runs on a phone</td><td>No</td><td>Yes</td></tr>
+<tr><td>Sends your file anywhere</td><td>No</td><td>No</td></tr>
+</tbody>
+</table>
+</div>
+<p>The honest summary: if you need to walk a whole region folder and open chunks by coordinate, the desktop tool still wins. If you need to open one file — a <code>level.dat</code>, a player file, a schematic, a Bedrock world — on whatever machine you happen to be at, this is faster and covers editions the desktop tool never learned.</p>
+</section>
+
+<section class="content" aria-label="Migrating">
+<h2 id="coming-from-the-desktop-tool">Coming from the desktop tool</h2>
+<ul>
+<li><strong>The tree works the same way.</strong> Expand compounds and lists, click a value to edit it, use + and × for structure.</li>
+<li><strong>Types are enforced the same way.</strong> A byte stays a byte; out-of-range values are rejected instead of being silently truncated.</li>
+<li><strong>Saving is a download,</strong> not an in-place write. The file you dropped in is never modified, so your backup is automatic.</li>
+<li><strong>Compression is round-tripped.</strong> A gzip file goes back out gzip, so the game accepts it without a manual recompress step.</li>
+<li><strong>Bedrock just works.</strong> No separate tool, no hex editor to fix the header length after an edit.</li>
+</ul>
+</section>
+
+<section class="content" aria-label="Other tools">
+<h2 id="where-other-tools-still-fit">Where other tools still fit</h2>
+<p>Use <strong>NBTExplorer</strong> or <strong>NBTStudio</strong> for bulk region browsing. Use <strong>Amulet</strong> or <strong>MCA Selector</strong> for chunk-level surgery and world trimming. Use <strong>WorldEdit</strong> for anything geometric. Use this page when the job is "open this one file, change these tags, give it back" — which is most of the time — or when the file is Bedrock and the desktop tools refuse it.</p>
+</section>
+
+<section class="content" aria-label="Frequently asked questions"><h2>Frequently Asked Questions</h2><details><summary>Is there an official NBTExplorer web version?</summary><div class="faq-body"><p>No. NBTExplorer is a desktop application; this is an independent editor that covers the same everyday tasks in the browser and adds Bedrock support.</p></div></details><details><summary>Does it work on macOS and Linux without Mono?</summary><div class="faq-body"><p>Yes — it is a web page. Any current browser on macOS, Linux, Windows, Android or ChromeOS runs it.</p></div></details><details><summary>Can it open a whole region file like NBTExplorer does?</summary><div class="faq-body"><p>No. It edits a single NBT document at a time. Extract a chunk from the <code>.mca</code> first, then drop the payload here.</p></div></details><details><summary>Is it safe to use for my only save?</summary><div class="faq-body"><p>It never writes to the file you open — edits come back as a new download — but keep your own backup anyway, as with any editor.</p></div></details></section>
+<section class="content" aria-label="Related tools"><h2>Related tools</h2><div class="rel-grid"><a class="rel-card" href="../"><strong>Minecraft NBT editor</strong><span>The universal editor — every edition, every NBT file type.</span></a><a class="rel-card" href="../nbt-viewer/"><strong>NBT viewer</strong><span>Read-only inspection, search and SNBT export.</span></a><a class="rel-card" href="../java-nbt-editor/"><strong>Java Edition NBT editor</strong><span>Big-endian, gzip — Vanilla, Paper, Spigot, Fabric, Forge.</span></a><a class="rel-card" href="../mcpe-nbt-editor/"><strong>MCPE NBT editor</strong><span>Little-endian NBT and the 8-byte level.dat header.</span></a><a class="rel-card" href="../nbt-format/"><strong>NBT format reference</strong><span>All 13 tag types, every encoding, byte by byte.</span></a><a class="rel-card" href="../level-dat-editor/"><strong>level.dat editor</strong><span>World name, game mode, spawn, difficulty and game rules.</span></a></div></section>
+</div>
+</main>
+
+<footer class="site-footer">
+<div class="container footer-grid">
+<div><h4>Editors</h4><a href="../">Minecraft NBT editor</a><a href="../level-dat-editor/">level.dat editor</a><a href="../java-nbt-editor/">Java Edition NBT editor</a><a href="../mcpe-nbt-editor/">MCPE NBT editor</a><a href="../pocketmine-nbt-editor/">PocketMine-MP editor</a></div>
+<div><h4>File types</h4><a href="../mcstructure-editor/">.mcstructure editor</a><a href="../schematic-editor/">Schematic editor</a><a href="../playerdata-editor/">playerdata editor</a><a href="../nbt-viewer/">NBT viewer</a><a href="./">NBTExplorer online</a></div>
+<div><h4>Reference</h4><a href="../nbt-format/">NBT format reference</a><a href="../guides/change-world-name/">Rename a world</a><a href="../guides/fix-corrupted-level-dat/">Fix a broken level.dat</a><a href="../guides/edit-gamerules/">Edit game rules</a></div>
+<div><h4>Source</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">Code on GitHub</a><a href="../../llms.txt">llms.txt</a></div>
+</div>
+<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+</footer>
+
+<div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+<div class="modal-overlay" id="addTagModal">
+<div class="modal">
+<h3>Add New Tag</h3>
+<label for="newTagName">Tag Name</label>
+<input type="text" id="newTagName" placeholder="e.g. MyTag" autocomplete="off">
+<label for="newTagType">Tag Type</label>
+<select id="newTagType">
+<option value="1">TAG_Byte</option>
+<option value="2">TAG_Short</option>
+<option value="3">TAG_Int</option>
+<option value="4">TAG_Long</option>
+<option value="5">TAG_Float</option>
+<option value="6">TAG_Double</option>
+<option value="7">TAG_Byte_Array</option>
+<option value="8" selected>TAG_String</option>
+<option value="9">TAG_List</option>
+<option value="10">TAG_Compound</option>
+<option value="11">TAG_Int_Array</option>
+<option value="12">TAG_Long_Array</option>
+</select>
+<label for="newTagValue">Value</label>
+<input type="text" id="newTagValue" placeholder="Value" autocomplete="off">
+<div id="listSubtypeRow" style="display:none">
+<label for="newListSubtype">List Element Type</label>
+<select id="newListSubtype">
+<option value="1">TAG_Byte</option>
+<option value="2">TAG_Short</option>
+<option value="3">TAG_Int</option>
+<option value="4">TAG_Long</option>
+<option value="5">TAG_Float</option>
+<option value="6">TAG_Double</option>
+<option value="7">TAG_Byte_Array</option>
+<option value="8">TAG_String</option>
+<option value="9">TAG_List</option>
+<option value="10">TAG_Compound</option>
+<option value="11">TAG_Int_Array</option>
+<option value="12">TAG_Long_Array</option>
+</select>
+</div>
+<div class="modal-btns">
+<button class="btn-cancel" type="button" id="addTagCancel">Cancel</button>
+<button class="btn-confirm" type="button" id="addTagConfirm">Add</button>
+</div>
+</div>
+</div>
+
+<div class="modal-overlay" id="arrayModal">
+<div class="modal">
+<h3 id="arrayModalTitle">Edit Array</h3>
+<label for="arrayModalText">Comma-separated values</label>
+<textarea id="arrayModalText" spellcheck="false" autocomplete="off"></textarea>
+<div class="modal-btns">
+<button class="btn-cancel" type="button" id="arrayModalCancel">Cancel</button>
+<button class="btn-confirm" type="button" id="arrayModalConfirm">Apply</button>
+</div>
+</div>
+</div>
+
+<script src="../../assets/nbt.js?v=da7967b1" defer></script>
+</body>
+</html>
