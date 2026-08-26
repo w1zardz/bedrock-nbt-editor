@@ -2,7 +2,7 @@
 
 Online NBT editor for **every** Minecraft edition and server core. Open a file, edit any tag, download it back in the exact same binary format. Runs entirely in the browser — no upload, no install, no account.
 
-**Live:** https://w1zardz.github.io/bedrock-nbt-editor/
+**Live:** https://w1zardz.github.io/minecraft-nbt-editor/
 
 ## Formats
 
@@ -57,15 +57,37 @@ Tag objects are plain: `{ type, name?, value, listType? }`. Arrays are `Int8Arra
 
 Files are read with `FileReader`, parsed in JavaScript and downloaded from an in-memory `Blob`. Nothing is transmitted anywhere; the page works offline once loaded.
 
+## Site map
+
+| Page | Targets |
+|---|---|
+| [`/`](https://w1zardz.github.io/minecraft-nbt-editor/) | The editor, every edition and file type |
+| [`/level-dat-editor/`](https://w1zardz.github.io/minecraft-nbt-editor/level-dat-editor/) | World name, game mode, spawn, game rules |
+| [`/java-nbt-editor/`](https://w1zardz.github.io/minecraft-nbt-editor/java-nbt-editor/) | Java Edition files and encoding |
+| [`/bedrock-nbt-editor/`](https://w1zardz.github.io/minecraft-nbt-editor/bedrock-nbt-editor/) | Bedrock, MCPE, the 8-byte header |
+| [`/pocketmine-nbt-editor/`](https://w1zardz.github.io/minecraft-nbt-editor/pocketmine-nbt-editor/) | PMMP, Nukkit, PowerNukkitX, BDS |
+| [`/mcstructure-editor/`](https://w1zardz.github.io/minecraft-nbt-editor/mcstructure-editor/) | Bedrock structure files |
+| [`/schematic-editor/`](https://w1zardz.github.io/minecraft-nbt-editor/schematic-editor/) | WorldEdit `.schem`, MCEdit `.schematic` |
+| [`/playerdata-editor/`](https://w1zardz.github.io/minecraft-nbt-editor/playerdata-editor/) | Per-player `.dat` files |
+| [`/nbt-viewer/`](https://w1zardz.github.io/minecraft-nbt-editor/nbt-viewer/) | Read-only inspection, SNBT export |
+| [`/nbtexplorer-online/`](https://w1zardz.github.io/minecraft-nbt-editor/nbtexplorer-online/) | Comparison with the desktop tool |
+| [`/nbt-format/`](https://w1zardz.github.io/minecraft-nbt-editor/nbt-format/) | Format reference: tags, encodings, bytes |
+| [`/guides/…`](https://w1zardz.github.io/minecraft-nbt-editor/guides/change-world-name/) | Rename a world, fix a broken `level.dat`, edit game rules |
+
 ## Development
 
-Static site, no build step.
+The site is static. Pages are generated from `tools/build.py`, which owns all page
+content, the shared shell, structured data, `sitemap.xml`, `robots.txt` and `llms.txt`.
+The editor itself lives in `assets/nbt.js` and `assets/app.css` and is written by hand.
 
 ```bash
+python3 tools/build.py     # regenerate every page
+bash tools/make-og.sh      # regenerate Open Graph cards (needs ImageMagick)
 python3 -m http.server 4173
 ```
 
-Open http://localhost:4173.
+Open http://localhost:4173. Never edit a generated `index.html` directly — change
+`tools/build.py` and rebuild.
 
 ## License
 

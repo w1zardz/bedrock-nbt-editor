@@ -3,383 +3,76 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Minecraft NBT Editor Online — Java &amp; Bedrock level.dat, .mcstructure, .schematic</title>
-<meta name="description" content="Free online NBT editor for Minecraft Java Edition and Bedrock Edition. Opens level.dat, playerdata, .mcstructure, .nbt, .schem, .schematic, servers.dat and raw chunk NBT. Big-endian, little-endian and varint formats with gzip/zlib. Works with Vanilla, Paper, Spigot, Fabric, Forge, PocketMine-MP, Nukkit, BDS. 100% in your browser.">
-<meta name="keywords" content="NBT editor, online NBT editor, Minecraft NBT editor, level.dat editor, Java Edition NBT, Bedrock NBT, mcstructure editor, schematic editor, schem, playerdata editor, servers.dat, PocketMine, PMMP, Nukkit, PowerNukkitX, Paper, Spigot, Purpur, Fabric, Forge, NeoForge, Bedrock Dedicated Server, MCPE, MCBE, NBTExplorer online, little-endian NBT, big-endian NBT, varint NBT, network NBT">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://w1zardz.github.io/bedrock-nbt-editor/">
-<link rel="alternate" hreflang="en" href="https://w1zardz.github.io/bedrock-nbt-editor/">
-<link rel="alternate" hreflang="x-default" href="https://w1zardz.github.io/bedrock-nbt-editor/">
+<title>Minecraft NBT Editor Online — Java &amp; Bedrock, No Download</title>
+<meta name="description" content="Free online NBT editor for Minecraft Java and Bedrock. Open level.dat, playerdata, .nbt, .mcstructure or .schem, edit any tag, download it back.">
+<meta name="keywords" content="nbt editor, online nbt editor, minecraft nbt editor, nbt editor online free, level.dat editor, nbt file editor, nbt viewer, edit nbt online, minecraft save editor, nbtexplorer online">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="w1zardz">
+<link rel="canonical" href="https://w1zardz.github.io/minecraft-nbt-editor/">
+<link rel="alternate" hreflang="en" href="https://w1zardz.github.io/minecraft-nbt-editor/">
+<link rel="alternate" hreflang="x-default" href="https://w1zardz.github.io/minecraft-nbt-editor/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Minecraft NBT Editor — Java &amp; Bedrock, Online">
-<meta property="og:description" content="Edit any Minecraft NBT file in the browser: level.dat, playerdata, .mcstructure, .schematic, .nbt. Java big-endian and Bedrock little-endian, gzip/zlib/varint, all 13 tag types.">
-<meta property="og:url" content="https://w1zardz.github.io/bedrock-nbt-editor/">
+<meta property="og:title" content="Minecraft NBT Editor — Java &amp; Bedrock, in your browser">
+<meta property="og:description" content="Free online NBT editor for Minecraft Java and Bedrock. Open level.dat, playerdata, .nbt, .mcstructure or .schem, edit any tag, download it back.">
+<meta property="og:url" content="https://w1zardz.github.io/minecraft-nbt-editor/">
 <meta property="og:site_name" content="Minecraft NBT Editor">
-<meta property="og:image" content="https://w1zardz.github.io/bedrock-nbt-editor/apple-touch-icon.png">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Minecraft NBT Editor — Java &amp; Bedrock, Online">
-<meta name="twitter:description" content="Edit any Minecraft NBT file in the browser. Java big-endian, Bedrock little-endian, varint network NBT, gzip/zlib. No upload.">
-<meta name="twitter:image" content="https://w1zardz.github.io/bedrock-nbt-editor/apple-touch-icon.png">
+<meta property="og:image" content="https://w1zardz.github.io/minecraft-nbt-editor/og/home.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Minecraft NBT Editor — Java &amp; Bedrock, in your browser">
+<meta name="twitter:description" content="Free online NBT editor for Minecraft Java and Bedrock. Open level.dat, playerdata, .nbt, .mcstructure or .schem, edit any tag, download it back.">
+<meta name="twitter:image" content="https://w1zardz.github.io/minecraft-nbt-editor/og/home.png">
 <meta name="theme-color" content="#0d1117">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Minecraft NBT Editor",
-  "alternateName": "Bedrock NBT Editor",
-  "description": "Online NBT editor for Minecraft Java Edition and Bedrock Edition. Reads and writes level.dat, playerdata, .mcstructure, .schematic, .nbt and raw chunk NBT in big-endian, little-endian and varint formats.",
-  "url": "https://w1zardz.github.io/bedrock-nbt-editor/",
-  "applicationCategory": "DeveloperApplication",
-  "operatingSystem": "Any",
-  "browserRequirements": "Modern browser with BigInt and CompressionStream support",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "featureList": [
-    "Java Edition big-endian NBT",
-    "Bedrock Edition little-endian NBT",
-    "Bedrock network NBT (varint)",
-    "Java network NBT (nameless root)",
-    "gzip and zlib compression",
-    "All 13 NBT tag types with 64-bit precision",
-    "SNBT export",
-    "Client-side only"
-  ],
-  "keywords": "NBT editor, level.dat, mcstructure, schematic, playerdata, Java Edition, Bedrock Edition, PocketMine-MP, Paper, Spigot, Fabric, Forge, Nukkit"
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type":"Question","name":"Does this NBT editor work with Minecraft Java Edition?","acceptedAnswer":{"@type":"Answer","text":"Yes. Java Edition uses big-endian NBT, usually gzip-compressed. The editor detects that automatically, lets you edit the tree, and writes the file back with the same byte order and compression."}},
-    {"@type":"Question","name":"Does it work with Bedrock Edition and PocketMine-MP?","acceptedAnswer":{"@type":"Answer","text":"Yes. Bedrock level.dat uses little-endian NBT with an 8-byte header, and PocketMine-MP, Nukkit, PowerNukkitX and Bedrock Dedicated Server all use the same format. Bedrock network NBT with varint encoding is supported too."}},
-    {"@type":"Question","name":"Which files can I open?","acceptedAnswer":{"@type":"Answer","text":"level.dat, level.dat_old, playerdata and stats .dat files, servers.dat, hotbar.nbt, idcounts.dat, raids.dat, structure .nbt files, WorldEdit .schem, MCEdit .schematic, Bedrock .mcstructure, and raw NBT dumps from chunks or packets."}},
-    {"@type":"Question","name":"Is my world file uploaded anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. Parsing, editing, compression and download all happen locally in your browser. Nothing is sent to a server."}},
-    {"@type":"Question","name":"Can it handle large NBT files?","acceptedAnswer":{"@type":"Answer","text":"Yes. Arrays are stored in typed arrays, the tree renders lazily and pages through large lists, so multi-megabyte structures and chunk data stay responsive."}}
-  ]
-}
-</script>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
---bg:#0d1117;--bg2:#161b22;--bg3:#21262d;--border:#30363d;
---text:#e6edf3;--text2:#8b949e;--accent:#58a6ff;--accent2:#1f6feb;
---red:#f85149;--green:#3fb950;--orange:#d29922;--purple:#bc8cff;
---pink:#f778ba;--cyan:#39d2c0;--yellow:#e3b341;
---safe-top:env(safe-area-inset-top,0px);
---safe-bottom:env(safe-area-inset-bottom,0px);
---safe-left:env(safe-area-inset-left,0px);
---safe-right:env(safe-area-inset-right,0px);
-}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
-html{font-size:16px;-webkit-text-size-adjust:100%}
-body{
-background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-line-height:1.6;min-height:100vh;min-height:100dvh;
-padding-top:var(--safe-top);padding-left:var(--safe-left);padding-right:var(--safe-right);
-overflow-x:hidden;
-}
-a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline}
-.container{max-width:960px;margin:0 auto;padding:0 16px}
-/* Header */
-header.site-header{background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 0;position:sticky;top:0;z-index:100;
-  padding-top:calc(var(--safe-top) + 16px);
-}
-header .container{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-header h1{font-size:1.25rem;font-weight:700;white-space:nowrap}
-header h1 span{color:var(--accent)}
-header .badge{font-size:0.7rem;background:var(--accent2);color:#fff;padding:2px 8px;border-radius:12px;white-space:nowrap}
-header .badge.alt{background:var(--bg3);color:var(--text2);border:1px solid var(--border)}
-/* Hero */
-.hero{text-align:center;padding:40px 16px 32px}
-.hero h2{font-size:1.5rem;margin-bottom:12px;font-weight:700}
-.hero p{color:var(--text2);max-width:640px;margin:0 auto;font-size:1rem}
-.hero .chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:16px}
-.chip{font-size:.72rem;background:var(--bg2);border:1px solid var(--border);color:var(--text2);padding:3px 10px;border-radius:999px;white-space:nowrap}
-/* Drop zone */
-.dropzone{
-  border:2px dashed var(--border);border-radius:12px;padding:40px 20px;text-align:center;
-  cursor:pointer;transition:border-color .2s,background .2s;margin:0 16px 24px;max-width:928px;margin-left:auto;margin-right:auto;
-  min-height:120px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
-  -webkit-user-select:none;user-select:none;
-}
-.dropzone.active{border-color:var(--accent);background:rgba(88,166,255,.06)}
-.dropzone svg{width:48px;height:48px;color:var(--text2)}
-.dropzone p{color:var(--text2);font-size:1rem}
-.dropzone .hint{font-size:.8rem;color:var(--text2);opacity:.8}
-.dropzone .btn-pick{
-  display:inline-flex;align-items:center;gap:8px;
-  background:var(--accent2);color:#fff;border:none;border-radius:8px;
-  padding:12px 24px;font-size:1rem;cursor:pointer;min-height:44px;
-  font-weight:600;
-}
-.dropzone .btn-pick:active{opacity:.8}
-#fileInput{display:none}
-/* Editor area */
-#editorArea{display:none;padding:0 16px 120px;max-width:960px;margin:0 auto}
-#editorArea.visible{display:block}
-.file-info{
-  background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;
-  margin-bottom:12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:.9rem;
-}
-.file-info .fname{font-weight:600;font-family:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
-  overflow:hidden;text-overflow:ellipsis;max-width:100%}
-.file-info .fmeta{color:var(--text2);font-size:.82rem}
-.fmt-badge{font-size:.68rem;font-weight:700;padding:3px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.03em}
-.fmt-badge.java{background:rgba(63,185,80,.15);color:var(--green);border:1px solid rgba(63,185,80,.35)}
-.fmt-badge.bedrock{background:rgba(88,166,255,.15);color:var(--accent);border:1px solid rgba(88,166,255,.35)}
-/* Output options */
-.out-bar{
-  background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:10px 12px;
-  margin-bottom:12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;
-}
-.out-bar label{font-size:.78rem;color:var(--text2);display:flex;flex-direction:column;gap:4px;flex:1 1 200px;min-width:0}
-.out-bar select{
-  background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:6px;
-  padding:8px 10px;min-height:40px;font-size:.88rem;width:100%;
-}
-/* Search */
-.search-bar{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
-.search-bar input{
-  flex:1 1 200px;background:var(--bg2);border:1px solid var(--border);color:var(--text);
-  border-radius:8px;padding:10px 12px;min-height:44px;font-size:.95rem;min-width:0;
-}
-.search-bar button{
-  background:var(--bg3);color:var(--text);border:1px solid var(--border);border-radius:8px;
-  padding:10px 14px;min-height:44px;font-size:.88rem;cursor:pointer;white-space:nowrap;
-}
-.search-bar button:active{opacity:.8}
-.search-results{background:var(--bg2);border:1px solid var(--border);border-radius:8px;margin-bottom:12px;max-height:240px;overflow-y:auto;display:none}
-.search-results.visible{display:block}
-.search-results .sr-item{
-  padding:10px 12px;border-bottom:1px solid var(--border);cursor:pointer;font-size:.82rem;
-  font-family:'SFMono-Regular',Consolas,Menlo,monospace;color:var(--text2);
-}
-.search-results .sr-item:last-child{border-bottom:none}
-.search-results .sr-item:hover{background:var(--bg3);color:var(--text)}
-.search-results .sr-item b{color:var(--accent);font-weight:600}
-.search-results .sr-empty{padding:12px;color:var(--text2);font-size:.85rem}
-/* Tree */
-.tree{background:var(--bg2);border:1px solid var(--border);border-radius:8px;overflow:hidden}
-.tree-node{border-bottom:1px solid var(--border)}
-.tree-node:last-child{border-bottom:none}
-.node-row{
-  display:flex;align-items:center;gap:6px;padding:6px 12px;min-height:44px;
-  cursor:default;flex-wrap:nowrap;
-}
-.node-row:active{background:var(--bg3)}
-.node-toggle{
-  width:28px;height:28px;min-width:28px;display:flex;align-items:center;justify-content:center;
-  cursor:pointer;border-radius:4px;font-size:.8rem;color:var(--text2);
-  border:none;background:none;-webkit-tap-highlight-color:transparent;
-}
-.node-toggle:hover{background:var(--bg3)}
-.node-toggle.leaf{visibility:hidden}
-.tag-badge{
-  font-size:.65rem;font-weight:700;padding:2px 6px;border-radius:4px;white-space:nowrap;
-  text-transform:uppercase;letter-spacing:.03em;flex-shrink:0;
-}
-.tag-badge[data-t="1"]{background:#2d333b;color:var(--green)}
-.tag-badge[data-t="2"]{background:#2d333b;color:var(--cyan)}
-.tag-badge[data-t="3"]{background:#2d333b;color:var(--accent)}
-.tag-badge[data-t="4"]{background:#2d333b;color:var(--purple)}
-.tag-badge[data-t="5"]{background:#2d333b;color:var(--orange)}
-.tag-badge[data-t="6"]{background:#2d333b;color:var(--yellow)}
-.tag-badge[data-t="7"]{background:#2d333b;color:var(--pink)}
-.tag-badge[data-t="8"]{background:#2d333b;color:var(--green)}
-.tag-badge[data-t="9"]{background:#2d333b;color:var(--red)}
-.tag-badge[data-t="10"]{background:#2d333b;color:var(--accent)}
-.tag-badge[data-t="11"]{background:#2d333b;color:var(--pink)}
-.tag-badge[data-t="12"]{background:#2d333b;color:var(--purple)}
-.node-name{font-weight:600;font-size:.9rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex-shrink:1;min-width:0}
-.node-value{
-  font-family:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
-  font-size:.85rem;color:var(--text2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-  flex:1;min-width:0;cursor:pointer;padding:4px 8px;border-radius:4px;min-height:32px;
-  display:flex;align-items:center;
-}
-.node-value:hover{background:var(--bg3)}
-.node-value.editing{background:var(--bg);border:1px solid var(--accent);cursor:text}
-.node-value.ro{cursor:default}
-.node-value.ro:hover{background:none}
-.node-value input,.node-value textarea{
-  background:transparent;border:none;color:var(--text);font:inherit;width:100%;outline:none;
-  font-size:1rem;padding:0;
-}
-.node-value textarea{resize:vertical;min-height:60px}
-.node-children{display:none;padding-left:16px}
-.node-children.open{display:block}
-.load-more{
-  display:block;width:100%;text-align:left;padding:10px 12px;background:none;border:none;
-  color:var(--accent);font-size:.85rem;cursor:pointer;min-height:44px;
-}
-.load-more:hover{background:var(--bg3)}
-/* Jump highlight */
-.node-row.ln-flash{animation:lnFlash 1.6s ease}
-@keyframes lnFlash{0%,100%{background:transparent}15%{background:rgba(88,166,255,.28)}}
-.ln-jump{
-  margin-left:auto;display:inline-flex;align-items:center;gap:6px;
-  background:var(--accent2);color:#fff;border:none;border-radius:6px;
-  padding:6px 12px;font-size:.82rem;font-weight:600;cursor:pointer;min-height:32px;
-  -webkit-tap-highlight-color:transparent;
-}
-.ln-jump:active{opacity:.8}
-.node-actions{display:flex;gap:4px;flex-shrink:0;margin-left:auto}
-.node-actions button{
-  width:32px;height:32px;min-width:32px;border:none;background:var(--bg3);color:var(--text2);
-  border-radius:4px;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center;
-  -webkit-tap-highlight-color:transparent;
-}
-.node-actions button:hover{background:var(--border);color:var(--text)}
-.node-actions button.del:hover{color:var(--red)}
-/* Bottom bar */
-.bottom-bar{
-  position:fixed;bottom:0;left:0;right:0;background:var(--bg2);border-top:1px solid var(--border);
-  padding:12px 16px;padding-bottom:calc(12px + var(--safe-bottom));
-  display:none;gap:8px;justify-content:center;flex-wrap:wrap;z-index:100;
-}
-.bottom-bar.visible{display:flex}
-.bottom-bar button{
-  min-height:44px;padding:10px 18px;border:none;border-radius:8px;font-size:.95rem;font-weight:600;
-  cursor:pointer;display:inline-flex;align-items:center;gap:8px;
-  -webkit-tap-highlight-color:transparent;
-}
-.btn-save{background:var(--green);color:#0d1117}
-.btn-save:active{opacity:.8}
-.btn-add{background:var(--accent2);color:#fff}
-.btn-add:active{opacity:.8}
-.btn-close{background:var(--bg3);color:var(--text)}
-.btn-close:active{opacity:.8}
-.btn-snbt{background:var(--bg3);color:var(--text)}
-.btn-snbt:active{opacity:.8}
-/* Toast */
-.toast-container{position:fixed;top:calc(var(--safe-top) + 70px);right:16px;z-index:200;display:flex;flex-direction:column;gap:8px}
-.toast{
-  background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;
-  font-size:.9rem;box-shadow:0 4px 12px rgba(0,0,0,.4);max-width:320px;
-  animation:toastIn .25s ease;
-}
-.toast.success{border-left:3px solid var(--green)}
-.toast.error{border-left:3px solid var(--red)}
-.toast.info{border-left:3px solid var(--accent)}
-@keyframes toastIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
-/* Modal */
-.modal-overlay{
-  position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:300;display:none;align-items:center;justify-content:center;padding:16px;
-}
-.modal-overlay.visible{display:flex}
-.modal{
-  background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:24px;
-  width:100%;max-width:400px;max-height:80vh;overflow-y:auto;
-}
-.modal h3{font-size:1.1rem;margin-bottom:16px}
-.modal label{display:block;font-size:.9rem;color:var(--text2);margin-bottom:4px;margin-top:12px}
-.modal input,.modal select,.modal textarea{
-  width:100%;padding:10px 12px;background:var(--bg);border:1px solid var(--border);border-radius:6px;
-  color:var(--text);font-size:1rem;min-height:44px;
-}
-.modal textarea{font-family:'SFMono-Regular',Consolas,Menlo,monospace;font-size:.85rem;min-height:160px;resize:vertical}
-.modal select{appearance:auto}
-.modal .modal-btns{display:flex;gap:8px;margin-top:20px}
-.modal .modal-btns button{
-  flex:1;min-height:44px;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;
-}
-.modal .btn-confirm{background:var(--accent2);color:#fff}
-.modal .btn-cancel{background:var(--bg3);color:var(--text)}
-/* Content sections */
-section.content{padding:32px 16px;max-width:960px;margin:0 auto}
-section.content h2{font-size:1.3rem;margin-bottom:16px;font-weight:700}
-section.content h3{font-size:1.1rem;margin:16px 0 8px;color:var(--accent)}
-section.content p,section.content li{color:var(--text2);margin-bottom:8px;font-size:.95rem}
-section.content ul,section.content ol{padding-left:20px}
-section.content code{background:var(--bg3);padding:2px 6px;border-radius:4px;font-size:.85rem;font-family:'SFMono-Regular',Consolas,monospace}
-.card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:20px;margin-bottom:16px}
-.steps{counter-reset:step}
-.steps li{counter-increment:step;list-style:none;padding-left:36px;position:relative;margin-bottom:12px}
-.steps li::before{
-  content:counter(step);position:absolute;left:0;top:0;width:28px;height:28px;
-  background:var(--accent2);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  font-size:.8rem;font-weight:700;
-}
-.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin-top:12px}
-.feature-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:16px}
-.feature-card h3{font-size:.95rem;margin:0 0 6px;color:var(--text)}
-.feature-card p{font-size:.85rem;color:var(--text2);margin:0}
-/* Table */
-.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--border);border-radius:8px;background:var(--bg2)}
-table.matrix{border-collapse:collapse;width:100%;min-width:520px;font-size:.85rem}
-table.matrix th,table.matrix td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);color:var(--text2)}
-table.matrix th{color:var(--text);font-weight:600;background:var(--bg3);white-space:nowrap}
-table.matrix tr:last-child td{border-bottom:none}
-table.matrix code{white-space:nowrap}
-/* FAQ accordion */
-details{background:var(--bg2);border:1px solid var(--border);border-radius:8px;margin-bottom:8px}
-details summary{
-  padding:14px 16px;cursor:pointer;font-weight:600;font-size:.95rem;min-height:44px;
-  display:flex;align-items:center;list-style:none;-webkit-user-select:none;user-select:none;
-}
-details summary::-webkit-details-marker{display:none}
-details summary::before{content:"▶";margin-right:10px;font-size:.7rem;color:var(--text2);transition:transform .2s}
-details[open] summary::before{transform:rotate(90deg)}
-details .faq-body{padding:0 16px 14px;color:var(--text2);font-size:.9rem}
-details .faq-body p{margin-bottom:8px}
-/* Footer */
-footer.site-footer{
-  border-top:1px solid var(--border);padding:24px 16px;text-align:center;color:var(--text2);font-size:.85rem;
-  padding-bottom:calc(24px + var(--safe-bottom));
-}
-footer a{color:var(--accent)}
-#contentSections{display:block}
-#contentSections.hidden{display:none}
-/* Scrollbar */
-::-webkit-scrollbar{width:8px}
-::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:var(--bg3);border-radius:4px}
-@media(max-width:480px){
-  .hero h2{font-size:1.25rem}
-  .node-row{padding:6px 8px;gap:4px}
-  .node-children{padding-left:10px}
-  .node-name{font-size:.82rem}
-  .node-value{font-size:.8rem;padding:4px 6px}
-  .tag-badge{font-size:.6rem;padding:1px 4px}
-  .bottom-bar button{padding:10px 14px;font-size:.9rem}
-}
-</style>
+<meta name="application-name" content="Minecraft NBT Editor">
+<meta name="apple-mobile-web-app-title" content="NBT Editor">
+<link rel="preload" href="assets/nbt.js" as="script">
+<link rel="stylesheet" href="assets/app.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Minecraft NBT Editor Online \u2014 Java & Bedrock, No Download","headline":"Minecraft NBT Editor \u2014 Online, Java & Bedrock","description":"Free online NBT editor for Minecraft Java and Bedrock. Open level.dat, playerdata, .nbt, .mcstructure or .schem, edit any tag, download it back.","url":"https://w1zardz.github.io/minecraft-nbt-editor/","inLanguage":"en","datePublished":"2026-05-29","dateModified":"2026-08-26","isPartOf":{"@type":"WebSite","name":"Minecraft NBT Editor","url":"https://w1zardz.github.io/minecraft-nbt-editor/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/minecraft-nbt-editor/og/home.png"},"about":{"@type":"Thing","name":"Minecraft NBT data format"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT Editor","item":"https://w1zardz.github.io/minecraft-nbt-editor/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is this NBT editor free?","acceptedAnswer":{"@type":"Answer","text":"Yes, and open source under the MIT licence. There is no paid tier, no sign-up and no upload quota, because there is no server component at all \u2014 the whole editor is one static page plus two asset files."}},{"@type":"Question","name":"Does it work with Java Edition and Bedrock Edition?","acceptedAnswer":{"@type":"Answer","text":"Both. Java Edition files are big-endian and usually gzip-compressed; Bedrock files are little-endian, and level.dat carries an extra 8-byte header. The editor detects which one it received and writes the same variant back on save."}},{"@type":"Question","name":"Is my world file uploaded anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. The file is read locally with the FileReader API and the download is produced from an in-memory blob. Once the page has loaded you can disconnect from the network and it still works."}},{"@type":"Question","name":"Can I use it on Android or iOS?","acceptedAnswer":{"@type":"Answer","text":"Yes. The layout is mobile-first with 44&nbsp;px tap targets and a fixed action bar. On Android you can pick a world file straight out of a file manager; on iOS the file has to be in the Files app first because of sandboxing."}},{"@type":"Question","name":"What is the difference between NBT and SNBT?","acceptedAnswer":{"@type":"Answer","text":"NBT is the binary encoding Minecraft stores on disk. SNBT is its text form, the syntax you type into commands like /data merge. This editor reads binary NBT and can export SNBT, which makes it easy to diff two files or paste a structure into a command."}},{"@type":"Question","name":"Which tools does this replace?","acceptedAnswer":{"@type":"Answer","text":"Desktop NBT editors such as NBTExplorer, plus the various single-purpose web tools that only handle one edition. See the NBTExplorer online comparison for what carries over and what does not."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Minecraft NBT Editor","alternateName":["NBT Editor Online","Bedrock NBT Editor","level.dat editor"],"url":"https://w1zardz.github.io/minecraft-nbt-editor/","applicationCategory":"DeveloperApplication","applicationSubCategory":"Game file editor","operatingSystem":"Any (browser)","browserRequirements":"Modern browser with BigInt and Compression Streams support","softwareVersion":"2.0","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"publisher":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"license":"https://opensource.org/licenses/MIT","codeRepository":"https://github.com/w1zardz/minecraft-nbt-editor","featureList":["Java Edition big-endian NBT","Bedrock Edition little-endian NBT","Bedrock network NBT (varint)","Java network NBT (nameless root)","gzip and zlib compression","All 13 NBT tag types with 64-bit precision","SNBT export","Runs fully client-side"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Minecraft NBT Editor","url":"https://w1zardz.github.io/minecraft-nbt-editor/","inLanguage":"en","publisher":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"}}</script>
 </head>
 <body>
+<a class="skip-link" href="#editor">Skip to the editor</a>
 <header class="site-header">
 <div class="container">
-<h1><span>Minecraft</span> NBT Editor</h1>
+<a class="brand" href=""><span>Minecraft</span> NBT Editor</a>
 <span class="badge">Java + Bedrock</span>
-<span class="badge alt">100% client-side</span>
+<nav class="site-nav" aria-label="Tools">
+<a href="" class="active">Editor</a>
+<a href="level-dat-editor/">level.dat</a>
+<a href="java-nbt-editor/">Java</a>
+<a href="bedrock-nbt-editor/">Bedrock</a>
+<a href="mcstructure-editor/">.mcstructure</a>
+<a href="schematic-editor/">.schem</a>
+<a href="playerdata-editor/">playerdata</a>
+<a href="nbt-format/">NBT format</a>
+</nav>
 </div>
 </header>
-
 <main>
 
 <section class="hero" aria-label="Introduction">
 <div class="container">
-<h2>Online NBT Editor for Every Minecraft Edition</h2>
-<p>Drop any NBT file — Java <code>level.dat</code>, Bedrock <code>level.dat</code>, <code>playerdata</code>, <code>.mcstructure</code>, <code>.schem</code>, <code>.schematic</code>, <code>.nbt</code>, <code>servers.dat</code> — edit any tag and download it back in the exact same format. Byte order, compression and header are detected automatically and preserved on save.</p>
-<div class="chips">
-<span class="chip">Vanilla</span><span class="chip">Paper</span><span class="chip">Spigot</span><span class="chip">Purpur</span><span class="chip">Folia</span>
-<span class="chip">Fabric</span><span class="chip">Forge</span><span class="chip">NeoForge</span><span class="chip">Bedrock Dedicated Server</span>
-<span class="chip">PocketMine-MP</span><span class="chip">Nukkit</span><span class="chip">PowerNukkitX</span><span class="chip">Cloudburst</span>
-<span class="chip">Dragonfly</span><span class="chip">Geyser</span><span class="chip">Endstone</span><span class="chip">LeviLamina</span>
-</div>
+<h1>Minecraft NBT Editor — Online, Java &amp; Bedrock</h1>
+<p class="lede">This is a free online NBT editor for Minecraft. Drop a <code>level.dat</code>, <code>playerdata</code>, <code>.nbt</code>, <code>.mcstructure</code>, <code>.schem</code> or <code>.schematic</code> file into the box below, edit any tag in the tree, and download the file back in exactly the same binary format. Byte order, header and compression are detected automatically. Everything runs in your browser — no upload, no account, no install.</p>
+<div class="chips"><span class="chip">Vanilla</span><span class="chip">Paper</span><span class="chip">Spigot</span><span class="chip">Purpur</span><span class="chip">Folia</span><span class="chip">Fabric</span><span class="chip">Forge</span><span class="chip">NeoForge</span><span class="chip">Bedrock Dedicated Server</span><span class="chip">PocketMine-MP</span><span class="chip">Nukkit</span><span class="chip">PowerNukkitX</span><span class="chip">Cloudburst</span><span class="chip">Dragonfly</span><span class="chip">Geyser</span><span class="chip">Endstone</span><span class="chip">LeviLamina</span></div>
 </div>
 </section>
+<div id="editor">
 
 <div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="Drop an NBT file here or click to browse">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 16V4m0 0L8 8m4-4l4 4"/><path d="M20 16v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2"/></svg>
-<p>Drop any <strong>NBT file</strong> here</p>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 16V4m0 0L8 8m4-4l4 4"/><path d="M20 16v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2"/></svg>
+<p>Drop <strong>any NBT file</strong> here</p>
 <button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">Choose File</button>
-<span class="hint">level.dat &middot; .nbt &middot; .mcstructure &middot; .schem &middot; .schematic &middot; .dat &middot; .mca chunk dumps</span>
+<span class="hint">level.dat &middot; .nbt &middot; .mcstructure &middot; .schem &middot; .schematic &middot; .dat &middot; chunk dumps</span>
 <input type="file" id="fileInput">
 </div>
 
@@ -406,7 +99,7 @@ footer a{color:var(--accent)}
 </div>
 
 <div class="search-bar">
-<input type="search" id="searchInput" placeholder="Search tag name or value…" autocomplete="off" spellcheck="false">
+<input type="search" id="searchInput" placeholder="Search tag name or value…" autocomplete="off" spellcheck="false" aria-label="Search NBT tags">
 <button type="button" id="btnSearch">Search</button>
 <button type="button" id="btnCollapse">Collapse all</button>
 </div>
@@ -422,142 +115,116 @@ footer a{color:var(--accent)}
 <button class="btn-close" id="btnCloseFile" type="button">Close</button>
 </div>
 
+</div>
 <div id="contentSections">
 
-<section class="content" aria-label="Supported files and formats">
-<h2>What It Opens</h2>
-<p>NBT is one format with several encodings. This editor implements all of them, sniffs the right one from the bytes, and writes it back unchanged unless you ask for something else.</p>
+<section class="content" aria-label="Supported files">
+<h2>Every NBT file Minecraft writes</h2>
+<p>NBT (Named Binary Tag) is one format with several encodings, and every Minecraft edition, launcher and server core uses a different combination of them. This editor implements all of them and picks the right one from the bytes themselves, so you never have to know which variant a file is before you open it.</p>
 <div class="table-wrap">
 <table class="matrix">
-<thead><tr><th>File</th><th>Where it comes from</th><th>Encoding</th><th>Compression</th></tr></thead>
+<thead><tr><th>File</th><th>Comes from</th><th>Encoding</th><th>Compression</th></tr></thead>
 <tbody>
-<tr><td><code>level.dat</code></td><td>Java Edition world, Paper / Spigot / Fabric / Forge server</td><td>Big-endian, named root</td><td>gzip</td></tr>
-<tr><td><code>level.dat</code></td><td>Bedrock world, BDS, PocketMine-MP, Nukkit, PowerNukkitX</td><td>Little-endian + 8-byte header</td><td>None</td></tr>
-<tr><td><code>&lt;uuid&gt;.dat</code></td><td>Java <code>playerdata/</code> and <code>stats/</code></td><td>Big-endian</td><td>gzip</td></tr>
+<tr><td><code>level.dat</code></td><td>Java world — Vanilla, Paper, Spigot, Fabric, Forge</td><td>Big-endian, named root</td><td>gzip</td></tr>
+<tr><td><code>level.dat</code></td><td>Bedrock world — BDS, PocketMine-MP, Nukkit, MCPE</td><td>Little-endian + 8-byte header</td><td>None</td></tr>
+<tr><td><code>&lt;uuid&gt;.dat</code></td><td>Java <code>playerdata/</code></td><td>Big-endian</td><td>gzip</td></tr>
 <tr><td><code>servers.dat</code>, <code>hotbar.nbt</code></td><td>Java client</td><td>Big-endian</td><td>None</td></tr>
 <tr><td><code>idcounts.dat</code>, <code>raids.dat</code>, <code>map_*.dat</code></td><td>Java world <code>data/</code></td><td>Big-endian</td><td>gzip</td></tr>
-<tr><td><code>.nbt</code></td><td>Java structure blocks, datapack structures</td><td>Big-endian</td><td>gzip</td></tr>
-<tr><td><code>.schem</code> / <code>.schematic</code></td><td>WorldEdit, MCEdit, Sponge schematics</td><td>Big-endian</td><td>gzip</td></tr>
+<tr><td><code>.nbt</code></td><td>Structure blocks, datapack structures</td><td>Big-endian</td><td>gzip</td></tr>
+<tr><td><code>.schem</code>, <code>.schematic</code></td><td>WorldEdit, Sponge, MCEdit</td><td>Big-endian</td><td>gzip</td></tr>
 <tr><td><code>.mcstructure</code></td><td>Bedrock structure blocks</td><td>Little-endian</td><td>None</td></tr>
-<tr><td>Chunk payload</td><td>Region <code>.mca</code> extract, LevelDB value</td><td>Big-endian or little-endian</td><td>zlib or none</td></tr>
-<tr><td>Packet dump</td><td>Bedrock protocol, Java 1.20.2+ protocol</td><td>Varint little-endian / nameless big-endian</td><td>None</td></tr>
+<tr><td>Chunk payload</td><td>Region <code>.mca</code> extract, LevelDB value</td><td>Either byte order</td><td>zlib or none</td></tr>
+<tr><td>Packet dump</td><td>Bedrock protocol, Java 1.20.2+ protocol</td><td>Varint LE / nameless BE</td><td>None</td></tr>
 </tbody>
 </table>
 </div>
 </section>
 
-<section class="content" aria-label="How to Use">
-<h2>How to Use</h2>
+<section class="content" aria-label="How to use">
+<h2>How to edit an NBT file</h2>
 <div class="card">
 <ol class="steps">
-<li>Find the file. Java server: <code>world/level.dat</code>, <code>world/playerdata/&lt;uuid&gt;.dat</code>. Bedrock server: <code>worlds/YourWorld/level.dat</code>. Mobile: <code>games/com.mojang/minecraftWorlds/&lt;id&gt;/level.dat</code>.</li>
-<li>Drag it onto the editor above, or tap <strong>Choose File</strong>. The badge tells you which edition and encoding was detected.</li>
-<li>Expand the tree and tap any value to edit it inline. Search by tag name or value to jump straight to it.</li>
-<li>Use <strong>+</strong> to add tags to any compound or list, <strong>&times;</strong> to remove them.</li>
-<li>Tap <strong>Save &amp; Download</strong>. The output format and compression selects default to whatever the file arrived as — change them only if you are converting on purpose.</li>
-<li>Replace the original file (keep a backup) and restart the server or the game.</li>
+<li><strong>Get the file off the server or device.</strong> Java servers keep it in <code>world/</code>, Bedrock servers in <code>worlds/YourWorld/</code>, Android in <code>games/com.mojang/minecraftWorlds/&lt;id&gt;/</code>. Stop the server first so the file is not being written while you copy it.</li>
+<li><strong>Drop it into the editor.</strong> The badge above the tree tells you what was detected — edition, encoding, compression and, for Bedrock, the storage version from the header.</li>
+<li><strong>Edit.</strong> Tap a value to change it in place. Use search to jump to a tag by name or value, <strong>+</strong> to add tags to any compound or list, <strong>×</strong> to remove them.</li>
+<li><strong>Save &amp; Download.</strong> The output format and compression selectors default to whatever the file arrived as, so a plain edit is a byte-faithful round trip.</li>
+<li><strong>Put it back and restart.</strong> Keep the original as a backup until the world has loaded once and looks right.</li>
 </ol>
 </div>
 </section>
 
-<section class="content" aria-label="Common tasks">
-<h2>What People Fix With It</h2>
-<div class="card">
-<ul>
-<li><strong>Wrong world name after copying a folder.</strong> <code>LevelName</code> still holds the old name, so the server list and console show duplicates. Editing the tag fixes it in seconds — the editor jumps to <code>LevelName</code> automatically when it finds one.</li>
-<li><strong>Locked out of your own world.</strong> Flip <code>GameType</code> / <code>allowCommands</code>, or set <code>commandsAllowed</code> on Bedrock, without loading the world.</li>
-<li><strong>Broken spawn point.</strong> Fix <code>SpawnX</code>, <code>SpawnY</code>, <code>SpawnZ</code> when spawn ends up inside terrain.</li>
-<li><strong>Game rules.</strong> Toggle <code>keepInventory</code>, <code>doDaylightCycle</code>, <code>mobGriefing</code> and friends directly in NBT.</li>
-<li><strong>Stuck player data.</strong> Clear <code>Inventory</code>, reset <code>Pos</code>, or drop a corrupted item stack from a <code>playerdata</code> file.</li>
-<li><strong>Version pinning.</strong> Inspect <code>DataVersion</code> or Bedrock <code>lastOpenedWithVersion</code> before migrating a world between cores.</li>
-<li><strong>Structure debugging.</strong> Read palettes and block entity data inside <code>.nbt</code>, <code>.schem</code> and <code>.mcstructure</code> files.</li>
-</ul>
-</div>
-</section>
-
-<section class="content" aria-label="Supported Features">
-<h2>Supported Features</h2>
+<section class="content" aria-label="Features">
+<h2>What makes this editor different</h2>
 <div class="features-grid">
-<article class="feature-card"><h3>Every Encoding</h3><p>Java big-endian, Bedrock little-endian, Bedrock varint network NBT, and nameless-root network NBT from Java 1.20.2+.</p></article>
-<article class="feature-card"><h3>Auto Detection</h3><p>Compression, byte order, header and root naming are probed from the bytes. No dropdown guessing before you can open a file.</p></article>
-<article class="feature-card"><h3>gzip &amp; zlib</h3><p>Decompresses and recompresses in the browser with the native Compression Streams API. Round-trips Java files byte-for-byte compatible.</p></article>
-<article class="feature-card"><h3>All 13 Tag Types</h3><p>TAG_End through TAG_Long_Array, with true 64-bit BigInt precision for longs — no silent float rounding of UUIDs or seeds.</p></article>
-<article class="feature-card"><h3>Built for Big Files</h3><p>Arrays live in typed arrays, the tree renders lazily and pages through huge lists, so multi-megabyte chunk and structure NBT stays smooth.</p></article>
-<article class="feature-card"><h3>Search</h3><p>Find any tag by name or value across the whole tree and jump to it, with the path expanded for you.</p></article>
-<article class="feature-card"><h3>SNBT Export</h3><p>Dump the whole tree as SNBT (the text form used by <code>/data</code> and datapacks) for diffing, sharing or pasting into commands.</p></article>
-<article class="feature-card"><h3>Format Conversion</h3><p>Open a Bedrock file, save it as Java big-endian gzip, or the other way round. Useful for tooling, tests and protocol work.</p></article>
-<article class="feature-card"><h3>Mobile Optimized</h3><p>44px tap targets, bottom action bar, safe-area aware. Editing a server file from a phone actually works.</p></article>
-<article class="feature-card"><h3>100% Client-Side</h3><p>Files never leave your device. No upload, no account, no server round-trip — open the page once and it works offline.</p></article>
+<article class="feature-card"><h3>Five encodings, one drop zone</h3><p>Java big-endian, Bedrock little-endian, Bedrock varint network NBT, nameless-root network NBT from Java 1.20.2+, and Bedrock's headered <code>level.dat</code>. Detected, not guessed.</p></article>
+<article class="feature-card"><h3>gzip and zlib in the browser</h3><p>Decompression and recompression use the native Compression Streams API, so a Java <code>level.dat</code> round-trips into a file the game accepts unchanged.</p></article>
+<article class="feature-card"><h3>Real 64-bit longs</h3><p><code>TAG_Long</code> values are held as <code>BigInt</code>. World seeds and UUID halves survive editing instead of being mangled by floating-point rounding, which is where most browser NBT tools break.</p></article>
+<article class="feature-card"><h3>Correct string encoding</h3><p>Java writes modified UTF-8 (CESU-8), Bedrock writes standard UTF-8. The editor encodes per edition, so emoji and non-Latin world names come out intact.</p></article>
+<article class="feature-card"><h3>Built for big files</h3><p>Arrays live in typed arrays and the tree renders lazily, 200 entries at a time. A megabyte of chunk NBT opens without freezing the tab.</p></article>
+<article class="feature-card"><h3>Search across the tree</h3><p>Find any tag by name or value anywhere in the file and jump straight to it with the path expanded.</p></article>
+<article class="feature-card"><h3>SNBT export</h3><p>Dump the whole tree as SNBT — the text form used by <code>/data</code> and datapacks — for diffing, sharing or pasting into a command.</p></article>
+<article class="feature-card"><h3>Format conversion</h3><p>Read a Bedrock file, write Java big-endian gzip, or the reverse. Useful for protocol work, tests and tooling.</p></article>
+<article class="feature-card"><h3>Nothing leaves your device</h3><p>The file is read with <code>FileReader</code>, parsed in JavaScript, and handed back as an in-memory blob. No upload endpoint exists.</p></article>
 </div>
 </section>
 
 <section class="content" aria-label="Server cores">
-<h2>Works With Every Server Core</h2>
+<h2>Works with every server core</h2>
 <div class="card">
-<p><strong>Java Edition:</strong> Vanilla, CraftBukkit, Spigot, Paper, Purpur, Pufferfish, Folia, Fabric, Quilt, Forge, NeoForge, Mohist, Arclight, Leaves, Sponge. They all persist worlds with big-endian gzip NBT, so the same <code>level.dat</code> and <code>playerdata</code> layout applies.</p>
-<p><strong>Bedrock Edition:</strong> Bedrock Dedicated Server, PocketMine-MP (PMMP), Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina, plus MCPE and MCBE clients. All of them use little-endian NBT and the 8-byte <code>level.dat</code> header.</p>
-<p><strong>Proxies and bridges:</strong> Geyser, Waterdogpe, Velocity and BungeeCord move NBT over the wire rather than storing it — dumps from those sockets are network NBT, which this editor reads directly.</p>
+<p><strong>Java Edition:</strong> Vanilla, CraftBukkit, Spigot, Paper, Purpur, Pufferfish, Folia, Fabric, Quilt, Forge, NeoForge, Mohist, Arclight, Leaves and Sponge all persist worlds with big-endian gzip NBT, so the same <a href="level-dat-editor/">level.dat layout</a> applies to all of them.</p>
+<p><strong>Bedrock Edition:</strong> Bedrock Dedicated Server, <a href="pocketmine-nbt-editor/">PocketMine-MP</a>, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone and LeviLamina share the little-endian format with the 8-byte header, as do the MCPE and MCBE clients.</p>
+<p><strong>Proxies:</strong> Geyser, WaterdogPE, Velocity and BungeeCord move NBT over the wire instead of storing it. Dumps captured from those sockets are network NBT, which this editor reads directly.</p>
 </div>
 </section>
 
-<section class="content" aria-label="FAQ">
-<h2>Frequently Asked Questions</h2>
+<section class="content" aria-label="Scripting">
+<h2>Use the parser from your own code</h2>
+<p>The page exposes its engine on <code>window.NBT</code>, so the same parser that powers the UI can be driven from the browser console or reused in a userscript:</p>
+<pre class="code"><code>const bytes = new Uint8Array(await file.arrayBuffer());
+const { root, format, compression, headerVersion } = await NBT.read(bytes);
 
-<details>
-<summary>What is NBT?</summary>
-<div class="faq-body"><p>NBT (Named Binary Tag) is the binary tree format Minecraft uses for world metadata, chunks, entities, items and player data. Each tag has a type, a name and a payload, and compounds nest arbitrarily. Java Edition writes it big-endian; Bedrock Edition writes it little-endian, and over the network with varint-encoded integers.</p></div>
-</details>
+root.value.find(t =&gt; t.name === "LevelName").value = "New World";
 
-<details>
-<summary>What is level.dat?</summary>
-<div class="faq-body"><p>The main metadata file of a world: name, game mode, difficulty, spawn position, game rules, world version, seed. In Java Edition it is a gzip-compressed big-endian NBT file with everything under a <code>Data</code> compound. In Bedrock Edition it is uncompressed little-endian NBT preceded by an 8-byte header (storage version + payload length), with the tags at the root.</p></div>
-</details>
-
-<details>
-<summary>Does it work with Minecraft Java Edition?</summary>
-<div class="faq-body"><p>Yes. Drop a Java <code>level.dat</code>, <code>playerdata/&lt;uuid&gt;.dat</code>, <code>.nbt</code> structure or <code>.schem</code> and it opens. The file is decompressed, parsed big-endian, and written back gzip-compressed big-endian so the game accepts it unchanged.</p></div>
-</details>
-
-<details>
-<summary>Does it work with PocketMine-MP, Nukkit and BDS?</summary>
-<div class="faq-body"><p>Yes. Those cores share the Bedrock world format: little-endian NBT and the 8-byte <code>level.dat</code> header, which the editor reads and rewrites exactly, including the storage version field. Bedrock network NBT (varint) is supported for protocol dumps.</p></div>
-</details>
-
-<details>
-<summary>Can I convert between Java and Bedrock NBT?</summary>
-<div class="faq-body"><p>The byte encoding, yes — pick a different output format before saving and the same tag tree is re-serialized. The tag <em>content</em> differs between editions (Java nests everything under <code>Data</code>, Bedrock keeps it flat, block IDs and gamerule names differ), so a re-encoded file is not automatically a valid world for the other edition. Use it for tooling and inspection, not as a world converter.</p></div>
-</details>
-
-<details>
-<summary>Is my file uploaded to a server?</summary>
-<div class="faq-body"><p>No. The file is read with the FileReader API, parsed in JavaScript, and the download is produced from an in-memory Blob. Nothing is transmitted. The page is static and works with the network disconnected.</p></div>
-</details>
-
-<details>
-<summary>How large a file can it handle?</summary>
-<div class="faq-body"><p>Arrays are kept in typed arrays instead of JS arrays, and the tree only builds DOM for nodes you actually expand, paging 200 entries at a time. Multi-megabyte structure and chunk NBT opens fine; the practical limit is your device memory.</p></div>
-</details>
-
-<details>
-<summary>What if I break my file?</summary>
-<div class="faq-body"><p>Keep a backup before you edit — the editor never touches your original, it only produces a new download, so a copy of the old file is always a valid rollback. If a value is out of range for its tag type the editor rejects it instead of writing a corrupt file.</p></div>
-</details>
-
-<details>
-<summary>Can I use this on a phone?</summary>
-<div class="faq-body"><p>Yes. The layout is mobile-first with large tap targets, a fixed action bar and safe-area padding. On Android you can pick world files straight from a file manager; on iOS you need the file in the Files app first because of sandboxing.</p></div>
-</details>
+const out = await NBT.write(root, format, { compression, headerVersion });</code></pre>
+<p>Tags are plain objects — <code>{ type, name, value, listType }</code> — arrays are <code>Int8Array</code>, <code>Int32Array</code> and <code>BigInt64Array</code>, and longs are <code>BigInt</code>. The full <a href="nbt-format/">NBT format reference</a> documents every tag type and how each encoding differs.</p>
 </section>
 
+<section class="content" aria-label="Frequently asked questions"><h2>Frequently Asked Questions</h2><details><summary>Is this NBT editor free?</summary><div class="faq-body"><p>Yes, and open source under the MIT licence. There is no paid tier, no sign-up and no upload quota, because there is no server component at all — the whole editor is one static page plus two asset files.</p></div></details><details><summary>Does it work with Java Edition and Bedrock Edition?</summary><div class="faq-body"><p>Both. Java Edition files are big-endian and usually gzip-compressed; Bedrock files are little-endian, and <code>level.dat</code> carries an extra 8-byte header. The editor detects which one it received and writes the same variant back on save.</p></div></details><details><summary>Is my world file uploaded anywhere?</summary><div class="faq-body"><p>No. The file is read locally with the FileReader API and the download is produced from an in-memory blob. Once the page has loaded you can disconnect from the network and it still works.</p></div></details><details><summary>Can I use it on Android or iOS?</summary><div class="faq-body"><p>Yes. The layout is mobile-first with 44&nbsp;px tap targets and a fixed action bar. On Android you can pick a world file straight out of a file manager; on iOS the file has to be in the Files app first because of sandboxing.</p></div></details><details><summary>What is the difference between NBT and SNBT?</summary><div class="faq-body"><p>NBT is the binary encoding Minecraft stores on disk. SNBT is its text form, the syntax you type into commands like <code>/data merge</code>. This editor reads binary NBT and can export SNBT, which makes it easy to diff two files or paste a structure into a command.</p></div></details><details><summary>Which tools does this replace?</summary><div class="faq-body"><p>Desktop NBT editors such as NBTExplorer, plus the various single-purpose web tools that only handle one edition. See the <a href="nbtexplorer-online/">NBTExplorer online comparison</a> for what carries over and what does not.</p></div></details></section>
+<section class="content" aria-label="Related tools"><h2>Related tools</h2><div class="rel-grid"><a class="rel-card" href="level-dat-editor/"><strong>level.dat editor</strong><span>World name, game mode, spawn, difficulty and game rules.</span></a><a class="rel-card" href="java-nbt-editor/"><strong>Java Edition NBT editor</strong><span>Big-endian, gzip — Vanilla, Paper, Spigot, Fabric, Forge.</span></a><a class="rel-card" href="bedrock-nbt-editor/"><strong>Bedrock NBT editor</strong><span>Little-endian NBT and the 8-byte level.dat header.</span></a><a class="rel-card" href="nbt-format/"><strong>NBT format reference</strong><span>All 13 tag types, every encoding, byte by byte.</span></a><a class="rel-card" href="mcstructure-editor/"><strong>.mcstructure editor</strong><span>Bedrock structure blocks: palette, size, block entities.</span></a><a class="rel-card" href="guides/change-world-name/"><strong>Rename a world</strong><span>Fix LevelName after copying a world folder.</span></a></div></section>
 </div>
-
 </main>
 
 <footer class="site-footer">
-<p>Minecraft NBT Editor &mdash; open source on <a href="https://github.com/w1zardz/bedrock-nbt-editor" target="_blank" rel="noopener">GitHub</a>. Java &amp; Bedrock, no upload, no account. Not affiliated with Mojang or Microsoft.</p>
+<div class="container footer-grid">
+<div>
+<h4>Editors</h4>
+<a href="">Minecraft NBT editor</a>
+<a href="level-dat-editor/">level.dat editor</a>
+<a href="java-nbt-editor/">Java Edition NBT editor</a>
+<a href="bedrock-nbt-editor/">Bedrock NBT editor</a>
+<a href="pocketmine-nbt-editor/">PocketMine-MP editor</a>
+</div>
+<div>
+<h4>File types</h4>
+<a href="mcstructure-editor/">.mcstructure editor</a>
+<a href="schematic-editor/">.schem / .schematic editor</a>
+<a href="playerdata-editor/">playerdata editor</a>
+<a href="nbt-viewer/">NBT viewer</a>
+<a href="nbtexplorer-online/">NBTExplorer online</a>
+</div>
+<div>
+<h4>Reference</h4>
+<a href="nbt-format/">NBT format spec</a>
+<a href="guides/change-world-name/">Rename a world</a>
+<a href="guides/fix-corrupted-level-dat/">Fix a broken level.dat</a>
+<a href="guides/edit-gamerules/">Edit game rules</a>
+<a href="https://github.com/w1zardz/minecraft-nbt-editor" rel="noopener">Source on GitHub</a>
+</div>
+</div>
+<p class="footer-note">Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
 </footer>
 
-<div class="toast-container" id="toastContainer"></div>
+<div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
 <div class="modal-overlay" id="addTagModal">
 <div class="modal">
@@ -616,1240 +283,7 @@ footer a{color:var(--accent)}
 </div>
 </div>
 </div>
-<script>
-(function(){
-"use strict";
 
-/* =====================================================================
-   Minecraft NBT — universal engine
-   Encodings:
-     java            big-endian, named root            (Vanilla/Paper/Spigot/Fabric/Forge)
-     java-network    big-endian, nameless root         (Java 1.20.2+ protocol)
-     bedrock-level   little-endian + 8-byte header     (Bedrock level.dat, BDS/PMMP/Nukkit)
-     bedrock         little-endian, named root         (.mcstructure, LevelDB values)
-     bedrock-network little-endian varint, named root  (Bedrock protocol)
-   Compression: none | gzip | zlib
-   ===================================================================== */
-
-const TAG={END:0,BYTE:1,SHORT:2,INT:3,LONG:4,FLOAT:5,DOUBLE:6,BYTE_ARRAY:7,STRING:8,LIST:9,COMPOUND:10,INT_ARRAY:11,LONG_ARRAY:12};
-const TAG_NAMES={0:"End",1:"Byte",2:"Short",3:"Int",4:"Long",5:"Float",6:"Double",7:"Byte[]",8:"String",9:"List",10:"Compound",11:"Int[]",12:"Long[]"};
-const TAG_SNBT_SUFFIX={1:"b",2:"s",3:"",4:"L",5:"f",6:"d"};
-const PLATFORM_LE=new Uint8Array(new Uint32Array([1]).buffer)[0]===1;
-
-const FORMATS={
-  "java":{le:false,varint:false,rootless:false,header:false,edition:"java",label:"Java big-endian"},
-  "java-network":{le:false,varint:false,rootless:true,header:false,edition:"java",label:"Java network (nameless root)"},
-  "bedrock-level":{le:true,varint:false,rootless:false,header:true,edition:"bedrock",label:"Bedrock level.dat (8-byte header)"},
-  "bedrock":{le:true,varint:false,rootless:false,header:false,edition:"bedrock",label:"Bedrock little-endian"},
-  "bedrock-network":{le:true,varint:true,rootless:false,header:false,edition:"bedrock",label:"Bedrock network (varint)"}
-};
-/* probe order: most specific first */
-const PROBE_ORDER=["bedrock-level","java","bedrock","bedrock-network","java-network"];
-
-/* ===== STRING CODEC =====
-   Java writes modified UTF-8 (CESU-8: astral chars as two 3-byte halves, NUL as C0 80).
-   Bedrock writes standard UTF-8. The decoder accepts both; the encoder picks per format. */
-const utf8Decoder=new TextDecoder("utf-8");
-const utf8Encoder=new TextEncoder();
-
-function decodeString(bytes){
-  let ascii=true;
-  for(let i=0;i<bytes.length;i++){if(bytes[i]>=0x80){ascii=false;break}}
-  if(ascii)return utf8Decoder.decode(bytes);
-  let out="",i=0;
-  const n=bytes.length;
-  while(i<n){
-    const b=bytes[i];
-    if(b<0x80){out+=String.fromCharCode(b);i+=1}
-    else if((b&0xe0)===0xc0){
-      if(i+1>=n)break;
-      out+=String.fromCharCode(((b&0x1f)<<6)|(bytes[i+1]&0x3f));i+=2;
-    }else if((b&0xf0)===0xe0){
-      if(i+2>=n)break;
-      out+=String.fromCharCode(((b&0x0f)<<12)|((bytes[i+1]&0x3f)<<6)|(bytes[i+2]&0x3f));i+=3;
-    }else if((b&0xf8)===0xf0){
-      if(i+3>=n)break;
-      const cp=((b&0x07)<<18)|((bytes[i+1]&0x3f)<<12)|((bytes[i+2]&0x3f)<<6)|(bytes[i+3]&0x3f);
-      out+=String.fromCodePoint(cp);i+=4;
-    }else{out+="�";i+=1}
-  }
-  return out;
-}
-
-/* standard UTF-8 (Bedrock) */
-function encodeStringUTF8(s){return utf8Encoder.encode(s)}
-
-/* modified UTF-8 / CESU-8 (Java) */
-function encodeStringMUTF8(s){
-  let len=0;
-  for(let i=0;i<s.length;i++){
-    const c=s.charCodeAt(i);
-    if(c>=0x0001&&c<=0x007f)len+=1;
-    else if(c<=0x07ff)len+=2;
-    else len+=3;
-  }
-  const out=new Uint8Array(len);
-  let p=0;
-  for(let i=0;i<s.length;i++){
-    const c=s.charCodeAt(i);
-    if(c>=0x0001&&c<=0x007f)out[p++]=c;
-    else if(c<=0x07ff){out[p++]=0xc0|(c>>6);out[p++]=0x80|(c&0x3f)}
-    else{out[p++]=0xe0|(c>>12);out[p++]=0x80|((c>>6)&0x3f);out[p++]=0x80|(c&0x3f)}
-  }
-  return out;
-}
-
-/* ===== COMPRESSION ===== */
-function sniffCompression(bytes){
-  if(bytes.length>=2&&bytes[0]===0x1f&&bytes[1]===0x8b)return "gzip";
-  if(bytes.length>=2&&(bytes[0]&0x0f)===0x08&&(((bytes[0]<<8)|bytes[1])%31)===0)return "zlib";
-  return "none";
-}
-function streamsSupported(){return typeof DecompressionStream!=="undefined"&&typeof CompressionStream!=="undefined"}
-
-async function runStream(bytes,stream){
-  const blob=new Blob([bytes]);
-  const out=blob.stream().pipeThrough(stream);
-  const chunks=[];let total=0;
-  const reader=out.getReader();
-  for(;;){
-    const r=await reader.read();
-    if(r.done)break;
-    chunks.push(r.value);total+=r.value.length;
-  }
-  const res=new Uint8Array(total);
-  let off=0;
-  for(const c of chunks){res.set(c,off);off+=c.length}
-  return res;
-}
-async function decompressBytes(bytes,kind){
-  if(kind==="none")return bytes;
-  if(!streamsSupported())throw new Error("This browser cannot decompress "+kind+" (Compression Streams API missing)");
-  return runStream(bytes,new DecompressionStream(kind==="gzip"?"gzip":"deflate"));
-}
-async function compressBytes(bytes,kind){
-  if(kind==="none")return bytes;
-  if(!streamsSupported())throw new Error("This browser cannot compress "+kind+" (Compression Streams API missing)");
-  return runStream(bytes,new CompressionStream(kind==="gzip"?"gzip":"deflate"));
-}
-
-/* ===== READER ===== */
-class NBTReader{
-  constructor(bytes,opts){
-    this.bytes=bytes;
-    this.view=new DataView(bytes.buffer,bytes.byteOffset,bytes.byteLength);
-    this.off=0;
-    this.le=!!opts.le;
-    this.varint=!!opts.varint;
-    this.nodes=0;
-    this.maxNodes=opts.maxNodes||8000000;
-  }
-  need(n){
-    if(n<0||this.off+n>this.bytes.length)throw new Error("Unexpected end of data at offset "+this.off);
-  }
-  tick(){if(++this.nodes>this.maxNodes)throw new Error("Tag count limit exceeded")}
-  readByte(){this.need(1);return this.view.getInt8(this.off++)}
-  readUByte(){this.need(1);return this.view.getUint8(this.off++)}
-  readShort(){this.need(2);const v=this.view.getInt16(this.off,this.le);this.off+=2;return v}
-  readUShort(){this.need(2);const v=this.view.getUint16(this.off,this.le);this.off+=2;return v}
-  readRawInt(){this.need(4);const v=this.view.getInt32(this.off,this.le);this.off+=4;return v}
-  readRawLong(){this.need(8);const v=this.view.getBigInt64(this.off,this.le);this.off+=8;return v}
-  readUVarInt(){
-    let result=0,shift=0;
-    for(let i=0;i<5;i++){
-      this.need(1);
-      const b=this.bytes[this.off++];
-      result|=(b&0x7f)<<shift;
-      if((b&0x80)===0)return result>>>0;
-      shift+=7;
-    }
-    throw new Error("VarInt too long");
-  }
-  readVarInt(){
-    const raw=this.readUVarInt();
-    return (raw>>>1)^-(raw&1);
-  }
-  readUVarLong(){
-    let result=0n,shift=0n;
-    for(let i=0;i<10;i++){
-      this.need(1);
-      const b=BigInt(this.bytes[this.off++]);
-      result|=(b&0x7fn)<<shift;
-      if((b&0x80n)===0n)return BigInt.asUintN(64,result);
-      shift+=7n;
-    }
-    throw new Error("VarLong too long");
-  }
-  readVarLong(){
-    const raw=this.readUVarLong();
-    return BigInt.asIntN(64,(raw>>1n)^-(raw&1n));
-  }
-  readInt(){return this.varint?this.readVarInt():this.readRawInt()}
-  readLong(){return this.varint?this.readVarLong():this.readRawLong()}
-  readFloat(){this.need(4);const v=this.view.getFloat32(this.off,this.le);this.off+=4;return v}
-  readDouble(){this.need(8);const v=this.view.getFloat64(this.off,this.le);this.off+=8;return v}
-  readString(){
-    const len=this.varint?this.readUVarInt():this.readUShort();
-    this.need(len);
-    const slice=this.bytes.subarray(this.off,this.off+len);
-    this.off+=len;
-    return decodeString(slice);
-  }
-  readLength(elemSize){
-    const len=this.readInt();
-    if(len<0)throw new Error("Negative array length: "+len);
-    if(len*elemSize>this.bytes.length-this.off)throw new Error("Array length "+len+" exceeds remaining data");
-    return len;
-  }
-  readByteArray(){
-    const len=this.readLength(1);
-    const arr=new Int8Array(this.bytes.buffer.slice(this.bytes.byteOffset+this.off,this.bytes.byteOffset+this.off+len));
-    this.off+=len;
-    return arr;
-  }
-  readIntArray(){
-    const len=this.readLength(4);
-    let arr;
-    if(!this.varint&&this.le===PLATFORM_LE){
-      arr=new Int32Array(this.bytes.buffer.slice(this.bytes.byteOffset+this.off,this.bytes.byteOffset+this.off+len*4));
-      this.off+=len*4;
-    }else{
-      arr=new Int32Array(len);
-      for(let i=0;i<len;i++)arr[i]=this.readInt();
-    }
-    return arr;
-  }
-  readLongArray(){
-    const len=this.readLength(8);
-    let arr;
-    if(!this.varint&&this.le===PLATFORM_LE){
-      arr=new BigInt64Array(this.bytes.buffer.slice(this.bytes.byteOffset+this.off,this.bytes.byteOffset+this.off+len*8));
-      this.off+=len*8;
-    }else{
-      arr=new BigInt64Array(len);
-      for(let i=0;i<len;i++)arr[i]=this.readLong();
-    }
-    return arr;
-  }
-  readTag(type){
-    this.tick();
-    switch(type){
-      case TAG.BYTE:return{type:type,value:this.readByte()};
-      case TAG.SHORT:return{type:type,value:this.readShort()};
-      case TAG.INT:return{type:type,value:this.readInt()};
-      case TAG.LONG:return{type:type,value:this.readLong()};
-      case TAG.FLOAT:return{type:type,value:this.readFloat()};
-      case TAG.DOUBLE:return{type:type,value:this.readDouble()};
-      case TAG.BYTE_ARRAY:return{type:type,value:this.readByteArray()};
-      case TAG.STRING:return{type:type,value:this.readString()};
-      case TAG.LIST:{
-        const listType=this.readUByte();
-        const len=this.readInt();
-        if(len<0)throw new Error("Negative list length");
-        if(listType===TAG.END&&len>0)throw new Error("List of TAG_End with "+len+" entries");
-        if(listType>12)throw new Error("Unknown list element type: "+listType);
-        const items=new Array(len);
-        for(let i=0;i<len;i++)items[i]=this.readTag(listType);
-        return{type:type,listType:listType,value:items};
-      }
-      case TAG.COMPOUND:{
-        const entries=[];
-        for(;;){
-          const t=this.readUByte();
-          if(t===TAG.END)break;
-          if(t>12)throw new Error("Unknown tag type: "+t);
-          const name=this.readString();
-          const tag=this.readTag(t);
-          tag.name=name;
-          entries.push(tag);
-        }
-        return{type:type,value:entries};
-      }
-      case TAG.INT_ARRAY:return{type:type,value:this.readIntArray()};
-      case TAG.LONG_ARRAY:return{type:type,value:this.readLongArray()};
-      default:throw new Error("Unknown tag type: "+type);
-    }
-  }
-  parseRoot(rootless){
-    const rootType=this.readUByte();
-    if(rootType!==TAG.COMPOUND)throw new Error("Root tag must be TAG_Compound, got "+rootType);
-    const name=rootless?"":this.readString();
-    const root=this.readTag(TAG.COMPOUND);
-    root.name=name;
-    return root;
-  }
-}
-
-/* ===== WRITER ===== */
-class NBTWriter{
-  constructor(opts){
-    this.le=!!opts.le;
-    this.varint=!!opts.varint;
-    this.mutf8=!!opts.mutf8;
-    this.buf=new Uint8Array(65536);
-    this.view=new DataView(this.buf.buffer);
-    this.off=0;
-  }
-  ensure(n){
-    if(this.off+n<=this.buf.length)return;
-    let cap=this.buf.length*2;
-    while(cap<this.off+n)cap*=2;
-    const nb=new Uint8Array(cap);
-    nb.set(this.buf.subarray(0,this.off));
-    this.buf=nb;
-    this.view=new DataView(nb.buffer);
-  }
-  writeByte(v){this.ensure(1);this.view.setInt8(this.off++,v)}
-  writeUByte(v){this.ensure(1);this.buf[this.off++]=v&0xff}
-  writeShort(v){this.ensure(2);this.view.setInt16(this.off,v,this.le);this.off+=2}
-  writeUShort(v){this.ensure(2);this.view.setUint16(this.off,v,this.le);this.off+=2}
-  writeRawInt(v){this.ensure(4);this.view.setInt32(this.off,v,this.le);this.off+=4}
-  writeRawLong(v){this.ensure(8);this.view.setBigInt64(this.off,BigInt(v),this.le);this.off+=8}
-  writeUVarInt(v){
-    let x=v>>>0;
-    this.ensure(5);
-    for(;;){
-      if((x&~0x7f)===0){this.buf[this.off++]=x;return}
-      this.buf[this.off++]=(x&0x7f)|0x80;
-      x>>>=7;
-    }
-  }
-  writeVarInt(v){this.writeUVarInt(((v<<1)^(v>>31))>>>0)}
-  writeUVarLong(v){
-    let x=BigInt.asUintN(64,BigInt(v));
-    this.ensure(10);
-    for(;;){
-      if((x&~0x7fn)===0n){this.buf[this.off++]=Number(x);return}
-      this.buf[this.off++]=Number(x&0x7fn)|0x80;
-      x>>=7n;
-    }
-  }
-  writeVarLong(v){
-    const b=BigInt.asIntN(64,BigInt(v));
-    this.writeUVarLong(BigInt.asUintN(64,(b<<1n)^(b>>63n)));
-  }
-  writeInt(v){this.varint?this.writeVarInt(v|0):this.writeRawInt(v)}
-  writeLong(v){this.varint?this.writeVarLong(v):this.writeRawLong(v)}
-  writeFloat(v){this.ensure(4);this.view.setFloat32(this.off,v,this.le);this.off+=4}
-  writeDouble(v){this.ensure(8);this.view.setFloat64(this.off,v,this.le);this.off+=8}
-  writeString(s){
-    const bytes=this.mutf8?encodeStringMUTF8(s):encodeStringUTF8(s);
-    if(this.varint)this.writeUVarInt(bytes.length);
-    else{
-      if(bytes.length>65535)throw new Error("String too long for this format: "+bytes.length+" bytes");
-      this.writeUShort(bytes.length);
-    }
-    this.ensure(bytes.length);
-    this.buf.set(bytes,this.off);
-    this.off+=bytes.length;
-  }
-  writeTag(tag){
-    switch(tag.type){
-      case TAG.BYTE:this.writeByte(tag.value);break;
-      case TAG.SHORT:this.writeShort(tag.value);break;
-      case TAG.INT:this.writeInt(tag.value);break;
-      case TAG.LONG:this.writeLong(tag.value);break;
-      case TAG.FLOAT:this.writeFloat(tag.value);break;
-      case TAG.DOUBLE:this.writeDouble(tag.value);break;
-      case TAG.BYTE_ARRAY:{
-        const a=tag.value;
-        this.writeInt(a.length);
-        this.ensure(a.length);
-        this.buf.set(new Uint8Array(a.buffer,a.byteOffset,a.length),this.off);
-        this.off+=a.length;
-        break;
-      }
-      case TAG.STRING:this.writeString(tag.value);break;
-      case TAG.LIST:{
-        const items=tag.value;
-        const lt=items.length?items[0].type:(tag.listType||TAG.END);
-        this.writeUByte(lt);
-        this.writeInt(items.length);
-        for(let i=0;i<items.length;i++)this.writeTag(items[i]);
-        break;
-      }
-      case TAG.COMPOUND:{
-        const entries=tag.value;
-        for(let i=0;i<entries.length;i++){
-          this.writeUByte(entries[i].type);
-          this.writeString(entries[i].name||"");
-          this.writeTag(entries[i]);
-        }
-        this.writeUByte(TAG.END);
-        break;
-      }
-      case TAG.INT_ARRAY:{
-        const a=tag.value;
-        this.writeInt(a.length);
-        if(!this.varint&&this.le===PLATFORM_LE){
-          this.ensure(a.length*4);
-          this.buf.set(new Uint8Array(a.buffer,a.byteOffset,a.length*4),this.off);
-          this.off+=a.length*4;
-        }else{
-          for(let i=0;i<a.length;i++)this.writeInt(a[i]);
-        }
-        break;
-      }
-      case TAG.LONG_ARRAY:{
-        const a=tag.value;
-        this.writeInt(a.length);
-        if(!this.varint&&this.le===PLATFORM_LE){
-          this.ensure(a.length*8);
-          this.buf.set(new Uint8Array(a.buffer,a.byteOffset,a.length*8),this.off);
-          this.off+=a.length*8;
-        }else{
-          for(let i=0;i<a.length;i++)this.writeLong(a[i]);
-        }
-        break;
-      }
-      default:throw new Error("Cannot write tag type "+tag.type);
-    }
-  }
-  writeRoot(root,rootless){
-    this.writeUByte(TAG.COMPOUND);
-    if(!rootless)this.writeString(root.name||"");
-    this.writeTag(root);
-  }
-  bytes(){return this.buf.subarray(0,this.off)}
-}
-
-/* ===== SERIALIZE / PARSE FRONT-ENDS ===== */
-function parseWithFormat(bytes,formatId){
-  const f=FORMATS[formatId];
-  let payload=bytes,headerVersion=null;
-  if(f.header){
-    if(bytes.length<8)throw new Error("Too short for a header");
-    const hv=new DataView(bytes.buffer,bytes.byteOffset,8);
-    headerVersion=hv.getInt32(0,true);
-    const declared=hv.getUint32(4,true);
-    if(headerVersion<0||headerVersion>1000)throw new Error("Implausible storage version: "+headerVersion);
-    if(declared!==bytes.length-8&&declared>bytes.length-8)throw new Error("Header length "+declared+" exceeds payload");
-    payload=bytes.subarray(8);
-  }
-  const reader=new NBTReader(payload,{le:f.le,varint:f.varint});
-  const root=reader.parseRoot(f.rootless);
-  return{root:root,headerVersion:headerVersion,consumed:reader.off,total:payload.length};
-}
-
-function detectFormat(bytes){
-  let best=null;
-  for(const id of PROBE_ORDER){
-    try{
-      const r=parseWithFormat(bytes,id);
-      const score=r.consumed/Math.max(1,r.total);
-      if(r.consumed===r.total)return{formatId:id,result:r,exact:true};
-      if(!best||score>best.score)best={formatId:id,result:r,score:score,exact:false};
-    }catch(e){/* not this format */}
-  }
-  if(best&&best.score>=0.5)return best;
-  throw new Error("Not a recognizable NBT file (tried Java, Bedrock, network and header variants)");
-}
-
-function serialize(root,formatId,headerVersion){
-  const f=FORMATS[formatId];
-  const w=new NBTWriter({le:f.le,varint:f.varint,mutf8:f.edition==="java"});
-  w.writeRoot(root,f.rootless);
-  const nbt=w.bytes();
-  if(!f.header)return nbt.slice();
-  const out=new Uint8Array(8+nbt.length);
-  const dv=new DataView(out.buffer);
-  dv.setInt32(0,headerVersion==null?8:headerVersion,true);
-  dv.setUint32(4,nbt.length,true);
-  out.set(nbt,8);
-  return out;
-}
-
-/* ===== SNBT ===== */
-const SNBT_BARE=/^[A-Za-z0-9._+-]+$/;
-function snbtString(s){
-  return '"'+s.replace(/\\/g,"\\\\").replace(/"/g,'\\"')+'"';
-}
-function snbtKey(k){return SNBT_BARE.test(k)?k:snbtString(k)}
-function toSNBT(tag,indent){
-  const pad=indent==null?"":indent;
-  const nl=indent==null?"":"\n";
-  const step=indent==null?"":"  ";
-  function walk(t,depth){
-    const cur=indent==null?"":pad+step.repeat(depth);
-    const inner=indent==null?"":pad+step.repeat(depth+1);
-    switch(t.type){
-      case TAG.BYTE:case TAG.SHORT:case TAG.INT:case TAG.LONG:
-        return String(t.value)+TAG_SNBT_SUFFIX[t.type];
-      case TAG.FLOAT:case TAG.DOUBLE:{
-        let s=String(t.value);
-        if(!/[.eE]/.test(s))s+=".0";
-        return s+TAG_SNBT_SUFFIX[t.type];
-      }
-      case TAG.STRING:return snbtString(t.value);
-      case TAG.BYTE_ARRAY:return "[B;"+Array.prototype.join.call(t.value,"b,")+(t.value.length?"b":"")+"]";
-      case TAG.INT_ARRAY:return "[I;"+Array.prototype.join.call(t.value,",")+"]";
-      case TAG.LONG_ARRAY:return "[L;"+Array.prototype.join.call(t.value,"L,")+(t.value.length?"L":"")+"]";
-      case TAG.LIST:{
-        if(!t.value.length)return "[]";
-        const parts=t.value.map(function(c){return inner+walk(c,depth+1)});
-        return "["+nl+parts.join(","+nl)+nl+cur+"]";
-      }
-      case TAG.COMPOUND:{
-        if(!t.value.length)return "{}";
-        const parts=t.value.map(function(c){return inner+snbtKey(c.name||"")+":"+walk(c,depth+1)});
-        return "{"+nl+parts.join(","+nl)+nl+cur+"}";
-      }
-      default:return "";
-    }
-  }
-  return walk(tag,0);
-}
-
-/* ===== STATE ===== */
-let currentRoot=null;
-let srcFormat="bedrock-level";
-let srcCompression="none";
-let headerVersion=8;
-let fileName="level.dat";
-let fileSize=0;
-let addTargetTag=null;
-let addTargetWrapper=null;
-let arrayTargetTag=null;
-let arrayTargetEl=null;
-let rootWrapper=null;
-
-const PAGE_SIZE=200;
-const ARRAY_TEXT_LIMIT=100000;
-
-/* ===== DOM REFS ===== */
-const dropZone=document.getElementById("dropZone");
-const fileInput=document.getElementById("fileInput");
-const editorArea=document.getElementById("editorArea");
-const fileInfo=document.getElementById("fileInfo");
-const treeRoot=document.getElementById("treeRoot");
-const bottomBar=document.getElementById("bottomBar");
-const toastContainer=document.getElementById("toastContainer");
-const addTagModal=document.getElementById("addTagModal");
-const arrayModal=document.getElementById("arrayModal");
-const contentSections=document.getElementById("contentSections");
-const outFormat=document.getElementById("outFormat");
-const outCompression=document.getElementById("outCompression");
-const searchInput=document.getElementById("searchInput");
-const searchResults=document.getElementById("searchResults");
-
-/* ===== TOAST ===== */
-function toast(msg,type){
-  const el=document.createElement("div");
-  el.className="toast "+(type||"info");
-  el.textContent=msg;
-  toastContainer.appendChild(el);
-  setTimeout(function(){
-    el.style.opacity="0";el.style.transition="opacity .3s";
-    setTimeout(function(){el.remove()},300);
-  },3400);
-}
-function escHtml(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}
-function formatBytes(n){
-  if(n<1024)return n+" B";
-  if(n<1024*1024)return (n/1024).toFixed(1)+" KB";
-  return (n/1048576).toFixed(2)+" MB";
-}
-
-/* ===== FILE LOADING ===== */
-function loadFile(file){
-  fileName=file.name||"data.nbt";
-  fileSize=file.size;
-  const reader=new FileReader();
-  reader.onerror=function(){toast("Could not read the file","error")};
-  reader.onload=function(e){
-    openBuffer(new Uint8Array(e.target.result));
-  };
-  reader.readAsArrayBuffer(file);
-}
-
-async function openBuffer(raw){
-  try{
-    if(raw.length<4)throw new Error("File is too small to contain NBT data");
-    srcCompression=sniffCompression(raw);
-    const bytes=await decompressBytes(raw,srcCompression);
-    const det=detectFormat(bytes);
-    srcFormat=det.formatId;
-    headerVersion=det.result.headerVersion==null?8:det.result.headerVersion;
-    currentRoot=det.result.root;
-    outFormat.value=srcFormat;
-    outCompression.value=srcCompression;
-    showEditor();
-    const trailing=det.result.total-det.result.consumed;
-    toast("Loaded as "+FORMATS[srcFormat].label+(srcCompression!=="none"?" / "+srcCompression:""),"success");
-    if(trailing>0)toast(trailing+" trailing byte(s) after the root tag were ignored","info");
-  }catch(err){
-    console.error(err);
-    toast("Error: "+err.message,"error");
-  }
-}
-
-/* ===== EDITOR SHELL ===== */
-function showEditor(){
-  editorArea.classList.add("visible");
-  bottomBar.classList.add("visible");
-  contentSections.classList.add("hidden");
-  renderFileInfo();
-  renderTree();
-  const jump=findTagPath(function(t){return t.name==="LevelName"&&t.type===TAG.STRING});
-  if(jump){
-    const btn=document.createElement("button");
-    btn.className="ln-jump";
-    btn.type="button";
-    btn.textContent="✎ Edit LevelName";
-    btn.addEventListener("click",function(){revealPath(jump,true)});
-    fileInfo.appendChild(btn);
-    setTimeout(function(){revealPath(jump,true)},80);
-  }
-}
-
-function renderFileInfo(){
-  const f=FORMATS[srcFormat];
-  fileInfo.innerHTML=
-    '<span class="fmt-badge '+f.edition+'">'+(f.edition==="java"?"Java":"Bedrock")+'</span>'+
-    '<span class="fname">'+escHtml(fileName)+'</span>'+
-    '<span class="fmeta">'+escHtml(f.label)+
-    (srcCompression!=="none"?" &middot; "+srcCompression:" &middot; uncompressed")+
-    (f.header?" &middot; storage v"+headerVersion:"")+
-    " &middot; "+formatBytes(fileSize)+'</span>';
-}
-
-function closeEditor(){
-  currentRoot=null;
-  rootWrapper=null;
-  editorArea.classList.remove("visible");
-  bottomBar.classList.remove("visible");
-  contentSections.classList.remove("hidden");
-  treeRoot.innerHTML="";
-  searchResults.classList.remove("visible");
-  searchResults.innerHTML="";
-  searchInput.value="";
-  fileInput.value="";
-}
-
-/* ===== VALUE HELPERS ===== */
-function isContainer(tag){return tag.type===TAG.COMPOUND||tag.type===TAG.LIST}
-function isArrayTag(tag){return tag.type===TAG.BYTE_ARRAY||tag.type===TAG.INT_ARRAY||tag.type===TAG.LONG_ARRAY}
-function isEditable(tag){return!isContainer(tag)&&!isArrayTag(tag)}
-function arrayElemType(tag){
-  return tag.type===TAG.BYTE_ARRAY?TAG.BYTE:(tag.type===TAG.INT_ARRAY?TAG.INT:TAG.LONG);
-}
-function childCount(tag){
-  if(isContainer(tag)||isArrayTag(tag))return tag.value.length;
-  return 0;
-}
-function formatValue(tag){
-  switch(tag.type){
-    case TAG.BYTE:case TAG.SHORT:case TAG.INT:case TAG.LONG:case TAG.FLOAT:case TAG.DOUBLE:
-      return String(tag.value);
-    case TAG.STRING:return '"'+tag.value+'"';
-    case TAG.BYTE_ARRAY:return "["+tag.value.length+" bytes]";
-    case TAG.INT_ARRAY:return "["+tag.value.length+" ints]";
-    case TAG.LONG_ARRAY:return "["+tag.value.length+" longs]";
-    case TAG.LIST:return tag.value.length+" "+(tag.value.length===1?"entry":"entries")+
-      (tag.value.length?" of "+(TAG_NAMES[tag.listType]||"?"):"");
-    case TAG.COMPOUND:return tag.value.length+" "+(tag.value.length===1?"entry":"entries");
-    default:return "";
-  }
-}
-function applyValue(tag,str){
-  switch(tag.type){
-    case TAG.BYTE:{const n=parseInt(str,10);if(isNaN(n)||n<-128||n>255)throw new Error("Byte must be -128..127");tag.value=n>127?n-256:n;break}
-    case TAG.SHORT:{const n=parseInt(str,10);if(isNaN(n)||n<-32768||n>32767)throw new Error("Short must be -32768..32767");tag.value=n;break}
-    case TAG.INT:{const n=parseInt(str,10);if(isNaN(n)||n<-2147483648||n>2147483647)throw new Error("Int must be -2147483648..2147483647");tag.value=n;break}
-    case TAG.LONG:{const b=BigInt(str.trim());if(b<-(2n**63n)||b>2n**63n-1n)throw new Error("Long out of 64-bit range");tag.value=b;break}
-    case TAG.FLOAT:{const n=parseFloat(str);if(isNaN(n))throw new Error("Invalid float");tag.value=Math.fround(n);break}
-    case TAG.DOUBLE:{const n=parseFloat(str);if(isNaN(n))throw new Error("Invalid double");tag.value=n;break}
-    case TAG.STRING:tag.value=str;break;
-    default:throw new Error("This tag type is not editable inline");
-  }
-}
-function parseArrayText(type,text){
-  const parts=text.split(/[,\s]+/).map(function(s){return s.trim()}).filter(function(s){return s!==""});
-  if(type===TAG.BYTE_ARRAY){
-    const a=new Int8Array(parts.length);
-    for(let i=0;i<parts.length;i++){
-      const n=parseInt(parts[i],10);
-      if(isNaN(n)||n<-128||n>255)throw new Error("Invalid byte: "+parts[i]);
-      a[i]=n;
-    }
-    return a;
-  }
-  if(type===TAG.INT_ARRAY){
-    const a=new Int32Array(parts.length);
-    for(let i=0;i<parts.length;i++){
-      const n=parseInt(parts[i],10);
-      if(isNaN(n))throw new Error("Invalid int: "+parts[i]);
-      a[i]=n;
-    }
-    return a;
-  }
-  const a=new BigInt64Array(parts.length);
-  for(let i=0;i<parts.length;i++)a[i]=BigInt(parts[i].replace(/[lL]$/,""));
-  return a;
-}
-function typedArrayWithout(arr,index){
-  const Ctor=arr.constructor;
-  const out=new Ctor(arr.length-1);
-  out.set(arr.subarray(0,index),0);
-  out.set(arr.subarray(index+1),index);
-  return out;
-}
-function typedArrayAppend(arr,value){
-  const Ctor=arr.constructor;
-  const out=new Ctor(arr.length+1);
-  out.set(arr,0);
-  out[arr.length]=value;
-  return out;
-}
-
-/* ===== TREE (lazy + paged) ===== */
-function renderTree(){
-  treeRoot.innerHTML="";
-  if(!currentRoot)return;
-  rootWrapper=makeNode(currentRoot,null,null,null);
-  treeRoot.appendChild(rootWrapper);
-  rootWrapper._expand();
-}
-
-function makeNode(tag,parentTag,index,parentWrapper){
-  const wrapper=document.createElement("div");
-  wrapper.className="tree-node";
-  wrapper._tag=tag;
-  wrapper._parentWrapper=parentWrapper;
-
-  const row=document.createElement("div");
-  row.className="node-row";
-  wrapper._row=row;
-
-  const expandable=isContainer(tag)||isArrayTag(tag);
-
-  const toggle=document.createElement("button");
-  toggle.className="node-toggle"+(expandable?"":" leaf");
-  toggle.textContent="▶";
-  toggle.type="button";
-  toggle.setAttribute("aria-label","Toggle");
-  row.appendChild(toggle);
-
-  const badge=document.createElement("span");
-  badge.className="tag-badge";
-  badge.dataset.t=tag.type;
-  badge.textContent=TAG_NAMES[tag.type]||"?";
-  row.appendChild(badge);
-
-  const nameEl=document.createElement("span");
-  nameEl.className="node-name";
-  if(tag.name!==undefined&&tag.name!==null&&tag.name!==""){
-    nameEl.textContent=tag.name;
-  }else if(index!==null){
-    nameEl.textContent="["+index+"]";
-    nameEl.style.color="var(--text2)";
-  }else{
-    nameEl.textContent=tag.name===""?"(root)":"";
-    nameEl.style.color="var(--text2)";
-  }
-  row.appendChild(nameEl);
-
-  const valEl=document.createElement("span");
-  valEl.className="node-value";
-  valEl.textContent=formatValue(tag);
-  row.appendChild(valEl);
-
-  if(isEditable(tag)){
-    valEl.addEventListener("click",function(e){e.stopPropagation();startEditing(tag,valEl)});
-  }else if(isArrayTag(tag)){
-    valEl.addEventListener("click",function(e){e.stopPropagation();openArrayModal(tag,valEl)});
-  }else{
-    valEl.classList.add("ro");
-  }
-
-  const actions=document.createElement("span");
-  actions.className="node-actions";
-  if(isContainer(tag)){
-    const addBtn=document.createElement("button");
-    addBtn.type="button";
-    addBtn.textContent="+";
-    addBtn.title="Add child tag";
-    addBtn.addEventListener("click",function(e){e.stopPropagation();openAddTagModal(tag,wrapper)});
-    actions.appendChild(addBtn);
-  }
-  if(parentTag){
-    const delBtn=document.createElement("button");
-    delBtn.type="button";
-    delBtn.className="del";
-    delBtn.textContent="×";
-    delBtn.title="Remove tag";
-    delBtn.addEventListener("click",function(e){e.stopPropagation();removeChild(parentTag,index,parentWrapper)});
-    actions.appendChild(delBtn);
-  }
-  row.appendChild(actions);
-  wrapper.appendChild(row);
-
-  if(!expandable){
-    wrapper._expand=function(){};
-    wrapper._rebuild=function(){return wrapper};
-    return wrapper;
-  }
-
-  const children=document.createElement("div");
-  children.className="node-children";
-  wrapper.appendChild(children);
-
-  const total=childCount(tag);
-  const childEls=[];
-  let shown=0,open=false;
-  let loadMore=null;
-
-  function childTagAt(i){
-    if(isArrayTag(tag)){
-      return{type:arrayElemType(tag),value:tag.value[i],__arr:tag,__idx:i};
-    }
-    return tag.value[i];
-  }
-  function buildPage(){
-    const end=Math.min(total,shown+PAGE_SIZE);
-    const frag=document.createDocumentFragment();
-    for(let i=shown;i<end;i++){
-      const el=makeNode(childTagAt(i),tag,i,wrapper);
-      childEls.push(el);
-      frag.appendChild(el);
-    }
-    shown=end;
-    if(loadMore)children.insertBefore(frag,loadMore);
-    else children.appendChild(frag);
-    if(shown<total){
-      if(!loadMore){
-        loadMore=document.createElement("button");
-        loadMore.type="button";
-        loadMore.className="load-more";
-        children.appendChild(loadMore);
-        loadMore.addEventListener("click",function(e){e.stopPropagation();buildPage()});
-      }
-      loadMore.textContent="Show "+Math.min(PAGE_SIZE,total-shown)+" more of "+total+" …";
-    }else if(loadMore){
-      loadMore.remove();loadMore=null;
-    }
-  }
-
-  function setOpen(v){
-    open=v;
-    toggle.textContent=open?"▼":"▶";
-    children.classList.toggle("open",open);
-    if(open&&shown===0&&total>0)buildPage();
-  }
-  toggle.addEventListener("click",function(e){e.stopPropagation();setOpen(!open)});
-  row.addEventListener("click",function(e){
-    if(e.target===row||e.target===nameEl||e.target===badge)setOpen(!open);
-  });
-
-  wrapper._expand=function(){setOpen(true)};
-  wrapper._isOpen=function(){return open};
-  wrapper._ensureChild=function(i){
-    if(i>=total)return null;
-    setOpen(true);
-    while(shown<=i&&shown<total)buildPage();
-    return childEls[i];
-  };
-  wrapper._replaceChild=function(i,el){childEls[i]=el};
-  wrapper._rebuild=function(){
-    const fresh=makeNode(tag,parentTag,index,parentWrapper);
-    wrapper.replaceWith(fresh);
-    if(open)fresh._expand();
-    if(parentWrapper&&parentWrapper._replaceChild&&index!==null)parentWrapper._replaceChild(index,fresh);
-    if(!parentWrapper)rootWrapper=fresh;
-    return fresh;
-  };
-  return wrapper;
-}
-
-/* ===== INLINE EDITING ===== */
-function startEditing(tag,el){
-  if(el.classList.contains("editing"))return;
-  el.classList.add("editing");
-  const original=tag.type===TAG.STRING?tag.value:String(tag.value);
-  const input=document.createElement("input");
-  input.type="text";
-  input.value=original;
-  input.autocapitalize="off";
-  input.spellcheck=false;
-  el.textContent="";
-  el.appendChild(input);
-  input.focus();
-  input.select();
-  let done=false;
-  function finish(commit){
-    if(done)return;
-    done=true;
-    el.classList.remove("editing");
-    if(commit){
-      try{
-        applyValue(tag,input.value);
-        if(tag.__arr)writeBackArrayElement(tag);
-      }catch(err){
-        toast("Invalid value: "+err.message,"error");
-      }
-    }
-    el.textContent=formatValue(tag);
-  }
-  input.addEventListener("blur",function(){finish(true)});
-  input.addEventListener("keydown",function(e){
-    if(e.key==="Enter"){e.preventDefault();finish(true);el.blur()}
-    else if(e.key==="Escape"){e.preventDefault();finish(false)}
-  });
-}
-
-function writeBackArrayElement(pseudo){
-  const arr=pseudo.__arr.value;
-  if(arr instanceof BigInt64Array)arr[pseudo.__idx]=BigInt(pseudo.value);
-  else arr[pseudo.__idx]=pseudo.value;
-  pseudo.value=arr[pseudo.__idx];
-}
-
-/* ===== ARRAY EDITING (modal) ===== */
-function openArrayModal(tag,el){
-  if(tag.value.length>ARRAY_TEXT_LIMIT){
-    toast("Array has "+tag.value.length+" entries — expand it and edit elements individually","info");
-    return;
-  }
-  arrayTargetTag=tag;
-  arrayTargetEl=el;
-  document.getElementById("arrayModalTitle").textContent="Edit "+(TAG_NAMES[tag.type]||"Array")+" ("+tag.value.length+" entries)";
-  document.getElementById("arrayModalText").value=Array.prototype.join.call(tag.value,", ");
-  arrayModal.classList.add("visible");
-}
-
-/* ===== ADD / REMOVE ===== */
-function removeChild(parentTag,index,parentWrapper){
-  if(isArrayTag(parentTag)){
-    parentTag.value=typedArrayWithout(parentTag.value,index);
-  }else{
-    parentTag.value.splice(index,1);
-  }
-  if(parentWrapper)parentWrapper._rebuild();
-  else renderTree();
-  toast("Tag removed","info");
-}
-
-function openAddTagModal(parentTag,wrapper){
-  addTargetTag=parentTag;
-  addTargetWrapper=wrapper;
-  const nameInput=document.getElementById("newTagName");
-  const typeSelect=document.getElementById("newTagType");
-  const valueInput=document.getElementById("newTagValue");
-  const listRow=document.getElementById("listSubtypeRow");
-  nameInput.value="";
-  valueInput.value="";
-  const nameLabel=document.querySelector('label[for="newTagName"]');
-  if(parentTag.type===TAG.LIST){
-    nameInput.style.display="none";
-    if(nameLabel)nameLabel.style.display="none";
-    if(parentTag.value.length){
-      typeSelect.value=String(parentTag.value[0].type);
-      typeSelect.disabled=true;
-    }else{
-      typeSelect.value=String(parentTag.listType||TAG.STRING);
-      typeSelect.disabled=false;
-    }
-  }else{
-    nameInput.style.display="";
-    if(nameLabel)nameLabel.style.display="";
-    typeSelect.disabled=false;
-    typeSelect.value=String(TAG.STRING);
-  }
-  listRow.style.display=(parseInt(typeSelect.value,10)===TAG.LIST)?"block":"none";
-  addTagModal.classList.add("visible");
-  if(parentTag.type!==TAG.LIST)setTimeout(function(){nameInput.focus()},50);
-}
-
-function createDefaultTag(type,valueStr,listSubtype){
-  const v=(valueStr||"").trim();
-  switch(type){
-    case TAG.BYTE:case TAG.SHORT:case TAG.INT:case TAG.FLOAT:case TAG.DOUBLE:case TAG.STRING:{
-      const tag={type:type,value:type===TAG.STRING?"":0};
-      applyValue(tag,v===""?(type===TAG.STRING?"":"0"):v);
-      return tag;
-    }
-    case TAG.LONG:return{type:type,value:v===""?0n:BigInt(v)};
-    case TAG.BYTE_ARRAY:return{type:type,value:parseArrayText(TAG.BYTE_ARRAY,v)};
-    case TAG.INT_ARRAY:return{type:type,value:parseArrayText(TAG.INT_ARRAY,v)};
-    case TAG.LONG_ARRAY:return{type:type,value:parseArrayText(TAG.LONG_ARRAY,v)};
-    case TAG.LIST:return{type:type,listType:listSubtype||TAG.COMPOUND,value:[]};
-    case TAG.COMPOUND:return{type:type,value:[]};
-    default:throw new Error("Unknown tag type");
-  }
-}
-
-/* ===== SEARCH / NAVIGATION ===== */
-function walkModel(visit,limitNodes){
-  if(!currentRoot)return;
-  const limit=limitNodes||400000;
-  let seen=0;
-  const stack=[{tag:currentRoot,path:[],label:currentRoot.name||"(root)"}];
-  while(stack.length){
-    const cur=stack.pop();
-    if(++seen>limit)return;
-    if(visit(cur.tag,cur.path,cur.label)===false)return;
-    if(isContainer(cur.tag)){
-      for(let i=cur.tag.value.length-1;i>=0;i--){
-        const child=cur.tag.value[i];
-        const label=cur.label+(cur.tag.type===TAG.LIST?"["+i+"]":"."+(child.name||"?"));
-        stack.push({tag:child,path:cur.path.concat(i),label:label});
-      }
-    }
-  }
-}
-
-function findTagPath(pred){
-  let found=null;
-  walkModel(function(tag,path){
-    if(pred(tag)){found=path;return false}
-  },100000);
-  return found;
-}
-
-function revealPath(path,startEdit){
-  if(!rootWrapper)return false;
-  let w=rootWrapper;
-  w._expand();
-  for(let i=0;i<path.length;i++){
-    const next=w._ensureChild?w._ensureChild(path[i]):null;
-    if(!next)return false;
-    w=next;
-    if(i<path.length-1&&w._expand)w._expand();
-  }
-  const row=w._row;
-  row.scrollIntoView({behavior:"smooth",block:"center"});
-  row.classList.remove("ln-flash");
-  void row.offsetWidth;
-  row.classList.add("ln-flash");
-  if(startEdit){
-    const valEl=row.querySelector(".node-value");
-    if(valEl&&isEditable(w._tag))setTimeout(function(){startEditing(w._tag,valEl)},420);
-  }
-  return true;
-}
-
-function runSearch(){
-  const q=searchInput.value.trim().toLowerCase();
-  searchResults.innerHTML="";
-  if(!q){searchResults.classList.remove("visible");return}
-  const hits=[];
-  walkModel(function(tag,path,label){
-    if(!path.length)return;
-    const name=(tag.name||"").toLowerCase();
-    let match=name.indexOf(q)>=0;
-    if(!match&&(tag.type===TAG.STRING))match=String(tag.value).toLowerCase().indexOf(q)>=0;
-    if(!match&&tag.type>=TAG.BYTE&&tag.type<=TAG.DOUBLE)match=String(tag.value).toLowerCase().indexOf(q)>=0;
-    if(match)hits.push({path:path,label:label,tag:tag});
-    if(hits.length>=300)return false;
-  });
-  if(!hits.length){
-    searchResults.innerHTML='<div class="sr-empty">No tag matches "'+escHtml(searchInput.value)+'"</div>';
-    searchResults.classList.add("visible");
-    return;
-  }
-  const frag=document.createDocumentFragment();
-  hits.forEach(function(hit){
-    const item=document.createElement("div");
-    item.className="sr-item";
-    item.innerHTML="<b>"+escHtml(hit.label)+"</b> &nbsp;"+escHtml(formatValue(hit.tag)).slice(0,120);
-    item.addEventListener("click",function(){revealPath(hit.path,false)});
-    frag.appendChild(item);
-  });
-  searchResults.appendChild(frag);
-  searchResults.classList.add("visible");
-  toast(hits.length+(hits.length>=300?"+":"")+" match"+(hits.length===1?"":"es"),"info");
-}
-
-/* ===== SAVE ===== */
-function downloadBytes(bytes,name,mime){
-  const blob=new Blob([bytes],{type:mime||"application/octet-stream"});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement("a");
-  a.href=url;
-  a.download=name;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  setTimeout(function(){URL.revokeObjectURL(url)},1000);
-}
-
-async function saveFile(){
-  if(!currentRoot){toast("No file loaded","error");return}
-  try{
-    const fmt=outFormat.value;
-    const comp=outCompression.value;
-    const raw=serialize(currentRoot,fmt,headerVersion);
-    const out=await compressBytes(raw,comp);
-    downloadBytes(out,fileName);
-    toast("Saved "+fileName+" ("+formatBytes(out.length)+", "+FORMATS[fmt].label+
-      (comp!=="none"?" / "+comp:"")+")","success");
-  }catch(err){
-    console.error(err);
-    toast("Save error: "+err.message,"error");
-  }
-}
-
-function exportSNBT(){
-  if(!currentRoot){toast("No file loaded","error");return}
-  try{
-    const text=toSNBT(currentRoot,"");
-    const name=fileName.replace(/\.[^.]+$/,"")+".snbt";
-    downloadBytes(utf8Encoder.encode(text),name,"text/plain");
-    toast("Exported "+name,"success");
-  }catch(err){
-    console.error(err);
-    toast("SNBT error: "+err.message,"error");
-  }
-}
-
-/* ===== EVENTS ===== */
-dropZone.addEventListener("dragover",function(e){e.preventDefault();dropZone.classList.add("active")});
-dropZone.addEventListener("dragleave",function(){dropZone.classList.remove("active")});
-dropZone.addEventListener("drop",function(e){
-  e.preventDefault();dropZone.classList.remove("active");
-  if(e.dataTransfer.files.length)loadFile(e.dataTransfer.files[0]);
-});
-dropZone.addEventListener("click",function(e){
-  if(e.target.tagName==="BUTTON")return;
-  fileInput.click();
-});
-dropZone.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();fileInput.click()}});
-fileInput.addEventListener("change",function(){if(fileInput.files.length)loadFile(fileInput.files[0])});
-
-document.getElementById("btnSave").addEventListener("click",saveFile);
-document.getElementById("btnSnbt").addEventListener("click",exportSNBT);
-document.getElementById("btnCloseFile").addEventListener("click",closeEditor);
-document.getElementById("btnAddRoot").addEventListener("click",function(){
-  if(currentRoot)openAddTagModal(currentRoot,rootWrapper);
-});
-document.getElementById("btnSearch").addEventListener("click",runSearch);
-document.getElementById("btnCollapse").addEventListener("click",function(){
-  renderTree();
-  searchResults.classList.remove("visible");
-});
-searchInput.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();runSearch()}});
-searchInput.addEventListener("search",function(){if(!searchInput.value)searchResults.classList.remove("visible")});
-
-document.getElementById("newTagType").addEventListener("change",function(){
-  document.getElementById("listSubtypeRow").style.display=(parseInt(this.value,10)===TAG.LIST)?"block":"none";
-});
-document.getElementById("addTagCancel").addEventListener("click",closeAddModal);
-document.getElementById("addTagConfirm").addEventListener("click",function(){
-  if(!addTargetTag)return;
-  const nameInput=document.getElementById("newTagName");
-  const typeVal=parseInt(document.getElementById("newTagType").value,10);
-  const valueStr=document.getElementById("newTagValue").value;
-  const listSubtype=parseInt(document.getElementById("newListSubtype").value,10);
-  try{
-    const newTag=createDefaultTag(typeVal,valueStr,listSubtype);
-    if(addTargetTag.type===TAG.COMPOUND){
-      const name=nameInput.value.trim();
-      if(!name)throw new Error("Tag name is required");
-      if(addTargetTag.value.some(function(t){return t.name===name}))throw new Error("A tag named "+name+" already exists here");
-      newTag.name=name;
-      addTargetTag.value.push(newTag);
-    }else if(addTargetTag.type===TAG.LIST){
-      if(addTargetTag.value.length&&addTargetTag.value[0].type!==newTag.type)
-        throw new Error("List already holds "+TAG_NAMES[addTargetTag.value[0].type]+" entries");
-      addTargetTag.listType=newTag.type;
-      addTargetTag.value.push(newTag);
-    }
-    const w=addTargetWrapper;
-    closeAddModal();
-    if(w&&w._rebuild){const fresh=w._rebuild();fresh._expand()}
-    else renderTree();
-    toast("Tag added","success");
-  }catch(err){
-    toast("Error: "+err.message,"error");
-  }
-});
-function closeAddModal(){
-  addTagModal.classList.remove("visible");
-  addTargetTag=null;
-  addTargetWrapper=null;
-  document.getElementById("newTagType").disabled=false;
-}
-addTagModal.addEventListener("click",function(e){if(e.target===addTagModal)closeAddModal()});
-
-document.getElementById("arrayModalCancel").addEventListener("click",closeArrayModal);
-document.getElementById("arrayModalConfirm").addEventListener("click",function(){
-  if(!arrayTargetTag)return;
-  try{
-    const text=document.getElementById("arrayModalText").value;
-    arrayTargetTag.value=parseArrayText(arrayTargetTag.type,text);
-    if(arrayTargetEl)arrayTargetEl.textContent=formatValue(arrayTargetTag);
-    const tag=arrayTargetTag;
-    closeArrayModal();
-    /* rebuild the array node so its children match the new contents */
-    if(rootWrapper){
-      const path=findTagPath(function(t){return t===tag});
-      if(path&&path.length){
-        let w=rootWrapper;
-        for(let i=0;i<path.length;i++){w._expand();w=w._ensureChild(path[i]);if(!w)break}
-        if(w&&w._rebuild)w._rebuild();
-      }
-    }
-    toast("Array updated","success");
-  }catch(err){
-    toast("Invalid array: "+err.message,"error");
-  }
-});
-function closeArrayModal(){
-  arrayModal.classList.remove("visible");
-  arrayTargetTag=null;
-  arrayTargetEl=null;
-}
-arrayModal.addEventListener("click",function(e){if(e.target===arrayModal)closeArrayModal()});
-
-document.addEventListener("keydown",function(e){
-  if(e.key!=="Escape")return;
-  if(addTagModal.classList.contains("visible"))closeAddModal();
-  if(arrayModal.classList.contains("visible"))closeArrayModal();
-});
-
-/* paste a file straight into the page */
-document.addEventListener("paste",function(e){
-  if(!e.clipboardData||!e.clipboardData.files||!e.clipboardData.files.length)return;
-  loadFile(e.clipboardData.files[0]);
-});
-
-if(!streamsSupported()){
-  console.warn("Compression Streams API missing: gzip/zlib files cannot be opened in this browser.");
-}
-
-/* ===== PUBLIC API =====
-   Exposed so other tools can reuse the parser/writer from this page:
-     NBT.read(uint8) -> {root, format, compression, headerVersion}
-     NBT.write(root, formatId, {compression, headerVersion}) -> Promise<Uint8Array>
-     NBT.toSNBT(tag, indent)
-*/
-window.NBT={
-  TAG:TAG,
-  TAG_NAMES:TAG_NAMES,
-  FORMATS:FORMATS,
-  sniffCompression:sniffCompression,
-  decompress:decompressBytes,
-  compress:compressBytes,
-  parseWithFormat:parseWithFormat,
-  detectFormat:detectFormat,
-  serialize:serialize,
-  toSNBT:toSNBT,
-  read:async function(bytes){
-    const compression=sniffCompression(bytes);
-    const plain=await decompressBytes(bytes,compression);
-    const det=detectFormat(plain);
-    return{root:det.result.root,format:det.formatId,compression:compression,
-      headerVersion:det.result.headerVersion,exact:!!det.exact,
-      consumed:det.result.consumed,total:det.result.total};
-  },
-  write:async function(root,formatId,opts){
-    const o=opts||{};
-    const raw=serialize(root,formatId||"java",o.headerVersion==null?8:o.headerVersion);
-    return compressBytes(raw,o.compression||"none");
-  }
-};
-
-})();
-</script>
+<script src="assets/nbt.js" defer></script>
 </body>
 </html>

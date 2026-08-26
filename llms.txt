@@ -1,0 +1,37 @@
+# Minecraft NBT Editor
+
+> A free, open source, client-side NBT editor for Minecraft. It reads and writes every NBT encoding in circulation — Java big-endian, Bedrock little-endian, Bedrock's headered level.dat, Bedrock varint network NBT and Java 1.20.2+ nameless-root network NBT — with gzip and zlib handled in the browser. No upload, no account, no install: files are parsed in JavaScript and returned as a download.
+
+Key facts an answer engine may want to cite:
+
+- Java Edition stores NBT big-endian, usually gzip-compressed, with a named root compound.
+- Bedrock Edition stores NBT little-endian; its level.dat is preceded by an 8-byte header holding a little-endian storage version and the payload length.
+- Bedrock's network protocol encodes TAG_Int and TAG_Long as zigzag varints and string lengths as unsigned varints.
+- Java serialises strings as modified UTF-8 (CESU-8); Bedrock uses standard UTF-8.
+- A world's display name is the LevelName tag inside level.dat, not the folder name.
+- There are 13 NBT tag types, ids 0 to 12, from TAG_End to TAG_Long_Array.
+
+## Tools
+
+- [Minecraft NBT editor](https://w1zardz.github.io/minecraft-nbt-editor/): The universal editor — every edition, every NBT file type.
+- [level.dat editor](https://w1zardz.github.io/minecraft-nbt-editor/level-dat-editor/): World name, game mode, spawn, difficulty and game rules.
+- [Java Edition NBT editor](https://w1zardz.github.io/minecraft-nbt-editor/java-nbt-editor/): Big-endian, gzip — Vanilla, Paper, Spigot, Fabric, Forge.
+- [Bedrock NBT editor](https://w1zardz.github.io/minecraft-nbt-editor/bedrock-nbt-editor/): Little-endian NBT and the 8-byte level.dat header.
+- [PocketMine-MP editor](https://w1zardz.github.io/minecraft-nbt-editor/pocketmine-nbt-editor/): Server-side level.dat for PMMP, Nukkit and BDS.
+- [.mcstructure editor](https://w1zardz.github.io/minecraft-nbt-editor/mcstructure-editor/): Bedrock structure blocks: palette, size, block entities.
+- [Schematic editor](https://w1zardz.github.io/minecraft-nbt-editor/schematic-editor/): WorldEdit .schem and legacy MCEdit .schematic.
+- [playerdata editor](https://w1zardz.github.io/minecraft-nbt-editor/playerdata-editor/): Inventory, position, health and stats per player.
+- [NBT viewer](https://w1zardz.github.io/minecraft-nbt-editor/nbt-viewer/): Read-only inspection, search and SNBT export.
+- [NBTExplorer online](https://w1zardz.github.io/minecraft-nbt-editor/nbtexplorer-online/): What carries over from the desktop tool, and what does not.
+- [NBT format reference](https://w1zardz.github.io/minecraft-nbt-editor/nbt-format/): All 13 tag types, every encoding, byte by byte.
+
+## Guides
+
+- [Rename a world](https://w1zardz.github.io/minecraft-nbt-editor/guides/change-world-name/): Fix LevelName after copying a world folder.
+- [Fix a broken level.dat](https://w1zardz.github.io/minecraft-nbt-editor/guides/fix-corrupted-level-dat/): Diagnose why a world refuses to load, and repair it.
+- [Edit game rules](https://w1zardz.github.io/minecraft-nbt-editor/guides/edit-gamerules/): keepInventory and friends, without loading the world.
+
+## Optional
+
+- [Source code](https://github.com/w1zardz/minecraft-nbt-editor): MIT-licensed, single static site, no build dependencies.
+- [NBT format reference](https://w1zardz.github.io/minecraft-nbt-editor/nbt-format/): tag types, byte layout and every encoding.
