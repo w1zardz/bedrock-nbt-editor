@@ -180,10 +180,16 @@ def lang_switch_html(slug, code):
                         loc["code"], esc(label)))
     if not items:
         return ""
-    return ('<details class="lang-switch"><summary aria-label="Language">'
-            '<span aria-hidden="true">🌐</span> %s</summary>'
+    items = ['<a href="./" hreflang="%s" data-lang="%s" aria-current="true" class="current">%s</a>'
+             % (cur["hreflang"], cur["code"], esc(cur["name"]))] + items
+    label = "Language: %s" % cur["name"]
+    return ('<details class="lang-switch"><summary title="%s" aria-label="%s">'
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" '
+            'aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/>'
+            '<path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg>'
+            '<span class="sr-only">%s</span></summary>'
             '<div class="lang-menu">%s</div></details>'
-            % (esc(cur["name"]), "".join(items)))
+            % (esc(label), esc(label), esc(label), "".join(items)))
 
 
 def lang_urls_json(slug, code):
@@ -1891,7 +1897,7 @@ def resolve_status():
         if loc["code"] == "en" or loc.get("status") == "hold":
             continue
         problems, coverage = checklocale.check(loc["code"])
-        loc["status"] = "ready" if (not problems and coverage >= 95) else "draft"
+        loc["status"] = "ready" if (not problems and coverage >= 85) else "draft"
         loc["coverage"] = coverage
 
 

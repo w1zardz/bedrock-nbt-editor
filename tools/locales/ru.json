@@ -1,0 +1,1280 @@
+{
+  "": {
+    "title": "Онлайн-редактор NBT для Bedrock, Java и level.dat",
+    "ogtitle": "Редактор NBT для Bedrock и Java — онлайн, без загрузки",
+    "desc": "Онлайн-редактор NBT для Minecraft Bedrock и Java. Открывает level.dat, .mcstructure, playerdata, .nbt и .schem, меняет теги без загрузки на сервер.",
+    "keywords": "нбт редактор, редактор nbt онлайн, nbt editor онлайн, редактор level.dat, редактор nbt minecraft, нбт редактор бедрок, mcpe nbt редактор, просмотр nbt файла, изменить nbt онлайн",
+    "h1": "Редактор NBT для Bedrock и Java Edition",
+    "crumb": "Редактор",
+    "reltitle": "Редактор NBT для Minecraft",
+    "reldesc": "Универсальный редактор для всех изданий и типов файлов NBT.",
+    "answer": "<strong>Поддерживаются Bedrock Edition со всеми серверными ядрами Bedrock и Java Edition со всеми, включая редкие, серверными ядрами Java.</strong> Перетащите в область ниже файл <code>level.dat</code>, <code>playerdata</code>, <code>.nbt</code>, <code>.mcstructure</code>, <code>.schem</code> или <code>.schematic</code>, измените любой тег в дереве и скачайте файл в том же двоичном формате. Порядок байтов, заголовок и сжатие определяются автоматически. Всё выполняется в браузере: без загрузки файла на сервер, учётной записи и установки.",
+    "droplabel": "любой файл NBT",
+    "body": "\n<section class=\"content\" aria-label=\"Supported files\">\n<h2>Все файлы NBT, которые создаёт Minecraft</h2>\n<p>NBT (Named Binary Tag) — единый формат с несколькими вариантами кодирования, а каждое издание Minecraft, программа запуска и серверное ядро используют разные их сочетания. Редактор поддерживает все варианты и определяет нужный по самим байтам, поэтому перед открытием файла знать его разновидность не требуется.</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Файл</th><th>Источник</th><th>Кодирование</th><th>Сжатие</th></tr></thead>\n<tbody>\n<tr><td><code>level.dat</code></td><td>Мир Java — Vanilla, Paper, Spigot, Fabric, Forge</td><td>Big-endian, именованный корень</td><td>gzip</td></tr>\n<tr><td><code>level.dat</code></td><td>Мир Bedrock — BDS, PocketMine-MP, Nukkit, MCPE</td><td>Little-endian и 8-байтовый заголовок</td><td>Нет</td></tr>\n<tr><td><code>&lt;uuid&gt;.dat</code></td><td>Java <code>playerdata/</code></td><td>Big-endian</td><td>gzip</td></tr>\n<tr><td><code>servers.dat</code>, <code>hotbar.nbt</code></td><td>Клиент Java</td><td>Big-endian</td><td>Нет</td></tr>\n<tr><td><code>idcounts.dat</code>, <code>raids.dat</code>, <code>map_*.dat</code></td><td>Мир Java <code>data/</code></td><td>Big-endian</td><td>gzip</td></tr>\n<tr><td><code>.nbt</code></td><td>Структурные блоки, структуры датапаков</td><td>Big-endian</td><td>gzip</td></tr>\n<tr><td><code>.schem</code>, <code>.schematic</code></td><td>WorldEdit, Sponge, MCEdit</td><td>Big-endian</td><td>gzip</td></tr>\n<tr><td><code>.mcstructure</code></td><td>Структурные блоки Bedrock</td><td>Little-endian</td><td>Нет</td></tr>\n<tr><td>Данные чанка</td><td>Извлечение из региона <code>.mca</code>, значение LevelDB</td><td>Любой порядок байтов</td><td>zlib или без сжатия</td></tr>\n<tr><td>Дамп пакета</td><td>Протокол Bedrock, протокол Java 1.20.2+</td><td>Varint LE / безымянный BE</td><td>Нет</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"How to use\">\n<h2>Как изменить файл NBT</h2>\n<div class=\"card\">\n<ol class=\"steps\">\n<li><strong>Скопируйте файл с сервера или устройства.</strong> На серверах Java он находится в <code>world/</code>, на серверах Bedrock — в <code>worlds/YourWorld/</code>, на Android — в <code>games/com.mojang/minecraftWorlds/&lt;id&gt;/</code>. Сначала остановите сервер, чтобы во время копирования в файл ничего не записывалось.</li>\n<li><strong>Перетащите файл в редактор.</strong> Метка над деревом покажет определённые параметры: издание, кодирование, сжатие, а для Bedrock — версию хранилища из заголовка.</li>\n<li><strong>Внесите изменения.</strong> Нажмите значение, чтобы изменить его на месте. Поиск переходит к тегу по имени или значению, <strong>+</strong> добавляет теги в любой Compound или List, а <strong>×</strong> удаляет их.</li>\n<li><strong>Сохраните и скачайте.</strong> По умолчанию формат вывода и сжатие совпадают с исходным файлом, поэтому обычное редактирование сохраняет его двоичный формат.</li>\n<li><strong>Верните файл на место и перезапустите сервер.</strong> Храните исходную копию, пока мир не загрузится и вы не убедитесь, что всё работает правильно.</li>\n</ol>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Features\">\n<h2>Чем отличается этот редактор</h2>\n<div class=\"features-grid\">\n<article class=\"feature-card\"><h3>Пять кодировок в одной области загрузки</h3><p>Java big-endian, Bedrock little-endian, сетевой NBT Bedrock с varint, сетевой NBT с безымянным корнем из Java 1.20.2+ и <code>level.dat</code> Bedrock с заголовком. Формат определяется, а не угадывается.</p></article>\n<article class=\"feature-card\"><h3>gzip и zlib в браузере</h3><p>Распаковка и повторное сжатие выполняются нативным API Compression Streams, поэтому после обработки <code>level.dat</code> Java игра принимает файл без изменений формата.</p></article>\n<article class=\"feature-card\"><h3>Настоящие 64-битные Long</h3><p>Значения <code>TAG_Long</code> хранятся как <code>BigInt</code>. Сиды миров и части UUID не искажаются округлением чисел с плавающей точкой, из-за которого ошибаются многие браузерные инструменты NBT.</p></article>\n<article class=\"feature-card\"><h3>Правильное кодирование строк</h3><p>Java записывает модифицированный UTF-8 (CESU-8), Bedrock — стандартный UTF-8. Редактор кодирует строки по правилам издания, поэтому эмодзи и нелатинские названия миров сохраняются.</p></article>\n<article class=\"feature-card\"><h3>Работа с большими файлами</h3><p>Массивы хранятся в типизированных массивах, а дерево отрисовывается по мере необходимости, по 200 элементов. NBT чанка размером в мегабайт открывается без зависания вкладки.</p></article>\n<article class=\"feature-card\"><h3>Поиск по всему дереву</h3><p>Найдите любой тег по имени или значению в любой части файла и сразу перейдите к нему с раскрытым путём.</p></article>\n<article class=\"feature-card\"><h3>Экспорт SNBT</h3><p>Экспортируйте всё дерево как SNBT — текстовый формат команд <code>/data</code> и датапаков — для сравнения, передачи или вставки в команду.</p></article>\n<article class=\"feature-card\"><h3>Преобразование форматов</h3><p>Прочитайте файл Bedrock и сохраните его как Java big-endian gzip или наоборот. Это полезно для работы с протоколами, тестов и инструментов.</p></article>\n<article class=\"feature-card\"><h3>Файл не покидает устройство</h3><p>Файл читается через <code>FileReader</code>, разбирается в JavaScript и возвращается как объект blob в памяти. Серверной точки загрузки не существует.</p></article>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Supported server software\" id=\"server-software\">\n<h2>Поддерживается всё серверное ПО</h2>\n<p>NBT записывает игра, а не реализация сервера, поэтому любое ядро, которое хранит мир Minecraft, использует одно из поддерживаемых редактором кодирований. Ниже приведён полный, а не рекламный список: ядро записывает мир в формате Vanilla, потому что клиент на другом конце должен его прочитать.</p>\n<div class=\"card\">\n<h3>Bedrock Edition — little-endian NBT, 8-байтовый заголовок <code>level.dat</code></h3>\n<p><strong>Bedrock Dedicated Server (BDS)</strong>, <strong>PocketMine-MP</strong> (PM3, PM4, PM5), <strong>Nukkit</strong>, <strong>Nukkit-MOT</strong>, <strong>PowerNukkitX</strong>, <strong>Cloudburst Server</strong>, <strong>Dragonfly</strong>, <strong>Endstone</strong>, <strong>LeviLamina</strong> и <strong>BDSX</strong>, <strong>Allay</strong>, <strong>JukeboxMC</strong>, <strong>GoMint</strong>, <strong>Sculk</strong>, <strong>ElementZero</strong>, <strong>LiteLoaderBDS</strong>, а также сами клиенты <strong>MCPE</strong> и <strong>MCBE</strong> на Android, iOS, Windows, консолях и Switch. Тот же <code>worlds/&lt;World&gt;/level.dat</code>, тот же заголовок, те же теги — см. <a href=\"pocketmine-nbt-editor/\">порядок работы на сервере</a>.</p>\n<h3>Java Edition — big-endian NBT, gzip</h3>\n<p><strong>Vanilla</strong>, <strong>CraftBukkit</strong>, <strong>Spigot</strong>, <strong>Paper</strong>, <strong>Purpur</strong>, <strong>Pufferfish</strong>, <strong>Folia</strong>, <strong>Leaves</strong>, <strong>Gale</strong>, <strong>Petal</strong>, <strong>Airplane</strong>, <strong>Sponge</strong> (SpongeVanilla, SpongeForge), <strong>Fabric</strong>, <strong>Quilt</strong>, <strong>Forge</strong>, <strong>NeoForge</strong>, <strong>Mohist</strong>, <strong>Arclight</strong>, <strong>Magma</strong>, <strong>Ketting</strong>, <strong>Banner</strong>, <strong>Cardboard</strong>, <strong>Glowstone</strong>, <strong>Thermos</strong>, <strong>Uberbukkit</strong> и любой другой форк, сервер модпака или старая сборка. Если ПО записывает <code>world/level.dat</code>, редактор его откроет — <a href=\"java-nbt-editor/\">подробнее здесь</a>.</p>\n<h3>Прокси и мосты</h3>\n<p><strong>Geyser</strong>, <strong>WaterdogPE</strong>, <strong>Waterfall</strong>, <strong>Velocity</strong> и <strong>BungeeCord</strong> не хранят миры, а передают NBT по сети. Перехваченные данные этих соединений представляют собой сетевой NBT: varint little-endian со стороны Bedrock и big-endian с безымянным корнем в Java 1.20.2+. Оба варианта открываются здесь напрямую.</p>\n<h3>Всё, чего нет в списке</h3>\n<p>Пользовательские форки, закрытые ядра, учебные проекты или собственный сервер: если файл имеет формат NBT, редактор определит одно из пяти кодирований и откроет его. Логика редактора не привязана к названию ядра.</p>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Scripting\">\n<h2>Использование парсера в своём коде</h2>\n<p>Страница предоставляет движок через <code>window.NBT</code>, поэтому парсер интерфейса можно вызывать из консоли браузера или использовать в пользовательском скрипте:</p>\n<pre class=\"code\"><code>const bytes = new Uint8Array(await file.arrayBuffer());\nconst { root, format, compression, headerVersion } = await NBT.read(bytes);\n\nroot.value.find(t =&gt; t.name === \"LevelName\").value = \"New World\";\n\nconst out = await NBT.write(root, format, { compression, headerVersion });</code></pre>\n<p>Теги представлены обычными объектами — <code>{ type, name, value, listType }</code>, массивы — типами <code>Int8Array</code>, <code>Int32Array</code> и <code>BigInt64Array</code>, а Long — типом <code>BigInt</code>. Полное <a href=\"nbt-format/\">описание формата NBT</a> содержит сведения обо всех типах тегов и различиях кодировок.</p>\n</section>\n",
+    "chips": [
+      "Bedrock Edition",
+      "Java Edition",
+      "Vanilla",
+      "Paper",
+      "Spigot",
+      "Purpur",
+      "Pufferfish",
+      "Folia",
+      "Leaves",
+      "Fabric",
+      "Quilt",
+      "Forge",
+      "NeoForge",
+      "Mohist",
+      "Arclight",
+      "Sponge",
+      "Bedrock Dedicated Server",
+      "PocketMine-MP",
+      "Nukkit",
+      "PowerNukkitX",
+      "Nukkit-MOT",
+      "Cloudburst",
+      "Dragonfly",
+      "Endstone",
+      "LeviLamina",
+      "Allay",
+      "JukeboxMC",
+      "GoMint",
+      "Geyser",
+      "WaterdogPE"
+    ],
+    "faq": [
+      [
+        "Этот редактор NBT бесплатный?",
+        "<p>Да, его исходный код открыт по лицензии MIT. Платного тарифа, регистрации и квоты загрузки нет, поскольку серверная часть отсутствует: весь редактор состоит из одной статической страницы и двух файлов ресурсов.</p>"
+      ],
+      [
+        "Он работает с Java Edition и Bedrock Edition?",
+        "<p>С обоими изданиями. Файлы Java Edition имеют порядок big-endian и обычно сжаты gzip; файлы Bedrock имеют порядок little-endian, а <code>level.dat</code> содержит дополнительный 8-байтовый заголовок. Редактор определяет вариант и при сохранении записывает файл в том же формате.</p>"
+      ],
+      [
+        "Файл моего мира куда-нибудь загружается?",
+        "<p>Нет. Файл читается локально через API FileReader, а загрузка создаётся из объекта blob в памяти. После открытия страницы можно отключиться от сети, и редактор продолжит работать.</p>"
+      ],
+      [
+        "Можно использовать редактор на Android или iOS?",
+        "<p>Да. Интерфейс изначально рассчитан на мобильные устройства: зоны нажатия имеют размер 44&nbsp;px, а панель действий закреплена. На Android файл мира можно выбрать в файловом менеджере; на iOS из-за изоляции приложений его сначала нужно поместить в приложение «Файлы».</p>"
+      ],
+      [
+        "Чем отличаются NBT и SNBT?",
+        "<p>NBT — двоичное кодирование, в котором Minecraft хранит данные на диске. SNBT — его текстовая форма с синтаксисом команд вроде <code>/data merge</code>. Редактор читает двоичный NBT и экспортирует SNBT, чтобы сравнивать файлы или вставлять структуру в команду.</p>"
+      ],
+      [
+        "Какие инструменты заменяет этот редактор?",
+        "<p>Настольные редакторы NBT, например NBTExplorer, и отдельные веб-инструменты, работающие только с одним изданием. В <a href=\"nbtexplorer-online/\">сравнении с NBTExplorer онлайн</a> описано, какие возможности доступны и какие отсутствуют.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Загружено как {0}",
+      "trailing": "После корневого тега пропущено лишних байтов: {0}",
+      "error": "Ошибка: {0}",
+      "readfail": "Не удалось прочитать файл",
+      "nofile": "Файл не загружен",
+      "saved": "Сохранено: {0} ({1}, {2})",
+      "savefail": "Ошибка сохранения: {0}",
+      "exported": "Экспортировано: {0}",
+      "snbtfail": "Ошибка SNBT: {0}",
+      "tagadded": "Тег добавлен",
+      "tagremoved": "Тег удалён",
+      "arrayupdated": "Массив обновлён",
+      "badvalue": "Недопустимое значение: {0}",
+      "badarray": "Недопустимый массив: {0}",
+      "nameneeded": "Требуется имя тега",
+      "nametaken": "Тег с именем {0} здесь уже существует",
+      "listtype": "Список уже содержит элементы типа {0}",
+      "editlevelname": "✎ Изменить LevelName",
+      "showmore": "Показать ещё {0} из {1} …",
+      "matches": "Совпадений: {0}",
+      "nomatch": "Тегов по запросу \"{0}\" не найдено",
+      "arraytoobig": "В массиве {0} элементов — разверните его и изменяйте элементы по отдельности",
+      "uncompressed": "без сжатия",
+      "storage": "хранилище v{0}",
+      "entries": "Элементов: {0}",
+      "langprompt": "Открыть эту страницу на языке {0}?",
+      "langyes": "Переключить",
+      "langno": "Остаться"
+    },
+    "support": "<strong>Поддерживаются Minecraft Bedrock Edition и Java Edition</strong>, а также все их серверные ядра, популярные и редкие: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina и остальные. <a href=\"__HOME__#server-software\">Полный список</a>.",
+    "footernote": "бесплатный редактор с открытым исходным кодом (MIT), полностью работающий в браузере. Не связан с Mojang Studios или Microsoft. Minecraft является товарным знаком Mojang Studios.",
+    "faqtitle": "Частые вопросы",
+    "toctitle": "На этой странице",
+    "relatedtitle": "Связанные инструменты",
+    "homecrumb": "Редактор NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Редакторы",
+      "Типы файлов",
+      "Справочник"
+    ],
+    "sourcehead": "Исходный код",
+    "sourcelink": "Код на GitHub"
+  },
+  "level-dat-editor": {
+    "title": "Редактор level.dat онлайн — настройки мира Minecraft",
+    "ogtitle": "Редактор level.dat — любые настройки мира онлайн",
+    "desc": "Редактирование Minecraft level.dat онлайн: имя мира, режим игры, сложность, точка появления, сид и правила для миров Java и Bedrock без загрузки файла.",
+    "keywords": "редактор level.dat, level.dat editor онлайн, изменить level.dat, редактор мира minecraft, изменить имя мира minecraft, настройки мира level.dat, просмотр level.dat",
+    "h1": "Редактор level.dat — настройки мира Minecraft онлайн",
+    "crumb": "Редактор level.dat",
+    "reltitle": "Редактор level.dat",
+    "reldesc": "Имя мира, режим игры, точка появления, сложность и правила.",
+    "answer": "<code>level.dat</code> — файл со всеми сведениями мира Minecraft о самом себе: названием, режимом игры, сложностью, точкой появления, правилами, погодой и версией, в которой мир открывали в последний раз. Перетащите файл ниже, чтобы напрямую изменить любое значение. Поддерживаются файлы Java (gzip, big-endian) и Bedrock (little-endian с 8-байтовым заголовком), а результат записывается в исходном формате.",
+    "droplabel": "level.dat",
+    "body": "\n<section class=\"content\" aria-label=\"Tags in level.dat\">\n<h2>Теги, которые обычно изменяют</h2>\n<p>В Java файл <code>level.dat</code> хранит почти всё внутри одного Compound <code>Data</code>, а в Bedrock <code>level.dat</code> хранит теги непосредственно в корне. Ниже перечислены основные имена: найдите любое из них в дереве, и редактор перейдёт к тегу.</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Тег</th><th>Тип</th><th>Издание</th><th>Что он задаёт</th></tr></thead>\n<tbody>\n<tr><td><code>LevelName</code></td><td>String</td><td>Оба</td><td>Отображаемое имя мира. После копирования папки мира оно остаётся прежним — см. <a href=\"../guides/change-world-name/\">руководство по переименованию</a>.</td></tr>\n<tr><td><code>GameType</code> / <code>gameType</code></td><td>Int</td><td>Оба</td><td>0 — выживание, 1 — творчество, 2 — приключение, 3 — наблюдение.</td></tr>\n<tr><td><code>Difficulty</code></td><td>Byte / Int</td><td>Оба</td><td>0 — мирно, 1 — легко, 2 — нормально, 3 — сложно.</td></tr>\n<tr><td><code>hardcore</code></td><td>Byte</td><td>Оба</td><td>Значение 1 включает для мира правила хардкора.</td></tr>\n<tr><td><code>allowCommands</code> / <code>commandsEnabled</code></td><td>Byte</td><td>Java / Bedrock</td><td>Включены ли читы.</td></tr>\n<tr><td><code>SpawnX</code>, <code>SpawnY</code>, <code>SpawnZ</code></td><td>Int</td><td>Оба</td><td>Координаты точки появления мира.</td></tr>\n<tr><td><code>Time</code>, <code>DayTime</code></td><td>Long</td><td>Java</td><td>Общее число тиков и время суток.</td></tr>\n<tr><td><code>currentTick</code></td><td>Int</td><td>Bedrock</td><td>Аналог часов мира в Bedrock.</td></tr>\n<tr><td><code>RandomSeed</code> / <code>WorldGenSettings.seed</code></td><td>Long</td><td>Java</td><td>Сид мира. Здесь он хранится как настоящее 64-битное значение, а не округлённое double.</td></tr>\n<tr><td><code>GameRules</code> / отдельные теги правил игры</td><td>Compound / Byte</td><td>Java / Bedrock</td><td>Все параметры команды <code>/gamerule</code> — см. <a href=\"../guides/edit-gamerules/\">руководство по правилам игры</a>.</td></tr>\n<tr><td><code>DataVersion</code></td><td>Int</td><td>Java</td><td>Версия формата мира. Проверьте её перед переносом мира между версиями Minecraft.</td></tr>\n<tr><td><code>lastOpenedWithVersion</code></td><td>List of Int</td><td>Bedrock</td><td>Сборка клиента или сервера Bedrock, которая последней записала мир.</td></tr>\n<tr><td><code>Player</code></td><td>Compound</td><td>Оба</td><td>Встроенные в файл мира инвентарь, положение и статистика одиночного игрока.</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Where to find level.dat\">\n<h2>Где находится <code>level.dat</code></h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Платформа</th><th>Путь</th></tr></thead>\n<tbody>\n<tr><td>Сервер Java (Vanilla, Paper, Spigot, Fabric, Forge)</td><td><code>world/level.dat</code>, рядом с <code>region/</code> и <code>playerdata/</code></td></tr>\n<tr><td>Клиент Java, Windows</td><td><code>%APPDATA%\\.minecraft\\saves\\&lt;World&gt;\\level.dat</code></td></tr>\n<tr><td>Клиент Java, macOS</td><td><code>~/Library/Application Support/minecraft/saves/&lt;World&gt;/level.dat</code></td></tr>\n<tr><td>Клиент Java, Linux</td><td><code>~/.minecraft/saves/&lt;World&gt;/level.dat</code></td></tr>\n<tr><td>Bedrock Dedicated Server, PocketMine-MP, Nukkit</td><td><code>worlds/&lt;World&gt;/level.dat</code></td></tr>\n<tr><td>Bedrock на Android</td><td><code>Android/data/com.mojang.minecraftpe/files/games/com.mojang/minecraftWorlds/&lt;id&gt;/level.dat</code></td></tr>\n<tr><td>Bedrock на Windows</td><td><code>%LOCALAPPDATA%\\Packages\\Microsoft.MinecraftUWP_*\\LocalState\\games\\com.mojang\\minecraftWorlds\\&lt;id&gt;\\level.dat</code></td></tr>\n</tbody>\n</table>\n</div>\n<p>Рядом Minecraft создаёт файл <code>level.dat_old</code> — предыдущую сохранённую версию. Она также открывается в этом редакторе, и её стоит проверить первой, если текущий файл не загружается.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Safety\">\n<h2>Безопасное редактирование</h2>\n<div class=\"card\">\n<ul>\n<li><strong>Сначала остановите сервер или закройте игру.</strong> Minecraft перезаписывает <code>level.dat</code> при автосохранении и завершении работы. Запущенный сервер перезапишет изменения или начнёт запись поверх не полностью скопированного файла.</li>\n<li><strong>Сохраните оригинал.</strong> Редактор не изменяет перетащенный файл, а создаёт новый для скачивания. Храните старую копию, пока мир не загрузится.</li>\n<li><strong>Не меняйте типы тегов.</strong> Если заменить тип <code>Difficulty</code> с Byte на Int или переименовать ожидаемый Minecraft тег, мир может перестать загружаться. Без точного понимания причины изменяйте значения, а не структуру.</li>\n<li><strong>Сохраняйте заголовок Bedrock.</strong> В 8-байтовом заголовке находятся версия хранилища и длина данных. Редактор автоматически пересчитывает длину и сохраняет версию; файлы с удалённым при ручной правке заголовком не загрузятся.</li>\n</ul>\n</div>\n</section>\n",
+    "chips": [
+      "Java level.dat",
+      "Bedrock level.dat",
+      "level.dat_old",
+      "gzip",
+      "8-байтовый заголовок"
+    ],
+    "faq": [
+      [
+        "Можно изменить level.dat без установки программы?",
+        "<p>Да, для этого предназначена эта страница. Парсер работает в браузере, поэтому устанавливать ничего не нужно; требуется только современный браузер, независимо от операционной системы.</p>"
+      ],
+      [
+        "Почему мир по-прежнему отображается со старым именем?",
+        "<p>Имя в списке миров берётся из <code>LevelName</code> внутри <code>level.dat</code>, а не из имени папки. При копировании или переименовании папки тег не меняется. Измените тег, и список обновится.</p>"
+      ],
+      [
+        "Редактор работает с level.dat_old?",
+        "<p>Да. <code>level.dat_old</code> — предыдущее сохранение в том же формате. Если текущий файл повреждён, откройте копию <code>_old</code>, проверьте её содержимое и восстановите под исходным именем.</p>"
+      ],
+      [
+        "Можно изменить сид мира?",
+        "<p>Тег сида можно изменить, но новое значение повлияет только на местность, созданную после изменения. Чанки, уже сохранённые на диске, сохранят прежнюю форму, поэтому граница старой и новой местности будет заметна.</p>"
+      ],
+      [
+        "Редактирование level.dat приведёт к блокировке или повреждению мира?",
+        "<p>Это ваш файл сохранения, поэтому блокировка не применяется. Мир повреждается при редактировании во время работы сервера либо при изменении типов и имён тегов вместо значений. Остановите сервер, меняйте значения и сохраните резервную копию.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Загружено как {0}",
+      "trailing": "После корневого тега пропущено лишних байтов: {0}",
+      "error": "Ошибка: {0}",
+      "readfail": "Не удалось прочитать файл",
+      "nofile": "Файл не загружен",
+      "saved": "Сохранено: {0} ({1}, {2})",
+      "savefail": "Ошибка сохранения: {0}",
+      "exported": "Экспортировано: {0}",
+      "snbtfail": "Ошибка SNBT: {0}",
+      "tagadded": "Тег добавлен",
+      "tagremoved": "Тег удалён",
+      "arrayupdated": "Массив обновлён",
+      "badvalue": "Недопустимое значение: {0}",
+      "badarray": "Недопустимый массив: {0}",
+      "nameneeded": "Требуется имя тега",
+      "nametaken": "Тег с именем {0} здесь уже существует",
+      "listtype": "Список уже содержит элементы типа {0}",
+      "editlevelname": "✎ Изменить LevelName",
+      "showmore": "Показать ещё {0} из {1} …",
+      "matches": "Совпадений: {0}",
+      "nomatch": "Тегов по запросу \"{0}\" не найдено",
+      "arraytoobig": "В массиве {0} элементов — разверните его и изменяйте элементы по отдельности",
+      "uncompressed": "без сжатия",
+      "storage": "хранилище v{0}",
+      "entries": "Элементов: {0}",
+      "langprompt": "Открыть эту страницу на языке {0}?",
+      "langyes": "Переключить",
+      "langno": "Остаться"
+    },
+    "support": "<strong>Поддерживаются Minecraft Bedrock Edition и Java Edition</strong>, а также все их серверные ядра, популярные и редкие: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina и остальные. <a href=\"__HOME__#server-software\">Полный список</a>.",
+    "footernote": "бесплатный редактор с открытым исходным кодом (MIT), полностью работающий в браузере. Не связан с Mojang Studios или Microsoft. Minecraft является товарным знаком Mojang Studios.",
+    "faqtitle": "Частые вопросы",
+    "toctitle": "На этой странице",
+    "relatedtitle": "Связанные инструменты",
+    "homecrumb": "Редактор NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Редакторы",
+      "Типы файлов",
+      "Справочник"
+    ],
+    "sourcehead": "Исходный код",
+    "sourcelink": "Код на GitHub"
+  },
+  "java-nbt-editor": {
+    "title": "Редактор NBT для Java Edition — level.dat и playerdata",
+    "ogtitle": "Редактор NBT для Java Edition — big-endian, gzip, онлайн",
+    "desc": "Онлайн-редактор NBT для Minecraft Java Edition: level.dat в gzip и big-endian, playerdata, servers.dat и структуры .nbt с Paper, Spigot, Fabric и Forge.",
+    "keywords": "nbt редактор java, редактор nbt minecraft java, java level.dat редактор, редактор playerdata, открыть nbt файл java, paper level.dat, spigot nbt редактор, forge nbt",
+    "h1": "Редактор NBT для Java Edition",
+    "crumb": "Java",
+    "reltitle": "Редактор NBT для Java Edition",
+    "reldesc": "Big-endian и gzip — Vanilla, Paper, Spigot, Fabric, Forge.",
+    "answer": "Minecraft Java Edition хранит данные в NBT с порядком big-endian, почти всегда со сжатием gzip. Перетащите ниже любой файл Java — <code>level.dat</code>, UUID-файл <code>playerdata</code>, <code>servers.dat</code>, структуру <code>.nbt</code> или схему WorldEdit. Редактор распакует файл, разберёт его как big-endian и запишет со сжатием gzip, чтобы игра приняла его без изменения формата.",
+    "droplabel": "файл NBT Java",
+    "body": "\n<section class=\"content\" aria-label=\"Java NBT files\">\n<h2>Из чего состоит мир Java</h2>\n<p>Все перечисленные ниже файлы открываются в редакторе. Сами файлы регионов (<code>.mca</code>) являются контейнерами множества сжатых чанков, а не отдельными документами NBT, поэтому сначала извлеките данные чанка. Редактор прочитает полученный NBT чанка, сжатый zlib.</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Путь</th><th>Содержимое</th><th>Сжатие</th></tr></thead>\n<tbody>\n<tr><td><code>world/level.dat</code></td><td>Имя мира, режим игры, правила, точка появления, <code>DataVersion</code></td><td>gzip</td></tr>\n<tr><td><code>world/level.dat_old</code></td><td>Предыдущее сохранение того же файла</td><td>gzip</td></tr>\n<tr><td><code>world/playerdata/&lt;uuid&gt;.dat</code></td><td>Инвентарь, эндер-сундук, положение, здоровье, опыт, атрибуты</td><td>gzip</td></tr>\n<tr><td><code>world/data/raids.dat</code>, <code>idcounts.dat</code>, <code>map_*.dat</code></td><td>Состояние рейдов, счётчики идентификаторов сущностей, карты</td><td>gzip</td></tr>\n<tr><td><code>world/data/scoreboard.dat</code></td><td>Цели, команды, очки</td><td>gzip</td></tr>\n<tr><td><code>world/region/*.mca</code></td><td>NBT чанков внутри контейнера региона</td><td>zlib для каждого чанка</td></tr>\n<tr><td><code>servers.dat</code></td><td>Список многопользовательских серверов клиента</td><td>Нет</td></tr>\n<tr><td><code>hotbar.nbt</code></td><td>Сохранённые панели быстрого доступа творческого режима</td><td>Нет</td></tr>\n<tr><td><code>*.nbt</code> в датапаках</td><td>Структуры, размещаемые структурными и соединительными блоками</td><td>gzip</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Java NBT encoding\">\n<h2>Как Java кодирует NBT</h2>\n<div class=\"card\">\n<ul>\n<li><strong>Big-endian.</strong> В каждом целом числе и числе с плавающей точкой сначала хранится старший байт, как в <code>DataOutputStream</code> Java.</li>\n<li><strong>Именованный корень.</strong> Файл начинается с типа тега <code>0x0A</code>, затем идёт имя корня в UTF-8 с префиксом длины; в <code>level.dat</code> оно традиционно пустое.</li>\n<li><strong>Модифицированный UTF-8.</strong> Строки используют кодирование <code>writeUTF</code> Java: двухбайтовую длину, NUL в виде <code>C0 80</code> и символы вне основной плоскости, разделённые на две трёхбайтовые половины (CESU-8). Инструмент, который считает это обычным UTF-8, искажает эмодзи в названиях миров; этот редактор кодирует их правильно.</li>\n<li><strong>По умолчанию gzip.</strong> <code>NbtIo.readCompressed</code> ожидает поток gzip. Несжатые файлы открываются в некоторых инструментах, но не в игре.</li>\n<li><strong>Безымянный корень в сети.</strong> Начиная с 1.20.2 протокол передаёт NBT без имени корня. Такие дампы пакетов определяются здесь как <em>сетевая Java</em>.</li>\n</ul>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Server cores\">\n<h2>Paper, Spigot, Fabric, Forge — одинаковые файлы</h2>\n<p>Форки и загрузчики модов меняют работу сервера, но не формат записи мира. Paper, Purpur, Pufferfish, Folia, Fabric, Quilt, Forge, NeoForge, Mohist, Arclight и Sponge используют структуру NBT Vanilla, поэтому всё на этой странице применимо к ним без изменений. Форки добавляют рядом с миром свои файлы, например <code>paper-world.yml</code> и конфигурации модов, но они имеют формат YAML или TOML и не относятся к NBT.</p>\n<p>Моды и плагины могут добавлять собственные Compound в <code>level.dat</code> или <code>playerdata</code>. Эти теги открываются как любые другие; не меняйте их, если не знаете, как мод их использует.</p>\n</section>\n\n<section class=\"content\" aria-label=\"DataVersion\">\n<h2><code>DataVersion</code> и миграция версий</h2>\n<p>Миры Java содержат целое число <code>DataVersion</code>, которое обозначает формат мира и увеличивается в каждом снапшоте. Несколько ориентиров: 1.16.5 — 2586, 1.17.1 — 2730, 1.18.2 — 2975, 1.19.4 — 3337, 1.20.4 — 3700, 1.21 — 3953. Именно из-за этого тега нельзя открыть мир в клиенте старше того, который его записал. Уменьшение значения вручную не понижает версию данных чанков, а только снимает защиту. Читайте тег, чтобы определить записавшую мир версию; не меняйте его для принудительного понижения.</p>\n</section>\n",
+    "chips": [
+      "Vanilla",
+      "Paper",
+      "Spigot",
+      "Purpur",
+      "Folia",
+      "Fabric",
+      "Quilt",
+      "Forge",
+      "NeoForge",
+      "Sponge"
+    ],
+    "faq": [
+      [
+        "Можно открыть level.dat Java, который не загружается в игре?",
+        "<p>Обычно да. Редактор терпимее игры к лишним байтам в конце и точно сообщает, где остановился разбор усечённого файла. Если он тоже отказывает, попробуйте <code>level.dat_old</code> — предыдущее автосохранение.</p>"
+      ],
+      [
+        "Поддерживается сетевой NBT из версии 1.20.2 и новее?",
+        "<p>Да. Начиная с 1.20.2 протокол не передаёт имя корня. Дамп такого вида определяется как формат <em>сетевая Java</em>; его можно сохранить как сетевой NBT или как обычный файл с именованным корнем.</p>"
+      ],
+      [
+        "Можно изменить чанк из файла региона .mca?",
+        "<p>NBT чанка можно изменить после извлечения из контейнера региона. Сам <code>.mca</code> состоит из индекса и множества сжатых zlib данных чанков, а редактор работает с одним документом NBT, но не с контейнером.</p>"
+      ],
+      [
+        "Редактирование playerdata повредит данные игрока?",
+        "<p>Только если сервер работает во время редактирования: он хранит состояние игрока в памяти и записывает его при выходе, заменяя ваш файл. Отключите игрока, измените файл и разрешите ему подключиться снова. См. <a href=\"../playerdata-editor/\">редактор playerdata</a>.</p>"
+      ],
+      [
+        "Для level.dat требуется gzip?",
+        "<p>Загрузчик Vanilla читает gzip. При сохранении выберите сжатие gzip; оно используется по умолчанию, если исходный файл был сжат так же. После этого игра примет файл.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Загружено как {0}",
+      "trailing": "После корневого тега пропущено лишних байтов: {0}",
+      "error": "Ошибка: {0}",
+      "readfail": "Не удалось прочитать файл",
+      "nofile": "Файл не загружен",
+      "saved": "Сохранено: {0} ({1}, {2})",
+      "savefail": "Ошибка сохранения: {0}",
+      "exported": "Экспортировано: {0}",
+      "snbtfail": "Ошибка SNBT: {0}",
+      "tagadded": "Тег добавлен",
+      "tagremoved": "Тег удалён",
+      "arrayupdated": "Массив обновлён",
+      "badvalue": "Недопустимое значение: {0}",
+      "badarray": "Недопустимый массив: {0}",
+      "nameneeded": "Требуется имя тега",
+      "nametaken": "Тег с именем {0} здесь уже существует",
+      "listtype": "Список уже содержит элементы типа {0}",
+      "editlevelname": "✎ Изменить LevelName",
+      "showmore": "Показать ещё {0} из {1} …",
+      "matches": "Совпадений: {0}",
+      "nomatch": "Тегов по запросу \"{0}\" не найдено",
+      "arraytoobig": "В массиве {0} элементов — разверните его и изменяйте элементы по отдельности",
+      "uncompressed": "без сжатия",
+      "storage": "хранилище v{0}",
+      "entries": "Элементов: {0}",
+      "langprompt": "Открыть эту страницу на языке {0}?",
+      "langyes": "Переключить",
+      "langno": "Остаться"
+    },
+    "support": "<strong>Поддерживаются Minecraft Bedrock Edition и Java Edition</strong>, а также все их серверные ядра, популярные и редкие: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina и остальные. <a href=\"__HOME__#server-software\">Полный список</a>.",
+    "footernote": "бесплатный редактор с открытым исходным кодом (MIT), полностью работающий в браузере. Не связан с Mojang Studios или Microsoft. Minecraft является товарным знаком Mojang Studios.",
+    "faqtitle": "Частые вопросы",
+    "toctitle": "На этой странице",
+    "relatedtitle": "Связанные инструменты",
+    "homecrumb": "Редактор NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Редакторы",
+      "Типы файлов",
+      "Справочник"
+    ],
+    "sourcehead": "Исходный код",
+    "sourcelink": "Код на GitHub"
+  },
+  "mcpe-nbt-editor": {
+    "title": "Редактор NBT для MCPE — level.dat на Android и iOS",
+    "ogtitle": "Редактор NBT для Bedrock — level.dat, MCPE, MCBE",
+    "desc": "Редактирование файлов миров MCPE и Bedrock онлайн: level.dat с 8-байтовым заголовком, .mcstructure и little-endian NBT с Android, iOS, Windows или сервера.",
+    "keywords": "mcpe nbt редактор, редактор nbt minecraft pe, редактор level.dat bedrock, изменить level.dat android, редактор мира mcpe, открыть level.dat телефона, mcbe nbt editor онлайн",
+    "h1": "Редактор NBT для MCPE — файлы Minecraft Pocket Edition",
+    "crumb": "MCPE",
+    "reltitle": "Редактор NBT для MCPE",
+    "reldesc": "Little-endian NBT и 8-байтовый заголовок level.dat.",
+    "answer": "Bedrock Edition записывает NBT в порядке little-endian, а перед данными <code>level.dat</code> находится 8-байтовый заголовок с версией хранилища и длиной данных. Перетащите ниже файл Bedrock: <code>level.dat</code>, <code>.mcstructure</code>, значение LevelDB или дамп протокола. Редактор прочитает его, сохранит заголовок, пересчитает длину при сохранении и вернёт файл, готовый для папки мира.",
+    "droplabel": "level.dat Bedrock",
+    "body": "\n<section class=\"content\" aria-label=\"Bedrock level.dat header\">\n<h2>8-байтовый заголовок и его назначение</h2>\n<p><code>level.dat</code> Bedrock — не просто NBT. Первые четыре байта содержат версию хранилища в порядке little-endian (на практике встречаются значения 8 и 10), следующие четыре — длину данных NBT в байтах, после чего идут несжатые теги. Если изменить данные и не исправить длину, игра отклонит файл. Именно это происходит при открытии сохранений Bedrock в инструменте NBT только для Java.</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Смещение</th><th>Размер</th><th>Поле</th></tr></thead>\n<tbody>\n<tr><td>0</td><td>4 байта</td><td>Версия хранилища, целое little-endian</td></tr>\n<tr><td>4</td><td>4 байта</td><td>Длина данных в байтах, беззнаковое little-endian</td></tr>\n<tr><td>8</td><td>Остальное</td><td>Little-endian NBT, корневой Compound, без сжатия</td></tr>\n</tbody>\n</table>\n</div>\n<p>Редактор показывает версию хранилища на панели файла, сохраняет её и перезаписывает длину при каждом сохранении.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Bedrock tags\">\n<h2>Основные теги Bedrock</h2>\n<p>Bedrock хранит настройки непосредственно в корне <code>level.dat</code>, а не внутри Compound <code>Data</code>, как Java. Правила игры представлены отдельными тегами вместо дочернего <code>GameRules</code>.</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Тег</th><th>Тип</th><th>Назначение</th></tr></thead>\n<tbody>\n<tr><td><code>LevelName</code></td><td>String</td><td>Имя мира в списке миров и выводе сервера</td></tr>\n<tr><td><code>GameType</code></td><td>Int</td><td>0 — выживание, 1 — творчество, 2 — приключение</td></tr>\n<tr><td><code>Difficulty</code></td><td>Int</td><td>От 0 — мирно до 3 — сложно</td></tr>\n<tr><td><code>commandsEnabled</code></td><td>Byte</td><td>Читы включены или выключены</td></tr>\n<tr><td><code>SpawnX</code>, <code>SpawnY</code>, <code>SpawnZ</code></td><td>Int</td><td>Точка появления мира</td></tr>\n<tr><td><code>RandomSeed</code></td><td>Long</td><td>Сид мира, настоящее 64-битное значение</td></tr>\n<tr><td><code>lastOpenedWithVersion</code></td><td>List of Int</td><td>Сборка клиента или сервера, которая последней записала мир</td></tr>\n<tr><td><code>StorageVersion</code></td><td>Int</td><td>Ревизия хранилища мира, дублирует заголовок</td></tr>\n<tr><td><code>experiments</code></td><td>Compound</td><td>Экспериментальные функции, включённые в мире</td></tr>\n<tr><td><code>keepinventory</code>, <code>domobspawning</code>, …</td><td>Byte</td><td>Правила игры, по одному тегу в нижнем регистре</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Where Bedrock files live\">\n<h2>Где найти файл на каждой платформе</h2>\n<ul>\n<li><strong>Android:</strong> <code>Android/data/com.mojang.minecraftpe/files/games/com.mojang/minecraftWorlds/&lt;id&gt;/level.dat</code>. Новые версии Android ограничивают доступ к этой папке: экспортируйте мир из игры или используйте файловый менеджер с нужными правами.</li>\n<li><strong>iOS:</strong> экспортируйте мир из игры в файл <code>.mcworld</code>, откройте его в приложении «Файлы» и распакуйте там; <code>level.dat</code> находится в корне архива.</li>\n<li><strong>Windows:</strong> <code>%LOCALAPPDATA%\\Packages\\Microsoft.MinecraftUWP_8wekyb3d8bbwe\\LocalState\\games\\com.mojang\\minecraftWorlds\\&lt;id&gt;\\level.dat</code>.</li>\n<li><strong>Bedrock Dedicated Server:</strong> <code>worlds/&lt;World&gt;/level.dat</code>.</li>\n<li><strong>PocketMine-MP, Nukkit, PowerNukkitX:</strong> <code>worlds/&lt;World&gt;/level.dat</code> — см. <a href=\"../pocketmine-nbt-editor/\">руководство для серверов</a>.</li>\n</ul>\n<p>Папка мира имеет случайный идентификатор, а не имя мира. Отсортируйте папки по времени изменения или откройте здесь несколько файлов <code>level.dat</code> и проверьте <code>LevelName</code>, чтобы найти нужный.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Other Bedrock NBT\">\n<h2>Другие файлы кроме <code>level.dat</code></h2>\n<p>Bedrock хранит чанки, сущности и блок-сущности в базе LevelDB в папке <code>db/</code>; значениями многих ключей служит little-endian NBT. Извлечённое значение открывается здесь как <em>необработанный Bedrock</em>: без заголовка и сжатия. Файлы структур используют то же кодирование; см. <a href=\"../mcstructure-editor/\">редактор .mcstructure</a>. В захватах протокола используется вариант varint, который редактор определяет как <em>сетевой Bedrock</em>.</p>\n</section>\n",
+    "chips": [
+      "MCPE",
+      "MCBE",
+      "Bedrock Dedicated Server",
+      "PocketMine-MP",
+      "Nukkit",
+      "PowerNukkitX",
+      "Cloudburst",
+      "Dragonfly",
+      "Endstone"
+    ],
+    "faq": [
+      [
+        "Почему мой Bedrock level.dat не открывается в NBTExplorer?",
+        "<p>NBTExplorer ожидает структуру Java с порядком big-endian и не распознаёт 8-байтовый заголовок Bedrock. Этот редактор поддерживает оба варианта и при сохранении перезаписывает длину в заголовке.</p>"
+      ],
+      [
+        "Можно изменить мир MCPE на телефоне?",
+        "<p>Да. Откройте эту страницу в браузере телефона, выберите файл в файловом менеджере, измените и сохраните его. Файл попадёт в папку загрузок; скопируйте его обратно поверх оригинала.</p>"
+      ],
+      [
+        "Чем отличаются версии хранилища 8 и 10?",
+        "<p>Они обозначают ревизии формата хранения миров Bedrock; современные клиенты записывают версию 10. Редактор сохраняет исходное значение и не заменяет его принудительно, поскольку изменение номера не мигрирует связанные данные мира.</p>"
+      ],
+      [
+        "Редактор работает с файлами .mcworld?",
+        "<p>Не напрямую: <code>.mcworld</code> является zip-архивом. Распакуйте его, измените здесь <code>level.dat</code>, верните файл в архив и снова присвойте архиву расширение <code>.mcworld</code>.</p>"
+      ],
+      [
+        "Редактор работает с правилами игры Bedrock?",
+        "<p>Да. Bedrock хранит каждое правило в корне как отдельный байтовый тег в нижнем регистре: <code>keepinventory</code>, <code>domobspawning</code>, <code>showcoordinates</code> и другие. Установите байт в 1 или 0. Список приведён в <a href=\"../guides/edit-gamerules/\">руководстве по правилам игры</a>.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Загружено как {0}",
+      "trailing": "После корневого тега пропущено лишних байтов: {0}",
+      "error": "Ошибка: {0}",
+      "readfail": "Не удалось прочитать файл",
+      "nofile": "Файл не загружен",
+      "saved": "Сохранено: {0} ({1}, {2})",
+      "savefail": "Ошибка сохранения: {0}",
+      "exported": "Экспортировано: {0}",
+      "snbtfail": "Ошибка SNBT: {0}",
+      "tagadded": "Тег добавлен",
+      "tagremoved": "Тег удалён",
+      "arrayupdated": "Массив обновлён",
+      "badvalue": "Недопустимое значение: {0}",
+      "badarray": "Недопустимый массив: {0}",
+      "nameneeded": "Требуется имя тега",
+      "nametaken": "Тег с именем {0} здесь уже существует",
+      "listtype": "Список уже содержит элементы типа {0}",
+      "editlevelname": "✎ Изменить LevelName",
+      "showmore": "Показать ещё {0} из {1} …",
+      "matches": "Совпадений: {0}",
+      "nomatch": "Тегов по запросу \"{0}\" не найдено",
+      "arraytoobig": "В массиве {0} элементов — разверните его и изменяйте элементы по отдельности",
+      "uncompressed": "без сжатия",
+      "storage": "хранилище v{0}",
+      "entries": "Элементов: {0}",
+      "langprompt": "Открыть эту страницу на языке {0}?",
+      "langyes": "Переключить",
+      "langno": "Остаться"
+    },
+    "support": "<strong>Поддерживаются Minecraft Bedrock Edition и Java Edition</strong>, а также все их серверные ядра, популярные и редкие: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina и остальные. <a href=\"__HOME__#server-software\">Полный список</a>.",
+    "footernote": "бесплатный редактор с открытым исходным кодом (MIT), полностью работающий в браузере. Не связан с Mojang Studios или Microsoft. Minecraft является товарным знаком Mojang Studios.",
+    "faqtitle": "Частые вопросы",
+    "toctitle": "На этой странице",
+    "relatedtitle": "Связанные инструменты",
+    "homecrumb": "Редактор NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Редакторы",
+      "Типы файлов",
+      "Справочник"
+    ],
+    "sourcehead": "Исходный код",
+    "sourcelink": "Код на GitHub"
+  },
+  "pocketmine-nbt-editor": {
+    "title": "Редактор level.dat для PocketMine-MP, Nukkit и BDS",
+    "ogtitle": "Редактор level.dat для PocketMine-MP и Nukkit",
+    "desc": "Редактирование level.dat для PocketMine-MP, Nukkit, PowerNukkitX и Bedrock Dedicated Server онлайн, включая исправление одинаковых имён скопированных миров.",
+    "keywords": "pocketmine level.dat редактор, pmmp nbt редактор, изменить имя мира pocketmine, nukkit level.dat редактор, редактор мира pmmp, bedrock server level.dat, powernukkitx nbt",
+    "h1": "Редактор level.dat для PocketMine-MP и серверов Bedrock",
+    "crumb": "PocketMine-MP",
+    "reltitle": "Редактор для PocketMine-MP",
+    "reldesc": "Серверный level.dat для PMMP, Nukkit и BDS.",
+    "answer": "Серверное ПО Bedrock — PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly и официальный Bedrock Dedicated Server — читает один и тот же little-endian <code>level.dat</code> с 8-байтовым заголовком из <code>worlds/&lt;World&gt;/</code>. Перетащите файл ниже, чтобы исправить имя мира после копирования папки, переместить точку появления, изменить правила или проверить, какая сборка последней записала мир.",
+    "droplabel": "worlds/&lt;World&gt;/level.dat",
+    "body": "\n<section class=\"content\" aria-label=\"Duplicate world names\">\n<h2>Проблема одинаковых имён миров</h2>\n<p>С этим сталкивается каждый администратор сервера Bedrock. Вы копируете <code>worlds/hub</code> в <code>worlds/hub2</code>, чтобы создать вторую арену, но консоль, менеджер миров и все плагины по-прежнему называют оба мира <em>hub</em>. Имя папки изменилось, а <code>LevelName</code> внутри <code>level.dat</code> — нет.</p>\n<p>Последствия не только визуальные. Плагины, которые находят миры по внутреннему имени, включая телепорты, конфигурации отдельных миров и защиту регионов, могут выбрать неверный мир, а команды управления мирами становятся неоднозначными. Исправьте тег: перетащите файл выше, и редактор сразу перейдёт к <code>LevelName</code> и откроет его для изменения.</p>\n<div class=\"card\">\n<ol class=\"steps\">\n<li>Остановите сервер. Запущенный сервер перезаписывает <code>level.dat</code> при сохранении и отменит изменение.</li>\n<li>Скачайте <code>worlds/&lt;World&gt;/level.dat</code> по SFTP или через файловый менеджер панели.</li>\n<li>Перетащите файл в редактор, задайте новое значение <code>LevelName</code> и сохраните.</li>\n<li>Загрузите файл обратно поверх исходного, сохранив старый как резервную копию.</li>\n<li>Запустите сервер и проверьте строку консоли со списком загруженных миров.</li>\n</ol>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Core specifics\">\n<h2>Особенности отдельных ядер</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Ядро</th><th>Путь к миру</th><th>Примечания</th></tr></thead>\n<tbody>\n<tr><td>PocketMine-MP (PM5)</td><td><code>worlds/&lt;World&gt;/</code></td><td>Мир по умолчанию задаётся параметром <code>level-name</code> в <code>server.properties</code>. Это значение обозначает папку, а <code>LevelName</code> — внутреннее имя мира.</td></tr>\n<tr><td>Nukkit / PowerNukkitX</td><td><code>worlds/&lt;World&gt;/</code></td><td>Та же структура Bedrock; PNX добавляет рядом собственные файлы настроек.</td></tr>\n<tr><td>Bedrock Dedicated Server</td><td><code>worlds/&lt;World&gt;/</code></td><td>Параметр <code>level-name</code> в <code>server.properties</code> выбирает папку; версия хранилища в заголовке обычно равна 10.</td></tr>\n<tr><td>Cloudburst / Dragonfly</td><td><code>worlds/&lt;World&gt;/</code></td><td>Читают тот же <code>level.dat</code>; Dragonfly может хранить дополнительное состояние в собственной базе данных.</td></tr>\n<tr><td>WaterdogPE, Geyser</td><td>—</td><td>Прокси. Они не хранят миры; NBT только проходит через них по сети в виде сетевого NBT.</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Server workflow\">\n<h2>Как не повредить рабочий сервер</h2>\n<div class=\"card\">\n<ul>\n<li><strong>Создайте резервную копию всей папки мира,</strong> а не только <code>level.dat</code>. Это занимает несколько секунд и позволяет отменить неудачное изменение.</li>\n<li><strong>Не редактируйте рабочий файл через SFTP.</strong> Остановите сервер, скачайте, измените и загрузите файл обратно. Редактирование на месте, пока сервер держит мир открытым, может привести к усечению файла.</li>\n<li><strong>Копируете мир для нового режима?</strong> Измените <code>LevelName</code> сразу после копирования, до первого открытия сервером, чтобы неверное имя не попало в кеш.</li>\n<li><strong>После загрузки проверьте панель файла.</strong> На ней отображаются определённый формат и версия хранилища. Если файл Bedrock определён иначе, чем <em>Bedrock level.dat</em>, выбран неверный или повреждённый файл.</li>\n</ul>\n</div>\n</section>\n",
+    "chips": [
+      "PocketMine-MP",
+      "Nukkit",
+      "PowerNukkitX",
+      "Cloudburst",
+      "Bedrock Dedicated Server",
+      "Dragonfly",
+      "Endstone",
+      "WaterdogPE"
+    ],
+    "faq": [
+      [
+        "PocketMine-MP использует тот же level.dat, что и Bedrock?",
+        "<p>Да. PocketMine-MP реализует формат миров Bedrock, поэтому его <code>level.dat</code> содержит little-endian NBT с 8-байтовым заголовком и по структуре байт в байт совпадает с файлом сервера Vanilla Bedrock.</p>"
+      ],
+      [
+        "Почему в консоли два мира отображаются с одним именем?",
+        "<p>Оба мира скопированы из одной папки и содержат одинаковый <code>LevelName</code>. Имя папки и тег не зависят друг от друга; измените тег.</p>"
+      ],
+      [
+        "Можно переименовать мир без перезапуска сервера?",
+        "<p>Нет. Мир загружен в память и перезаписывается при сохранении, поэтому изменение во время работы сервера будет отброшено. Остановите сервер, измените файл и снова запустите.</p>"
+      ],
+      [
+        "Редактор работает с Nukkit и PowerNukkitX?",
+        "<p>Да, у них одинаковый формат, путь к файлу и порядок действий.</p>"
+      ],
+      [
+        "Как преобразовать мир Bedrock в Java?",
+        "<p>Редактор NBT для этого не подходит. Порядок байтов — самая простая часть; структура тегов, палитры блоков и хранение чанков различаются полностью. Используйте специализированный конвертер, а этот редактор — для оставшихся метаданных.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Загружено как {0}",
+      "trailing": "После корневого тега пропущено лишних байтов: {0}",
+      "error": "Ошибка: {0}",
+      "readfail": "Не удалось прочитать файл",
+      "nofile": "Файл не загружен",
+      "saved": "Сохранено: {0} ({1}, {2})",
+      "savefail": "Ошибка сохранения: {0}",
+      "exported": "Экспортировано: {0}",
+      "snbtfail": "Ошибка SNBT: {0}",
+      "tagadded": "Тег добавлен",
+      "tagremoved": "Тег удалён",
+      "arrayupdated": "Массив обновлён",
+      "badvalue": "Недопустимое значение: {0}",
+      "badarray": "Недопустимый массив: {0}",
+      "nameneeded": "Требуется имя тега",
+      "nametaken": "Тег с именем {0} здесь уже существует",
+      "listtype": "Список уже содержит элементы типа {0}",
+      "editlevelname": "✎ Изменить LevelName",
+      "showmore": "Показать ещё {0} из {1} …",
+      "matches": "Совпадений: {0}",
+      "nomatch": "Тегов по запросу \"{0}\" не найдено",
+      "arraytoobig": "В массиве {0} элементов — разверните его и изменяйте элементы по отдельности",
+      "uncompressed": "без сжатия",
+      "storage": "хранилище v{0}",
+      "entries": "Элементов: {0}",
+      "langprompt": "Открыть эту страницу на языке {0}?",
+      "langyes": "Переключить",
+      "langno": "Остаться"
+    },
+    "support": "<strong>Поддерживаются Minecraft Bedrock Edition и Java Edition</strong>, а также все их серверные ядра, популярные и редкие: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina и остальные. <a href=\"__HOME__#server-software\">Полный список</a>.",
+    "footernote": "бесплатный редактор с открытым исходным кодом (MIT), полностью работающий в браузере. Не связан с Mojang Studios или Microsoft. Minecraft является товарным знаком Mojang Studios.",
+    "faqtitle": "Частые вопросы",
+    "toctitle": "На этой странице",
+    "relatedtitle": "Связанные инструменты",
+    "homecrumb": "Редактор NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Редакторы",
+      "Типы файлов",
+      "Справочник"
+    ],
+    "sourcehead": "Исходный код",
+    "sourcelink": "Код на GitHub"
+  },
+  "mcstructure-editor": {
+    "title": ".mcstructure редактор онлайн — структуры Bedrock",
+    "ogtitle": ".mcstructure редактор — открытие и правка структур Bedrock",
+    "desc": "Открывайте и редактируйте файлы Bedrock .mcstructure онлайн: палитру блоков, размеры, индексы блоков и данные блочных сущностей.",
+    "keywords": "редактор mcstructure, открыть mcstructure, mcstructure редактор онлайн, файл структуры майнкрафт, редактор структур bedrock",
+    "h1": ".mcstructure редактор — файлы структур Bedrock",
+    "crumb": ".mcstructure",
+    "reltitle": ".mcstructure редактор",
+    "reldesc": "Структурные блоки Bedrock: палитра, размеры, блочные сущности.",
+    "answer": "Файл <code>.mcstructure</code> содержит несжатые данные NBT с порядком байтов little-endian, записанные структурным блоком Bedrock. Перетащите файл ниже, чтобы прочитать размеры, палитру и индексы блоков, а также данные блочных сущностей, отредактировать их и скачать файл в прежней кодировке. Это позволяет авторам дополнений и карт исправить структуру, не открывая мир заново.",
+    "droplabel": "файл .mcstructure",
+    "body": "\n<section class=\"content\" aria-label=\"Inside a mcstructure file\">\n<h2>Что находится внутри <code>.mcstructure</code></h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Тег</th><th>Тип</th><th>Содержимое</th></tr></thead>\n<tbody>\n<tr><td><code>format_version</code></td><td>Int</td><td>Версия формата структуры, в текущих файлах — 1</td></tr>\n<tr><td><code>size</code></td><td>List of Int</td><td>Размеры захваченного объёма по X, Y, Z</td></tr>\n<tr><td><code>structure_world_origin</code></td><td>List of Int</td><td>Место захвата структуры в мире</td></tr>\n<tr><td><code>structure</code></td><td>Compound</td><td>Здесь находятся все перечисленные ниже данные</td></tr>\n<tr><td><code>structure.block_indices</code></td><td>List of Int[]</td><td>Два слоя индексов палитры — обычно блоки и затопление водой; <code>-1</code> означает \"оставить содержимое позиции без изменений\"</td></tr>\n<tr><td><code>structure.entities</code></td><td>List of Compound</td><td>Сущности, захваченные вместе со структурой</td></tr>\n<tr><td><code>structure.palette.default.block_palette</code></td><td>List of Compound</td><td>Все уникальные состояния блоков: <code>name</code>, <code>states</code>, <code>version</code></td></tr>\n<tr><td><code>structure.palette.default.block_position_data</code></td><td>Compound</td><td>NBT блочных сущностей с плоским индексом позиции в качестве ключа</td></tr>\n</tbody>\n</table>\n</div>\n<p>Индексы в <code>block_indices</code> идут по X, затем по Z и Y. Плоский индекс <code>(x * sizeZ + z) * sizeY + y</code> указывает на список палитры. Такое соответствие позволяет исправить один неверно заданный блок без повторного создания структуры.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Typical edits\">\n<h2>Что обычно меняют</h2>\n<ul>\n<li><strong>Заменяют тип блока во всей структуре</strong>, изменяя одну запись в <code>block_palette</code>: вместе с ней меняются все позиции, которые ссылаются на этот индекс.</li>\n<li><strong>Исправляют состояние блока</strong>, например неверный <code>facing</code> или случайный <code>waterlogged</code> в Compound <code>states</code>.</li>\n<li><strong>Удаляют случайно захваченные сущности</strong>, убирая записи из списка <code>entities</code>.</li>\n<li><strong>Восстанавливают данные блочных сущностей</strong>: содержимое сундуков, текст табличек и настройки спаунеров внутри <code>block_position_data</code>.</li>\n<li><strong>Проверяют версию</strong> в записях палитры, если после обновления игры структура импортируется с неверными блоками.</li>\n</ul>\n</section>\n\n<section class=\"content\" aria-label=\"Where mcstructure files live\">\n<h2>Где находятся файлы</h2>\n<p>Структурные блоки сохраняют файлы в папке мира <code>structures/</code> с именами вида <code>&lt;namespace&gt;_&lt;name&gt;.mcstructure</code>. В наборах поведения они находятся в папке <code>structures/</code> набора, откуда игра загружает их по пространству имён. Формат в обоих случаях одинаков, и оба варианта открываются здесь.</p>\n<p>Аналог для Java Edition — файл структуры <code>.nbt</code> с порядком байтов big-endian и сжатием gzip. У него другая кодировка и структура тегов. Подробнее см. на <a href=\"../java-nbt-editor/\">странице редактора Java</a>; этот редактор тоже открывает такие файлы.</p>\n</section>\n",
+    "chips": [
+      "Структурные блоки",
+      "Дополнения Bedrock",
+      "Наборы поведения",
+      "NBT little-endian"
+    ],
+    "faq": [
+      [
+        "Можно ли преобразовать .mcstructure в структуру Java .nbt?",
+        "<p>Редактор может перекодировать байты в big-endian со сжатием gzip, но структура тегов отличается: в структурах Java используются <code>palette</code>/<code>blocks</code> с другими ключами и именами блоков. Перекодированный файл можно прочитать, но он не будет корректной структурой Java.</p>"
+      ],
+      [
+        "Почему мой файл .mcstructure не сжат?",
+        "<p>Bedrock записывает файлы структур как необёрнутый NBT с порядком байтов little-endian, без gzip. Это нормально; редактор определит такой формат как <em>необёрнутый Bedrock</em>.</p>"
+      ],
+      [
+        "Что означает индекс -1 в block_indices?",
+        "<p>Он отмечает позицию, которую структура не затрагивает, поэтому при размещении структуры существующий блок в мире сохраняется.</p>"
+      ],
+      [
+        "Можно ли изменить размер структуры через size?",
+        "<p>Одного этого недостаточно: в <code>block_indices</code> приходится по одной записи на позицию, поэтому длина массива должна точно соответствовать новому объёму. Если изменить только <code>size</code>, игра отклонит файл.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Загружено в формате {0}",
+      "trailing": "Концевые байты после корневого тега проигнорированы: {0}",
+      "error": "Ошибка: {0}",
+      "readfail": "Не удалось прочитать файл",
+      "nofile": "Файл не загружен",
+      "saved": "Сохранено: {0} ({1}, {2})",
+      "savefail": "Ошибка сохранения: {0}",
+      "exported": "Экспортировано: {0}",
+      "snbtfail": "Ошибка SNBT: {0}",
+      "tagadded": "Тег добавлен",
+      "tagremoved": "Тег удалён",
+      "arrayupdated": "Массив обновлён",
+      "badvalue": "Недопустимое значение: {0}",
+      "badarray": "Недопустимый массив: {0}",
+      "nameneeded": "Укажите имя тега",
+      "nametaken": "Тег с именем {0} здесь уже существует",
+      "listtype": "Список уже содержит элементы типа {0}",
+      "editlevelname": "✎ Изменить LevelName",
+      "showmore": "Показать ещё {0} из {1}…",
+      "matches": "Совпадений: {0}",
+      "nomatch": "Тег по запросу \"{0}\" не найден",
+      "arraytoobig": "В массиве {0} элементов — разверните его и изменяйте элементы по отдельности",
+      "uncompressed": "без сжатия",
+      "storage": "хранилище v{0}",
+      "entries": "Элементов: {0}",
+      "langprompt": "Открыть эту страницу на языке {0}?",
+      "langyes": "Переключить",
+      "langno": "Остаться"
+    },
+    "support": "<strong>Поддерживаются Minecraft Bedrock Edition и Java Edition</strong>, а также все популярные и малоизвестные серверные ядра для обеих версий: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina и другие. <a href=\"__HOME__#server-software\">Полный список</a>.",
+    "footernote": "бесплатный проект с открытым исходным кодом (MIT), полностью работающий в браузере. Не связан с Mojang Studios или Microsoft. Minecraft — товарный знак Mojang Studios.",
+    "faqtitle": "Частые вопросы",
+    "toctitle": "На этой странице",
+    "relatedtitle": "Связанные инструменты",
+    "homecrumb": "NBT редактор",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Редакторы",
+      "Типы файлов",
+      "Справка"
+    ],
+    "sourcehead": "Исходный код",
+    "sourcelink": "Код на GitHub"
+  },
+  "schematic-editor": {
+    "title": ".schem и .schematic редактор — WorldEdit, MCEdit",
+    "ogtitle": ".schem / .schematic редактор — файлы WorldEdit и MCEdit",
+    "desc": "Открывайте файлы WorldEdit .schem и MCEdit .schematic онлайн. Просматривайте палитру, размеры, смещения и блочные сущности, меняйте теги.",
+    "keywords": "редактор schem, редактор schematic онлайн, открыть файл schem, редактор схем worldedit, просмотр schematic, майнкрафт схемы",
+    "h1": "Редактор схем .schem и .schematic онлайн",
+    "crumb": ".schem",
+    "reltitle": "Редактор схем",
+    "reldesc": "WorldEdit .schem и устаревший формат MCEdit .schematic.",
+    "answer": "Схемы — это NBT с порядком байтов big-endian и сжатием gzip. Перетащите ниже современный файл WorldEdit <code>.schem</code> в формате Sponge Schematic или устаревший файл MCEdit <code>.schematic</code>, чтобы проверить палитру, размеры, смещения, список блочных сущностей и метаданные, изменить любой тег и скачать готовый для <code>//paste</code> файл.",
+    "droplabel": "файл .schem или .schematic",
+    "body": "\n<section class=\"content\" aria-label=\"Schematic formats\">\n<h2>Два формата одного семейства расширений</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Формат</th><th>Расширение</th><th>Основные теги</th></tr></thead>\n<tbody>\n<tr><td>Sponge Schematic v2 (WorldEdit 7)</td><td><code>.schem</code></td><td><code>Version</code>, <code>DataVersion</code>, <code>Width</code>, <code>Height</code>, <code>Length</code>, <code>Palette</code>, <code>BlockData</code>, <code>BlockEntities</code>, <code>Offset</code>, <code>Metadata</code></td></tr>\n<tr><td>Sponge Schematic v3</td><td><code>.schem</code></td><td>Те же данные вложены в Compound <code>Schematic</code>, а <code>Blocks</code> содержит <code>Palette</code> и <code>Data</code></td></tr>\n<tr><td>Устаревший MCEdit</td><td><code>.schematic</code></td><td><code>Width</code>, <code>Height</code>, <code>Length</code>, <code>Blocks</code>, <code>Data</code>, <code>Entities</code>, <code>TileEntities</code>, <code>Materials</code></td></tr>\n</tbody>\n</table>\n</div>\n<p>В форматах Sponge тег <code>BlockData</code> представляет собой массив байтов с индексами палитры varint, а не по одному байту на блок: длинные идентификаторы занимают несколько байтов. Устаревший формат хранит числовые идентификаторы блоков в <code>Blocks</code> и отдельный параллельный массив <code>Data</code> с метаданными по четыре бита. Поэтому старые схемы теряют точность в современных версиях.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Editing schematics\">\n<h2>Что имеет смысл менять вручную</h2>\n<ul>\n<li><strong>Записи палитры.</strong> Замена <code>minecraft:oak_planks</code> на <code>minecraft:spruce_planks</code> в <code>Palette</code> сразу изменит все соответствующие блоки схемы.</li>\n<li><strong>Смещение и начало координат.</strong> <code>Offset</code> определяет место вставки относительно вашей позиции и позволяет быстро исправить постройку, которая всегда появляется на три блока в стороне.</li>\n<li><strong>Блочные сущности.</strong> Содержимое сундуков, строки табличек и данные спаунеров находятся в <code>BlockEntities</code>; их можно очистить перед передачей постройки.</li>\n<li><strong>Метаданные.</strong> <code>Metadata</code> содержит автора и начало координат WorldEdit. Эти данные можно безопасно изменить или очистить перед публикацией.</li>\n<li><strong>DataVersion.</strong> Показывает версию Minecraft, в которой создана схема, и объясняет большинство ошибок \"неизвестный блок\" при вставке.</li>\n</ul>\n</section>\n\n<section class=\"content\" aria-label=\"Compatibility\">\n<h2>Совместимость загрузчиков</h2>\n<p>WorldEdit и FastAsyncWorldEdit читают <code>.schem</code> из <code>plugins/WorldEdit/schematics/</code>; устаревшие файлы <code>.schematic</code> тоже загружаются, но преобразуются при чтении. Litematica использует собственный контейнер <code>.litematic</code>. Он тоже основан на NBT и открывается в редакторе, хотя его структура отличается от Sponge. Редактор читает любой из этих вариантов как NBT и записывает обратно со сжатием gzip, поэтому загрузчик получает файл в ожидаемом формате.</p>\n</section>\n",
+    "chips": [
+      "WorldEdit",
+      "FastAsyncWorldEdit",
+      "Sponge Schematic v2/v3",
+      "Устаревший MCEdit",
+      "Совместимость с Litematica"
+    ],
+    "faq": [
+      [
+        "Можно ли открыть .schem без сервера или WorldEdit?",
+        "<p>Да. <code>.schem</code> — это NBT с порядком байтов big-endian и сжатием gzip; редактор открывает такой файл в браузере без установки других программ.</p>"
+      ],
+      [
+        "Почему схема вставляется с неправильными блоками?",
+        "<p>Обычно причина в несовпадении версий. Проверьте <code>DataVersion</code> и палитру. Схема из более новой версии может ссылаться на состояния блоков, неизвестные старому серверу.</p>"
+      ],
+      [
+        "Можно ли изменить здесь размер схемы?",
+        "<p>Недостаточно изменить только <code>Width</code>/<code>Height</code>/<code>Length</code>. Размер <code>BlockData</code> соответствует объёму, поэтому размеры и данные нужно менять вместе. Для этого нужен WorldEdit, а не редактор тегов.</p>"
+      ],
+      [
+        "Открываются ли файлы .litematic?",
+        "<p>Да, как NBT. У Litematica собственная структура тегов, отличная от Sponge, поэтому будет показана её исходная структура, а не палитра схемы Sponge.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Загружено в формате {0}",
+      "trailing": "Концевые байты после корневого тега проигнорированы: {0}",
+      "error": "Ошибка: {0}",
+      "readfail": "Не удалось прочитать файл",
+      "nofile": "Файл не загружен",
+      "saved": "Сохранено: {0} ({1}, {2})",
+      "savefail": "Ошибка сохранения: {0}",
+      "exported": "Экспортировано: {0}",
+      "snbtfail": "Ошибка SNBT: {0}",
+      "tagadded": "Тег добавлен",
+      "tagremoved": "Тег удалён",
+      "arrayupdated": "Массив обновлён",
+      "badvalue": "Недопустимое значение: {0}",
+      "badarray": "Недопустимый массив: {0}",
+      "nameneeded": "Укажите имя тега",
+      "nametaken": "Тег с именем {0} здесь уже существует",
+      "listtype": "Список уже содержит элементы типа {0}",
+      "editlevelname": "✎ Изменить LevelName",
+      "showmore": "Показать ещё {0} из {1}…",
+      "matches": "Совпадений: {0}",
+      "nomatch": "Тег по запросу \"{0}\" не найден",
+      "arraytoobig": "В массиве {0} элементов — разверните его и изменяйте элементы по отдельности",
+      "uncompressed": "без сжатия",
+      "storage": "хранилище v{0}",
+      "entries": "Элементов: {0}",
+      "langprompt": "Открыть эту страницу на языке {0}?",
+      "langyes": "Переключить",
+      "langno": "Остаться"
+    },
+    "support": "<strong>Поддерживаются Minecraft Bedrock Edition и Java Edition</strong>, а также все популярные и малоизвестные серверные ядра для обеих версий: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina и другие. <a href=\"__HOME__#server-software\">Полный список</a>.",
+    "footernote": "бесплатный проект с открытым исходным кодом (MIT), полностью работающий в браузере. Не связан с Mojang Studios или Microsoft. Minecraft — товарный знак Mojang Studios.",
+    "faqtitle": "Частые вопросы",
+    "toctitle": "На этой странице",
+    "relatedtitle": "Связанные инструменты",
+    "homecrumb": "NBT редактор",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Редакторы",
+      "Типы файлов",
+      "Справка"
+    ],
+    "sourcehead": "Исходный код",
+    "sourcelink": "Код на GitHub"
+  },
+  "playerdata-editor": {
+    "title": "Редактор Minecraft playerdata — файлы .dat онлайн",
+    "ogtitle": "Редактор playerdata — инвентарь, позиция и параметры",
+    "desc": "Редактируйте файлы Minecraft playerdata .dat онлайн: исправляйте позицию игрока, повреждённые предметы, здоровье, опыт или режим игры.",
+    "keywords": "редактор playerdata, редактор player dat, изменить инвентарь игрока майнкрафт, uuid dat, исправить позицию игрока, nbt игрока",
+    "h1": "Редактор playerdata — файлы игроков Minecraft .dat",
+    "crumb": "playerdata",
+    "reltitle": "Редактор playerdata",
+    "reldesc": "Инвентарь, позиция, здоровье и параметры каждого игрока.",
+    "answer": "Java Edition записывает для каждого игрока отдельный файл NBT с порядком байтов big-endian и сжатием gzip в <code>world/playerdata/&lt;uuid&gt;.dat</code>. Он содержит инвентарь, эндер-сундук, позицию, измерение, здоровье, голод, опыт и атрибуты. Перетащите файл ниже, чтобы освободить застрявшего в блоках игрока, удалить вызывающий сбой предмет или сбросить параметры. Сервер должен быть остановлен либо игрок должен быть не в сети.",
+    "droplabel": "файл playerdata .dat",
+    "body": "\n<section class=\"content\" aria-label=\"playerdata tags\">\n<h2>Теги в файле игрока</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Тег</th><th>Тип</th><th>Назначение</th></tr></thead>\n<tbody>\n<tr><td><code>Pos</code></td><td>List of Double</td><td>Координаты X, Y, Z. Их меняют, если игрок застрял в стене или оказался ниже коренной породы.</td></tr>\n<tr><td><code>Rotation</code></td><td>List of Float</td><td>Поворот по горизонтали и вертикали.</td></tr>\n<tr><td><code>Dimension</code></td><td>String / Int</td><td>Измерение, в котором появляется игрок при входе.</td></tr>\n<tr><td><code>Inventory</code></td><td>List of Compound</td><td>Одна запись на стопку: <code>id</code>, <code>Count</code>, <code>Slot</code>, <code>components</code> или <code>tag</code>.</td></tr>\n<tr><td><code>EnderItems</code></td><td>List of Compound</td><td>Содержимое эндер-сундука в том же формате.</td></tr>\n<tr><td><code>Health</code>, <code>foodLevel</code>, <code>XpLevel</code>, <code>XpTotal</code></td><td>Float / Int</td><td>Жизненные показатели и опыт.</td></tr>\n<tr><td><code>playerGameType</code></td><td>Int</td><td>Режим игры отдельного игрока.</td></tr>\n<tr><td><code>abilities</code></td><td>Compound</td><td>Полёт, неуязвимость, скорость ходьбы и полёта.</td></tr>\n<tr><td><code>Attributes</code></td><td>List of Compound</td><td>Максимальное здоровье, скорость движения и другие модификаторы.</td></tr>\n<tr><td><code>SpawnX</code>/<code>SpawnY</code>/<code>SpawnZ</code> или <code>respawn</code></td><td>Int / Compound</td><td>Личная точка возрождения; формат зависит от версии.</td></tr>\n<tr><td><code>UUID</code></td><td>Int[4]</td><td>UUID игрока в виде четырёх Int в современных версиях.</td></tr>\n</tbody>\n</table>\n</div>\n<p>Формат стопок предметов изменился в 1.20.5: пользовательские данные переместились из одного Compound <code>tag</code> в отдельные <code>components</code>. Здесь открываются оба варианта; редактируйте тот, который записывает ваша версия.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Common repairs\">\n<h2>Типичные исправления</h2>\n<div class=\"card\">\n<ul>\n<li><strong>Игрок застрял в блоках или бесконечно падает.</strong> Задайте в <code>Pos</code> безопасные координаты: три Double в порядке X, Y, Z. Очистите <code>Motion</code>, если там записано слишком большое значение.</li>\n<li><strong>Клиент завершается при входе.</strong> Обычно причина в повреждённом предмете. Удалите проблемную запись из <code>Inventory</code>, не очищая весь список.</li>\n<li><strong>Неверное измерение после ошибки портала.</strong> Верните <code>Dimension</code> значение <code>minecraft:overworld</code> и задайте соответствующие координаты в <code>Pos</code>.</li>\n<li><strong>Игрок не может выйти из режима наблюдателя.</strong> Задайте <code>playerGameType</code> значение 0 для выживания или 1 для творческого режима.</li>\n<li><strong>Остались модификаторы атрибутов удалённого плагина.</strong> Удалите устаревшие записи из <code>Attributes</code>.</li>\n</ul>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Server safety\">\n<h2>Редактируйте, когда игрок не в сети</h2>\n<p>Сервер хранит состояние игрока в памяти и записывает его при выходе и автосохранении. Если редактировать файл, пока игрок в сети, изменения будут перезаписаны. Изменение файла во время сохранения может обрезать его. Отключите игрока или остановите сервер, скопируйте и измените файл, затем верните его на место до повторного входа. Сохраняйте оригинал, пока не убедитесь, что вход работает.</p>\n<p>Серверы Bedrock не используют этот формат: данные игроков находятся в LevelDB мира под ключами вида <code>player_&lt;uuid&gt;</code>, значения которых содержат NBT с порядком байтов little-endian. Извлечённое значение откроется здесь как <em>необёрнутый Bedrock</em>.</p>\n</section>\n",
+    "chips": [
+      "playerdata Java",
+      "Эндер-сундук",
+      "Инвентарь",
+      "Позиция",
+      "Атрибуты",
+      "Связанные достижения"
+    ],
+    "faq": [
+      [
+        "Как определить файл моего игрока?",
+        "<p>Файлы названы по UUID. Найдите UUID игрока через сервис, использующий API Mojang, либо отсортируйте <code>playerdata/</code> по времени изменения и сопоставьте его со временем последнего входа.</p>"
+      ],
+      [
+        "Можно ли выдать себе предметы через playerdata?",
+        "<p>На своём сервере — да: добавьте в список <code>Inventory</code> запись с <code>id</code>, <code>Count</code> и <code>Slot</code>. На чужом сервере это будет вмешательством и всё равно не сработает, поскольку работающий сервер перезапишет файл.</p>"
+      ],
+      [
+        "Почему моё изменение исчезло?",
+        "<p>Во время редактирования сервер работал или игрок был в сети. При следующем сохранении состояние игрока из памяти заменило изменения.</p>"
+      ],
+      [
+        "Одинаково ли устроен playerdata в Bedrock?",
+        "<p>Нет. Bedrock хранит игроков внутри LevelDB мира, а не в отдельных файлах по UUID. Данные NBT в этих значениях имеют порядок байтов little-endian и после извлечения открываются здесь.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Загружено в формате {0}",
+      "trailing": "Концевые байты после корневого тега проигнорированы: {0}",
+      "error": "Ошибка: {0}",
+      "readfail": "Не удалось прочитать файл",
+      "nofile": "Файл не загружен",
+      "saved": "Сохранено: {0} ({1}, {2})",
+      "savefail": "Ошибка сохранения: {0}",
+      "exported": "Экспортировано: {0}",
+      "snbtfail": "Ошибка SNBT: {0}",
+      "tagadded": "Тег добавлен",
+      "tagremoved": "Тег удалён",
+      "arrayupdated": "Массив обновлён",
+      "badvalue": "Недопустимое значение: {0}",
+      "badarray": "Недопустимый массив: {0}",
+      "nameneeded": "Укажите имя тега",
+      "nametaken": "Тег с именем {0} здесь уже существует",
+      "listtype": "Список уже содержит элементы типа {0}",
+      "editlevelname": "✎ Изменить LevelName",
+      "showmore": "Показать ещё {0} из {1}…",
+      "matches": "Совпадений: {0}",
+      "nomatch": "Тег по запросу \"{0}\" не найден",
+      "arraytoobig": "В массиве {0} элементов — разверните его и изменяйте элементы по отдельности",
+      "uncompressed": "без сжатия",
+      "storage": "хранилище v{0}",
+      "entries": "Элементов: {0}",
+      "langprompt": "Открыть эту страницу на языке {0}?",
+      "langyes": "Переключить",
+      "langno": "Остаться"
+    },
+    "support": "<strong>Поддерживаются Minecraft Bedrock Edition и Java Edition</strong>, а также все популярные и малоизвестные серверные ядра для обеих версий: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina и другие. <a href=\"__HOME__#server-software\">Полный список</a>.",
+    "footernote": "бесплатный проект с открытым исходным кодом (MIT), полностью работающий в браузере. Не связан с Mojang Studios или Microsoft. Minecraft — товарный знак Mojang Studios.",
+    "faqtitle": "Частые вопросы",
+    "toctitle": "На этой странице",
+    "relatedtitle": "Связанные инструменты",
+    "homecrumb": "NBT редактор",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Редакторы",
+      "Типы файлов",
+      "Справка"
+    ],
+    "sourcehead": "Исходный код",
+    "sourcelink": "Код на GitHub"
+  },
+  "nbt-viewer": {
+    "title": "Просмотр NBT онлайн — файлы .nbt и .dat",
+    "ogtitle": "Просмотр NBT — открытие любого .nbt или .dat в браузере",
+    "desc": "Открывайте любые файлы Minecraft NBT онлайн. Просматривайте дерево тегов .nbt, .dat, .mcstructure или .schem, выполняйте поиск и экспорт в SNBT.",
+    "keywords": "просмотр nbt онлайн, открыть nbt файл, открыть dat майнкрафт, nbt viewer онлайн, чтение nbt, редактор nbt, экспорт snbt",
+    "h1": "Просмотр NBT — откройте любой файл Minecraft NBT",
+    "crumb": "Просмотр NBT",
+    "reltitle": "Просмотр NBT",
+    "reldesc": "Просмотр без изменений, поиск и экспорт в SNBT.",
+    "answer": "Нужно посмотреть содержимое файла Minecraft, не изменяя его? Перетащите ниже файл <code>.nbt</code>, <code>.dat</code>, <code>.mcstructure</code>, <code>.schem</code> или необёрнутые данные NBT. Вы увидите полное дерево тегов с типами и значениями, сможете найти тег по имени или значению и экспортировать всё как текст SNBT. Файл никуда не отправляется и не записывается, пока вы не нажмёте кнопку сохранения.",
+    "droplabel": "любой файл .nbt или .dat",
+    "body": "\n<section class=\"content\" aria-label=\"What you can inspect\">\n<h2>Чтение чужого файла</h2>\n<p>Часто файл NBT открывают для диагностики: какая версия его записала, почему мир не загружается, что на самом деле находится в присланной схеме. Средство просмотра показывает точный тип каждого тега, поэтому <code>TAG_Byte</code> со значением 1 можно отличить от <code>TAG_Int</code> со значением 1. Для Minecraft это важное различие, которое обычно теряется в текстовых дампах.</p>\n<ul>\n<li><strong>Метка типа в каждой строке</strong>: Byte, Short, Int, Long, Float, Double, Byte[], String, List, Compound, Int[], Long[].</li>\n<li><strong>Полные 64-битные Long</strong> отображаются точно, поэтому значения сидов и частей UUID не округляются.</li>\n<li><strong>Поиск</strong> по всему дереву по имени или значению тега с переходом прямо к совпадению.</li>\n<li><strong>Определённый формат</strong> отображается на панели файла: версия игры, порядок байтов, сжатие и версия хранилища Bedrock.</li>\n<li><strong>Экспорт SNBT</strong> преобразует весь документ в текст, который можно сравнить, вставить в команду или передать другому инструменту.</li>\n</ul>\n</section>\n\n<section class=\"content\" aria-label=\"SNBT\">\n<h2>NBT и SNBT</h2>\n<p>SNBT — текстовая форма NBT, которую выводит <code>/data get</code> и принимают команды. Типы сохраняются с помощью суффиксов: <code>3b</code> — Byte, <code>3s</code> — Short, <code>3L</code> — Long, <code>3.0f</code> — Float, <code>3.0d</code> — Double, <code>[I;1,2,3]</code> — массив Int. Кнопка экспорта создаёт именно такой текст. Двоичный файл можно вставить в командный блок, добавить в git и сравнить построчно.</p>\n<p>JSON не заменяет SNBT: в нём один числовой тип и нет массивов Byte, поэтому преобразование NBT в JSON незаметно удаляет важные для Minecraft различия. По этой причине инструмент экспортирует SNBT, а не JSON.</p>\n</section>\n\n<section class=\"content\" aria-label=\"File types\">\n<h2>Поддерживаемые файлы</h2>\n<p>Открывается любой файл, полезная нагрузка которого состоит из одного документа NBT: <a href=\"../level-dat-editor/\">level.dat</a> из Java и Bedrock, <a href=\"../playerdata-editor/\">playerdata</a>, <code>servers.dat</code>, <code>hotbar.nbt</code>, <code>idcounts.dat</code>, <code>raids.dat</code>, <code>scoreboard.dat</code>, данные карт, структуры <code>.nbt</code>, <a href=\"../schematic-editor/\">.schem и .schematic</a>, <a href=\"../mcstructure-editor/\">.mcstructure</a>, <code>.litematic</code>, извлечённые данные чанков и дампы пакетов. Из контейнеров, таких как регионы <code>.mca</code>, архивы <code>.mcworld</code> и папки LevelDB, сначала нужно извлечь отдельный документ.</p>\n</section>\n",
+    "chips": [
+      ".nbt",
+      ".dat",
+      ".mcstructure",
+      ".schem",
+      ".schematic",
+      "Экспорт SNBT",
+      "Поиск"
+    ],
+    "faq": [
+      [
+        "Можно ли просмотреть файл NBT без редактирования?",
+        "<p>Да. Редактор записывает файл только после нажатия кнопки Сохранить и скачать и никогда не меняет исходный перетащенный файл.</p>"
+      ],
+      [
+        "Можно ли преобразовать NBT в JSON?",
+        "<p>Инструмент экспортирует SNBT, который сохраняет типы тегов. JSON объединяет Byte, Short, Int, Long и Float в один числовой тип и не поддерживает массивы Byte, поэтому не подходит для обратимого преобразования данных Minecraft.</p>"
+      ],
+      [
+        "Почему файл определён как другая версия игры?",
+        "<p>Формат определяется по байтам, а не по расширению. Если файл отображается как Java вместо ожидаемого Bedrock, обычно он действительно относится к другой версии либо представляет собой фрагмент, который случайно удалось разобрать. При предупреждении о концевых байтах проверьте указанные смещения.</p>"
+      ],
+      [
+        "Файл какого размера можно открыть?",
+        "<p>Документы размером в несколько мегабайт обрабатываются нормально: массивы хранятся как типизированные, а дерево отображается по мере раскрытия, поэтому на странице существуют только открытые строки.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Загружено в формате {0}",
+      "trailing": "Концевые байты после корневого тега проигнорированы: {0}",
+      "error": "Ошибка: {0}",
+      "readfail": "Не удалось прочитать файл",
+      "nofile": "Файл не загружен",
+      "saved": "Сохранено: {0} ({1}, {2})",
+      "savefail": "Ошибка сохранения: {0}",
+      "exported": "Экспортировано: {0}",
+      "snbtfail": "Ошибка SNBT: {0}",
+      "tagadded": "Тег добавлен",
+      "tagremoved": "Тег удалён",
+      "arrayupdated": "Массив обновлён",
+      "badvalue": "Недопустимое значение: {0}",
+      "badarray": "Недопустимый массив: {0}",
+      "nameneeded": "Укажите имя тега",
+      "nametaken": "Тег с именем {0} здесь уже существует",
+      "listtype": "Список уже содержит элементы типа {0}",
+      "editlevelname": "✎ Изменить LevelName",
+      "showmore": "Показать ещё {0} из {1}…",
+      "matches": "Совпадений: {0}",
+      "nomatch": "Тег по запросу \"{0}\" не найден",
+      "arraytoobig": "В массиве {0} элементов — разверните его и изменяйте элементы по отдельности",
+      "uncompressed": "без сжатия",
+      "storage": "хранилище v{0}",
+      "entries": "Элементов: {0}",
+      "langprompt": "Открыть эту страницу на языке {0}?",
+      "langyes": "Переключить",
+      "langno": "Остаться"
+    },
+    "support": "<strong>Поддерживаются Minecraft Bedrock Edition и Java Edition</strong>, а также все популярные и малоизвестные серверные ядра для обеих версий: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina и другие. <a href=\"__HOME__#server-software\">Полный список</a>.",
+    "footernote": "бесплатный проект с открытым исходным кодом (MIT), полностью работающий в браузере. Не связан с Mojang Studios или Microsoft. Minecraft — товарный знак Mojang Studios.",
+    "faqtitle": "Частые вопросы",
+    "toctitle": "На этой странице",
+    "relatedtitle": "Связанные инструменты",
+    "homecrumb": "NBT редактор",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Редакторы",
+      "Типы файлов",
+      "Справка"
+    ],
+    "sourcehead": "Исходный код",
+    "sourcelink": "Код на GitHub"
+  },
+  "nbtexplorer-online": {
+    "title": "NBTExplorer онлайн — альтернатива без установки",
+    "ogtitle": "NBTExplorer онлайн — альтернатива в браузере",
+    "desc": "Браузерная альтернатива NBTExplorer: редактирование дерева тегов Minecraft и поддержка little-endian Bedrock без скачивания и установки программ.",
+    "keywords": "nbtexplorer онлайн, аналог nbtexplorer, nbt редактор без скачивания, nbtexplorer bedrock, открыть nbt в браузере, nbt editor онлайн",
+    "h1": "NBTExplorer онлайн — альтернатива в браузере",
+    "crumb": "NBTExplorer онлайн",
+    "reltitle": "NBTExplorer онлайн",
+    "reldesc": "Возможности настольного приложения и отличия браузерной версии.",
+    "answer": "NBTExplorer — знакомый многим игрокам Minecraft настольный редактор тегов, для которого нужны .NET или Mono, скачивание и компьютер. Эта страница выполняет ту же работу в браузере: показывает дерево тегов, позволяет редактировать значения, добавлять и удалять теги. Она работает в любой операционной системе, включая телефоны, и читает файлы Bedrock с порядком байтов little-endian, которые NBTExplorer не поддерживает.",
+    "droplabel": "любой файл NBT",
+    "body": "\n<section class=\"content\" aria-label=\"Comparison\">\n<h2>Сравнение возможностей</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Возможность</th><th>NBTExplorer (настольный)</th><th>Этот редактор (браузерный)</th></tr></thead>\n<tbody>\n<tr><td>Требуется установка</td><td>Да, среда .NET / Mono</td><td>Нет</td></tr>\n<tr><td>NBT Java с порядком байтов big-endian</td><td>Да</td><td>Да</td></tr>\n<tr><td>gzip / zlib</td><td>Да</td><td>Да, через встроенные потоки сжатия браузера</td></tr>\n<tr><td>NBT Bedrock с порядком байтов little-endian</td><td>Нет</td><td>Да, включая 8-байтовый заголовок <code>level.dat</code></td></tr>\n<tr><td>Сетевой NBT / varint NBT Bedrock</td><td>Нет</td><td>Да</td></tr>\n<tr><td>Просмотр регионов <code>.mca</code> и папок</td><td>Да, это его главное преимущество</td><td>Нет, только по одному документу</td></tr>\n<tr><td>Просмотр LevelDB Bedrock</td><td>Нет</td><td>Нет, сначала извлеките значение</td></tr>\n<tr><td>Поиск по дереву</td><td>Да</td><td>Да</td></tr>\n<tr><td>Экспорт SNBT</td><td>Нет</td><td>Да</td></tr>\n<tr><td>Работа на телефоне</td><td>Нет</td><td>Да</td></tr>\n<tr><td>Передача файла на сервер</td><td>Нет</td><td>Нет</td></tr>\n</tbody>\n</table>\n</div>\n<p>Если нужно просматривать целую папку регионов и открывать чанки по координатам, настольный инструмент удобнее. Если требуется открыть один файл — <code>level.dat</code>, файл игрока, схему или мир Bedrock — на доступном устройстве, браузерный редактор работает быстрее и поддерживает версии игры, с которыми настольный инструмент не работает.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Migrating\">\n<h2>Переход с настольного инструмента</h2>\n<ul>\n<li><strong>Дерево работает так же.</strong> Раскрывайте Compound и списки, нажимайте значение для изменения, используйте + и × для управления структурой.</li>\n<li><strong>Типы контролируются так же.</strong> Byte остаётся Byte; значение вне допустимого диапазона отклоняется, а не обрезается незаметно.</li>\n<li><strong>Сохранение скачивает файл,</strong> а не перезаписывает его на месте. Перетащенный файл не меняется, поэтому исходная копия сохраняется автоматически.</li>\n<li><strong>Сжатие сохраняется.</strong> Файл gzip скачивается с тем же сжатием, поэтому игра принимает его без ручного повторного сжатия.</li>\n<li><strong>Bedrock поддерживается сразу.</strong> Не нужен отдельный инструмент или hex-редактор для исправления длины заголовка после изменения.</li>\n</ul>\n</section>\n\n<section class=\"content\" aria-label=\"Other tools\">\n<h2>Когда нужны другие инструменты</h2>\n<p>Используйте <strong>NBTExplorer</strong> или <strong>NBTStudio</strong> для массового просмотра регионов. Для точечного изменения чанков и очистки мира подойдут <strong>Amulet</strong> или <strong>MCA Selector</strong>. Для геометрических операций используйте <strong>WorldEdit</strong>. Эта страница подходит для задачи \"открыть один файл, изменить эти теги и получить файл обратно\", а также для файлов Bedrock, которые настольные инструменты не открывают.</p>\n</section>\n",
+    "chips": [
+      "Без установки",
+      "Windows",
+      "macOS",
+      "Linux",
+      "Android",
+      "ChromeOS"
+    ],
+    "faq": [
+      [
+        "Существует ли официальная веб-версия NBTExplorer?",
+        "<p>Нет. NBTExplorer — настольное приложение. Это независимый редактор, который выполняет те же повседневные задачи в браузере и дополнительно поддерживает Bedrock.</p>"
+      ],
+      [
+        "Работает ли редактор в macOS и Linux без Mono?",
+        "<p>Да, это веб-страница. Она работает в любом современном браузере в macOS, Linux, Windows, Android или ChromeOS.</p>"
+      ],
+      [
+        "Можно ли открыть целый файл региона, как в NBTExplorer?",
+        "<p>Нет. Редактор обрабатывает по одному документу NBT. Сначала извлеките чанк из <code>.mca</code>, затем перетащите сюда его данные.</p>"
+      ],
+      [
+        "Безопасно ли редактировать единственную копию сохранения?",
+        "<p>Редактор никогда не перезаписывает открытый файл: изменения скачиваются как новый файл. Тем не менее всегда храните собственную резервную копию.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Загружено в формате {0}",
+      "trailing": "Концевые байты после корневого тега проигнорированы: {0}",
+      "error": "Ошибка: {0}",
+      "readfail": "Не удалось прочитать файл",
+      "nofile": "Файл не загружен",
+      "saved": "Сохранено: {0} ({1}, {2})",
+      "savefail": "Ошибка сохранения: {0}",
+      "exported": "Экспортировано: {0}",
+      "snbtfail": "Ошибка SNBT: {0}",
+      "tagadded": "Тег добавлен",
+      "tagremoved": "Тег удалён",
+      "arrayupdated": "Массив обновлён",
+      "badvalue": "Недопустимое значение: {0}",
+      "badarray": "Недопустимый массив: {0}",
+      "nameneeded": "Укажите имя тега",
+      "nametaken": "Тег с именем {0} здесь уже существует",
+      "listtype": "Список уже содержит элементы типа {0}",
+      "editlevelname": "✎ Изменить LevelName",
+      "showmore": "Показать ещё {0} из {1}…",
+      "matches": "Совпадений: {0}",
+      "nomatch": "Тег по запросу \"{0}\" не найден",
+      "arraytoobig": "В массиве {0} элементов — разверните его и изменяйте элементы по отдельности",
+      "uncompressed": "без сжатия",
+      "storage": "хранилище v{0}",
+      "entries": "Элементов: {0}",
+      "langprompt": "Открыть эту страницу на языке {0}?",
+      "langyes": "Переключить",
+      "langno": "Остаться"
+    },
+    "support": "<strong>Поддерживаются Minecraft Bedrock Edition и Java Edition</strong>, а также все популярные и малоизвестные серверные ядра для обеих версий: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina и другие. <a href=\"__HOME__#server-software\">Полный список</a>.",
+    "footernote": "бесплатный проект с открытым исходным кодом (MIT), полностью работающий в браузере. Не связан с Mojang Studios или Microsoft. Minecraft — товарный знак Mojang Studios.",
+    "faqtitle": "Частые вопросы",
+    "toctitle": "На этой странице",
+    "relatedtitle": "Связанные инструменты",
+    "homecrumb": "NBT редактор",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Редакторы",
+      "Типы файлов",
+      "Справка"
+    ],
+    "sourcehead": "Исходный код",
+    "sourcelink": "Код на GitHub"
+  },
+  "nbt-format": {
+    "title": "Формат NBT: типы тегов, кодировки и байтовая структура",
+    "ogtitle": "Формат NBT: теги, кодировки и байтовая структура",
+    "desc": "Справочник по формату NBT в Minecraft: все 13 типов тегов, байтовая структура, отличия Java big-endian, Bedrock little-endian, сетевого NBT и SNBT.",
+    "keywords": "формат nbt, структура nbt файла, спецификация nbt minecraft, типы тегов nbt, tag_compound, little-endian nbt, varint nbt, сетевой nbt, синтаксис snbt",
+    "h1": "Справочник по формату NBT",
+    "crumb": "Формат NBT",
+    "reltitle": "Справочник по формату NBT",
+    "reldesc": "Все 13 типов тегов и все кодировки, байт за байтом.",
+    "answer": "NBT (Named Binary Tag) — двоичный древовидный формат Minecraft: тег состоит из однобайтового типа, имени с префиксом длины и полезной нагрузки, а составные теги вкладываются друг в друга до закрывающего байта <code>TAG_End</code>. В Java и Bedrock используются 13 типов тегов и пять кодировок. На этой странице описаны все варианты, а редактор выше позволяет проверить сведения на реальном файле.",
+    "droplabel": "любой NBT-файл для проверки",
+    "body": "\n<section class=\"content\" aria-label=\"Tag types\">\n<h2>13 типов тегов</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Id</th><th>Тег</th><th>Полезная нагрузка</th><th>SNBT</th></tr></thead>\n<tbody>\n<tr><td>0</td><td><code>TAG_End</code></td><td>Нет — закрывает составной тег</td><td>—</td></tr>\n<tr><td>1</td><td><code>TAG_Byte</code></td><td>1 байт, знаковое число −128…127</td><td><code>1b</code></td></tr>\n<tr><td>2</td><td><code>TAG_Short</code></td><td>2 байта, знаковое число</td><td><code>1s</code></td></tr>\n<tr><td>3</td><td><code>TAG_Int</code></td><td>4 байта, знаковое число</td><td><code>1</code></td></tr>\n<tr><td>4</td><td><code>TAG_Long</code></td><td>8 байт, знаковое число</td><td><code>1L</code></td></tr>\n<tr><td>5</td><td><code>TAG_Float</code></td><td>4 байта, IEEE 754</td><td><code>1.0f</code></td></tr>\n<tr><td>6</td><td><code>TAG_Double</code></td><td>8 байт, IEEE 754</td><td><code>1.0d</code></td></tr>\n<tr><td>7</td><td><code>TAG_Byte_Array</code></td><td>длина int, затем указанное число байтов</td><td><code>[B;1b,2b]</code></td></tr>\n<tr><td>8</td><td><code>TAG_String</code></td><td>длина unsigned short, затем байты UTF-8</td><td><code>\"text\"</code></td></tr>\n<tr><td>9</td><td><code>TAG_List</code></td><td>байт типа элементов, длина int, затем полезные нагрузки без имён</td><td><code>[1,2]</code></td></tr>\n<tr><td>10</td><td><code>TAG_Compound</code></td><td>тип + имя + полезная нагрузка до <code>TAG_End</code></td><td><code>{a:1}</code></td></tr>\n<tr><td>11</td><td><code>TAG_Int_Array</code></td><td>длина int, затем указанное число 4-байтовых int</td><td><code>[I;1,2]</code></td></tr>\n<tr><td>12</td><td><code>TAG_Long_Array</code></td><td>длина int, затем указанное число 8-байтовых long</td><td><code>[L;1L,2L]</code></td></tr>\n</tbody>\n</table>\n</div>\n<p>Файл содержит единственный корневой <code>TAG_Compound</code>: один байт типа <code>0x0A</code>, имя, затем содержимое составного тега. Именованные теги встречаются только внутри составных тегов, а элементы списков содержат лишь полезную нагрузку, поэтому список однороден.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Encodings\">\n<h2>Пять используемых кодировок</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Кодировка</th><th>Целые числа</th><th>Длина строки</th><th>Корень</th><th>Где используется</th></tr></thead>\n<tbody>\n<tr><td>Java (классическая)</td><td>Фиксированная ширина, big-endian</td><td>2 байта, big-endian</td><td>С именем</td><td>Миры Java, структуры, схемы</td></tr>\n<tr><td>Сетевая Java (1.20.2+)</td><td>Фиксированная ширина, big-endian</td><td>2 байта, big-endian</td><td>Без имени</td><td>Протокол Java</td></tr>\n<tr><td>Bedrock</td><td>Фиксированная ширина, little-endian</td><td>2 байта, little-endian</td><td>С именем</td><td>Миры Bedrock, <code>.mcstructure</code>, значения LevelDB</td></tr>\n<tr><td>Bedrock <code>level.dat</code></td><td>Фиксированная ширина, little-endian</td><td>2 байта, little-endian</td><td>С именем, после 8-байтового заголовка</td><td>Метаданные мира Bedrock</td></tr>\n<tr><td>Сетевая Bedrock</td><td>Zigzag varint для int и long</td><td>Беззнаковый varint</td><td>С именем</td><td>Протокол Bedrock</td></tr>\n</tbody>\n</table>\n</div>\n<p>В кодировке varint значения <code>TAG_Short</code>, <code>TAG_Float</code> и <code>TAG_Double</code> сохраняют фиксированную ширину и порядок little-endian. Только <code>TAG_Int</code> и <code>TAG_Long</code> становятся zigzag varint, а длины массивов и списков кодируются так же, как <code>TAG_Int</code>. Длины строк представляют собой беззнаковые varint, поэтому ограничение фиксированных кодировок в 65535 байт также снимается.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Strings\">\n<h2>Строки: модифицированный UTF-8 и UTF-8</h2>\n<p>Java сериализует строки через <code>DataOutputStream.writeUTF</code>, то есть в <em>модифицированном</em> UTF-8: символ NUL записывается как <code>C0 80</code>, а не <code>00</code>, а символы за пределами основной многоязычной плоскости — как две трёхбайтовые суррогатные половины (CESU-8) вместо одной четырёхбайтовой последовательности. Bedrock использует стандартный UTF-8. Инструмент, который применяет одну кодировку для обоих вариантов, при сохранении повреждает эмодзи и часть текста CJK. Этот редактор кодирует строки в соответствии с форматом, поэтому имя мира с эмодзи сохраняется без изменений.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Compression\">\n<h2>Сжатие</h2>\n<p>Сам NBT не сжат: это определяет контейнер. Файлы Java обычно используют gzip (сигнатура <code>1F 8B</code>), данные чанков внутри файлов регионов — zlib (сигнатура <code>78 01</code>, <code>78 9C</code> или <code>78 DA</code>), а Bedrock хранит <code>level.dat</code> и файлы структур без сжатия. Формат определяется по сигнатуре, поэтому один парсер обрабатывает все три варианта. Сохранение с неверным сжатием — самая частая причина, по которой отредактированный вручную мир не загружается.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Byte walkthrough\">\n<h2>Минимальный файл, байт за байтом</h2>\n<p>Канонический файл <code>hello_world.nbt</code>: корневой составной тег с именем <code>hello world</code>, содержащий один строковый тег <code>name</code> со значением <code>Bananrama</code>. В кодировке Java big-endian:</p>\n<pre class=\"code\"><code>0A                          TAG_Compound\n00 0B 68 65 6C 6C 6F 20 77 6F 72 6C 64   name length 11, \"hello world\"\n   08                       TAG_String\n   00 04 6E 61 6D 65        name length 4, \"name\"\n   00 09 42 61 6E 61 6E 72 61 6D 61      value length 9, \"Bananrama\"\n00                          TAG_End</code></pre>\n<p>В кодировке Bedrock little-endian этот же документ отличается только порядком байтов в двух полях длины: <code>0B 00</code> вместо <code>00 0B</code>. В сетевом NBT Bedrock длины становятся однобайтовыми varint <code>0B</code> и <code>04</code> без заполнения. Загрузите любой из трёх вариантов в редактор выше, и он определит формат.</p>\n</section>\n\n<section class=\"content\" aria-label=\"SNBT\">\n<h2>SNBT</h2>\n<p>SNBT — текстовое представление NBT, которое принимают команды: <code>/data merge entity @s {Invulnerable:1b}</code>. Суффиксы типов позволяют сохранять данные без потерь: <code>b</code> — byte, <code>s</code> — short, <code>L</code> — long, <code>f</code> — float, <code>d</code> — double, без суффикса — int. Типизированные массивы записываются как <code>[B;…]</code>, <code>[I;…]</code>, <code>[L;…]</code>. Редактор экспортирует SNBT из любого загруженного файла, после чего две версии мира можно сравнить обычным текстовым diff.</p>\n</section>\n",
+    "chips": [
+      "13 типов тегов",
+      "Big-endian",
+      "Little-endian",
+      "Varint",
+      "gzip",
+      "zlib",
+      "SNBT"
+    ],
+    "faq": [
+      [
+        "Существует ли официальная спецификация NBT?",
+        "<p>У Mojang нет формальной спецификации. Формат был описан Notch в 2010 году и с тех пор поддерживается сообществом. Идентификаторы тегов и структура на этой странице соответствуют данным, которые игра читает и записывает сейчас.</p>"
+      ],
+      [
+        "Почему Bedrock использует little-endian?",
+        "<p>Движок Bedrock написан на C++ и рассчитан на оборудование с порядком little-endian, поэтому значения хранятся в нативном порядке. Сериализация Java использует big-endian, поскольку это определено контрактом Java DataOutput.</p>"
+      ],
+      [
+        "Что такое кодировка zigzag varint?",
+        "<p>Это способ записывать целые числа минимальным числом байтов и при этом компактно хранить отрицательные значения: знак переносится в младший бит, поэтому −1 кодируется как 1, а 1 — как 2. Протокол Bedrock использует эту кодировку для int и long.</p>"
+      ],
+      [
+        "Может ли TAG_List содержать разные типы?",
+        "<p>Нет. Список объявляет один тип элементов, и каждая запись должна ему соответствовать. Для смешанных данных нужен список составных тегов.</p>"
+      ],
+      [
+        "Какова максимальная длина строки?",
+        "<p>В фиксированных кодировках — 65535 байт, поскольку поле длины представляет собой unsigned short. У сетевой кодировки varint практического ограничения нет.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Загружено как {0}",
+      "trailing": "Пропущено конечных байтов после корневого тега: {0}",
+      "error": "Ошибка: {0}",
+      "readfail": "Не удалось прочитать файл",
+      "nofile": "Файл не загружен",
+      "saved": "Сохранено: {0} ({1}, {2})",
+      "savefail": "Ошибка сохранения: {0}",
+      "exported": "Экспортировано: {0}",
+      "snbtfail": "Ошибка SNBT: {0}",
+      "tagadded": "Тег добавлен",
+      "tagremoved": "Тег удалён",
+      "arrayupdated": "Массив обновлён",
+      "badvalue": "Недопустимое значение: {0}",
+      "badarray": "Недопустимый массив: {0}",
+      "nameneeded": "Требуется имя тега",
+      "nametaken": "Тег с именем {0} уже существует здесь",
+      "listtype": "Список уже содержит элементы типа {0}",
+      "editlevelname": "✎ Изменить LevelName",
+      "showmore": "Показать ещё {0} из {1} …",
+      "matches": "Совпадений: {0}",
+      "nomatch": "Нет тегов, соответствующих \"{0}\"",
+      "arraytoobig": "Массив содержит {0} элементов — разверните его и изменяйте элементы по отдельности",
+      "uncompressed": "без сжатия",
+      "storage": "хранилище v{0}",
+      "entries": "Элементов: {0}",
+      "langprompt": "Открыть эту страницу на языке {0}?",
+      "langyes": "Переключить",
+      "langno": "Остаться"
+    },
+    "support": "<strong>Поддерживает Minecraft Bedrock Edition и Java Edition</strong> и все серверные ядра для обеих редакций, популярные и малоизвестные: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina и остальные. <a href=\"__HOME__#server-software\">Полный список</a>.",
+    "footernote": "бесплатный редактор с открытым исходным кодом (MIT), полностью работающий в браузере. Не связан с Mojang Studios или Microsoft. Minecraft — товарный знак Mojang Studios.",
+    "faqtitle": "Часто задаваемые вопросы",
+    "toctitle": "На этой странице",
+    "relatedtitle": "Связанные инструменты",
+    "homecrumb": "Редактор NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Редакторы",
+      "Типы файлов",
+      "Справочник"
+    ],
+    "sourcehead": "Исходный код",
+    "sourcelink": "Код на GitHub"
+  },
+  "guides/change-world-name": {
+    "title": "Как изменить имя мира Minecraft в Java и Bedrock",
+    "ogtitle": "Как изменить имя мира Minecraft",
+    "desc": "Правильное переименование мира Minecraft через LevelName в level.dat: Java и Bedrock, одиночная игра и серверы, а также исправление одинаковых имён.",
+    "keywords": "как изменить название мира майнкрафт, переименовать мир minecraft, сменить имя мира на сервере, levelname level.dat, переименовать мир bedrock, старое название мира minecraft",
+    "h1": "Как изменить имя мира Minecraft",
+    "crumb": "Изменение имени мира",
+    "reltitle": "Переименовать мир",
+    "reldesc": "Исправление LevelName после копирования папки мира.",
+    "answer": "Отображаемое имя мира хранится в теге <code>LevelName</code> внутри <code>level.dat</code>, а не в имени папки. Переименование папки не меняет данные, которые показывает игра, поэтому копия мира сохраняет исходное имя. Загрузите <code>level.dat</code> в редактор ниже: он сразу перейдёт к <code>LevelName</code>. Измените значение, сохраните файл и верните его на место.",
+    "droplabel": "level.dat",
+    "body": "\n<section class=\"content\" aria-label=\"Why the folder name is not the world name\">\n<h2>Почему переименование папки ничего не меняет</h2>\n<p>Minecraft использует папку как адрес, а <code>LevelName</code> — как подпись. Список миров, консоль сервера, плагины управления мирами и любые сообщения со словом «мир» в чате читают этот тег. Поэтому копирование папки — <code>cp -r worlds/hub worlds/hub2</code> — создаёт два мира, оба из которых называются <em>hub</em>. Исправить это можно только внутри файла.</p>\n<p>На сервере одинаковые имена не только сбивают с толку. Плагины, определяющие миры по внутреннему имени, могут работать не с тем миром: телепорты, настройки отдельных миров, регионы защиты, множители экономики. Измените тег сразу после копирования мира, прежде чем какой-либо компонент сохранит имя в кэше.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Per platform\">\n<h2>Особенности платформ</h2>\n<div class=\"card\">\n<h3>Одиночная игра Java</h3>\n<p>Клиент позволяет переименовать мир на экране его настроек и самостоятельно изменяет <code>LevelName</code>. Ручное редактирование файла нужно, если мир не загружается, вы работаете с копией или намеренно хотите, чтобы имя папки отличалось от подписи.</p>\n<h3>Сервер Java</h3>\n<p><code>level-name</code> в <code>server.properties</code> выбирает <em>папку</em> для загрузки, но ничего не переименовывает. Чтобы изменить подпись, отредактируйте <code>LevelName</code> в <code>world/level.dat</code>.</p>\n<h3>Bedrock и MCPE</h3>\n<p>Экран редактирования мира в игре позволяет его переименовать. Если мир находится на сервере или вы изменяете экспортированный <code>.mcworld</code>, отредактируйте <code>LevelName</code> непосредственно в <code>level.dat</code>. Bedrock хранит этот тег в корне без сжатия после 8-байтового заголовка, который редактор обрабатывает автоматически.</p>\n<h3>Серверы Bedrock (PocketMine-MP, Nukkit, BDS)</h3>\n<p>Используются тот же файл и тот же тег; перед изменением сервер также необходимо остановить. На <a href=\"../../pocketmine-nbt-editor/\">странице о сервере</a> приведён полный порядок действий, включая копирование папки.</p>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Troubleshooting\">\n<h2>Если имя не изменилось</h2>\n<ul>\n<li><strong>Сервер продолжал работать.</strong> При следующем сохранении он записал данные из памяти поверх изменённого файла. Остановите сервер и повторите правку.</li>\n<li><strong>Вы отредактировали другой мир.</strong> Папки миров Bedrock имеют случайные идентификаторы. Перед изменением откройте файл и проверьте <code>LevelName</code>.</li>\n<li><strong>Вы отредактировали <code>level.dat_old</code>.</strong> Это предыдущее сохранение, а не активный файл.</li>\n<li><strong>Лаунчер или панель кэширует имя.</strong> Некоторые панели хостинга показывают имя из собственной базы данных, а не из файла мира; в самой игре оно будет правильным.</li>\n<li><strong>Теперь мир совсем не загружается.</strong> Восстановите резервную копию и прочитайте руководство по <a href=\"../fix-corrupted-level-dat/\">исправлению повреждённого level.dat</a>.</li>\n</ul>\n</section>\n",
+    "chips": [
+      "Java",
+      "Bedrock",
+      "Серверы",
+      "Одиночная игра",
+      "2 минуты"
+    ],
+    "faq": [
+      [
+        "Удаляет ли переименование мира какие-либо данные?",
+        "<p>Нет. <code>LevelName</code> — только подпись. Ландшафт, игроки, инвентари и сущности хранятся в других файлах и не изменяются.</p>"
+      ],
+      [
+        "Можно ли использовать в имени мира пробелы, цвета или эмодзи?",
+        "<p>Пробелы допустимы. Цветовые коды со знаком параграфа работают в некоторых серверных программах, а в других отображаются как обычные символы. Эмодзи сохраняются без изменений, поскольку редактор использует правильную кодировку строк для каждой редакции, но в консолях и журналах они могут отображаться некорректно.</p>"
+      ],
+      [
+        "Нужно ли также переименовывать папку?",
+        "<p>Нет, и часто этого делать не следует: настройка сервера <code>level-name</code> или конфигурация плагина может ссылаться на путь к папке. Меняйте по одному параметру за раз.</p>"
+      ],
+      [
+        "Игроки сразу увидят новое имя?",
+        "<p>Да, после перезагрузки мира. Клиентам, сохранившим запись списка серверов в кэше, может потребоваться обновить её.</p>"
+      ]
+    ],
+    "howto": {
+      "name": "Изменение имени мира Minecraft через редактирование level.dat",
+      "time": "PT3M",
+      "steps": [
+        [
+          "Остановите игру или сервер",
+          "Закройте мир или остановите сервер. Minecraft перезаписывает level.dat при автосохранении и завершении работы, поэтому запущенный экземпляр затрёт правку."
+        ],
+        [
+          "Найдите level.dat",
+          "Java: world/level.dat на сервере или saves/<World>/level.dat в клиенте. Bedrock: worlds/<World>/level.dat на сервере или папка с идентификатором мира внутри minecraftWorlds на устройстве."
+        ],
+        [
+          "Откройте файл в редакторе",
+          "Перетащите файл в редактор NBT. Он определит редакцию и кодировку и автоматически перейдёт к тегу LevelName."
+        ],
+        [
+          "Измените LevelName",
+          "Нажмите на значение, введите новое имя и нажмите Enter. Используйте обычные символы, если имя должно корректно отображаться в консоли."
+        ],
+        [
+          "Сохраните и скачайте",
+          "Нажмите «Сохранить и скачать». Формат и сжатие останутся такими же, как в исходном файле, поэтому остальные данные не изменятся."
+        ],
+        [
+          "Замените исходный файл",
+          "Скопируйте скачанный файл поверх исходного, сохранив резервную копию, затем запустите игру или сервер и проверьте новое имя в списке миров."
+        ]
+      ]
+    },
+    "ui": {
+      "loaded": "Загружено как {0}",
+      "trailing": "Пропущено конечных байтов после корневого тега: {0}",
+      "error": "Ошибка: {0}",
+      "readfail": "Не удалось прочитать файл",
+      "nofile": "Файл не загружен",
+      "saved": "Сохранено: {0} ({1}, {2})",
+      "savefail": "Ошибка сохранения: {0}",
+      "exported": "Экспортировано: {0}",
+      "snbtfail": "Ошибка SNBT: {0}",
+      "tagadded": "Тег добавлен",
+      "tagremoved": "Тег удалён",
+      "arrayupdated": "Массив обновлён",
+      "badvalue": "Недопустимое значение: {0}",
+      "badarray": "Недопустимый массив: {0}",
+      "nameneeded": "Требуется имя тега",
+      "nametaken": "Тег с именем {0} уже существует здесь",
+      "listtype": "Список уже содержит элементы типа {0}",
+      "editlevelname": "✎ Изменить LevelName",
+      "showmore": "Показать ещё {0} из {1} …",
+      "matches": "Совпадений: {0}",
+      "nomatch": "Нет тегов, соответствующих \"{0}\"",
+      "arraytoobig": "Массив содержит {0} элементов — разверните его и изменяйте элементы по отдельности",
+      "uncompressed": "без сжатия",
+      "storage": "хранилище v{0}",
+      "entries": "Элементов: {0}",
+      "langprompt": "Открыть эту страницу на языке {0}?",
+      "langyes": "Переключить",
+      "langno": "Остаться"
+    },
+    "support": "<strong>Поддерживает Minecraft Bedrock Edition и Java Edition</strong> и все серверные ядра для обеих редакций, популярные и малоизвестные: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina и остальные. <a href=\"__HOME__#server-software\">Полный список</a>.",
+    "footernote": "бесплатный редактор с открытым исходным кодом (MIT), полностью работающий в браузере. Не связан с Mojang Studios или Microsoft. Minecraft — товарный знак Mojang Studios.",
+    "faqtitle": "Часто задаваемые вопросы",
+    "toctitle": "На этой странице",
+    "relatedtitle": "Связанные инструменты",
+    "homecrumb": "Редактор NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Редакторы",
+      "Типы файлов",
+      "Справочник"
+    ],
+    "sourcehead": "Исходный код",
+    "sourcelink": "Код на GitHub"
+  },
+  "guides/fix-corrupted-level-dat": {
+    "title": "Как исправить повреждённый level.dat в Minecraft",
+    "ogtitle": "Как исправить повреждённый level.dat",
+    "desc": "Восстановление мира Minecraft, который не загружается: возврат level.dat_old, проверка файла в редакторе NBT и поиск истинной причины повреждения.",
+    "keywords": "поврежден level.dat, мир minecraft не загружается, ошибка level.dat, восстановить level.dat_old, как восстановить мир майнкрафт, починить мир minecraft",
+    "h1": "Исправление повреждённого <code>level.dat</code>",
+    "crumb": "Исправление level.dat",
+    "reltitle": "Исправить повреждённый level.dat",
+    "reldesc": "Диагностика и устранение причины, по которой мир не загружается.",
+    "answer": "Мир обычно не загружается по одной из четырёх причин: <code>level.dat</code> обрезан из-за сбоя при сохранении, после ручной правки применено неверное сжатие, повреждена длина в заголовке Bedrock или изменён тип тега. Загрузите файл ниже: редактор точно укажет, где остановился разбор, и поможет за несколько секунд определить одну из четырёх причин.",
+    "droplabel": "level.dat или level.dat_old",
+    "body": "\n<section class=\"content\" aria-label=\"Causes\">\n<h2>Что именно повреждается</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Симптом</th><th>Причина</th><th>Решение</th></tr></thead>\n<tbody>\n<tr><td>Редактор сообщает «Unexpected end of data»</td><td>Файл обрезан: процесс завершился во время сохранения или на диске закончилось место</td><td>Восстановите <code>level.dat_old</code> или резервную копию; отсутствующие байты утрачены</td></tr>\n<tr><td>Игра сообщает о повреждении мира, но редактор загружает файл</td><td>Другой инструмент записал неверное сжатие или порядок байтов</td><td>Повторно сохраните файл здесь в правильном для редакции формате</td></tr>\n<tr><td>Мир Bedrock отсутствует в списке</td><td>Длина в заголовке больше не соответствует полезной нагрузке</td><td>Откройте и сохраните файл здесь: длина пересчитывается автоматически</td></tr>\n<tr><td>При загрузке сервер записывает в журнал ошибку приведения класса или типа</td><td>Тип тега был изменён вручную (Byte вместо ожидаемого Int)</td><td>Верните тегу тип, который ожидает игра</td></tr>\n<tr><td>Мир загружается, но игрок появляется в новом пустом мире</td><td><code>level.dat</code> заменён новым автоматически созданным файлом</td><td>Восстановите резервную копию; чанки в <code>region/</code> или <code>db/</code> обычно не повреждены</td></tr>\n<tr><td>Не разбирается ни один файл, включая <code>_old</code></td><td>Сбой хранилища: файловая система вернула нули или мусор для обоих файлов</td><td>Восстановите внешнюю резервную копию и проверьте диск, прежде чем снова доверять хосту</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Salvage\">\n<h2>Восстановление мира без <code>level.dat</code></h2>\n<p>Ландшафт, сундуки и игроки мира хранятся не в <code>level.dat</code>, а в <code>region/</code> (Java) или <code>db/</code> (Bedrock). Если восстановить файл метаданных невозможно, создайте новый мир с той же версией и настройками, перенесите в него данные чанков, а затем задайте в новом файле <code>LevelName</code>, координаты точки появления и игровые правила. Будут потеряны метаданные, но не постройки. Сначала проверьте версию: мир Java содержит <code>DataVersion</code>, и новый файл не должен быть старше импортируемых чанков.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Prevention\">\n<h2>Как предотвратить повторное повреждение</h2>\n<ul>\n<li><strong>Останавливайте сервер перед копированием или редактированием.</strong> Большинство повреждений начинается с копирования файла во время записи.</li>\n<li><strong>Регулярно создавайте снимки вне сервера.</strong> Резервная копия на том же диске не переживёт сбой хранилища, вызвавший проблему.</li>\n<li><strong>Используйте <code>save-off</code> / <code>save-all</code> при создании снимков работающего сервера</strong>, чтобы копировать мир в состоянии без операций записи.</li>\n<li><strong>Следите за свободным местом.</strong> Заполненный диск незаметно обрезает сохранения, а <code>level.dat</code> записывается последним.</li>\n<li><strong>Изменяйте значения, а не структуру.</strong> Игра не сможет обработать переименование тегов или изменение их типов.</li>\n</ul>\n</section>\n",
+    "chips": [
+      "Диагностика",
+      "level.dat_old",
+      "Заголовок",
+      "Сжатие",
+      "Обрезанный файл"
+    ],
+    "faq": [
+      [
+        "Что такое level.dat_old?",
+        "<p>Это предыдущее сохранение. Перед записью нового файла Minecraft переименовывает текущий файл в <code>level.dat_old</code>, поэтому сначала стоит проверить эту автоматически создаваемую резервную копию предыдущей версии.</p>"
+      ],
+      [
+        "Может ли редактор NBT восстановить обрезанный файл?",
+        "<p>Он может точно указать, где заканчиваются данные, но восстановить отсутствующие байты невозможно. Частичный разбор означает, что нужна резервная копия.</p>"
+      ],
+      [
+        "Будут ли потеряны мои постройки?",
+        "<p>Не из-за одного лишь повреждения <code>level.dat</code>. Чанки хранятся в <code>region/</code> или <code>db/</code>; новый файл мира той же версии сможет использовать их.</p>"
+      ],
+      [
+        "Сервер сообщает, что level.dat исправен, но мир пуст.",
+        "<p>Значит, проблема в хранилище чанков, а не в метаданных. Проверьте, что при копировании были перенесены <code>region/</code> или <code>db/</code>, а координаты точки появления в <code>level.dat</code> указывают в ожидаемое место.</p>"
+      ]
+    ],
+    "howto": {
+      "name": "Диагностика и восстановление повреждённого level.dat",
+      "time": "PT10M",
+      "steps": [
+        [
+          "Создайте резервную копию папки мира",
+          "Скопируйте всю папку мира, прежде чем что-либо менять. Каждый следующий шаг обратим только при наличии этой копии."
+        ],
+        [
+          "Проверьте level.dat_old",
+          "Minecraft хранит предыдущее сохранение как level.dat_old. Откройте его в редакторе NBT: если файл разбирается без ошибок, скопируйте его поверх level.dat и запустите мир."
+        ],
+        [
+          "Откройте повреждённый файл",
+          "Перетащите level.dat в редактор. Успешный разбор означает, что файл цел, а проблема находится в другом месте: в чанках, модах или самом сервере."
+        ],
+        [
+          "Прочитайте сообщение об ошибке",
+          "Редактор указывает причину: unexpected end of data означает обрезанный файл, неправдоподобная версия хранилища — повреждённый заголовок Bedrock, а отсутствие распознаваемого формата — что файл вообще не является NBT."
+        ],
+        [
+          "Проверьте сжатие и формат",
+          "Если файл загружается, проверьте строку сведений. Java level.dat должен сохраняться как gzip big-endian, а Bedrock — как little-endian с заголовком. Повторное сохранение с правильными настройками исправит файл, повреждённый другим инструментом."
+        ],
+        [
+          "Восстановите только отсутствующие данные",
+          "Если удалён один тег, добавьте его с правильным типом. Если файл обрезан, используйте level.dat_old или резервную копию: в частично разобранном файле отсутствуют данные, которые редактор не может создать."
+        ]
+      ]
+    },
+    "ui": {
+      "loaded": "Загружено как {0}",
+      "trailing": "Пропущено конечных байтов после корневого тега: {0}",
+      "error": "Ошибка: {0}",
+      "readfail": "Не удалось прочитать файл",
+      "nofile": "Файл не загружен",
+      "saved": "Сохранено: {0} ({1}, {2})",
+      "savefail": "Ошибка сохранения: {0}",
+      "exported": "Экспортировано: {0}",
+      "snbtfail": "Ошибка SNBT: {0}",
+      "tagadded": "Тег добавлен",
+      "tagremoved": "Тег удалён",
+      "arrayupdated": "Массив обновлён",
+      "badvalue": "Недопустимое значение: {0}",
+      "badarray": "Недопустимый массив: {0}",
+      "nameneeded": "Требуется имя тега",
+      "nametaken": "Тег с именем {0} уже существует здесь",
+      "listtype": "Список уже содержит элементы типа {0}",
+      "editlevelname": "✎ Изменить LevelName",
+      "showmore": "Показать ещё {0} из {1} …",
+      "matches": "Совпадений: {0}",
+      "nomatch": "Нет тегов, соответствующих \"{0}\"",
+      "arraytoobig": "Массив содержит {0} элементов — разверните его и изменяйте элементы по отдельности",
+      "uncompressed": "без сжатия",
+      "storage": "хранилище v{0}",
+      "entries": "Элементов: {0}",
+      "langprompt": "Открыть эту страницу на языке {0}?",
+      "langyes": "Переключить",
+      "langno": "Остаться"
+    },
+    "support": "<strong>Поддерживает Minecraft Bedrock Edition и Java Edition</strong> и все серверные ядра для обеих редакций, популярные и малоизвестные: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina и остальные. <a href=\"__HOME__#server-software\">Полный список</a>.",
+    "footernote": "бесплатный редактор с открытым исходным кодом (MIT), полностью работающий в браузере. Не связан с Mojang Studios или Microsoft. Minecraft — товарный знак Mojang Studios.",
+    "faqtitle": "Часто задаваемые вопросы",
+    "toctitle": "На этой странице",
+    "relatedtitle": "Связанные инструменты",
+    "homecrumb": "Редактор NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Редакторы",
+      "Типы файлов",
+      "Справочник"
+    ],
+    "sourcehead": "Исходный код",
+    "sourcelink": "Код на GitHub"
+  },
+  "guides/edit-gamerules": {
+    "title": "Изменение игровых правил в level.dat: Java и Bedrock",
+    "ogtitle": "Изменение игровых правил в level.dat",
+    "desc": "Изменение keepInventory, doDaylightCycle, mobGriefing и других игровых правил через level.dat в Java и Bedrock без команд и включения читов.",
+    "keywords": "изменить gamerule level.dat, keepinventory nbt, игровые правила minecraft файл, gamerule без команд, gamerules bedrock level.dat, dodaylightcycle nbt",
+    "h1": "Изменение игровых правил в <code>level.dat</code>",
+    "crumb": "Игровые правила",
+    "reltitle": "Изменить игровые правила",
+    "reldesc": "keepInventory и другие правила без загрузки мира.",
+    "answer": "Игровые правила хранятся в <code>level.dat</code>, поэтому их можно менять без загрузки мира и включения читов. Это полезно, если мир не запускается, читы отключены или вы готовите копию мира до входа игроков. Java хранит правила как строки в составном теге <code>GameRules</code>, а Bedrock — каждое отдельно в корневом байтовом теге с именем в нижнем регистре.",
+    "droplabel": "level.dat",
+    "body": "\n<section class=\"content\" aria-label=\"Java gamerules\">\n<h2>Java: составной тег <code>GameRules</code> со строками</h2>\n<p>В Java Edition путь <code>Data</code> → <code>GameRules</code> содержит по одному <code>TAG_String</code> для каждого правила. Ключ точно совпадает с именем, используемым командой <code>/gamerule</code>, а значение записывается текстом: <code>\"true\"</code>, <code>\"false\"</code> или числом. Правила, которые никогда не задавались в мире, просто отсутствуют и получают значения по умолчанию. Добавление тега с правильным именем и строковым значением работает так же, как выполнение команды.</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Правило</th><th>Значение</th><th>Эффект</th></tr></thead>\n<tbody>\n<tr><td><code>keepInventory</code></td><td><code>\"true\"</code></td><td>Сохранять предметы после смерти</td></tr>\n<tr><td><code>doDaylightCycle</code></td><td><code>\"false\"</code></td><td>Остановить смену времени суток</td></tr>\n<tr><td><code>doWeatherCycle</code></td><td><code>\"false\"</code></td><td>Остановить смену погоды</td></tr>\n<tr><td><code>mobGriefing</code></td><td><code>\"false\"</code></td><td>Запретить криперам и эндерменам изменять блоки</td></tr>\n<tr><td><code>doMobSpawning</code></td><td><code>\"false\"</code></td><td>Остановить естественное появление мобов</td></tr>\n<tr><td><code>doFireTick</code></td><td><code>\"false\"</code></td><td>Остановить распространение огня</td></tr>\n<tr><td><code>commandBlockOutput</code></td><td><code>\"false\"</code></td><td>Отключить сообщения командных блоков в чате</td></tr>\n<tr><td><code>randomTickSpeed</code></td><td><code>\"3\"</code></td><td>Скорость роста растений и распространения огня</td></tr>\n<tr><td><code>playersSleepingPercentage</code></td><td><code>\"50\"</code></td><td>Доля игроков, необходимая для пропуска ночи</td></tr>\n<tr><td><code>spawnRadius</code></td><td><code>\"10\"</code></td><td>Радиус области появления</td></tr>\n</tbody>\n</table>\n</div>\n<p>Регистр важен. <code>keepinventory</code> в файле Java — не тот же тег, что <code>keepInventory</code>, поэтому он будет проигнорирован.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Bedrock gamerules\">\n<h2>Bedrock: отдельные байтовые теги в нижнем регистре</h2>\n<p>Bedrock не группирует правила. Каждое из них представляет собой <code>TAG_Byte</code> в корне <code>level.dat</code> с именем в нижнем регистре и значением 1 или 0: <code>keepinventory</code>, <code>domobspawning</code>, <code>domobloot</code>, <code>dodaylightcycle</code>, <code>doweathercycle</code>, <code>mobgriefing</code>, <code>firedamage</code>, <code>falldamage</code>, <code>drowningdamage</code>, <code>pvp</code>, <code>showcoordinates</code>, <code>commandblockoutput</code>, <code>sendcommandfeedback</code>, <code>naturalregeneration</code>, <code>tntexplodes</code>, <code>respawnblocksexplode</code>, <code>showdeathmessages</code>, <code>doimmediaterespawn</code>. Числовые правила, например <code>randomtickspeed</code> и <code>functioncommandlimit</code>, имеют тип <code>TAG_Int</code>.</p>\n<p>Чтобы задать отсутствующее правило, добавьте тег правильного типа: Byte для переключателя, Int для числа. Правило с неверным типом игнорируется или мешает загрузке мира.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Why edit the file\">\n<h2>Когда лучше отредактировать файл, а не вводить команду</h2>\n<ul>\n<li><strong>Читы отключены</strong>, и вы не хотите включать и снова отключать их ради одной команды.</li>\n<li><strong>Мир не загружается</strong>: правило вроде <code>doImmediateRespawn</code> можно задать до первого входа.</li>\n<li><strong>Вы готовите шаблон мира</strong> для копирования на несколько серверов и хотите сохранить правила в копии.</li>\n<li><strong>Плагин изменил правило</strong>, и нужно увидеть фактически сохранённое значение, а не результат команды.</li>\n<li><strong>Массовое редактирование.</strong> Десяток правил в нескольких мирах быстрее задать в файлах, чем через чат.</li>\n</ul>\n<p>Сначала остановите сервер, как при любом изменении <code>level.dat</code>: работающий мир перезаписывает файл при сохранении и отменяет правку.</p>\n</section>\n",
+    "chips": [
+      "keepInventory",
+      "doDaylightCycle",
+      "mobGriefing",
+      "commandBlockOutput",
+      "randomTickSpeed"
+    ],
+    "faq": [
+      [
+        "Почему в Java игровое правило хранится как строка?",
+        "<p>Java хранит все игровые правила как строки, включая логические и числовые. Запишите <code>\"true\"</code>, а не байт 1.</p>"
+      ],
+      [
+        "Почему в Bedrock используется байт?",
+        "<p>Bedrock хранит переключатели в виде байтовых тегов в корне, а числовые правила — в виде int. Составного тега <code>GameRules</code> нет.</p>"
+      ],
+      [
+        "Правило полностью отсутствует в файле.",
+        "<p>Это означает, что действует значение по умолчанию. Добавьте тег с точным именем и правильным типом, и мир будет использовать заданное значение.</p>"
+      ],
+      [
+        "Копируются ли игровые правила вместе с папкой мира?",
+        "<p>Да. Они хранятся в <code>level.dat</code>, поэтому скопированный мир наследует их вместе с устаревшим <a href=\"../change-world-name/\">именем мира</a>.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Загружено как {0}",
+      "trailing": "Пропущено конечных байтов после корневого тега: {0}",
+      "error": "Ошибка: {0}",
+      "readfail": "Не удалось прочитать файл",
+      "nofile": "Файл не загружен",
+      "saved": "Сохранено: {0} ({1}, {2})",
+      "savefail": "Ошибка сохранения: {0}",
+      "exported": "Экспортировано: {0}",
+      "snbtfail": "Ошибка SNBT: {0}",
+      "tagadded": "Тег добавлен",
+      "tagremoved": "Тег удалён",
+      "arrayupdated": "Массив обновлён",
+      "badvalue": "Недопустимое значение: {0}",
+      "badarray": "Недопустимый массив: {0}",
+      "nameneeded": "Требуется имя тега",
+      "nametaken": "Тег с именем {0} уже существует здесь",
+      "listtype": "Список уже содержит элементы типа {0}",
+      "editlevelname": "✎ Изменить LevelName",
+      "showmore": "Показать ещё {0} из {1} …",
+      "matches": "Совпадений: {0}",
+      "nomatch": "Нет тегов, соответствующих \"{0}\"",
+      "arraytoobig": "Массив содержит {0} элементов — разверните его и изменяйте элементы по отдельности",
+      "uncompressed": "без сжатия",
+      "storage": "хранилище v{0}",
+      "entries": "Элементов: {0}",
+      "langprompt": "Открыть эту страницу на языке {0}?",
+      "langyes": "Переключить",
+      "langno": "Остаться"
+    },
+    "support": "<strong>Поддерживает Minecraft Bedrock Edition и Java Edition</strong> и все серверные ядра для обеих редакций, популярные и малоизвестные: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina и остальные. <a href=\"__HOME__#server-software\">Полный список</a>.",
+    "footernote": "бесплатный редактор с открытым исходным кодом (MIT), полностью работающий в браузере. Не связан с Mojang Studios или Microsoft. Minecraft — товарный знак Mojang Studios.",
+    "faqtitle": "Часто задаваемые вопросы",
+    "toctitle": "На этой странице",
+    "relatedtitle": "Связанные инструменты",
+    "homecrumb": "Редактор NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Редакторы",
+      "Типы файлов",
+      "Справочник"
+    ],
+    "sourcehead": "Исходный код",
+    "sourcelink": "Код на GitHub"
+  }
+}
