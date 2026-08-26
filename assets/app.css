@@ -356,7 +356,9 @@ section.content h2{scroll-margin-top:80px}
   width:36px;height:36px;border:1px solid var(--border);border-radius:8px;background:var(--bg3);
   display:inline-flex;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent;
 }
-.lang-switch summary svg{width:20px;height:20px}
+.lang-switch summary svg{width:22px;height:22px;display:block;flex:none}
+.lang-switch summary::before{content:none!important;display:none!important}
+.lang-switch summary::marker,.lang-switch summary::-webkit-details-marker{display:none;content:""}
 .lang-switch summary::-webkit-details-marker{display:none}
 .lang-switch summary:hover{color:var(--text)}
 .lang-switch[open] summary{color:var(--text);border-color:var(--accent)}
