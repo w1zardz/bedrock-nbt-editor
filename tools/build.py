@@ -11,6 +11,7 @@ assets.
 import hashlib
 import json
 import os
+import posixpath
 import re
 import datetime
 
@@ -21,6 +22,38 @@ AUTHOR = "w1zardz"
 AUTHOR_URL = "https://github.com/w1zardz"
 REPO = "https://github.com/w1zardz/bedrock-nbt-editor"
 TODAY = datetime.date.today().isoformat()
+
+# Locales. "ready" locales are indexed, get hreflang and go into the sitemap;
+# "draft" locales are built (so the switcher works) but marked noindex until the
+# translation lands in tools/locales/<code>.json.
+LOCALES = [
+    {"code": "en", "dir": "", "name": "English", "status": "ready"},
+    {"code": "ru", "dir": "ru", "name": "Русский", "status": "draft"},
+]
+LOCALE_BY_CODE = {loc["code"]: loc for loc in LOCALES}
+TRANSLATABLE = ("title", "ogtitle", "desc", "keywords", "h1", "crumb", "reltitle",
+                "reldesc", "answer", "droplabel", "body", "chips", "faq", "faqtitle",
+                "howto", "support", "ui")
+
+
+def load_translations(code):
+    path = os.path.join(ROOT, "tools", "locales", code + ".json")
+    if not os.path.exists(path):
+        return {}
+    with open(path) as fh:
+        return json.load(fh)
+
+
+def localized(page, code):
+    """English page dict with the locale's overrides merged on top."""
+    if code == "en":
+        return page
+    tr = TRANSLATIONS.get(code, {}).get(page["slug"], {})
+    merged = dict(page)
+    for key in TRANSLATABLE:
+        if key in tr and tr[key]:
+            merged[key] = tr[key]
+    return merged
 
 
 def asset_version(name):
@@ -34,8 +67,26 @@ def rel(depth):
     return "../" * depth
 
 
-def url(slug):
-    return BASE + (slug + "/" if slug else "")
+def url(slug, code="en"):
+    d = LOCALE_BY_CODE[code]["dir"]
+    path = "/".join(x for x in (d, slug) if x)
+    return BASE + (path + "/" if path else "")
+
+
+def page_dir(slug, code):
+    """Repo-relative directory a page is written to."""
+    d = LOCALE_BY_CODE[code]["dir"]
+    return "/".join(x for x in (d, slug) if x)
+
+
+def href_between(from_slug, from_code, to_slug, to_code):
+    """Relative href from one built page to another, locale included."""
+    src = page_dir(from_slug, from_code) or "."
+    dst = page_dir(to_slug, to_code) or "."
+    rel_path = posixpath.relpath(dst, src)
+    if rel_path == ".":
+        return "./"
+    return rel_path + "/"
 
 
 def plain(s):
@@ -69,12 +120,12 @@ def anchor_headings(body):
     return re.sub(r"<h2>(.*?)</h2>", sub, body, flags=re.S), found
 
 
-def toc_html(items):
+def toc_html(items, title="On this page"):
     if len(items) < 4:
         return ""
     links = "".join('<li><a href="#%s">%s</a></li>' % (a, esc(t)) for a, t in items)
-    return ('<nav class="toc" aria-label="On this page"><h2 id="on-this-page">On this page</h2>'
-            '<ul>%s</ul></nav>' % links)
+    return ('<nav class="toc" aria-label="%s"><h2 id="on-this-page">%s</h2>'
+            '<ul>%s</ul></nav>' % (esc(title), esc(title), links))
 
 
 NAV = [
@@ -89,12 +140,47 @@ NAV = [
 ]
 
 
-def nav_html(depth, current):
+def nav_html(current, code):
     out = []
     for slug, label in NAV:
-        href = rel(depth) + (slug + "/" if slug else "")
+        href = href_between(current, code, slug, code)
         cls = ' class="active"' if slug == current else ""
-        out.append('<a href="%s"%s>%s</a>' % (href, cls, label))
+        out.append('<a href="%s"%s>%s</a>' % (href, cls, esc(label)))
+    return "\n".join(out)
+
+
+def lang_switch_html(slug, code):
+    """Dropdown of real links — crawlable, and the cookie is set on click."""
+    cur = LOCALE_BY_CODE[code]
+    items = []
+    for loc in LOCALES:
+        if loc["code"] == code:
+            continue
+        label = loc["name"] + ("" if loc["status"] == "ready" else " (beta)")
+        items.append('<a href="%s" hreflang="%s" data-lang="%s" rel="alternate">%s</a>'
+                     % (href_between(slug, code, slug, loc["code"]), loc["code"],
+                        loc["code"], esc(label)))
+    if not items:
+        return ""
+    return ('<details class="lang-switch"><summary aria-label="Language">'
+            '<span aria-hidden="true">🌐</span> %s</summary>'
+            '<div class="lang-menu">%s</div></details>'
+            % (esc(cur["name"]), "".join(items)))
+
+
+def lang_urls_json(slug, code):
+    return json.dumps({loc["code"]: href_between(slug, code, slug, loc["code"])
+                       for loc in LOCALES}, separators=(",", ":"))
+
+
+def hreflang_html(slug, code):
+    out = []
+    for loc in LOCALES:
+        if loc["status"] != "ready":
+            continue
+        out.append('<link rel="alternate" hreflang="%s" href="%s">'
+                   % (loc["code"], url(slug, loc["code"])))
+    out.append('<link rel="alternate" hreflang="x-default" href="%s">' % url(slug, "en"))
     return "\n".join(out)
 
 
@@ -242,8 +328,9 @@ def software_schema():
     }
 
 
-def breadcrumb_schema(slug, title):
-    items = [{"@type": "ListItem", "position": 1, "name": "NBT Editor", "item": BASE}]
+def breadcrumb_schema(slug, title, code="en"):
+    items = [{"@type": "ListItem", "position": 1, "name": "NBT Editor",
+              "item": url("", code)}]
     if slug:
         parts = slug.split("/")
         acc = ""
@@ -251,7 +338,7 @@ def breadcrumb_schema(slug, title):
             acc = acc + part + "/"
             name = title if i == len(parts) - 1 else part.replace("-", " ").title()
             items.append({"@type": "ListItem", "position": i + 2, "name": name,
-                          "item": BASE + acc})
+                          "item": url(acc.rstrip("/"), code)})
     return {"@context": "https://schema.org", "@type": "BreadcrumbList",
             "itemListElement": items}
 
@@ -268,15 +355,15 @@ def faq_schema(faq):
     }
 
 
-def webpage_schema(page):
+def webpage_schema(page, code="en"):
     return {
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": plain(page["title"]),
         "headline": plain(page["h1"]),
         "description": page["desc"],
-        "url": url(page["slug"]),
-        "inLanguage": "en",
+        "url": url(page["slug"], code),
+        "inLanguage": code,
         "datePublished": "2026-05-29",
         "dateModified": TODAY,
         "isPartOf": {"@type": "WebSite", "name": SITE_NAME, "url": BASE},
@@ -286,7 +373,7 @@ def webpage_schema(page):
     }
 
 
-def howto_schema(page):
+def howto_schema(page, code="en"):
     return {
         "@context": "https://schema.org",
         "@type": "HowTo",
@@ -296,7 +383,7 @@ def howto_schema(page):
         "tool": [{"@type": "HowToTool", "name": SITE_NAME}],
         "step": [
             {"@type": "HowToStep", "position": i + 1, "name": s[0], "text": s[1],
-             "url": url(page["slug"]) + "#step-%d" % (i + 1)}
+             "url": url(page["slug"], code) + "#step-%d" % (i + 1)}
             for i, s in enumerate(page["howto"]["steps"])
         ],
     }
@@ -305,18 +392,17 @@ def howto_schema(page):
 # ---------------------------------------------------------------- page shell
 
 HEAD = """<!DOCTYPE html>
-<html lang="en">
+<html lang="{lang}">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>{title}</title>
 <meta name="description" content="{desc}">
 <meta name="keywords" content="{keywords}">
-<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="robots" content="{robots}">
 <meta name="author" content="{author}">
 <link rel="canonical" href="{canonical}">
-<link rel="alternate" hreflang="en" href="{canonical}">
-<link rel="alternate" hreflang="x-default" href="{canonical}">
+{hreflang}
 <link rel="icon" href="{r}favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="{r}favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="{r}apple-touch-icon.png">
@@ -329,7 +415,7 @@ HEAD = """<!DOCTYPE html>
 <meta property="og:image" content="{ogimage}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="{oglocale}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{ogtitle}">
 <meta name="twitter:description" content="{desc}">
@@ -340,6 +426,8 @@ HEAD = """<!DOCTYPE html>
 <meta name="application-name" content="{site}">
 <meta name="apple-mobile-web-app-title" content="NBT Editor">
 <link rel="preload" href="{r}assets/nbt.js?v={jsv}" as="script">
+<script>window.__LANG_URLS__={langurls};window.__NBT_STRINGS__={uistrings};</script>
+<script src="{r}assets/lang.js?v={langv}" defer></script>
 <link rel="stylesheet" href="{r}assets/app.css?v={cssv}">
 {schema}
 </head>
@@ -347,11 +435,12 @@ HEAD = """<!DOCTYPE html>
 <a class="skip-link" href="#editor">Skip to the editor</a>
 <header class="site-header">
 <div class="container">
-<a class="brand" href="{r}"><span>Minecraft</span> NBT Editor</a>
-<span class="badge">Java + Bedrock</span>
+<a class="brand" href="{home}"><span>Minecraft</span> NBT Editor</a>
+<span class="badge">{badge}</span>
 <nav class="site-nav" aria-label="Tools">
 {nav}
 </nav>
+{langswitch}
 </div>
 </header>
 <main>
@@ -361,32 +450,9 @@ FOOT = """</main>
 
 <footer class="site-footer">
 <div class="container footer-grid">
-<div>
-<h4>Editors</h4>
-<a href="{r}">Minecraft NBT editor</a>
-<a href="{r}level-dat-editor/">level.dat editor</a>
-<a href="{r}java-nbt-editor/">Java Edition NBT editor</a>
-<a href="{r}mcpe-nbt-editor/">Bedrock NBT editor</a>
-<a href="{r}pocketmine-nbt-editor/">PocketMine-MP editor</a>
+{footerlinks}
 </div>
-<div>
-<h4>File types</h4>
-<a href="{r}mcstructure-editor/">.mcstructure editor</a>
-<a href="{r}schematic-editor/">.schem / .schematic editor</a>
-<a href="{r}playerdata-editor/">playerdata editor</a>
-<a href="{r}nbt-viewer/">NBT viewer</a>
-<a href="{r}nbtexplorer-online/">NBTExplorer online</a>
-</div>
-<div>
-<h4>Reference</h4>
-<a href="{r}nbt-format/">NBT format spec</a>
-<a href="{r}guides/change-world-name/">Rename a world</a>
-<a href="{r}guides/fix-corrupted-level-dat/">Fix a broken level.dat</a>
-<a href="{r}guides/edit-gamerules/">Edit game rules</a>
-<a href="{repo}" rel="noopener">Source on GitHub</a>
-</div>
-</div>
-<p class="footer-note">Last updated {today}. {site} — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">{updated} {site} — {footernote}</p>
 </footer>
 {modals}
 <script src="{r}assets/nbt.js?v={jsv}" defer></script>
@@ -395,25 +461,56 @@ FOOT = """</main>
 """
 
 
-def related_html(page, depth):
+FOOTER_GROUPS = [
+    ("Editors", ["", "level-dat-editor", "java-nbt-editor", "mcpe-nbt-editor",
+                 "pocketmine-nbt-editor"]),
+    ("File types", ["mcstructure-editor", "schematic-editor", "playerdata-editor",
+                    "nbt-viewer", "nbtexplorer-online"]),
+    ("Reference", ["nbt-format", "guides/change-world-name",
+                   "guides/fix-corrupted-level-dat", "guides/edit-gamerules"]),
+]
+
+
+def footer_html(page, code, site_root):
+    blocks = []
+    heads = page.get("footerheads") or [g[0] for g in FOOTER_GROUPS]
+    for (default_head, slugs), head in zip(FOOTER_GROUPS, heads):
+        links = []
+        for slug in slugs:
+            target = localized(next(p for p in PAGES if p["slug"] == slug), code)
+            links.append('<a href="%s">%s</a>'
+                         % (href_between(page["slug"], code, slug, code),
+                            esc(target["reltitle"])))
+        blocks.append("<div><h4>%s</h4>%s</div>" % (esc(head), "".join(links)))
+    blocks.append('<div><h4>%s</h4><a href="%s" rel="noopener">%s</a><a href="%s">llms.txt</a></div>'
+                  % (esc(page.get("sourcehead", "Source")), REPO,
+                     esc(page.get("sourcelink", "Code on GitHub")),
+                     site_root + "llms.txt"))
+    return "\n".join(blocks)
+
+
+def related_html(page, code):
     items = []
     for slug in page.get("related", []):
-        target = next(p for p in PAGES if p["slug"] == slug)
+        target = localized(next(p for p in PAGES if p["slug"] == slug), code)
         items.append(
-            '<a class="rel-card" href="%s%s"><strong>%s</strong><span>%s</span></a>'
-            % (rel(depth), slug + "/" if slug else "", target["reltitle"], target["reldesc"])
+            '<a class="rel-card" href="%s"><strong>%s</strong><span>%s</span></a>'
+            % (href_between(page["slug"], code, slug, code),
+               esc(target["reltitle"]), esc(target["reldesc"]))
         )
     if not items:
         return ""
-    return ('<section class="content" aria-label="Related tools"><h2>Related tools</h2>'
-            '<div class="rel-grid">' + "".join(items) + "</div></section>")
+    return ('<section class="content" aria-label="Related tools"><h2>%s</h2>'
+            '<div class="rel-grid">%s</div></section>'
+            % (esc(page.get("relatedtitle", "Related tools")), "".join(items)))
 
 
-def breadcrumb_html(page, depth):
+def breadcrumb_html(page, code):
     if not page["slug"]:
         return ""
     parts = page["slug"].split("/")
-    crumbs = ['<a href="%s">NBT Editor</a>' % rel(depth)]
+    crumbs = ['<a href="%s">%s</a>' % (href_between(page["slug"], code, "", code),
+                                       esc(page.get("homecrumb", "NBT Editor")))]
     acc = ""
     for i, part in enumerate(parts):
         acc += part + "/"
@@ -423,32 +520,80 @@ def breadcrumb_html(page, depth):
             + ' <span class="sep">/</span> '.join(crumbs) + "</nav>")
 
 
-def render(page):
+UI_DEFAULTS = {
+    "loaded": "Loaded as {0}",
+    "trailing": "{0} trailing byte(s) after the root tag were ignored",
+    "error": "Error: {0}",
+    "readfail": "Could not read the file",
+    "nofile": "No file loaded",
+    "saved": "Saved {0} ({1}, {2})",
+    "savefail": "Save error: {0}",
+    "exported": "Exported {0}",
+    "snbtfail": "SNBT error: {0}",
+    "tagadded": "Tag added",
+    "tagremoved": "Tag removed",
+    "arrayupdated": "Array updated",
+    "badvalue": "Invalid value: {0}",
+    "badarray": "Invalid array: {0}",
+    "nameneeded": "Tag name is required",
+    "nametaken": "A tag named {0} already exists here",
+    "listtype": "List already holds {0} entries",
+    "editlevelname": "✎ Edit LevelName",
+    "showmore": "Show {0} more of {1} …",
+    "matches": "{0} match(es)",
+    "nomatch": "No tag matches \"{0}\"",
+    "arraytoobig": "Array has {0} entries — expand it and edit elements individually",
+    "uncompressed": "uncompressed",
+    "storage": "storage v{0}",
+    "entries": "{0} entries",
+    "langprompt": "Open this page in {0}?",
+    "langyes": "Switch",
+    "langno": "Stay",
+}
+
+
+def render(page_en, code):
+    page = localized(page_en, code)
     slug = page["slug"]
-    depth = slug.count("/") + 1 if slug else 0
+    loc = LOCALE_BY_CODE[code]
+    depth = len((page_dir(slug, code) or "").split("/")) if page_dir(slug, code) else 0
     r = rel(depth)
-    schemas = [webpage_schema(page), breadcrumb_schema(slug, plain(page["h1"]))]
+    ready = loc["status"] == "ready"
+
+    schemas = [webpage_schema(page, code), breadcrumb_schema(slug, plain(page["h1"]), code)]
     if page.get("faq"):
         schemas.append(faq_schema(page["faq"]))
     if page.get("howto"):
-        schemas.append(howto_schema(page))
+        schemas.append(howto_schema(page, code))
     if not slug:
         schemas.append(software_schema())
         schemas.append({
             "@context": "https://schema.org", "@type": "WebSite", "name": SITE_NAME,
-            "url": BASE, "inLanguage": "en",
+            "url": BASE, "inLanguage": code,
             "publisher": {"@type": "Person", "name": AUTHOR, "url": AUTHOR_URL},
         })
     schema_html = "\n".join(
         '<script type="application/ld+json">%s</script>' % json.dumps(s, separators=(",", ":"))
         for s in schemas)
 
+    ui = dict(UI_DEFAULTS)
+    ui.update(page.get("ui") or {})
+
     head = HEAD.format(
         title=esc(page["title"]), desc=esc(page["desc"]), keywords=esc(page["keywords"]),
-        canonical=url(slug), r=r, ogtype="website" if not slug else "article",
+        canonical=url(slug, code), r=r, ogtype="website" if not slug else "article",
         ogtitle=esc(plain(page.get("ogtitle", page["h1"]))), site=SITE_NAME,
-        ogimage=BASE + page["og"], schema=schema_html, nav=nav_html(depth, slug),
-        author=AUTHOR, today=TODAY, jsv=asset_version("nbt.js"), cssv=asset_version("app.css"))
+        ogimage=BASE + page["og"], schema=schema_html, nav=nav_html(slug, code),
+        author=AUTHOR, today=TODAY, jsv=asset_version("nbt.js"), cssv=asset_version("app.css"),
+        langv=asset_version("lang.js"), lang=code,
+        robots=("index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+                if ready else "noindex, follow"),
+        hreflang=hreflang_html(slug, code) if ready else
+                 '<link rel="alternate" hreflang="x-default" href="%s">' % url(slug, "en"),
+        oglocale={"en": "en_US", "ru": "ru_RU"}.get(code, code),
+        home=href_between(slug, code, "", code), badge=esc(page.get("badge", "Java + Bedrock")),
+        langswitch=lang_switch_html(slug, code), langurls=lang_urls_json(slug, code),
+        uistrings=json.dumps(ui, separators=(",", ":"), ensure_ascii=False))
 
     faq_html = ""
     if page.get("faq"):
@@ -456,17 +601,18 @@ def render(page):
             "<details><summary>%s</summary><div class=\"faq-body\">%s</div></details>" % (esc(q), a)
             for q, a in page["faq"])
         faq_html = ('<section class="content" aria-label="Frequently asked questions">'
-                    '<h2>%s</h2>%s</section>' % (page.get("faqtitle", "Frequently Asked Questions"), blocks))
+                    '<h2>%s</h2>%s</section>'
+                    % (esc(page.get("faqtitle", "Frequently Asked Questions")), blocks))
 
     widget = EDITOR_WIDGET.replace("__DROPLABEL__", page.get("droplabel", "any NBT file"))
     body_html, headings = anchor_headings(page["body"])
-    body_html = toc_html(headings) + body_html
+    body_html = toc_html(headings, page.get("toctitle", "On this page")) + body_html
 
     body = """
 <section class="hero" aria-label="Introduction">
 <div class="container">
 <h1>{h1}</h1>
-<p class="support-line"><strong>Supports Minecraft Bedrock Edition and Java Edition</strong> — and every server core for both, popular or obscure: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina and the rest. <a href="{r}#server-software">Full list</a>.</p>
+<p class="support-line">{support}</p>
 <p class="lede">{answer}</p>
 {chips}
 </div>
@@ -480,20 +626,33 @@ def render(page):
 {related}
 </div>
 """.format(h1=page["h1"], answer=page["answer"], widget=widget, body=body_html,
-           faq=faq_html, related=related_html(page, depth),
-           r=rel(depth),
+           faq=faq_html, related=related_html(page, code),
+           support=page.get("support", SUPPORT_LINE).replace("__HOME__",
+                                                             href_between(slug, code, "", code)),
            chips=('<div class="chips">%s</div>' % "".join(
                '<span class="chip">%s</span>' % esc(c) for c in page.get("chips", []))
                if page.get("chips") else ""))
 
-    html = (head + breadcrumb_html(page, depth) + body
-            + FOOT.format(r=r, site=SITE_NAME, modals=MODALS, repo=REPO, today=TODAY,
-                          jsv=asset_version("nbt.js")))
-    out_dir = os.path.join(ROOT, slug) if slug else ROOT
+    html = (head + breadcrumb_html(page, code) + body
+            + FOOT.format(r=r, site=SITE_NAME, modals=MODALS, repo=REPO,
+                          jsv=asset_version("nbt.js"),
+                          footerlinks=footer_html(page, code, r),
+                          updated=page.get("updated", "Last updated %s." % TODAY),
+                          footernote=page.get("footernote", FOOTER_NOTE)))
+    out_dir = os.path.join(ROOT, page_dir(slug, code)) if page_dir(slug, code) else ROOT
     os.makedirs(out_dir, exist_ok=True)
     with open(os.path.join(out_dir, "index.html"), "w") as fh:
         fh.write(html)
-    return os.path.join(slug, "index.html") if slug else "index.html"
+    return os.path.join(page_dir(slug, code), "index.html")
+
+
+SUPPORT_LINE = ('<strong>Supports Minecraft Bedrock Edition and Java Edition</strong> — and every '
+                'server core for both, popular or obscure: Vanilla, Paper, Spigot, Purpur, Folia, '
+                'Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, '
+                'Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina and the rest. '
+                '<a href="__HOME__#server-software">Full list</a>.')
+FOOTER_NOTE = ('free, open source (MIT), runs entirely in your browser. Not affiliated with '
+               'Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.')
 
 
 # ---------------------------------------------------------------- content
@@ -1527,15 +1686,23 @@ def write(path, text):
 
 
 def sitemap():
+    ready = [loc for loc in LOCALES if loc["status"] == "ready"]
     rows = []
     for p in PAGES:
         prio = "1.0" if not p["slug"] else ("0.9" if "/" not in p["slug"] else "0.8")
-        rows.append(
-            "  <url>\n    <loc>%s</loc>\n    <lastmod>%s</lastmod>\n"
-            "    <changefreq>weekly</changefreq>\n    <priority>%s</priority>\n  </url>"
-            % (url(p["slug"]), TODAY, prio))
+        for loc in ready:
+            alts = "".join(
+                '\n    <xhtml:link rel="alternate" hreflang="%s" href="%s"/>'
+                % (alt["code"], url(p["slug"], alt["code"])) for alt in ready)
+            alts += ('\n    <xhtml:link rel="alternate" hreflang="x-default" href="%s"/>'
+                     % url(p["slug"], "en"))
+            rows.append(
+                "  <url>\n    <loc>%s</loc>\n    <lastmod>%s</lastmod>\n"
+                "    <changefreq>weekly</changefreq>\n    <priority>%s</priority>%s\n  </url>"
+                % (url(p["slug"], loc["code"]), TODAY, prio, alts if len(ready) > 1 else ""))
     return ('<?xml version="1.0" encoding="UTF-8"?>\n'
-            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
+            'xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
             + "\n".join(rows) + "\n</urlset>\n")
 
 
@@ -1670,8 +1837,39 @@ NOT_FOUND = """<!DOCTYPE html>
 """.format(site=SITE_NAME, base=BASE)
 
 
+def export_source_strings():
+    """Write tools/locales/en.json — the file translators (and Codex) work from."""
+    out = {}
+    for p in PAGES:
+        entry = {}
+        for key in TRANSLATABLE:
+            if key in p:
+                entry[key] = p[key]
+        entry["ui"] = UI_DEFAULTS
+        entry["support"] = SUPPORT_LINE
+        entry["footernote"] = FOOTER_NOTE
+        entry["faqtitle"] = p.get("faqtitle", "Frequently Asked Questions")
+        entry["toctitle"] = "On this page"
+        entry["relatedtitle"] = "Related tools"
+        entry["homecrumb"] = "NBT Editor"
+        entry["badge"] = "Java + Bedrock"
+        entry["footerheads"] = [g[0] for g in FOOTER_GROUPS]
+        entry["sourcehead"] = "Source"
+        entry["sourcelink"] = "Code on GitHub"
+        out[p["slug"]] = entry
+    write("tools/locales/en.json", json.dumps(out, indent=2, ensure_ascii=False) + "\n")
+    return "tools/locales/en.json"
+
+
+TRANSLATIONS = {loc["code"]: load_translations(loc["code"]) for loc in LOCALES}
+
+
 def main():
-    written = [render(p) for p in PAGES]
+    written = []
+    for loc in LOCALES:
+        for p in PAGES:
+            written.append(render(p, loc["code"]))
+    written.append(export_source_strings())
     written.append(write("sitemap.xml", sitemap()))
     written.append(write("robots.txt", ROBOTS))
     written.append(write("llms.txt", llms_txt()))

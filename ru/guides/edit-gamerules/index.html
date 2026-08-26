@@ -1,29 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Edit Minecraft Game Rules in level.dat — Java &amp;amp; Bedrock</title>
 <meta name="description" content="Change keepInventory, doDaylightCycle, mobGriefing and other game rules by editing level.dat, for Java and Bedrock. No commands, no cheats needed.">
 <meta name="keywords" content="edit gamerules level.dat, keepinventory nbt, minecraft gamerules file, change gamerule without commands, bedrock gamerules level.dat, dodaylightcycle nbt, gamerules server">
-<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="robots" content="noindex, follow">
 <meta name="author" content="w1zardz">
-<link rel="canonical" href="https://w1zardz.github.io/bedrock-nbt-editor/guides/edit-gamerules/">
-<link rel="alternate" hreflang="en" href="https://w1zardz.github.io/bedrock-nbt-editor/guides/edit-gamerules/">
+<link rel="canonical" href="https://w1zardz.github.io/bedrock-nbt-editor/ru/guides/edit-gamerules/">
 <link rel="alternate" hreflang="x-default" href="https://w1zardz.github.io/bedrock-nbt-editor/guides/edit-gamerules/">
-<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
-<link rel="alternate icon" href="../../favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
-<link rel="manifest" href="../../site.webmanifest">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="../../../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
+<link rel="manifest" href="../../../site.webmanifest">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Edit game rules in level.dat">
 <meta property="og:description" content="Change keepInventory, doDaylightCycle, mobGriefing and other game rules by editing level.dat, for Java and Bedrock. No commands, no cheats needed.">
-<meta property="og:url" content="https://w1zardz.github.io/bedrock-nbt-editor/guides/edit-gamerules/">
+<meta property="og:url" content="https://w1zardz.github.io/bedrock-nbt-editor/ru/guides/edit-gamerules/">
 <meta property="og:site_name" content="Minecraft NBT Editor">
 <meta property="og:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/gamerules.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Edit game rules in level.dat">
 <meta name="twitter:description" content="Change keepInventory, doDaylightCycle, mobGriefing and other game rules by editing level.dat, for Java and Bedrock. No commands, no cheats needed.">
@@ -33,12 +32,12 @@
 <meta name="theme-color" content="#0d1117">
 <meta name="application-name" content="Minecraft NBT Editor">
 <meta name="apple-mobile-web-app-title" content="NBT Editor">
-<link rel="preload" href="../../assets/nbt.js?v=da7967b1" as="script">
-<script>window.__LANG_URLS__={"en":"./","ru":"../../ru/guides/edit-gamerules/"};window.__NBT_STRINGS__={"loaded":"Loaded as {0}","trailing":"{0} trailing byte(s) after the root tag were ignored","error":"Error: {0}","readfail":"Could not read the file","nofile":"No file loaded","saved":"Saved {0} ({1}, {2})","savefail":"Save error: {0}","exported":"Exported {0}","snbtfail":"SNBT error: {0}","tagadded":"Tag added","tagremoved":"Tag removed","arrayupdated":"Array updated","badvalue":"Invalid value: {0}","badarray":"Invalid array: {0}","nameneeded":"Tag name is required","nametaken":"A tag named {0} already exists here","listtype":"List already holds {0} entries","editlevelname":"✎ Edit LevelName","showmore":"Show {0} more of {1} …","matches":"{0} match(es)","nomatch":"No tag matches \"{0}\"","arraytoobig":"Array has {0} entries — expand it and edit elements individually","uncompressed":"uncompressed","storage":"storage v{0}","entries":"{0} entries","langprompt":"Open this page in {0}?","langyes":"Switch","langno":"Stay"};</script>
-<script src="../../assets/lang.js?v=a3a1db0e" defer></script>
-<link rel="stylesheet" href="../../assets/app.css?v=c7a303cf">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Edit Minecraft Game Rules in level.dat \u2014 Java & Bedrock","headline":"Editing Game Rules in level.dat","description":"Change keepInventory, doDaylightCycle, mobGriefing and other game rules by editing level.dat, for Java and Bedrock. No commands, no cheats needed.","url":"https://w1zardz.github.io/bedrock-nbt-editor/guides/edit-gamerules/","inLanguage":"en","datePublished":"2026-05-29","dateModified":"2026-08-26","isPartOf":{"@type":"WebSite","name":"Minecraft NBT Editor","url":"https://w1zardz.github.io/bedrock-nbt-editor/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/gamerules.png"},"about":{"@type":"Thing","name":"Minecraft NBT data format"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT Editor","item":"https://w1zardz.github.io/bedrock-nbt-editor/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://w1zardz.github.io/bedrock-nbt-editor/guides/"},{"@type":"ListItem","position":3,"name":"Editing Game Rules in level.dat","item":"https://w1zardz.github.io/bedrock-nbt-editor/guides/edit-gamerules/"}]}</script>
+<link rel="preload" href="../../../assets/nbt.js?v=da7967b1" as="script">
+<script>window.__LANG_URLS__={"en":"../../../guides/edit-gamerules/","ru":"./"};window.__NBT_STRINGS__={"loaded":"Loaded as {0}","trailing":"{0} trailing byte(s) after the root tag were ignored","error":"Error: {0}","readfail":"Could not read the file","nofile":"No file loaded","saved":"Saved {0} ({1}, {2})","savefail":"Save error: {0}","exported":"Exported {0}","snbtfail":"SNBT error: {0}","tagadded":"Tag added","tagremoved":"Tag removed","arrayupdated":"Array updated","badvalue":"Invalid value: {0}","badarray":"Invalid array: {0}","nameneeded":"Tag name is required","nametaken":"A tag named {0} already exists here","listtype":"List already holds {0} entries","editlevelname":"✎ Edit LevelName","showmore":"Show {0} more of {1} …","matches":"{0} match(es)","nomatch":"No tag matches \"{0}\"","arraytoobig":"Array has {0} entries — expand it and edit elements individually","uncompressed":"uncompressed","storage":"storage v{0}","entries":"{0} entries","langprompt":"Open this page in {0}?","langyes":"Switch","langno":"Stay"};</script>
+<script src="../../../assets/lang.js?v=a3a1db0e" defer></script>
+<link rel="stylesheet" href="../../../assets/app.css?v=c7a303cf">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Edit Minecraft Game Rules in level.dat \u2014 Java & Bedrock","headline":"Editing Game Rules in level.dat","description":"Change keepInventory, doDaylightCycle, mobGriefing and other game rules by editing level.dat, for Java and Bedrock. No commands, no cheats needed.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ru/guides/edit-gamerules/","inLanguage":"ru","datePublished":"2026-05-29","dateModified":"2026-08-26","isPartOf":{"@type":"WebSite","name":"Minecraft NBT Editor","url":"https://w1zardz.github.io/bedrock-nbt-editor/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/gamerules.png"},"about":{"@type":"Thing","name":"Minecraft NBT data format"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT Editor","item":"https://w1zardz.github.io/bedrock-nbt-editor/ru/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://w1zardz.github.io/bedrock-nbt-editor/ru/guides/"},{"@type":"ListItem","position":3,"name":"Editing Game Rules in level.dat","item":"https://w1zardz.github.io/bedrock-nbt-editor/ru/guides/edit-gamerules/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why is my game rule stored as a string in Java?","acceptedAnswer":{"@type":"Answer","text":"Java's game rule storage is string-based for every rule, including booleans and numbers. Write \"true\", not a byte of 1."}},{"@type":"Question","name":"Why is it a byte in Bedrock?","acceptedAnswer":{"@type":"Answer","text":"Bedrock stores toggles as byte tags at the root and numeric rules as ints. There is no GameRules compound."}},{"@type":"Question","name":"A rule is missing from the file entirely.","acceptedAnswer":{"@type":"Answer","text":"That means it is at its default. Add the tag with the exact name and correct type and the world will use your value."}},{"@type":"Question","name":"Do game rules copy with a world folder?","acceptedAnswer":{"@type":"Answer","text":"Yes \u2014 they live in level.dat, so a copied world inherits them along with its stale world name."}}]}</script>
 </head>
 <body>
@@ -57,7 +56,7 @@
 <a href="../../playerdata-editor/">playerdata</a>
 <a href="../../nbt-format/">NBT format</a>
 </nav>
-<details class="lang-switch"><summary aria-label="Language"><span aria-hidden="true">🌐</span> English</summary><div class="lang-menu"><a href="../../ru/guides/edit-gamerules/" hreflang="ru" data-lang="ru" rel="alternate">Русский (beta)</a></div></details>
+<details class="lang-switch"><summary aria-label="Language"><span aria-hidden="true">🌐</span> Русский</summary><div class="lang-menu"><a href="../../../guides/edit-gamerules/" hreflang="en" data-lang="en" rel="alternate">English</a></div></details>
 </div>
 </header>
 <main>
@@ -173,7 +172,7 @@
 <div><h4>Editors</h4><a href="../../">Minecraft NBT editor</a><a href="../../level-dat-editor/">level.dat editor</a><a href="../../java-nbt-editor/">Java Edition NBT editor</a><a href="../../mcpe-nbt-editor/">MCPE NBT editor</a><a href="../../pocketmine-nbt-editor/">PocketMine-MP editor</a></div>
 <div><h4>File types</h4><a href="../../mcstructure-editor/">.mcstructure editor</a><a href="../../schematic-editor/">Schematic editor</a><a href="../../playerdata-editor/">playerdata editor</a><a href="../../nbt-viewer/">NBT viewer</a><a href="../../nbtexplorer-online/">NBTExplorer online</a></div>
 <div><h4>Reference</h4><a href="../../nbt-format/">NBT format reference</a><a href="../change-world-name/">Rename a world</a><a href="../fix-corrupted-level-dat/">Fix a broken level.dat</a><a href="./">Edit game rules</a></div>
-<div><h4>Source</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">Code on GitHub</a><a href="../../llms.txt">llms.txt</a></div>
+<div><h4>Source</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">Code on GitHub</a><a href="../../../llms.txt">llms.txt</a></div>
 </div>
 <p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
 </footer>
@@ -238,6 +237,6 @@
 </div>
 </div>
 
-<script src="../../assets/nbt.js?v=da7967b1" defer></script>
+<script src="../../../assets/nbt.js?v=da7967b1" defer></script>
 </body>
 </html>

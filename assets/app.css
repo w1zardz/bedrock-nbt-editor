@@ -346,3 +346,37 @@ section.content h2{scroll-margin-top:80px}
   border-radius:8px;padding:10px 14px;line-height:1.5;
 }
 .support-line strong{color:var(--text)}
+/* ===== language switcher ===== */
+.lang-switch{position:relative;margin-left:8px}
+.lang-switch summary{
+  list-style:none;cursor:pointer;font-size:.82rem;color:var(--text2);white-space:nowrap;
+  padding:6px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg3);
+  display:inline-flex;align-items:center;gap:6px;min-height:32px;-webkit-tap-highlight-color:transparent;
+}
+.lang-switch summary::-webkit-details-marker{display:none}
+.lang-switch summary:hover{color:var(--text)}
+.lang-switch[open] summary{color:var(--text);border-color:var(--accent)}
+.lang-menu{
+  position:absolute;right:0;top:calc(100% + 6px);background:var(--bg2);border:1px solid var(--border);
+  border-radius:8px;padding:6px;min-width:170px;z-index:150;box-shadow:0 8px 24px rgba(0,0,0,.45);
+  display:flex;flex-direction:column;gap:2px;
+}
+.lang-menu a{display:block;padding:8px 10px;border-radius:6px;font-size:.86rem;color:var(--text)}
+.lang-menu a:hover{background:var(--bg3);text-decoration:none}
+.lang-offer{
+  position:fixed;left:16px;right:16px;bottom:16px;bottom:calc(16px + var(--safe-bottom));
+  background:var(--bg2);border:1px solid var(--accent);border-radius:10px;
+  padding:12px 14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;z-index:250;
+  box-shadow:0 8px 28px rgba(0,0,0,.5);font-size:.9rem;max-width:520px;margin:0 auto;
+}
+.lang-offer span{flex:1 1 180px;color:var(--text)}
+.lang-offer-yes{
+  background:var(--accent2);color:#fff;border-radius:6px;padding:8px 14px;font-weight:600;
+  font-size:.86rem;min-height:36px;display:inline-flex;align-items:center;
+}
+.lang-offer-yes:hover{text-decoration:none;opacity:.9}
+.lang-offer-no{
+  background:var(--bg3);color:var(--text2);border:1px solid var(--border);border-radius:6px;
+  padding:8px 14px;font-size:.86rem;min-height:36px;cursor:pointer;
+}
+@media(max-width:640px){.lang-switch{margin-left:auto}}

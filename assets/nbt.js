@@ -12,6 +12,16 @@
    Compression: none | gzip | zlib
    ===================================================================== */
 
+/* UI strings — the page injects a localized table as window.__NBT_STRINGS__ */
+const STR=(typeof window!=="undefined"&&window.__NBT_STRINGS__)||{};
+function t(key,fallback){
+  const tpl=STR[key]||fallback;
+  const args=Array.prototype.slice.call(arguments,2);
+  return String(tpl).replace(/\{(\d+)\}/g,function(m,i){
+    return args[i]===undefined?m:args[i];
+  });
+}
+
 const TAG={END:0,BYTE:1,SHORT:2,INT:3,LONG:4,FLOAT:5,DOUBLE:6,BYTE_ARRAY:7,STRING:8,LIST:9,COMPOUND:10,INT_ARRAY:11,LONG_ARRAY:12};
 const TAG_NAMES={0:"End",1:"Byte",2:"Short",3:"Int",4:"Long",5:"Float",6:"Double",7:"Byte[]",8:"String",9:"List",10:"Compound",11:"Int[]",12:"Long[]"};
 const TAG_SNBT_SUFFIX={1:"b",2:"s",3:"",4:"L",5:"f",6:"d"};
@@ -536,7 +546,7 @@ function loadFile(file){
   fileName=file.name||"data.nbt";
   fileSize=file.size;
   const reader=new FileReader();
-  reader.onerror=function(){toast("Could not read the file","error")};
+  reader.onerror=function(){toast(t("readfail","Could not read the file"),"error")};
   reader.onload=function(e){
     openBuffer(new Uint8Array(e.target.result));
   };
@@ -556,11 +566,11 @@ async function openBuffer(raw){
     outCompression.value=srcCompression;
     showEditor();
     const trailing=det.result.total-det.result.consumed;
-    toast("Loaded as "+FORMATS[srcFormat].label+(srcCompression!=="none"?" / "+srcCompression:""),"success");
-    if(trailing>0)toast(trailing+" trailing byte(s) after the root tag were ignored","info");
+    toast(t("loaded","Loaded as {0}",FORMATS[srcFormat].label+(srcCompression!=="none"?" / "+srcCompression:"")),"success");
+    if(trailing>0)toast(t("trailing","{0} trailing byte(s) after the root tag were ignored",trailing),"info");
   }catch(err){
     console.error(err);
-    toast("Error: "+err.message,"error");
+    toast(t("error","Error: {0}",err.message),"error");
   }
 }
 
@@ -576,7 +586,7 @@ function showEditor(){
     const btn=document.createElement("button");
     btn.className="ln-jump";
     btn.type="button";
-    btn.textContent="✎ Edit LevelName";
+    btn.textContent=t("editlevelname","✎ Edit LevelName");
     btn.addEventListener("click",function(){revealPath(jump,true)});
     fileInfo.appendChild(btn);
     setTimeout(function(){revealPath(jump,true)},80);
@@ -589,8 +599,8 @@ function renderFileInfo(){
     '<span class="fmt-badge '+f.edition+'">'+(f.edition==="java"?"Java":"Bedrock")+'</span>'+
     '<span class="fname">'+escHtml(fileName)+'</span>'+
     '<span class="fmeta">'+escHtml(f.label)+
-    (srcCompression!=="none"?" &middot; "+srcCompression:" &middot; uncompressed")+
-    (f.header?" &middot; storage v"+headerVersion:"")+
+    (srcCompression!=="none"?" &middot; "+srcCompression:" &middot; "+t("uncompressed","uncompressed"))+
+    (f.header?" &middot; "+t("storage","storage v{0}",headerVersion):"")+
     " &middot; "+formatBytes(fileSize)+'</span>';
 }
 
@@ -805,7 +815,7 @@ function makeNode(tag,parentTag,index,parentWrapper){
         children.appendChild(loadMore);
         loadMore.addEventListener("click",function(e){e.stopPropagation();buildPage()});
       }
-      loadMore.textContent="Show "+Math.min(PAGE_SIZE,total-shown)+" more of "+total+" …";
+      loadMore.textContent=t("showmore","Show {0} more of {1} …",Math.min(PAGE_SIZE,total-shown),total);
     }else if(loadMore){
       loadMore.remove();loadMore=null;
     }
@@ -866,7 +876,7 @@ function startEditing(tag,el){
         applyValue(tag,input.value);
         if(tag.__arr)writeBackArrayElement(tag);
       }catch(err){
-        toast("Invalid value: "+err.message,"error");
+        toast(t("badvalue","Invalid value: {0}",err.message),"error");
       }
     }
     el.textContent=formatValue(tag);
@@ -888,12 +898,12 @@ function writeBackArrayElement(pseudo){
 /* ===== ARRAY EDITING (modal) ===== */
 function openArrayModal(tag,el){
   if(tag.value.length>ARRAY_TEXT_LIMIT){
-    toast("Array has "+tag.value.length+" entries — expand it and edit elements individually","info");
+    toast(t("arraytoobig","Array has {0} entries — expand it and edit elements individually",tag.value.length),"info");
     return;
   }
   arrayTargetTag=tag;
   arrayTargetEl=el;
-  document.getElementById("arrayModalTitle").textContent="Edit "+(TAG_NAMES[tag.type]||"Array")+" ("+tag.value.length+" entries)";
+  document.getElementById("arrayModalTitle").textContent=(TAG_NAMES[tag.type]||"Array")+" — "+t("entries","{0} entries",tag.value.length);
   document.getElementById("arrayModalText").value=Array.prototype.join.call(tag.value,", ");
   arrayModal.classList.add("visible");
 }
@@ -907,7 +917,7 @@ function removeChild(parentTag,index,parentWrapper){
   }
   if(parentWrapper)parentWrapper._rebuild();
   else renderTree();
-  toast("Tag removed","info");
+  toast(t("tagremoved","Tag removed"),"info");
 }
 
 function openAddTagModal(parentTag,wrapper){
@@ -1026,7 +1036,7 @@ function runSearch(){
     if(hits.length>=300)return false;
   });
   if(!hits.length){
-    searchResults.innerHTML='<div class="sr-empty">No tag matches "'+escHtml(searchInput.value)+'"</div>';
+    searchResults.innerHTML='<div class="sr-empty">'+escHtml(t("nomatch",'No tag matches "{0}"',searchInput.value))+'</div>';
     searchResults.classList.add("visible");
     return;
   }
@@ -1040,7 +1050,7 @@ function runSearch(){
   });
   searchResults.appendChild(frag);
   searchResults.classList.add("visible");
-  toast(hits.length+(hits.length>=300?"+":"")+" match"+(hits.length===1?"":"es"),"info");
+  toast(t("matches","{0} match(es)",hits.length+(hits.length>=300?"+":"")),"info");
 }
 
 /* ===== SAVE ===== */
@@ -1057,31 +1067,31 @@ function downloadBytes(bytes,name,mime){
 }
 
 async function saveFile(){
-  if(!currentRoot){toast("No file loaded","error");return}
+  if(!currentRoot){toast(t("nofile","No file loaded"),"error");return}
   try{
     const fmt=outFormat.value;
     const comp=outCompression.value;
     const raw=serialize(currentRoot,fmt,headerVersion);
     const out=await compressBytes(raw,comp);
     downloadBytes(out,fileName);
-    toast("Saved "+fileName+" ("+formatBytes(out.length)+", "+FORMATS[fmt].label+
-      (comp!=="none"?" / "+comp:"")+")","success");
+    toast(t("saved","Saved {0} ({1}, {2})",fileName,formatBytes(out.length),
+      FORMATS[fmt].label+(comp!=="none"?" / "+comp:"")),"success");
   }catch(err){
     console.error(err);
-    toast("Save error: "+err.message,"error");
+    toast(t("savefail","Save error: {0}",err.message),"error");
   }
 }
 
 function exportSNBT(){
-  if(!currentRoot){toast("No file loaded","error");return}
+  if(!currentRoot){toast(t("nofile","No file loaded"),"error");return}
   try{
     const text=toSNBT(currentRoot,"");
     const name=fileName.replace(/\.[^.]+$/,"")+".snbt";
     downloadBytes(utf8Encoder.encode(text),name,"text/plain");
-    toast("Exported "+name,"success");
+    toast(t("exported","Exported {0}",name),"success");
   }catch(err){
     console.error(err);
-    toast("SNBT error: "+err.message,"error");
+    toast(t("snbtfail","SNBT error: {0}",err.message),"error");
   }
 }
 
@@ -1127,13 +1137,13 @@ document.getElementById("addTagConfirm").addEventListener("click",function(){
     const newTag=createDefaultTag(typeVal,valueStr,listSubtype);
     if(addTargetTag.type===TAG.COMPOUND){
       const name=nameInput.value.trim();
-      if(!name)throw new Error("Tag name is required");
-      if(addTargetTag.value.some(function(t){return t.name===name}))throw new Error("A tag named "+name+" already exists here");
+      if(!name)throw new Error(t("nameneeded","Tag name is required"));
+      if(addTargetTag.value.some(function(t){return t.name===name}))throw new Error(t("nametaken","A tag named {0} already exists here",name));
       newTag.name=name;
       addTargetTag.value.push(newTag);
     }else if(addTargetTag.type===TAG.LIST){
       if(addTargetTag.value.length&&addTargetTag.value[0].type!==newTag.type)
-        throw new Error("List already holds "+TAG_NAMES[addTargetTag.value[0].type]+" entries");
+        throw new Error(t("listtype","List already holds {0} entries",TAG_NAMES[addTargetTag.value[0].type]));
       addTargetTag.listType=newTag.type;
       addTargetTag.value.push(newTag);
     }
@@ -1141,9 +1151,9 @@ document.getElementById("addTagConfirm").addEventListener("click",function(){
     closeAddModal();
     if(w&&w._rebuild){const fresh=w._rebuild();fresh._expand()}
     else renderTree();
-    toast("Tag added","success");
+    toast(t("tagadded","Tag added"),"success");
   }catch(err){
-    toast("Error: "+err.message,"error");
+    toast(t("error","Error: {0}",err.message),"error");
   }
 });
 function closeAddModal(){
@@ -1172,9 +1182,9 @@ document.getElementById("arrayModalConfirm").addEventListener("click",function()
         if(w&&w._rebuild)w._rebuild();
       }
     }
-    toast("Array updated","success");
+    toast(t("arrayupdated","Array updated"),"success");
   }catch(err){
-    toast("Invalid array: "+err.message,"error");
+    toast(t("badarray","Invalid array: {0}",err.message),"error");
   }
 });
 function closeArrayModal(){
