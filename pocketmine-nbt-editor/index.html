@@ -28,6 +28,8 @@
 <meta name="twitter:title" content="PocketMine-MP &amp; Nukkit level.dat editor">
 <meta name="twitter:description" content="Edit level.dat for PocketMine-MP, Nukkit, PowerNukkitX and Bedrock Dedicated Server online. Fix duplicate world names after copying a world folder.">
 <meta name="twitter:image" content="https://w1zardz.github.io/minecraft-nbt-editor/og/pocketmine.png">
+<meta property="article:modified_time" content="2026-08-26">
+<meta property="og:updated_time" content="2026-08-26">
 <meta name="theme-color" content="#0d1117">
 <meta name="application-name" content="Minecraft NBT Editor">
 <meta name="apple-mobile-web-app-title" content="NBT Editor">
@@ -117,7 +119,7 @@
 <div id="contentSections">
 
 <section class="content" aria-label="Duplicate world names">
-<h2>The duplicated-world-name problem</h2>
+<h2 id="the-duplicated-world-name-problem">The duplicated-world-name problem</h2>
 <p>Every Bedrock server admin hits this. You copy <code>worlds/hub</code> to <code>worlds/hub2</code> to make a second arena, and the console, the world manager and every plugin that reports a world name keep calling both of them <em>hub</em>. The folder name changed; <code>LevelName</code> inside <code>level.dat</code> did not.</p>
 <p>The consequences are not cosmetic. Plugins that look worlds up by their internal name — teleport pads, per-world configs, region protection — can resolve to the wrong world, and world-management commands become ambiguous. Fix it by editing the tag: drop the file above and the editor jumps straight to <code>LevelName</code> and opens it for editing.</p>
 <div class="card">
@@ -132,7 +134,7 @@
 </section>
 
 <section class="content" aria-label="Core specifics">
-<h2>Core-by-core notes</h2>
+<h2 id="core-by-core-notes">Core-by-core notes</h2>
 <div class="table-wrap">
 <table class="matrix">
 <thead><tr><th>Core</th><th>World path</th><th>Notes</th></tr></thead>
@@ -148,7 +150,7 @@
 </section>
 
 <section class="content" aria-label="Server workflow">
-<h2>Doing it without breaking production</h2>
+<h2 id="doing-it-without-breaking-production">Doing it without breaking production</h2>
 <div class="card">
 <ul>
 <li><strong>Back up the whole world folder,</strong> not just <code>level.dat</code>. It costs seconds and it is the only thing that makes a bad edit reversible.</li>
@@ -191,7 +193,7 @@
 <a href="https://github.com/w1zardz/minecraft-nbt-editor" rel="noopener">Source on GitHub</a>
 </div>
 </div>
-<p class="footer-note">Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>

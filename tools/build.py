@@ -43,6 +43,33 @@ def esc(s):
              .replace(">", "&gt;").replace('"', "&quot;"))
 
 
+def slugify(text):
+    text = plain(text).lower()
+    text = re.sub(r"[^a-z0-9]+", "-", text).strip("-")
+    return text or "section"
+
+
+def anchor_headings(body):
+    """Give every h2 a stable id and return (body, [(id, text)])."""
+    found = []
+
+    def sub(m):
+        inner = m.group(1)
+        anchor = slugify(inner)
+        found.append((anchor, plain(inner)))
+        return '<h2 id="%s">%s</h2>' % (anchor, inner)
+
+    return re.sub(r"<h2>(.*?)</h2>", sub, body, flags=re.S), found
+
+
+def toc_html(items):
+    if len(items) < 4:
+        return ""
+    links = "".join('<li><a href="#%s">%s</a></li>' % (a, esc(t)) for a, t in items)
+    return ('<nav class="toc" aria-label="On this page"><h2 id="on-this-page">On this page</h2>'
+            '<ul>%s</ul></nav>' % links)
+
+
 NAV = [
     ("", "Editor"),
     ("level-dat-editor", "level.dat"),
@@ -300,6 +327,8 @@ HEAD = """<!DOCTYPE html>
 <meta name="twitter:title" content="{ogtitle}">
 <meta name="twitter:description" content="{desc}">
 <meta name="twitter:image" content="{ogimage}">
+<meta property="article:modified_time" content="{today}">
+<meta property="og:updated_time" content="{today}">
 <meta name="theme-color" content="#0d1117">
 <meta name="application-name" content="{site}">
 <meta name="apple-mobile-web-app-title" content="NBT Editor">
@@ -350,7 +379,7 @@ FOOT = """</main>
 <a href="{repo}" rel="noopener">Source on GitHub</a>
 </div>
 </div>
-<p class="footer-note">{site} — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">Last updated {today}. {site} — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
 </footer>
 {modals}
 <script src="{r}assets/nbt.js" defer></script>
@@ -415,7 +444,7 @@ def render(page):
         canonical=url(slug), r=r, ogtype="website" if not slug else "article",
         ogtitle=esc(plain(page.get("ogtitle", page["h1"]))), site=SITE_NAME,
         ogimage=BASE + page["og"], schema=schema_html, nav=nav_html(depth, slug),
-        author=AUTHOR)
+        author=AUTHOR, today=TODAY)
 
     faq_html = ""
     if page.get("faq"):
@@ -426,6 +455,8 @@ def render(page):
                     '<h2>%s</h2>%s</section>' % (page.get("faqtitle", "Frequently Asked Questions"), blocks))
 
     widget = EDITOR_WIDGET.replace("__DROPLABEL__", page.get("droplabel", "any NBT file"))
+    body_html, headings = anchor_headings(page["body"])
+    body_html = toc_html(headings) + body_html
 
     body = """
 <section class="hero" aria-label="Introduction">
@@ -443,14 +474,14 @@ def render(page):
 {faq}
 {related}
 </div>
-""".format(h1=page["h1"], answer=page["answer"], widget=widget, body=page["body"],
+""".format(h1=page["h1"], answer=page["answer"], widget=widget, body=body_html,
            faq=faq_html, related=related_html(page, depth),
            chips=('<div class="chips">%s</div>' % "".join(
                '<span class="chip">%s</span>' % esc(c) for c in page.get("chips", []))
                if page.get("chips") else ""))
 
     html = (head + breadcrumb_html(page, depth) + body
-            + FOOT.format(r=r, site=SITE_NAME, modals=MODALS, repo=REPO))
+            + FOOT.format(r=r, site=SITE_NAME, modals=MODALS, repo=REPO, today=TODAY))
     out_dir = os.path.join(ROOT, slug) if slug else ROOT
     os.makedirs(out_dir, exist_ok=True)
     with open(os.path.join(out_dir, "index.html"), "w") as fh:

@@ -28,6 +28,8 @@
 <meta name="twitter:title" content="Java Edition NBT Editor — big-endian, gzip, online">
 <meta name="twitter:description" content="Online NBT editor for Minecraft Java Edition: gzip big-endian level.dat, playerdata, servers.dat and structure .nbt from Paper, Spigot, Fabric, Forge.">
 <meta name="twitter:image" content="https://w1zardz.github.io/minecraft-nbt-editor/og/java.png">
+<meta property="article:modified_time" content="2026-08-26">
+<meta property="og:updated_time" content="2026-08-26">
 <meta name="theme-color" content="#0d1117">
 <meta name="application-name" content="Minecraft NBT Editor">
 <meta name="apple-mobile-web-app-title" content="NBT Editor">
@@ -115,9 +117,9 @@
 
 </div>
 <div id="contentSections">
-
+<nav class="toc" aria-label="On this page"><h2 id="on-this-page">On this page</h2><ul><li><a href="#what-a-java-world-is-made-of">What a Java world is made of</a></li><li><a href="#how-java-encodes-nbt">How Java encodes NBT</a></li><li><a href="#paper-spigot-fabric-forge-same-files">Paper, Spigot, Fabric, Forge — same files</a></li><li><a href="#dataversion-and-version-migration">DataVersion and version migration</a></li></ul></nav>
 <section class="content" aria-label="Java NBT files">
-<h2>What a Java world is made of</h2>
+<h2 id="what-a-java-world-is-made-of">What a Java world is made of</h2>
 <p>Everything below opens in the editor above. Region files themselves (<code>.mca</code>) are a container of many compressed chunks rather than a single NBT document, so extract a chunk payload first — the editor reads the zlib-compressed chunk NBT that comes out.</p>
 <div class="table-wrap">
 <table class="matrix">
@@ -138,7 +140,7 @@
 </section>
 
 <section class="content" aria-label="Java NBT encoding">
-<h2>How Java encodes NBT</h2>
+<h2 id="how-java-encodes-nbt">How Java encodes NBT</h2>
 <div class="card">
 <ul>
 <li><strong>Big-endian.</strong> Every integer and float is stored most-significant byte first, matching Java's <code>DataOutputStream</code>.</li>
@@ -151,13 +153,13 @@
 </section>
 
 <section class="content" aria-label="Server cores">
-<h2>Paper, Spigot, Fabric, Forge — same files</h2>
+<h2 id="paper-spigot-fabric-forge-same-files">Paper, Spigot, Fabric, Forge — same files</h2>
 <p>Forks and mod loaders change how the server runs, not how the world is written. Paper, Purpur, Pufferfish, Folia, Fabric, Quilt, Forge, NeoForge, Mohist, Arclight and Sponge all use Vanilla's NBT layout, so anything on this page applies to them unchanged. What forks do add is extra files beside the world — <code>paper-world.yml</code>, mod configs — which are YAML or TOML and unrelated to NBT.</p>
 <p>Mods and plugins may add their own compounds inside <code>level.dat</code> or <code>playerdata</code>. Those tags open here like any other; leave them alone unless you know what the mod does with them.</p>
 </section>
 
 <section class="content" aria-label="DataVersion">
-<h2><code>DataVersion</code> and version migration</h2>
+<h2 id="dataversion-and-version-migration"><code>DataVersion</code> and version migration</h2>
 <p>Java worlds carry a <code>DataVersion</code> integer that identifies the world format, incremented on every snapshot. Some useful anchors: 1.16.5 is 2586, 1.17.1 is 2730, 1.18.2 is 2975, 1.19.4 is 3337, 1.20.4 is 3700, 1.21 is 3953. Opening a world in an older client than the one that wrote it is refused precisely because of this tag, and lowering it by hand does not downgrade the chunk data behind it — it just removes the guard rail. Read it to find out what wrote a world; do not edit it to force a downgrade.</p>
 </section>
 
@@ -193,7 +195,7 @@
 <a href="https://github.com/w1zardz/minecraft-nbt-editor" rel="noopener">Source on GitHub</a>
 </div>
 </div>
-<p class="footer-note">Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>

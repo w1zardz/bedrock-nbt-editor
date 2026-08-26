@@ -28,6 +28,8 @@
 <meta name="twitter:title" content="Fix a corrupted level.dat">
 <meta name="twitter:description" content="Repair a Minecraft world that will not load: restore level.dat_old, inspect the file in an NBT editor, and find what actually broke it.">
 <meta name="twitter:image" content="https://w1zardz.github.io/minecraft-nbt-editor/og/fix.png">
+<meta property="article:modified_time" content="2026-08-26">
+<meta property="og:updated_time" content="2026-08-26">
 <meta name="theme-color" content="#0d1117">
 <meta name="application-name" content="Minecraft NBT Editor">
 <meta name="apple-mobile-web-app-title" content="NBT Editor">
@@ -118,7 +120,7 @@
 <div id="contentSections">
 
 <section class="content" aria-label="Causes">
-<h2>What actually breaks</h2>
+<h2 id="what-actually-breaks">What actually breaks</h2>
 <div class="table-wrap">
 <table class="matrix">
 <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
@@ -135,12 +137,12 @@
 </section>
 
 <section class="content" aria-label="Salvage">
-<h2>Salvaging a world without <code>level.dat</code></h2>
+<h2 id="salvaging-a-world-without-level-dat">Salvaging a world without <code>level.dat</code></h2>
 <p>The world's terrain, chests and players do not live in <code>level.dat</code> — they are in <code>region/</code> (Java) or <code>db/</code> (Bedrock). If the metadata file is beyond repair, create a fresh world with the same version and settings, then move the chunk data into it and set <code>LevelName</code>, spawn coordinates and game rules on the new file. You lose the metadata, not the builds. Confirm the version first: a Java world carries <code>DataVersion</code>, and the freshly generated file must not be older than the chunks you are importing.</p>
 </section>
 
 <section class="content" aria-label="Prevention">
-<h2>Preventing the next one</h2>
+<h2 id="preventing-the-next-one">Preventing the next one</h2>
 <ul>
 <li><strong>Stop the server before copying or editing.</strong> Most corruption starts as a file copied while it was being written.</li>
 <li><strong>Snapshot on a schedule, off the machine.</strong> A backup on the same disk does not survive the storage failure that caused the problem.</li>
@@ -182,7 +184,7 @@
 <a href="https://github.com/w1zardz/minecraft-nbt-editor" rel="noopener">Source on GitHub</a>
 </div>
 </div>
-<p class="footer-note">Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>

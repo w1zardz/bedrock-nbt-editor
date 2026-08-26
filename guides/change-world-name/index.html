@@ -28,6 +28,8 @@
 <meta name="twitter:title" content="How to change a Minecraft world name">
 <meta name="twitter:description" content="Rename a Minecraft world properly by editing LevelName in level.dat: Java and Bedrock, single player and servers, plus the duplicate-name fix.">
 <meta name="twitter:image" content="https://w1zardz.github.io/minecraft-nbt-editor/og/rename.png">
+<meta property="article:modified_time" content="2026-08-26">
+<meta property="og:updated_time" content="2026-08-26">
 <meta name="theme-color" content="#0d1117">
 <meta name="application-name" content="Minecraft NBT Editor">
 <meta name="apple-mobile-web-app-title" content="NBT Editor">
@@ -118,13 +120,13 @@
 <div id="contentSections">
 
 <section class="content" aria-label="Why the folder name is not the world name">
-<h2>Why renaming the folder does nothing</h2>
+<h2 id="why-renaming-the-folder-does-nothing">Why renaming the folder does nothing</h2>
 <p>Minecraft treats the folder as an address and <code>LevelName</code> as the label. The world list, the server console, world-manager plugins and anything printing "world" to chat read the tag. So a folder copy — <code>cp -r worlds/hub worlds/hub2</code> — produces two worlds that insist they are both <em>hub</em>, and the only fix is inside the file.</p>
 <p>On a server the duplicate is worse than confusing. Plugins that resolve worlds by internal name can act on the wrong one: teleport pads, per-world configs, protection regions, economy multipliers. Rename the tag the moment you copy a world, before anything caches it.</p>
 </section>
 
 <section class="content" aria-label="Per platform">
-<h2>Per platform</h2>
+<h2 id="per-platform">Per platform</h2>
 <div class="card">
 <h3>Java single player</h3>
 <p>The client offers a rename in the world options screen and it edits <code>LevelName</code> for you. Editing the file by hand matters when the world will not load, when you are working on a copy, or when you want the folder and the label to differ deliberately.</p>
@@ -138,7 +140,7 @@
 </section>
 
 <section class="content" aria-label="Troubleshooting">
-<h2>If the name does not change</h2>
+<h2 id="if-the-name-does-not-change">If the name does not change</h2>
 <ul>
 <li><strong>The server was running.</strong> Its in-memory copy was written back over your file on the next save. Stop it and redo the edit.</li>
 <li><strong>You edited the wrong world.</strong> Bedrock world folders are random ids. Open the file and read <code>LevelName</code> to confirm you have the right one before editing.</li>
@@ -180,7 +182,7 @@
 <a href="https://github.com/w1zardz/minecraft-nbt-editor" rel="noopener">Source on GitHub</a>
 </div>
 </div>
-<p class="footer-note">Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>

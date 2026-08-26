@@ -28,6 +28,8 @@
 <meta name="twitter:title" content="NBT format reference — tags, encodings, byte layout">
 <meta name="twitter:description" content="Reference for Minecraft's NBT format: all 13 tag types with byte layout, Java big-endian vs Bedrock little-endian vs varint network NBT, and SNBT.">
 <meta name="twitter:image" content="https://w1zardz.github.io/minecraft-nbt-editor/og/format.png">
+<meta property="article:modified_time" content="2026-08-26">
+<meta property="og:updated_time" content="2026-08-26">
 <meta name="theme-color" content="#0d1117">
 <meta name="application-name" content="Minecraft NBT Editor">
 <meta name="apple-mobile-web-app-title" content="NBT Editor">
@@ -115,9 +117,9 @@
 
 </div>
 <div id="contentSections">
-
+<nav class="toc" aria-label="On this page"><h2 id="on-this-page">On this page</h2><ul><li><a href="#the-13-tag-types">The 13 tag types</a></li><li><a href="#five-encodings-in-the-wild">Five encodings in the wild</a></li><li><a href="#strings-modified-utf-8-versus-utf-8">Strings: modified UTF-8 versus UTF-8</a></li><li><a href="#compression">Compression</a></li><li><a href="#a-minimal-file-byte-by-byte">A minimal file, byte by byte</a></li><li><a href="#snbt">SNBT</a></li></ul></nav>
 <section class="content" aria-label="Tag types">
-<h2>The 13 tag types</h2>
+<h2 id="the-13-tag-types">The 13 tag types</h2>
 <div class="table-wrap">
 <table class="matrix">
 <thead><tr><th>Id</th><th>Tag</th><th>Payload</th><th>SNBT</th></tr></thead>
@@ -142,7 +144,7 @@
 </section>
 
 <section class="content" aria-label="Encodings">
-<h2>Five encodings in the wild</h2>
+<h2 id="five-encodings-in-the-wild">Five encodings in the wild</h2>
 <div class="table-wrap">
 <table class="matrix">
 <thead><tr><th>Encoding</th><th>Integers</th><th>String length</th><th>Root</th><th>Used by</th></tr></thead>
@@ -159,17 +161,17 @@
 </section>
 
 <section class="content" aria-label="Strings">
-<h2>Strings: modified UTF-8 versus UTF-8</h2>
+<h2 id="strings-modified-utf-8-versus-utf-8">Strings: modified UTF-8 versus UTF-8</h2>
 <p>Java serialises strings with <code>DataOutputStream.writeUTF</code>, which is <em>modified</em> UTF-8: a NUL character is written as <code>C0 80</code> rather than <code>00</code>, and characters outside the Basic Multilingual Plane are written as two three-byte surrogate halves (CESU-8) instead of one four-byte sequence. Bedrock uses standard UTF-8. A tool that assumes one encoding for both will corrupt emoji and some CJK text on save — this editor encodes per format, which is why a world named with an emoji survives a round trip here.</p>
 </section>
 
 <section class="content" aria-label="Compression">
-<h2>Compression</h2>
+<h2 id="compression">Compression</h2>
 <p>NBT itself is not compressed; the container decides. Java files are usually gzip (magic <code>1F 8B</code>), chunk payloads inside region files are zlib (magic <code>78 01</code>, <code>78 9C</code> or <code>78 DA</code>), and Bedrock stores <code>level.dat</code> and structure files uncompressed. Detection is by magic bytes, so the same parser handles all three — and a file saved with the wrong compression is the single most common reason a hand-edited world will not load.</p>
 </section>
 
 <section class="content" aria-label="Byte walkthrough">
-<h2>A minimal file, byte by byte</h2>
+<h2 id="a-minimal-file-byte-by-byte">A minimal file, byte by byte</h2>
 <p>The canonical <code>hello_world.nbt</code>: a root compound named <code>hello world</code> holding one string tag <code>name</code> with the value <code>Bananrama</code>. In Java's big-endian encoding:</p>
 <pre class="code"><code>0A                          TAG_Compound
 00 0B 68 65 6C 6C 6F 20 77 6F 72 6C 64   name length 11, "hello world"
@@ -181,7 +183,7 @@
 </section>
 
 <section class="content" aria-label="SNBT">
-<h2>SNBT</h2>
+<h2 id="snbt">SNBT</h2>
 <p>SNBT is NBT written as text, and it is what commands consume: <code>/data merge entity @s {Invulnerable:1b}</code>. Type suffixes are what keep it lossless — <code>b</code> byte, <code>s</code> short, <code>L</code> long, <code>f</code> float, <code>d</code> double, none for int — and typed array literals are written <code>[B;…]</code>, <code>[I;…]</code>, <code>[L;…]</code>. The editor exports SNBT from any loaded file, which makes two versions of a world diffable in a normal text diff.</p>
 </section>
 
@@ -217,7 +219,7 @@
 <a href="https://github.com/w1zardz/minecraft-nbt-editor" rel="noopener">Source on GitHub</a>
 </div>
 </div>
-<p class="footer-note">Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>

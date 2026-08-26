@@ -28,6 +28,8 @@
 <meta name="twitter:title" content="Bedrock NBT Editor — level.dat, MCPE, MCBE">
 <meta name="twitter:description" content="Online NBT editor for Minecraft Bedrock: level.dat with its 8-byte header, .mcstructure and little-endian NBT from MCPE, BDS, PocketMine-MP, Nukkit.">
 <meta name="twitter:image" content="https://w1zardz.github.io/minecraft-nbt-editor/og/bedrock.png">
+<meta property="article:modified_time" content="2026-08-26">
+<meta property="og:updated_time" content="2026-08-26">
 <meta name="theme-color" content="#0d1117">
 <meta name="application-name" content="Minecraft NBT Editor">
 <meta name="apple-mobile-web-app-title" content="NBT Editor">
@@ -115,9 +117,9 @@
 
 </div>
 <div id="contentSections">
-
+<nav class="toc" aria-label="On this page"><h2 id="on-this-page">On this page</h2><ul><li><a href="#the-8-byte-header-and-why-it-matters">The 8-byte header, and why it matters</a></li><li><a href="#bedrock-tags-worth-knowing">Bedrock tags worth knowing</a></li><li><a href="#finding-the-file-on-each-platform">Finding the file on each platform</a></li><li><a href="#beyond-level-dat">Beyond level.dat</a></li></ul></nav>
 <section class="content" aria-label="Bedrock level.dat header">
-<h2>The 8-byte header, and why it matters</h2>
+<h2 id="the-8-byte-header-and-why-it-matters">The 8-byte header, and why it matters</h2>
 <p>A Bedrock <code>level.dat</code> is not raw NBT. The first four bytes are a little-endian storage version (8 and 10 are the values in the wild), the next four are the byte length of the NBT payload, and the tags follow uncompressed. Edit the payload without fixing that length and the game rejects the file — which is exactly what happens when people open Bedrock saves in a Java-only NBT tool.</p>
 <div class="table-wrap">
 <table class="matrix">
@@ -133,7 +135,7 @@
 </section>
 
 <section class="content" aria-label="Bedrock tags">
-<h2>Bedrock tags worth knowing</h2>
+<h2 id="bedrock-tags-worth-knowing">Bedrock tags worth knowing</h2>
 <p>Bedrock keeps its settings flat at the root of <code>level.dat</code> rather than nesting them under a <code>Data</code> compound the way Java does, and game rules are individual tags instead of a <code>GameRules</code> child.</p>
 <div class="table-wrap">
 <table class="matrix">
@@ -155,7 +157,7 @@
 </section>
 
 <section class="content" aria-label="Where Bedrock files live">
-<h2>Finding the file on each platform</h2>
+<h2 id="finding-the-file-on-each-platform">Finding the file on each platform</h2>
 <ul>
 <li><strong>Android:</strong> <code>Android/data/com.mojang.minecraftpe/files/games/com.mojang/minecraftWorlds/&lt;id&gt;/level.dat</code>. Newer Android releases restrict that folder — use the in-game world export, or a file manager with the right access.</li>
 <li><strong>iOS:</strong> export the world to a <code>.mcworld</code> from the game, open it in the Files app, and unzip it there — <code>level.dat</code> sits at the archive root.</li>
@@ -167,7 +169,7 @@
 </section>
 
 <section class="content" aria-label="Other Bedrock NBT">
-<h2>Beyond <code>level.dat</code></h2>
+<h2 id="beyond-level-dat">Beyond <code>level.dat</code></h2>
 <p>Bedrock keeps chunks, entities and block entities in a LevelDB database in the <code>db/</code> folder, with little-endian NBT as the value of many keys. Extract a value and it opens here as <em>Bedrock raw</em> — no header, no compression. Structure files use the same encoding: see the <a href="../mcstructure-editor/">.mcstructure editor</a>. Protocol captures use the varint variant, which the editor detects as <em>Bedrock network</em>.</p>
 </section>
 
@@ -203,7 +205,7 @@
 <a href="https://github.com/w1zardz/minecraft-nbt-editor" rel="noopener">Source on GitHub</a>
 </div>
 </div>
-<p class="footer-note">Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>

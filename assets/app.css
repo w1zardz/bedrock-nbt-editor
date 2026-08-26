@@ -330,3 +330,12 @@ section.content h2{scroll-margin-top:80px}
   .hero h1{font-size:1.35rem}
   .hero .lede{font-size:.95rem}
 }
+/* ===== table of contents ===== */
+.toc{
+  max-width:960px;margin:24px auto 0;padding:16px 20px;background:var(--bg2);
+  border:1px solid var(--border);border-radius:8px;
+}
+.toc h2{font-size:.8rem!important;text-transform:uppercase;letter-spacing:.06em;color:var(--text2);margin-bottom:10px!important}
+.toc ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2px}
+.toc li a{font-size:.88rem;display:block;padding:5px 0}
+@media(max-width:640px){.toc{margin:16px;padding:14px 16px}}

@@ -28,6 +28,8 @@
 <meta name="twitter:title" content="NBT viewer — open any .nbt or .dat file in the browser">
 <meta name="twitter:description" content="Open and read any Minecraft NBT file online. View the full tag tree of .nbt, .dat, .mcstructure or .schem, search it and export it as SNBT text.">
 <meta name="twitter:image" content="https://w1zardz.github.io/minecraft-nbt-editor/og/viewer.png">
+<meta property="article:modified_time" content="2026-08-26">
+<meta property="og:updated_time" content="2026-08-26">
 <meta name="theme-color" content="#0d1117">
 <meta name="application-name" content="Minecraft NBT Editor">
 <meta name="apple-mobile-web-app-title" content="NBT Editor">
@@ -117,7 +119,7 @@
 <div id="contentSections">
 
 <section class="content" aria-label="What you can inspect">
-<h2>Reading a file you did not write</h2>
+<h2 id="reading-a-file-you-did-not-write">Reading a file you did not write</h2>
 <p>Half the reason to open an NBT file is diagnosis: what version wrote this, why does this world refuse to load, what is actually inside the schematic somebody sent you. The viewer shows every tag with its exact type, so you can tell a <code>TAG_Byte</code> of 1 from a <code>TAG_Int</code> of 1 — a distinction that matters to Minecraft and that text dumps usually lose.</p>
 <ul>
 <li><strong>Type badges on every row</strong> — Byte, Short, Int, Long, Float, Double, Byte[], String, List, Compound, Int[], Long[].</li>
@@ -129,13 +131,13 @@
 </section>
 
 <section class="content" aria-label="SNBT">
-<h2>NBT versus SNBT</h2>
+<h2 id="nbt-versus-snbt">NBT versus SNBT</h2>
 <p>SNBT is the text form of NBT — what <code>/data get</code> prints and what commands accept. It keeps type information as suffixes: <code>3b</code> is a byte, <code>3s</code> a short, <code>3L</code> a long, <code>3.0f</code> a float, <code>3.0d</code> a double, <code>[I;1,2,3]</code> an int array. The export button produces exactly that, so a binary file becomes something you can paste into a command block or check into git and diff line by line.</p>
 <p>JSON is not a substitute: it has one number type and no byte arrays, so converting NBT to JSON silently loses the distinctions Minecraft cares about. That is why this tool exports SNBT rather than JSON.</p>
 </section>
 
 <section class="content" aria-label="File types">
-<h2>Files that open here</h2>
+<h2 id="files-that-open-here">Files that open here</h2>
 <p>Anything whose payload is a single NBT document: Java and Bedrock <a href="../level-dat-editor/">level.dat</a>, <a href="../playerdata-editor/">playerdata</a>, <code>servers.dat</code>, <code>hotbar.nbt</code>, <code>idcounts.dat</code>, <code>raids.dat</code>, <code>scoreboard.dat</code>, map data, structure <code>.nbt</code>, <a href="../schematic-editor/">.schem and .schematic</a>, <a href="../mcstructure-editor/">.mcstructure</a>, <code>.litematic</code>, extracted chunk payloads and packet dumps. Containers such as <code>.mca</code> regions, <code>.mcworld</code> archives and LevelDB folders need one document extracted from them first.</p>
 </section>
 
@@ -171,7 +173,7 @@
 <a href="https://github.com/w1zardz/minecraft-nbt-editor" rel="noopener">Source on GitHub</a>
 </div>
 </div>
-<p class="footer-note">Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>

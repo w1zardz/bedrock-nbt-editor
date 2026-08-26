@@ -28,6 +28,8 @@
 <meta name="twitter:title" content="Minecraft NBT Editor — Java &amp; Bedrock, in your browser">
 <meta name="twitter:description" content="Free online NBT editor for Minecraft Java and Bedrock. Open level.dat, playerdata, .nbt, .mcstructure or .schem, edit any tag, download it back.">
 <meta name="twitter:image" content="https://w1zardz.github.io/minecraft-nbt-editor/og/home.png">
+<meta property="article:modified_time" content="2026-08-26">
+<meta property="og:updated_time" content="2026-08-26">
 <meta name="theme-color" content="#0d1117">
 <meta name="application-name" content="Minecraft NBT Editor">
 <meta name="apple-mobile-web-app-title" content="NBT Editor">
@@ -117,9 +119,9 @@
 
 </div>
 <div id="contentSections">
-
+<nav class="toc" aria-label="On this page"><h2 id="on-this-page">On this page</h2><ul><li><a href="#every-nbt-file-minecraft-writes">Every NBT file Minecraft writes</a></li><li><a href="#how-to-edit-an-nbt-file">How to edit an NBT file</a></li><li><a href="#what-makes-this-editor-different">What makes this editor different</a></li><li><a href="#works-with-every-server-core">Works with every server core</a></li><li><a href="#use-the-parser-from-your-own-code">Use the parser from your own code</a></li></ul></nav>
 <section class="content" aria-label="Supported files">
-<h2>Every NBT file Minecraft writes</h2>
+<h2 id="every-nbt-file-minecraft-writes">Every NBT file Minecraft writes</h2>
 <p>NBT (Named Binary Tag) is one format with several encodings, and every Minecraft edition, launcher and server core uses a different combination of them. This editor implements all of them and picks the right one from the bytes themselves, so you never have to know which variant a file is before you open it.</p>
 <div class="table-wrap">
 <table class="matrix">
@@ -141,7 +143,7 @@
 </section>
 
 <section class="content" aria-label="How to use">
-<h2>How to edit an NBT file</h2>
+<h2 id="how-to-edit-an-nbt-file">How to edit an NBT file</h2>
 <div class="card">
 <ol class="steps">
 <li><strong>Get the file off the server or device.</strong> Java servers keep it in <code>world/</code>, Bedrock servers in <code>worlds/YourWorld/</code>, Android in <code>games/com.mojang/minecraftWorlds/&lt;id&gt;/</code>. Stop the server first so the file is not being written while you copy it.</li>
@@ -154,7 +156,7 @@
 </section>
 
 <section class="content" aria-label="Features">
-<h2>What makes this editor different</h2>
+<h2 id="what-makes-this-editor-different">What makes this editor different</h2>
 <div class="features-grid">
 <article class="feature-card"><h3>Five encodings, one drop zone</h3><p>Java big-endian, Bedrock little-endian, Bedrock varint network NBT, nameless-root network NBT from Java 1.20.2+, and Bedrock's headered <code>level.dat</code>. Detected, not guessed.</p></article>
 <article class="feature-card"><h3>gzip and zlib in the browser</h3><p>Decompression and recompression use the native Compression Streams API, so a Java <code>level.dat</code> round-trips into a file the game accepts unchanged.</p></article>
@@ -169,7 +171,7 @@
 </section>
 
 <section class="content" aria-label="Server cores">
-<h2>Works with every server core</h2>
+<h2 id="works-with-every-server-core">Works with every server core</h2>
 <div class="card">
 <p><strong>Java Edition:</strong> Vanilla, CraftBukkit, Spigot, Paper, Purpur, Pufferfish, Folia, Fabric, Quilt, Forge, NeoForge, Mohist, Arclight, Leaves and Sponge all persist worlds with big-endian gzip NBT, so the same <a href="level-dat-editor/">level.dat layout</a> applies to all of them.</p>
 <p><strong>Bedrock Edition:</strong> Bedrock Dedicated Server, <a href="pocketmine-nbt-editor/">PocketMine-MP</a>, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone and LeviLamina share the little-endian format with the 8-byte header, as do the MCPE and MCBE clients.</p>
@@ -178,7 +180,7 @@
 </section>
 
 <section class="content" aria-label="Scripting">
-<h2>Use the parser from your own code</h2>
+<h2 id="use-the-parser-from-your-own-code">Use the parser from your own code</h2>
 <p>The page exposes its engine on <code>window.NBT</code>, so the same parser that powers the UI can be driven from the browser console or reused in a userscript:</p>
 <pre class="code"><code>const bytes = new Uint8Array(await file.arrayBuffer());
 const { root, format, compression, headerVersion } = await NBT.read(bytes);
@@ -221,7 +223,7 @@ const out = await NBT.write(root, format, { compression, headerVersion });</code
 <a href="https://github.com/w1zardz/minecraft-nbt-editor" rel="noopener">Source on GitHub</a>
 </div>
 </div>
-<p class="footer-note">Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>

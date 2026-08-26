@@ -28,6 +28,8 @@
 <meta name="twitter:title" content="playerdata editor — inventory, position, stats">
 <meta name="twitter:description" content="Edit Minecraft playerdata .dat files online: fix a stuck player position, drop a corrupted inventory item, adjust health, XP or game mode.">
 <meta name="twitter:image" content="https://w1zardz.github.io/minecraft-nbt-editor/og/playerdata.png">
+<meta property="article:modified_time" content="2026-08-26">
+<meta property="og:updated_time" content="2026-08-26">
 <meta name="theme-color" content="#0d1117">
 <meta name="application-name" content="Minecraft NBT Editor">
 <meta name="apple-mobile-web-app-title" content="NBT Editor">
@@ -117,7 +119,7 @@
 <div id="contentSections">
 
 <section class="content" aria-label="playerdata tags">
-<h2>The tags in a player file</h2>
+<h2 id="the-tags-in-a-player-file">The tags in a player file</h2>
 <div class="table-wrap">
 <table class="matrix">
 <thead><tr><th>Tag</th><th>Type</th><th>What it is</th></tr></thead>
@@ -140,7 +142,7 @@
 </section>
 
 <section class="content" aria-label="Common repairs">
-<h2>Common repairs</h2>
+<h2 id="common-repairs">Common repairs</h2>
 <div class="card">
 <ul>
 <li><strong>Player stuck in terrain or falling forever.</strong> Set <code>Pos</code> to safe coordinates — three doubles, in order X, Y, Z — and clear <code>Motion</code> if it holds a huge value.</li>
@@ -153,7 +155,7 @@
 </section>
 
 <section class="content" aria-label="Server safety">
-<h2>Do it with the player offline</h2>
+<h2 id="do-it-with-the-player-offline">Do it with the player offline</h2>
 <p>The server holds player state in memory and writes it out on logout and on autosave. Editing the file while that player is online guarantees your changes are overwritten, and editing during a save can truncate the file. Take the player offline — or stop the server — copy the file, edit, and put it back before they reconnect. Keep the original until the login works.</p>
 <p>Bedrock servers do not use this layout: player data lives in the world's LevelDB under keys such as <code>player_&lt;uuid&gt;</code>, whose values are little-endian NBT. Extract a value and it opens here as <em>Bedrock raw</em>.</p>
 </section>
@@ -190,7 +192,7 @@
 <a href="https://github.com/w1zardz/minecraft-nbt-editor" rel="noopener">Source on GitHub</a>
 </div>
 </div>
-<p class="footer-note">Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>

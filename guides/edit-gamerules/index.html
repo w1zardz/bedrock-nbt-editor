@@ -28,6 +28,8 @@
 <meta name="twitter:title" content="Edit game rules in level.dat">
 <meta name="twitter:description" content="Change keepInventory, doDaylightCycle, mobGriefing and other game rules by editing level.dat, for Java and Bedrock. No commands, no cheats needed.">
 <meta name="twitter:image" content="https://w1zardz.github.io/minecraft-nbt-editor/og/gamerules.png">
+<meta property="article:modified_time" content="2026-08-26">
+<meta property="og:updated_time" content="2026-08-26">
 <meta name="theme-color" content="#0d1117">
 <meta name="application-name" content="Minecraft NBT Editor">
 <meta name="apple-mobile-web-app-title" content="NBT Editor">
@@ -117,7 +119,7 @@
 <div id="contentSections">
 
 <section class="content" aria-label="Java gamerules">
-<h2>Java: a <code>GameRules</code> compound of strings</h2>
+<h2 id="java-a-gamerules-compound-of-strings">Java: a <code>GameRules</code> compound of strings</h2>
 <p>In Java Edition, <code>Data</code> → <code>GameRules</code> holds one <code>TAG_String</code> per rule, keyed by the exact name <code>/gamerule</code> uses, with the value written as text: <code>"true"</code>, <code>"false"</code> or a number. Rules the world has never set are simply absent and fall back to their defaults — adding the tag with the correct name and a string value works exactly like running the command.</p>
 <div class="table-wrap">
 <table class="matrix">
@@ -140,13 +142,13 @@
 </section>
 
 <section class="content" aria-label="Bedrock gamerules">
-<h2>Bedrock: individual lowercase byte tags</h2>
+<h2 id="bedrock-individual-lowercase-byte-tags">Bedrock: individual lowercase byte tags</h2>
 <p>Bedrock does not group rules. Each one is a <code>TAG_Byte</code> at the root of <code>level.dat</code>, named in lowercase, holding 1 or 0 — <code>keepinventory</code>, <code>domobspawning</code>, <code>domobloot</code>, <code>dodaylightcycle</code>, <code>doweathercycle</code>, <code>mobgriefing</code>, <code>firedamage</code>, <code>falldamage</code>, <code>drowningdamage</code>, <code>pvp</code>, <code>showcoordinates</code>, <code>commandblockoutput</code>, <code>sendcommandfeedback</code>, <code>naturalregeneration</code>, <code>tntexplodes</code>, <code>respawnblocksexplode</code>, <code>showdeathmessages</code>, <code>doimmediaterespawn</code>. Numeric rules such as <code>randomtickspeed</code> and <code>functioncommandlimit</code> are <code>TAG_Int</code> instead.</p>
 <p>Setting a rule that is not yet present means adding the tag with the right type: Byte for a toggle, Int for a number. A rule stored with the wrong type is ignored, or refuses to load.</p>
 </section>
 
 <section class="content" aria-label="Why edit the file">
-<h2>When editing the file beats the command</h2>
+<h2 id="when-editing-the-file-beats-the-command">When editing the file beats the command</h2>
 <ul>
 <li><strong>Cheats are off</strong> and you do not want to toggle them on and off to run one command.</li>
 <li><strong>The world will not load</strong> — a rule such as <code>doImmediateRespawn</code> can be set before the first join.</li>
@@ -189,7 +191,7 @@
 <a href="https://github.com/w1zardz/minecraft-nbt-editor" rel="noopener">Source on GitHub</a>
 </div>
 </div>
-<p class="footer-note">Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>

@@ -28,6 +28,8 @@
 <meta name="twitter:title" content=".schem / .schematic editor — WorldEdit and MCEdit files">
 <meta name="twitter:description" content="Open WorldEdit .schem and MCEdit .schematic files online. Read the palette, size, offsets and block entities, edit tags and download the schematic.">
 <meta name="twitter:image" content="https://w1zardz.github.io/minecraft-nbt-editor/og/schematic.png">
+<meta property="article:modified_time" content="2026-08-26">
+<meta property="og:updated_time" content="2026-08-26">
 <meta name="theme-color" content="#0d1117">
 <meta name="application-name" content="Minecraft NBT Editor">
 <meta name="apple-mobile-web-app-title" content="NBT Editor">
@@ -117,7 +119,7 @@
 <div id="contentSections">
 
 <section class="content" aria-label="Schematic formats">
-<h2>Two formats, one file extension family</h2>
+<h2 id="two-formats-one-file-extension-family">Two formats, one file extension family</h2>
 <div class="table-wrap">
 <table class="matrix">
 <thead><tr><th>Format</th><th>Extension</th><th>Key tags</th></tr></thead>
@@ -132,7 +134,7 @@
 </section>
 
 <section class="content" aria-label="Editing schematics">
-<h2>What is worth editing by hand</h2>
+<h2 id="what-is-worth-editing-by-hand">What is worth editing by hand</h2>
 <ul>
 <li><strong>Palette entries.</strong> Rewriting <code>minecraft:oak_planks</code> to <code>minecraft:spruce_planks</code> in <code>Palette</code> re-skins every matching block in the schematic at once.</li>
 <li><strong>Offset and origin.</strong> <code>Offset</code> decides where the paste lands relative to your position — the fastest fix for a build that always arrives three blocks off.</li>
@@ -143,7 +145,7 @@
 </section>
 
 <section class="content" aria-label="Compatibility">
-<h2>Loader compatibility</h2>
+<h2 id="loader-compatibility">Loader compatibility</h2>
 <p>WorldEdit and FastAsyncWorldEdit read <code>.schem</code> from <code>plugins/WorldEdit/schematics/</code>; legacy <code>.schematic</code> files still load but are converted on the way in. Litematica uses its own <code>.litematic</code> container — also NBT, and it opens in this editor, though its layout differs from the Sponge one. Whatever the flavour, the editor reads it as NBT and writes it back gzip-compressed, so the loader sees the file it expects.</p>
 </section>
 
@@ -179,7 +181,7 @@
 <a href="https://github.com/w1zardz/minecraft-nbt-editor" rel="noopener">Source on GitHub</a>
 </div>
 </div>
-<p class="footer-note">Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>

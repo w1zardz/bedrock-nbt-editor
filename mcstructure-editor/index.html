@@ -28,6 +28,8 @@
 <meta name="twitter:title" content=".mcstructure editor — open and edit Bedrock structures">
 <meta name="twitter:description" content="Open and edit Bedrock .mcstructure files online: block palette, size, block indices and block entity data, saved back in the same encoding.">
 <meta name="twitter:image" content="https://w1zardz.github.io/minecraft-nbt-editor/og/mcstructure.png">
+<meta property="article:modified_time" content="2026-08-26">
+<meta property="og:updated_time" content="2026-08-26">
 <meta name="theme-color" content="#0d1117">
 <meta name="application-name" content="Minecraft NBT Editor">
 <meta name="apple-mobile-web-app-title" content="NBT Editor">
@@ -117,7 +119,7 @@
 <div id="contentSections">
 
 <section class="content" aria-label="Inside a mcstructure file">
-<h2>What is inside a <code>.mcstructure</code></h2>
+<h2 id="what-is-inside-a-mcstructure">What is inside a <code>.mcstructure</code></h2>
 <div class="table-wrap">
 <table class="matrix">
 <thead><tr><th>Tag</th><th>Type</th><th>What it holds</th></tr></thead>
@@ -137,7 +139,7 @@
 </section>
 
 <section class="content" aria-label="Typical edits">
-<h2>What people change here</h2>
+<h2 id="what-people-change-here">What people change here</h2>
 <ul>
 <li><strong>Swap a block type everywhere</strong> by editing one entry in <code>block_palette</code> — every position pointing at that index changes with it.</li>
 <li><strong>Fix a block state</strong> such as a wrong <code>facing</code> or an accidental <code>waterlogged</code> in the <code>states</code> compound.</li>
@@ -148,7 +150,7 @@
 </section>
 
 <section class="content" aria-label="Where mcstructure files live">
-<h2>Where the files are</h2>
+<h2 id="where-the-files-are">Where the files are</h2>
 <p>Structure blocks save into the world's <code>structures/</code> folder inside the world directory, in files named <code>&lt;namespace&gt;_&lt;name&gt;.mcstructure</code>. Behaviour packs ship them under <code>structures/</code> in the pack, where the game loads them by namespace. Both are the same format and both open here.</p>
 <p>Java Edition's equivalent is the gzip big-endian <code>.nbt</code> structure file — a different encoding with a different tag layout. The <a href="../java-nbt-editor/">Java editor page</a> covers those, and this editor opens them too.</p>
 </section>
@@ -185,7 +187,7 @@
 <a href="https://github.com/w1zardz/minecraft-nbt-editor" rel="noopener">Source on GitHub</a>
 </div>
 </div>
-<p class="footer-note">Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>
