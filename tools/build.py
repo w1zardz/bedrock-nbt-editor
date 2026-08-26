@@ -11,11 +11,13 @@ assets.
 import hashlib
 import json
 import os
+import sys
 import posixpath
 import re
 import datetime
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(ROOT, "tools"))
 BASE = "https://w1zardz.github.io/bedrock-nbt-editor/"
 SITE_NAME = "Minecraft NBT Editor"
 AUTHOR = "w1zardz"
@@ -1880,6 +1882,22 @@ def export_source_strings():
 TRANSLATIONS = {loc["code"]: load_translations(loc["code"]) for loc in LOCALES}
 
 
+def resolve_status():
+    """A draft locale is promoted to ready as soon as its translation passes
+    tools/checklocale.py — an unfinished file stays noindex and out of the
+    sitemap, so a half-translated language can never hurt the English pages."""
+    import checklocale
+    for loc in LOCALES:
+        if loc["code"] == "en" or loc.get("status") == "hold":
+            continue
+        problems, coverage = checklocale.check(loc["code"])
+        loc["status"] = "ready" if (not problems and coverage >= 95) else "draft"
+        loc["coverage"] = coverage
+
+
+resolve_status()
+
+
 def main():
     written = []
     for loc in LOCALES:
@@ -1890,6 +1908,14 @@ def main():
     written.append(write("robots.txt", ROBOTS))
     written.append(write("llms.txt", llms_txt()))
     written.append(write("404.html", NOT_FOUND))
+    ready = [l for l in LOCALES if l["status"] == "ready"]
+    print("locales ready: %s" % ", ".join(
+        "%s%s" % (l["code"], "" if l["code"] == "en" else " %d%%" % l.get("coverage", 0))
+        for l in ready))
+    drafts = [l for l in LOCALES if l["status"] != "ready"]
+    if drafts:
+        print("locales draft (noindex): %s" % ", ".join(
+            "%s %d%%" % (l["code"], l.get("coverage", 0)) for l in drafts))
     print("%d files written:" % len(written))
     for w in written:
         print("  " + w)
