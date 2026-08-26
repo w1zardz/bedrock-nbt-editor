@@ -999,7 +999,9 @@ function revealPath(path,startEdit){
   }
   const row=w._row;
   row.scrollIntoView({behavior:"smooth",block:"center"});
-  row.classList.remove("ln-flash");
+  /* only ever one highlighted row, otherwise stale jumps stay lit */
+  const lit=treeRoot.querySelectorAll(".ln-flash");
+  for(let i=0;i<lit.length;i++)lit[i].classList.remove("ln-flash");
   void row.offsetWidth;
   row.classList.add("ln-flash");
   if(startEdit){

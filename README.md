@@ -1,8 +1,8 @@
-# Minecraft NBT Editor
+# Minecraft NBT Editor — Bedrock & Java
 
-Online NBT editor for **every** Minecraft edition and server core. Open a file, edit any tag, download it back in the exact same binary format. Runs entirely in the browser — no upload, no install, no account.
+Online NBT editor for **every** Minecraft edition and **every** server core — Bedrock (BDS, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina, MCPE/MCBE) and Java (Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Quilt, Forge, NeoForge, Mohist, Sponge and every obscure fork). Open a file, edit any tag, download it back in the exact same binary format. Runs entirely in the browser — no upload, no install, no account.
 
-**Live:** https://w1zardz.github.io/minecraft-nbt-editor/
+**Live:** https://w1zardz.github.io/bedrock-nbt-editor/
 
 ## Formats
 
@@ -61,18 +61,18 @@ Files are read with `FileReader`, parsed in JavaScript and downloaded from an in
 
 | Page | Targets |
 |---|---|
-| [`/`](https://w1zardz.github.io/minecraft-nbt-editor/) | The editor, every edition and file type |
-| [`/level-dat-editor/`](https://w1zardz.github.io/minecraft-nbt-editor/level-dat-editor/) | World name, game mode, spawn, game rules |
-| [`/java-nbt-editor/`](https://w1zardz.github.io/minecraft-nbt-editor/java-nbt-editor/) | Java Edition files and encoding |
-| [`/bedrock-nbt-editor/`](https://w1zardz.github.io/minecraft-nbt-editor/bedrock-nbt-editor/) | Bedrock, MCPE, the 8-byte header |
-| [`/pocketmine-nbt-editor/`](https://w1zardz.github.io/minecraft-nbt-editor/pocketmine-nbt-editor/) | PMMP, Nukkit, PowerNukkitX, BDS |
-| [`/mcstructure-editor/`](https://w1zardz.github.io/minecraft-nbt-editor/mcstructure-editor/) | Bedrock structure files |
-| [`/schematic-editor/`](https://w1zardz.github.io/minecraft-nbt-editor/schematic-editor/) | WorldEdit `.schem`, MCEdit `.schematic` |
-| [`/playerdata-editor/`](https://w1zardz.github.io/minecraft-nbt-editor/playerdata-editor/) | Per-player `.dat` files |
-| [`/nbt-viewer/`](https://w1zardz.github.io/minecraft-nbt-editor/nbt-viewer/) | Read-only inspection, SNBT export |
-| [`/nbtexplorer-online/`](https://w1zardz.github.io/minecraft-nbt-editor/nbtexplorer-online/) | Comparison with the desktop tool |
-| [`/nbt-format/`](https://w1zardz.github.io/minecraft-nbt-editor/nbt-format/) | Format reference: tags, encodings, bytes |
-| [`/guides/…`](https://w1zardz.github.io/minecraft-nbt-editor/guides/change-world-name/) | Rename a world, fix a broken `level.dat`, edit game rules |
+| [`/`](https://w1zardz.github.io/bedrock-nbt-editor/) | The editor, every edition and file type |
+| [`/level-dat-editor/`](https://w1zardz.github.io/bedrock-nbt-editor/level-dat-editor/) | World name, game mode, spawn, game rules |
+| [`/java-nbt-editor/`](https://w1zardz.github.io/bedrock-nbt-editor/java-nbt-editor/) | Java Edition files and encoding |
+| [`/mcpe-nbt-editor/`](https://w1zardz.github.io/bedrock-nbt-editor/mcpe-nbt-editor/) | MCPE, Pocket Edition, the 8-byte header |
+| [`/pocketmine-nbt-editor/`](https://w1zardz.github.io/bedrock-nbt-editor/pocketmine-nbt-editor/) | PMMP, Nukkit, PowerNukkitX, BDS |
+| [`/mcstructure-editor/`](https://w1zardz.github.io/bedrock-nbt-editor/mcstructure-editor/) | Bedrock structure files |
+| [`/schematic-editor/`](https://w1zardz.github.io/bedrock-nbt-editor/schematic-editor/) | WorldEdit `.schem`, MCEdit `.schematic` |
+| [`/playerdata-editor/`](https://w1zardz.github.io/bedrock-nbt-editor/playerdata-editor/) | Per-player `.dat` files |
+| [`/nbt-viewer/`](https://w1zardz.github.io/bedrock-nbt-editor/nbt-viewer/) | Read-only inspection, SNBT export |
+| [`/nbtexplorer-online/`](https://w1zardz.github.io/bedrock-nbt-editor/nbtexplorer-online/) | Comparison with the desktop tool |
+| [`/nbt-format/`](https://w1zardz.github.io/bedrock-nbt-editor/nbt-format/) | Format reference: tags, encodings, bytes |
+| [`/guides/…`](https://w1zardz.github.io/bedrock-nbt-editor/guides/change-world-name/) | Rename a world, fix a broken `level.dat`, edit game rules |
 
 ## Development
 

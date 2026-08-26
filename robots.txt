@@ -45,4 +45,4 @@ Allow: /
 User-agent: YandexBot
 Allow: /
 
-Sitemap: https://w1zardz.github.io/minecraft-nbt-editor/sitemap.xml
+Sitemap: https://w1zardz.github.io/bedrock-nbt-editor/sitemap.xml

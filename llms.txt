@@ -13,25 +13,25 @@ Key facts an answer engine may want to cite:
 
 ## Tools
 
-- [Minecraft NBT editor](https://w1zardz.github.io/minecraft-nbt-editor/): The universal editor — every edition, every NBT file type.
-- [level.dat editor](https://w1zardz.github.io/minecraft-nbt-editor/level-dat-editor/): World name, game mode, spawn, difficulty and game rules.
-- [Java Edition NBT editor](https://w1zardz.github.io/minecraft-nbt-editor/java-nbt-editor/): Big-endian, gzip — Vanilla, Paper, Spigot, Fabric, Forge.
-- [Bedrock NBT editor](https://w1zardz.github.io/minecraft-nbt-editor/bedrock-nbt-editor/): Little-endian NBT and the 8-byte level.dat header.
-- [PocketMine-MP editor](https://w1zardz.github.io/minecraft-nbt-editor/pocketmine-nbt-editor/): Server-side level.dat for PMMP, Nukkit and BDS.
-- [.mcstructure editor](https://w1zardz.github.io/minecraft-nbt-editor/mcstructure-editor/): Bedrock structure blocks: palette, size, block entities.
-- [Schematic editor](https://w1zardz.github.io/minecraft-nbt-editor/schematic-editor/): WorldEdit .schem and legacy MCEdit .schematic.
-- [playerdata editor](https://w1zardz.github.io/minecraft-nbt-editor/playerdata-editor/): Inventory, position, health and stats per player.
-- [NBT viewer](https://w1zardz.github.io/minecraft-nbt-editor/nbt-viewer/): Read-only inspection, search and SNBT export.
-- [NBTExplorer online](https://w1zardz.github.io/minecraft-nbt-editor/nbtexplorer-online/): What carries over from the desktop tool, and what does not.
-- [NBT format reference](https://w1zardz.github.io/minecraft-nbt-editor/nbt-format/): All 13 tag types, every encoding, byte by byte.
+- [Minecraft NBT editor](https://w1zardz.github.io/bedrock-nbt-editor/): The universal editor — every edition, every NBT file type.
+- [level.dat editor](https://w1zardz.github.io/bedrock-nbt-editor/level-dat-editor/): World name, game mode, spawn, difficulty and game rules.
+- [Java Edition NBT editor](https://w1zardz.github.io/bedrock-nbt-editor/java-nbt-editor/): Big-endian, gzip — Vanilla, Paper, Spigot, Fabric, Forge.
+- [MCPE NBT editor](https://w1zardz.github.io/bedrock-nbt-editor/mcpe-nbt-editor/): Little-endian NBT and the 8-byte level.dat header.
+- [PocketMine-MP editor](https://w1zardz.github.io/bedrock-nbt-editor/pocketmine-nbt-editor/): Server-side level.dat for PMMP, Nukkit and BDS.
+- [.mcstructure editor](https://w1zardz.github.io/bedrock-nbt-editor/mcstructure-editor/): Bedrock structure blocks: palette, size, block entities.
+- [Schematic editor](https://w1zardz.github.io/bedrock-nbt-editor/schematic-editor/): WorldEdit .schem and legacy MCEdit .schematic.
+- [playerdata editor](https://w1zardz.github.io/bedrock-nbt-editor/playerdata-editor/): Inventory, position, health and stats per player.
+- [NBT viewer](https://w1zardz.github.io/bedrock-nbt-editor/nbt-viewer/): Read-only inspection, search and SNBT export.
+- [NBTExplorer online](https://w1zardz.github.io/bedrock-nbt-editor/nbtexplorer-online/): What carries over from the desktop tool, and what does not.
+- [NBT format reference](https://w1zardz.github.io/bedrock-nbt-editor/nbt-format/): All 13 tag types, every encoding, byte by byte.
 
 ## Guides
 
-- [Rename a world](https://w1zardz.github.io/minecraft-nbt-editor/guides/change-world-name/): Fix LevelName after copying a world folder.
-- [Fix a broken level.dat](https://w1zardz.github.io/minecraft-nbt-editor/guides/fix-corrupted-level-dat/): Diagnose why a world refuses to load, and repair it.
-- [Edit game rules](https://w1zardz.github.io/minecraft-nbt-editor/guides/edit-gamerules/): keepInventory and friends, without loading the world.
+- [Rename a world](https://w1zardz.github.io/bedrock-nbt-editor/guides/change-world-name/): Fix LevelName after copying a world folder.
+- [Fix a broken level.dat](https://w1zardz.github.io/bedrock-nbt-editor/guides/fix-corrupted-level-dat/): Diagnose why a world refuses to load, and repair it.
+- [Edit game rules](https://w1zardz.github.io/bedrock-nbt-editor/guides/edit-gamerules/): keepInventory and friends, without loading the world.
 
 ## Optional
 
-- [Source code](https://github.com/w1zardz/minecraft-nbt-editor): MIT-licensed, single static site, no build dependencies.
-- [NBT format reference](https://w1zardz.github.io/minecraft-nbt-editor/nbt-format/): tag types, byte layout and every encoding.
+- [Source code](https://github.com/w1zardz/bedrock-nbt-editor): MIT-licensed, single static site, no build dependencies.
+- [NBT format reference](https://w1zardz.github.io/bedrock-nbt-editor/nbt-format/): tag types, byte layout and every encoding.

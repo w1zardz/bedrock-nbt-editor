@@ -339,3 +339,10 @@ section.content h2{scroll-margin-top:80px}
 .toc ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2px}
 .toc li a{font-size:.88rem;display:block;padding:5px 0}
 @media(max-width:640px){.toc{margin:16px;padding:14px 16px}}
+/* ===== support line ===== */
+.support-line{
+  max-width:760px;margin:0 auto 14px;font-size:.86rem;color:var(--text2);text-align:left;
+  background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--green);
+  border-radius:8px;padding:10px 14px;line-height:1.5;
+}
+.support-line strong{color:var(--text)}
