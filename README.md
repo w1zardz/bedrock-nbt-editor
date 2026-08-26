@@ -1,64 +1,72 @@
-# Bedrock NBT Editor
+# Minecraft NBT Editor
 
-[![GitHub Pages](https://img.shields.io/badge/demo-live-brightgreen?style=flat-square)](https://w1zardz.github.io/bedrock-nbt-editor/)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
+Online NBT editor for **every** Minecraft edition and server core. Open a file, edit any tag, download it back in the exact same binary format. Runs entirely in the browser — no upload, no install, no account.
 
-**Online NBT editor for Minecraft Bedrock Edition level.dat files.** Built for the PocketMine-MP community.
+**Live:** https://w1zardz.github.io/bedrock-nbt-editor/
 
-## The Problem
+## Formats
 
-When you duplicate a Bedrock world by copying its folder, the internal `LevelName` tag inside `level.dat` doesn't change — it still references the original world name. This causes confusing bugs in PocketMine-MP and MCPE/MCBE. This tool lets you fix that (and edit any other NBT tag) directly in your browser.
+| Format | Byte order | Root | Used by |
+|---|---|---|---|
+| `java` | big-endian | named | Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Sponge |
+| `java-network` | big-endian | nameless | Java 1.20.2+ protocol dumps |
+| `bedrock-level` | little-endian + 8-byte header | named | Bedrock `level.dat`, BDS, PocketMine-MP, Nukkit, PowerNukkitX |
+| `bedrock` | little-endian | named | `.mcstructure`, LevelDB values, Dragonfly, Cloudburst |
+| `bedrock-network` | little-endian, varint ints | named | Bedrock protocol dumps, Geyser/Waterdog traffic |
+
+Compression is sniffed and preserved: **gzip**, **zlib (deflate)** or raw, via the native Compression Streams API.
+
+## Files it opens
+
+`level.dat`, `level.dat_old`, `playerdata/<uuid>.dat`, `stats/*.json`-adjacent `.dat` files, `servers.dat`, `hotbar.nbt`, `idcounts.dat`, `raids.dat`, `map_*.dat`, structure `.nbt`, WorldEdit `.schem`, MCEdit `.schematic`, Bedrock `.mcstructure`, raw chunk payloads extracted from `.mca` regions or LevelDB, and packet dumps.
 
 ## Features
 
-- Full Bedrock NBT support — all 13 tag types including TAG_Long (BigInt)
-- Parses Bedrock `level.dat` format (8-byte LE header + LE NBT payload)
-- Tree view editor with collapsible compound/list nodes
-- Inline value editing — click any value to change it
-- Add and remove tags
-- Download modified file with correct header
-- Drag & drop or file picker upload
-- Mobile-first, touch-friendly UI (44px+ tap targets)
-- Dark theme, no frameworks, zero dependencies
-- Works 100% client-side — your files never leave your browser
+- Auto-detection of compression, byte order, header and root naming — no format dropdown before you can open a file
+- All 13 tag types, 64-bit `TAG_Long` precision via `BigInt` (seeds and UUIDs survive a round trip)
+- Java modified UTF-8 (CESU-8) strings encoded correctly; Bedrock standard UTF-8
+- Lazy, paged tree — typed arrays for `TAG_Byte_Array` / `TAG_Int_Array` / `TAG_Long_Array`, so multi-megabyte chunk and structure NBT stays responsive
+- Search by tag name or value with jump-to-tag
+- Add, edit and remove tags anywhere in the tree
+- SNBT export
+- Format conversion: read Bedrock, write Java big-endian gzip, or the reverse
+- Mobile-first UI, 44px tap targets, safe-area aware
+- Zero dependencies, single static HTML file
 
-## How to Use
+## Scriptable API
 
-1. Open [the editor](https://w1zardz.github.io/bedrock-nbt-editor/)
-2. Drag & drop your `level.dat` file (or click to browse)
-3. Expand the tree to find the tag you want to edit (e.g. `LevelName`)
-4. Click the value to edit it inline
-5. Click **Save & Download** to get the modified file
+The page exposes its engine on `window.NBT`, so it can be driven from the console or reused:
 
-## Technical Details
+```js
+const bytes = new Uint8Array(await file.arrayBuffer());
 
-- Bedrock `level.dat` has an 8-byte header: 4 bytes LE version integer + 4 bytes LE payload length
-- All NBT data is little-endian (unlike Java Edition which is big-endian)
-- TAG_Long values are handled with JavaScript BigInt for full 64-bit precision
-- The editor recalculates the payload length on save
+const { root, format, compression, headerVersion } = await NBT.read(bytes);
+root.value.find(t => t.name === "LevelName").value = "New World";
 
-## Supported Tag Types
+const out = await NBT.write(root, format, { compression, headerVersion });
 
-| ID | Tag Type | Description |
-|----|----------|-------------|
-| 0 | TAG_End | Marks end of compound |
-| 1 | TAG_Byte | Signed 8-bit integer |
-| 2 | TAG_Short | Signed 16-bit LE integer |
-| 3 | TAG_Int | Signed 32-bit LE integer |
-| 4 | TAG_Long | Signed 64-bit LE integer (BigInt) |
-| 5 | TAG_Float | 32-bit LE IEEE 754 float |
-| 6 | TAG_Double | 64-bit LE IEEE 754 double |
-| 7 | TAG_Byte_Array | Length-prefixed byte array |
-| 8 | TAG_String | Length-prefixed UTF-8 string |
-| 9 | TAG_List | Typed list of tags |
-| 10 | TAG_Compound | Named collection of tags |
-| 11 | TAG_Int_Array | Length-prefixed int array |
-| 12 | TAG_Long_Array | Length-prefixed long array |
+// other helpers
+NBT.detectFormat(plainBytes);           // { formatId, result, exact }
+NBT.serialize(root, "java", 8);         // Uint8Array, uncompressed
+NBT.toSNBT(root, "");                   // SNBT text
+```
 
-## Keywords
+Tag objects are plain: `{ type, name?, value, listType? }`. Arrays are `Int8Array` / `Int32Array` / `BigInt64Array`, longs are `BigInt`.
 
-PocketMine-MP, PMMP, PocketMine, Bedrock Edition, MCPE, MCBE, level.dat, NBT editor, world editor, level name editor, Minecraft Bedrock tools, NBT viewer, online NBT editor
+## Privacy
+
+Files are read with `FileReader`, parsed in JavaScript and downloaded from an in-memory `Blob`. Nothing is transmitted anywhere; the page works offline once loaded.
+
+## Development
+
+Static site, no build step.
+
+```bash
+python3 -m http.server 4173
+```
+
+Open http://localhost:4173.
 
 ## License
 
-[MIT](LICENSE)
+MIT — see [LICENSE](LICENSE). Not affiliated with Mojang or Microsoft.
