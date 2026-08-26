@@ -1,8 +1,12 @@
 # Minecraft NBT Editor — Bedrock & Java
 
-Online NBT editor for **every** Minecraft edition and **every** server core — Bedrock (BDS, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina, MCPE/MCBE) and Java (Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Quilt, Forge, NeoForge, Mohist, Sponge and every obscure fork). Open a file, edit any tag, download it back in the exact same binary format. Runs entirely in the browser — no upload, no install, no account.
+### ▶ [**Open the editor → w1zardz.github.io/bedrock-nbt-editor**](https://w1zardz.github.io/bedrock-nbt-editor/)
 
-**Live:** https://w1zardz.github.io/bedrock-nbt-editor/
+No install, no upload, no account — it runs in your browser, on desktop or phone.
+
+[![Open the editor](og/home.png)](https://w1zardz.github.io/bedrock-nbt-editor/)
+
+Online NBT editor for **every** Minecraft edition and **every** server core — Bedrock (BDS, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina, MCPE/MCBE) and Java (Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Quilt, Forge, NeoForge, Mohist, Sponge and every obscure fork). Open a file, edit any tag, download it back in the exact same binary format. Runs entirely in the browser — no upload, no install, no account.
 
 ## Formats
 
