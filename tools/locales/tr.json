@@ -1,0 +1,1280 @@
+{
+  "": {
+    "title": "Bedrock NBT Düzenleyici — level.dat, MCPE ve Java",
+    "ogtitle": "Bedrock &amp; Java NBT Düzenleyici — çevrimiçi, yüklemesiz",
+    "desc": "Minecraft Bedrock ve Java için çevrimiçi NBT düzenleyici. level.dat, .mcstructure, playerdata, .nbt veya .schem açın, etiketi düzenleyip indirin.",
+    "keywords": "minecraft nbt editör, nbt düzenleyici, nbt editör online, bedrock nbt düzenleyici, level.dat düzenleme, minecraft kayıt dosyası düzenleme, nbt görüntüleyici, nbtexplorer online",
+    "h1": "Bedrock NBT Düzenleyici — Java Edition da Desteklenir",
+    "crumb": "Düzenleyici",
+    "reltitle": "Minecraft NBT düzenleyici",
+    "reldesc": "Tüm sürümler ve tüm NBT dosya türleri için genel düzenleyici.",
+    "answer": "<strong>Tüm Bedrock sunucu çekirdekleriyle Bedrock Edition desteklenir; az bilinenler dâhil tüm Java sunucu çekirdekleriyle Java Edition da desteklenir.</strong> Aşağıdaki alana bir <code>level.dat</code>, <code>playerdata</code>, <code>.nbt</code>, <code>.mcstructure</code>, <code>.schem</code> veya <code>.schematic</code> dosyası bırakın, ağaçtaki herhangi bir etiketi düzenleyin ve dosyayı aynı ikili biçimde indirin. Bayt sırası, üstbilgi ve sıkıştırma otomatik algılanır. Her şey tarayıcınızda çalışır; yükleme, hesap veya kurulum gerekmez.",
+    "droplabel": "herhangi bir NBT dosyası",
+    "body": "\n<section class=\"content\" aria-label=\"Supported files\">\n<h2>Minecraft’ın yazdığı tüm NBT dosyaları</h2>\n<p>NBT (Named Binary Tag), birden fazla kodlaması olan tek bir biçimdir. Her Minecraft sürümü, başlatıcı ve sunucu çekirdeği bunların farklı bir birleşimini kullanır. Bu düzenleyici hepsini destekler ve doğru biçimi doğrudan baytlardan seçer; dosyayı açmadan önce hangi çeşitte olduğunu bilmeniz gerekmez.</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Dosya</th><th>Kaynak</th><th>Kodlama</th><th>Sıkıştırma</th></tr></thead>\n<tbody>\n<tr><td><code>level.dat</code></td><td>Java dünyası — Vanilla, Paper, Spigot, Fabric, Forge</td><td>Big-endian, adlı kök</td><td>gzip</td></tr>\n<tr><td><code>level.dat</code></td><td>Bedrock dünyası — BDS, PocketMine-MP, Nukkit, MCPE</td><td>Little-endian + 8 baytlık üstbilgi</td><td>Yok</td></tr>\n<tr><td><code>&lt;uuid&gt;.dat</code></td><td>Java <code>playerdata/</code></td><td>Big-endian</td><td>gzip</td></tr>\n<tr><td><code>servers.dat</code>, <code>hotbar.nbt</code></td><td>Java istemcisi</td><td>Big-endian</td><td>Yok</td></tr>\n<tr><td><code>idcounts.dat</code>, <code>raids.dat</code>, <code>map_*.dat</code></td><td>Java dünyası <code>data/</code></td><td>Big-endian</td><td>gzip</td></tr>\n<tr><td><code>.nbt</code></td><td>Yapı blokları, veri paketi yapıları</td><td>Big-endian</td><td>gzip</td></tr>\n<tr><td><code>.schem</code>, <code>.schematic</code></td><td>WorldEdit, Sponge, MCEdit</td><td>Big-endian</td><td>gzip</td></tr>\n<tr><td><code>.mcstructure</code></td><td>Bedrock yapı blokları</td><td>Little-endian</td><td>Yok</td></tr>\n<tr><td>Chunk yükü</td><td>Bölge <code>.mca</code> çıktısı, LevelDB değeri</td><td>Her iki bayt sırası</td><td>zlib veya yok</td></tr>\n<tr><td>Paket dökümü</td><td>Bedrock protokolü, Java 1.20.2+ protokolü</td><td>Varint LE / adsız BE</td><td>Yok</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"How to use\">\n<h2>Bir NBT dosyası nasıl düzenlenir</h2>\n<div class=\"card\">\n<ol class=\"steps\">\n<li><strong>Dosyayı sunucudan veya cihazdan alın.</strong> Java sunucuları dosyayı <code>world/</code>, Bedrock sunucuları <code>worlds/YourWorld/</code>, Android’da <code>games/com.mojang/minecraftWorlds/&lt;id&gt;/</code>. Kopyalama sırasında dosyaya yazılmaması için önce sunucuyu durdurun.</li>\n<li><strong>Dosyayı düzenleyiciye bırakın.</strong> Ağacın üzerindeki rozet algılanan sürümü, kodlamayı, sıkıştırmayı ve Bedrock için üstbilgideki depolama sürümünü gösterir.</li>\n<li><strong>Düzenleyin.</strong> Bir değere dokunarak yerinde değiştirin. Ada veya değere göre etikete gitmek için aramayı, <strong>+</strong> herhangi bir compound ya da listeye etiket eklemek için, <strong>×</strong> etiketleri kaldırmak için kullanın.</li>\n<li><strong>Kaydet ve İndir.</strong> Çıktı biçimi ve sıkıştırma seçimleri varsayılan olarak gelen dosyanın ayarlarını kullanır; böylece basit bir düzenleme bayt düzeyinde uyumlu kalır.</li>\n<li><strong>Dosyayı geri koyup yeniden başlatın.</strong> Dünya bir kez sorunsuz yüklenene kadar özgün dosyayı yedek olarak saklayın.</li>\n</ol>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Features\">\n<h2>Bu düzenleyicinin farkı</h2>\n<div class=\"features-grid\">\n<article class=\"feature-card\"><h3>Beş kodlama, tek bırakma alanı</h3><p>Java big-endian, Bedrock little-endian, Bedrock varint ağ NBT’si, Java 1.20.2+ adsız köklü ağ NBT’si ve üstbilgili Bedrock <code>level.dat</code>. Tahmin edilmez, algılanır.</p></article>\n<article class=\"feature-card\"><h3>Tarayıcıda gzip ve zlib</h3><p>Açma ve yeniden sıkıştırma yerel Compression Streams API ile yapılır; böylece bir Java <code>level.dat</code> dosyası oyunun değişmeden kabul ettiği biçimde geri yazılır.</p></article>\n<article class=\"feature-card\"><h3>Gerçek 64 bit long değerleri</h3><p><code>TAG_Long</code> değerleri <code>BigInt</code>. Dünya seed değerleri ve UUID yarıları, kayan nokta yuvarlamasıyla bozulmadan düzenlenir; çoğu tarayıcı NBT aracı burada hata yapar.</p></article>\n<article class=\"feature-card\"><h3>Doğru dize kodlaması</h3><p>Java değiştirilmiş UTF-8 (CESU-8), Bedrock standart UTF-8 yazar. Düzenleyici sürüme göre kodladığından emoji ve Latin dışı dünya adları bozulmaz.</p></article>\n<article class=\"feature-card\"><h3>Büyük dosyalar için tasarlandı</h3><p>Diziler typed array içinde tutulur ve ağaç her seferinde 200 öğe olmak üzere gerektiğinde çizilir. Megabayt boyutundaki chunk NBT’si sekmeyi dondurmadan açılır.</p></article>\n<article class=\"feature-card\"><h3>Tüm ağaçta arama</h3><p>Dosyanın herhangi bir yerindeki etiketi ada veya değere göre bulun; yolu genişletilmiş olarak doğrudan etikete gidin.</p></article>\n<article class=\"feature-card\"><h3>SNBT dışa aktarma</h3><p>Tüm ağacı, <code>/data</code> ve veri paketlerinde kullanılan metin biçimi SNBT olarak; karşılaştırmak, paylaşmak veya komuta yapıştırmak için dışa aktarın.</p></article>\n<article class=\"feature-card\"><h3>Biçim dönüştürme</h3><p>Bir Bedrock dosyasını okuyup Java big-endian gzip olarak veya ters yönde yazın. Protokol çalışmaları, testler ve araç geliştirme için kullanışlıdır.</p></article>\n<article class=\"feature-card\"><h3>Cihazınızdan hiçbir veri çıkmaz</h3><p>Dosya <code>FileReader</code>, JavaScript ile ayrıştırılır ve bellek içi blob olarak geri verilir. Yükleme uç noktası yoktur.</p></article>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Supported server software\" id=\"server-software\">\n<h2>Desteklenen sunucu yazılımları — tümü</h2>\n<p>NBT’yi sunucu uygulaması değil oyun yazar. Bu nedenle Minecraft dünyası saklayan her çekirdek, düzenleyicinin okuduğu kodlamalardan birini kullanır. Aşağıdaki liste pazarlama amacı taşımaz: dünya yazan bir çekirdek, karşı uçtaki istemcinin okuyabilmesi için Vanilla biçimini kullanır.</p>\n<div class=\"card\">\n<h3>Bedrock Edition — little-endian NBT, 8 baytlık <code>level.dat</code> üstbilgi</h3>\n<p><strong>Bedrock Dedicated Server (BDS)</strong>, <strong>PocketMine-MP</strong> (PM3, PM4, PM5), <strong>Nukkit</strong>, <strong>Nukkit-MOT</strong>, <strong>PowerNukkitX</strong>, <strong>Cloudburst Server</strong>, <strong>Dragonfly</strong>, <strong>Endstone</strong>, <strong>LeviLamina</strong> ve <strong>BDSX</strong>, <strong>Allay</strong>, <strong>JukeboxMC</strong>, <strong>GoMint</strong>, <strong>Sculk</strong>, <strong>ElementZero</strong>, <strong>LiteLoaderBDS</strong>, ayrıca <strong>MCPE</strong> ve <strong>MCBE</strong> istemcilerinin Android, iOS, Windows, konsol ve Switch sürümleri. Aynı <code>worlds/&lt;World&gt;/level.dat</code>, aynı üstbilgi ve aynı etiketler; bkz. <a href=\"pocketmine-nbt-editor/\">sunucu tarafı iş akışı</a>.</p>\n<h3>Java Edition — big-endian NBT biçimi, gzip</h3>\n<p><strong>Vanilla</strong>, <strong>CraftBukkit</strong>, <strong>Spigot</strong>, <strong>Paper</strong>, <strong>Purpur</strong>, <strong>Pufferfish</strong>, <strong>Folia</strong>, <strong>Leaves</strong>, <strong>Gale</strong>, <strong>Petal</strong>, <strong>Airplane</strong>, <strong>Sponge</strong> (SpongeVanilla, SpongeForge), <strong>Fabric</strong>, <strong>Quilt</strong>, <strong>Forge</strong>, <strong>NeoForge</strong>, <strong>Mohist</strong>, <strong>Arclight</strong>, <strong>Magma</strong>, <strong>Ketting</strong>, <strong>Banner</strong>, <strong>Cardboard</strong>, <strong>Glowstone</strong>, <strong>Thermos</strong>, <strong>Uberbukkit</strong> ve diğer tüm fork’lar, mod paketi sunucuları veya eski sürümler. Eğer <code>world/level.dat</code>, bu düzenleyici açar; <a href=\"java-nbt-editor/\">ayrıntılar burada</a>.</p>\n<h3>Proxy’ler ve köprüler</h3>\n<p><strong>Geyser</strong>, <strong>WaterdogPE</strong>, <strong>Waterfall</strong>, <strong>Velocity</strong> ve <strong>BungeeCord</strong> dünyaları barındırmaz; NBT’yi ağ üzerinden taşırlar. Bu soketlerden alınan kayıtlar ağ NBT’sidir: Bedrock tarafında varint little-endian, Java 1.20.2+ tarafında adsız köklü big-endian. İkisi de burada doğrudan açılır.</p>\n<h3>Listede olmayanlar</h3>\n<p>Özel fork’lar, kapalı çekirdekler, eğitim projeleri veya kendi yazdığınız sunucu: dosya NBT ise düzenleyici beş kodlamadan hangisi olduğunu algılar ve açar. Hiçbir işlem çekirdek adına bağlı değildir.</p>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Scripting\">\n<h2>Ayrıştırıcıyı kendi kodunuzda kullanın</h2>\n<p>Sayfa motorunu <code>window.NBT</code>, böylece arayüzü çalıştıran aynı ayrıştırıcı tarayıcı konsolundan kullanılabilir veya userscript içinde yeniden kullanılabilir:</p>\n<pre class=\"code\"><code>const bytes = new Uint8Array(await file.arrayBuffer());\nconst { root, format, compression, headerVersion } = await NBT.read(bytes);\n\nroot.value.find(t =&gt; t.name === \"LevelName\").value = \"New World\";\n\nconst out = await NBT.write(root, format, { compression, headerVersion });</code></pre>\n<p>Etiketler sade nesnelerdir: <code>{ type, name, value, listType }</code> — diziler <code>Int8Array</code>, <code>Int32Array</code> ve <code>BigInt64Array</code>, long değerleri ise <code>BigInt</code>. Tam <a href=\"nbt-format/\">NBT biçimi başvurusu</a> her etiket türünü ve kodlamalar arasındaki farkları açıklar.</p>\n</section>\n",
+    "chips": [
+      "Bedrock Edition",
+      "Java Edition",
+      "Vanilla",
+      "Paper",
+      "Spigot",
+      "Purpur",
+      "Pufferfish",
+      "Folia",
+      "Leaves",
+      "Fabric",
+      "Quilt",
+      "Forge",
+      "NeoForge",
+      "Mohist",
+      "Arclight",
+      "Sponge",
+      "Bedrock Dedicated Server",
+      "PocketMine-MP",
+      "Nukkit",
+      "PowerNukkitX",
+      "Nukkit-MOT",
+      "Cloudburst",
+      "Dragonfly",
+      "Endstone",
+      "LeviLamina",
+      "Allay",
+      "JukeboxMC",
+      "GoMint",
+      "Geyser",
+      "WaterdogPE"
+    ],
+    "faq": [
+      [
+        "Bu NBT düzenleyici ücretsiz mi?",
+        "<p>Evet; MIT lisansı altında açık kaynaklıdır. Ücretli katman, kayıt veya yükleme kotası yoktur. Sunucu bileşeni bulunmaz; düzenleyicinin tamamı tek bir statik sayfa ve iki varlık dosyasından oluşur.</p>"
+      ],
+      [
+        "Java Edition ve Bedrock Edition ile çalışır mı?",
+        "<p>İkisiyle de çalışır. Java Edition dosyaları big-endian ve genellikle gzip sıkıştırmalıdır; Bedrock dosyaları little-endian biçimindedir ve <code>level.dat</code> ek bir 8 baytlık üstbilgi taşır. Düzenleyici biçimi algılar ve kaydederken aynısını yazar.</p>"
+      ],
+      [
+        "Dünya dosyam bir yere yükleniyor mu?",
+        "<p>Hayır. Dosya FileReader API ile yerel olarak okunur ve indirme bellek içi blob’dan oluşturulur. Sayfa yüklendikten sonra ağ bağlantısını kesseniz de çalışır.</p>"
+      ],
+      [
+        "Android veya iOS’ta kullanabilir miyim?",
+        "<p>Evet. Düzen mobil önceliklidir; 44&nbsp;px dokunma hedefleri ve sabit işlem çubuğu vardır. Android’de dosya yöneticisinden dünya dosyasını seçebilirsiniz. iOS sandbox kısıtlaması nedeniyle dosya önce Dosyalar uygulamasında olmalıdır.</p>"
+      ],
+      [
+        "NBT ile SNBT arasındaki fark nedir?",
+        "<p>NBT, Minecraft’ın diskte kullandığı ikili kodlamadır. SNBT ise <code>/data merge</code> gibi komutlarda kullanılan metin biçimidir. Bu düzenleyici ikili NBT’yi okur ve SNBT dışa aktarır; böylece dosyaları karşılaştırabilir veya yapıyı komuta yapıştırabilirsiniz.</p>"
+      ],
+      [
+        "Hangi araçların yerini alır?",
+        "<p>NBTExplorer gibi masaüstü NBT düzenleyicilerinin ve yalnızca tek bir sürümü işleyen özel web araçlarının görevlerini karşılar. Nelerin desteklendiğini görmek için <a href=\"nbtexplorer-online/\">çevrimiçi NBTExplorer karşılaştırmasına</a> bakın.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "{0} olarak yüklendi",
+      "trailing": "Kök etiketten sonraki {0} ek bayt yok sayıldı",
+      "error": "Hata: {0}",
+      "readfail": "Dosya okunamadı",
+      "nofile": "Dosya yüklenmedi",
+      "saved": "{0} kaydedildi ({1}, {2})",
+      "savefail": "Kaydetme hatası: {0}",
+      "exported": "{0} dışa aktarıldı",
+      "snbtfail": "SNBT hatası: {0}",
+      "tagadded": "Etiket eklendi",
+      "tagremoved": "Etiket kaldırıldı",
+      "arrayupdated": "Dizi güncellendi",
+      "badvalue": "Geçersiz değer: {0}",
+      "badarray": "Geçersiz dizi: {0}",
+      "nameneeded": "Etiket adı gerekli",
+      "nametaken": "Burada {0} adlı bir etiket zaten var",
+      "listtype": "Liste zaten {0} türünde öğeler içeriyor",
+      "editlevelname": "✎ LevelName değerini düzenle",
+      "showmore": "{1} öğeden {0} tane daha göster …",
+      "matches": "{0} eşleşme",
+      "nomatch": "“{0}” ile eşleşen etiket yok",
+      "arraytoobig": "Dizide {0} öğe var — diziyi genişletip öğeleri ayrı ayrı düzenleyin",
+      "uncompressed": "sıkıştırılmamış",
+      "storage": "depolama v{0}",
+      "entries": "{0} öğe",
+      "langprompt": "Bu sayfa {0} dilinde açılsın mı?",
+      "langyes": "Geç",
+      "langno": "Kal"
+    },
+    "support": "<strong>Minecraft Bedrock Edition ve Java Edition desteği</strong> — her iki sürümün yaygın veya az bilinen tüm sunucu çekirdekleriyle: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina ve diğerleri. <a href=\"__HOME__#server-software\">Tam liste</a>.",
+    "footernote": "ücretsiz ve açık kaynaklıdır (MIT); tamamen tarayıcınızda çalışır. Mojang Studios veya Microsoft ile bağlantılı değildir. Minecraft, Mojang Studios’un ticari markasıdır.",
+    "faqtitle": "Sık Sorulan Sorular",
+    "toctitle": "Bu sayfada",
+    "relatedtitle": "İlgili araçlar",
+    "homecrumb": "NBT Düzenleyici",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Düzenleyiciler",
+      "Dosya türleri",
+      "Başvuru"
+    ],
+    "sourcehead": "Kaynak",
+    "sourcelink": "GitHub’daki kod"
+  },
+  "level-dat-editor": {
+    "title": "level.dat Düzenleyici — Minecraft Dünya Ayarları",
+    "ogtitle": "level.dat Düzenleyici — dünya ayarlarını çevrimiçi düzenleyin",
+    "desc": "Minecraft level.dat dosyasını çevrimiçi düzenleyin: Java ve Bedrock dünyalarında ad, oyun modu, zorluk, spawn, seed ve oyun kuralları. Yükleme yapılmaz.",
+    "keywords": "level.dat düzenleyici, level.dat düzenleme, minecraft level.dat editör, dünya adı değiştirme level.dat, level.dat görüntüleyici, minecraft dünya ayarları",
+    "h1": "level.dat Düzenleyici — Minecraft Dünya Ayarları",
+    "crumb": "level.dat düzenleyici",
+    "reltitle": "level.dat düzenleyici",
+    "reldesc": "Dünya adı, oyun modu, spawn, zorluk ve oyun kuralları.",
+    "answer": "<code>level.dat</code> bir Minecraft dünyasının adı, oyun modu, zorluğu, spawn noktası, oyun kuralları, hava durumu ve son açıldığı sürüm gibi tüm kendi ayarlarını tutar. Bu değerleri doğrudan düzenlemek için dosyayı aşağıya bırakın. Java (gzip, big-endian) ve Bedrock (8 baytlık üstbilgili little-endian) dosyaları desteklenir; dosya geldiği biçimde geri yazılır.",
+    "droplabel": "level.dat",
+    "body": "\n<section class=\"content\" aria-label=\"Tags in level.dat\">\n<h2>Sık düzenlenen etiketler</h2>\n<p>Java <code>level.dat</code> neredeyse her şeyi tek bir <code>Data</code> compound içinde tutar; Bedrock <code>level.dat</code> etiketlerini doğrudan kökte tutar. Aşağıdaki adlar bilinmesi gerekenlerdir; ağaçta aradığınızda düzenleyici doğrudan etikete gider.</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Etiket</th><th>Tür</th><th>Sürüm</th><th>Denetlediği ayar</th></tr></thead>\n<tbody>\n<tr><td><code>LevelName</code></td><td>String</td><td>İkisi de</td><td>Dünyanın görünen adı. Dünya klasörü kopyalanınca eski kalır; <a href=\"../guides/change-world-name/\">yeniden adlandırma kılavuzu</a> bu durumu açıklar.</td></tr>\n<tr><td><code>GameType</code> / <code>gameType</code></td><td>Int</td><td>İkisi de</td><td>0 hayatta kalma, 1 yaratıcı, 2 macera, 3 izleyici.</td></tr>\n<tr><td><code>Difficulty</code></td><td>Byte / Int</td><td>İkisi de</td><td>0 barışçıl, 1 kolay, 2 normal, 3 zor.</td></tr>\n<tr><td><code>hardcore</code></td><td>Byte</td><td>İkisi de</td><td>1, dünyayı hardcore kurallarına kilitler.</td></tr>\n<tr><td><code>allowCommands</code> / <code>commandsEnabled</code></td><td>Byte</td><td>Java / Bedrock</td><td>Hilelerin etkin olup olmadığı.</td></tr>\n<tr><td><code>SpawnX</code>, <code>SpawnY</code>, <code>SpawnZ</code></td><td>Int</td><td>İkisi de</td><td>Dünya spawn koordinatları.</td></tr>\n<tr><td><code>Time</code>, <code>DayTime</code></td><td>Long</td><td>Java</td><td>Toplam tick sayısı ve günün saati.</td></tr>\n<tr><td><code>currentTick</code></td><td>Int</td><td>Bedrock</td><td>Bedrock’taki eşdeğer dünya saati.</td></tr>\n<tr><td><code>RandomSeed</code> / <code>WorldGenSettings.seed</code></td><td>Long</td><td>Java</td><td>Dünya seed değeri. Yuvarlanmış double yerine gerçek 64 bit değer olarak tutulur.</td></tr>\n<tr><td><code>GameRules</code> / ayrı oyun kuralı etiketleri</td><td>Compound / Byte</td><td>Java / Bedrock</td><td>Komutun ayarladığı her şey; <code>/gamerule</code> bkz. <a href=\"../guides/edit-gamerules/\">oyun kuralları kılavuzu</a>.</td></tr>\n<tr><td><code>DataVersion</code></td><td>Int</td><td>Java</td><td>Dünya biçiminin sürümü. Dünyayı Minecraft sürümleri arasında taşımadan önce denetleyin.</td></tr>\n<tr><td><code>lastOpenedWithVersion</code></td><td>Int listesi</td><td>Bedrock</td><td>Dünyaya en son yazan Bedrock istemci veya sunucu derlemesi.</td></tr>\n<tr><td><code>Player</code></td><td>Compound</td><td>İkisi de</td><td>Dünya dosyasına gömülü tek oyunculu envanteri, konumu ve istatistikleri.</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Where to find level.dat\">\n<h2>Dosyanın konumu: <code>level.dat</code> </h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Platform</th><th>Yol</th></tr></thead>\n<tbody>\n<tr><td>Java sunucusu (Vanilla, Paper, Spigot, Fabric, Forge)</td><td><code>world/level.dat</code>, <code>region/</code> ve <code>playerdata/</code> klasörlerinin yanında</td></tr>\n<tr><td>Java istemcisi, Windows</td><td><code>%APPDATA%\\.minecraft\\saves\\&lt;World&gt;\\level.dat</code></td></tr>\n<tr><td>Java istemcisi, macOS</td><td><code>~/Library/Application Support/minecraft/saves/&lt;World&gt;/level.dat</code></td></tr>\n<tr><td>Java istemcisi, Linux</td><td><code>~/.minecraft/saves/&lt;World&gt;/level.dat</code></td></tr>\n<tr><td>Bedrock Dedicated Server, PocketMine-MP, Nukkit</td><td><code>worlds/&lt;World&gt;/level.dat</code></td></tr>\n<tr><td>Android’da Bedrock</td><td><code>Android/data/com.mojang.minecraftpe/files/games/com.mojang/minecraftWorlds/&lt;id&gt;/level.dat</code></td></tr>\n<tr><td>Windows’ta Bedrock</td><td><code>%LOCALAPPDATA%\\Packages\\Microsoft.MinecraftUWP_*\\LocalState\\games\\com.mojang\\minecraftWorlds\\&lt;id&gt;\\level.dat</code></td></tr>\n</tbody>\n</table>\n</div>\n<p>Minecraft ayrıca yanına önceki kayıt olan <code>level.dat_old</code> dosyasını yazar. Bu dosya da düzenleyicide açılır ve güncel dosya yüklenmiyorsa önce denenmelidir.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Safety\">\n<h2>Güvenli düzenleme</h2>\n<div class=\"card\">\n<ul>\n<li><strong>Önce sunucuyu durdurun veya oyunu kapatın.</strong> Minecraft <code>level.dat</code> dosyasını otomatik kayıtta ve kapanışta yeniden yazar. Çalışan sunucu düzenlemenizin üzerine yazar veya daha kötüsü yarım kopyalanmış dosyayı ezebilir.</li>\n<li><strong>Özgün dosyayı saklayın.</strong> Düzenleyici bıraktığınız dosyayı değiştirmez; yeni bir indirme oluşturur. Dünya bir kez yüklenene kadar eski kopyayı saklayın.</li>\n<li><strong>Etiket türlerini değiştirmeyin.</strong>  <code>Difficulty</code> etiketini Byte’tan Int’e çevirmek veya Minecraft’ın beklediği bir etiketi yeniden adlandırmak dünyanın yüklenmesini engeller. Nedenini bilmiyorsanız yapıyı değil değerleri düzenleyin.</li>\n<li><strong>Bedrock üstbilgisini koruyun.</strong> 8 baytlık üstbilgi depolama sürümünü ve yük uzunluğunu taşır. Düzenleyici uzunluğu otomatik yeniden yazar ve sürümü korur; üstbilgisi bozulan elle düzenlenmiş dosyalar yüklenmez.</li>\n</ul>\n</div>\n</section>\n",
+    "chips": [
+      "Java level.dat",
+      "Bedrock level.dat",
+      "level.dat_old",
+      "gzip",
+      "8 baytlık üstbilgi"
+    ],
+    "faq": [
+      [
+        "Yazılım indirmeden level.dat düzenleyebilir miyim?",
+        "<p>Evet. Ayrıştırıcı tarayıcınızda çalışır; kurulum gerekmez ve güncel bir tarayıcı dışında işletim sistemi şartı yoktur.</p>"
+      ],
+      [
+        "Dünyam neden hâlâ eski adını gösteriyor?",
+        "<p>Dünya listesindeki ad, <code>LevelName</code> etiketinden gelir; bu etiket <code>level.dat</code> içindedir, klasör adından gelmez. Klasörü kopyalamak veya yeniden adlandırmak etiketi değiştirmez. Etiketi düzenlediğinizde liste güncellenir.</p>"
+      ],
+      [
+        "level.dat_old ile çalışır mı?",
+        "<p>Evet. <code>level.dat_old</code>, aynı biçimdeki önceki kayıttır. Güncel dosya bozuksa <code>_old</code> kopyasını açın, yapısının düzgün olduğunu doğrulayın ve özgün adıyla geri yükleyin.</p>"
+      ],
+      [
+        "Dünya seed değerini burada değiştirebilir miyim?",
+        "<p>Seed etiketini değiştirebilirsiniz ancak yalnızca değişiklikten sonra oluşturulan arazi etkilenir. Diskteki chunk’lar eski biçimini korur; eski ve yeni arazi arasındaki birleşim görünür olur.</p>"
+      ],
+      [
+        "level.dat düzenlemek yasaklanmama veya dünyanın bozulmasına yol açar mı?",
+        "<p>Bu kendi kayıt dosyanızdır; yasaklanma söz konusu değildir. Bozulma, sunucu çalışırken düzenleme yapmaktan ya da değerler yerine etiket türlerini ve adlarını değiştirmekten kaynaklanır. Sunucuyu durdurun, değerleri düzenleyin ve yedek alın.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "{0} olarak yüklendi",
+      "trailing": "Kök etiketten sonraki {0} ek bayt yok sayıldı",
+      "error": "Hata: {0}",
+      "readfail": "Dosya okunamadı",
+      "nofile": "Dosya yüklenmedi",
+      "saved": "{0} kaydedildi ({1}, {2})",
+      "savefail": "Kaydetme hatası: {0}",
+      "exported": "{0} dışa aktarıldı",
+      "snbtfail": "SNBT hatası: {0}",
+      "tagadded": "Etiket eklendi",
+      "tagremoved": "Etiket kaldırıldı",
+      "arrayupdated": "Dizi güncellendi",
+      "badvalue": "Geçersiz değer: {0}",
+      "badarray": "Geçersiz dizi: {0}",
+      "nameneeded": "Etiket adı gerekli",
+      "nametaken": "Burada {0} adlı bir etiket zaten var",
+      "listtype": "Liste zaten {0} türünde öğeler içeriyor",
+      "editlevelname": "✎ LevelName değerini düzenle",
+      "showmore": "{1} öğeden {0} tane daha göster …",
+      "matches": "{0} eşleşme",
+      "nomatch": "“{0}” ile eşleşen etiket yok",
+      "arraytoobig": "Dizide {0} öğe var — diziyi genişletip öğeleri ayrı ayrı düzenleyin",
+      "uncompressed": "sıkıştırılmamış",
+      "storage": "depolama v{0}",
+      "entries": "{0} öğe",
+      "langprompt": "Bu sayfa {0} dilinde açılsın mı?",
+      "langyes": "Geç",
+      "langno": "Kal"
+    },
+    "support": "<strong>Minecraft Bedrock Edition ve Java Edition desteği</strong> — her iki sürümün yaygın veya az bilinen tüm sunucu çekirdekleriyle: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina ve diğerleri. <a href=\"__HOME__#server-software\">Tam liste</a>.",
+    "footernote": "ücretsiz ve açık kaynaklıdır (MIT); tamamen tarayıcınızda çalışır. Mojang Studios veya Microsoft ile bağlantılı değildir. Minecraft, Mojang Studios’un ticari markasıdır.",
+    "faqtitle": "Sık Sorulan Sorular",
+    "toctitle": "Bu sayfada",
+    "relatedtitle": "İlgili araçlar",
+    "homecrumb": "NBT Düzenleyici",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Düzenleyiciler",
+      "Dosya türleri",
+      "Başvuru"
+    ],
+    "sourcehead": "Kaynak",
+    "sourcelink": "GitHub’daki kod"
+  },
+  "java-nbt-editor": {
+    "title": "Java Edition NBT Düzenleyici — level.dat ve .nbt",
+    "ogtitle": "Java Edition NBT Düzenleyici — big-endian, gzip, çevrimiçi",
+    "desc": "Minecraft Java Edition için çevrimiçi NBT düzenleyici: Paper, Spigot, Fabric ve Forge kaynaklı gzip big-endian level.dat, playerdata ve yapı .nbt dosyaları.",
+    "keywords": "java nbt editör, minecraft java nbt düzenleyici, java level.dat düzenleme, playerdata editör, paper level.dat, spigot nbt, fabric nbt, forge nbt",
+    "h1": "Java Edition NBT Düzenleyici",
+    "crumb": "Java",
+    "reltitle": "Java Edition NBT düzenleyici",
+    "reldesc": "Big-endian ve gzip — Vanilla, Paper, Spigot, Fabric, Forge.",
+    "answer": "Minecraft Java Edition verilerini çoğunlukla gzip ile sıkıştırılmış big-endian NBT olarak saklar. Aşağıya herhangi bir Java dosyası bırakın: <code>level.dat</code>, bir <code>playerdata</code> UUID dosyası, <code>servers.dat</code>, bir yapı <code>.nbt</code>, bir WorldEdit şeması. Düzenleyici dosyayı açar, big-endian olarak ayrıştırır ve oyunun kabul edeceği gzip sıkıştırmalı biçimde geri yazar.",
+    "droplabel": "bir Java NBT dosyası",
+    "body": "\n<section class=\"content\" aria-label=\"Java NBT files\">\n<h2>Java dünyasının dosyaları</h2>\n<p>Aşağıdakilerin tümü yukarıdaki düzenleyicide açılır. Bölge dosyaları (<code>.mca</code>) tek NBT belgesi değil, çok sayıda sıkıştırılmış chunk içeren kapsayıcılardır. Önce bir chunk yükü çıkarın; düzenleyici çıkan zlib sıkıştırmalı chunk NBT’sini okur.</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Yol</th><th>İçerik</th><th>Sıkıştırma</th></tr></thead>\n<tbody>\n<tr><td><code>world/level.dat</code></td><td>Dünya adı, oyun modu, kurallar, spawn, <code>DataVersion</code></td><td>gzip</td></tr>\n<tr><td><code>world/level.dat_old</code></td><td>Aynı dosyanın önceki kaydı</td><td>gzip</td></tr>\n<tr><td><code>world/playerdata/&lt;uuid&gt;.dat</code></td><td>Envanter, ender chest, konum, sağlık, XP, nitelikler</td><td>gzip</td></tr>\n<tr><td><code>world/data/raids.dat</code>, <code>idcounts.dat</code>, <code>map_*.dat</code></td><td>Raid durumu, varlık kimliği sayaçları, harita öğeleri</td><td>gzip</td></tr>\n<tr><td><code>world/data/scoreboard.dat</code></td><td>Hedefler, takımlar, puanlar</td><td>gzip</td></tr>\n<tr><td><code>world/region/*.mca</code></td><td>Bölge kapsayıcısındaki chunk NBT’si</td><td>her chunk için zlib</td></tr>\n<tr><td><code>servers.dat</code></td><td>İstemcideki çok oyunculu sunucu listesi</td><td>yok</td></tr>\n<tr><td><code>hotbar.nbt</code></td><td>Kaydedilmiş creative hızlı çubukları</td><td>yok</td></tr>\n<tr><td><code>*.nbt</code> veri paketlerinde</td><td>Yapı blokları ve jigsaw’larla yerleştirilen yapılar</td><td>gzip</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Java NBT encoding\">\n<h2>Java NBT’yi nasıl kodlar</h2>\n<div class=\"card\">\n<ul>\n<li><strong>Big-endian.</strong> Her integer ve float, Java’nın <code>DataOutputStream</code>.</li>\n<li><strong>Adlı kök.</strong> Dosya <code>0x0A</code>, ardından uzunluk önekli UTF-8 kök adı gelir; bu ad tarihsel olarak <code>level.dat</code>.</li>\n<li><strong>Değiştirilmiş UTF-8.</strong> Dizeler Java’nın <code>writeUTF</code> kodlamasını kullanır: iki baytlık uzunluk, NUL için <code>C0 80</code>, temel düzlem dışındaki karakterler iki üç baytlık parçaya (CESU-8) ayrılır. Bunu standart UTF-8 sayan araçlar emojileri bozar; bu düzenleyici doğru kodlar.</li>\n<li><strong>Varsayılan olarak gzip.</strong> <code>NbtIo.readCompressed</code> gzip akışı bekler. Sıkıştırılmadan yazılan dosyalar bazı araçlarda açılır ancak oyunda açılmaz.</li>\n<li><strong>Ağda adsız kök.</strong> 1.20.2’den itibaren protokol NBT’yi kök adı olmadan gönderir. Bu biçimdeki paket dökümleri burada <em>Java ağı</em> olarak algılanır.</li>\n</ul>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Server cores\">\n<h2>Paper, Spigot, Fabric, Forge — aynı dosyalar</h2>\n<p>Fork’lar ve mod yükleyiciler dünyanın yazılma biçimini değil, sunucunun çalışma biçimini değiştirir. Paper, Purpur, Pufferfish, Folia, Fabric, Quilt, Forge, NeoForge, Mohist, Arclight ve Sponge, Vanilla NBT düzenini kullanır; bu sayfadaki bilgiler aynen geçerlidir. Fork’ların eklediği şey dünya yanındaki ek dosyalardır: <code>paper-world.yml</code>, mod yapılandırmaları — bunlar YAML veya TOML’dir ve NBT ile ilgili değildir.</p>\n<p>Modlar ve eklentiler <code>level.dat</code> veya <code>playerdata</code>. Bu etiketler de diğerleri gibi açılır; modun bunları nasıl kullandığını bilmiyorsanız değiştirmeyin.</p>\n</section>\n\n<section class=\"content\" aria-label=\"DataVersion\">\n<h2><code>DataVersion</code> ve sürüm geçişi</h2>\n<p>Java dünyaları, dünya biçimini tanımlayan ve her snapshot’ta artırılan bir <code>DataVersion</code> integer değeri taşır. Bazı referanslar: 1.16.5 = 2586, 1.17.1 = 2730, 1.18.2 = 2975, 1.19.4 = 3337, 1.20.4 = 3700, 1.21 = 3953. Dünya, onu yazan sürümden eski istemcide bu etiket nedeniyle açılmaz. Değeri elle düşürmek chunk verilerini eski sürüme dönüştürmez; yalnızca korumayı kaldırır. Dünyayı hangi sürümün yazdığını öğrenmek için okuyun, sürüm düşürmeye zorlamak için değiştirmeyin.</p>\n</section>\n",
+    "chips": [
+      "Vanilla",
+      "Paper",
+      "Spigot",
+      "Purpur",
+      "Folia",
+      "Fabric",
+      "Quilt",
+      "Forge",
+      "NeoForge",
+      "Sponge"
+    ],
+    "faq": [
+      [
+        "Oyunda yüklenmeyen bir Java level.dat dosyasını açabilir miyim?",
+        "<p>Genellikle evet. Düzenleyici sondaki ek baytlara karşı oyundan daha toleranslıdır ve dosya kesilmişse ayrıştırmanın nerede durduğunu bildirir. O da reddederse önceki otomatik kayıt olan <code>level.dat_old</code> dosyasını deneyin.</p>"
+      ],
+      [
+        "1.20.2+ ağ NBT’sini destekliyor mu?",
+        "<p>Evet. 1.20.2’den itibaren protokol kök adını kullanmaz. Bu biçimdeki döküm <em>Java ağı</em> olarak algılanır; ağ NBT’si veya normal adlı kök dosyası olarak yeniden kaydedilebilir.</p>"
+      ],
+      [
+        ".mca bölge dosyasındaki chunk’ı düzenleyebilir miyim?",
+        "<p>Chunk NBT’sini bölge kapsayıcısından çıkardıktan sonra düzenleyebilirsiniz. <code>.mca</code>, bir indeks ile çok sayıda zlib sıkıştırmalı chunk yükü içerir; bu düzenleyici kapsayıcıyı değil tek NBT belgesini işler.</p>"
+      ],
+      [
+        "playerdata düzenlemek oyuncuyu bozar mı?",
+        "<p>Yalnızca sunucu çalışırken düzenlerseniz: sunucu oyuncu durumunu bellekte tutar ve çıkışta dosyaya yazarak değişikliğinizi ezer. Oyuncuyu çevrimdışı bırakın, düzenleyin ve yeniden bağlanmasına izin verin. Bkz. <a href=\"../playerdata-editor/\">playerdata düzenleyici</a>.</p>"
+      ],
+      [
+        "gzip level.dat gerekli mi?",
+        "<p>Vanilla yükleyicisi gzip okur. Sıkıştırmayı gzip olarak kaydedin; dosya bu şekilde geldiyse zaten varsayılandır. Oyun dosyayı kabul eder.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "{0} olarak yüklendi",
+      "trailing": "Kök etiketten sonraki {0} ek bayt yok sayıldı",
+      "error": "Hata: {0}",
+      "readfail": "Dosya okunamadı",
+      "nofile": "Dosya yüklenmedi",
+      "saved": "{0} kaydedildi ({1}, {2})",
+      "savefail": "Kaydetme hatası: {0}",
+      "exported": "{0} dışa aktarıldı",
+      "snbtfail": "SNBT hatası: {0}",
+      "tagadded": "Etiket eklendi",
+      "tagremoved": "Etiket kaldırıldı",
+      "arrayupdated": "Dizi güncellendi",
+      "badvalue": "Geçersiz değer: {0}",
+      "badarray": "Geçersiz dizi: {0}",
+      "nameneeded": "Etiket adı gerekli",
+      "nametaken": "Burada {0} adlı bir etiket zaten var",
+      "listtype": "Liste zaten {0} türünde öğeler içeriyor",
+      "editlevelname": "✎ LevelName değerini düzenle",
+      "showmore": "{1} öğeden {0} tane daha göster …",
+      "matches": "{0} eşleşme",
+      "nomatch": "“{0}” ile eşleşen etiket yok",
+      "arraytoobig": "Dizide {0} öğe var — diziyi genişletip öğeleri ayrı ayrı düzenleyin",
+      "uncompressed": "sıkıştırılmamış",
+      "storage": "depolama v{0}",
+      "entries": "{0} öğe",
+      "langprompt": "Bu sayfa {0} dilinde açılsın mı?",
+      "langyes": "Geç",
+      "langno": "Kal"
+    },
+    "support": "<strong>Minecraft Bedrock Edition ve Java Edition desteği</strong> — her iki sürümün yaygın veya az bilinen tüm sunucu çekirdekleriyle: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina ve diğerleri. <a href=\"__HOME__#server-software\">Tam liste</a>.",
+    "footernote": "ücretsiz ve açık kaynaklıdır (MIT); tamamen tarayıcınızda çalışır. Mojang Studios veya Microsoft ile bağlantılı değildir. Minecraft, Mojang Studios’un ticari markasıdır.",
+    "faqtitle": "Sık Sorulan Sorular",
+    "toctitle": "Bu sayfada",
+    "relatedtitle": "İlgili araçlar",
+    "homecrumb": "NBT Düzenleyici",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Düzenleyiciler",
+      "Dosya türleri",
+      "Başvuru"
+    ],
+    "sourcehead": "Kaynak",
+    "sourcelink": "GitHub’daki kod"
+  },
+  "mcpe-nbt-editor": {
+    "title": "MCPE NBT Düzenleyici — Bedrock level.dat",
+    "ogtitle": "Bedrock NBT Düzenleyici — level.dat, MCPE, MCBE",
+    "desc": "MCPE ve Bedrock dünya dosyalarını çevrimiçi düzenleyin: Android, iOS, Windows veya sunucudan 8 bayt üstbilgili level.dat, .mcstructure ve little-endian NBT.",
+    "keywords": "mcpe nbt editör, minecraft pe nbt düzenleyici, bedrock level.dat düzenleme, mcpe dünya editörü, android level.dat, bedrock nbt viewer, little endian nbt",
+    "h1": "MCPE NBT Düzenleyici — Minecraft Pocket Edition",
+    "crumb": "MCPE",
+    "reltitle": "MCPE NBT düzenleyici",
+    "reldesc": "Little-endian NBT biçimi ve 8 baytlık level.dat üstbilgisi.",
+    "answer": "Bedrock Edition NBT’yi little-endian olarak yazar; <code>level.dat</code> dosyasının başında depolama sürümü ile yük uzunluğunu tutan 8 baytlık üstbilgi bulunur. Aşağıya bir Bedrock dosyası bırakın: <code>level.dat</code>, <code>.mcstructure</code>, bir LevelDB değeri veya protokol dökümü. Düzenleyici dosyayı okur, üstbilgiyi korur, kayıtta uzunluğu yeniden hesaplar ve dünya klasörüne koymaya hazır verir.",
+    "droplabel": "bir Bedrock level.dat dosyası",
+    "body": "\n<section class=\"content\" aria-label=\"Bedrock level.dat header\">\n<h2>8 baytlık üstbilgi neden önemlidir</h2>\n<p>Bir Bedrock <code>level.dat</code> ham NBT değildir. İlk dört bayt little-endian depolama sürümüdür (kullanılan değerler 8 ve 10), sonraki dört bayt NBT yükünün bayt uzunluğudur; ardından sıkıştırılmamış etiketler gelir. Uzunluğu düzeltmeden yükü değiştirirseniz oyun dosyayı reddeder. Bedrock kayıtları yalnızca Java destekleyen bir NBT aracında açıldığında olan budur.</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Ofset</th><th>Boyut</th><th>Alan</th></tr></thead>\n<tbody>\n<tr><td>0</td><td>4 bayt</td><td>Depolama sürümü, little-endian int</td></tr>\n<tr><td>4</td><td>4 bayt</td><td>Bayt cinsinden yük uzunluğu, little-endian unsigned</td></tr>\n<tr><td>8</td><td>kalan</td><td>Little-endian NBT biçimi, kök compound, sıkıştırılmamış</td></tr>\n</tbody>\n</table>\n</div>\n<p>Düzenleyici depolama sürümünü dosya çubuğunda gösterir, korur ve her kayıtta uzunluğu yeniden yazar.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Bedrock tags\">\n<h2>Bilinmesi gereken Bedrock etiketleri</h2>\n<p>Bedrock ayarlarını <code>level.dat</code> kökünde düz tutar; Java’daki gibi bir <code>Data</code> compound altına yerleştirmez. Oyun kuralları da bir <code>GameRules</code> altında değil, ayrı etiketlerdir.</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Etiket</th><th>Tür</th><th>Anlam</th></tr></thead>\n<tbody>\n<tr><td><code>LevelName</code></td><td>String</td><td>Dünya listesinde ve sunucu çıktısında gösterilen ad</td></tr>\n<tr><td><code>GameType</code></td><td>Int</td><td>0 hayatta kalma, 1 yaratıcı, 2 macera</td></tr>\n<tr><td><code>Difficulty</code></td><td>Int</td><td>0 barışçıl … 3 zor</td></tr>\n<tr><td><code>commandsEnabled</code></td><td>Byte</td><td>Hileler açık veya kapalı</td></tr>\n<tr><td><code>SpawnX</code>, <code>SpawnY</code>, <code>SpawnZ</code></td><td>Int</td><td>Dünya spawn noktası</td></tr>\n<tr><td><code>RandomSeed</code></td><td>Long</td><td>Dünya seed değeri, gerçek 64 bit değer</td></tr>\n<tr><td><code>lastOpenedWithVersion</code></td><td>Int listesi</td><td>Dünyaya en son yazan istemci veya sunucu derlemesi</td></tr>\n<tr><td><code>StorageVersion</code></td><td>Int</td><td>Dünya depolama revizyonu; üstbilgiyi yansıtır</td></tr>\n<tr><td><code>experiments</code></td><td>Compound</td><td>Dünyada etkin deneysel seçenekler</td></tr>\n<tr><td><code>keepinventory</code>, <code>domobspawning</code>, …</td><td>Byte</td><td>Oyun kuralları; her biri küçük harfli ayrı etiket</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Where Bedrock files live\">\n<h2>Her platformda dosyanın konumu</h2>\n<ul>\n<li><strong>Android:</strong> <code>Android/data/com.mojang.minecraftpe/files/games/com.mojang/minecraftWorlds/&lt;id&gt;/level.dat</code>. Yeni Android sürümleri bu klasörü kısıtlar; oyun içi dünya dışa aktarmayı veya gerekli erişime sahip dosya yöneticisini kullanın.</li>\n<li><strong>iOS:</strong> dünyayı oyundan bir <code>.mcworld</code> olarak dışa aktarın, Dosyalar uygulamasında açıp arşivi çıkarın; <code>level.dat</code> arşiv kökündedir.</li>\n<li><strong>Windows:</strong> <code>%LOCALAPPDATA%\\Packages\\Microsoft.MinecraftUWP_8wekyb3d8bbwe\\LocalState\\games\\com.mojang\\minecraftWorlds\\&lt;id&gt;\\level.dat</code>.</li>\n<li><strong>Bedrock Dedicated Server:</strong> <code>worlds/&lt;World&gt;/level.dat</code>.</li>\n<li><strong>PocketMine-MP, Nukkit, PowerNukkitX:</strong> <code>worlds/&lt;World&gt;/level.dat</code> — bkz. <a href=\"../pocketmine-nbt-editor/\">sunucu tarafı kılavuzu</a>.</li>\n</ul>\n<p>Dünya klasör adı, dünya adı değil rastgele bir kimliktir. Değiştirme zamanına göre sıralayın veya birkaç <code>level.dat</code> dosyasını burada açıp doğru klasörü belirlemek için <code>LevelName</code> değerini okuyun.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Other Bedrock NBT\">\n<h2> ötesi <code>level.dat</code></h2>\n<p>Bedrock; chunk, entity ve block entity verilerini <code>db/</code> klasöründeki LevelDB veritabanında tutar. Birçok anahtarın değeri little-endian NBT biçimindedir. Çıkarılan değer burada <em>Bedrock ham biçimi</em> olarak açılır; başlık veya sıkıştırma içermez. Yapı dosyaları da aynı kodlamayı kullanır; bkz. <a href=\"../mcstructure-editor/\">.mcstructure düzenleyici</a>. Protokol kayıtları varint çeşidini kullanır; düzenleyici bunu <em>Bedrock ağ biçimi</em> olarak gösterir.</p>\n</section>\n",
+    "chips": [
+      "MCPE",
+      "MCBE",
+      "Bedrock Dedicated Server",
+      "PocketMine-MP",
+      "Nukkit",
+      "PowerNukkitX",
+      "Cloudburst",
+      "Dragonfly",
+      "Endstone"
+    ],
+    "faq": [
+      [
+        "Bedrock level.dat dosyam NBTExplorer’da neden açılmıyor?",
+        "<p>NBTExplorer Java’nın big-endian düzenini bekler ve 8 baytlık Bedrock üstbilgisini tanımaz. Bu düzenleyici ikisini de işler ve kaydederken üstbilgi uzunluğunu yeniden yazar.</p>"
+      ],
+      [
+        "Telefonda bir MCPE dünyasını düzenleyebilir miyim?",
+        "<p>Evet. Sayfayı telefon tarayıcısında açın, dosya yöneticisinden dosyayı seçin, düzenleyip kaydedin. İndirme İndirilenler klasörüne gelir; özgün dosyanın üzerine geri kopyalayın.</p>"
+      ],
+      [
+        "Depolama sürümü 8 ile 10 arasındaki fark nedir?",
+        "<p>Bunlar Bedrock dünya depolama biçiminin revizyonlarını belirtir; güncel istemciler 10 yazar. Düzenleyici dosyadaki değeri zorla değiştirmez, çünkü bunu değiştirmek arkasındaki dünya verisini taşımaz.</p>"
+      ],
+      [
+        ".mcworld dosyalarıyla çalışır mı?",
+        "<p>Doğrudan değil; <code>.mcworld</code> bir zip arşividir. Arşivi çıkarın, <code>level.dat</code> dosyasını burada düzenleyin, arşive geri koyup yeniden <code>.mcworld</code> uzantısını verin.</p>"
+      ],
+      [
+        "Bedrock oyun kurallarıyla çalışır mı?",
+        "<p>Evet. Bedrock her kuralı kökte küçük harfli ayrı bir byte etiketi olarak tutar: <code>keepinventory</code>, <code>domobspawning</code>, <code>showcoordinates</code> vb. Byte değerini 1 veya 0 yapın. <a href=\"../guides/edit-gamerules/\">Oyun kuralları kılavuzu</a> tümünü listeler.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "{0} olarak yüklendi",
+      "trailing": "Kök etiketten sonraki {0} ek bayt yok sayıldı",
+      "error": "Hata: {0}",
+      "readfail": "Dosya okunamadı",
+      "nofile": "Dosya yüklenmedi",
+      "saved": "{0} kaydedildi ({1}, {2})",
+      "savefail": "Kaydetme hatası: {0}",
+      "exported": "{0} dışa aktarıldı",
+      "snbtfail": "SNBT hatası: {0}",
+      "tagadded": "Etiket eklendi",
+      "tagremoved": "Etiket kaldırıldı",
+      "arrayupdated": "Dizi güncellendi",
+      "badvalue": "Geçersiz değer: {0}",
+      "badarray": "Geçersiz dizi: {0}",
+      "nameneeded": "Etiket adı gerekli",
+      "nametaken": "Burada {0} adlı bir etiket zaten var",
+      "listtype": "Liste zaten {0} türünde öğeler içeriyor",
+      "editlevelname": "✎ LevelName değerini düzenle",
+      "showmore": "{1} öğeden {0} tane daha göster …",
+      "matches": "{0} eşleşme",
+      "nomatch": "“{0}” ile eşleşen etiket yok",
+      "arraytoobig": "Dizide {0} öğe var — diziyi genişletip öğeleri ayrı ayrı düzenleyin",
+      "uncompressed": "sıkıştırılmamış",
+      "storage": "depolama v{0}",
+      "entries": "{0} öğe",
+      "langprompt": "Bu sayfa {0} dilinde açılsın mı?",
+      "langyes": "Geç",
+      "langno": "Kal"
+    },
+    "support": "<strong>Minecraft Bedrock Edition ve Java Edition desteği</strong> — her iki sürümün yaygın veya az bilinen tüm sunucu çekirdekleriyle: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina ve diğerleri. <a href=\"__HOME__#server-software\">Tam liste</a>.",
+    "footernote": "ücretsiz ve açık kaynaklıdır (MIT); tamamen tarayıcınızda çalışır. Mojang Studios veya Microsoft ile bağlantılı değildir. Minecraft, Mojang Studios’un ticari markasıdır.",
+    "faqtitle": "Sık Sorulan Sorular",
+    "toctitle": "Bu sayfada",
+    "relatedtitle": "İlgili araçlar",
+    "homecrumb": "NBT Düzenleyici",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Düzenleyiciler",
+      "Dosya türleri",
+      "Başvuru"
+    ],
+    "sourcehead": "Kaynak",
+    "sourcelink": "GitHub’daki kod"
+  },
+  "pocketmine-nbt-editor": {
+    "title": "PocketMine-MP level.dat Düzenleyici — Nukkit ve BDS",
+    "ogtitle": "PocketMine-MP ve Nukkit level.dat düzenleyici",
+    "desc": "PocketMine-MP, Nukkit, PowerNukkitX ve Bedrock Dedicated Server level.dat dosyasını çevrimiçi düzenleyin; dünya kopyasındaki yinelenen adı düzeltin.",
+    "keywords": "pocketmine level.dat düzenleme, pmmp nbt editör, pocketmine dünya adı değiştirme, nukkit level.dat, powernukkitx nbt, bds level.dat",
+    "h1": "PocketMine-MP ve Bedrock Sunucu level.dat Düzenleyici",
+    "crumb": "PocketMine-MP",
+    "reltitle": "PocketMine-MP düzenleyici",
+    "reldesc": "PMMP, Nukkit ve BDS için sunucu tarafı level.dat.",
+    "answer": "Bedrock sunucu yazılımları PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly ve resmi Bedrock Dedicated Server aynı little-endian <code>level.dat</code> dosyasını 8 baytlık üstbilgiyle <code>worlds/&lt;World&gt;/</code>. Klasörü çoğalttıktan sonra dünya adını düzeltmek, spawn noktasını taşımak, oyun kurallarını değiştirmek veya son yazan derlemeyi görmek için dosyanızı aşağıya bırakın.",
+    "droplabel": "worlds/&lt;World&gt;/level.dat",
+    "body": "\n<section class=\"content\" aria-label=\"Duplicate world names\">\n<h2>Yinelenen dünya adı sorunu</h2>\n<p>Her Bedrock sunucu yöneticisi bununla karşılaşır. İkinci bir arena için <code>worlds/hub</code> klasörünü <code>worlds/hub2</code> adıyla kopyalarsınız. Buna rağmen konsol, dünya yöneticisi ve dünya adını gösteren tüm eklentiler her ikisini de <em>hub</em> olarak gösterir. Klasörün adı değişmiştir, ancak <code>LevelName</code> etiketi <code>level.dat</code> içinde aynı kalmıştır.</p>\n<p>Sonuç yalnızca görsel değildir. Dünyaları iç adla bulan ışınlanma noktaları, dünya başına yapılandırmalar ve bölge koruması gibi eklentiler yanlış dünyayı seçebilir; dünya yönetimi komutları belirsizleşir. Etiketi düzenleyerek düzeltin: dosyayı yukarıya bırakınca düzenleyici doğrudan <code>LevelName</code> etiketine gider ve düzenlemeye açar.</p>\n<div class=\"card\">\n<ol class=\"steps\">\n<li>Sunucuyu durdurun. Çalışan sunucu kayıt sırasında <code>level.dat</code> dosyasını yeniden yazar ve değişikliği geri alır.</li>\n<li>Dosyayı <code>worlds/&lt;World&gt;/level.dat</code> SFTP veya panel dosya yöneticisiyle indirin.</li>\n<li>Düzenleyiciye bırakın, <code>LevelName</code> değerini yeni adla değiştirip kaydedin.</li>\n<li>Eski dosyayı yedek tutarak yenisini özgün dosyanın üzerine yükleyin.</li>\n<li>Sunucuyu başlatın ve yüklenen dünyaları bildiren konsol satırını denetleyin.</li>\n</ol>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Core specifics\">\n<h2>Çekirdeğe göre notlar</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Çekirdek</th><th>Dünya yolu</th><th>Notlar</th></tr></thead>\n<tbody>\n<tr><td>PocketMine-MP (PM5)</td><td><code>worlds/&lt;World&gt;/</code></td><td>Varsayılan dünyanın klasörünü belirleyen <code>level-name</code> ayarı <code>server.properties</code> dosyasındadır. Buna karşılık <code>LevelName</code>, dünyanın kendi adıdır.</td></tr>\n<tr><td>Nukkit / PowerNukkitX</td><td><code>worlds/&lt;World&gt;/</code></td><td>Aynı Bedrock düzeni; PNX yanına kendi ayar dosyalarını ekler.</td></tr>\n<tr><td>Bedrock Dedicated Server</td><td><code>worlds/&lt;World&gt;/</code></td><td><code>level-name</code> içindeki <code>server.properties</code> klasörü seçer; üstbilgi depolama sürümü genellikle 10’dur.</td></tr>\n<tr><td>Cloudburst / Dragonfly</td><td><code>worlds/&lt;World&gt;/</code></td><td>Aynı <code>level.dat</code> dosyasını kullanırlar; Dragonfly ek durum bilgilerini kendi veritabanında tutabilir.</td></tr>\n<tr><td>WaterdogPE, Geyser</td><td>—</td><td>Proxy’lerdir. Dünya barındırmazlar; NBT yalnızca ağ NBT’si olarak üzerlerinden geçer.</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Server workflow\">\n<h2>Üretimi bozmadan düzenleme</h2>\n<div class=\"card\">\n<ul>\n<li><strong>Tüm dünya klasörünü yedekleyin;</strong> yalnızca <code>level.dat</code> dosyasını değil. Birkaç saniye sürer ve hatalı bir düzenlemeyi geri alabilmenizi sağlar.</li>\n<li><strong>Canlı dosyayı SFTP üzerinden düzenlemeyin.</strong> Sunucu duruyorken indirin, düzenleyin ve yükleyin. Sunucu dünyayı açık tutarken yerinde düzenlemek dosyanın kesilmesine yol açabilir.</li>\n<li><strong>Yeni mod için dünya mı kopyalıyorsunuz?</strong>  <code>LevelName</code> değerini sunucu görmeden hemen sonra değiştirin; böylece hiçbir şey yanlış adı önbelleğe almaz.</li>\n<li><strong>Dosyayı açtıktan sonra bilgi çubuğunu kontrol edin.</strong> Algılanan biçimi ve depolama sürümünü gösterir. Bedrock dünya dosyası <em>Bedrock level.dat</em> olarak görünmüyorsa yanlış dosyayı seçmiş olabilirsiniz veya dosya bozulmuş olabilir.</li>\n</ul>\n</div>\n</section>\n",
+    "chips": [
+      "PocketMine-MP",
+      "Nukkit",
+      "PowerNukkitX",
+      "Cloudburst",
+      "Bedrock Dedicated Server",
+      "Dragonfly",
+      "Endstone",
+      "WaterdogPE"
+    ],
+    "faq": [
+      [
+        "PocketMine-MP, Bedrock ile aynı level.dat dosyasını mı kullanır?",
+        "<p>Evet. PocketMine-MP, Bedrock dünya biçimini uygular; <code>level.dat</code> dosyası 8 baytlık üstbilgili little-endian NBT’dir ve Vanilla Bedrock sunucusunun yazdığı biçimle bayt düzeyinde aynıdır.</p>"
+      ],
+      [
+        "İki dünya konsolda neden aynı adı gösteriyor?",
+        "<p>İkisi de aynı klasörden kopyalanmıştır ve ortak bir <code>LevelName</code> değerine sahiptir. Klasör adı ile etiket bağımsızdır; etiketi değiştirin.</p>"
+      ],
+      [
+        "Sunucuyu yeniden başlatmadan dünyayı yeniden adlandırabilir miyim?",
+        "<p>Hayır. Dünya bellekte yüklüdür ve kayıtta yeniden yazılır; sunucu çalışırken yapılan düzenleme kaybolur. Durdurun, düzenleyin, başlatın.</p>"
+      ],
+      [
+        "Nukkit ve PowerNukkitX ile çalışır mı?",
+        "<p>Evet; biçim, dosya yolu ve işlem aynıdır.</p>"
+      ],
+      [
+        "Bedrock dünyasını Java’ya nasıl dönüştürürüm?",
+        "<p>NBT düzenleyiciyle dönüştüremezsiniz. Bayt sırası kolay kısımdır; etiket düzeni, blok paletleri ve chunk depolaması tamamen farklıdır. Özel bir dönüştürücü kullanın, ardından kalan meta verileri bu düzenleyiciyle düzenleyin.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "{0} olarak yüklendi",
+      "trailing": "Kök etiketten sonraki {0} ek bayt yok sayıldı",
+      "error": "Hata: {0}",
+      "readfail": "Dosya okunamadı",
+      "nofile": "Dosya yüklenmedi",
+      "saved": "{0} kaydedildi ({1}, {2})",
+      "savefail": "Kaydetme hatası: {0}",
+      "exported": "{0} dışa aktarıldı",
+      "snbtfail": "SNBT hatası: {0}",
+      "tagadded": "Etiket eklendi",
+      "tagremoved": "Etiket kaldırıldı",
+      "arrayupdated": "Dizi güncellendi",
+      "badvalue": "Geçersiz değer: {0}",
+      "badarray": "Geçersiz dizi: {0}",
+      "nameneeded": "Etiket adı gerekli",
+      "nametaken": "Burada {0} adlı bir etiket zaten var",
+      "listtype": "Liste zaten {0} türünde öğeler içeriyor",
+      "editlevelname": "✎ LevelName değerini düzenle",
+      "showmore": "{1} öğeden {0} tane daha göster …",
+      "matches": "{0} eşleşme",
+      "nomatch": "“{0}” ile eşleşen etiket yok",
+      "arraytoobig": "Dizide {0} öğe var — diziyi genişletip öğeleri ayrı ayrı düzenleyin",
+      "uncompressed": "sıkıştırılmamış",
+      "storage": "depolama v{0}",
+      "entries": "{0} öğe",
+      "langprompt": "Bu sayfa {0} dilinde açılsın mı?",
+      "langyes": "Geç",
+      "langno": "Kal"
+    },
+    "support": "<strong>Minecraft Bedrock Edition ve Java Edition desteği</strong> — her iki sürümün yaygın veya az bilinen tüm sunucu çekirdekleriyle: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina ve diğerleri. <a href=\"__HOME__#server-software\">Tam liste</a>.",
+    "footernote": "ücretsiz ve açık kaynaklıdır (MIT); tamamen tarayıcınızda çalışır. Mojang Studios veya Microsoft ile bağlantılı değildir. Minecraft, Mojang Studios’un ticari markasıdır.",
+    "faqtitle": "Sık Sorulan Sorular",
+    "toctitle": "Bu sayfada",
+    "relatedtitle": "İlgili araçlar",
+    "homecrumb": "NBT Düzenleyici",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Düzenleyiciler",
+      "Dosya türleri",
+      "Başvuru"
+    ],
+    "sourcehead": "Kaynak",
+    "sourcelink": "GitHub’daki kod"
+  },
+  "mcstructure-editor": {
+    "title": ".mcstructure Düzenleyici — Bedrock Yapı Dosyaları",
+    "ogtitle": ".mcstructure düzenleyici — Bedrock yapılarını açın ve düzenleyin",
+    "desc": "Bedrock .mcstructure dosyalarını çevrimiçi açıp düzenleyin: blok paleti, boyut, blok indeksleri ve block entity verileri; aynı kodlamayla geri kaydedilir.",
+    "keywords": "mcstructure editör, mcstructure düzenleme, mcstructure dosyası açma, bedrock yapı dosyası, minecraft bedrock structure editor, mcstructure viewer",
+    "h1": ".mcstructure Düzenleyici — Bedrock Yapı Dosyaları",
+    "crumb": ".mcstructure",
+    "reltitle": ".mcstructure düzenleyici",
+    "reldesc": "Bedrock yapı blokları: palet, boyut ve block entity verileri.",
+    "answer": "Bir <code>.mcstructure</code> dosyası Bedrock yapı bloğunun yazdığı sıkıştırılmamış little-endian NBT’dir. Boyutunu, blok paletini, blok indekslerini ve block entity verilerini okumak için aşağıya bırakın; istediğiniz kısmı düzenleyip aynı kodlamayla indirin. Böylece eklenti ve harita üreticileri dünyayı yeniden açmadan yapıyı düzeltebilir.",
+    "droplabel": "bir .mcstructure dosyası",
+    "body": "\n<section class=\"content\" aria-label=\"Inside a mcstructure file\">\n<h2>Bir dosyanın içeriği: <code>.mcstructure</code></h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Etiket</th><th>Tür</th><th>İçerik</th></tr></thead>\n<tbody>\n<tr><td><code>format_version</code></td><td>Int</td><td>Yapı biçimi revizyonu; güncel dosyalarda 1</td></tr>\n<tr><td><code>size</code></td><td>Int listesi</td><td>Yakalanan hacmin X, Y, Z boyutları</td></tr>\n<tr><td><code>structure_world_origin</code></td><td>Int listesi</td><td>Yapının dünyada yakalandığı konum</td></tr>\n<tr><td><code>structure</code></td><td>Compound</td><td>Aşağıdakilerin tümü burada bulunur</td></tr>\n<tr><td><code>structure.block_indices</code></td><td>Int[] listesi</td><td>İki palet indeksi katmanı; normalde bloklar ve waterlogging. <code>-1</code> “orada olanı bırak” anlamına gelir</td></tr>\n<tr><td><code>structure.entities</code></td><td>Compound listesi</td><td>Yapıyla birlikte yakalanan entity’ler</td></tr>\n<tr><td><code>structure.palette.default.block_palette</code></td><td>Compound listesi</td><td>Her farklı blok durumu: <code>name</code>, <code>states</code>, <code>version</code></td></tr>\n<tr><td><code>structure.palette.default.block_position_data</code></td><td>Compound</td><td>Konumun düz indeksiyle anahtarlanan block entity NBT’si</td></tr>\n</tbody>\n</table>\n</div>\n<p>İndeksler <code>block_indices</code> içinde önce X, sonra Z, ardından Y yönünde ilerler. Düz indeks <code>(x * sizeZ + z) * sizeY + y</code> ile palet listesine bağlanır. Bu eşleme, yapıyı yeniden üretmeden tek bir hatalı bloğu düzeltmenizi sağlar.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Typical edits\">\n<h2>Sık yapılan değişiklikler</h2>\n<ul>\n<li><strong>Bir blok türünü her yerde değiştirme</strong> — <code>block_palette</code> içindeki ilgili girdiyi düzenleyin; o indekse işaret eden her konum birlikte değişir.</li>\n<li><strong>Blok durumunu düzeltme</strong> içindeki hatalı <code>facing</code> veya yanlışlıkla eklenmiş <code>waterlogged</code> gibi değerleri düzeltin. <code>states</code> </li>\n<li><strong>Entity’leri kaldırma</strong> Yanlışlıkla yakalanan entity’leri <code>entities</code> listesinden kaldırın.</li>\n<li><strong>Block entity verilerini onarma</strong> — sandık içerikleri, tabela metinleri ve yaratık üreticisi ayarları <code>block_position_data</code> içinde bulunur.</li>\n<li><strong>Sürüm damgasını denetleme</strong> Oyun güncellemesinden sonra yapı yanlış bloklarla içe aktarılıyorsa palet girdilerindeki sürüm damgasını denetleyin.</li>\n</ul>\n</section>\n\n<section class=\"content\" aria-label=\"Where mcstructure files live\">\n<h2>Dosyaların konumu</h2>\n<p>Yapı blokları, dünyanın <code>structures/</code> klasörüne <code>&lt;namespace&gt;_&lt;name&gt;.mcstructure</code> biçiminde dosyalar yazar. Davranış paketleri bu dosyaları <code>structures/</code> altında sunar; oyun bunları ad alanına göre yükler. Her ikisi de aynı biçimdedir ve burada açılır.</p>\n<p>Java Edition’daki karşılığı gzip big-endian <code>.nbt</code> yapı dosyasıdır; kodlaması ve etiket düzeni farklıdır. <a href=\"../java-nbt-editor/\">Java düzenleyici sayfası</a> bunları açıklar; bu düzenleyici de açar.</p>\n</section>\n",
+    "chips": [
+      "Yapı blokları",
+      "Bedrock eklentileri",
+      "Behavior pack’ler",
+      "Little-endian NBT biçimi"
+    ],
+    "faq": [
+      [
+        ".mcstructure dosyasını Java .nbt yapısına dönüştürebilir miyim?",
+        "<p>Düzenleyici baytları big-endian gzip olarak yeniden kodlayabilir ancak etiket düzeni farklıdır. Java yapıları farklı anahtar ve blok adlarıyla <code>palette</code>/<code>blocks</code> kullanır. Yeniden kodlanan dosya okunabilir olsa da geçerli Java yapısı olmaz.</p>"
+      ],
+      [
+        ".mcstructure dosyam neden sıkıştırılmamış?",
+        "<p>Bedrock yapı dosyalarını gzip sarmalayıcı olmadan ham little-endian NBT olarak yazar. Bu normaldir; düzenleyici dosyayı <em>Bedrock ham biçimi</em> olarak algılar.</p>"
+      ],
+      [
+        "block_indices içindeki -1 ne anlama gelir?",
+        "<p>Yapının dokunmayacağı konumu işaretler; yapı yerleştirildiğinde dünyadaki mevcut blok korunur.</p>"
+      ],
+      [
+        "size değerini değiştirerek yapıyı yeniden boyutlandırabilir miyim?",
+        "<p>Tek başına olmaz. <code>block_indices</code> her konum için bir girdi içerir; dizi uzunluğu yeni hacimle tam eşleşmelidir. Yalnızca <code>size</code> değiştirilirse oyun dosyayı reddeder.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "{0} olarak yüklendi",
+      "trailing": "Kök etiketten sonraki {0} ek bayt yok sayıldı",
+      "error": "Hata: {0}",
+      "readfail": "Dosya okunamadı",
+      "nofile": "Dosya yüklenmedi",
+      "saved": "{0} kaydedildi ({1}, {2})",
+      "savefail": "Kaydetme hatası: {0}",
+      "exported": "{0} dışa aktarıldı",
+      "snbtfail": "SNBT hatası: {0}",
+      "tagadded": "Etiket eklendi",
+      "tagremoved": "Etiket kaldırıldı",
+      "arrayupdated": "Dizi güncellendi",
+      "badvalue": "Geçersiz değer: {0}",
+      "badarray": "Geçersiz dizi: {0}",
+      "nameneeded": "Etiket adı gerekli",
+      "nametaken": "Burada {0} adlı bir etiket zaten var",
+      "listtype": "Liste zaten {0} türünde öğeler içeriyor",
+      "editlevelname": "✎ LevelName değerini düzenle",
+      "showmore": "{1} öğeden {0} tane daha göster …",
+      "matches": "{0} eşleşme",
+      "nomatch": "“{0}” ile eşleşen etiket yok",
+      "arraytoobig": "Dizide {0} öğe var — diziyi genişletip öğeleri ayrı ayrı düzenleyin",
+      "uncompressed": "sıkıştırılmamış",
+      "storage": "depolama v{0}",
+      "entries": "{0} öğe",
+      "langprompt": "Bu sayfa {0} dilinde açılsın mı?",
+      "langyes": "Geç",
+      "langno": "Kal"
+    },
+    "support": "<strong>Minecraft Bedrock Edition ve Java Edition desteği</strong> — her iki sürümün yaygın veya az bilinen tüm sunucu çekirdekleriyle: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina ve diğerleri. <a href=\"__HOME__#server-software\">Tam liste</a>.",
+    "footernote": "ücretsiz ve açık kaynaklıdır (MIT); tamamen tarayıcınızda çalışır. Mojang Studios veya Microsoft ile bağlantılı değildir. Minecraft, Mojang Studios’un ticari markasıdır.",
+    "faqtitle": "Sık Sorulan Sorular",
+    "toctitle": "Bu sayfada",
+    "relatedtitle": "İlgili araçlar",
+    "homecrumb": "NBT Düzenleyici",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Düzenleyiciler",
+      "Dosya türleri",
+      "Başvuru"
+    ],
+    "sourcehead": "Kaynak",
+    "sourcelink": "GitHub’daki kod"
+  },
+  "schematic-editor": {
+    "title": ".schem ve .schematic Düzenleyici — WorldEdit",
+    "ogtitle": ".schem / .schematic düzenleyici — WorldEdit ve MCEdit",
+    "desc": "WorldEdit .schem ve MCEdit .schematic dosyalarını çevrimiçi açın; palet, boyut, ofset ve block entity verilerini okuyup etiketleri düzenleyin.",
+    "keywords": "schematic editör, schem düzenleme, worldedit schematic editor, .schem dosyası açma, mcedit schematic viewer, minecraft şema düzenleyici",
+    "h1": "Schematic Düzenleyici — .schem ve .schematic",
+    "crumb": ".schem",
+    "reltitle": "Schematic düzenleyici",
+    "reldesc": "WorldEdit .schem ve eski MCEdit .schematic dosyaları.",
+    "answer": "Şemalar gzip sıkıştırmalı big-endian NBT’dir. Modern bir WorldEdit <code>.schem</code> (Sponge Schematic biçimi) ya da eski MCEdit <code>.schematic</code> dosyasını aşağıya bırakın. Paleti, boyutları, ofsetleri, block entity listesini ve meta veriyi inceleyin; istediğiniz etiketi düzenleyip <code>//paste</code>.",
+    "droplabel": "bir .schem veya .schematic dosyası",
+    "body": "\n<section class=\"content\" aria-label=\"Schematic formats\">\n<h2>İki biçim, tek uzantı ailesi</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Biçim</th><th>Uzantı</th><th>Temel etiketler</th></tr></thead>\n<tbody>\n<tr><td>Sponge Schematic v2 (WorldEdit 7)</td><td><code>.schem</code></td><td><code>Version</code>, <code>DataVersion</code>, <code>Width</code>, <code>Height</code>, <code>Length</code>, <code>Palette</code>, <code>BlockData</code>, <code>BlockEntities</code>, <code>Offset</code>, <code>Metadata</code></td></tr>\n<tr><td>Sponge Schematic v3</td><td><code>.schem</code></td><td>Aynı veriler bir <code>Schematic</code> compound altında; <code>Blocks</code> ise <code>Palette</code> ve <code>Data</code></td></tr>\n<tr><td>Eski MCEdit</td><td><code>.schematic</code></td><td><code>Width</code>, <code>Height</code>, <code>Length</code>, <code>Blocks</code>, <code>Data</code>, <code>Entities</code>, <code>TileEntities</code>, <code>Materials</code></td></tr>\n</tbody>\n</table>\n</div>\n<p><code>BlockData</code> Sponge biçimlerinde blok başına tek bayt değil, varint palet indekslerinden oluşan bir byte array’dir; uzun kimlikler birkaç bayta yayılır. Eski biçim ise ham sayısal blok kimliklerini <code>Blocks</code> içinde, meta veri nibble’larını paralel <code>Data</code> dizisinde saklar. Bu nedenle eski şemalar güncel sürümlerde ayrıntı kaybeder.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Editing schematics\">\n<h2>Elle düzenlenebilecek alanlar</h2>\n<ul>\n<li><strong>Palet girdileri.</strong>  <code>minecraft:oak_planks</code> yerine <code>minecraft:spruce_planks</code> yazmak, <code>Palette</code> şemadaki eşleşen tüm blokları aynı anda değiştirir.</li>\n<li><strong>Ofset ve başlangıç noktası.</strong> <code>Offset</code> yapıştırmanın konumunuza göre nereye geleceğini belirler; sürekli üç blok kaymış yapılar için en hızlı düzeltmedir.</li>\n<li><strong>Block entity’ler.</strong> Sandık envanterleri, tabela satırları ve spawner verileri <code>BlockEntities</code> içindedir; yapı paylaşılmadan önce temizlenebilir.</li>\n<li><strong>Meta veri.</strong> <code>Metadata</code> yazar ve WorldEdit başlangıç noktasını taşır; düzenlenmesi güvenlidir ve yayımlamadan önce temizlenebilir.</li>\n<li><strong>DataVersion.</strong> Şemayı hangi Minecraft sürümünün oluşturduğunu gösterir; yapıştırmadaki “bilinmeyen blok” hatalarının çoğunu açıklar.</li>\n</ul>\n</section>\n\n<section class=\"content\" aria-label=\"Compatibility\">\n<h2>Yükleyici uyumluluğu</h2>\n<p>WorldEdit ve FastAsyncWorldEdit, <code>.schem</code> dosyalarını <code>plugins/WorldEdit/schematics/</code> altında saklar. Eski <code>.schematic</code> dosyaları da yüklenebilir, ancak içe aktarılırken dönüştürülür. Litematica kendi <code>.litematic</code> kapsayıcısını kullanır. Bu da NBT içerir ve düzeni Sponge’dan farklı olsa da burada açılabilir. Düzenleyici her çeşidi NBT olarak okuyup gzip ile sıkıştırılmış biçimde kaydeder; böylece yükleyici beklediği dosyayı alır.</p>\n</section>\n",
+    "chips": [
+      "WorldEdit",
+      "FastAsyncWorldEdit",
+      "Sponge Schematic v2/v3",
+      "Eski MCEdit",
+      "Litematica ile ilişkili"
+    ],
+    "faq": [
+      [
+        ".schem dosyasını sunucu veya WorldEdit olmadan açabilir miyim?",
+        "<p>Evet. <code>.schem</code> yalnızca gzip big-endian NBT’dir; düzenleyici ek kurulum olmadan tarayıcıda açar.</p>"
+      ],
+      [
+        "Şemam neden yanlış bloklarla yapıştırılıyor?",
+        "<p>Genellikle sürüm uyuşmazlığıdır. <code>DataVersion</code> ve paleti denetleyin. Yeni sürümde dışa aktarılan şema, eski sunucunun tanımadığı blok durumlarına başvurabilir.</p>"
+      ],
+      [
+        "Şemanın boyutunu burada değiştirebilir miyim?",
+        "<p>Yalnızca <code>Width</code>/<code>Height</code>/<code>Length</code> değerlerini değiştirerek olmaz. <code>BlockData</code> hacme göre boyutlandırılır; boyutlarla veri birlikte değişmelidir. Bu işlem etiket düzenleyici değil WorldEdit gerektirir.</p>"
+      ],
+      [
+        ".litematic dosyalarını açar mı?",
+        "<p>Evet, NBT olarak açar. Litematica’nın etiket düzeni Sponge düzeni değildir; bu nedenle şema paleti yerine kendi yerel yapısını görürsünüz.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "{0} olarak yüklendi",
+      "trailing": "Kök etiketten sonraki {0} ek bayt yok sayıldı",
+      "error": "Hata: {0}",
+      "readfail": "Dosya okunamadı",
+      "nofile": "Dosya yüklenmedi",
+      "saved": "{0} kaydedildi ({1}, {2})",
+      "savefail": "Kaydetme hatası: {0}",
+      "exported": "{0} dışa aktarıldı",
+      "snbtfail": "SNBT hatası: {0}",
+      "tagadded": "Etiket eklendi",
+      "tagremoved": "Etiket kaldırıldı",
+      "arrayupdated": "Dizi güncellendi",
+      "badvalue": "Geçersiz değer: {0}",
+      "badarray": "Geçersiz dizi: {0}",
+      "nameneeded": "Etiket adı gerekli",
+      "nametaken": "Burada {0} adlı bir etiket zaten var",
+      "listtype": "Liste zaten {0} türünde öğeler içeriyor",
+      "editlevelname": "✎ LevelName değerini düzenle",
+      "showmore": "{1} öğeden {0} tane daha göster …",
+      "matches": "{0} eşleşme",
+      "nomatch": "“{0}” ile eşleşen etiket yok",
+      "arraytoobig": "Dizide {0} öğe var — diziyi genişletip öğeleri ayrı ayrı düzenleyin",
+      "uncompressed": "sıkıştırılmamış",
+      "storage": "depolama v{0}",
+      "entries": "{0} öğe",
+      "langprompt": "Bu sayfa {0} dilinde açılsın mı?",
+      "langyes": "Geç",
+      "langno": "Kal"
+    },
+    "support": "<strong>Minecraft Bedrock Edition ve Java Edition desteği</strong> — her iki sürümün yaygın veya az bilinen tüm sunucu çekirdekleriyle: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina ve diğerleri. <a href=\"__HOME__#server-software\">Tam liste</a>.",
+    "footernote": "ücretsiz ve açık kaynaklıdır (MIT); tamamen tarayıcınızda çalışır. Mojang Studios veya Microsoft ile bağlantılı değildir. Minecraft, Mojang Studios’un ticari markasıdır.",
+    "faqtitle": "Sık Sorulan Sorular",
+    "toctitle": "Bu sayfada",
+    "relatedtitle": "İlgili araçlar",
+    "homecrumb": "NBT Düzenleyici",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Düzenleyiciler",
+      "Dosya türleri",
+      "Başvuru"
+    ],
+    "sourcehead": "Kaynak",
+    "sourcelink": "GitHub’daki kod"
+  },
+  "playerdata-editor": {
+    "title": "Minecraft playerdata Düzenleyici — Oyuncu .dat",
+    "ogtitle": "playerdata düzenleyici — envanter, konum, istatistik",
+    "desc": "Minecraft playerdata .dat dosyasını çevrimiçi düzenleyin: takılan oyuncu konumunu düzeltin, bozuk eşyayı silin; sağlık, XP veya oyun modunu ayarlayın.",
+    "keywords": "playerdata editör, minecraft player.dat düzenleme, oyuncu envanteri nbt, uuid.dat minecraft, takılan oyuncu konumu düzeltme, minecraft inventory editor",
+    "h1": "playerdata Düzenleyici — Minecraft Oyuncu .dat",
+    "crumb": "playerdata",
+    "reltitle": "playerdata düzenleyici",
+    "reldesc": "Oyuncu başına envanter, konum, sağlık ve istatistikler.",
+    "answer": "Java Edition, her oyuncu için <code>world/playerdata/&lt;uuid&gt;.dat</code>, envanter, ender chest, konum, dimension, sağlık, açlık, XP ve nitelikleri tutar. Sıkışan oyuncuyu düzeltmek, çökme yaratan eşyayı silmek veya istatistikleri sıfırlamak için dosyayı aşağıya bırakın; sunucu durmalı veya oyuncu çevrimdışı olmalıdır.",
+    "droplabel": "bir playerdata .dat dosyası",
+    "body": "\n<section class=\"content\" aria-label=\"playerdata tags\">\n<h2>Oyuncu dosyasındaki etiketler</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Etiket</th><th>Tür</th><th>İçerik</th></tr></thead>\n<tbody>\n<tr><td><code>Pos</code></td><td>Double listesi</td><td>X, Y, Z. Duvara veya bedrock altına sıkışan oyuncunun düzeltmesi.</td></tr>\n<tr><td><code>Rotation</code></td><td>Float listesi</td><td>Yaw ve pitch.</td></tr>\n<tr><td><code>Dimension</code></td><td>String / Int</td><td>Oyuncunun giriş yaptığı dimension.</td></tr>\n<tr><td><code>Inventory</code></td><td>Compound listesi</td><td>Her stack için bir girdi: <code>id</code>, <code>Count</code>, <code>Slot</code>, <code>components</code> veya <code>tag</code>.</td></tr>\n<tr><td><code>EnderItems</code></td><td>Compound listesi</td><td>Aynı yapıdaki ender chest içeriği.</td></tr>\n<tr><td><code>Health</code>, <code>foodLevel</code>, <code>XpLevel</code>, <code>XpTotal</code></td><td>Float / Int</td><td>Hayati değerler ve deneyim.</td></tr>\n<tr><td><code>playerGameType</code></td><td>Int</td><td>Oyuncuya özel oyun modu.</td></tr>\n<tr><td><code>abilities</code></td><td>Compound</td><td>Uçma, hasar almama, yürüme ve uçuş hızı.</td></tr>\n<tr><td><code>Attributes</code></td><td>Compound listesi</td><td>Azami sağlık, hareket hızı ve diğer değiştiriciler.</td></tr>\n<tr><td><code>SpawnX</code>/<code>SpawnY</code>/<code>SpawnZ</code> veya <code>respawn</code></td><td>Int / Compound</td><td>Sürüme göre kişisel yeniden doğma noktası.</td></tr>\n<tr><td><code>UUID</code></td><td>Int[4]</td><td>Güncel sürümlerde oyuncu UUID’si dört int olarak.</td></tr>\n</tbody>\n</table>\n</div>\n<p>Eşya yığınlarının yapısı 1.20.5 sürümünde değişti: özel veriler tek bir <code>tag</code> bileşiğinden ayrı <code>components</code> bileşenlerine taşındı. Her iki yapı da burada açılır; kullandığınız sürümün yazdığı yapıyı düzenleyin.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Common repairs\">\n<h2>Yaygın onarımlar</h2>\n<div class=\"card\">\n<ul>\n<li><strong>Arazide sıkışan veya sürekli düşen oyuncu.</strong>  <code>Pos</code> değerini X, Y, Z sırasıyla üç double güvenli koordinata ayarlayın; çok büyük değer taşıyorsa <code>Motion</code> alanını temizleyin.</li>\n<li><strong>İstemci girişte çöküyor.</strong> Genellikle bozuk bir eşya neden olur. Tüm listeyi silmek yerine sorunlu girdiyi <code>Inventory</code> içinden kaldırın.</li>\n<li><strong>Portal hatasından sonra yanlış dimension.</strong>  <code>Dimension</code> değerini yeniden <code>minecraft:overworld</code> yapın ve <code>Pos</code> için eşleşen koordinatlar verin.</li>\n<li><strong>Spectator modunda takılma.</strong>  <code>playerGameType</code> değerini survival için 0, creative için 1 yapın.</li>\n<li><strong>Kaldırılan eklentiden kalan nitelik değiştiricileri.</strong> Eski girdileri <code>Attributes</code>.</li>\n</ul>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Server safety\">\n<h2>Oyuncu çevrimdışıyken yapın</h2>\n<p>Sunucu oyuncu durumunu bellekte tutar; çıkışta ve otomatik kayıtta dosyaya yazar. Oyuncu çevrimiçiyken düzenlerseniz değişiklikleriniz kesinlikle ezilir; kayıt sırasında düzenlemek dosyayı kesebilir. Oyuncuyu çevrimdışı bırakın veya sunucuyu durdurun, dosyayı kopyalayıp düzenleyin ve yeniden bağlanmadan geri koyun. Giriş çalışana kadar özgün dosyayı saklayın.</p>\n<p>Bedrock sunucuları bu düzeni kullanmaz. Oyuncu verileri, dünyanın LevelDB veritabanında <code>player_&lt;uuid&gt;</code> gibi anahtarlar altında tutulur. Değerler little-endian NBT biçimindedir. Bir değeri çıkardığınızda burada <em>Bedrock ham biçimi</em> olarak açabilirsiniz.</p>\n</section>\n",
+    "chips": [
+      "Java playerdata",
+      "Ender sandığı",
+      "Envanter",
+      "Konum",
+      "Nitelikler",
+      "Advancement ile ilişkili"
+    ],
+    "faq": [
+      [
+        "Hangi dosya benim oyuncuma ait?",
+        "<p>Dosyalar UUID ile adlandırılır. Oyuncunun UUID’sini Mojang API görüntüleyicisinden bulun veya <code>playerdata/</code> klasörünü değiştirme zamanına göre sıralayıp son girişle eşleştirin.</p>"
+      ],
+      [
+        "playerdata düzenleyerek kendime eşya verebilir miyim?",
+        "<p>Kendi sunucunuzda evet: <code>Inventory</code> listesine <code>id</code>, <code>Count</code> ve <code>Slot</code> içeren girdi ekleyin. Başkasının sunucusunda bu yetkisiz erişimdir ve canlı sunucu dosyayı yeniden yazdığı için çalışmaz.</p>"
+      ],
+      [
+        "Düzenlemem neden kayboldu?",
+        "<p>Düzenleme sırasında sunucu veya oyuncu çevrimiçiydi. Bir sonraki kayıtta bellekteki oyuncu durumu geçerli olur.</p>"
+      ],
+      [
+        "Bedrock’ta playerdata aynı mı?",
+        "<p>Hayır. Bedrock oyuncuları UUID başına dosyalarda değil, dünya LevelDB’sinde tutar. Bu değerlerin içindeki NBT little-endian’dır ve çıkarıldıktan sonra burada açılır.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "{0} olarak yüklendi",
+      "trailing": "Kök etiketten sonraki {0} ek bayt yok sayıldı",
+      "error": "Hata: {0}",
+      "readfail": "Dosya okunamadı",
+      "nofile": "Dosya yüklenmedi",
+      "saved": "{0} kaydedildi ({1}, {2})",
+      "savefail": "Kaydetme hatası: {0}",
+      "exported": "{0} dışa aktarıldı",
+      "snbtfail": "SNBT hatası: {0}",
+      "tagadded": "Etiket eklendi",
+      "tagremoved": "Etiket kaldırıldı",
+      "arrayupdated": "Dizi güncellendi",
+      "badvalue": "Geçersiz değer: {0}",
+      "badarray": "Geçersiz dizi: {0}",
+      "nameneeded": "Etiket adı gerekli",
+      "nametaken": "Burada {0} adlı bir etiket zaten var",
+      "listtype": "Liste zaten {0} türünde öğeler içeriyor",
+      "editlevelname": "✎ LevelName değerini düzenle",
+      "showmore": "{1} öğeden {0} tane daha göster …",
+      "matches": "{0} eşleşme",
+      "nomatch": "“{0}” ile eşleşen etiket yok",
+      "arraytoobig": "Dizide {0} öğe var — diziyi genişletip öğeleri ayrı ayrı düzenleyin",
+      "uncompressed": "sıkıştırılmamış",
+      "storage": "depolama v{0}",
+      "entries": "{0} öğe",
+      "langprompt": "Bu sayfa {0} dilinde açılsın mı?",
+      "langyes": "Geç",
+      "langno": "Kal"
+    },
+    "support": "<strong>Minecraft Bedrock Edition ve Java Edition desteği</strong> — her iki sürümün yaygın veya az bilinen tüm sunucu çekirdekleriyle: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina ve diğerleri. <a href=\"__HOME__#server-software\">Tam liste</a>.",
+    "footernote": "ücretsiz ve açık kaynaklıdır (MIT); tamamen tarayıcınızda çalışır. Mojang Studios veya Microsoft ile bağlantılı değildir. Minecraft, Mojang Studios’un ticari markasıdır.",
+    "faqtitle": "Sık Sorulan Sorular",
+    "toctitle": "Bu sayfada",
+    "relatedtitle": "İlgili araçlar",
+    "homecrumb": "NBT Düzenleyici",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Düzenleyiciler",
+      "Dosya türleri",
+      "Başvuru"
+    ],
+    "sourcehead": "Kaynak",
+    "sourcelink": "GitHub’daki kod"
+  },
+  "nbt-viewer": {
+    "title": "NBT Görüntüleyici — .nbt ve .dat Dosyalarını Açın",
+    "ogtitle": "NBT görüntüleyici — tüm .nbt ve .dat dosyalarını tarayıcıda açın",
+    "desc": "Minecraft NBT dosyalarını çevrimiçi açıp okuyun. .nbt, .dat, .mcstructure veya .schem etiket ağacını görüntüleyin, arayın ve SNBT olarak dışa aktarın.",
+    "keywords": "nbt görüntüleyici, nbt viewer online, nbt dosyası açma, minecraft .dat dosyası okuma, nbt reader, nbt görüntüleme, snbt dışa aktarma",
+    "h1": "NBT Görüntüleyici — Tüm Minecraft NBT Dosyaları",
+    "crumb": "NBT görüntüleyici",
+    "reltitle": "NBT görüntüleyici",
+    "reldesc": "Salt okunur inceleme, arama ve SNBT dışa aktarma.",
+    "answer": "Minecraft dosyasını değiştirmek yerine içeriğine mi bakmanız gerekiyor? Herhangi bir <code>.nbt</code>, <code>.dat</code>, <code>.mcstructure</code>, <code>.schem</code> veya ham NBT dökümünü aşağıya bırakın. Türleri ve değerleriyle tüm etiket ağacını görüntüleyin, ada veya değere göre arayın ve tamamını SNBT metni olarak dışa aktarın. Hiçbir şey yüklenmez; kaydet düğmesine basmadıkça yazma yapılmaz.",
+    "droplabel": "herhangi bir .nbt veya .dat dosyası",
+    "body": "\n<section class=\"content\" aria-label=\"What you can inspect\">\n<h2>Başkasının yazdığı dosyayı okuma</h2>\n<p>NBT dosyası açmanın önemli nedenlerinden biri tanıdır: dosyayı hangi sürüm yazdı, dünya neden yüklenmiyor, gönderilen şemanın içinde ne var? Görüntüleyici her etiketi tam türüyle gösterir; böylece 1 değerli <code>TAG_Byte</code> ile 1 değerli <code>TAG_Int</code> arasındaki, Minecraft için önemli ancak metin dökümlerinde genellikle kaybolan farkı görebilirsiniz.</p>\n<ul>\n<li><strong>Her satırda tür rozeti</strong> — Byte, Short, Int, Long, Float, Double, Byte[], String, List, Compound, Int[], Long[].</li>\n<li><strong>Tam 64 bit long değerleri</strong> tam olarak gösterilir; seed ve UUID yarıları yuvarlanmadan doğru okunur.</li>\n<li><strong>Arama</strong> etiket adı veya değerine göre tüm ağaçta çalışır ve doğrudan eşleşmeye gider.</li>\n<li><strong>Algılanan biçim</strong> dosya çubuğunda sürüm, bayt sırası, sıkıştırma ve Bedrock depolama sürümüyle gösterilir.</li>\n<li><strong>SNBT dışa aktarma</strong> belgenin tamamını karşılaştırılabilir, komuta yapıştırılabilir veya başka araca verilebilir metin olarak alır.</li>\n</ul>\n</section>\n\n<section class=\"content\" aria-label=\"SNBT\">\n<h2>NBT ve SNBT</h2>\n<p>SNBT, NBT’nin metin biçimidir; <code>/data get</code> çıktısı ve komutların kabul ettiği biçimdir. Tür bilgisini soneklerle korur: <code>3b</code> byte, <code>3s</code> short, <code>3L</code> long, <code>3.0f</code> float, <code>3.0d</code> double, <code>[I;1,2,3]</code> int array’dir. Dışa aktarma düğmesi tam olarak bunu üretir; ikili dosya komut bloğuna yapıştırılabilir veya git’te satır satır karşılaştırılabilir hâle gelir.</p>\n<p>JSON bunun yerine geçmez: tek sayı türü vardır ve byte array içermez. NBT’yi JSON’a dönüştürmek Minecraft’ın önemsediği ayrımları sessizce kaybettirir. Bu nedenle araç JSON yerine SNBT dışa aktarır.</p>\n</section>\n\n<section class=\"content\" aria-label=\"File types\">\n<h2>Burada açılan dosyalar</h2>\n<p>Yükü tek NBT belgesi olan her şey: Java ve Bedrock <a href=\"../level-dat-editor/\">level.dat</a>, <a href=\"../playerdata-editor/\">playerdata</a>, <code>servers.dat</code>, <code>hotbar.nbt</code>, <code>idcounts.dat</code>, <code>raids.dat</code>, <code>scoreboard.dat</code>, harita verileri, yapı <code>.nbt</code>, <a href=\"../schematic-editor/\">.schem ve .schematic</a>, <a href=\"../mcstructure-editor/\">.mcstructure</a>, <code>.litematic</code>, çıkarılmış chunk yükleri ve paket dökümleri. Şu kapsayıcılardan önce tek belge çıkarılmalıdır: <code>.mca</code> bölgeleri, <code>.mcworld</code> arşivleri ve LevelDB klasörleri gibi kapsayıcılardan önce tek belge çıkarılmalıdır.</p>\n</section>\n",
+    "chips": [
+      ".nbt",
+      ".dat",
+      ".mcstructure",
+      ".schem",
+      ".schematic",
+      "SNBT dışa aktarma",
+      "Arama"
+    ],
+    "faq": [
+      [
+        "NBT dosyasını düzenlemeden görüntüleyebilir miyim?",
+        "<p>Evet. Düzenleyici yalnızca Kaydet ve İndir düğmesine bastığınızda dosya yazar; bıraktığınız dosyaya hiçbir zaman dokunmaz.</p>"
+      ],
+      [
+        "NBT’yi JSON’a dönüştürebilir mi?",
+        "<p>Etiket türlerini koruyan SNBT dışa aktarır. JSON; byte, short, int, long ve float türlerini tek sayı türüne indirger, byte array’leri kaybeder. Minecraft verisini geri yazmak için doğru hedef değildir.</p>"
+      ],
+      [
+        "Dosyam neden beklediğimden farklı bir sürüm olarak görünüyor?",
+        "<p>Biçim uzantıdan değil baytlardan algılanır. Bedrock beklerken Java bildirilen dosya genellikle diğer sürüme aittir veya tesadüfen ayrıştırılan bir parçadır. Sondaki baytlar uyarısı varsa bildirilen ofsetleri denetleyin.</p>"
+      ],
+      [
+        "Ne büyüklükte dosya açabilir?",
+        "<p>Çok megabaytlı belgeler uygundur. Diziler typed array içinde tutulur ve ağaç gerektiğinde çizilir; sayfada yalnızca genişlettiğiniz satırlar oluşturulur.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "{0} olarak yüklendi",
+      "trailing": "Kök etiketten sonraki {0} ek bayt yok sayıldı",
+      "error": "Hata: {0}",
+      "readfail": "Dosya okunamadı",
+      "nofile": "Dosya yüklenmedi",
+      "saved": "{0} kaydedildi ({1}, {2})",
+      "savefail": "Kaydetme hatası: {0}",
+      "exported": "{0} dışa aktarıldı",
+      "snbtfail": "SNBT hatası: {0}",
+      "tagadded": "Etiket eklendi",
+      "tagremoved": "Etiket kaldırıldı",
+      "arrayupdated": "Dizi güncellendi",
+      "badvalue": "Geçersiz değer: {0}",
+      "badarray": "Geçersiz dizi: {0}",
+      "nameneeded": "Etiket adı gerekli",
+      "nametaken": "Burada {0} adlı bir etiket zaten var",
+      "listtype": "Liste zaten {0} türünde öğeler içeriyor",
+      "editlevelname": "✎ LevelName değerini düzenle",
+      "showmore": "{1} öğeden {0} tane daha göster …",
+      "matches": "{0} eşleşme",
+      "nomatch": "“{0}” ile eşleşen etiket yok",
+      "arraytoobig": "Dizide {0} öğe var — diziyi genişletip öğeleri ayrı ayrı düzenleyin",
+      "uncompressed": "sıkıştırılmamış",
+      "storage": "depolama v{0}",
+      "entries": "{0} öğe",
+      "langprompt": "Bu sayfa {0} dilinde açılsın mı?",
+      "langyes": "Geç",
+      "langno": "Kal"
+    },
+    "support": "<strong>Minecraft Bedrock Edition ve Java Edition desteği</strong> — her iki sürümün yaygın veya az bilinen tüm sunucu çekirdekleriyle: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina ve diğerleri. <a href=\"__HOME__#server-software\">Tam liste</a>.",
+    "footernote": "ücretsiz ve açık kaynaklıdır (MIT); tamamen tarayıcınızda çalışır. Mojang Studios veya Microsoft ile bağlantılı değildir. Minecraft, Mojang Studios’un ticari markasıdır.",
+    "faqtitle": "Sık Sorulan Sorular",
+    "toctitle": "Bu sayfada",
+    "relatedtitle": "İlgili araçlar",
+    "homecrumb": "NBT Düzenleyici",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Düzenleyiciler",
+      "Dosya türleri",
+      "Başvuru"
+    ],
+    "sourcehead": "Kaynak",
+    "sourcelink": "GitHub’daki kod"
+  },
+  "nbtexplorer-online": {
+    "title": "NBTExplorer Online — Tarayıcı Alternatifi",
+    "ogtitle": "Çevrimiçi NBTExplorer — tarayıcı alternatifi",
+    "desc": "NBTExplorer için tarayıcı alternatifi: Minecraft dosyalarında aynı etiket ağacı düzenleme ve Bedrock little-endian desteği; kurulum veya indirme gerekmez.",
+    "keywords": "nbtexplorer online, nbtexplorer alternatifi, nbt editör indirmeden, nbtexplorer bedrock, online nbt explorer, web nbt düzenleyici, nbtexplorer mac",
+    "h1": "NBTExplorer Online — Tarayıcı Alternatifi",
+    "crumb": "Çevrimiçi NBTExplorer",
+    "reltitle": "Çevrimiçi NBTExplorer",
+    "reldesc": "Masaüstü araçtan aktarılanlar ve aktarılmayanlar.",
+    "answer": "NBTExplorer çoğu Minecraft oyuncusunun bildiği masaüstü etiket düzenleyicisidir; .NET veya Mono, indirme ve masaüstü gerektirir. Bu sayfa aynı işi — etiket ağacı, yerinde düzenleme, etiket ekleme ve kaldırma — telefonlar dâhil her işletim sisteminde tarayıcıda yapar. Ayrıca NBTExplorer’ın okuyamadığı Bedrock little-endian dosyalarını okur.",
+    "droplabel": "herhangi bir NBT dosyası",
+    "body": "\n<section class=\"content\" aria-label=\"Comparison\">\n<h2>Karşılaştırma</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Özellik</th><th>NBTExplorer (masaüstü)</th><th>Bu düzenleyici (tarayıcı)</th></tr></thead>\n<tbody>\n<tr><td>Kurulum gerekli</td><td>Evet — .NET / Mono çalışma zamanı</td><td>Hayır</td></tr>\n<tr><td>Java big-endian NBT biçimi</td><td>Evet</td><td>Evet</td></tr>\n<tr><td>gzip / zlib</td><td>Evet</td><td>Evet, tarayıcının yerel sıkıştırma akışlarıyla</td></tr>\n<tr><td>Bedrock little-endian NBT biçimi</td><td>Hayır</td><td>Evet, 8 baytlık <code>level.dat</code> üstbilgi dâhil</td></tr>\n<tr><td>Bedrock ağ / varint NBT</td><td>Hayır</td><td>Evet</td></tr>\n<tr><td> <code>.mca</code> bölgelerine ve klasörlere göz atma</td><td>Evet — temel üstünlüğü</td><td>Hayır, her seferinde tek belge</td></tr>\n<tr><td>Bedrock LevelDB tarama</td><td>Hayır</td><td>Hayır, önce değeri çıkarın</td></tr>\n<tr><td>Tüm ağaçta arama</td><td>Evet</td><td>Evet</td></tr>\n<tr><td>SNBT dışa aktarma</td><td>Hayır</td><td>Evet</td></tr>\n<tr><td>Telefonda çalışır</td><td>Hayır</td><td>Evet</td></tr>\n<tr><td>Dosyanızı bir yere gönderir</td><td>Hayır</td><td>Hayır</td></tr>\n</tbody>\n</table>\n</div>\n<p>Tüm bölge klasörünü gezip chunk’ları koordinatlarına göre açmanız gerekiyorsa masaüstü araç daha uygundur. Tek bir dosyayı — <code>level.dat</code>, oyuncu dosyası, şema veya Bedrock dünya dosyası — bulunduğunuz cihazda düzenlemek istiyorsanız bu araç daha hızlıdır ve masaüstü aracın desteklemediği sürümleri de açar.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Migrating\">\n<h2>Masaüstü araçtan geçiş</h2>\n<ul>\n<li><strong>Ağaç aynı şekilde çalışır.</strong> Compound ve listeleri genişletin, düzenlemek için değere tıklayın; yapı için + ve × kullanın.</li>\n<li><strong>Türler aynı şekilde korunur.</strong> Byte, byte olarak kalır; aralık dışı değerler sessizce kesilmek yerine reddedilir.</li>\n<li><strong>Kaydetme bir indirmedir;</strong> yerinde yazma değildir. Bıraktığınız dosya değiştirilmez; özgün kopya otomatik yedek olur.</li>\n<li><strong>Sıkıştırma korunur.</strong> gzip dosyası yine gzip çıkar; oyun elle yeniden sıkıştırma gerekmeden kabul eder.</li>\n<li><strong>Bedrock doğrudan çalışır.</strong> Ayrı araç veya düzenlemeden sonra üstbilgi uzunluğunu düzeltmek için hex editör gerekmez.</li>\n</ul>\n</section>\n\n<section class=\"content\" aria-label=\"Other tools\">\n<h2>Diğer araçların kullanım alanları</h2>\n<p> <strong>NBTExplorer</strong> veya <strong>NBTStudio</strong> ile toplu bölge taraması yapın. <strong>Amulet</strong> veya <strong>MCA Selector</strong> ile chunk düzeyinde düzenleme ve dünya kırpma yapın. <strong>WorldEdit</strong> geometrik işlemler için kullanın. “Bu dosyayı aç, şu etiketleri değiştir ve geri ver” işi için veya masaüstü araçlarının reddettiği Bedrock dosyalarında bu sayfayı kullanın.</p>\n</section>\n",
+    "chips": [
+      "Kurulum yok",
+      "Windows",
+      "macOS",
+      "Linux",
+      "Android",
+      "ChromeOS"
+    ],
+    "faq": [
+      [
+        "Resmî bir NBTExplorer web sürümü var mı?",
+        "<p>Hayır. NBTExplorer masaüstü uygulamasıdır. Bu, aynı günlük işleri tarayıcıda yapan ve Bedrock desteği ekleyen bağımsız bir düzenleyicidir.</p>"
+      ],
+      [
+        "Mono olmadan macOS ve Linux’ta çalışır mı?",
+        "<p>Evet; bir web sayfasıdır. macOS, Linux, Windows, Android veya ChromeOS’taki güncel tarayıcılarda çalışır.</p>"
+      ],
+      [
+        "NBTExplorer gibi tüm bölge dosyasını açabilir mi?",
+        "<p>Hayır. Her seferinde tek NBT belgesi düzenler. Önce <code>.mca</code> dosyasından bir chunk çıkarın, sonra yükü buraya bırakın.</p>"
+      ],
+      [
+        "Tek kayıt dosyam için kullanmak güvenli mi?",
+        "<p>Açtığınız dosyaya yazmaz; düzenlemeleri yeni indirme olarak verir. Yine de her düzenleyicide olduğu gibi kendi yedeğinizi tutun.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "{0} olarak yüklendi",
+      "trailing": "Kök etiketten sonraki {0} ek bayt yok sayıldı",
+      "error": "Hata: {0}",
+      "readfail": "Dosya okunamadı",
+      "nofile": "Dosya yüklenmedi",
+      "saved": "{0} kaydedildi ({1}, {2})",
+      "savefail": "Kaydetme hatası: {0}",
+      "exported": "{0} dışa aktarıldı",
+      "snbtfail": "SNBT hatası: {0}",
+      "tagadded": "Etiket eklendi",
+      "tagremoved": "Etiket kaldırıldı",
+      "arrayupdated": "Dizi güncellendi",
+      "badvalue": "Geçersiz değer: {0}",
+      "badarray": "Geçersiz dizi: {0}",
+      "nameneeded": "Etiket adı gerekli",
+      "nametaken": "Burada {0} adlı bir etiket zaten var",
+      "listtype": "Liste zaten {0} türünde öğeler içeriyor",
+      "editlevelname": "✎ LevelName değerini düzenle",
+      "showmore": "{1} öğeden {0} tane daha göster …",
+      "matches": "{0} eşleşme",
+      "nomatch": "“{0}” ile eşleşen etiket yok",
+      "arraytoobig": "Dizide {0} öğe var — diziyi genişletip öğeleri ayrı ayrı düzenleyin",
+      "uncompressed": "sıkıştırılmamış",
+      "storage": "depolama v{0}",
+      "entries": "{0} öğe",
+      "langprompt": "Bu sayfa {0} dilinde açılsın mı?",
+      "langyes": "Geç",
+      "langno": "Kal"
+    },
+    "support": "<strong>Minecraft Bedrock Edition ve Java Edition desteği</strong> — her iki sürümün yaygın veya az bilinen tüm sunucu çekirdekleriyle: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina ve diğerleri. <a href=\"__HOME__#server-software\">Tam liste</a>.",
+    "footernote": "ücretsiz ve açık kaynaklıdır (MIT); tamamen tarayıcınızda çalışır. Mojang Studios veya Microsoft ile bağlantılı değildir. Minecraft, Mojang Studios’un ticari markasıdır.",
+    "faqtitle": "Sık Sorulan Sorular",
+    "toctitle": "Bu sayfada",
+    "relatedtitle": "İlgili araçlar",
+    "homecrumb": "NBT Düzenleyici",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Düzenleyiciler",
+      "Dosya türleri",
+      "Başvuru"
+    ],
+    "sourcehead": "Kaynak",
+    "sourcelink": "GitHub’daki kod"
+  },
+  "nbt-format": {
+    "title": "NBT Biçimi Başvurusu — Etiketler ve Bayt Düzeni",
+    "ogtitle": "NBT biçimi başvurusu — etiketler, kodlamalar, bayt düzeni",
+    "desc": "Minecraft NBT biçimi başvurusu: 13 etiket türünün bayt düzeni, Java big-endian, Bedrock little-endian, varint ağ NBT’si ve SNBT sözdizimi.",
+    "keywords": "nbt formatı, minecraft nbt dosya biçimi, nbt etiket türleri, tag_compound, little endian nbt, varint nbt, network nbt, snbt sözdizimi",
+    "h1": "NBT Biçimi Başvurusu",
+    "crumb": "NBT biçimi",
+    "reltitle": "NBT biçimi başvurusu",
+    "reldesc": "13 etiket türü ve tüm kodlamalar, bayt bayt.",
+    "answer": "NBT (Named Binary Tag), Minecraft’ın ikili ağaç biçimidir. Etiket; bir baytlık tür, uzunluk önekli ad ve yükten oluşur. Compound’lar bir <code>TAG_End</code> baytıyla kapanana kadar iç içe geçer. Java ve Bedrock’ta kullanılan 13 etiket türü ve beş kodlama vardır. Bu sayfa tümünü belgeler; yukarıdaki düzenleyici bilgileri gerçek dosyayla denetlemenizi sağlar.",
+    "droplabel": "incelemek için herhangi bir NBT dosyası",
+    "body": "\n<section class=\"content\" aria-label=\"Tag types\">\n<h2>13 etiket türü</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Kimlik</th><th>Etiket</th><th>Yük</th><th>SNBT</th></tr></thead>\n<tbody>\n<tr><td>0</td><td><code>TAG_End</code></td><td>Yok — compound’u kapatır</td><td>—</td></tr>\n<tr><td>1</td><td><code>TAG_Byte</code></td><td>1 bayt, signed −128…127</td><td><code>1b</code></td></tr>\n<tr><td>2</td><td><code>TAG_Short</code></td><td>2 bayt, signed</td><td><code>1s</code></td></tr>\n<tr><td>3</td><td><code>TAG_Int</code></td><td>4 bayt, signed</td><td><code>1</code></td></tr>\n<tr><td>4</td><td><code>TAG_Long</code></td><td>8 bayt, signed</td><td><code>1L</code></td></tr>\n<tr><td>5</td><td><code>TAG_Float</code></td><td>4 bayt, IEEE 754</td><td><code>1.0f</code></td></tr>\n<tr><td>6</td><td><code>TAG_Double</code></td><td>8 bayt, IEEE 754</td><td><code>1.0d</code></td></tr>\n<tr><td>7</td><td><code>TAG_Byte_Array</code></td><td>int uzunluk, ardından o kadar bayt</td><td><code>[B;1b,2b]</code></td></tr>\n<tr><td>8</td><td><code>TAG_String</code></td><td>unsigned short uzunluk, ardından UTF-8 baytları</td><td><code>\"text\"</code></td></tr>\n<tr><td>9</td><td><code>TAG_List</code></td><td>öğe türü baytı, int uzunluk, ardından adsız yükler</td><td><code>[1,2]</code></td></tr>\n<tr><td>10</td><td><code>TAG_Compound</code></td><td>tür + ad + yük, şu etikete kadar yinelenir: <code>TAG_End</code></td><td><code>{a:1}</code></td></tr>\n<tr><td>11</td><td><code>TAG_Int_Array</code></td><td>int uzunluk, ardından o kadar 4 baytlık int</td><td><code>[I;1,2]</code></td></tr>\n<tr><td>12</td><td><code>TAG_Long_Array</code></td><td>int uzunluk, ardından o kadar 8 baytlık long</td><td><code>[L;1L,2L]</code></td></tr>\n</tbody>\n</table>\n</div>\n<p>Dosya tek bir kök <code>TAG_Compound</code>: bir tür baytı <code>0x0A</code>, bir ad ve ardından compound içeriği gelir. Adlı etiketler yalnızca compound içinde bulunur; liste öğeleri sadece yük taşıdığı için liste tek türdedir.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Encodings\">\n<h2>Kullanılan beş kodlama</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Kodlama</th><th>Integer’lar</th><th>String uzunluğu</th><th>Kök</th><th>Kullananlar</th></tr></thead>\n<tbody>\n<tr><td>Java (klasik)</td><td>Sabit genişlikli big-endian</td><td>2 baytlık big-endian</td><td>Adlı</td><td>Java dünyaları, yapılar, şemalar</td></tr>\n<tr><td>Java ağı (1.20.2+)</td><td>Sabit genişlikli big-endian</td><td>2 baytlık big-endian</td><td>Adsız</td><td>Java protokolü</td></tr>\n<tr><td>Bedrock</td><td>Sabit genişlikli little-endian</td><td>2 baytlık little-endian</td><td>Adlı</td><td>Bedrock dünyaları, <code>.mcstructure</code>, LevelDB değerleri</td></tr>\n<tr><td>Bedrock <code>level.dat</code></td><td>Sabit genişlikli little-endian</td><td>2 baytlık little-endian</td><td>8 baytlık üstbilgiden sonra adlı</td><td>Bedrock dünya meta verileri</td></tr>\n<tr><td>Bedrock ağı</td><td>int ve long için zigzag varint</td><td>İşaretsiz varint</td><td>Adlı</td><td>Bedrock protokolü</td></tr>\n</tbody>\n</table>\n</div>\n<p>Varint kodlamasında <code>TAG_Short</code>, <code>TAG_Float</code> ve <code>TAG_Double</code> sabit genişlikli little-endian kalır; yalnızca <code>TAG_Int</code> ve <code>TAG_Long</code> zigzag varint olur. Dizi ve liste uzunlukları <code>TAG_Int</code> ile aynı kodlamayı izler. String uzunlukları unsigned varint’tir; sabit kodlamalardaki 65535 bayt sınırı böylece kalkar.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Strings\">\n<h2>Dizeler: değiştirilmiş UTF-8 ve UTF-8</h2>\n<p>Java dizeleri <code>DataOutputStream.writeUTF</code>; bu <em>değiştirilmiş</em> UTF-8’dir. NUL karakteri <code>C0 80</code> yerine <code>00</code>, Temel Çok Dilli Düzlem dışındaki karakterler tek dört baytlık dizi yerine iki üç baytlık surrogate parça (CESU-8) olarak yazılır. Bedrock standart UTF-8 kullanır. Aynı kodlamayı kullanan araç emoji ve bazı CJK metinlerini bozar; bu düzenleyici biçime göre kodlar.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Compression\">\n<h2>Sıkıştırma</h2>\n<p>NBT kendi başına sıkıştırılmaz; kapsayıcı karar verir. Java dosyaları genellikle gzip (magic <code>1F 8B</code>), bölge dosyalarındaki chunk yükleri zlib’dir (magic <code>78 01</code>, <code>78 9C</code> veya <code>78 DA</code>), Bedrock ise <code>level.dat</code> ve yapı dosyalarını sıkıştırmadan saklar. Algılama magic baytlarıyla yapılır; aynı ayrıştırıcı üçünü de işler. Yanlış sıkıştırmayla kaydedilen dosya, elle düzenlenen dünyanın yüklenmemesinin en yaygın nedenidir.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Byte walkthrough\">\n<h2>En küçük dosya, bayt bayt</h2>\n<p>Klasik <code>hello_world.nbt</code>: şu adlı kök compound <code>hello world</code> adlı kök compound içinde <code>name</code> değerli tek string etiketi <code>Bananrama</code>. Java big-endian kodlamasında:</p>\n<pre class=\"code\"><code>0A                          TAG_Compound\n00 0B 68 65 6C 6C 6F 20 77 6F 72 6C 64   name length 11, \"hello world\"\n   08                       TAG_String\n   00 04 6E 61 6D 65        name length 4, \"name\"\n   00 09 42 61 6E 61 6E 72 61 6D 61      value length 9, \"Bananrama\"\n00                          TAG_End</code></pre>\n<p>Aynı belgenin Bedrock little-endian kodlamasında yalnızca iki uzunluk alanının bayt sırası değişir: <code>0B 00</code> yerine <code>00 0B</code>. Bedrock ağ NBT’sinde uzunluklar tek varint baytı olur: <code>0B</code> ve <code>04</code>, hiç dolgu yoktur. Üçünden birini yukarıdaki düzenleyiciye bırakınca hangisi olduğunu bildirir.</p>\n</section>\n\n<section class=\"content\" aria-label=\"SNBT\">\n<h2>SNBT</h2>\n<p>SNBT, NBT’nin metinle yazılmış biçimidir ve komutların kullandığı biçimdir: <code>/data merge entity @s {Invulnerable:1b}</code>. Tür sonekleri veriyi kayıpsız tutar: <code>b</code> byte, <code>s</code> short, <code>L</code> long, <code>f</code> float, <code>d</code> double; int için sonek yoktur. Türlü dizi sabitleri <code>[B;…]</code>, <code>[I;…]</code>, <code>[L;…]</code>. Düzenleyici yüklenen her dosyadan SNBT dışa aktarır; böylece dünyanın iki sürümü normal metin farkıyla karşılaştırılabilir.</p>\n</section>\n",
+    "chips": [
+      "13 etiket türü",
+      "Big-endian",
+      "Little-endian",
+      "Varint",
+      "gzip",
+      "zlib",
+      "SNBT"
+    ],
+    "faq": [
+      [
+        "Resmî bir NBT belirtimi var mı?",
+        "<p>Mojang tarafından yayımlanmış resmî bir belirtim yoktur. Biçim 2010’da Notch tarafından belgelenmiş, o zamandan beri toplulukça sürdürülmüştür; bu sayfadaki etiket kimlikleri ve düzen oyunun bugün okuyup yazdığı biçimle eşleşir.</p>"
+      ],
+      [
+        "Bedrock neden little-endian kullanır?",
+        "<p>Bedrock motoru C++ ile yazılmıştır ve little-endian donanımı hedefler; değerleri yerel sırada saklar. Java serileştirmesi, Java DataOutput sözleşmesi gereği big-endian’dır.</p>"
+      ],
+      [
+        "Zigzag varint kodlaması nedir?",
+        "<p>Negatifleri de kısa tutarak integer değerleri mümkün olan en az baytla yazma yöntemidir. İşaret düşük bite katlanır; −1, 1 olarak; 1 ise 2 olarak kodlanır. Bedrock protokolü int ve long değerlerinde kullanır.</p>"
+      ],
+      [
+        "TAG_List karışık türler içerebilir mi?",
+        "<p>Hayır. Liste tek bir öğe türü bildirir ve her girdi bu türle eşleşmelidir. Karışık veriler compound listesi gerektirir.</p>"
+      ],
+      [
+        "Azami string uzunluğu nedir?",
+        "<p>Uzunluk alanı unsigned short olduğu için sabit kodlamalarda 65535 bayttır. Varint ağ kodlamasında pratik bir sınır yoktur.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "{0} olarak yüklendi",
+      "trailing": "Kök etiketten sonraki {0} ek bayt yok sayıldı",
+      "error": "Hata: {0}",
+      "readfail": "Dosya okunamadı",
+      "nofile": "Dosya yüklenmedi",
+      "saved": "{0} kaydedildi ({1}, {2})",
+      "savefail": "Kaydetme hatası: {0}",
+      "exported": "{0} dışa aktarıldı",
+      "snbtfail": "SNBT hatası: {0}",
+      "tagadded": "Etiket eklendi",
+      "tagremoved": "Etiket kaldırıldı",
+      "arrayupdated": "Dizi güncellendi",
+      "badvalue": "Geçersiz değer: {0}",
+      "badarray": "Geçersiz dizi: {0}",
+      "nameneeded": "Etiket adı gerekli",
+      "nametaken": "Burada {0} adlı bir etiket zaten var",
+      "listtype": "Liste zaten {0} türünde öğeler içeriyor",
+      "editlevelname": "✎ LevelName değerini düzenle",
+      "showmore": "{1} öğeden {0} tane daha göster …",
+      "matches": "{0} eşleşme",
+      "nomatch": "“{0}” ile eşleşen etiket yok",
+      "arraytoobig": "Dizide {0} öğe var — diziyi genişletip öğeleri ayrı ayrı düzenleyin",
+      "uncompressed": "sıkıştırılmamış",
+      "storage": "depolama v{0}",
+      "entries": "{0} öğe",
+      "langprompt": "Bu sayfa {0} dilinde açılsın mı?",
+      "langyes": "Geç",
+      "langno": "Kal"
+    },
+    "support": "<strong>Minecraft Bedrock Edition ve Java Edition desteği</strong> — her iki sürümün yaygın veya az bilinen tüm sunucu çekirdekleriyle: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina ve diğerleri. <a href=\"__HOME__#server-software\">Tam liste</a>.",
+    "footernote": "ücretsiz ve açık kaynaklıdır (MIT); tamamen tarayıcınızda çalışır. Mojang Studios veya Microsoft ile bağlantılı değildir. Minecraft, Mojang Studios’un ticari markasıdır.",
+    "faqtitle": "Sık Sorulan Sorular",
+    "toctitle": "Bu sayfada",
+    "relatedtitle": "İlgili araçlar",
+    "homecrumb": "NBT Düzenleyici",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Düzenleyiciler",
+      "Dosya türleri",
+      "Başvuru"
+    ],
+    "sourcehead": "Kaynak",
+    "sourcelink": "GitHub’daki kod"
+  },
+  "guides/change-world-name": {
+    "title": "Minecraft Dünya Adı Nasıl Değiştirilir?",
+    "ogtitle": "Minecraft dünya adı nasıl değiştirilir?",
+    "desc": "level.dat içindeki LevelName etiketini düzenleyerek Minecraft dünyasını doğru biçimde yeniden adlandırın: Java, Bedrock, tek oyunculu ve sunucu adımları.",
+    "keywords": "minecraft dünya adı değiştirme, minecraft dünya yeniden adlandırma, server world name değiştirme, levelname level.dat, bedrock dünya adı, aynı dünya adı sorunu",
+    "h1": "Minecraft Dünya Adı Nasıl Değiştirilir?",
+    "crumb": "Dünya adını değiştir",
+    "reltitle": "Dünyayı yeniden adlandır",
+    "reldesc": "Dünya klasörünü kopyaladıktan sonra LevelName değerini düzeltin.",
+    "answer": "Dünyanın görünen adı klasör adında değil, <code>LevelName</code> içindeki <code>level.dat</code>, klasör adında değildir. Klasörü yeniden adlandırmak oyunda görünen adı değiştirmez; bu yüzden kopyalanan dünya özgün adını kullanmayı sürdürür. <code>level.dat</code> dosyasını aşağıdaki düzenleyiciye bırakın; doğrudan <code>LevelName</code> — değeri değiştirin, kaydedin ve dosyayı geri koyun.",
+    "droplabel": "level.dat",
+    "body": "\n<section class=\"content\" aria-label=\"Why the folder name is not the world name\">\n<h2>Klasör adını değiştirmek neden işe yaramaz</h2>\n<p>Minecraft, klasörü adres; <code>LevelName</code> değerini ise görünen ad olarak kullanır. Dünya listesi, sunucu konsolu, dünya yönetimi eklentileri ve sohbette dünya adını gösteren her şey bu değeri okur. Bu nedenle <code>cp -r worlds/hub worlds/hub2</code> komutu, ikisi de kendisini <em>hub</em> olarak tanıtan iki dünya oluşturur. Bunu düzeltmek için dosyanın içindeki adı değiştirmeniz gerekir.</p>\n<p>Sunucuda yinelenen ad yalnızca kafa karıştırmaz. Dünyayı iç ada göre bulan ışınlanma noktaları, dünya başına yapılandırmalar, koruma bölgeleri ve ekonomi çarpanları yanlış dünyada işlem yapabilir. Dünya kopyalanır kopyalanmaz, önbelleğe alınmadan etiketi değiştirin.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Per platform\">\n<h2>Platforma göre</h2>\n<div class=\"card\">\n<h3>Java tek oyunculu</h3>\n<p>İstemci, dünya seçeneklerinde yeniden adlandırma sunar ve <code>LevelName</code> değerini sizin için düzenler. Dünya yüklenmiyorsa, bir kopya üzerinde çalışıyorsanız veya klasörle etiketin bilinçli olarak farklı olmasını istiyorsanız dosyayı elle düzenlemek gerekir.</p>\n<h3>Java sunucusu</h3>\n<p><code>level-name</code> içindeki <code>server.properties</code> yüklenecek <em>klasörü</em> seçer; hiçbir şeyi yeniden adlandırmaz. Etiket için <code>LevelName</code> içindeki <code>world/level.dat</code> değerini değiştirin.</p>\n<h3>Bedrock ve MCPE</h3>\n<p>Oyun içi dünya düzenleme ekranından adı değiştirebilirsiniz. Dünya bir sunucudaysa veya dışa aktarılmış bir <code>.mcworld</code> dosyasındaysa, <code>LevelName</code> etiketini bulup <code>level.dat</code> dosyasında doğrudan düzenleyin. Bedrock bu etiketi kökte, sıkıştırılmadan ve düzenleyicinin işlediği 8 baytlık başlığın arkasında tutar.</p>\n<h3>Bedrock sunucuları (PocketMine-MP, Nukkit, BDS)</h3>\n<p>Aynı dosya ve etiket kullanılır; önce sunucuyu durdurma uyarısı da aynıdır. <a href=\"../../pocketmine-nbt-editor/\">sunucu sayfası</a> klasör kopyalama durumu dâhil tüm iş akışını açıklar.</p>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Troubleshooting\">\n<h2>Ad değişmezse</h2>\n<ul>\n<li><strong>Sunucu çalışıyordu.</strong> Bellekteki kopya sonraki kayıtta dosyanızın üzerine yazıldı. Sunucuyu durdurup yeniden düzenleyin.</li>\n<li><strong>Yanlış dünyayı düzenlediniz.</strong> Bedrock dünya klasörleri rastgele kimliklerdir. Düzenlemeden önce dosyayı açıp <code>LevelName</code> değerini okuyarak doğru dünyayı doğrulayın.</li>\n<li><strong> <code>level.dat_old</code>.</strong> Bu önceki kayıttır, etkin dosya değildir.</li>\n<li><strong>Başlatıcı veya panel adı önbelleğe alıyor.</strong> Bazı hosting panelleri dünya dosyası yerine kendi veritabanındaki adı gösterir; oyundaki ad doğru olacaktır.</li>\n<li><strong>Dünya artık hiç yüklenmiyor.</strong> Yedeği geri yükleyin ve <a href=\"../fix-corrupted-level-dat/\">bozuk level.dat düzeltme</a>.</li>\n</ul>\n</section>\n",
+    "chips": [
+      "Java",
+      "Bedrock",
+      "Sunucular",
+      "Tek oyunculu",
+      "2 dakika"
+    ],
+    "faq": [
+      [
+        "Dünyayı yeniden adlandırmak bir şeyi siler mi?",
+        "<p>Hayır. <code>LevelName</code> yalnızca etikettir. Arazi, oyuncular, envanterler ve entity’ler başka dosyalardadır ve etkilenmez.</p>"
+      ],
+      [
+        "Dünya adında boşluk, renk veya emoji kullanabilir miyim?",
+        "<p>Boşluk kullanılabilir. Bölüm işareti renk kodları bazı sunucu yazılımlarında çalışır, bazılarında düz karakter görünür. Düzenleyici sürüme uygun dize kodlaması kullandığından emoji korunur; konsol ve günlükler kötü gösterebilir.</p>"
+      ],
+      [
+        "Klasörü de yeniden adlandırmalı mıyım?",
+        "<p>Hayır; çoğu zaman adlandırmamalısınız. Sunucunun <code>level-name</code> ayarı veya eklenti yapılandırması klasör yoluna bağlı olabilir. Her seferinde tek şeyi değiştirin.</p>"
+      ],
+      [
+        "Oyuncular yeni adı hemen görür mü?",
+        "<p>Dünya yeniden yüklendikten sonra evet. Sunucu listesi girdisini önbelleğe alan istemcilerin yenilenmesi gerekebilir.</p>"
+      ]
+    ],
+    "howto": {
+      "name": "level.dat düzenleyerek Minecraft dünya adını değiştirme",
+      "time": "PT3M",
+      "steps": [
+        [
+          "Oyunu veya sunucuyu durdurun",
+          "Dünyayı kapatın veya sunucuyu durdurun. Minecraft level.dat dosyasını otomatik kayıtta ve kapanışta yeniden yazar; çalışan örnek düzenlemeyi ezer."
+        ],
+        [
+          "level.dat dosyasını bulun",
+          "Java: sunucuda world/level.dat veya istemcide saves/<World>/level.dat. Bedrock: sunucuda worlds/<World>/level.dat veya cihazda minecraftWorlds altındaki dünya kimliği klasörü."
+        ],
+        [
+          "Düzenleyicide açın",
+          "Dosyayı NBT düzenleyiciye bırakın. Sürümü ve kodlamayı algılar, otomatik olarak LevelName etiketine gider."
+        ],
+        [
+          "LevelName değerini düzenleyin",
+          "Değere tıklayın, yeni adı yazın ve Enter’a basın. Ad konsolda gösterilecekse sade karakterler kullanın."
+        ],
+        [
+          "Kaydedip indirin",
+          "Kaydet ve İndir’e tıklayın. Çıktı biçimi ve sıkıştırma dosyanın geldiği gibi kalır; dosyada başka bir şey değişmez."
+        ],
+        [
+          "Özgün dosyanın yerine koyun",
+          "İndirilen dosyayı özgün dosyanın üzerine kopyalayın ve yedeği saklayın. Oyunu veya sunucuyu başlatıp dünya listesinde yeni adı doğrulayın."
+        ]
+      ]
+    },
+    "ui": {
+      "loaded": "{0} olarak yüklendi",
+      "trailing": "Kök etiketten sonraki {0} ek bayt yok sayıldı",
+      "error": "Hata: {0}",
+      "readfail": "Dosya okunamadı",
+      "nofile": "Dosya yüklenmedi",
+      "saved": "{0} kaydedildi ({1}, {2})",
+      "savefail": "Kaydetme hatası: {0}",
+      "exported": "{0} dışa aktarıldı",
+      "snbtfail": "SNBT hatası: {0}",
+      "tagadded": "Etiket eklendi",
+      "tagremoved": "Etiket kaldırıldı",
+      "arrayupdated": "Dizi güncellendi",
+      "badvalue": "Geçersiz değer: {0}",
+      "badarray": "Geçersiz dizi: {0}",
+      "nameneeded": "Etiket adı gerekli",
+      "nametaken": "Burada {0} adlı bir etiket zaten var",
+      "listtype": "Liste zaten {0} türünde öğeler içeriyor",
+      "editlevelname": "✎ LevelName değerini düzenle",
+      "showmore": "{1} öğeden {0} tane daha göster …",
+      "matches": "{0} eşleşme",
+      "nomatch": "“{0}” ile eşleşen etiket yok",
+      "arraytoobig": "Dizide {0} öğe var — diziyi genişletip öğeleri ayrı ayrı düzenleyin",
+      "uncompressed": "sıkıştırılmamış",
+      "storage": "depolama v{0}",
+      "entries": "{0} öğe",
+      "langprompt": "Bu sayfa {0} dilinde açılsın mı?",
+      "langyes": "Geç",
+      "langno": "Kal"
+    },
+    "support": "<strong>Minecraft Bedrock Edition ve Java Edition desteği</strong> — her iki sürümün yaygın veya az bilinen tüm sunucu çekirdekleriyle: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina ve diğerleri. <a href=\"__HOME__#server-software\">Tam liste</a>.",
+    "footernote": "ücretsiz ve açık kaynaklıdır (MIT); tamamen tarayıcınızda çalışır. Mojang Studios veya Microsoft ile bağlantılı değildir. Minecraft, Mojang Studios’un ticari markasıdır.",
+    "faqtitle": "Sık Sorulan Sorular",
+    "toctitle": "Bu sayfada",
+    "relatedtitle": "İlgili araçlar",
+    "homecrumb": "NBT Düzenleyici",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Düzenleyiciler",
+      "Dosya türleri",
+      "Başvuru"
+    ],
+    "sourcehead": "Kaynak",
+    "sourcelink": "GitHub’daki kod"
+  },
+  "guides/fix-corrupted-level-dat": {
+    "title": "Bozuk level.dat Nasıl Düzeltilir?",
+    "ogtitle": "Bozuk level.dat dosyasını düzeltme",
+    "desc": "Yüklenmeyen Minecraft dünyasını onarın: level.dat_old dosyasını geri yükleyin, NBT düzenleyicide inceleyin ve bozulmanın gerçek nedenini belirleyin.",
+    "keywords": "bozuk level.dat düzeltme, minecraft dünya açılmıyor, level.dat yüklenemedi, level.dat_old geri yükleme, minecraft dünya bozuldu, level.dat hatası",
+    "h1": "Bozuk <code>level.dat</code> Dosyasını Düzeltme",
+    "crumb": "Bozuk level.dat düzelt",
+    "reltitle": "Bozuk level.dat düzelt",
+    "reldesc": "Dünyanın neden yüklenmediğini tanılayıp onarın.",
+    "answer": "Yüklenmeyen dünyada genellikle dört sorundan biri vardır: kayıt sırasında çökme nedeniyle kesilmiş <code>level.dat</code> elle düzenleme sonrası yanlış sıkıştırma, bozuk Bedrock üstbilgi uzunluğu veya türü değiştirilmiş etiket. Dosyayı aşağıya bırakın; düzenleyici ayrıştırmanın tam olarak nerede durduğunu bildirerek sorunu hızla daraltır.",
+    "droplabel": "level.dat veya level.dat_old",
+    "body": "\n<section class=\"content\" aria-label=\"Causes\">\n<h2>Gerçekte bozulanlar</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Belirti</th><th>Neden</th><th>Düzeltme</th></tr></thead>\n<tbody>\n<tr><td>Düzenleyici “Unexpected end of data” bildiriyor</td><td>Kesilmiş dosya — işlem kayıt sırasında öldü veya disk doldu</td><td> <code>level.dat_old</code> veya yedeği geri yükleyin; eksik baytlar kurtarılamaz</td></tr>\n<tr><td>Oyun dünyanın bozuk olduğunu söylüyor, düzenleyici açıyor</td><td>Başka araç yanlış sıkıştırma veya bayt sırası yazdı</td><td>Sürüme uygun biçimle burada yeniden kaydedin</td></tr>\n<tr><td>Bedrock dünyası listede yok</td><td>Üstbilgi uzunluğu yükle eşleşmiyor</td><td>Burada açıp kaydedin; uzunluk otomatik hesaplanır</td></tr>\n<tr><td>Sunucu yüklemede class-cast veya tür hatası kaydediyor</td><td>Etiket türü elle değiştirildi (Int beklenen yerde Byte)</td><td>Etiketi oyunun beklediği türe döndürün</td></tr>\n<tr><td>Dünya yükleniyor ancak yeni dünyada doğuyorsunuz</td><td><code>level.dat</code> yeni oluşturulan dosyayla değiştirildi</td><td>Yedeği geri yükleyin; <code>region/</code> veya <code>db/</code> içindeki chunk’lar genellikle sağlamdır</td></tr>\n<tr><td>Hiçbir dosya ayrıştırılamıyor; <code>_old</code></td><td>Depolama arızası — dosya sistemi ikisi için de sıfır veya bozuk veri döndürdü</td><td>Başka makinedeki yedekten geri yükleyin; hosta güvenmeden diski denetleyin</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Salvage\">\n<h2> olmadan dünyayı kurtarma <code>level.dat</code></h2>\n<p>Dünyanın arazisi, sandıkları ve oyuncuları <code>level.dat</code> dosyasında tutulmaz; Java’da <code>region/</code>, Bedrock’ta ise <code>db/</code> klasöründedir. Meta veri dosyası onarılamıyorsa aynı sürüm ve ayarlarla yeni bir dünya oluşturup chunk verilerini aktarın. Yeni dosyadaki <code>LevelName</code> değerini, doğma koordinatlarını ve oyun kurallarını yeniden ayarlayın. Kaybolan, yapılar değil meta verilerdir. Önce sürümü doğrulayın: Java dünyasında <code>DataVersion</code> değeri bulunur ve yeni dosyanın sürümü, aktarılan chunk’ların sürümünden eski olmamalıdır.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Prevention\">\n<h2>Sonraki bozulmayı önleme</h2>\n<ul>\n<li><strong>Kopyalamadan veya düzenlemeden önce sunucuyu durdurun.</strong> Bozulmaların çoğu yazılmakta olan dosyanın kopyalanmasıyla başlar.</li>\n<li><strong>Düzenli ve makine dışı snapshot alın.</strong> Aynı diskteki yedek, soruna yol açan depolama arızasından kurtulamaz.</li>\n<li><strong>Canlı snapshot sırasında <code>save-off</code> / <code>save-all</code> komutlarını kullanın</strong> böylece kopya durgun dünyadan alınır.</li>\n<li><strong>Disk alanını izleyin.</strong> Dolu disk kayıtları sessizce keser; <code>level.dat</code> en son yazılır.</li>\n<li><strong>Yapıyı değil değerleri düzenleyin.</strong> Etiketleri yeniden adlandırmak veya türlerini değiştirmek oyunun tolere edemediği düzenlemedir.</li>\n</ul>\n</section>\n",
+    "chips": [
+      "Tanılama",
+      "level.dat_old",
+      "Üstbilgi",
+      "Sıkıştırma",
+      "Kesilme"
+    ],
+    "faq": [
+      [
+        "level.dat_old nedir?",
+        "<p>Önceki kayıttır. Minecraft yeni dosyayı yazmadan önce güncel dosyayı <code>level.dat_old</code> olarak yeniden adlandırır; önce denenebilecek ücretsiz, tek nesillik yedektir.</p>"
+      ],
+      [
+        "NBT düzenleyici kesilmiş dosyayı onarabilir mi?",
+        "<p>Verinin nerede bittiğini tam olarak gösterebilir ancak eksik baytlar yeniden oluşturulamaz. Kısmi ayrıştırma, yedeğe ihtiyacınız olduğunu gösterir.</p>"
+      ],
+      [
+        "Yapılarımı kaybeder miyim?",
+        "<p>Yalnızca bozuk <code>level.dat</code> nedeniyle hayır. Chunk’lar <code>region/</code> veya <code>db/</code> içindedir; aynı sürümde yeni dünya dosyası bunları kullanabilir.</p>"
+      ],
+      [
+        "Sunucu level.dat sağlam diyor ancak dünya boş.",
+        "<p>Bu durumda sorun meta veri değil chunk depolamasıdır. Kopyayla birlikte <code>region/</code> veya <code>db/</code> geldiğini ve <code>level.dat</code> içindeki spawn koordinatlarının beklediğiniz yeri gösterdiğini denetleyin.</p>"
+      ]
+    ],
+    "howto": {
+      "name": "Bozuk level.dat dosyasını tanılama ve onarma",
+      "time": "PT10M",
+      "steps": [
+        [
+          "Dünya klasörünü yedekleyin",
+          "Bir şeye dokunmadan önce tüm dünya dizinini kopyalayın. Aşağıdaki adımlar yalnızca bu kopya varsa geri alınabilir."
+        ],
+        [
+          "level.dat_old dosyasını deneyin",
+          "Minecraft önceki kaydı level.dat_old olarak tutar. NBT düzenleyicide açın; düzgün ayrıştırılırsa level.dat üzerine kopyalayıp dünyayı başlatın."
+        ],
+        [
+          "Bozuk dosyayı açın",
+          "level.dat dosyasını düzenleyiciye bırakın. Temiz ayrıştırma dosyanın sağlam olduğunu ve sorunun chunk’lar, modlar veya sunucuda bulunduğunu gösterir."
+        ],
+        [
+          "Hatayı okuyun",
+          "Düzenleyici arızayı belirtir: unexpected end of data kesilme, mantıksız depolama sürümü bozuk Bedrock üstbilgisi, tanınan biçim olmaması ise dosyanın NBT olmadığını gösterir."
+        ],
+        [
+          "Sıkıştırma ve biçimi denetleyin",
+          "Dosya yüklenirse dosya çubuğuna bakın. Java level.dat gzip big-endian, Bedrock ise üstbilgili little-endian kaydedilmelidir. Doğru ayarlarla yeniden kaydetmek başka aracın bozduğu dosyaları düzeltir."
+        ],
+        [
+          "Yalnızca eksik olanı yeniden oluşturun",
+          "Tek etiket silindiyse doğru türle geri ekleyin. Dosya kesilmişse level.dat_old veya yedeği kullanın; kısmen ayrıştırılmış dosyada hiçbir düzenleyicinin üretemeyeceği eksik veri vardır."
+        ]
+      ]
+    },
+    "ui": {
+      "loaded": "{0} olarak yüklendi",
+      "trailing": "Kök etiketten sonraki {0} ek bayt yok sayıldı",
+      "error": "Hata: {0}",
+      "readfail": "Dosya okunamadı",
+      "nofile": "Dosya yüklenmedi",
+      "saved": "{0} kaydedildi ({1}, {2})",
+      "savefail": "Kaydetme hatası: {0}",
+      "exported": "{0} dışa aktarıldı",
+      "snbtfail": "SNBT hatası: {0}",
+      "tagadded": "Etiket eklendi",
+      "tagremoved": "Etiket kaldırıldı",
+      "arrayupdated": "Dizi güncellendi",
+      "badvalue": "Geçersiz değer: {0}",
+      "badarray": "Geçersiz dizi: {0}",
+      "nameneeded": "Etiket adı gerekli",
+      "nametaken": "Burada {0} adlı bir etiket zaten var",
+      "listtype": "Liste zaten {0} türünde öğeler içeriyor",
+      "editlevelname": "✎ LevelName değerini düzenle",
+      "showmore": "{1} öğeden {0} tane daha göster …",
+      "matches": "{0} eşleşme",
+      "nomatch": "“{0}” ile eşleşen etiket yok",
+      "arraytoobig": "Dizide {0} öğe var — diziyi genişletip öğeleri ayrı ayrı düzenleyin",
+      "uncompressed": "sıkıştırılmamış",
+      "storage": "depolama v{0}",
+      "entries": "{0} öğe",
+      "langprompt": "Bu sayfa {0} dilinde açılsın mı?",
+      "langyes": "Geç",
+      "langno": "Kal"
+    },
+    "support": "<strong>Minecraft Bedrock Edition ve Java Edition desteği</strong> — her iki sürümün yaygın veya az bilinen tüm sunucu çekirdekleriyle: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina ve diğerleri. <a href=\"__HOME__#server-software\">Tam liste</a>.",
+    "footernote": "ücretsiz ve açık kaynaklıdır (MIT); tamamen tarayıcınızda çalışır. Mojang Studios veya Microsoft ile bağlantılı değildir. Minecraft, Mojang Studios’un ticari markasıdır.",
+    "faqtitle": "Sık Sorulan Sorular",
+    "toctitle": "Bu sayfada",
+    "relatedtitle": "İlgili araçlar",
+    "homecrumb": "NBT Düzenleyici",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Düzenleyiciler",
+      "Dosya türleri",
+      "Başvuru"
+    ],
+    "sourcehead": "Kaynak",
+    "sourcelink": "GitHub’daki kod"
+  },
+  "guides/edit-gamerules": {
+    "title": "level.dat İçinde Minecraft Oyun Kurallarını Düzenleme",
+    "ogtitle": "level.dat içindeki oyun kurallarını düzenleme",
+    "desc": "Java ve Bedrock için level.dat dosyasını düzenleyerek keepInventory, doDaylightCycle, mobGriefing ve diğer oyun kurallarını komut veya hile olmadan değiştirin.",
+    "keywords": "minecraft gamerule düzenleme, keepinventory nbt, minecraft oyun kuralları dosyası, komutsuz gamerule değiştirme, bedrock gamerules level.dat, dodaylightcycle nbt",
+    "h1": "<code>level.dat</code> İçindeki Oyun Kurallarını Düzenleme",
+    "crumb": "Oyun kurallarını düzenle",
+    "reltitle": "Oyun kurallarını düzenle",
+    "reldesc": "Dünyayı yüklemeden keepInventory ve diğerlerini değiştirin.",
+    "answer": "Oyun kuralları <code>level.dat</code>, böylece dünyayı yüklemeden veya hileleri açmadan değiştirebilirsiniz. Dünya başlamadığında, hileler kapalıyken veya oyuncular gelmeden kopya dünya hazırlanırken kullanışlıdır. Java kuralları bir <code>GameRules</code> compound içinde, Bedrock ise her birini kökte küçük harfli ayrı byte etiketi olarak tutar.",
+    "droplabel": "level.dat",
+    "body": "\n<section class=\"content\" aria-label=\"Java gamerules\">\n<h2>Java: string değerlerden oluşan <code>GameRules</code> compound</h2>\n<p>Java Edition’da <code>Data</code> → <code>GameRules</code> her kural için bir <code>TAG_String</code> tutar. Anahtar, <code>/gamerule</code> komutunun kullandığı tam addır; değer metin olarak yazılır: <code>\"true\"</code>, <code>\"false\"</code> veya sayı. Dünyada hiç ayarlanmamış kurallar bulunmaz ve varsayılanı kullanır. Doğru adla string değerli etiket eklemek komutu çalıştırmakla aynı sonucu verir.</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Kural</th><th>Değer</th><th>Etki</th></tr></thead>\n<tbody>\n<tr><td><code>keepInventory</code></td><td><code>\"true\"</code></td><td>Ölünce eşyaları korur</td></tr>\n<tr><td><code>doDaylightCycle</code></td><td><code>\"false\"</code></td><td>Günün saatini dondurur</td></tr>\n<tr><td><code>doWeatherCycle</code></td><td><code>\"false\"</code></td><td>Hava durumunu dondurur</td></tr>\n<tr><td><code>mobGriefing</code></td><td><code>\"false\"</code></td><td>Creeper ve enderman’ların blok değiştirmesini durdurur</td></tr>\n<tr><td><code>doMobSpawning</code></td><td><code>\"false\"</code></td><td>Doğal mob doğmasını durdurur</td></tr>\n<tr><td><code>doFireTick</code></td><td><code>\"false\"</code></td><td>Ateşin yayılmasını durdurur</td></tr>\n<tr><td><code>commandBlockOutput</code></td><td><code>\"false\"</code></td><td>Komut bloğu sohbet iletilerini susturur</td></tr>\n<tr><td><code>randomTickSpeed</code></td><td><code>\"3\"</code></td><td>Ekin büyümesi ve ateş yayılma hızı</td></tr>\n<tr><td><code>playersSleepingPercentage</code></td><td><code>\"50\"</code></td><td>Geceyi atlamak için gereken oyuncu oranı</td></tr>\n<tr><td><code>spawnRadius</code></td><td><code>\"10\"</code></td><td>Spawn alanının yayılımı</td></tr>\n</tbody>\n</table>\n</div>\n<p>Büyük-küçük harf önemlidir. <code>keepinventory</code> Java dosyasında <code>keepInventory</code> ile aynı değildir ve yok sayılır.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Bedrock gamerules\">\n<h2>Bedrock: küçük harfli ayrı byte etiketleri</h2>\n<p>Bedrock kuralları gruplamaz. Her biri <code>TAG_Byte</code> kökünde, <code>level.dat</code>, küçük harfle adlandırılır ve 1 veya 0 taşır: <code>keepinventory</code>, <code>domobspawning</code>, <code>domobloot</code>, <code>dodaylightcycle</code>, <code>doweathercycle</code>, <code>mobgriefing</code>, <code>firedamage</code>, <code>falldamage</code>, <code>drowningdamage</code>, <code>pvp</code>, <code>showcoordinates</code>, <code>commandblockoutput</code>, <code>sendcommandfeedback</code>, <code>naturalregeneration</code>, <code>tntexplodes</code>, <code>respawnblocksexplode</code>, <code>showdeathmessages</code>, <code>doimmediaterespawn</code>. Şu sayısal kurallar: <code>randomtickspeed</code> ve <code>functioncommandlimit</code> gibi sayısal kurallar ise <code>TAG_Int</code> türündedir.</p>\n<p>Henüz bulunmayan kuralı ayarlamak için doğru türde etiket ekleyin: aç/kapat için Byte, sayı için Int. Yanlış türde saklanan kural yok sayılır veya yükleme hatasına yol açar.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Why edit the file\">\n<h2>Dosyayı düzenlemenin komuttan uygun olduğu durumlar</h2>\n<ul>\n<li><strong>Hileler kapalıdır</strong> ve tek komut için açıp kapatmak istemezsiniz.</li>\n<li><strong>Dünya yüklenmiyordur</strong> — şu tür bir kural: <code>doImmediateRespawn</code> gibi bir kural ayarlanabilir.</li>\n<li><strong>Şablon dünya hazırlıyorsunuzdur</strong> Dünya birçok sunucu için kopyalanacak ve kuralların kopyaya yerleşmesini istiyorsunuzdur.</li>\n<li><strong>Bir eklenti kuralı değiştirmiştir</strong> ve komut çıktısı yerine gerçekten saklanan değeri görmek istersiniz.</li>\n<li><strong>Toplu düzenleme.</strong> Birden fazla dünyada onlarca kuralı dosyada ayarlamak sohbetten daha hızlıdır.</li>\n</ul>\n<p>Her <code>level.dat</code> düzenlemesinde olduğu gibi önce sunucuyu durdurun. Çalışan dünya kayıtta dosyayı yeniden yazar ve değişikliği siler.</p>\n</section>\n",
+    "chips": [
+      "keepInventory",
+      "doDaylightCycle",
+      "mobGriefing",
+      "commandBlockOutput",
+      "randomTickSpeed"
+    ],
+    "faq": [
+      [
+        "Java’da oyun kuralı neden string olarak saklanıyor?",
+        "<p>Java’nın oyun kuralı depolaması, boolean ve sayılar dâhil tüm kurallar için string tabanlıdır. 1 değerli byte değil <code>\"true\"</code> yazın.</p>"
+      ],
+      [
+        "Bedrock’ta neden byte olarak saklanıyor?",
+        "<p>Bedrock aç/kapat kurallarını kökte byte etiketi, sayısal kuralları int olarak tutar. <code>GameRules</code> compound’u yoktur.</p>"
+      ],
+      [
+        "Bir kural dosyada hiç yok.",
+        "<p>Bu, varsayılan değerinin kullanıldığı anlamına gelir. Tam adı ve doğru türüyle etiketi ekleyin; dünya verdiğiniz değeri kullanır.</p>"
+      ],
+      [
+        "Oyun kuralları dünya klasörüyle birlikte kopyalanır mı?",
+        "<p>Evet. Kurallar <code>level.dat</code> içinde bulunur; kopyalanan dünya bunları eski <a href=\"../change-world-name/\">dünya adıyla</a> birlikte devralır.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "{0} olarak yüklendi",
+      "trailing": "Kök etiketten sonraki {0} ek bayt yok sayıldı",
+      "error": "Hata: {0}",
+      "readfail": "Dosya okunamadı",
+      "nofile": "Dosya yüklenmedi",
+      "saved": "{0} kaydedildi ({1}, {2})",
+      "savefail": "Kaydetme hatası: {0}",
+      "exported": "{0} dışa aktarıldı",
+      "snbtfail": "SNBT hatası: {0}",
+      "tagadded": "Etiket eklendi",
+      "tagremoved": "Etiket kaldırıldı",
+      "arrayupdated": "Dizi güncellendi",
+      "badvalue": "Geçersiz değer: {0}",
+      "badarray": "Geçersiz dizi: {0}",
+      "nameneeded": "Etiket adı gerekli",
+      "nametaken": "Burada {0} adlı bir etiket zaten var",
+      "listtype": "Liste zaten {0} türünde öğeler içeriyor",
+      "editlevelname": "✎ LevelName değerini düzenle",
+      "showmore": "{1} öğeden {0} tane daha göster …",
+      "matches": "{0} eşleşme",
+      "nomatch": "“{0}” ile eşleşen etiket yok",
+      "arraytoobig": "Dizide {0} öğe var — diziyi genişletip öğeleri ayrı ayrı düzenleyin",
+      "uncompressed": "sıkıştırılmamış",
+      "storage": "depolama v{0}",
+      "entries": "{0} öğe",
+      "langprompt": "Bu sayfa {0} dilinde açılsın mı?",
+      "langyes": "Geç",
+      "langno": "Kal"
+    },
+    "support": "<strong>Minecraft Bedrock Edition ve Java Edition desteği</strong> — her iki sürümün yaygın veya az bilinen tüm sunucu çekirdekleriyle: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina ve diğerleri. <a href=\"__HOME__#server-software\">Tam liste</a>.",
+    "footernote": "ücretsiz ve açık kaynaklıdır (MIT); tamamen tarayıcınızda çalışır. Mojang Studios veya Microsoft ile bağlantılı değildir. Minecraft, Mojang Studios’un ticari markasıdır.",
+    "faqtitle": "Sık Sorulan Sorular",
+    "toctitle": "Bu sayfada",
+    "relatedtitle": "İlgili araçlar",
+    "homecrumb": "NBT Düzenleyici",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Düzenleyiciler",
+      "Dosya türleri",
+      "Başvuru"
+    ],
+    "sourcehead": "Kaynak",
+    "sourcelink": "GitHub’daki kod"
+  }
+}

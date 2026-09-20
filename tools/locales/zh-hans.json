@@ -1,0 +1,1280 @@
+{
+  "": {
+    "title": "Minecraft 基岩版 NBT 在线编辑器｜支持 Java 版",
+    "ogtitle": "基岩版与 Java 版 NBT 编辑器｜在线本地处理",
+    "desc": "免费的 Minecraft 基岩版与 Java 版在线 NBT 编辑器。可打开 level.dat、.mcstructure、playerdata、.nbt、.schem 等文件，查看并修改任意标签，再按原始二进制格式下载。自动识别字节序、文件头和压缩方式，所有数据仅在浏览器本地处理，无需上传或安装软件。",
+    "keywords": "Minecraft NBT编辑器, NBT在线编辑器, 基岩版NBT编辑器, 我的世界NBT修改器, level.dat编辑器, MCPE存档修改器, NBT文件查看器, Java版NBT编辑器, 在线修改NBT, NBTExplorer在线版",
+    "h1": "Minecraft 基岩版 NBT 编辑器，也支持 Java 版",
+    "crumb": "编辑器",
+    "reltitle": "Minecraft NBT 编辑器",
+    "reldesc": "通用编辑器，支持所有版本和各种 NBT 文件。",
+    "answer": "<strong>支持 Minecraft 基岩版及其所有服务端核心，也支持 Java 版及其全部服务端核心，包括较少见的实现。</strong>将 <code>level.dat</code>、<code>playerdata</code>、<code>.nbt</code>、<code>.mcstructure</code>、<code>.schem</code> 或 <code>.schematic</code> 文件拖入下方区域，即可修改树中的任意标签，并以完全相同的二进制格式下载。字节序、文件头和压缩方式会自动识别。全部操作都在浏览器中完成，无需上传、注册或安装。",
+    "droplabel": "任意 NBT 文件",
+    "body": "\n<section class=\"content\" aria-label=\"Supported files\">\n<h2>Minecraft 写入的所有 NBT 文件</h2>\n<p>NBT（Named Binary Tag，命名二进制标签）是一种具有多种编码方式的格式；不同的 Minecraft 版本、启动器和服务端核心会使用不同组合。本编辑器实现了这些编码，并直接根据文件字节选择正确格式，因此打开前无需判断文件属于哪一种。</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>文件</th><th>来源</th><th>编码</th><th>压缩</th></tr></thead>\n<tbody>\n<tr><td><code>level.dat</code></td><td>Java 世界——Vanilla、Paper、Spigot、Fabric、Forge</td><td>大端序，有名称的根标签</td><td>gzip</td></tr>\n<tr><td><code>level.dat</code></td><td>基岩版世界——BDS、PocketMine-MP、Nukkit、MCPE</td><td>小端序 + 8 字节文件头</td><td>无</td></tr>\n<tr><td><code>&lt;uuid&gt;.dat</code></td><td>Java <code>playerdata/</code></td><td>大端序</td><td>gzip</td></tr>\n<tr><td><code>servers.dat</code>, <code>hotbar.nbt</code></td><td>Java 客户端</td><td>大端序</td><td>无</td></tr>\n<tr><td><code>idcounts.dat</code>, <code>raids.dat</code>, <code>map_*.dat</code></td><td>Java 世界 <code>data/</code></td><td>大端序</td><td>gzip</td></tr>\n<tr><td><code>.nbt</code></td><td>结构方块、数据包结构</td><td>大端序</td><td>gzip</td></tr>\n<tr><td><code>.schem</code>, <code>.schematic</code></td><td>WorldEdit、Sponge、MCEdit</td><td>大端序</td><td>gzip</td></tr>\n<tr><td><code>.mcstructure</code></td><td>基岩版结构方块</td><td>小端序</td><td>无</td></tr>\n<tr><td>区块负载</td><td>从区域 <code>.mca</code> 提取的数据、LevelDB 值</td><td>任一字节序</td><td>zlib 或无压缩</td></tr>\n<tr><td>数据包转储</td><td>基岩版协议、Java 1.20.2+ 协议</td><td>Varint LE / nameless BE</td><td>无</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"How to use\">\n<h2>如何编辑 NBT 文件</h2>\n<div class=\"card\">\n<ol class=\"steps\">\n<li><strong>从服务器或设备中取出文件。</strong>Java 服务器将文件保存在 <code>world/</code>，基岩版服务器保存在 <code>worlds/YourWorld/</code>，Android 则位于 <code>games/com.mojang/minecraftWorlds/&lt;id&gt;/</code>。复制前先停止服务器，避免复制期间文件仍被写入。</li>\n<li><strong>将文件拖入编辑器。</strong>树上方的标记会显示检测到的版本、编码、压缩方式；对于基岩版，还会显示文件头中的存储版本。</li>\n<li><strong>编辑。</strong>点击值即可原地修改。使用搜索按名称或值跳转到标签；用 <strong>+</strong> 向任意复合标签或列表添加标签，用 <strong>×</strong> 删除标签。</li>\n<li><strong>保存并下载。</strong>输出格式和压缩方式默认与输入文件相同，因此普通编辑可按原格式完整往返。</li>\n<li><strong>放回文件并重启。</strong>在世界成功加载并确认正常之前，请保留原文件作为备份。</li>\n</ol>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Features\">\n<h2>本编辑器的技术特点</h2>\n<div class=\"features-grid\">\n<article class=\"feature-card\"><h3>一个拖放区支持五种编码</h3><p>支持 Java 大端序、基岩版小端序、基岩版 varint 网络 NBT、Java 1.20.2+ 的无名称根网络 NBT，以及带文件头的基岩版 <code>level.dat</code>。格式通过检测确定，而不是猜测。</p></article>\n<article class=\"feature-card\"><h3>在浏览器中处理 gzip 和 zlib</h3><p>解压与重新压缩使用原生 Compression Streams API，因此 Java <code>level.dat</code> 经编辑后仍会生成游戏可正常接受的文件。</p></article>\n<article class=\"feature-card\"><h3>真正的 64 位 long</h3><p><code>TAG_Long</code> 值以 <code>BigInt</code> 保存。世界种子和 UUID 的两半在编辑后不会因浮点数舍入而损坏，这是许多浏览器 NBT 工具容易出错的地方。</p></article>\n<article class=\"feature-card\"><h3>正确的字符串编码</h3><p>Java 使用修改版 UTF-8（CESU-8），基岩版使用标准 UTF-8。编辑器会按版本编码，因此表情符号和非拉丁字符的世界名称可以保持完整。</p></article>\n<article class=\"feature-card\"><h3>适合处理大文件</h3><p>数组存放在类型化数组中，树按需渲染，每次显示 200 项。打开数 MB 的区块 NBT 时不会导致标签页卡死。</p></article>\n<article class=\"feature-card\"><h3>搜索整棵树</h3><p>可按名称或值查找文件中的任意标签，并在展开对应路径后直接跳转。</p></article>\n<article class=\"feature-card\"><h3>导出 SNBT</h3><p>将整棵树导出为 SNBT，即 <code>/data</code> 和数据包使用的文本形式，便于比较、分享或粘贴到命令中。</p></article>\n<article class=\"feature-card\"><h3>格式转换</h3><p>读取基岩版文件后写为 Java 大端序 gzip，或反向转换。适用于协议开发、测试和工具处理。</p></article>\n<article class=\"feature-card\"><h3>文件不会离开设备</h3><p>文件由 <code>FileReader</code> 读取，在 JavaScript 中解析，再以内存 blob 形式返回。本站不存在上传端点。</p></article>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Supported server software\" id=\"server-software\">\n<h2>支持所有服务端软件</h2>\n<p>NBT 由游戏格式定义，而不是由服务端实现定义。因此，任何保存 Minecraft 世界的核心都会使用本编辑器支持的某种编码。下列列表是技术兼容范围，不是宣传列表：只要核心写入世界，就必须采用客户端可读取的 Vanilla 数据结构。</p>\n<div class=\"card\">\n<h3>基岩版——小端序 NBT，8 字节 <code>level.dat</code> 文件头</h3>\n<p><strong>Bedrock Dedicated Server (BDS)</strong>、<strong>PocketMine-MP</strong>（PM3、PM4、PM5）、<strong>Nukkit</strong>、<strong>Nukkit-MOT</strong>、<strong>PowerNukkitX</strong>、<strong>Cloudburst Server</strong>、<strong>Dragonfly</strong>、<strong>Endstone</strong>、<strong>LeviLamina</strong> 和 <strong>BDSX</strong>、<strong>Allay</strong>、<strong>JukeboxMC</strong>、<strong>GoMint</strong>、<strong>Sculk</strong>、<strong>ElementZero</strong>、<strong>LiteLoaderBDS</strong>，以及 Android、iOS、Windows、主机和 Switch 上的 <strong>MCPE</strong> 与 <strong>MCBE</strong> 客户端。它们使用相同的 <code>worlds/&lt;World&gt;/level.dat</code>、文件头和标签；请参阅<a href=\"pocketmine-nbt-editor/\">服务端操作流程</a>。</p>\n<h3>Java 版——大端序 NBT，gzip</h3>\n<p><strong>Vanilla</strong>、<strong>CraftBukkit</strong>、<strong>Spigot</strong>、<strong>Paper</strong>、<strong>Purpur</strong>、<strong>Pufferfish</strong>、<strong>Folia</strong>、<strong>Leaves</strong>、<strong>Gale</strong>、<strong>Petal</strong>、<strong>Airplane</strong>、<strong>Sponge</strong>（SpongeVanilla、SpongeForge）、<strong>Fabric</strong>、<strong>Quilt</strong>、<strong>Forge</strong>、<strong>NeoForge</strong>、<strong>Mohist</strong>、<strong>Arclight</strong>、<strong>Magma</strong>、<strong>Ketting</strong>、<strong>Banner</strong>、<strong>Cardboard</strong>、<strong>Glowstone</strong>、<strong>Thermos</strong>、<strong>Uberbukkit</strong>，以及其他分支、模组包服务器和旧版本。只要写入 <code>world/level.dat</code>，本编辑器就能打开；请查看<a href=\"java-nbt-editor/\">详细说明</a>。</p>\n<h3>代理和桥接程序</h3>\n<p><strong>Geyser</strong>、<strong>WaterdogPE</strong>、<strong>Waterfall</strong>、<strong>Velocity</strong> 和 <strong>BungeeCord</strong> 不保存世界，而是通过网络传输 NBT。从这些连接捕获的数据属于网络 NBT：基岩版侧为 varint 小端序，Java 1.20.2+ 侧为无名称根的大端序；两者都能直接在此打开。</p>\n<h3>列表中未列出的实现</h3>\n<p>自定义分支、私有核心、教学项目或自行编写的服务器，只要文件是 NBT，编辑器就会检测其所属的五种编码之一并打开。这里的处理逻辑不依赖核心名称。</p>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Scripting\">\n<h2>在自己的代码中使用解析器</h2>\n<p>页面通过 <code>window.NBT</code> 暴露其引擎，因此可以在浏览器控制台中调用驱动界面所用的同一解析器，也可以在用户脚本中复用：</p>\n<pre class=\"code\"><code>const bytes = new Uint8Array(await file.arrayBuffer());\nconst { root, format, compression, headerVersion } = await NBT.read(bytes);\n\nroot.value.find(t =&gt; t.name === \"LevelName\").value = \"New World\";\n\nconst out = await NBT.write(root, format, { compression, headerVersion });</code></pre>\n<p>标签是普通对象：<code>{ type, name, value, listType }</code>；数组为 <code>Int8Array</code>、<code>Int32Array</code> 和 <code>BigInt64Array</code>，long 为 <code>BigInt</code>。完整的<a href=\"nbt-format/\">NBT 格式参考</a>说明了每种标签类型及各种编码之间的差异。</p>\n</section>\n",
+    "chips": [
+      "Bedrock Edition",
+      "Java Edition",
+      "Vanilla",
+      "Paper",
+      "Spigot",
+      "Purpur",
+      "Pufferfish",
+      "Folia",
+      "Leaves",
+      "Fabric",
+      "Quilt",
+      "Forge",
+      "NeoForge",
+      "Mohist",
+      "Arclight",
+      "Sponge",
+      "Bedrock Dedicated Server",
+      "PocketMine-MP",
+      "Nukkit",
+      "PowerNukkitX",
+      "Nukkit-MOT",
+      "Cloudburst",
+      "Dragonfly",
+      "Endstone",
+      "LeviLamina",
+      "Allay",
+      "JukeboxMC",
+      "GoMint",
+      "Geyser",
+      "WaterdogPE"
+    ],
+    "faq": [
+      [
+        "这个 NBT 编辑器免费吗？",
+        "<p>是的，并且以 MIT 许可证开源。没有付费等级、注册要求或上传配额，因为它根本没有服务器组件；整个编辑器仅由一个静态页面和两个资源文件组成。</p>"
+      ],
+      [
+        "它支持 Java 版和基岩版吗？",
+        "<p>两者都支持。Java 版文件使用大端序，通常由 gzip 压缩；基岩版文件使用小端序，<code>level.dat</code> 还包含额外的 8 字节文件头。编辑器会检测收到的格式，并在保存时写回同一格式。</p>"
+      ],
+      [
+        "我的世界文件会上传到其他地方吗？",
+        "<p>不会。文件通过 FileReader API 在本地读取，下载文件由内存中的 blob 生成。页面加载完成后，即使断开网络也仍可使用。</p>"
+      ],
+      [
+        "可以在 Android 或 iOS 上使用吗？",
+        "<p>可以。界面采用移动端优先设计，点击目标为 44&nbsp;px，并带有固定操作栏。在 Android 上可直接从文件管理器选择世界文件；由于沙盒限制，在 iOS 上必须先将文件放入“文件”App。</p>"
+      ],
+      [
+        "NBT 和 SNBT 有什么区别？",
+        "<p>NBT 是 Minecraft 在磁盘上存储数据的二进制编码。SNBT 是其文本形式，也是输入 <code>/data merge</code> 等命令时使用的语法。本编辑器可读取二进制 NBT 并导出 SNBT，便于比较两个文件或将结构粘贴到命令中。</p>"
+      ],
+      [
+        "它可以替代哪些工具？",
+        "<p>它可替代 NBTExplorer 等桌面 NBT 编辑器，以及只支持单一版本的各种网页工具。有关可迁移和不可迁移的功能，请参阅<a href=\"nbtexplorer-online/\">NBTExplorer 在线版对比</a>。</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "已按 {0} 加载",
+      "trailing": "已忽略根标签后的 {0} 个尾随字节",
+      "error": "错误：{0}",
+      "readfail": "无法读取文件",
+      "nofile": "未加载文件",
+      "saved": "已保存 {0}（{1}，{2}）",
+      "savefail": "保存错误：{0}",
+      "exported": "已导出 {0}",
+      "snbtfail": "SNBT 错误：{0}",
+      "tagadded": "已添加标签",
+      "tagremoved": "已删除标签",
+      "arrayupdated": "已更新数组",
+      "badvalue": "无效值：{0}",
+      "badarray": "无效数组：{0}",
+      "nameneeded": "必须填写标签名称",
+      "nametaken": "此处已存在名为 {0} 的标签",
+      "listtype": "列表已包含 {0} 类型的项目",
+      "editlevelname": "✎ 编辑 LevelName",
+      "showmore": "再显示 {1} 项中的 {0} 项…",
+      "matches": "{0} 个匹配项",
+      "nomatch": "没有标签匹配“{0}”",
+      "arraytoobig": "数组包含 {0} 项，请展开并逐项编辑",
+      "uncompressed": "未压缩",
+      "storage": "存储版本 v{0}",
+      "entries": "{0} 项",
+      "langprompt": "要使用{0}打开此页面吗？",
+      "langyes": "切换",
+      "langno": "保留当前语言"
+    },
+    "support": "<strong>支持 Minecraft 基岩版和 Java 版</strong>，也支持两者所有常见或少见的服务端核心：Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLamina 等。<a href=\"__HOME__#server-software\">完整列表</a>。",
+    "footernote": "免费并以 MIT 许可证开源，完全在浏览器中运行。与 Mojang Studios 或 Microsoft 无关联。Minecraft 是 Mojang Studios 的商标。",
+    "faqtitle": "常见问题",
+    "toctitle": "本页目录",
+    "relatedtitle": "相关工具",
+    "homecrumb": "NBT 编辑器",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "编辑器",
+      "文件类型",
+      "参考资料"
+    ],
+    "sourcehead": "源代码",
+    "sourcelink": "GitHub 上的代码"
+  },
+  "level-dat-editor": {
+    "title": "level.dat 在线编辑器｜修改 Minecraft 世界设置",
+    "ogtitle": "level.dat 编辑器｜在线修改任意世界设置",
+    "desc": "在线编辑 Minecraft 的 level.dat 文件，可修改世界名称、游戏模式、难度、出生点、种子、游戏规则和天气等设置。支持 Java 版 gzip 大端序文件及基岩版带 8 字节头的小端序文件；自动保留原始格式，文件只在浏览器本地处理，不会上传到服务器。",
+    "keywords": "level.dat编辑器, level.dat修改器, Minecraft世界设置修改, 我的世界存档修改器, 在线编辑level.dat, 修改世界名称, 修改游戏模式, level.dat查看器, 基岩版level.dat, Java版level.dat",
+    "h1": "level.dat 编辑器｜在线修改 Minecraft 世界设置",
+    "crumb": "level.dat 编辑器",
+    "reltitle": "level.dat 编辑器",
+    "reldesc": "修改世界名称、游戏模式、出生点、难度和游戏规则。",
+    "answer": "<code>level.dat</code> 保存 Minecraft 世界自身的全部核心信息，包括名称、游戏模式、难度、出生点、游戏规则、天气状态，以及最后打开该世界的版本。将文件拖入下方即可直接修改这些值。Java 文件（gzip、大端序）和基岩版文件（小端序、带 8 字节文件头）均受支持，保存时会按输入文件的原格式写回。",
+    "droplabel": "level.dat",
+    "body": "\n<section class=\"content\" aria-label=\"Tags in level.dat\">\n<h2>常用的可编辑标签</h2>\n<p>Java 版 <code>level.dat</code> 几乎把所有内容都放在一个 <code>Data</code> 复合标签中；基岩版 <code>level.dat</code> 则将标签平铺在根节点。下面列出值得了解的名称；在树中搜索任意名称，编辑器会直接跳转到对应标签。</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>标签</th><th>类型</th><th>版本</th><th>控制内容</th></tr></thead>\n<tbody>\n<tr><td><code>LevelName</code></td><td>String</td><td>两者</td><td>世界的显示名称。复制世界文件夹后可能仍是旧名称；请参阅<a href=\"../guides/change-world-name/\">重命名指南</a>。</td></tr>\n<tr><td><code>GameType</code> / <code>gameType</code></td><td>Int</td><td>两者</td><td>0 生存、1 创造、2 冒险、3 旁观。</td></tr>\n<tr><td><code>Difficulty</code></td><td>Byte / Int</td><td>两者</td><td>0 和平、1 简单、2 普通、3 困难。</td></tr>\n<tr><td><code>hardcore</code></td><td>Byte</td><td>两者</td><td>设为 1 会将世界锁定为极限模式规则。</td></tr>\n<tr><td><code>allowCommands</code> / <code>commandsEnabled</code></td><td>Byte</td><td>Java / Bedrock</td><td>是否启用作弊。</td></tr>\n<tr><td><code>SpawnX</code>, <code>SpawnY</code>, <code>SpawnZ</code></td><td>Int</td><td>两者</td><td>世界出生点坐标。</td></tr>\n<tr><td><code>Time</code>, <code>DayTime</code></td><td>Long</td><td>Java</td><td>总刻数和当前时刻。</td></tr>\n<tr><td><code>currentTick</code></td><td>Int</td><td>Bedrock</td><td>基岩版对应的世界时钟。</td></tr>\n<tr><td><code>RandomSeed</code> / <code>WorldGenSettings.seed</code></td><td>Long</td><td>Java</td><td>世界种子。此处以真正的 64 位值保存，不会舍入为 double。</td></tr>\n<tr><td><code>GameRules</code> / 各个游戏规则标签</td><td>Compound / Byte</td><td>Java / Bedrock</td><td><code>/gamerule</code> 设置的全部内容；请参阅<a href=\"../guides/edit-gamerules/\">游戏规则指南</a>。</td></tr>\n<tr><td><code>DataVersion</code></td><td>Int</td><td>Java</td><td>世界格式版本。在不同 Minecraft 版本之间迁移世界前应检查此值。</td></tr>\n<tr><td><code>lastOpenedWithVersion</code></td><td>Int 列表</td><td>Bedrock</td><td>最后写入该世界的基岩版客户端或服务器构建版本。</td></tr>\n<tr><td><code>Player</code></td><td>Compound</td><td>两者</td><td>嵌入世界文件中的单人游戏物品栏、位置和统计数据。</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Where to find level.dat\">\n<h2><code>level.dat</code> 的位置</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>平台</th><th>路径</th></tr></thead>\n<tbody>\n<tr><td>Java 服务器（Vanilla、Paper、Spigot、Fabric、Forge）</td><td><code>world/level.dat</code>，位于 <code>region/</code> 和 <code>playerdata/</code> 旁边</td></tr>\n<tr><td>Java 客户端，Windows</td><td><code>%APPDATA%\\.minecraft\\saves\\&lt;World&gt;\\level.dat</code></td></tr>\n<tr><td>Java 客户端，macOS</td><td><code>~/Library/Application Support/minecraft/saves/&lt;World&gt;/level.dat</code></td></tr>\n<tr><td>Java 客户端，Linux</td><td><code>~/.minecraft/saves/&lt;World&gt;/level.dat</code></td></tr>\n<tr><td>Bedrock Dedicated Server、PocketMine-MP、Nukkit</td><td><code>worlds/&lt;World&gt;/level.dat</code></td></tr>\n<tr><td>Android 上的基岩版</td><td><code>Android/data/com.mojang.minecraftpe/files/games/com.mojang/minecraftWorlds/&lt;id&gt;/level.dat</code></td></tr>\n<tr><td>Windows 上的基岩版</td><td><code>%LOCALAPPDATA%\\Packages\\Microsoft.MinecraftUWP_*\\LocalState\\games\\com.mojang\\minecraftWorlds\\&lt;id&gt;\\level.dat</code></td></tr>\n</tbody>\n</table>\n</div>\n<p>Minecraft 还会在旁边写入上一次保存的 <code>level.dat_old</code>。本编辑器也能打开该文件；如果当前文件无法加载，应首先尝试它。</p>\n</section>\n\n<section class=\"content\" aria-label=\"Safety\">\n<h2>安全编辑</h2>\n<div class=\"card\">\n<ul>\n<li><strong>先停止服务器或关闭游戏。</strong>Minecraft 会在自动保存和关闭时重写 <code>level.dat</code>。运行中的服务器会覆盖编辑结果，甚至可能覆盖尚未复制完整的文件。</li>\n<li><strong>保留原文件。</strong>本编辑器不会修改拖入的文件，而会生成新的下载文件。在世界成功加载一次之前，请保留旧副本。</li>\n<li><strong>不要更改标签类型。</strong>将 <code>Difficulty</code> 从 Byte 改为 Int，或重命名 Minecraft 所需的标签，都可能导致世界无法加载。除非明确了解原因，否则只修改值，不修改结构。</li>\n<li><strong>保持基岩版文件头完整。</strong>8 字节文件头包含存储版本和负载长度。编辑器会自动重写长度并保留版本；手动编辑时丢失文件头会导致文件无法加载。</li>\n</ul>\n</div>\n</section>\n",
+    "chips": [
+      "Java 的 level.dat",
+      "Bedrock 的 level.dat",
+      "level.dat_old",
+      "gzip",
+      "8 字节文件头"
+    ],
+    "faq": [
+      [
+        "无需下载软件就能编辑 level.dat 吗？",
+        "<p>可以，这正是本页面的用途。解析器在浏览器中运行，因此无需安装任何内容；只要使用现代浏览器，就不受操作系统限制。</p>"
+      ],
+      [
+        "为什么世界仍显示旧名称？",
+        "<p>因为世界列表中的名称来自 <code>LevelName</code>，该标签位于 <code>level.dat</code> 内，而不是文件夹名称。复制或重命名文件夹不会改动该标签；编辑标签后，列表就会更新。</p>"
+      ],
+      [
+        "它支持 level.dat_old 吗？",
+        "<p>支持。<code>level.dat_old</code> 是采用相同格式的上一次存档。如果当前文件损坏，请打开 <code>_old</code> 副本，确认数据正常后以原文件名恢复。</p>"
+      ],
+      [
+        "可以在这里修改世界种子吗？",
+        "<p>可以修改种子标签，但它只影响修改后新生成的地形。磁盘中已有的区块会保持原有形状，因此新旧地形的交界处可能清晰可见。</p>"
+      ],
+      [
+        "编辑 level.dat 会导致封禁或损坏世界吗？",
+        "<p>这是你自己的存档文件，不涉及封禁。损坏通常来自服务器运行时编辑，或修改标签类型和名称而不是值。请先停止服务器，只编辑值并保留备份。</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "已按 {0} 加载",
+      "trailing": "已忽略根标签后的 {0} 个尾随字节",
+      "error": "错误：{0}",
+      "readfail": "无法读取文件",
+      "nofile": "未加载文件",
+      "saved": "已保存 {0}（{1}，{2}）",
+      "savefail": "保存错误：{0}",
+      "exported": "已导出 {0}",
+      "snbtfail": "SNBT 错误：{0}",
+      "tagadded": "已添加标签",
+      "tagremoved": "已删除标签",
+      "arrayupdated": "已更新数组",
+      "badvalue": "无效值：{0}",
+      "badarray": "无效数组：{0}",
+      "nameneeded": "必须填写标签名称",
+      "nametaken": "此处已存在名为 {0} 的标签",
+      "listtype": "列表已包含 {0} 类型的项目",
+      "editlevelname": "✎ 编辑 LevelName",
+      "showmore": "再显示 {1} 项中的 {0} 项…",
+      "matches": "{0} 个匹配项",
+      "nomatch": "没有标签匹配“{0}”",
+      "arraytoobig": "数组包含 {0} 项，请展开并逐项编辑",
+      "uncompressed": "未压缩",
+      "storage": "存储版本 v{0}",
+      "entries": "{0} 项",
+      "langprompt": "要使用{0}打开此页面吗？",
+      "langyes": "切换",
+      "langno": "保留当前语言"
+    },
+    "support": "<strong>支持 Minecraft 基岩版和 Java 版</strong>，也支持两者所有常见或少见的服务端核心：Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLamina 等。<a href=\"__HOME__#server-software\">完整列表</a>。",
+    "footernote": "免费并以 MIT 许可证开源，完全在浏览器中运行。与 Mojang Studios 或 Microsoft 无关联。Minecraft 是 Mojang Studios 的商标。",
+    "faqtitle": "常见问题",
+    "toctitle": "本页目录",
+    "relatedtitle": "相关工具",
+    "homecrumb": "NBT 编辑器",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "编辑器",
+      "文件类型",
+      "参考资料"
+    ],
+    "sourcehead": "源代码",
+    "sourcelink": "GitHub 上的代码"
+  },
+  "java-nbt-editor": {
+    "title": "Minecraft Java 版 NBT 在线编辑器",
+    "ogtitle": "Java 版 NBT 编辑器｜大端序、gzip、在线处理",
+    "desc": "适用于 Minecraft Java 版的在线 NBT 编辑器。可打开并修改 gzip 大端序的 level.dat、playerdata、servers.dat 与结构 .nbt 文件，兼容 Vanilla、Paper、Spigot、Fabric、Forge 等服务端；自动识别并按原压缩方式保存，文件不会离开浏览器。",
+    "keywords": "Java版NBT编辑器, Minecraft Java NBT修改器, Java 的 level.dat编辑器, playerdata编辑器, NBT在线编辑, Paper NBT, Spigot NBT, Fabric NBT, Forge NBT, gzip NBT编辑器",
+    "h1": "Java 版 NBT 编辑器",
+    "crumb": "Java",
+    "reltitle": "Java 版 NBT 编辑器",
+    "reldesc": "大端序、gzip，支持 Vanilla、Paper、Spigot、Fabric、Forge。",
+    "answer": "Minecraft Java 版以大端序 NBT 存储数据，并且几乎总是使用 gzip 压缩。将任意 Java 文件拖入下方，例如 <code>level.dat</code>、<code>playerdata</code> UUID 文件、<code>servers.dat</code>、结构 <code>.nbt</code> 或 WorldEdit 原理图；编辑器会解压文件，以大端序解析，再用 gzip 压缩写回，使游戏可以按原样接受。",
+    "droplabel": "Java NBT 文件",
+    "body": "\n<section class=\"content\" aria-label=\"Java NBT files\">\n<h2>Java 世界包含哪些文件</h2>\n<p>下表中的文件都能在上方编辑器中打开。区域文件本身（<code>.mca</code>）是包含许多压缩区块的容器，而不是单个 NBT 文档，因此需要先提取区块负载；编辑器可读取提取出的 zlib 压缩区块 NBT。</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>路径</th><th>内容</th><th>压缩</th></tr></thead>\n<tbody>\n<tr><td><code>world/level.dat</code></td><td>世界名称、游戏模式、规则、出生点、<code>DataVersion</code></td><td>gzip</td></tr>\n<tr><td><code>world/level.dat_old</code></td><td>同一文件的上一次保存</td><td>gzip</td></tr>\n<tr><td><code>world/playerdata/&lt;uuid&gt;.dat</code></td><td>物品栏、末影箱、位置、生命值、经验、属性</td><td>gzip</td></tr>\n<tr><td><code>world/data/raids.dat</code>, <code>idcounts.dat</code>, <code>map_*.dat</code></td><td>袭击状态、实体 ID 计数器、地图物品</td><td>gzip</td></tr>\n<tr><td><code>world/data/scoreboard.dat</code></td><td>记分项、队伍、分数</td><td>gzip</td></tr>\n<tr><td><code>world/region/*.mca</code></td><td>区域容器内的区块 NBT</td><td>每个区块使用 zlib</td></tr>\n<tr><td><code>servers.dat</code></td><td>客户端的多人服务器列表</td><td>无</td></tr>\n<tr><td><code>hotbar.nbt</code></td><td>已保存的创造模式快捷栏</td><td>无</td></tr>\n<tr><td>数据包中的 <code>*.nbt</code></td><td>由结构方块和拼图方块放置的结构</td><td>gzip</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Java NBT encoding\">\n<h2>Java 如何编码 NBT</h2>\n<div class=\"card\">\n<ul>\n<li><strong>大端序。</strong>每个整数和浮点数都先存储最高有效字节，与 Java 的 <code>DataOutputStream</code> 一致。</li>\n<li><strong>有名称的根标签。</strong>文件以标签类型 <code>0x0A</code> 开头，之后是带 UTF-8 长度前缀的根名称；在 <code>level.dat</code> 中，该名称历来为空。</li>\n<li><strong>修改版 UTF-8。</strong>字符串使用 Java 的 <code>writeUTF</code> 编码：长度占两个字节，NUL 写为 <code>C0 80</code>，基本平面以外的字符拆成两个三字节部分（CESU-8）。将其当作普通 UTF-8 的工具会破坏世界名称中的表情符号；本编辑器会正确编码。</li>\n<li><strong>默认使用 gzip。</strong><code>NbtIo.readCompressed</code> 需要 gzip 流。未压缩文件可在某些工具中加载，但游戏无法读取。</li>\n<li><strong>网络中使用无名称根。</strong>从 1.20.2 开始，协议发送的 NBT 不含根名称。此类数据包转储会在这里被识别为<em>Java 网络</em>格式。</li>\n</ul>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Server cores\">\n<h2>Paper、Spigot、Fabric、Forge 使用相同文件</h2>\n<p>分支和模组加载器改变服务器的运行方式，不改变世界的写入格式。Paper、Purpur、Pufferfish、Folia、Fabric、Quilt、Forge、NeoForge、Mohist、Arclight 和 Sponge 都使用 Vanilla 的 NBT 布局，因此本页内容可直接适用。分支会在世界旁添加 <code>paper-world.yml</code>、模组配置等额外文件，但它们属于 YAML 或 TOML，与 NBT 无关。</p>\n<p>模组和插件可能在 <code>level.dat</code> 或 <code>playerdata</code> 内加入自己的复合标签。这些标签可以像其他标签一样打开；除非了解对应模组的处理方式，否则不要修改。</p>\n</section>\n\n<section class=\"content\" aria-label=\"DataVersion\">\n<h2><code>DataVersion</code> 与版本迁移</h2>\n<p>Java 世界带有标识世界格式的 <code>DataVersion</code> 整数，每个快照都会递增。常用参考值：1.16.5 为 2586，1.17.1 为 2730，1.18.2 为 2975，1.19.4 为 3337，1.20.4 为 3700，1.21 为 3953。比写入世界的版本更旧的客户端会因该标签而拒绝打开；手动降低数值不会降级其后的区块数据，只会移除保护。可读取它来判断世界由哪个版本写入，但不要通过编辑它强制降级。</p>\n</section>\n",
+    "chips": [
+      "Vanilla",
+      "Paper",
+      "Spigot",
+      "Purpur",
+      "Folia",
+      "Fabric",
+      "Quilt",
+      "Forge",
+      "NeoForge",
+      "Sponge"
+    ],
+    "faq": [
+      [
+        "可以打开游戏无法加载的 Java 的 level.dat 吗？",
+        "<p>通常可以。编辑器比游戏更能容忍尾随字节；如果文件被截断，它会准确报告解析停止的位置。如果编辑器也拒绝，请尝试上一次自动保存的 <code>level.dat_old</code>。</p>"
+      ],
+      [
+        "支持 1.20.2+ 网络 NBT 吗？",
+        "<p>支持。从 1.20.2 开始，协议会省略根名称。此类转储会被识别为<em>Java 网络</em>格式，可重新保存为网络 NBT，也可保存为普通的有名称根文件。</p>"
+      ],
+      [
+        "可以编辑 .mca 区域文件中的区块吗？",
+        "<p>从区域容器提取区块 NBT 后即可编辑。<code>.mca</code> 本身由索引和多个 zlib 压缩的区块负载组成，而本编辑器处理单个 NBT 文档，不处理容器。</p>"
+      ],
+      [
+        "编辑 playerdata 会破坏玩家数据吗？",
+        "<p>只有在服务器运行时编辑才容易出问题：服务器会将玩家状态保存在内存中，并在退出时写回，从而覆盖文件。先让玩家离线，完成编辑后再重新连接。请参阅 <a href=\"../playerdata-editor/\">playerdata 编辑器</a>。</p>"
+      ],
+      [
+        "level.dat 必须使用 gzip 吗？",
+        "<p>Vanilla 加载器读取 gzip。请将压缩方式设为 gzip；如果输入文件原本如此，这也是默认设置，游戏即可正常接受。</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "已按 {0} 加载",
+      "trailing": "已忽略根标签后的 {0} 个尾随字节",
+      "error": "错误：{0}",
+      "readfail": "无法读取文件",
+      "nofile": "未加载文件",
+      "saved": "已保存 {0}（{1}，{2}）",
+      "savefail": "保存错误：{0}",
+      "exported": "已导出 {0}",
+      "snbtfail": "SNBT 错误：{0}",
+      "tagadded": "已添加标签",
+      "tagremoved": "已删除标签",
+      "arrayupdated": "已更新数组",
+      "badvalue": "无效值：{0}",
+      "badarray": "无效数组：{0}",
+      "nameneeded": "必须填写标签名称",
+      "nametaken": "此处已存在名为 {0} 的标签",
+      "listtype": "列表已包含 {0} 类型的项目",
+      "editlevelname": "✎ 编辑 LevelName",
+      "showmore": "再显示 {1} 项中的 {0} 项…",
+      "matches": "{0} 个匹配项",
+      "nomatch": "没有标签匹配“{0}”",
+      "arraytoobig": "数组包含 {0} 项，请展开并逐项编辑",
+      "uncompressed": "未压缩",
+      "storage": "存储版本 v{0}",
+      "entries": "{0} 项",
+      "langprompt": "要使用{0}打开此页面吗？",
+      "langyes": "切换",
+      "langno": "保留当前语言"
+    },
+    "support": "<strong>支持 Minecraft 基岩版和 Java 版</strong>，也支持两者所有常见或少见的服务端核心：Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLamina 等。<a href=\"__HOME__#server-software\">完整列表</a>。",
+    "footernote": "免费并以 MIT 许可证开源，完全在浏览器中运行。与 Mojang Studios 或 Microsoft 无关联。Minecraft 是 Mojang Studios 的商标。",
+    "faqtitle": "常见问题",
+    "toctitle": "本页目录",
+    "relatedtitle": "相关工具",
+    "homecrumb": "NBT 编辑器",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "编辑器",
+      "文件类型",
+      "参考资料"
+    ],
+    "sourcehead": "源代码",
+    "sourcelink": "GitHub 上的代码"
+  },
+  "mcpe-nbt-editor": {
+    "title": "MCPE NBT 编辑器｜Pocket Edition 存档",
+    "ogtitle": "基岩版 NBT 编辑器｜level.dat、MCPE、MCBE",
+    "desc": "在线编辑 MCPE 和 Minecraft 基岩版世界文件，包括带 8 字节文件头的 level.dat、.mcstructure 与小端序 NBT。支持 Android、iOS、Windows 客户端及 Bedrock Dedicated Server 等服务端；保存时自动修正负载长度，文件全程仅在浏览器本地处理。",
+    "keywords": "MCPE NBT编辑器, 我的世界手机版NBT修改器, 基岩版NBT编辑器, MCPE存档修改, level.dat编辑器, Minecraft PE存档编辑器, 安卓level.dat修改, MCBE NBT, 小端序NBT, 基岩版世界编辑器",
+    "h1": "MCPE NBT 编辑器｜Minecraft Pocket Edition 文件",
+    "crumb": "MCPE",
+    "reltitle": "MCPE NBT 编辑器",
+    "reldesc": "支持小端序 NBT 和 level.dat 的 8 字节文件头。",
+    "answer": "基岩版使用小端序写入 NBT，其 <code>level.dat</code> 前带有 8 字节文件头，用于保存存储版本和负载长度。将基岩版文件拖入下方，例如 <code>level.dat</code>、<code>.mcstructure</code>、LevelDB 值或协议转储；编辑器会读取文件、保持文件头完整，在保存时重新计算长度，并返回可直接放回世界文件夹的文件。",
+    "droplabel": "基岩版 level.dat",
+    "body": "\n<section class=\"content\" aria-label=\"Bedrock level.dat header\">\n<h2>8 字节文件头及其作用</h2>\n<p>基岩版 <code>level.dat</code> 不是原始 NBT。前 4 个字节是小端序存储版本（实际常见值为 8 和 10），接下来的 4 个字节是 NBT 负载的字节长度，之后才是未压缩标签。如果编辑负载后未修正长度，游戏就会拒绝文件；使用仅支持 Java 的 NBT 工具打开基岩版存档时通常会出现此问题。</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>偏移量</th><th>大小</th><th>字段</th></tr></thead>\n<tbody>\n<tr><td>0</td><td>4 字节</td><td>存储版本，小端序 int</td></tr>\n<tr><td>4</td><td>4 字节</td><td>负载字节长度，小端序无符号整数</td></tr>\n<tr><td>8</td><td>其余部分</td><td>小端序 NBT、根复合标签、未压缩</td></tr>\n</tbody>\n</table>\n</div>\n<p>本编辑器会在文件栏显示存储版本，保留该值，并在每次保存时自动重写长度。</p>\n</section>\n\n<section class=\"content\" aria-label=\"Bedrock tags\">\n<h2>常用的基岩版标签</h2>\n<p>基岩版将设置平铺在 <code>level.dat</code> 根节点，而不是像 Java 那样嵌套在 <code>Data</code> 复合标签下；游戏规则也是独立标签，而不是 <code>GameRules</code> 子项。</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>标签</th><th>类型</th><th>含义</th></tr></thead>\n<tbody>\n<tr><td><code>LevelName</code></td><td>String</td><td>世界列表和服务器输出中显示的世界名称</td></tr>\n<tr><td><code>GameType</code></td><td>Int</td><td>0 生存、1 创造、2 冒险</td></tr>\n<tr><td><code>Difficulty</code></td><td>Int</td><td>0 和平…3 困难</td></tr>\n<tr><td><code>commandsEnabled</code></td><td>Byte</td><td>开启或关闭作弊</td></tr>\n<tr><td><code>SpawnX</code>, <code>SpawnY</code>, <code>SpawnZ</code></td><td>Int</td><td>世界出生点</td></tr>\n<tr><td><code>RandomSeed</code></td><td>Long</td><td>世界种子，真正的 64 位值</td></tr>\n<tr><td><code>lastOpenedWithVersion</code></td><td>Int 列表</td><td>最后写入世界的客户端或服务器构建版本</td></tr>\n<tr><td><code>StorageVersion</code></td><td>Int</td><td>世界存储修订版本，与文件头对应</td></tr>\n<tr><td><code>experiments</code></td><td>Compound</td><td>该世界启用的实验性开关</td></tr>\n<tr><td><code>keepinventory</code>, <code>domobspawning</code>, …</td><td>Byte</td><td>游戏规则，每项对应一个小写标签</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Where Bedrock files live\">\n<h2>在各平台查找文件</h2>\n<ul>\n<li><strong>Android：</strong><code>Android/data/com.mojang.minecraftpe/files/games/com.mojang/minecraftWorlds/&lt;id&gt;/level.dat</code>。较新的 Android 版本会限制该文件夹；请使用游戏内世界导出功能，或具有相应访问权限的文件管理器。</li>\n<li><strong>iOS：</strong>在游戏中将世界导出为 <code>.mcworld</code>，用“文件”App 打开并解压；<code>level.dat</code> 位于压缩包根目录。</li>\n<li><strong>Windows：</strong><code>%LOCALAPPDATA%\\Packages\\Microsoft.MinecraftUWP_8wekyb3d8bbwe\\LocalState\\games\\com.mojang\\minecraftWorlds\\&lt;id&gt;\\level.dat</code>。</li>\n<li><strong>Bedrock Dedicated Server：</strong><code>worlds/&lt;World&gt;/level.dat</code>。</li>\n<li><strong>PocketMine-MP、Nukkit、PowerNukkitX：</strong><code>worlds/&lt;World&gt;/level.dat</code>；请参阅<a href=\"../pocketmine-nbt-editor/\">服务端指南</a>。</li>\n</ul>\n<p>世界文件夹名称是随机 ID，不是世界名称。可按修改时间排序，或在此打开几个 <code>level.dat</code> 文件并读取 <code>LevelName</code>，以确定正确文件。</p>\n</section>\n\n<section class=\"content\" aria-label=\"Other Bedrock NBT\">\n<h2><code>level.dat</code> 以外的文件</h2>\n<p>基岩版将区块、实体和方块实体保存在 <code>db/</code> 文件夹的 LevelDB 数据库中，许多键的值都是小端序 NBT。提取一个值后，可在此以<em>基岩版原始格式</em>打开，无文件头、无压缩。结构文件使用相同编码，请参阅 <a href=\"../mcstructure-editor/\">.mcstructure 编辑器</a>。协议捕获使用 varint 变体，编辑器会将其识别为<em>基岩版网络格式</em>。</p>\n</section>\n",
+    "chips": [
+      "MCPE",
+      "MCBE",
+      "Bedrock Dedicated Server",
+      "PocketMine-MP",
+      "Nukkit",
+      "PowerNukkitX",
+      "Cloudburst",
+      "Dragonfly",
+      "Endstone"
+    ],
+    "faq": [
+      [
+        "为什么基岩版 level.dat 无法在 NBTExplorer 中打开？",
+        "<p>因为 NBTExplorer 按 Java 的大端序布局读取，也不了解基岩版的 8 字节文件头。本编辑器支持两者，并会在保存时重写文件头中的长度。</p>"
+      ],
+      [
+        "可以在手机上编辑 MCPE 世界吗？",
+        "<p>可以。在手机浏览器中打开本页，从文件管理器选择文件，编辑并保存。下载文件会进入“下载”文件夹，再将其复制回原文件位置即可。</p>"
+      ],
+      [
+        "存储版本 8 和 10 有什么区别？",
+        "<p>它们标记基岩版世界存储格式的不同修订版本；当前客户端写入 10。编辑器会保留文件原有值，而不会强制替换，因为重写该值并不会迁移其后的世界数据。</p>"
+      ],
+      [
+        "支持 .mcworld 文件吗？",
+        "<p>不能直接打开，因为 <code>.mcworld</code> 是 zip 压缩包。将其解压，在此编辑 <code>level.dat</code>，再放回压缩包并将扩展名改回 <code>.mcworld</code>。</p>"
+      ],
+      [
+        "支持基岩版游戏规则吗？",
+        "<p>支持。基岩版将每条规则保存为根节点下独立的小写 byte 标签，例如 <code>keepinventory</code>、<code>domobspawning</code>、<code>showcoordinates</code>。将 byte 设为 1 或 0。完整列表见<a href=\"../guides/edit-gamerules/\">游戏规则指南</a>。</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "已按 {0} 加载",
+      "trailing": "已忽略根标签后的 {0} 个尾随字节",
+      "error": "错误：{0}",
+      "readfail": "无法读取文件",
+      "nofile": "未加载文件",
+      "saved": "已保存 {0}（{1}，{2}）",
+      "savefail": "保存错误：{0}",
+      "exported": "已导出 {0}",
+      "snbtfail": "SNBT 错误：{0}",
+      "tagadded": "已添加标签",
+      "tagremoved": "已删除标签",
+      "arrayupdated": "已更新数组",
+      "badvalue": "无效值：{0}",
+      "badarray": "无效数组：{0}",
+      "nameneeded": "必须填写标签名称",
+      "nametaken": "此处已存在名为 {0} 的标签",
+      "listtype": "列表已包含 {0} 类型的项目",
+      "editlevelname": "✎ 编辑 LevelName",
+      "showmore": "再显示 {1} 项中的 {0} 项…",
+      "matches": "{0} 个匹配项",
+      "nomatch": "没有标签匹配“{0}”",
+      "arraytoobig": "数组包含 {0} 项，请展开并逐项编辑",
+      "uncompressed": "未压缩",
+      "storage": "存储版本 v{0}",
+      "entries": "{0} 项",
+      "langprompt": "要使用{0}打开此页面吗？",
+      "langyes": "切换",
+      "langno": "保留当前语言"
+    },
+    "support": "<strong>支持 Minecraft 基岩版和 Java 版</strong>，也支持两者所有常见或少见的服务端核心：Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLamina 等。<a href=\"__HOME__#server-software\">完整列表</a>。",
+    "footernote": "免费并以 MIT 许可证开源，完全在浏览器中运行。与 Mojang Studios 或 Microsoft 无关联。Minecraft 是 Mojang Studios 的商标。",
+    "faqtitle": "常见问题",
+    "toctitle": "本页目录",
+    "relatedtitle": "相关工具",
+    "homecrumb": "NBT 编辑器",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "编辑器",
+      "文件类型",
+      "参考资料"
+    ],
+    "sourcehead": "源代码",
+    "sourcelink": "GitHub 上的代码"
+  },
+  "pocketmine-nbt-editor": {
+    "title": "PocketMine-MP level.dat 在线编辑器",
+    "ogtitle": "PocketMine-MP 与 Nukkit level.dat 编辑器",
+    "desc": "在线编辑 PocketMine-MP、Nukkit、PowerNukkitX 和 Bedrock Dedicated Server 使用的 level.dat。可修复复制世界文件夹后出现的重复世界名称，修改出生点与游戏规则，并保留基岩版 8 字节文件头；所有操作均在浏览器本地完成。",
+    "keywords": "PocketMine level.dat编辑器, PMMP NBT编辑器, PocketMine世界改名, Nukkit level.dat, PowerNukkitX NBT, BDS世界名称修改, 基岩版服务器存档编辑, PMMP世界编辑器",
+    "h1": "PocketMine-MP 与基岩版服务器 level.dat 编辑器",
+    "crumb": "PocketMine-MP",
+    "reltitle": "PocketMine-MP 编辑器",
+    "reldesc": "编辑 PMMP、Nukkit 和 BDS 的服务端 level.dat。",
+    "answer": "基岩版服务端软件 PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly 和官方 Bedrock Dedicated Server 都读取带 8 字节文件头的小端序 <code>level.dat</code>，文件位于 <code>worlds/&lt;World&gt;/</code>。将文件拖入下方，可修复复制文件夹后的世界名称、移动出生点、更改游戏规则，或检查最后写入世界的构建版本。",
+    "droplabel": "worlds/&lt;World&gt;/level.dat",
+    "body": "\n<section class=\"content\" aria-label=\"Duplicate world names\">\n<h2>世界名称重复问题</h2>\n<p>基岩版服务器管理员经常遇到这种情况：将 <code>worlds/hub</code> 复制为 <code>worlds/hub2</code> 以创建第二个竞技场后，控制台、世界管理器和所有报告世界名称的插件仍把两个世界都称为 <em>hub</em>。文件夹名称已经改变，但 <code>LevelName</code> 在 <code>level.dat</code> 内没有改变。</p>\n<p>影响不只是显示问题。按内部名称查找世界的插件，如传送点、每世界配置和区域保护，可能解析到错误世界，世界管理命令也会产生歧义。解决方法是编辑该标签：将文件拖入上方，编辑器会直接跳到 <code>LevelName</code> 并打开编辑。</p>\n<div class=\"card\">\n<ol class=\"steps\">\n<li>停止服务器。运行中的服务器会在保存时重写 <code>level.dat</code>，从而撤销编辑。</li>\n<li>通过 SFTP 或面板文件管理器下载 <code>worlds/&lt;World&gt;/level.dat</code>。</li>\n<li>将文件拖入编辑器，把 <code>LevelName</code> 改为新名称，然后保存。</li>\n<li>上传并覆盖原文件，同时保留旧文件作为备份。</li>\n<li>启动服务器，检查控制台中报告已加载世界的行。</li>\n</ol>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Core specifics\">\n<h2>各核心注意事项</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>核心</th><th>世界路径</th><th>说明</th></tr></thead>\n<tbody>\n<tr><td>PocketMine-MP (PM5)</td><td><code>worlds/&lt;World&gt;/</code></td><td>默认世界由 <code>level-name</code> 设置，该项位于 <code>server.properties</code>；该值是文件夹名称，而 <code>LevelName</code> 是世界对自身的命名。</td></tr>\n<tr><td>Nukkit / PowerNukkitX</td><td><code>worlds/&lt;World&gt;/</code></td><td>使用相同的基岩版布局；PNX 会在旁边添加自己的设置文件。</td></tr>\n<tr><td>Bedrock Dedicated Server</td><td><code>worlds/&lt;World&gt;/</code></td><td><code>level-name</code> 在 <code>server.properties</code> 中选择文件夹；文件头存储版本通常为 10。</td></tr>\n<tr><td>Cloudburst / Dragonfly</td><td><code>worlds/&lt;World&gt;/</code></td><td>读取相同的 <code>level.dat</code>；Dragonfly 可能在自己的数据库中保存额外状态。</td></tr>\n<tr><td>WaterdogPE, Geyser</td><td>—</td><td>这些是代理，不保存世界；NBT 仅以网络 NBT 形式从中传递。</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Server workflow\">\n<h2>避免破坏生产服务器的操作方法</h2>\n<div class=\"card\">\n<ul>\n<li><strong>备份整个世界文件夹，</strong>不要只备份 <code>level.dat</code>。这只需几秒，也是错误编辑后能够恢复的唯一保障。</li>\n<li><strong>绝不要通过 SFTP 直接编辑在线文件。</strong>停止服务器后再下载、编辑和上传。服务器仍打开世界时原地编辑，可能产生截断文件。</li>\n<li><strong>为新模式复制世界？</strong>复制后、服务器读取前立即更改 <code>LevelName</code>，避免任何组件缓存错误名称。</li>\n<li><strong>加载后检查文件栏。</strong>其中会显示检测到的格式和存储版本。如果基岩版文件未报告为<em>基岩版 level.dat</em>，说明拿错了文件或文件已经损坏。</li>\n</ul>\n</div>\n</section>\n",
+    "chips": [
+      "PocketMine-MP",
+      "Nukkit",
+      "PowerNukkitX",
+      "Cloudburst",
+      "Bedrock Dedicated Server",
+      "Dragonfly",
+      "Endstone",
+      "WaterdogPE"
+    ],
+    "faq": [
+      [
+        "PocketMine-MP 使用与基岩版相同的 level.dat 吗？",
+        "<p>是。PocketMine-MP 实现基岩版世界格式，因此其 <code>level.dat</code> 是带 8 字节文件头的小端序 NBT，与 Vanilla 基岩版服务器写入的结构逐字节相同。</p>"
+      ],
+      [
+        "为什么控制台中的两个世界名称相同？",
+        "<p>因为两者从同一文件夹复制而来，共用同一个 <code>LevelName</code>。文件夹名称与标签相互独立；请修改该标签。</p>"
+      ],
+      [
+        "无需重启服务器就能重命名世界吗？",
+        "<p>不能。世界加载在内存中并会在保存时重写，因此服务器运行期间的编辑会被丢弃。请停止服务器、编辑，再启动。</p>"
+      ],
+      [
+        "支持 Nukkit 和 PowerNukkitX 吗？",
+        "<p>支持。它们使用相同格式、相同文件路径和相同操作步骤。</p>"
+      ],
+      [
+        "如何将基岩版世界转换为 Java 版？",
+        "<p>NBT 编辑器无法完成这种转换。字节序只是简单部分；标签布局、方块调色板和区块存储完全不同。请使用专用转换器，再用本编辑器处理剩余元数据。</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "已按 {0} 加载",
+      "trailing": "已忽略根标签后的 {0} 个尾随字节",
+      "error": "错误：{0}",
+      "readfail": "无法读取文件",
+      "nofile": "未加载文件",
+      "saved": "已保存 {0}（{1}，{2}）",
+      "savefail": "保存错误：{0}",
+      "exported": "已导出 {0}",
+      "snbtfail": "SNBT 错误：{0}",
+      "tagadded": "已添加标签",
+      "tagremoved": "已删除标签",
+      "arrayupdated": "已更新数组",
+      "badvalue": "无效值：{0}",
+      "badarray": "无效数组：{0}",
+      "nameneeded": "必须填写标签名称",
+      "nametaken": "此处已存在名为 {0} 的标签",
+      "listtype": "列表已包含 {0} 类型的项目",
+      "editlevelname": "✎ 编辑 LevelName",
+      "showmore": "再显示 {1} 项中的 {0} 项…",
+      "matches": "{0} 个匹配项",
+      "nomatch": "没有标签匹配“{0}”",
+      "arraytoobig": "数组包含 {0} 项，请展开并逐项编辑",
+      "uncompressed": "未压缩",
+      "storage": "存储版本 v{0}",
+      "entries": "{0} 项",
+      "langprompt": "要使用{0}打开此页面吗？",
+      "langyes": "切换",
+      "langno": "保留当前语言"
+    },
+    "support": "<strong>支持 Minecraft 基岩版和 Java 版</strong>，也支持两者所有常见或少见的服务端核心：Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLamina 等。<a href=\"__HOME__#server-software\">完整列表</a>。",
+    "footernote": "免费并以 MIT 许可证开源，完全在浏览器中运行。与 Mojang Studios 或 Microsoft 无关联。Minecraft 是 Mojang Studios 的商标。",
+    "faqtitle": "常见问题",
+    "toctitle": "本页目录",
+    "relatedtitle": "相关工具",
+    "homecrumb": "NBT 编辑器",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "编辑器",
+      "文件类型",
+      "参考资料"
+    ],
+    "sourcehead": "源代码",
+    "sourcelink": "GitHub 上的代码"
+  },
+  "mcstructure-editor": {
+    "title": ".mcstructure 在线编辑器｜基岩版结构文件",
+    "ogtitle": ".mcstructure 编辑器｜打开并修改基岩版结构",
+    "desc": "在线打开和编辑 Minecraft 基岩版 .mcstructure 文件，可查看结构尺寸、方块调色板、方块索引、方块实体及来源坐标。支持未压缩小端序 NBT，修改后按相同编码下载，适合附加包和地图制作者在不重新进入世界的情况下修复结构数据；文件仅在浏览器本地处理。",
+    "keywords": "mcstructure编辑器, mcstructure查看器, 在线修改mcstructure, 打开mcstructure文件, 基岩版结构方块文件, Minecraft基岩版结构编辑, mcstructure NBT",
+    "h1": ".mcstructure 编辑器｜基岩版结构文件",
+    "crumb": ".mcstructure",
+    "reltitle": ".mcstructure 编辑器",
+    "reldesc": "基岩版结构方块：调色板、尺寸和方块实体。",
+    "answer": "<code>.mcstructure</code> 文件是基岩版结构方块写入的未压缩小端序 NBT。将文件拖入下方，可读取并编辑结构尺寸、方块调色板、方块索引和方块实体数据，再以相同编码下载。附加包或地图制作者因此无需重新打开世界即可修补结构。",
+    "droplabel": ".mcstructure 文件",
+    "body": "\n<section class=\"content\" aria-label=\"Inside a mcstructure file\">\n<h2><code>.mcstructure</code> 内部内容</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>标签</th><th>类型</th><th>保存内容</th></tr></thead>\n<tbody>\n<tr><td><code>format_version</code></td><td>Int</td><td>结构格式修订版本，当前文件为 1</td></tr>\n<tr><td><code>size</code></td><td>Int 列表</td><td>捕获区域的 X、Y、Z 尺寸</td></tr>\n<tr><td><code>structure_world_origin</code></td><td>Int 列表</td><td>结构在世界中的捕获位置</td></tr>\n<tr><td><code>structure</code></td><td>Compound</td><td>以下全部内容都位于此处</td></tr>\n<tr><td><code>structure.block_indices</code></td><td>Int[] 列表</td><td>两层调色板索引，通常为方块层和含水层；<code>-1</code> 表示“保留当前位置原有内容”</td></tr>\n<tr><td><code>structure.entities</code></td><td>Compound 列表</td><td>随结构捕获的实体</td></tr>\n<tr><td><code>structure.palette.default.block_palette</code></td><td>Compound 列表</td><td>每种不同的方块状态：<code>name</code>、<code>states</code>、<code>version</code></td></tr>\n<tr><td><code>structure.palette.default.block_position_data</code></td><td>Compound</td><td>以位置的一维索引为键的方块实体 NBT</td></tr>\n</tbody>\n</table>\n</div>\n<p><code>block_indices</code> 中的索引顺序依次为 X、Z、Y，即调色板列表中的一维索引 <code>(x * sizeZ + z) * sizeY + y</code>。利用这一映射，可修复单个错误方块而无需重新生成结构。</p>\n</section>\n\n<section class=\"content\" aria-label=\"Typical edits\">\n<h2>常见修改</h2>\n<ul>\n<li><strong>替换所有同类方块</strong>：编辑 <code>block_palette</code> 中的一项，所有指向该索引的位置都会随之改变。</li>\n<li><strong>修正方块状态</strong>：修改错误的 <code>facing</code> 或意外的 <code>waterlogged</code>，这些值位于 <code>states</code> 复合标签中。</li>\n<li><strong>移除实体</strong>：从 <code>entities</code> 列表删除意外捕获的项目。</li>\n<li><strong>修复方块实体数据</strong>：在 <code>block_position_data</code> 中修改箱子内容、告示牌文本和刷怪笼设置。</li>\n<li><strong>检查版本标记</strong>：游戏更新后导入结构出现错误方块时，检查调色板项目的版本。</li>\n</ul>\n</section>\n\n<section class=\"content\" aria-label=\"Where mcstructure files live\">\n<h2>文件位置</h2>\n<p>结构方块会将文件保存到世界目录内的 <code>structures/</code> 文件夹，文件名为 <code>&lt;namespace&gt;_&lt;name&gt;.mcstructure</code>。行为包则将文件放在包内的 <code>structures/</code> 下，游戏按命名空间加载。两者格式相同，都能在此打开。</p>\n<p>Java 版对应格式是 gzip 压缩的大端序 <code>.nbt</code> 结构文件，其编码和标签布局均不同。<a href=\"../java-nbt-editor/\">Java 编辑器页面</a>有详细说明，本编辑器也能打开它们。</p>\n</section>\n",
+    "chips": [
+      "结构方块",
+      "基岩版附加包",
+      "行为包",
+      "小端序 NBT"
+    ],
+    "faq": [
+      [
+        "可以将 .mcstructure 转换为 Java .nbt 结构吗？",
+        "<p>编辑器可以将字节重新编码为大端序 gzip，但标签布局不同；Java 结构使用 <code>palette</code>/<code>blocks</code>，键名和方块名称也不同。重新编码的文件可以读取，但不是有效的 Java 结构。</p>"
+      ],
+      [
+        "为什么 .mcstructure 没有压缩？",
+        "<p>基岩版将结构文件写为原始小端序 NBT，不带 gzip 包装。这是正常格式；编辑器会将其识别为<em>基岩版原始格式</em>。</p>"
+      ],
+      [
+        "block_indices 中的 -1 表示什么？",
+        "<p>它表示结构不会改动该位置，因此放置结构时会保留世界中已有的方块。</p>"
+      ],
+      [
+        "可以通过编辑 size 调整结构大小吗？",
+        "<p>不能只改此项。<code>block_indices</code> 对每个位置都有一个项目，因此数组长度必须与新体积完全一致。只修改 <code>size</code> 会生成游戏拒绝的文件。</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "已按 {0} 加载",
+      "trailing": "已忽略根标签后的 {0} 个尾随字节",
+      "error": "错误：{0}",
+      "readfail": "无法读取文件",
+      "nofile": "未加载文件",
+      "saved": "已保存 {0}（{1}，{2}）",
+      "savefail": "保存错误：{0}",
+      "exported": "已导出 {0}",
+      "snbtfail": "SNBT 错误：{0}",
+      "tagadded": "已添加标签",
+      "tagremoved": "已删除标签",
+      "arrayupdated": "已更新数组",
+      "badvalue": "无效值：{0}",
+      "badarray": "无效数组：{0}",
+      "nameneeded": "必须填写标签名称",
+      "nametaken": "此处已存在名为 {0} 的标签",
+      "listtype": "列表已包含 {0} 类型的项目",
+      "editlevelname": "✎ 编辑 LevelName",
+      "showmore": "再显示 {1} 项中的 {0} 项…",
+      "matches": "{0} 个匹配项",
+      "nomatch": "没有标签匹配“{0}”",
+      "arraytoobig": "数组包含 {0} 项，请展开并逐项编辑",
+      "uncompressed": "未压缩",
+      "storage": "存储版本 v{0}",
+      "entries": "{0} 项",
+      "langprompt": "要使用{0}打开此页面吗？",
+      "langyes": "切换",
+      "langno": "保留当前语言"
+    },
+    "support": "<strong>支持 Minecraft 基岩版和 Java 版</strong>，也支持两者所有常见或少见的服务端核心：Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLamina 等。<a href=\"__HOME__#server-software\">完整列表</a>。",
+    "footernote": "免费并以 MIT 许可证开源，完全在浏览器中运行。与 Mojang Studios 或 Microsoft 无关联。Minecraft 是 Mojang Studios 的商标。",
+    "faqtitle": "常见问题",
+    "toctitle": "本页目录",
+    "relatedtitle": "相关工具",
+    "homecrumb": "NBT 编辑器",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "编辑器",
+      "文件类型",
+      "参考资料"
+    ],
+    "sourcehead": "源代码",
+    "sourcelink": "GitHub 上的代码"
+  },
+  "schematic-editor": {
+    "title": ".schem 与 .schematic 在线编辑器",
+    "ogtitle": ".schem / .schematic 编辑器｜WorldEdit 与 MCEdit",
+    "desc": "在线打开 WorldEdit .schem 与 MCEdit .schematic 文件，查看和修改调色板、尺寸、偏移量、方块实体及元数据。支持 Sponge Schematic v2/v3 和旧版 MCEdit 的 gzip 大端序 NBT，编辑后按原格式下载，可直接供 WorldEdit 使用；文件不会上传。",
+    "keywords": "schem编辑器, schematic编辑器, WorldEdit原理图编辑, 打开schem文件, MCEdit schematic查看器, Sponge Schematic格式, Minecraft原理图NBT, 在线原理图查看",
+    "h1": "Schematic 编辑器｜在线修改 .schem 和 .schematic",
+    "crumb": ".schem",
+    "reltitle": "Schematic 编辑器",
+    "reldesc": "支持 WorldEdit .schem 和旧版 MCEdit .schematic。",
+    "answer": "Schematic 是 gzip 压缩的大端序 NBT。将现代 WorldEdit <code>.schem</code>（Sponge Schematic 格式）或旧版 MCEdit <code>.schematic</code> 拖入下方，即可检查调色板、尺寸、偏移量、方块实体列表和元数据，编辑任意标签，再下载可直接用于 <code>//paste</code> 的文件。",
+    "droplabel": ".schem 或 .schematic 文件",
+    "body": "\n<section class=\"content\" aria-label=\"Schematic formats\">\n<h2>同一扩展名系列中的两种格式</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>格式</th><th>扩展名</th><th>关键标签</th></tr></thead>\n<tbody>\n<tr><td>Sponge Schematic v2 (WorldEdit 7)</td><td><code>.schem</code></td><td><code>Version</code>, <code>DataVersion</code>, <code>Width</code>, <code>Height</code>, <code>Length</code>, <code>Palette</code>, <code>BlockData</code>, <code>BlockEntities</code>, <code>Offset</code>, <code>Metadata</code></td></tr>\n<tr><td>Sponge Schematic v3</td><td><code>.schem</code></td><td>相同数据嵌套在 <code>Schematic</code> 复合标签下，<code>Blocks</code> 中包含 <code>Palette</code> 和 <code>Data</code></td></tr>\n<tr><td>旧版 MCEdit</td><td><code>.schematic</code></td><td><code>Width</code>, <code>Height</code>, <code>Length</code>, <code>Blocks</code>, <code>Data</code>, <code>Entities</code>, <code>TileEntities</code>, <code>Materials</code></td></tr>\n</tbody>\n</table>\n</div>\n<p>Sponge 格式中的 <code>BlockData</code> 是 varint 调色板索引的 byte 数组，并非每个方块一个字节；较大的 ID 会跨越多个字节。旧格式则在 <code>Blocks</code> 中存储原始数字方块 ID，并用平行的 <code>Data</code> 数组存储元数据半字节，因此旧原理图在现代版本中会丢失精确信息。</p>\n</section>\n\n<section class=\"content\" aria-label=\"Editing schematics\">\n<h2>适合手动修改的内容</h2>\n<ul>\n<li><strong>调色板项目。</strong>将 <code>minecraft:oak_planks</code> 改为 <code>minecraft:spruce_planks</code>，修改位置在 <code>Palette</code> 中，可一次替换原理图中所有匹配方块。</li>\n<li><strong>偏移量和原点。</strong><code>Offset</code> 决定粘贴位置相对玩家的位置，可快速修复始终偏离几个方块的建筑。</li>\n<li><strong>方块实体。</strong>箱子物品、告示牌文本和刷怪笼数据位于 <code>BlockEntities</code>，分享建筑前可以清理。</li>\n<li><strong>元数据。</strong><code>Metadata</code> 保存作者和 WorldEdit 原点；可以安全编辑，发布前通常适合清除。</li>\n<li><strong>DataVersion。</strong>它说明生成原理图的 Minecraft 版本，可解释大多数粘贴时的“未知方块”错误。</li>\n</ul>\n</section>\n\n<section class=\"content\" aria-label=\"Compatibility\">\n<h2>加载器兼容性</h2>\n<p>WorldEdit 和 FastAsyncWorldEdit 读取 <code>.schem</code>，位置为 <code>plugins/WorldEdit/schematics/</code>；旧 <code>.schematic</code> 仍可加载，但会在导入时转换。Litematica 使用自己的 <code>.litematic</code> 容器，它也是 NBT，能在本编辑器中打开，但布局不同于 Sponge。无论具体格式如何，编辑器都会按 NBT 读取，并以 gzip 压缩写回，使加载器获得预期文件。</p>\n</section>\n",
+    "chips": [
+      "WorldEdit",
+      "FastAsyncWorldEdit",
+      "Sponge Schematic v2/v3",
+      "旧版 MCEdit",
+      "Litematica 相关格式"
+    ],
+    "faq": [
+      [
+        "没有服务器或 WorldEdit 能打开 .schem 吗？",
+        "<p>可以。<code>.schem</code> 就是 gzip 大端序 NBT；无需安装其他软件，编辑器可直接在浏览器中打开。</p>"
+      ],
+      [
+        "为什么原理图粘贴后方块错误？",
+        "<p>通常是版本不匹配。请检查 <code>DataVersion</code> 和调色板；较新版本导出的原理图可能引用旧服务器不认识的方块状态。</p>"
+      ],
+      [
+        "可以在这里修改原理图尺寸吗？",
+        "<p>不能只修改 <code>Width</code>/<code>Height</code>/<code>Length</code>。<code>BlockData</code> 的大小对应体积，尺寸与数据必须一起改变；此操作应使用 WorldEdit，而不是标签编辑器。</p>"
+      ],
+      [
+        "可以打开 .litematic 文件吗？",
+        "<p>可以按 NBT 打开。Litematica 使用自己的标签布局，不是 Sponge 格式，因此显示的是其原生结构，而不是 Schematic 调色板。</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "已按 {0} 加载",
+      "trailing": "已忽略根标签后的 {0} 个尾随字节",
+      "error": "错误：{0}",
+      "readfail": "无法读取文件",
+      "nofile": "未加载文件",
+      "saved": "已保存 {0}（{1}，{2}）",
+      "savefail": "保存错误：{0}",
+      "exported": "已导出 {0}",
+      "snbtfail": "SNBT 错误：{0}",
+      "tagadded": "已添加标签",
+      "tagremoved": "已删除标签",
+      "arrayupdated": "已更新数组",
+      "badvalue": "无效值：{0}",
+      "badarray": "无效数组：{0}",
+      "nameneeded": "必须填写标签名称",
+      "nametaken": "此处已存在名为 {0} 的标签",
+      "listtype": "列表已包含 {0} 类型的项目",
+      "editlevelname": "✎ 编辑 LevelName",
+      "showmore": "再显示 {1} 项中的 {0} 项…",
+      "matches": "{0} 个匹配项",
+      "nomatch": "没有标签匹配“{0}”",
+      "arraytoobig": "数组包含 {0} 项，请展开并逐项编辑",
+      "uncompressed": "未压缩",
+      "storage": "存储版本 v{0}",
+      "entries": "{0} 项",
+      "langprompt": "要使用{0}打开此页面吗？",
+      "langyes": "切换",
+      "langno": "保留当前语言"
+    },
+    "support": "<strong>支持 Minecraft 基岩版和 Java 版</strong>，也支持两者所有常见或少见的服务端核心：Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLamina 等。<a href=\"__HOME__#server-software\">完整列表</a>。",
+    "footernote": "免费并以 MIT 许可证开源，完全在浏览器中运行。与 Mojang Studios 或 Microsoft 无关联。Minecraft 是 Mojang Studios 的商标。",
+    "faqtitle": "常见问题",
+    "toctitle": "本页目录",
+    "relatedtitle": "相关工具",
+    "homecrumb": "NBT 编辑器",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "编辑器",
+      "文件类型",
+      "参考资料"
+    ],
+    "sourcehead": "源代码",
+    "sourcelink": "GitHub 上的代码"
+  },
+  "playerdata-editor": {
+    "title": "Minecraft playerdata 在线编辑器",
+    "ogtitle": "playerdata 编辑器｜物品栏、位置和统计数据",
+    "desc": "在线编辑 Minecraft Java 版 playerdata .dat 文件，可修复玩家卡在方块或错误维度、移除导致崩溃的物品，并调整物品栏、末影箱、生命值、饥饿值、经验、游戏模式与属性。支持 gzip 大端序 NBT；请在玩家离线或服务器停止时操作，文件仅在浏览器本地处理。",
+    "keywords": "playerdata编辑器, Minecraft玩家数据修改, 玩家物品栏NBT编辑, UUID dat编辑器, 玩家卡住修复, Minecraft背包修改器, 在线编辑playerdata, 玩家位置修改",
+    "h1": "playerdata 编辑器｜Minecraft 玩家 .dat 文件",
+    "crumb": "playerdata",
+    "reltitle": "playerdata 编辑器",
+    "reldesc": "按玩家修改物品栏、位置、生命值和统计数据。",
+    "answer": "Java 版为每个玩家写入一个 gzip 大端序 NBT 文件，路径为 <code>world/playerdata/&lt;uuid&gt;.dat</code>，其中包含物品栏、末影箱、位置、维度、生命值、饥饿值、经验和属性。将文件拖入下方，可修复卡在地形中的玩家、删除导致崩溃的物品或重置统计数据。操作时应停止服务器，至少要让该玩家离线。",
+    "droplabel": "playerdata .dat 文件",
+    "body": "\n<section class=\"content\" aria-label=\"playerdata tags\">\n<h2>玩家文件中的标签</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>标签</th><th>类型</th><th>含义</th></tr></thead>\n<tbody>\n<tr><td><code>Pos</code></td><td>Double 列表</td><td>X、Y、Z；用于修复卡在墙内或基岩下方的玩家。</td></tr>\n<tr><td><code>Rotation</code></td><td>Float 列表</td><td>偏航角和俯仰角。</td></tr>\n<tr><td><code>Dimension</code></td><td>String / Int</td><td>玩家登录时所在的维度。</td></tr>\n<tr><td><code>Inventory</code></td><td>Compound 列表</td><td>每组物品一个项目：<code>id</code>、<code>Count</code>、<code>Slot</code>、<code>components</code> 或 <code>tag</code>。</td></tr>\n<tr><td><code>EnderItems</code></td><td>Compound 列表</td><td>末影箱内容，结构相同。</td></tr>\n<tr><td><code>Health</code>, <code>foodLevel</code>, <code>XpLevel</code>, <code>XpTotal</code></td><td>Float / Int</td><td>生存状态和经验。</td></tr>\n<tr><td><code>playerGameType</code></td><td>Int</td><td>玩家个人游戏模式。</td></tr>\n<tr><td><code>abilities</code></td><td>Compound</td><td>飞行、无敌、行走和飞行速度。</td></tr>\n<tr><td><code>Attributes</code></td><td>Compound 列表</td><td>最大生命值、移动速度和其他修饰符。</td></tr>\n<tr><td><code>SpawnX</code>/<code>SpawnY</code>/<code>SpawnZ</code> 或 <code>respawn</code></td><td>Int / Compound</td><td>个人重生点，具体形式取决于版本。</td></tr>\n<tr><td><code>UUID</code></td><td>Int[4]</td><td>现代版本中以四个 int 保存的玩家 UUID。</td></tr>\n</tbody>\n</table>\n</div>\n<p>1.20.5 中物品组结构发生变化：自定义数据从单个 <code>tag</code> 复合标签移到独立的 <code>components</code>。两种结构都能在此打开；请编辑当前版本实际写入的形式。</p>\n</section>\n\n<section class=\"content\" aria-label=\"Common repairs\">\n<h2>常见修复</h2>\n<div class=\"card\">\n<ul>\n<li><strong>玩家卡在地形中或不断下落。</strong>将 <code>Pos</code> 设为安全坐标，依次填写 X、Y、Z 三个 double；如果 <code>Motion</code> 中有极大值，也将其清除。</li>\n<li><strong>客户端登录时崩溃。</strong>通常由格式错误的物品导致。请从 <code>Inventory</code> 删除问题项目，不必清空整个列表。</li>\n<li><strong>传送门故障后维度错误。</strong>将 <code>Dimension</code> 改回 <code>minecraft:overworld</code>，并为 <code>Pos</code> 设置对应坐标。</li>\n<li><strong>卡在旁观模式。</strong>将 <code>playerGameType</code> 设为 0 表示生存，1 表示创造。</li>\n<li><strong>已移除插件留下属性修饰符。</strong>删除 <code>Attributes</code> 中过期的项目。</li>\n</ul>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Server safety\">\n<h2>让玩家离线后操作</h2>\n<p>服务器会把玩家状态保存在内存中，并在退出和自动保存时写入文件。玩家在线时编辑，修改必然会被覆盖；保存过程中编辑还可能截断文件。让玩家离线或停止服务器，复制、编辑并放回文件，再允许其连接。在登录成功前保留原文件。</p>\n<p>基岩版服务器不使用此布局：玩家数据位于世界 LevelDB 中，例如键 <code>player_&lt;uuid&gt;</code>，其值为小端序 NBT。提取值后，可在此以<em>基岩版原始格式</em>打开。</p>\n</section>\n",
+    "chips": [
+      "Java 玩家数据",
+      "末影箱",
+      "物品栏",
+      "位置",
+      "属性",
+      "进度相关"
+    ],
+    "faq": [
+      [
+        "哪个文件属于我的玩家？",
+        "<p>文件以 UUID 命名。可通过 Mojang API 查询工具查找玩家 UUID，或按修改时间排序 <code>playerdata/</code>，再与最后登录时间对应。</p>"
+      ],
+      [
+        "可以编辑 playerdata 给自己物品吗？",
+        "<p>在自己的服务器上可以：向 <code>Inventory</code> 列表添加包含 <code>id</code>、<code>Count</code> 和 <code>Slot</code> 的项目。在他人服务器上这样做属于入侵，而且运行中的服务器会重写文件。</p>"
+      ],
+      [
+        "为什么修改消失了？",
+        "<p>编辑时服务器或玩家仍在线。下一次保存时，内存中的玩家状态会覆盖文件。</p>"
+      ],
+      [
+        "基岩版的 playerdata 相同吗？",
+        "<p>不同。基岩版把玩家保存在世界 LevelDB 中，而不是按 UUID 分文件。提取其中的小端序 NBT 值后可在此打开。</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "已按 {0} 加载",
+      "trailing": "已忽略根标签后的 {0} 个尾随字节",
+      "error": "错误：{0}",
+      "readfail": "无法读取文件",
+      "nofile": "未加载文件",
+      "saved": "已保存 {0}（{1}，{2}）",
+      "savefail": "保存错误：{0}",
+      "exported": "已导出 {0}",
+      "snbtfail": "SNBT 错误：{0}",
+      "tagadded": "已添加标签",
+      "tagremoved": "已删除标签",
+      "arrayupdated": "已更新数组",
+      "badvalue": "无效值：{0}",
+      "badarray": "无效数组：{0}",
+      "nameneeded": "必须填写标签名称",
+      "nametaken": "此处已存在名为 {0} 的标签",
+      "listtype": "列表已包含 {0} 类型的项目",
+      "editlevelname": "✎ 编辑 LevelName",
+      "showmore": "再显示 {1} 项中的 {0} 项…",
+      "matches": "{0} 个匹配项",
+      "nomatch": "没有标签匹配“{0}”",
+      "arraytoobig": "数组包含 {0} 项，请展开并逐项编辑",
+      "uncompressed": "未压缩",
+      "storage": "存储版本 v{0}",
+      "entries": "{0} 项",
+      "langprompt": "要使用{0}打开此页面吗？",
+      "langyes": "切换",
+      "langno": "保留当前语言"
+    },
+    "support": "<strong>支持 Minecraft 基岩版和 Java 版</strong>，也支持两者所有常见或少见的服务端核心：Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLamina 等。<a href=\"__HOME__#server-software\">完整列表</a>。",
+    "footernote": "免费并以 MIT 许可证开源，完全在浏览器中运行。与 Mojang Studios 或 Microsoft 无关联。Minecraft 是 Mojang Studios 的商标。",
+    "faqtitle": "常见问题",
+    "toctitle": "本页目录",
+    "relatedtitle": "相关工具",
+    "homecrumb": "NBT 编辑器",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "编辑器",
+      "文件类型",
+      "参考资料"
+    ],
+    "sourcehead": "源代码",
+    "sourcelink": "GitHub 上的代码"
+  },
+  "nbt-viewer": {
+    "title": "NBT 在线查看器｜打开 .nbt 和 .dat 文件",
+    "ogtitle": "NBT 查看器｜在浏览器中打开任意 .nbt 或 .dat",
+    "desc": "在线打开并读取任意 Minecraft NBT 文件，查看 .nbt、.dat、.mcstructure、.schem 或原始转储的完整标签树、类型和值。支持按名称和值搜索、精确显示 64 位 long、识别版本与压缩格式，并导出保留类型信息的 SNBT 文本；无需上传或安装。",
+    "keywords": "NBT查看器, 在线NBT查看器, 打开NBT文件, Minecraft dat文件查看, NBT文件读取器, NBT在线解析, 我的世界dat查看器, NBT转SNBT, SNBT导出",
+    "h1": "NBT 查看器｜打开任意 Minecraft NBT 文件",
+    "crumb": "NBT 查看器",
+    "reltitle": "NBT 查看器",
+    "reldesc": "只读检查、搜索和 SNBT 导出。",
+    "answer": "只想查看 Minecraft 文件而不修改？将任意 <code>.nbt</code>、<code>.dat</code>、<code>.mcstructure</code>、<code>.schem</code> 或原始 NBT 转储拖入下方，即可查看带类型和值的完整标签树，按名称或值搜索，并将全部内容导出为 SNBT 文本。文件不会上传；只有点击保存时才会生成新文件。",
+    "droplabel": "任意 .nbt 或 .dat 文件",
+    "body": "\n<section class=\"content\" aria-label=\"What you can inspect\">\n<h2>读取并非由你创建的文件</h2>\n<p>打开 NBT 文件通常是为了诊断：哪个版本写入了文件、世界为何无法加载、他人发送的原理图实际包含什么。查看器会显示每个标签的准确类型，因此可区分值同为 1 的 <code>TAG_Byte</code> 和 <code>TAG_Int</code>；这种区别对 Minecraft 很重要，却常在文本转储中丢失。</p>\n<ul>\n<li><strong>每行都有类型标记</strong>——Byte、Short、Int、Long、Float、Double、Byte[]、String、List、Compound、Int[]、Long[]。</li>\n<li><strong>准确显示完整 64 位 long</strong>，世界种子和 UUID 两半不会被舍入。</li>\n<li><strong>搜索</strong>整棵树中的标签名称或值，并直接跳到匹配项。</li>\n<li><strong>检测到的格式</strong>显示在文件栏：版本、字节序、压缩方式和基岩版存储版本。</li>\n<li><strong>导出 SNBT</strong>，获得可比较、粘贴到命令或交给其他工具的完整文本。</li>\n</ul>\n</section>\n\n<section class=\"content\" aria-label=\"SNBT\">\n<h2>NBT 与 SNBT</h2>\n<p>SNBT 是 NBT 的文本形式，即 <code>/data get</code> 输出和命令接受的格式。它用后缀保留类型信息：<code>3b</code> 是 byte，<code>3s</code> 是 short，<code>3L</code> 是 long，<code>3.0f</code> 是 float，<code>3.0d</code> 是 double，<code>[I;1,2,3]</code> 是 int 数组。导出按钮会准确生成这种格式，使二进制文件可粘贴到命令方块，或加入 git 后逐行比较。</p>\n<p>JSON 不能替代它：JSON 只有一种数字类型，也没有 byte 数组，因此将 NBT 转为 JSON 会悄悄丢失 Minecraft 所需的区别。这就是本工具导出 SNBT 而非 JSON 的原因。</p>\n</section>\n\n<section class=\"content\" aria-label=\"File types\">\n<h2>可打开的文件</h2>\n<p>只要负载是单个 NBT 文档即可，包括 Java 和基岩版 <a href=\"../level-dat-editor/\">level.dat</a>、<a href=\"../playerdata-editor/\">playerdata</a>、<code>servers.dat</code>、<code>hotbar.nbt</code>、<code>idcounts.dat</code>、<code>raids.dat</code>、<code>scoreboard.dat</code>、地图数据、结构 <code>.nbt</code>、<a href=\"../schematic-editor/\">.schem 和 .schematic</a>、<a href=\"../mcstructure-editor/\">.mcstructure</a>、<code>.litematic</code>、提取的区块负载和数据包转储。<code>.mca</code> 区域、<code>.mcworld</code> 压缩包和 LevelDB 文件夹等容器需要先从中提取单个文档。</p>\n</section>\n",
+    "chips": [
+      ".nbt",
+      ".dat",
+      ".mcstructure",
+      ".schem",
+      ".schematic",
+      "导出 SNBT",
+      "搜索"
+    ],
+    "faq": [
+      [
+        "可以只查看 NBT 文件而不编辑吗？",
+        "<p>可以。只有点击“保存并下载”时编辑器才会写出文件，而且永远不会修改拖入的原文件。</p>"
+      ],
+      [
+        "可以将 NBT 转换为 JSON 吗？",
+        "<p>本工具导出保留标签类型的 SNBT。JSON 会把 byte、short、int、long 和 float 合并为一种数字类型，并丢失 byte 数组，不适合 Minecraft 数据往返转换。</p>"
+      ],
+      [
+        "为什么文件显示的版本与预期不同？",
+        "<p>格式根据字节检测，而不是扩展名。预期为基岩版却报告为 Java，通常说明文件来自另一版本，或某个片段恰好可解析；若有尾随字节警告，请检查报告的偏移量。</p>"
+      ],
+      [
+        "能打开多大的文件？",
+        "<p>数 MB 的文档没有问题：数组保存在类型化数组中，树按需渲染，页面中只会创建已展开的行。</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "已按 {0} 加载",
+      "trailing": "已忽略根标签后的 {0} 个尾随字节",
+      "error": "错误：{0}",
+      "readfail": "无法读取文件",
+      "nofile": "未加载文件",
+      "saved": "已保存 {0}（{1}，{2}）",
+      "savefail": "保存错误：{0}",
+      "exported": "已导出 {0}",
+      "snbtfail": "SNBT 错误：{0}",
+      "tagadded": "已添加标签",
+      "tagremoved": "已删除标签",
+      "arrayupdated": "已更新数组",
+      "badvalue": "无效值：{0}",
+      "badarray": "无效数组：{0}",
+      "nameneeded": "必须填写标签名称",
+      "nametaken": "此处已存在名为 {0} 的标签",
+      "listtype": "列表已包含 {0} 类型的项目",
+      "editlevelname": "✎ 编辑 LevelName",
+      "showmore": "再显示 {1} 项中的 {0} 项…",
+      "matches": "{0} 个匹配项",
+      "nomatch": "没有标签匹配“{0}”",
+      "arraytoobig": "数组包含 {0} 项，请展开并逐项编辑",
+      "uncompressed": "未压缩",
+      "storage": "存储版本 v{0}",
+      "entries": "{0} 项",
+      "langprompt": "要使用{0}打开此页面吗？",
+      "langyes": "切换",
+      "langno": "保留当前语言"
+    },
+    "support": "<strong>支持 Minecraft 基岩版和 Java 版</strong>，也支持两者所有常见或少见的服务端核心：Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLamina 等。<a href=\"__HOME__#server-software\">完整列表</a>。",
+    "footernote": "免费并以 MIT 许可证开源，完全在浏览器中运行。与 Mojang Studios 或 Microsoft 无关联。Minecraft 是 Mojang Studios 的商标。",
+    "faqtitle": "常见问题",
+    "toctitle": "本页目录",
+    "relatedtitle": "相关工具",
+    "homecrumb": "NBT 编辑器",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "编辑器",
+      "文件类型",
+      "参考资料"
+    ],
+    "sourcehead": "源代码",
+    "sourcelink": "GitHub 上的代码"
+  },
+  "nbtexplorer-online": {
+    "title": "NBTExplorer 在线替代工具｜浏览器运行，无需下载",
+    "ogtitle": "NBTExplorer 在线版浏览器替代工具",
+    "desc": "无需下载或安装即可在浏览器中完成 NBTExplorer 的常用操作：查看标签树、搜索、行内编辑、添加或删除标签，并支持 Java 大端序、基岩版小端序及网络 NBT。适用于 Windows、macOS、Linux、Android 和 ChromeOS，文件始终在本地处理。",
+    "keywords": "NBTExplorer在线版, NBTExplorer网页版, 在线NBT编辑器, NBTExplorer替代工具, NBT编辑器免下载, 基岩版NBTExplorer, 手机打开NBT文件, Mac NBT编辑器",
+    "h1": "NBTExplorer 在线替代工具",
+    "crumb": "NBTExplorer 在线版",
+    "reltitle": "NBTExplorer 在线版",
+    "reldesc": "说明桌面工具的哪些功能可直接使用，哪些不能。",
+    "answer": "NBTExplorer 是多数 Minecraft 玩家熟悉的桌面标签编辑器，需要 .NET 或 Mono、下载安装并使用桌面系统。本页面可在浏览器和包括手机在内的任意操作系统中完成相同的常用工作：标签树、行内编辑、添加和删除标签；还可读取 NBTExplorer 不支持的基岩版小端序文件。",
+    "droplabel": "任意 NBT 文件",
+    "body": "\n<section class=\"content\" aria-label=\"Comparison\">\n<h2>功能对比</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>功能</th><th>NBTExplorer（桌面）</th><th>本编辑器（浏览器）</th></tr></thead>\n<tbody>\n<tr><td>需要安装</td><td>是，需要 .NET / Mono 运行时</td><td>否</td></tr>\n<tr><td>Java 大端序 NBT</td><td>是</td><td>是</td></tr>\n<tr><td>gzip / zlib</td><td>是</td><td>是，使用浏览器原生压缩流</td></tr>\n<tr><td>基岩版小端序 NBT</td><td>否</td><td>是，包括 <code>level.dat</code> 的 8 字节文件头</td></tr>\n<tr><td>基岩版网络 / varint NBT</td><td>否</td><td>是</td></tr>\n<tr><td>浏览 <code>.mca</code> 区域文件和文件夹</td><td>是，这是其主要优势</td><td>否，每次处理一个文档</td></tr>\n<tr><td>浏览基岩版 LevelDB</td><td>否</td><td>否，需要先提取值</td></tr>\n<tr><td>搜索整棵标签树</td><td>是</td><td>是</td></tr>\n<tr><td>导出 SNBT</td><td>否</td><td>是</td></tr>\n<tr><td>在手机上运行</td><td>否</td><td>是</td></tr>\n<tr><td>将文件发送到其他位置</td><td>否</td><td>否</td></tr>\n</tbody>\n</table>\n</div>\n<p>准确来说：如果需要遍历整个区域文件夹并按坐标打开区块，桌面工具仍更合适。如果只需在手边任意设备上打开单个文件，例如 <code>level.dat</code>、玩家文件、原理图或基岩版世界，本工具速度更快，并支持桌面工具未覆盖的版本。</p>\n</section>\n\n<section class=\"content\" aria-label=\"Migrating\">\n<h2>从桌面工具转用时</h2>\n<ul>\n<li><strong>标签树的操作方式相同。</strong>展开复合标签和列表，单击值进行编辑，使用 + 和 × 调整结构。</li>\n<li><strong>类型限制方式相同。</strong>byte 仍保持 byte；超出范围的值会被拒绝，不会静默截断。</li>\n<li><strong>保存会下载新文件，</strong>不会原位写入。拖入的文件永远不会被修改，因此原文件自然保留为备份。</li>\n<li><strong>压缩方式保持不变。</strong>gzip 文件仍会输出为 gzip，游戏无需手动重新压缩即可接受。</li>\n<li><strong>基岩版可直接使用。</strong>不需要其他工具，也无需在编辑后用十六进制编辑器修正文件头长度。</li>\n</ul>\n</section>\n\n<section class=\"content\" aria-label=\"Other tools\">\n<h2>其他工具仍适用的场景</h2>\n<p>批量浏览区域时使用 <strong>NBTExplorer</strong> 或 <strong>NBTStudio</strong>。区块级修复和世界裁剪使用 <strong>Amulet</strong> 或 <strong>MCA Selector</strong>。涉及几何结构的操作使用 <strong>WorldEdit</strong>。当任务是“打开这个文件、修改这些标签、再返回文件”时使用本页面；多数情况下属于这一类，基岩版文件被桌面工具拒绝时也适用。</p>\n</section>\n",
+    "chips": [
+      "无需安装",
+      "Windows",
+      "macOS",
+      "Linux",
+      "Android",
+      "ChromeOS"
+    ],
+    "faq": [
+      [
+        "有官方 NBTExplorer 网页版吗？",
+        "<p>没有。NBTExplorer 是桌面应用；本工具是独立编辑器，可在浏览器中完成相同的日常任务，并增加基岩版支持。</p>"
+      ],
+      [
+        "在 macOS 和 Linux 上无需 Mono 也能使用吗？",
+        "<p>可以，本工具是网页。macOS、Linux、Windows、Android 或 ChromeOS 上的当前浏览器均可运行。</p>"
+      ],
+      [
+        "能像 NBTExplorer 一样打开整个区域文件吗？",
+        "<p>不能。它每次编辑一个 NBT 文档。请先从 <code>.mca</code> 中提取区块，再将负载拖到此处。</p>"
+      ],
+      [
+        "可以安全地编辑唯一一份存档吗？",
+        "<p>本工具不会写入你打开的文件，编辑结果会作为新文件下载；但与使用任何编辑器一样，仍应自行保留备份。</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "已按 {0} 加载",
+      "trailing": "已忽略根标签后的 {0} 个尾随字节",
+      "error": "错误：{0}",
+      "readfail": "无法读取文件",
+      "nofile": "未加载文件",
+      "saved": "已保存 {0}（{1}，{2}）",
+      "savefail": "保存错误：{0}",
+      "exported": "已导出 {0}",
+      "snbtfail": "SNBT 错误：{0}",
+      "tagadded": "已添加标签",
+      "tagremoved": "已删除标签",
+      "arrayupdated": "已更新数组",
+      "badvalue": "无效值：{0}",
+      "badarray": "无效数组：{0}",
+      "nameneeded": "必须填写标签名称",
+      "nametaken": "此处已存在名为 {0} 的标签",
+      "listtype": "列表已包含 {0} 类型的项目",
+      "editlevelname": "✎ 编辑 LevelName",
+      "showmore": "再显示 {1} 项中的 {0} 项…",
+      "matches": "{0} 个匹配项",
+      "nomatch": "没有标签匹配“{0}”",
+      "arraytoobig": "数组包含 {0} 项，请展开并逐项编辑",
+      "uncompressed": "未压缩",
+      "storage": "存储版本 v{0}",
+      "entries": "{0} 项",
+      "langprompt": "要使用{0}打开此页面吗？",
+      "langyes": "切换",
+      "langno": "保留当前语言"
+    },
+    "support": "<strong>支持 Minecraft 基岩版和 Java 版</strong>，也支持两者所有常见或少见的服务端核心：Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLamina 等。<a href=\"__HOME__#server-software\">完整列表</a>。",
+    "footernote": "免费并以 MIT 许可证开源，完全在浏览器中运行。与 Mojang Studios 或 Microsoft 无关联。Minecraft 是 Mojang Studios 的商标。",
+    "faqtitle": "常见问题",
+    "toctitle": "本页目录",
+    "relatedtitle": "相关工具",
+    "homecrumb": "NBT 编辑器",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "编辑器",
+      "文件类型",
+      "参考资料"
+    ],
+    "sourcehead": "源代码",
+    "sourcelink": "GitHub 上的代码"
+  },
+  "nbt-format": {
+    "title": "NBT 格式参考｜标签类型、编码与字节布局",
+    "ogtitle": "NBT 格式参考｜标签、编码与字节布局",
+    "desc": "Minecraft NBT 格式技术参考，列出全部 13 种标签类型及其负载和字节布局，对比 Java 大端序、Java 网络格式、基岩版小端序、带 8 字节文件头的 level.dat 与 varint 网络 NBT，并说明字符串编码、压缩检测和 SNBT 语法。",
+    "keywords": "NBT格式, Minecraft NBT格式, NBT标签类型, TAG_Compound结构, NBT大端序小端序, 基岩版NBT格式, varint NBT, SNBT语法, NBT字节结构",
+    "h1": "NBT 格式参考",
+    "crumb": "NBT 格式",
+    "reltitle": "NBT 格式参考",
+    "reldesc": "逐字节说明全部 13 种标签类型和各种编码。",
+    "answer": "NBT（Named Binary Tag）是 Minecraft 使用的二进制树状格式：一个标签由一字节类型、带长度的名称和负载组成，复合标签不断嵌套，直到 <code>TAG_End</code> 字节将其关闭。目前 Java 和基岩版共使用 13 种标签类型及五种编码。本页记录全部格式；还可用上方编辑器打开实际文件核对。",
+    "droplabel": "任意要检查的 NBT 文件",
+    "body": "\n<section class=\"content\" aria-label=\"Tag types\">\n<h2>13 种标签类型</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Id</th><th>标签</th><th>负载</th><th>SNBT</th></tr></thead>\n<tbody>\n<tr><td>0</td><td><code>TAG_End</code></td><td>无，用于关闭复合标签</td><td>—</td></tr>\n<tr><td>1</td><td><code>TAG_Byte</code></td><td>1 字节，有符号 −128…127</td><td><code>1b</code></td></tr>\n<tr><td>2</td><td><code>TAG_Short</code></td><td>2 字节，有符号</td><td><code>1s</code></td></tr>\n<tr><td>3</td><td><code>TAG_Int</code></td><td>4 字节，有符号</td><td><code>1</code></td></tr>\n<tr><td>4</td><td><code>TAG_Long</code></td><td>8 字节，有符号</td><td><code>1L</code></td></tr>\n<tr><td>5</td><td><code>TAG_Float</code></td><td>4 字节，IEEE 754</td><td><code>1.0f</code></td></tr>\n<tr><td>6</td><td><code>TAG_Double</code></td><td>8 字节，IEEE 754</td><td><code>1.0d</code></td></tr>\n<tr><td>7</td><td><code>TAG_Byte_Array</code></td><td>int 长度，随后为相应数量的字节</td><td><code>[B;1b,2b]</code></td></tr>\n<tr><td>8</td><td><code>TAG_String</code></td><td>unsigned short 长度，随后为 UTF-8 字节</td><td><code>\"text\"</code></td></tr>\n<tr><td>9</td><td><code>TAG_List</code></td><td>元素类型字节、int 长度，再接无名称的负载</td><td><code>[1,2]</code></td></tr>\n<tr><td>10</td><td><code>TAG_Compound</code></td><td>重复类型 + 名称 + 负载，直到 <code>TAG_End</code></td><td><code>{a:1}</code></td></tr>\n<tr><td>11</td><td><code>TAG_Int_Array</code></td><td>int 长度，随后为相应数量的 4 字节 int</td><td><code>[I;1,2]</code></td></tr>\n<tr><td>12</td><td><code>TAG_Long_Array</code></td><td>int 长度，随后为相应数量的 8 字节 long</td><td><code>[L;1L,2L]</code></td></tr>\n</tbody>\n</table>\n</div>\n<p>一个文件只包含一个根 <code>TAG_Compound</code>：先是一字节类型 <code>0x0A</code> 和名称，然后是复合标签的内容。具名标签只会出现在复合标签内；列表元素仅包含负载，因此列表必须由同一种类型的元素组成。</p>\n</section>\n\n<section class=\"content\" aria-label=\"Encodings\">\n<h2>实际使用的五种编码</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>编码</th><th>整数</th><th>字符串长度</th><th>根标签</th><th>使用位置</th></tr></thead>\n<tbody>\n<tr><td>Java（经典）</td><td>固定宽度大端序</td><td>2 字节大端序</td><td>具名</td><td>Java 世界、结构和原理图</td></tr>\n<tr><td>Java 网络格式（1.20.2+）</td><td>固定宽度大端序</td><td>2 字节大端序</td><td>无名称</td><td>Java 协议</td></tr>\n<tr><td>基岩版</td><td>固定宽度小端序</td><td>2 字节小端序</td><td>具名</td><td>基岩版世界、<code>.mcstructure</code>、LevelDB 值</td></tr>\n<tr><td>基岩版 <code>level.dat</code></td><td>固定宽度小端序</td><td>2 字节小端序</td><td>具名，位于 8 字节文件头之后</td><td>基岩版世界元数据</td></tr>\n<tr><td>基岩版网络格式</td><td>int 和 long 使用 zigzag varint</td><td>无符号 varint</td><td>具名</td><td>基岩版协议</td></tr>\n</tbody>\n</table>\n</div>\n<p>在 varint 编码中，<code>TAG_Short</code>、<code>TAG_Float</code> 和 <code>TAG_Double</code> 仍是固定宽度小端序；只有 <code>TAG_Int</code> 和 <code>TAG_Long</code> 变为 zigzag varint，数组和列表长度也采用 <code>TAG_Int</code> 对应的编码。字符串长度使用无符号 varint，因此不再受固定宽度编码的 65535 字节上限约束。</p>\n</section>\n\n<section class=\"content\" aria-label=\"Strings\">\n<h2>字符串：modified UTF-8 与 UTF-8</h2>\n<p>Java 使用 <code>DataOutputStream.writeUTF</code> 序列化字符串，即 <em>修订版</em> UTF-8：NUL 字符写为 <code>C0 80</code> 而不是 <code>00</code>，基本多文种平面以外的字符写为两个三字节代理项（CESU-8），而不是一个四字节序列。基岩版使用标准 UTF-8。如果工具对两者都假定同一种编码，保存时会损坏表情符号和部分中日韩文字。本编辑器按格式选择编码，因此含表情符号的世界名称往返保存后仍保持不变。</p>\n</section>\n\n<section class=\"content\" aria-label=\"Compression\">\n<h2>压缩</h2>\n<p>NBT 本身不压缩，是否压缩由容器决定。Java 文件通常使用 gzip（魔数 <code>1F 8B</code>），区域文件内的区块负载使用 zlib（魔数 <code>78 01</code>、<code>78 9C</code> 或 <code>78 DA</code>），基岩版则以未压缩形式保存 <code>level.dat</code> 和结构文件。格式通过魔数字节检测，因此同一解析器可处理这三种情况。使用错误压缩方式保存文件，是手动编辑后世界无法加载的最常见原因。</p>\n</section>\n\n<section class=\"content\" aria-label=\"Byte walkthrough\">\n<h2>逐字节分析最小文件</h2>\n<p>标准示例 <code>hello_world.nbt</code>：名为 <code>hello world</code> 的根复合标签，其中包含一个名为 <code>name</code>、值为 <code>Bananrama</code> 的字符串标签。采用 Java 大端序编码时：</p>\n<pre class=\"code\"><code>0A                          TAG_Compound\n00 0B 68 65 6C 6C 6F 20 77 6F 72 6C 64   name length 11, \"hello world\"\n   08                       TAG_String\n   00 04 6E 61 6D 65        name length 4, \"name\"\n   00 09 42 61 6E 61 6E 72 61 6D 61      value length 9, \"Bananrama\"\n00                          TAG_End</code></pre>\n<p>同一文档使用基岩版小端序编码时，仅两个长度字段的字节顺序不同：使用 <code>0B 00</code> 而不是 <code>00 0B</code>。在基岩版网络 NBT 中，长度会变成单字节 varint，即 <code>0B</code> 和 <code>04</code>，完全没有填充。将三种文件中的任意一个拖入上方编辑器，它会报告收到的格式。</p>\n</section>\n\n<section class=\"content\" aria-label=\"SNBT\">\n<h2>SNBT</h2>\n<p>SNBT 是 NBT 的文本写法，也是命令使用的格式：<code>/data merge entity @s {Invulnerable:1b}</code>。类型后缀使其能够无损表示数据：<code>b</code> 表示 byte，<code>s</code> 表示 short，<code>L</code> 表示 long，<code>f</code> 表示 float，<code>d</code> 表示 double，无后缀表示 int；带类型的数组字面量写为 <code>[B;…]</code>、<code>[I;…]</code>、<code>[L;…]</code>。编辑器可从任何已加载文件导出 SNBT，使两个世界版本能够用普通文本差异工具比较。</p>\n</section>\n",
+    "chips": [
+      "13 种标签类型",
+      "大端序",
+      "小端序",
+      "Varint",
+      "gzip",
+      "zlib",
+      "SNBT"
+    ],
+    "faq": [
+      [
+        "有官方 NBT 规范吗？",
+        "<p>Mojang 没有发布正式规范。Notch 在 2010 年记录了该格式，此后一直由社区维护；本页列出的标签 id 和布局与游戏当前读写的内容一致。</p>"
+      ],
+      [
+        "为什么基岩版使用小端序？",
+        "<p>基岩版引擎使用 C++ 并以小端序硬件为目标，因此按原生顺序存储值。Java 的序列化使用大端序，因为 Java DataOutput 约定如此规定。</p>"
+      ],
+      [
+        "什么是 zigzag varint 编码？",
+        "<p>它能用尽可能少的字节写入整数，同时让负数保持较短：符号被折叠到最低位，因此 −1 编码为 1，1 编码为 2。基岩版协议用它表示 int 和 long。</p>"
+      ],
+      [
+        "TAG_List 可以包含混合类型吗？",
+        "<p>不能。列表会声明一种元素类型，每个项目都必须匹配。混合数据需要使用复合标签列表。</p>"
+      ],
+      [
+        "字符串的最大长度是多少？",
+        "<p>固定宽度编码的上限为 65535 字节，因为长度字段是 unsigned short。varint 网络编码没有实际限制。</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "已按 {0} 加载",
+      "trailing": "已忽略根标签后的 {0} 个尾随字节",
+      "error": "错误：{0}",
+      "readfail": "无法读取文件",
+      "nofile": "未加载文件",
+      "saved": "已保存 {0}（{1}，{2}）",
+      "savefail": "保存错误：{0}",
+      "exported": "已导出 {0}",
+      "snbtfail": "SNBT 错误：{0}",
+      "tagadded": "已添加标签",
+      "tagremoved": "已删除标签",
+      "arrayupdated": "已更新数组",
+      "badvalue": "无效值：{0}",
+      "badarray": "无效数组：{0}",
+      "nameneeded": "必须填写标签名称",
+      "nametaken": "此处已存在名为 {0} 的标签",
+      "listtype": "列表已包含 {0} 类型的项目",
+      "editlevelname": "✎ 编辑 LevelName",
+      "showmore": "再显示 {1} 项中的 {0} 项…",
+      "matches": "{0} 个匹配项",
+      "nomatch": "没有标签匹配“{0}”",
+      "arraytoobig": "数组包含 {0} 项，请展开并逐项编辑",
+      "uncompressed": "未压缩",
+      "storage": "存储版本 v{0}",
+      "entries": "{0} 项",
+      "langprompt": "要使用{0}打开此页面吗？",
+      "langyes": "切换",
+      "langno": "保留当前语言"
+    },
+    "support": "<strong>支持 Minecraft 基岩版和 Java 版</strong>，也支持两者所有常见或少见的服务端核心：Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLamina 等。<a href=\"__HOME__#server-software\">完整列表</a>。",
+    "footernote": "免费并以 MIT 许可证开源，完全在浏览器中运行。与 Mojang Studios 或 Microsoft 无关联。Minecraft 是 Mojang Studios 的商标。",
+    "faqtitle": "常见问题",
+    "toctitle": "本页目录",
+    "relatedtitle": "相关工具",
+    "homecrumb": "NBT 编辑器",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "编辑器",
+      "文件类型",
+      "参考资料"
+    ],
+    "sourcehead": "源代码",
+    "sourcelink": "GitHub 上的代码"
+  },
+  "guides/change-world-name": {
+    "title": "如何修改 Minecraft 世界名称（Java 与基岩版）",
+    "ogtitle": "如何修改 Minecraft 世界名称",
+    "desc": "通过编辑 level.dat 中的 LevelName 正确重命名 Minecraft 世界，适用于 Java 版和基岩版、单人世界及服务器。本文说明为何改文件夹名无效、复制世界后出现重名的原因、各平台文件位置、停服编辑步骤，以及名称未更新时的排查方法。",
+    "keywords": "Minecraft修改世界名称, Minecraft世界重命名, 服务器修改世界名, LevelName修改, level.dat编辑, 基岩版世界改名, 复制世界名称重复",
+    "h1": "如何修改 Minecraft 世界名称",
+    "crumb": "修改世界名称",
+    "reltitle": "重命名世界",
+    "reldesc": "复制世界文件夹后修正 LevelName。",
+    "answer": "世界的显示名称由 <code>LevelName</code> 标签保存，该标签位于 <code>level.dat</code> 内，而不在文件夹名称中。重命名文件夹不会改变游戏显示的内容，因此复制出的世界仍会使用原来的名称。将 <code>level.dat</code> 拖入下方编辑器，它会直接定位到 <code>LevelName</code>；修改值并保存，再将文件放回原处。",
+    "droplabel": "level.dat",
+    "body": "\n<section class=\"content\" aria-label=\"Why the folder name is not the world name\">\n<h2>为什么重命名文件夹没有作用</h2>\n<p>Minecraft 将文件夹视为地址，将 <code>LevelName</code> 视为标签。世界列表、服务器控制台、世界管理插件以及在聊天中输出“world”的功能都会读取此标签。因此复制文件夹（例如 <code>cp -r worlds/hub worlds/hub2</code>）会得到两个都自称为 <em>hub</em> 的世界，只能在文件内部修正。</p>\n<p>在服务器上，重名不只是容易混淆。按内部名称解析世界的插件可能会操作错误的世界，例如传送点、按世界划分的配置、保护区域和经济倍率。复制世界后应立即重命名此标签，并在任何组件缓存名称前完成。</p>\n</section>\n\n<section class=\"content\" aria-label=\"Per platform\">\n<h2>各平台的处理方式</h2>\n<div class=\"card\">\n<h3>Java 单人游戏</h3>\n<p>客户端可在世界选项界面重命名，并会替你修改 <code>LevelName</code>。当世界无法加载、正在处理副本，或希望文件夹名与显示名有意不同时，才需要手动编辑文件。</p>\n<h3>Java 服务器</h3>\n<p><code>level-name</code> 在 <code>server.properties</code> 中用于选择要加载的<em>文件夹</em>，不会重命名任何内容。要修改显示名称，请编辑 <code>LevelName</code>，它位于 <code>world/level.dat</code> 中。</p>\n<h3>基岩版和 MCPE</h3>\n<p>游戏内的世界编辑界面可以重命名世界。当世界位于服务器上，或需要修改导出的 <code>.mcworld</code> 时，请直接编辑 <code>LevelName</code>，它位于 <code>level.dat</code> 中。基岩版将其以未压缩形式平铺保存在根标签中，并带有 8 字节文件头，编辑器会自动处理。</p>\n<h3>基岩版服务器（PocketMine-MP、Nukkit、BDS）</h3>\n<p>文件和标签相同，也同样必须先停止服务器。<a href=\"../../pocketmine-nbt-editor/\">服务器页面</a>提供了完整流程，包括复制文件夹的情况。</p>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Troubleshooting\">\n<h2>名称没有变化时</h2>\n<ul>\n<li><strong>服务器仍在运行。</strong>下次保存时，内存中的旧副本会覆盖已编辑的文件。停止服务器后重新修改。</li>\n<li><strong>编辑了错误的世界。</strong>基岩版世界文件夹使用随机 id。编辑前先打开文件并读取 <code>LevelName</code>，确认选对了世界。</li>\n<li><strong>编辑了 <code>level.dat_old</code>。</strong>这是上一次存档，而不是当前使用的文件。</li>\n<li><strong>启动器或面板缓存了名称。</strong>部分托管面板显示其自身数据库中的名称，而非世界文件中的名称；游戏内显示仍会正确。</li>\n<li><strong>世界现在完全无法加载。</strong>恢复备份，并参阅<a href=\"../fix-corrupted-level-dat/\">修复损坏的 level.dat</a>。</li>\n</ul>\n</section>\n",
+    "chips": [
+      "Java",
+      "基岩版",
+      "服务器",
+      "单人游戏",
+      "2 分钟"
+    ],
+    "faq": [
+      [
+        "重命名世界会删除任何内容吗？",
+        "<p>不会。<code>LevelName</code> 只是标签。地形、玩家、物品栏和实体保存在其他文件中，不受影响。</p>"
+      ],
+      [
+        "世界名称可以包含空格、颜色或表情符号吗？",
+        "<p>可以使用空格。分节符颜色代码在部分服务端软件中有效，在其他软件中会显示为普通字符。编辑器会按版本使用正确的字符串编码，因此表情符号可完整往返，但控制台和日志文件可能无法正确显示。</p>"
+      ],
+      [
+        "还必须重命名文件夹吗？",
+        "<p>不必，而且通常不应这样做；服务器的 <code>level-name</code> 设置或插件配置可能指向该文件夹路径。每次只改一处。</p>"
+      ],
+      [
+        "玩家会立即看到新名称吗？",
+        "<p>世界重新加载后会看到。缓存了服务器列表条目的客户端可能需要刷新。</p>"
+      ]
+    ],
+    "howto": {
+      "name": "通过编辑 level.dat 修改 Minecraft 世界名称",
+      "time": "PT3M",
+      "steps": [
+        [
+          "停止游戏或服务器",
+          "关闭世界或停止服务器。Minecraft 会在自动保存和关闭时重写 level.dat，运行中的实例会覆盖本次修改。"
+        ],
+        [
+          "找到 level.dat",
+          "Java：服务器上为 world/level.dat，客户端中为 saves/<World>/level.dat。基岩版：服务器上为 worlds/<World>/level.dat，设备上则位于 minecraftWorlds 下对应世界 id 的文件夹中。"
+        ],
+        [
+          "在编辑器中打开",
+          "将文件拖入 NBT 编辑器。编辑器会检测版本和编码，并自动跳转到 LevelName 标签。"
+        ],
+        [
+          "编辑 LevelName",
+          "单击该值，输入新名称，然后按 Enter。如果名称需要在控制台中正常显示，请只使用常规字符。"
+        ],
+        [
+          "保存并下载",
+          "单击“保存并下载”。输出格式和压缩方式会与原文件完全相同，文件中的其他内容不会改变。"
+        ],
+        [
+          "替换原文件",
+          "保留备份后，用下载的文件覆盖原文件。启动游戏或服务器，并在世界列表中确认新名称。"
+        ]
+      ]
+    },
+    "ui": {
+      "loaded": "已按 {0} 加载",
+      "trailing": "已忽略根标签后的 {0} 个尾随字节",
+      "error": "错误：{0}",
+      "readfail": "无法读取文件",
+      "nofile": "未加载文件",
+      "saved": "已保存 {0}（{1}，{2}）",
+      "savefail": "保存错误：{0}",
+      "exported": "已导出 {0}",
+      "snbtfail": "SNBT 错误：{0}",
+      "tagadded": "已添加标签",
+      "tagremoved": "已删除标签",
+      "arrayupdated": "已更新数组",
+      "badvalue": "无效值：{0}",
+      "badarray": "无效数组：{0}",
+      "nameneeded": "必须填写标签名称",
+      "nametaken": "此处已存在名为 {0} 的标签",
+      "listtype": "列表已包含 {0} 类型的项目",
+      "editlevelname": "✎ 编辑 LevelName",
+      "showmore": "再显示 {1} 项中的 {0} 项…",
+      "matches": "{0} 个匹配项",
+      "nomatch": "没有标签匹配“{0}”",
+      "arraytoobig": "数组包含 {0} 项，请展开并逐项编辑",
+      "uncompressed": "未压缩",
+      "storage": "存储版本 v{0}",
+      "entries": "{0} 项",
+      "langprompt": "要使用{0}打开此页面吗？",
+      "langyes": "切换",
+      "langno": "保留当前语言"
+    },
+    "support": "<strong>支持 Minecraft 基岩版和 Java 版</strong>，也支持两者所有常见或少见的服务端核心：Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLamina 等。<a href=\"__HOME__#server-software\">完整列表</a>。",
+    "footernote": "免费并以 MIT 许可证开源，完全在浏览器中运行。与 Mojang Studios 或 Microsoft 无关联。Minecraft 是 Mojang Studios 的商标。",
+    "faqtitle": "常见问题",
+    "toctitle": "本页目录",
+    "relatedtitle": "相关工具",
+    "homecrumb": "NBT 编辑器",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "编辑器",
+      "文件类型",
+      "参考资料"
+    ],
+    "sourcehead": "源代码",
+    "sourcelink": "GitHub 上的代码"
+  },
+  "guides/fix-corrupted-level-dat": {
+    "title": "修复损坏的 level.dat｜Minecraft 世界无法加载",
+    "ogtitle": "修复损坏的 level.dat",
+    "desc": "诊断并修复无法加载的 Minecraft 世界：优先恢复 level.dat_old，使用 NBT 编辑器定位截断、错误压缩、基岩版文件头长度或标签类型问题，并说明元数据无法恢复时如何保留区块、建筑和玩家数据，以及怎样通过异机定时备份避免再次损坏。",
+    "keywords": "level.dat损坏修复, Minecraft世界无法加载, 恢复level.dat_old, 世界存档损坏修复, level.dat报错, 基岩版世界不显示, NBT文件截断",
+    "h1": "修复损坏的 <code>level.dat</code>",
+    "crumb": "修复损坏的 level.dat",
+    "reltitle": "修复损坏的 level.dat",
+    "reldesc": "诊断世界拒绝加载的原因并进行修复。",
+    "answer": "世界拒绝加载通常有四种原因：保存期间崩溃导致 <code>level.dat</code> 被截断、手动编辑后压缩方式错误、基岩版文件头长度损坏，或标签类型被修改。将文件拖入下方；编辑器会准确报告解析停止的位置，几秒内即可将范围缩小到其中一种。",
+    "droplabel": "level.dat 或 level.dat_old",
+    "body": "\n<section class=\"content\" aria-label=\"Causes\">\n<h2>实际损坏原因</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>现象</th><th>原因</th><th>修复方法</th></tr></thead>\n<tbody>\n<tr><td>编辑器报告“数据意外结束”</td><td>文件被截断：进程在保存中途终止，或磁盘已满</td><td>恢复 <code>level.dat_old</code> 或备份；缺失的字节无法找回</td></tr>\n<tr><td>游戏提示世界损坏，但编辑器可正常加载</td><td>其他工具写入了错误的压缩方式或字节序</td><td>在此按对应版本的正确格式重新保存</td></tr>\n<tr><td>基岩版世界未出现在列表中</td><td>文件头长度不再与负载匹配</td><td>在此打开并保存，长度会自动重新计算</td></tr>\n<tr><td>服务器加载时记录类型转换或类型错误</td><td>手动修改了标签类型（需要 Int 的位置使用了 Byte）</td><td>将标签恢复为游戏要求的类型</td></tr>\n<tr><td>世界能加载，但玩家出现在全新的世界中</td><td><code>level.dat</code> 被新生成的文件替换</td><td>恢复备份；<code>region/</code> 或 <code>db/</code> 中的区块通常仍完好</td></tr>\n<tr><td>所有文件都无法解析，包括 <code>_old</code></td><td>存储故障：文件系统为两个文件都返回了零或无效数据</td><td>从其他机器上的备份恢复；确认磁盘正常后再继续使用该主机</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Salvage\">\n<h2>没有 <code>level.dat</code> 时抢救世界</h2>\n<p>世界的地形、箱子和玩家不保存在 <code>level.dat</code> 中，而是在 <code>region/</code>（Java）或 <code>db/</code>（基岩版）中。如果元数据文件已无法修复，请使用相同版本和设置创建新世界，再将区块数据移入其中，并在新文件中设置 <code>LevelName</code>、出生点坐标和游戏规则。丢失的是元数据，而非建筑。请先确认版本：Java 世界包含 <code>DataVersion</code>，新生成的文件不得比待导入区块的版本更旧。</p>\n</section>\n\n<section class=\"content\" aria-label=\"Prevention\">\n<h2>防止再次损坏</h2>\n<ul>\n<li><strong>复制或编辑前停止服务器。</strong>多数损坏源于文件仍在写入时被复制。</li>\n<li><strong>按计划创建快照并保存到其他机器。</strong>与世界同盘的备份无法抵御引发本次问题的存储故障。</li>\n<li><strong>在线快照前后使用 <code>save-off</code> / <code>save-all</code></strong>，确保复制时世界处于静止状态。</li>\n<li><strong>监控磁盘空间。</strong>磁盘写满会静默截断存档，而 <code>level.dat</code> 最后写入。</li>\n<li><strong>只编辑值，不改结构。</strong>重命名标签或修改其类型是游戏无法容忍的编辑。</li>\n</ul>\n</section>\n",
+    "chips": [
+      "诊断",
+      "level.dat_old",
+      "文件头",
+      "压缩",
+      "截断"
+    ],
+    "faq": [
+      [
+        "level.dat_old 是什么？",
+        "<p>它是上一次存档。Minecraft 在写入新文件前会将当前文件重命名为 <code>level.dat_old</code>，因此它是一份保留一个版本的备份，应当首先尝试。</p>"
+      ],
+      [
+        "NBT 编辑器能修复被截断的文件吗？",
+        "<p>它可以准确指出数据在哪里中断，但无法重建缺失的字节。只能部分解析意味着需要使用备份。</p>"
+      ],
+      [
+        "我的建筑会丢失吗？",
+        "<p>仅 <code>level.dat</code> 损坏不会导致建筑丢失。区块位于 <code>region/</code> 或 <code>db/</code> 中，同版本的新世界文件可以接管这些区块。</p>"
+      ],
+      [
+        "服务器认为 level.dat 正常，但世界是空的。",
+        "<p>这说明问题在区块存储而非元数据。检查复制时是否包含 <code>region/</code> 或 <code>db/</code>，并确认 <code>level.dat</code> 中的出生点坐标指向预期位置。</p>"
+      ]
+    ],
+    "howto": {
+      "name": "诊断并修复损坏的 level.dat",
+      "time": "PT10M",
+      "steps": [
+        [
+          "备份世界文件夹",
+          "进行任何操作前先复制整个世界目录。只有保留这份副本，以下每一步才可撤销。"
+        ],
+        [
+          "尝试 level.dat_old",
+          "Minecraft 会将上一次存档保留为 level.dat_old。在 NBT 编辑器中打开它；如果能完整解析，就用它覆盖 level.dat 并启动世界。"
+        ],
+        [
+          "打开损坏的文件",
+          "将 level.dat 拖入编辑器。能够完整解析说明文件本身完好，问题在其他位置，例如区块、模组或服务器。"
+        ],
+        [
+          "读取错误信息",
+          "编辑器会指出故障：数据意外结束表示截断，不合理的存储版本表示基岩版文件头损坏，无法识别任何格式则表示该文件根本不是 NBT。"
+        ],
+        [
+          "检查压缩和格式",
+          "如果能够加载，请查看文件栏。Java 的 level.dat 必须保存为 gzip 压缩的大端序；基岩版必须保存为带文件头的小端序。使用正确设置重新保存，可修复其他工具写坏的文件。"
+        ],
+        [
+          "只重建缺失内容",
+          "如果只删除了一个标签，请按正确类型添加回来。如果文件被截断，应优先使用 level.dat_old 或备份；部分解析的文件缺失了任何编辑器都无法凭空生成的数据。"
+        ]
+      ]
+    },
+    "ui": {
+      "loaded": "已按 {0} 加载",
+      "trailing": "已忽略根标签后的 {0} 个尾随字节",
+      "error": "错误：{0}",
+      "readfail": "无法读取文件",
+      "nofile": "未加载文件",
+      "saved": "已保存 {0}（{1}，{2}）",
+      "savefail": "保存错误：{0}",
+      "exported": "已导出 {0}",
+      "snbtfail": "SNBT 错误：{0}",
+      "tagadded": "已添加标签",
+      "tagremoved": "已删除标签",
+      "arrayupdated": "已更新数组",
+      "badvalue": "无效值：{0}",
+      "badarray": "无效数组：{0}",
+      "nameneeded": "必须填写标签名称",
+      "nametaken": "此处已存在名为 {0} 的标签",
+      "listtype": "列表已包含 {0} 类型的项目",
+      "editlevelname": "✎ 编辑 LevelName",
+      "showmore": "再显示 {1} 项中的 {0} 项…",
+      "matches": "{0} 个匹配项",
+      "nomatch": "没有标签匹配“{0}”",
+      "arraytoobig": "数组包含 {0} 项，请展开并逐项编辑",
+      "uncompressed": "未压缩",
+      "storage": "存储版本 v{0}",
+      "entries": "{0} 项",
+      "langprompt": "要使用{0}打开此页面吗？",
+      "langyes": "切换",
+      "langno": "保留当前语言"
+    },
+    "support": "<strong>支持 Minecraft 基岩版和 Java 版</strong>，也支持两者所有常见或少见的服务端核心：Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLamina 等。<a href=\"__HOME__#server-software\">完整列表</a>。",
+    "footernote": "免费并以 MIT 许可证开源，完全在浏览器中运行。与 Mojang Studios 或 Microsoft 无关联。Minecraft 是 Mojang Studios 的商标。",
+    "faqtitle": "常见问题",
+    "toctitle": "本页目录",
+    "relatedtitle": "相关工具",
+    "homecrumb": "NBT 编辑器",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "编辑器",
+      "文件类型",
+      "参考资料"
+    ],
+    "sourcehead": "源代码",
+    "sourcelink": "GitHub 上的代码"
+  },
+  "guides/edit-gamerules": {
+    "title": "在 level.dat 中编辑 Minecraft 游戏规则｜Java 与基岩版",
+    "ogtitle": "在 level.dat 中编辑游戏规则",
+    "desc": "直接编辑 level.dat 中的 keepInventory、doDaylightCycle、mobGriefing 等 Minecraft 游戏规则，适用于 Java 版和基岩版，无需命令或开启作弊。本文说明两种版本的标签位置、名称大小写、Byte 与 Int 类型差异及安全修改步骤。",
+    "keywords": "Minecraft修改游戏规则, 编辑level.dat游戏规则, keepInventory修改, 不用指令开启死亡不掉落, 基岩版gamerule文件, GameRules NBT, doDaylightCycle修改",
+    "h1": "编辑 <code>level.dat</code> 中的游戏规则",
+    "crumb": "编辑游戏规则",
+    "reltitle": "编辑游戏规则",
+    "reldesc": "无需加载世界即可修改 keepInventory 等规则。",
+    "answer": "游戏规则保存在 <code>level.dat</code> 中，因此无需加载世界或启用作弊即可修改。世界无法启动、作弊关闭，或在玩家加入前准备世界副本时，这种方法很有用。Java 将规则作为字符串保存在 <code>GameRules</code> 复合标签中；基岩版则把每条规则作为独立的小写 byte 标签保存在根标签中。",
+    "droplabel": "level.dat",
+    "body": "\n<section class=\"content\" aria-label=\"Java gamerules\">\n<h2>Java：由字符串组成的 <code>GameRules</code> 复合标签</h2>\n<p>在 Java 版中，<code>Data</code> → <code>GameRules</code> 为每条规则保存一个 <code>TAG_String</code>，键名与 <code>/gamerule</code> 使用的准确名称相同，值以文本写入：<code>\"true\"</code>、<code>\"false\"</code> 或数字。世界从未设置过的规则不会出现，而是采用默认值；以正确名称添加字符串标签，效果与执行命令完全相同。</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>规则</th><th>值</th><th>效果</th></tr></thead>\n<tbody>\n<tr><td><code>keepInventory</code></td><td><code>\"true\"</code></td><td>死亡后保留物品</td></tr>\n<tr><td><code>doDaylightCycle</code></td><td><code>\"false\"</code></td><td>冻结昼夜时间</td></tr>\n<tr><td><code>doWeatherCycle</code></td><td><code>\"false\"</code></td><td>冻结天气</td></tr>\n<tr><td><code>mobGriefing</code></td><td><code>\"false\"</code></td><td>阻止苦力怕和末影人改变方块</td></tr>\n<tr><td><code>doMobSpawning</code></td><td><code>\"false\"</code></td><td>停止生物自然生成</td></tr>\n<tr><td><code>doFireTick</code></td><td><code>\"false\"</code></td><td>火焰停止蔓延</td></tr>\n<tr><td><code>commandBlockOutput</code></td><td><code>\"false\"</code></td><td>关闭命令方块聊天输出</td></tr>\n<tr><td><code>randomTickSpeed</code></td><td><code>\"3\"</code></td><td>作物生长和火焰蔓延速度</td></tr>\n<tr><td><code>playersSleepingPercentage</code></td><td><code>\"50\"</code></td><td>跳过夜晚所需的玩家比例</td></tr>\n<tr><td><code>spawnRadius</code></td><td><code>\"10\"</code></td><td>出生区域的分布范围</td></tr>\n</tbody>\n</table>\n</div>\n<p>大小写会影响结果。Java 文件中的 <code>keepinventory</code> 与 <code>keepInventory</code> 不是同一标签，前者会被忽略。</p>\n</section>\n\n<section class=\"content\" aria-label=\"Bedrock gamerules\">\n<h2>基岩版：独立的小写 byte 标签</h2>\n<p>基岩版不会将规则分组。每条规则都是一个 <code>TAG_Byte</code>，位于 <code>level.dat</code> 根标签中，名称使用小写，值为 1 或 0：<code>keepinventory</code>、<code>domobspawning</code>、<code>domobloot</code>、<code>dodaylightcycle</code>、<code>doweathercycle</code>、<code>mobgriefing</code>、<code>firedamage</code>、<code>falldamage</code>、<code>drowningdamage</code>、<code>pvp</code>、<code>showcoordinates</code>、<code>commandblockoutput</code>、<code>sendcommandfeedback</code>、<code>naturalregeneration</code>、<code>tntexplodes</code>、<code>respawnblocksexplode</code>、<code>showdeathmessages</code>、<code>doimmediaterespawn</code>。<code>randomtickspeed</code> 和 <code>functioncommandlimit</code> 等数值规则则使用 <code>TAG_Int</code>。</p>\n<p>设置尚不存在的规则时，需要添加正确类型的标签：开关使用 Byte，数值使用 Int。使用错误类型保存的规则会被忽略，或导致世界拒绝加载。</p>\n</section>\n\n<section class=\"content\" aria-label=\"Why edit the file\">\n<h2>何时编辑文件比执行命令更合适</h2>\n<ul>\n<li><strong>作弊已关闭</strong>，而你不希望为了执行一条命令反复开启和关闭作弊。</li>\n<li><strong>世界无法加载</strong>，可以在首次加入前设置 <code>doImmediateRespawn</code> 等规则。</li>\n<li><strong>正在准备模板世界</strong>，该世界将复制到多台服务器，需要把规则直接写入副本。</li>\n<li><strong>插件修改过规则</strong>，你希望查看文件中实际保存的值，而不是命令报告的值。</li>\n<li><strong>批量修改。</strong>对多个世界设置十几条规则时，编辑文件比在聊天中逐条输入更快。</li>\n</ul>\n<p>与任何 <code>level.dat</code> 编辑一样，请先停止服务器；运行中的世界会在保存时重写文件并丢弃修改。</p>\n</section>\n",
+    "chips": [
+      "keepInventory",
+      "doDaylightCycle",
+      "mobGriefing",
+      "commandBlockOutput",
+      "randomTickSpeed"
+    ],
+    "faq": [
+      [
+        "为什么 Java 中的游戏规则保存为字符串？",
+        "<p>Java 对所有游戏规则都使用字符串存储，包括布尔值和数字。请写入 <code>\"true\"</code>，而不是值为 1 的 byte。</p>"
+      ],
+      [
+        "为什么基岩版使用 byte？",
+        "<p>基岩版将开关作为根标签中的 byte 标签保存，数值规则则保存为 int。不存在 <code>GameRules</code> 复合标签。</p>"
+      ],
+      [
+        "某条规则在文件中完全不存在。",
+        "<p>这表示它使用默认值。按准确名称和正确类型添加标签，世界就会采用你设置的值。</p>"
+      ],
+      [
+        "复制世界文件夹时会复制游戏规则吗？",
+        "<p>会。规则保存在 <code>level.dat</code> 中，因此复制出的世界会继承这些规则，也会继承旧的<a href=\"../change-world-name/\">世界名称</a>。</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "已按 {0} 加载",
+      "trailing": "已忽略根标签后的 {0} 个尾随字节",
+      "error": "错误：{0}",
+      "readfail": "无法读取文件",
+      "nofile": "未加载文件",
+      "saved": "已保存 {0}（{1}，{2}）",
+      "savefail": "保存错误：{0}",
+      "exported": "已导出 {0}",
+      "snbtfail": "SNBT 错误：{0}",
+      "tagadded": "已添加标签",
+      "tagremoved": "已删除标签",
+      "arrayupdated": "已更新数组",
+      "badvalue": "无效值：{0}",
+      "badarray": "无效数组：{0}",
+      "nameneeded": "必须填写标签名称",
+      "nametaken": "此处已存在名为 {0} 的标签",
+      "listtype": "列表已包含 {0} 类型的项目",
+      "editlevelname": "✎ 编辑 LevelName",
+      "showmore": "再显示 {1} 项中的 {0} 项…",
+      "matches": "{0} 个匹配项",
+      "nomatch": "没有标签匹配“{0}”",
+      "arraytoobig": "数组包含 {0} 项，请展开并逐项编辑",
+      "uncompressed": "未压缩",
+      "storage": "存储版本 v{0}",
+      "entries": "{0} 项",
+      "langprompt": "要使用{0}打开此页面吗？",
+      "langyes": "切换",
+      "langno": "保留当前语言"
+    },
+    "support": "<strong>支持 Minecraft 基岩版和 Java 版</strong>，也支持两者所有常见或少见的服务端核心：Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLamina 等。<a href=\"__HOME__#server-software\">完整列表</a>。",
+    "footernote": "免费并以 MIT 许可证开源，完全在浏览器中运行。与 Mojang Studios 或 Microsoft 无关联。Minecraft 是 Mojang Studios 的商标。",
+    "faqtitle": "常见问题",
+    "toctitle": "本页目录",
+    "relatedtitle": "相关工具",
+    "homecrumb": "NBT 编辑器",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "编辑器",
+      "文件类型",
+      "参考资料"
+    ],
+    "sourcehead": "源代码",
+    "sourcelink": "GitHub 上的代码"
+  }
+}

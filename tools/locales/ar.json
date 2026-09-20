@@ -1,0 +1,1280 @@
+{
+  "": {
+    "title": "محرر NBT لـ Bedrock وJava — level.dat وMCPE",
+    "ogtitle": "محرر NBT لـ Bedrock وJava — عبر الإنترنت دون رفع",
+    "desc": "محرر NBT مجاني عبر الإنترنت لـ Minecraft Bedrock وJava. افتح level.dat أو .mcstructure أو playerdata أو .nbt أو .schem، وعدّل أي وسم ثم نزّل الملف.",
+    "keywords": "محرر NBT بالعربي, تعديل NBT اون لاين, محرر level.dat, تعديل ملفات ماين كرافت, محرر NBT Bedrock, محرر NBT Java, فتح ملف NBT",
+    "h1": "محرر NBT لـ Bedrock وJava Edition",
+    "crumb": "المحرر",
+    "reltitle": "محرر NBT لـ Minecraft",
+    "reldesc": "محرر شامل لكل إصدارات Minecraft وجميع أنواع ملفات NBT.",
+    "answer": "<strong>يدعم المحرر Bedrock Edition مع جميع نوى خوادم Bedrock، كما يدعم Java Edition مع جميع نوى خوادم Java، بما فيها النوى النادرة.</strong> أسقط ملف <code>level.dat</code> أو <code>playerdata</code> أو <code>.nbt</code> أو <code>.mcstructure</code> أو <code>.schem</code> أو <code>.schematic</code> في المربع أدناه، وعدّل أي وسم في الشجرة، ثم نزّله بالتنسيق الثنائي نفسه تمامًا. يُكتشف ترتيب البايتات والترويسة والضغط تلقائيًا. تعمل جميع العمليات داخل متصفحك، بلا رفع للملف أو حساب أو تثبيت.",
+    "droplabel": "أي ملف NBT",
+    "body": "\n<section class=\"content\" aria-label=\"Supported files\">\n<h2>كل ملف NBT تكتبه Minecraft</h2>\n<p>NBT (Named Binary Tag) تنسيق واحد له عدة ترميزات، ويستخدم كل إصدار ومشغّل ونواة خادم في Minecraft تركيبة مختلفة منها. ينفّذ هذا المحرر جميع هذه الترميزات ويختار الصحيح من بايتات الملف نفسها، لذلك لا تحتاج إلى معرفة نوع الملف قبل فتحه.</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>الملف</th><th>المصدر</th><th>الترميز</th><th>الضغط</th></tr></thead>\n<tbody>\n<tr><td><code>level.dat</code></td><td>عالم Java — Vanilla، Paper، Spigot، Fabric، Forge</td><td>كبير النهاية، بجذر مسمّى</td><td>gzip</td></tr>\n<tr><td><code>level.dat</code></td><td>عالم Bedrock — BDS، PocketMine-MP، Nukkit، MCPE</td><td>صغير النهاية + ترويسة 8 بايت</td><td>بلا ضغط</td></tr>\n<tr><td><code>&lt;uuid&gt;.dat</code></td><td>Java <code>playerdata/</code></td><td>كبير النهاية</td><td>gzip</td></tr>\n<tr><td><code>servers.dat</code>، <code>hotbar.nbt</code></td><td>عميل Java</td><td>كبير النهاية</td><td>بلا ضغط</td></tr>\n<tr><td><code>idcounts.dat</code>، <code>raids.dat</code>، <code>map_*.dat</code></td><td>عالم Java <code>data/</code></td><td>كبير النهاية</td><td>gzip</td></tr>\n<tr><td><code>.nbt</code></td><td>كتل البُنى وبُنى حزم البيانات</td><td>كبير النهاية</td><td>gzip</td></tr>\n<tr><td><code>.schem</code>، <code>.schematic</code></td><td>WorldEdit، Sponge، MCEdit</td><td>كبير النهاية</td><td>gzip</td></tr>\n<tr><td><code>.mcstructure</code></td><td>كتل البُنى في Bedrock</td><td>صغير النهاية</td><td>بلا ضغط</td></tr>\n<tr><td>حمولة القطعة</td><td>حمولة مستخرجة من منطقة <code>.mca</code> أو قيمة LevelDB</td><td>أي من ترتيبي البايتات</td><td>zlib أو بلا ضغط</td></tr>\n<tr><td>تفريغ حزمة</td><td>بروتوكول Bedrock أو بروتوكول Java 1.20.2+</td><td>Varint LE / BE بلا اسم للجذر</td><td>بلا ضغط</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"How to use\">\n<h2>كيفية تعديل ملف NBT</h2>\n<div class=\"card\">\n<ol class=\"steps\">\n<li><strong>انسخ الملف من الخادم أو الجهاز.</strong> تحتفظ به خوادم Java في <code>world/</code>، وخوادم Bedrock في <code>worlds/YourWorld/</code>، وأجهزة Android في <code>games/com.mojang/minecraftWorlds/&lt;id&gt;/</code>. أوقف الخادم أولًا كي لا تتم الكتابة إلى الملف أثناء نسخه.</li>\n<li><strong>أسقطه في المحرر.</strong> تعرض الشارة أعلى الشجرة ما تم اكتشافه: الإصدار والترميز والضغط، وفي Bedrock إصدار التخزين الموجود في الترويسة.</li>\n<li><strong>عدّل القيم.</strong> اضغط على قيمة لتعديلها في موضعها. استخدم البحث للانتقال إلى وسم حسب اسمه أو قيمته، <strong>+</strong> لإضافة وسوم إلى أي مركّب أو قائمة، <strong>×</strong> لإزالتها.</li>\n<li><strong>احفظ ونزّل.</strong> يستخدم محددا تنسيق الإخراج والضغط افتراضيًا الإعدادات التي وصل بها الملف، لذلك يحافظ التعديل العادي على التنسيق والبايتات عند الحفظ.</li>\n<li><strong>أعد الملف وشغّل الخادم.</strong> احتفظ بالملف الأصلي نسخةً احتياطية حتى يحمّل العالم مرة واحدة وتتحقق من سلامته.</li>\n</ol>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Features\">\n<h2>ما الذي يميز هذا المحرر</h2>\n<div class=\"features-grid\">\n<article class=\"feature-card\"><h3>خمسة ترميزات في منطقة إسقاط واحدة</h3><p>يدعم Java كبير النهاية وBedrock صغير النهاية وNBT الشبكي بنظام varint في Bedrock وNBT الشبكي بلا اسم للجذر في Java 1.20.2+ وملف <code>level.dat</code> ذي الترويسة في Bedrock. تُكتشف الصيغة من الملف ولا تُخمّن.</p></article>\n<article class=\"feature-card\"><h3>gzip وzlib داخل المتصفح</h3><p>يستخدم فك الضغط وإعادة الضغط واجهة Compression Streams API الأصلية، لذلك يعود ملف <code>level.dat</code> من Java بصيغة تقبلها اللعبة دون تغيير غير مقصود.</p></article>\n<article class=\"feature-card\"><h3>أعداد طويلة حقيقية بدقة 64 بت</h3><p>تُحفظ قيم <code>TAG_Long</code> بصيغة <code>BigInt</code>. لذلك تبقى بذور العوالم وأنصاف UUID سليمة بعد التعديل ولا تتلف بسبب تقريب الفاصلة العائمة، وهي مشكلة شائعة في أدوات NBT داخل المتصفح.</p></article>\n<article class=\"feature-card\"><h3>ترميز صحيح للسلاسل النصية</h3><p>تكتب Java ترميز UTF-8 المعدّل (CESU-8)، بينما تكتب Bedrock ترميز UTF-8 القياسي. يرمّز المحرر حسب الإصدار، فتظل الرموز التعبيرية وأسماء العوالم غير اللاتينية سليمة.</p></article>\n<article class=\"feature-card\"><h3>مصمم للملفات الكبيرة</h3><p>تُخزّن المصفوفات في مصفوفات نمطية وتُعرض الشجرة تدريجيًا بمعدل 200 عنصر في كل مرة. يمكن فتح ميغابايت من NBT الخاص بالقطع دون تجميد علامة التبويب.</p></article>\n<article class=\"feature-card\"><h3>البحث في الشجرة كاملة</h3><p>اعثر على أي وسم باسمه أو قيمته في أي موضع من الملف وانتقل إليه مباشرة مع توسيع مساره.</p></article>\n<article class=\"feature-card\"><h3>تصدير SNBT</h3><p>صدّر الشجرة كاملة بصيغة SNBT، وهي الصيغة النصية التي يستخدمها <code>/data</code> وحزم البيانات، للمقارنة أو المشاركة أو اللصق في أمر.</p></article>\n<article class=\"feature-card\"><h3>تحويل التنسيق</h3><p>اقرأ ملف Bedrock واكتبه بصيغة Java كبيرة النهاية ومضغوطة بـ gzip، أو نفّذ العكس. يفيد ذلك في تطوير البروتوكولات والاختبارات والأدوات.</p></article>\n<article class=\"feature-card\"><h3>لا يغادر شيء جهازك</h3><p>يُقرأ الملف عبر <code>FileReader</code>، ويُحلل في JavaScript، ثم يُعاد ككائن blob في الذاكرة. لا توجد نقطة نهاية لرفع الملفات.</p></article>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Supported server software\" id=\"server-software\">\n<h2>برمجيات الخوادم المدعومة — جميعها</h2>\n<p>تكتب اللعبة بيانات NBT وليس تنفيذ الخادم، لذلك تخزّن أي نواة تحفظ عالم Minecraft البيانات بأحد الترميزات التي يقرأها هذا المحرر. القائمة التالية شاملة وليست دعائية: كل نواة تكتب العالم ببنية Vanilla لأن العميل المتصل يجب أن يتمكن من قراءته.</p>\n<div class=\"card\">\n<h3>Bedrock Edition — ‏NBT صغير النهاية وترويسة <code>level.dat</code> من 8 بايت</h3>\n<p><strong>Bedrock Dedicated Server (BDS)</strong>, <strong>PocketMine-MP</strong> (PM3، PM4، PM5)، <strong>Nukkit</strong>, <strong>Nukkit-MOT</strong>, <strong>PowerNukkitX</strong>, <strong>Cloudburst Server</strong>, <strong>Dragonfly</strong>, <strong>Endstone</strong>, <strong>LeviLamina</strong> و <strong>BDSX</strong>, <strong>Allay</strong>, <strong>JukeboxMC</strong>, <strong>GoMint</strong>, <strong>Sculk</strong>, <strong>ElementZero</strong>, <strong>LiteLoaderBDS</strong>، بالإضافة إلى <strong>MCPE</strong> و <strong>MCBE</strong> نفسها على Android وiOS وWindows وأجهزة اللعب وSwitch. تستخدم جميعها <code>worlds/&lt;World&gt;/level.dat</code> نفسه والترويسة والوسوم نفسيهما؛ راجع <a href=\"pocketmine-nbt-editor/\">سير العمل على الخادم</a>.</p>\n<h3>Java Edition — ‏NBT كبير النهاية وضغط gzip</h3>\n<p><strong>Vanilla</strong>, <strong>CraftBukkit</strong>, <strong>Spigot</strong>, <strong>Paper</strong>, <strong>Purpur</strong>, <strong>Pufferfish</strong>, <strong>Folia</strong>, <strong>Leaves</strong>, <strong>Gale</strong>, <strong>Petal</strong>, <strong>Airplane</strong>, <strong>Sponge</strong> (SpongeVanilla، SpongeForge)، <strong>Fabric</strong>, <strong>Quilt</strong>, <strong>Forge</strong>, <strong>NeoForge</strong>, <strong>Mohist</strong>, <strong>Arclight</strong>, <strong>Magma</strong>, <strong>Ketting</strong>, <strong>Banner</strong>, <strong>Cardboard</strong>, <strong>Glowstone</strong>, <strong>Thermos</strong>, <strong>Uberbukkit</strong> وكل تفرّع آخر أو خادم حزمة تعديلات أو إصدار قديم. إذا كان يكتب <code>world/level.dat</code> فسيتمكن هذا المحرر من فتحه — <a href=\"java-nbt-editor/\">التفاصيل هنا</a>.</p>\n<h3>الخوادم الوكيلة والجسور</h3>\n<p><strong>Geyser</strong>, <strong>WaterdogPE</strong>, <strong>Waterfall</strong>, <strong>Velocity</strong> و <strong>BungeeCord</strong> لا تملك عوالم؛ بل تنقل NBT عبر الشبكة. تكون اللقطات من هذه المقابس NBT شبكيًا: varint صغير النهاية في جهة Bedrock، وكبير النهاية بلا اسم للجذر في Java 1.20.2+، ويمكن فتح النوعين هنا مباشرة.</p>\n<h3>أي برنامج غير موجود في هذه القائمة</h3>\n<p>التفرعات المخصصة والنوى الخاصة والمشروعات التعليمية والخادم الذي كتبته بنفسك: إذا كان الملف NBT فسيكتشف المحرر أي الترميزات الخمسة يستخدمه ويفتحه. لا يعتمد أي جزء هنا على اسم النواة.</p>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Scripting\">\n<h2>استخدام المحلل من كودك</h2>\n<p>تتيح الصفحة محركها عبر <code>window.NBT</code>، لذلك يمكنك تشغيل المحلل نفسه المستخدم في الواجهة من وحدة تحكم المتصفح أو إعادة استخدامه في userscript:</p>\n<pre class=\"code\"><code>const bytes = new Uint8Array(await file.arrayBuffer());\nconst { root, format, compression, headerVersion } = await NBT.read(bytes);\n\nroot.value.find(t =&gt; t.name === \"LevelName\").value = \"New World\";\n\nconst out = await NBT.write(root, format, { compression, headerVersion });</code></pre>\n<p>الوسوم كائنات عادية بصيغة <code>{ type, name, value, listType }</code>، والمصفوفات من الأنواع <code>Int8Array</code> و<code>Int32Array</code> و<code>BigInt64Array</code>، والأعداد الطويلة من النوع <code>BigInt</code>. يوضح <a href=\"nbt-format/\">مرجع تنسيق NBT</a> كل نوع من الوسوم والفروق بين الترميزات.</p>\n</section>\n",
+    "chips": [
+      "Bedrock Edition",
+      "Java Edition",
+      "Vanilla",
+      "Paper",
+      "Spigot",
+      "Purpur",
+      "Pufferfish",
+      "Folia",
+      "Leaves",
+      "Fabric",
+      "Quilt",
+      "Forge",
+      "NeoForge",
+      "Mohist",
+      "Arclight",
+      "Sponge",
+      "Bedrock Dedicated Server",
+      "PocketMine-MP",
+      "Nukkit",
+      "PowerNukkitX",
+      "Nukkit-MOT",
+      "Cloudburst",
+      "Dragonfly",
+      "Endstone",
+      "LeviLamina",
+      "Allay",
+      "JukeboxMC",
+      "GoMint",
+      "Geyser",
+      "WaterdogPE"
+    ],
+    "faq": [
+      [
+        "هل محرر NBT هذا مجاني؟",
+        "<p>نعم، وهو مفتوح المصدر بترخيص MIT. لا توجد فئة مدفوعة أو عملية تسجيل أو حصة للرفع، لأن المحرر لا يحتوي على مكوّن خادم؛ إنه صفحة ثابتة واحدة مع ملفي أصول.</p>"
+      ],
+      [
+        "هل يعمل مع Java Edition وBedrock Edition؟",
+        "<p>يعمل مع كليهما. ملفات Java Edition كبيرة النهاية وعادةً مضغوطة بـ gzip، بينما ملفات Bedrock صغيرة النهاية ويحمل <code>level.dat</code> ترويسة إضافية من 8 بايت. يكتشف المحرر النوع الذي استلمه ويكتب النوع نفسه عند الحفظ.</p>"
+      ],
+      [
+        "هل يُرفع ملف عالمي إلى أي مكان؟",
+        "<p>لا. يُقرأ الملف محليًا عبر FileReader API ويُنشأ التنزيل من كائن blob في الذاكرة. بعد تحميل الصفحة يمكنك قطع الاتصال بالشبكة وسيستمر المحرر في العمل.</p>"
+      ],
+      [
+        "هل يمكنني استخدامه على Android أو iOS؟",
+        "<p>نعم. صُممت الواجهة للجوال أولًا، بأهداف لمس حجمها 44&nbsp;px وشريط إجراءات ثابت. في Android يمكنك اختيار ملف العالم مباشرة من مدير الملفات؛ وفي iOS يجب أن يكون الملف في تطبيق Files أولًا بسبب العزل.</p>"
+      ],
+      [
+        "ما الفرق بين NBT وSNBT؟",
+        "<p>NBT هو الترميز الثنائي الذي تخزّنه Minecraft على القرص. أما SNBT فهو صيغته النصية والبنية التي تكتبها في أوامر مثل <code>/data merge</code>. يقرأ المحرر NBT الثنائي ويصدّر SNBT، ما يسهّل مقارنة ملفين أو لصق بنية في أمر.</p>"
+      ],
+      [
+        "ما الأدوات التي يحل محلها؟",
+        "<p>يحل محل محررات NBT المكتبية مثل NBTExplorer، وأدوات الويب أحادية الغرض التي تدعم إصدارًا واحدًا فقط. راجع <a href=\"nbtexplorer-online/\">مقارنة NBTExplorer عبر الإنترنت</a> لمعرفة ما ينتقل وما لا ينتقل.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "تم التحميل بصيغة {0}",
+      "trailing": "تم تجاهل {0} بايت لاحق بعد وسم الجذر",
+      "error": "خطأ: {0}",
+      "readfail": "تعذرت قراءة الملف",
+      "nofile": "لم يتم تحميل ملف",
+      "saved": "تم حفظ {0} ({1}, {2})",
+      "savefail": "خطأ في الحفظ: {0}",
+      "exported": "تم تصدير {0}",
+      "snbtfail": "خطأ SNBT: {0}",
+      "tagadded": "تمت إضافة الوسم",
+      "tagremoved": "تمت إزالة الوسم",
+      "arrayupdated": "تم تحديث المصفوفة",
+      "badvalue": "قيمة غير صالحة: {0}",
+      "badarray": "مصفوفة غير صالحة: {0}",
+      "nameneeded": "اسم الوسم مطلوب",
+      "nametaken": "يوجد هنا وسم باسم {0} بالفعل",
+      "listtype": "تحتوي القائمة بالفعل على عناصر من النوع {0}",
+      "editlevelname": "✎ تعديل LevelName",
+      "showmore": "إظهار {0} أخرى من {1} …",
+      "matches": "{0} نتيجة مطابقة",
+      "nomatch": "لا يوجد وسم يطابق \"{0}\"",
+      "arraytoobig": "تحتوي المصفوفة على {0} عنصرًا — وسّعها وعدّل العناصر منفردة",
+      "uncompressed": "غير مضغوط",
+      "storage": "إصدار التخزين v{0}",
+      "entries": "{0} عنصرًا",
+      "langprompt": "هل تريد فتح هذه الصفحة باللغة {0}؟",
+      "langyes": "تبديل",
+      "langno": "البقاء"
+    },
+    "support": "<strong>يدعم Minecraft Bedrock Edition وJava Edition</strong> — وجميع برمجيات الخوادم لكليهما، الشائعة والنادرة: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina وغيرها. <a href=\"__HOME__#server-software\">القائمة الكاملة</a>.",
+    "footernote": "مجاني ومفتوح المصدر (MIT)، ويعمل بالكامل داخل المتصفح. لا يتبع Mojang Studios أو Microsoft. Minecraft علامة تجارية لـ Mojang Studios.",
+    "faqtitle": "الأسئلة الشائعة",
+    "toctitle": "في هذه الصفحة",
+    "relatedtitle": "أدوات مرتبطة",
+    "homecrumb": "محرر NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "المحررات",
+      "أنواع الملفات",
+      "المرجع"
+    ],
+    "sourcehead": "المصدر",
+    "sourcelink": "الكود على GitHub"
+  },
+  "level-dat-editor": {
+    "title": "محرر level.dat لإعدادات عالم Minecraft",
+    "ogtitle": "محرر level.dat — تعديل إعدادات العالم عبر الإنترنت",
+    "desc": "عدّل level.dat في Minecraft عبر الإنترنت: اسم العالم ونمط اللعب والصعوبة ونقطة الظهور والبذرة وقواعد اللعب لعوالم Java وBedrock. لا يُرفع الملف.",
+    "keywords": "محرر level.dat, تعديل level.dat اون لاين, تغيير اسم عالم ماين كرافت, تغيير نمط اللعب, تعديل صعوبة العالم, تعديل بذرة Minecraft",
+    "h1": "محرر level.dat — تعديل إعدادات عالم Minecraft",
+    "crumb": "محرر level.dat",
+    "reltitle": "محرر level.dat",
+    "reldesc": "اسم العالم ونمط اللعب ونقطة الظهور والصعوبة وقواعد اللعب.",
+    "answer": "<code>level.dat</code> هو الملف الذي يحتفظ بكل ما يعرفه عالم Minecraft عن نفسه: الاسم ونمط اللعب والصعوبة ونقطة الظهور وقواعد اللعب وحالة الطقس والإصدار الذي فُتح به آخر مرة. أسقطه أدناه لتعديل أي من هذه القيم مباشرة. يدعم المحرر ملفات Java المضغوطة بـ gzip وكبيرة النهاية، وملفات Bedrock صغيرة النهاية ذات الترويسة من 8 بايت، ويعيد كتابة الملف بالتنسيق الذي وصل به.",
+    "droplabel": "level.dat",
+    "body": "\n<section class=\"content\" aria-label=\"Tags in level.dat\">\n<h2>الوسوم التي تُعدّل عادةً</h2>\n<p>يحتفظ ملف <code>level.dat</code> في Java بمعظم البيانات داخل مركّب <code>Data</code> واحد، بينما يضع ملف <code>level.dat</code> في Bedrock وسومه مباشرة في الجذر. الأسماء التالية هي الأهم؛ ابحث عن أي منها في الشجرة وسينتقل المحرر إليه.</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>الوسم</th><th>النوع</th><th>الإصدار</th><th>ما الذي يتحكم فيه</th></tr></thead>\n<tbody>\n<tr><td><code>LevelName</code></td><td>سلسلة نصية</td><td>كلاهما</td><td>اسم العالم المعروض. يبقى قديمًا بعد نسخ مجلد العالم؛ يشرح <a href=\"../guides/change-world-name/\">دليل إعادة التسمية</a> كيفية تغييره.</td></tr>\n<tr><td><code>GameType</code> / <code>gameType</code></td><td>عدد صحيح</td><td>كلاهما</td><td>0 بقاء، 1 إبداعي، 2 مغامرة، 3 مشاهد.</td></tr>\n<tr><td><code>Difficulty</code></td><td>بايت / عدد صحيح</td><td>كلاهما</td><td>0 مسالم، 1 سهل، 2 عادي، 3 صعب.</td></tr>\n<tr><td><code>hardcore</code></td><td>بايت</td><td>كلاهما</td><td>القيمة 1 تثبّت العالم على قواعد نمط Hardcore.</td></tr>\n<tr><td><code>allowCommands</code> / <code>commandsEnabled</code></td><td>بايت</td><td>Java / Bedrock</td><td>تحدد ما إذا كان الغش مفعّلًا.</td></tr>\n<tr><td><code>SpawnX</code>, <code>SpawnY</code>, <code>SpawnZ</code></td><td>عدد صحيح</td><td>كلاهما</td><td>إحداثيات نقطة ظهور العالم.</td></tr>\n<tr><td><code>Time</code>, <code>DayTime</code></td><td>عدد صحيح طويل</td><td>Java</td><td>إجمالي النبضات ووقت اليوم.</td></tr>\n<tr><td><code>currentTick</code></td><td>عدد صحيح</td><td>Bedrock</td><td>ساعة العالم المكافئة في Bedrock.</td></tr>\n<tr><td><code>RandomSeed</code> / <code>WorldGenSettings.seed</code></td><td>عدد صحيح طويل</td><td>Java</td><td>بذرة العالم. تُحفظ هنا كقيمة 64 بت حقيقية، لا كعدد عشري مزدوج مقرّب.</td></tr>\n<tr><td><code>GameRules</code> / وسوم منفصلة لقواعد اللعب</td><td>مركّب / بايت</td><td>Java / Bedrock</td><td>كل ما يضبطه <code>/gamerule</code>؛ راجع <a href=\"../guides/edit-gamerules/\">دليل قواعد اللعب</a>.</td></tr>\n<tr><td><code>DataVersion</code></td><td>عدد صحيح</td><td>Java</td><td>إصدار تنسيق العالم. افحصه قبل نقل العالم بين إصدارات Minecraft.</td></tr>\n<tr><td><code>lastOpenedWithVersion</code></td><td>قائمة أعداد صحيحة</td><td>Bedrock</td><td>إصدار عميل أو خادم Bedrock الذي كتب العالم آخر مرة.</td></tr>\n<tr><td><code>Player</code></td><td>مركّب</td><td>كلاهما</td><td>مخزون لاعب اللعب الفردي وموقعه وإحصاءاته المضمّنة في ملف العالم.</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Where to find level.dat\">\n<h2>مكان ملف <code>level.dat</code></h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>المنصة</th><th>المسار</th></tr></thead>\n<tbody>\n<tr><td>خادم Java ‏(Vanilla، Paper، Spigot، Fabric، Forge)</td><td><code>world/level.dat</code> بجانب <code>region/</code> و<code>playerdata/</code></td></tr>\n<tr><td>عميل Java على Windows</td><td><code>%APPDATA%\\.minecraft\\saves\\&lt;World&gt;\\level.dat</code></td></tr>\n<tr><td>عميل Java على macOS</td><td><code>~/Library/Application Support/minecraft/saves/&lt;World&gt;/level.dat</code></td></tr>\n<tr><td>عميل Java على Linux</td><td><code>~/.minecraft/saves/&lt;World&gt;/level.dat</code></td></tr>\n<tr><td>Bedrock Dedicated Server, PocketMine-MP, Nukkit</td><td><code>worlds/&lt;World&gt;/level.dat</code></td></tr>\n<tr><td>Bedrock على Android</td><td><code>Android/data/com.mojang.minecraftpe/files/games/com.mojang/minecraftWorlds/&lt;id&gt;/level.dat</code></td></tr>\n<tr><td>Bedrock على Windows</td><td><code>%LOCALAPPDATA%\\Packages\\Microsoft.MinecraftUWP_*\\LocalState\\games\\com.mojang\\minecraftWorlds\\&lt;id&gt;\\level.dat</code></td></tr>\n</tbody>\n</table>\n</div>\n<p>تكتب Minecraft أيضًا ملف <code>level.dat_old</code> بجانبه، وهو الحفظ السابق. يمكن فتحه في هذا المحرر أيضًا، وهو أول ما ينبغي تجربته إذا تعذر تحميل الملف الحالي.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Safety\">\n<h2>التعديل بأمان</h2>\n<div class=\"card\">\n<ul>\n<li><strong>أوقف الخادم أو أغلق اللعبة أولًا.</strong> تعيد Minecraft كتابة <code>level.dat</code> عند الحفظ التلقائي والإيقاف. سيستبدل الخادم العامل تعديلك، وقد يكتب فوق ملف لم يكتمل نسخه.</li>\n<li><strong>احتفظ بالملف الأصلي.</strong> لا يعدّل المحرر الملف الذي أسقطته؛ بل ينشئ ملفًا جديدًا للتنزيل. احتفظ بالنسخة القديمة حتى يتم تحميل العالم مرة واحدة.</li>\n<li><strong>لا تغيّر أنواع الوسوم.</strong> قد يمنع تغيير <code>Difficulty</code> من Byte إلى Int أو إعادة تسمية وسم تتوقعه Minecraft تحميل العالم. عدّل القيم لا البنية، إلا إذا كنت تعرف سبب التغيير.</li>\n<li><strong>حافظ على ترويسة Bedrock.</strong> تحمل الترويسة ذات 8 بايت إصدار التخزين وطول الحمولة. يعيد المحرر كتابة الطول تلقائيًا ويحافظ على الإصدار؛ ولن تُحمّل الملفات المعدّلة يدويًا إذا فقدت الترويسة.</li>\n</ul>\n</div>\n</section>\n",
+    "chips": [
+      "level.dat لـ Java",
+      "level.dat لـ Bedrock",
+      "level.dat_old",
+      "gzip",
+      "ترويسة 8 بايت"
+    ],
+    "faq": [
+      [
+        "هل يمكنني تعديل level.dat دون تنزيل برنامج؟",
+        "<p>نعم، فهذه وظيفة الصفحة. يعمل المحلل في متصفحك، فلا تحتاج إلى تثبيت شيء ولا إلى نظام تشغيل محدد سوى متصفح حديث.</p>"
+      ],
+      [
+        "لماذا ما زال عالمي يعرض الاسم القديم؟",
+        "<p>لأن الاسم في قائمة العوالم يأتي من <code>LevelName</code> داخل <code>level.dat</code>، وليس من اسم المجلد. لا يغيّر نسخ المجلد أو إعادة تسميته الوسم. عدّل الوسم وستتحدث القائمة.</p>"
+      ],
+      [
+        "هل يعمل مع level.dat_old؟",
+        "<p>نعم. <code>level.dat_old</code> هو الحفظ السابق بالتنسيق نفسه. إذا كان الملف الحالي تالفًا، فافتح نسخة <code>_old</code> وتأكد من سلامتها ثم استعدها تحت الاسم الأصلي.</p>"
+      ],
+      [
+        "هل يمكنني تغيير بذرة العالم هنا؟",
+        "<p>يمكنك تعديل وسم البذرة، لكنه يؤثر فقط في التضاريس التي تُولّد بعد التغيير. تحتفظ القطع الموجودة على القرص بشكلها السابق، لذلك سيكون الحد بين التضاريس القديمة والجديدة مرئيًا.</p>"
+      ],
+      [
+        "هل قد يؤدي تعديل level.dat إلى حظري أو إتلاف عالمي؟",
+        "<p>إنه ملف حفظك، لذلك لا يوجد ما يسبب الحظر. يحدث التلف عند التعديل أثناء عمل الخادم أو عند تغيير أنواع الوسوم وأسمائها بدل قيمها. أوقف الخادم وعدّل القيم واحتفظ بنسخة احتياطية.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "تم التحميل بصيغة {0}",
+      "trailing": "تم تجاهل {0} بايت لاحق بعد وسم الجذر",
+      "error": "خطأ: {0}",
+      "readfail": "تعذرت قراءة الملف",
+      "nofile": "لم يتم تحميل ملف",
+      "saved": "تم حفظ {0} ({1}, {2})",
+      "savefail": "خطأ في الحفظ: {0}",
+      "exported": "تم تصدير {0}",
+      "snbtfail": "خطأ SNBT: {0}",
+      "tagadded": "تمت إضافة الوسم",
+      "tagremoved": "تمت إزالة الوسم",
+      "arrayupdated": "تم تحديث المصفوفة",
+      "badvalue": "قيمة غير صالحة: {0}",
+      "badarray": "مصفوفة غير صالحة: {0}",
+      "nameneeded": "اسم الوسم مطلوب",
+      "nametaken": "يوجد هنا وسم باسم {0} بالفعل",
+      "listtype": "تحتوي القائمة بالفعل على عناصر من النوع {0}",
+      "editlevelname": "✎ تعديل LevelName",
+      "showmore": "إظهار {0} أخرى من {1} …",
+      "matches": "{0} نتيجة مطابقة",
+      "nomatch": "لا يوجد وسم يطابق \"{0}\"",
+      "arraytoobig": "تحتوي المصفوفة على {0} عنصرًا — وسّعها وعدّل العناصر منفردة",
+      "uncompressed": "غير مضغوط",
+      "storage": "إصدار التخزين v{0}",
+      "entries": "{0} عنصرًا",
+      "langprompt": "هل تريد فتح هذه الصفحة باللغة {0}؟",
+      "langyes": "تبديل",
+      "langno": "البقاء"
+    },
+    "support": "<strong>يدعم Minecraft Bedrock Edition وJava Edition</strong> — وجميع برمجيات الخوادم لكليهما، الشائعة والنادرة: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina وغيرها. <a href=\"__HOME__#server-software\">القائمة الكاملة</a>.",
+    "footernote": "مجاني ومفتوح المصدر (MIT)، ويعمل بالكامل داخل المتصفح. لا يتبع Mojang Studios أو Microsoft. Minecraft علامة تجارية لـ Mojang Studios.",
+    "faqtitle": "الأسئلة الشائعة",
+    "toctitle": "في هذه الصفحة",
+    "relatedtitle": "أدوات مرتبطة",
+    "homecrumb": "محرر NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "المحررات",
+      "أنواع الملفات",
+      "المرجع"
+    ],
+    "sourcehead": "المصدر",
+    "sourcelink": "الكود على GitHub"
+  },
+  "java-nbt-editor": {
+    "title": "محرر NBT لـ Java — level.dat وplayerdata و.nbt",
+    "ogtitle": "محرر NBT لإصدار Java — big-endian وgzip",
+    "desc": "محرر NBT عبر الإنترنت لـ Minecraft Java Edition: ملفات level.dat وplayerdata وservers.dat وبُنى .nbt المضغوطة بـ gzip من Paper وSpigot وFabric وForge.",
+    "keywords": "محرر NBT Java, تعديل level.dat جافا, محرر playerdata, فتح ملف nbt ماين كرافت, تعديل NBT Paper, محرر NBT Spigot, gzip NBT",
+    "h1": "محرر NBT لإصدار Java",
+    "crumb": "Java",
+    "reltitle": "محرر NBT لإصدار Java",
+    "reldesc": "big-endian وgzip — Vanilla وPaper وSpigot وFabric وForge.",
+    "answer": "تخزّن Minecraft Java Edition بياناتها بصيغة NBT كبيرة النهاية، وتكون مضغوطة بـ gzip في معظم الحالات. أسقط أدناه أي ملف Java، مثل <code>level.dat</code> أو ملف UUID داخل <code>playerdata</code> أو <code>servers.dat</code> أو بنية <code>.nbt</code> أو مخطط WorldEdit، وسيفك المحرر ضغطه ويحلله بترتيب كبير النهاية ثم يعيده مضغوطًا بـ gzip كي تقبله اللعبة دون تغيير.",
+    "droplabel": "ملف NBT من Java",
+    "body": "\n<section class=\"content\" aria-label=\"Java NBT files\">\n<h2>ممّ يتكوّن عالم Java</h2>\n<p>يمكن فتح كل ما يلي في المحرر أعلاه. ملفات المناطق (<code>.mca</code>) حاويات تضم قطعًا مضغوطة عديدة وليست مستند NBT واحدًا، لذا استخرج حمولة قطعة أولًا؛ يقرأ المحرر NBT الخاص بالقطعة الناتجة والمضغوط بـ zlib.</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>المسار</th><th>المحتويات</th><th>الضغط</th></tr></thead>\n<tbody>\n<tr><td><code>world/level.dat</code></td><td>اسم العالم ونمط اللعب والقواعد ونقطة الظهور و<code>DataVersion</code></td><td>gzip</td></tr>\n<tr><td><code>world/level.dat_old</code></td><td>الحفظ السابق للملف نفسه</td><td>gzip</td></tr>\n<tr><td><code>world/playerdata/&lt;uuid&gt;.dat</code></td><td>المخزون وصندوق Ender والموقع والصحة وXP والسمات</td><td>gzip</td></tr>\n<tr><td><code>world/data/raids.dat</code>، <code>idcounts.dat</code>، <code>map_*.dat</code></td><td>حالة الغارات وعدّادات معرّفات الكيانات وعناصر الخرائط</td><td>gzip</td></tr>\n<tr><td><code>world/data/scoreboard.dat</code></td><td>الأهداف والفرق والنتائج</td><td>gzip</td></tr>\n<tr><td><code>world/region/*.mca</code></td><td>NBT لقطعة داخل حاوية منطقة</td><td>zlib لكل قطعة</td></tr>\n<tr><td><code>servers.dat</code></td><td>قائمة خوادم اللعب الجماعي من العميل</td><td>بلا ضغط</td></tr>\n<tr><td><code>hotbar.nbt</code></td><td>أشرطة الأدوات المحفوظة للوضع الإبداعي</td><td>بلا ضغط</td></tr>\n<tr><td><code>*.nbt</code> داخل حزم البيانات</td><td>البُنى التي تضعها كتل البُنى وكتل jigsaw</td><td>gzip</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Java NBT encoding\">\n<h2>كيفية ترميز Java لبيانات NBT</h2>\n<div class=\"card\">\n<ul>\n<li><strong>كبير النهاية.</strong> يُخزّن كل عدد صحيح وعشري بالبايت الأعلى أهمية أولًا، بما يطابق <code>DataOutputStream</code> في Java.</li>\n<li><strong>جذر مسمّى.</strong> يبدأ الملف بنوع الوسم <code>0x0A</code>، ثم اسم الجذر بترميز UTF-8 ومسبوق بطوله؛ وكان الاسم فارغًا تاريخيًا في <code>level.dat</code>.</li>\n<li><strong>UTF-8 معدّل.</strong> تستخدم السلاسل ترميز <code>writeUTF</code> في Java: طولًا من بايتين، وتُكتب NUL بالشكل <code>C0 80</code>، وتُقسّم المحارف خارج المستوى الأساسي إلى نصفين من ثلاثة بايتات (CESU-8). الأداة التي تعامل ذلك كـ UTF-8 عادي تتلف الرموز التعبيرية في أسماء العوالم؛ أما هذا المحرر فيرمّزها بصورة صحيحة.</li>\n<li><strong>gzip افتراضيًا.</strong> يتوقع <code>NbtIo.readCompressed</code> تدفق gzip. قد تفتح بعض الأدوات الملفات غير المضغوطة، لكن اللعبة لا تفتحها.</li>\n<li><strong>جذر بلا اسم على الشبكة.</strong> منذ 1.20.2 يرسل البروتوكول NBT بلا اسم للجذر. تُكتشف تفريغات الحزم بهذه البنية كصيغة <em>شبكة Java</em> هنا.</li>\n</ul>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Server cores\">\n<h2>Paper وSpigot وFabric وForge — الملفات نفسها</h2>\n<p>تغيّر التفرعات ومحمّلات التعديلات طريقة تشغيل الخادم، لا طريقة كتابة العالم. تستخدم Paper وPurpur وPufferfish وFolia وFabric وQuilt وForge وNeoForge وMohist وArclight وSponge جميعها بنية NBT الخاصة بـ Vanilla، لذا ينطبق عليها كل ما في هذه الصفحة دون تغيير. تضيف التفرعات ملفات أخرى بجانب العالم مثل <code>paper-world.yml</code> وإعدادات التعديلات، لكنها بصيغة YAML أو TOML ولا علاقة لها بـ NBT.</p>\n<p>قد تضيف التعديلات والإضافات مركّباتها الخاصة داخل <code>level.dat</code> أو <code>playerdata</code>. تفتح هذه الوسوم هنا مثل غيرها؛ اتركها دون تغيير ما لم تعرف كيف يستخدمها التعديل.</p>\n</section>\n\n<section class=\"content\" aria-label=\"DataVersion\">\n<h2><code>DataVersion</code> وترحيل الإصدارات</h2>\n<p>تحتوي عوالم Java على العدد الصحيح <code>DataVersion</code> الذي يحدد تنسيق العالم ويزداد مع كل لقطة تطوير. نقاط مرجعية مفيدة: 1.16.5 هي 2586، و1.17.1 هي 2730، و1.18.2 هي 2975، و1.19.4 هي 3337، و1.20.4 هي 3700، و1.21 هي 3953. يرفض عميل أقدم من الذي كتب العالم فتحه بسبب هذا الوسم تحديدًا، وخفضه يدويًا لا يرجع بيانات القطع إلى إصدار أقدم، بل يزيل حاجز الحماية فقط. اقرأه لمعرفة الإصدار الذي كتب العالم، ولا تعدّله لفرض الرجوع إلى إصدار أقدم.</p>\n</section>\n",
+    "chips": [
+      "Vanilla",
+      "Paper",
+      "Spigot",
+      "Purpur",
+      "Folia",
+      "Fabric",
+      "Quilt",
+      "Forge",
+      "NeoForge",
+      "Sponge"
+    ],
+    "faq": [
+      [
+        "هل يمكنني فتح level.dat من Java إذا لم يُحمّل في اللعبة؟",
+        "<p>غالبًا نعم؛ المحرر أكثر تسامحًا من اللعبة مع البايتات اللاحقة، ويبلغك بالموضع الدقيق الذي توقف عنده التحليل إذا كان الملف مبتورًا. إذا رفضه أيضًا فجرّب <code>level.dat_old</code>، وهو الحفظ التلقائي السابق.</p>"
+      ],
+      [
+        "هل يدعم NBT الشبكي في 1.20.2+؟",
+        "<p>نعم. منذ 1.20.2 يحذف البروتوكول اسم الجذر. يُكتشف التفريغ بهذه البنية كصيغة <em>شبكة Java</em> ويمكن حفظه مجددًا إما كـ NBT شبكي أو كملف عادي ذي جذر مسمّى.</p>"
+      ],
+      [
+        "هل يمكنني تعديل قطعة من ملف منطقة .mca؟",
+        "<p>يمكنك تعديل NBT الخاص بالقطعة بعد استخراجه من حاوية المنطقة. ملف <code>.mca</code> نفسه فهرس مع حمولات قطع عديدة مضغوطة بـ zlib، وهذا المحرر يعمل على مستند NBT واحد لا على الحاوية.</p>"
+      ],
+      [
+        "هل سيؤدي تعديل playerdata إلى إتلاف بيانات اللاعب؟",
+        "<p>يحدث ذلك فقط إذا كان الخادم يعمل أثناء التعديل؛ فهو يحتفظ بحالة اللاعب في الذاكرة ويكتبها عند تسجيل الخروج، فيستبدل ملفك. أخرج اللاعب من الخادم وعدّل الملف ثم اسمح له بالاتصال مجددًا. راجع <a href=\"../playerdata-editor/\">محرر playerdata</a>.</p>"
+      ],
+      [
+        "هل يجب أن يكون level.dat مضغوطًا بـ gzip؟",
+        "<p>يقرأ محمّل Vanilla تنسيق gzip. احفظ مع ضبط الضغط على gzip، وهو الإعداد الافتراضي إذا وصل الملف بهذه الصيغة، وستقبله اللعبة.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "تم التحميل بصيغة {0}",
+      "trailing": "تم تجاهل {0} بايت لاحق بعد وسم الجذر",
+      "error": "خطأ: {0}",
+      "readfail": "تعذرت قراءة الملف",
+      "nofile": "لم يتم تحميل ملف",
+      "saved": "تم حفظ {0} ({1}, {2})",
+      "savefail": "خطأ في الحفظ: {0}",
+      "exported": "تم تصدير {0}",
+      "snbtfail": "خطأ SNBT: {0}",
+      "tagadded": "تمت إضافة الوسم",
+      "tagremoved": "تمت إزالة الوسم",
+      "arrayupdated": "تم تحديث المصفوفة",
+      "badvalue": "قيمة غير صالحة: {0}",
+      "badarray": "مصفوفة غير صالحة: {0}",
+      "nameneeded": "اسم الوسم مطلوب",
+      "nametaken": "يوجد هنا وسم باسم {0} بالفعل",
+      "listtype": "تحتوي القائمة بالفعل على عناصر من النوع {0}",
+      "editlevelname": "✎ تعديل LevelName",
+      "showmore": "إظهار {0} أخرى من {1} …",
+      "matches": "{0} نتيجة مطابقة",
+      "nomatch": "لا يوجد وسم يطابق \"{0}\"",
+      "arraytoobig": "تحتوي المصفوفة على {0} عنصرًا — وسّعها وعدّل العناصر منفردة",
+      "uncompressed": "غير مضغوط",
+      "storage": "إصدار التخزين v{0}",
+      "entries": "{0} عنصرًا",
+      "langprompt": "هل تريد فتح هذه الصفحة باللغة {0}؟",
+      "langyes": "تبديل",
+      "langno": "البقاء"
+    },
+    "support": "<strong>يدعم Minecraft Bedrock Edition وJava Edition</strong> — وجميع برمجيات الخوادم لكليهما، الشائعة والنادرة: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina وغيرها. <a href=\"__HOME__#server-software\">القائمة الكاملة</a>.",
+    "footernote": "مجاني ومفتوح المصدر (MIT)، ويعمل بالكامل داخل المتصفح. لا يتبع Mojang Studios أو Microsoft. Minecraft علامة تجارية لـ Mojang Studios.",
+    "faqtitle": "الأسئلة الشائعة",
+    "toctitle": "في هذه الصفحة",
+    "relatedtitle": "أدوات مرتبطة",
+    "homecrumb": "محرر NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "المحررات",
+      "أنواع الملفات",
+      "المرجع"
+    ],
+    "sourcehead": "المصدر",
+    "sourcelink": "الكود على GitHub"
+  },
+  "mcpe-nbt-editor": {
+    "title": "محرر NBT لـ MCPE — level.dat وAndroid وiOS",
+    "ogtitle": "محرر NBT لـ Bedrock — level.dat وMCPE وMCBE",
+    "desc": "عدّل ملفات عوالم MCPE وBedrock عبر الإنترنت: level.dat بترويسة 8 بايت و.mcstructure وNBT صغير النهاية من Android أو iOS أو Windows أو الخادم.",
+    "keywords": "محرر NBT MCPE, تعديل level.dat بيدروك, محرر NBT Bedrock, فتح mcstructure, تعديل عالم ماين كرافت الجوال, level.dat Android",
+    "h1": "محرر NBT لـ MCPE — ملفات Minecraft Pocket Edition",
+    "crumb": "MCPE",
+    "reltitle": "محرر NBT لـ MCPE",
+    "reldesc": "NBT صغير النهاية وترويسة level.dat ذات 8 بايت.",
+    "answer": "تكتب Bedrock Edition بيانات NBT بترتيب صغير النهاية، ويسبق ملف <code>level.dat</code> ترويسة من 8 بايت تحمل إصدار التخزين وطول الحمولة. أسقط أدناه ملف Bedrock مثل <code>level.dat</code> أو <code>.mcstructure</code> أو قيمة LevelDB أو تفريغ بروتوكول، وسيقرأه المحرر ويحافظ على الترويسة ويعيد حساب الطول عند الحفظ ثم يعيد الملف جاهزًا لوضعه في مجلد العالم.",
+    "droplabel": "ملف level.dat من Bedrock",
+    "body": "\n<section class=\"content\" aria-label=\"Bedrock level.dat header\">\n<h2>الترويسة ذات 8 بايت وسبب أهميتها</h2>\n<p>ملف <code>level.dat</code> في Bedrock ليس NBT خامًا. أول أربعة بايتات هي إصدار التخزين بترتيب صغير النهاية (القيمتان المستخدمتان فعليًا هما 8 و10)، والأربعة التالية هي طول حمولة NBT بالبايت، ثم تأتي الوسوم بلا ضغط. إذا عدّلت الحمولة دون تصحيح الطول فسترفض اللعبة الملف؛ وهذا ما يحدث عند فتح ملفات Bedrock بأداة NBT مخصصة لـ Java فقط.</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>الإزاحة</th><th>الحجم</th><th>الحقل</th></tr></thead>\n<tbody>\n<tr><td>0</td><td>4 بايت</td><td>إصدار التخزين، عدد صحيح صغير النهاية</td></tr>\n<tr><td>4</td><td>4 بايت</td><td>طول الحمولة بالبايت، عدد صحيح غير موقّع صغير النهاية</td></tr>\n<tr><td>8</td><td>الباقي</td><td>NBT صغير النهاية، مركّب جذري، غير مضغوط</td></tr>\n</tbody>\n</table>\n</div>\n<p>يعرض المحرر إصدار التخزين في شريط الملف ويحافظ عليه، ويعيد كتابة الطول تلقائيًا عند كل حفظ.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Bedrock tags\">\n<h2>وسوم Bedrock المهمة</h2>\n<p>تضع Bedrock إعداداتها مباشرة في جذر <code>level.dat</code> بدل تداخلها تحت مركّب <code>Data</code> كما تفعل Java، وتخزّن قواعد اللعب كوسوم منفصلة بدل عنصر <code>GameRules</code> فرعي.</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>الوسم</th><th>النوع</th><th>المعنى</th></tr></thead>\n<tbody>\n<tr><td><code>LevelName</code></td><td>سلسلة نصية</td><td>اسم العالم المعروض في قائمة العوالم ومخرجات الخادم</td></tr>\n<tr><td><code>GameType</code></td><td>عدد صحيح</td><td>0 بقاء، 1 إبداعي، 2 مغامرة</td></tr>\n<tr><td><code>Difficulty</code></td><td>عدد صحيح</td><td>0 مسالم … 3 صعب</td></tr>\n<tr><td><code>commandsEnabled</code></td><td>بايت</td><td>تشغيل الغش أو إيقافه</td></tr>\n<tr><td><code>SpawnX</code>, <code>SpawnY</code>, <code>SpawnZ</code></td><td>عدد صحيح</td><td>نقطة ظهور العالم</td></tr>\n<tr><td><code>RandomSeed</code></td><td>عدد صحيح طويل</td><td>بذرة العالم، كقيمة 64 بت حقيقية</td></tr>\n<tr><td><code>lastOpenedWithVersion</code></td><td>قائمة أعداد صحيحة</td><td>إصدار العميل أو الخادم الذي كتب العالم آخر مرة</td></tr>\n<tr><td><code>StorageVersion</code></td><td>عدد صحيح</td><td>مراجعة تخزين العالم، وتطابق الترويسة</td></tr>\n<tr><td><code>experiments</code></td><td>مركّب</td><td>الخيارات التجريبية المفعّلة للعالم</td></tr>\n<tr><td><code>keepinventory</code>, <code>domobspawning</code>, …</td><td>بايت</td><td>قواعد اللعب، ولكل منها وسم منفصل بأحرف صغيرة</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Where Bedrock files live\">\n<h2>العثور على الملف في كل منصة</h2>\n<ul>\n<li><strong>Android:</strong> <code>Android/data/com.mojang.minecraftpe/files/games/com.mojang/minecraftWorlds/&lt;id&gt;/level.dat</code>. تقيّد إصدارات Android الحديثة هذا المجلد؛ استخدم تصدير العالم من داخل اللعبة أو مدير ملفات يملك صلاحية الوصول المناسبة.</li>\n<li><strong>iOS:</strong> صدّر العالم من اللعبة إلى ملف <code>.mcworld</code>، وافتحه في تطبيق Files ثم فك ضغطه هناك؛ يوجد <code>level.dat</code> في جذر الأرشيف.</li>\n<li><strong>Windows:</strong> <code>%LOCALAPPDATA%\\Packages\\Microsoft.MinecraftUWP_8wekyb3d8bbwe\\LocalState\\games\\com.mojang\\minecraftWorlds\\&lt;id&gt;\\level.dat</code>.</li>\n<li><strong>Bedrock Dedicated Server:</strong> <code>worlds/&lt;World&gt;/level.dat</code>.</li>\n<li><strong>PocketMine-MP وNukkit وPowerNukkitX:</strong> <code>worlds/&lt;World&gt;/level.dat</code>؛ راجع <a href=\"../pocketmine-nbt-editor/\">دليل الخادم</a>.</li>\n</ul>\n<p>اسم مجلد العالم معرّف عشوائي وليس اسم العالم. رتّب المجلدات حسب وقت التعديل، أو افتح بعض ملفات <code>level.dat</code> هنا واقرأ <code>LevelName</code> لتحديد الملف الصحيح.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Other Bedrock NBT\">\n<h2>ما بعد <code>level.dat</code></h2>\n<p>تحتفظ Bedrock بالقطع والكيانات وكيانات الكتل في قاعدة LevelDB داخل مجلد <code>db/</code>، وتكون قيمة كثير من المفاتيح NBT صغير النهاية. استخرج قيمة وستفتح هنا بصيغة <em>Bedrock خام</em> — بلا ترويسة أو ضغط. تستخدم ملفات البُنى الترميز نفسه؛ راجع <a href=\"../mcstructure-editor/\">محرر .mcstructure</a>. تستخدم لقطات البروتوكول صيغة varint التي يكتشفها المحرر كصيغة <em>شبكة Bedrock</em>.</p>\n</section>\n",
+    "chips": [
+      "MCPE",
+      "MCBE",
+      "Bedrock Dedicated Server",
+      "PocketMine-MP",
+      "Nukkit",
+      "PowerNukkitX",
+      "Cloudburst",
+      "Dragonfly",
+      "Endstone"
+    ],
+    "faq": [
+      [
+        "لماذا لا يفتح ملف level.dat من Bedrock في NBTExplorer؟",
+        "<p>لأن NBTExplorer يتوقع بنية Java كبيرة النهاية ولا يتعرف على ترويسة Bedrock ذات 8 بايت. يعالج هذا المحرر النوعين ويعيد كتابة طول الترويسة عند الحفظ.</p>"
+      ],
+      [
+        "هل يمكنني تعديل عالم MCPE على هاتفي؟",
+        "<p>نعم. افتح الصفحة في متصفح الهاتف واختر الملف من مدير الملفات ثم عدّله واحفظه. يصل التنزيل إلى مجلد Downloads؛ انسخه مكان الملف الأصلي.</p>"
+      ],
+      [
+        "ما الفرق بين إصدار التخزين 8 و10؟",
+        "<p>يشيران إلى مراجعتين من تنسيق تخزين عوالم Bedrock؛ تكتب العملاء الحالية القيمة 10. يحافظ المحرر على قيمة الملف بدل فرض قيمة، لأن تغييرها لا يرحّل بيانات العالم التابعة لها.</p>"
+      ],
+      [
+        "هل يعمل مع ملفات .mcworld؟",
+        "<p>ليس مباشرة؛ <code>.mcworld</code> أرشيف zip. فك ضغطه وعدّل <code>level.dat</code> هنا، ثم أعده إلى الأرشيف وأعد تسمية الأرشيف إلى <code>.mcworld</code>.</p>"
+      ],
+      [
+        "هل يعمل مع قواعد اللعب في Bedrock؟",
+        "<p>نعم. تخزّن Bedrock كل قاعدة في وسم بايت مستقل بأحرف صغيرة في الجذر، مثل <code>keepinventory</code> و<code>domobspawning</code> و<code>showcoordinates</code> وغيرها. اضبط البايت على 1 أو 0. يسرد <a href=\"../guides/edit-gamerules/\">دليل قواعد اللعب</a> هذه الوسوم.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "تم التحميل بصيغة {0}",
+      "trailing": "تم تجاهل {0} بايت لاحق بعد وسم الجذر",
+      "error": "خطأ: {0}",
+      "readfail": "تعذرت قراءة الملف",
+      "nofile": "لم يتم تحميل ملف",
+      "saved": "تم حفظ {0} ({1}, {2})",
+      "savefail": "خطأ في الحفظ: {0}",
+      "exported": "تم تصدير {0}",
+      "snbtfail": "خطأ SNBT: {0}",
+      "tagadded": "تمت إضافة الوسم",
+      "tagremoved": "تمت إزالة الوسم",
+      "arrayupdated": "تم تحديث المصفوفة",
+      "badvalue": "قيمة غير صالحة: {0}",
+      "badarray": "مصفوفة غير صالحة: {0}",
+      "nameneeded": "اسم الوسم مطلوب",
+      "nametaken": "يوجد هنا وسم باسم {0} بالفعل",
+      "listtype": "تحتوي القائمة بالفعل على عناصر من النوع {0}",
+      "editlevelname": "✎ تعديل LevelName",
+      "showmore": "إظهار {0} أخرى من {1} …",
+      "matches": "{0} نتيجة مطابقة",
+      "nomatch": "لا يوجد وسم يطابق \"{0}\"",
+      "arraytoobig": "تحتوي المصفوفة على {0} عنصرًا — وسّعها وعدّل العناصر منفردة",
+      "uncompressed": "غير مضغوط",
+      "storage": "إصدار التخزين v{0}",
+      "entries": "{0} عنصرًا",
+      "langprompt": "هل تريد فتح هذه الصفحة باللغة {0}؟",
+      "langyes": "تبديل",
+      "langno": "البقاء"
+    },
+    "support": "<strong>يدعم Minecraft Bedrock Edition وJava Edition</strong> — وجميع برمجيات الخوادم لكليهما، الشائعة والنادرة: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina وغيرها. <a href=\"__HOME__#server-software\">القائمة الكاملة</a>.",
+    "footernote": "مجاني ومفتوح المصدر (MIT)، ويعمل بالكامل داخل المتصفح. لا يتبع Mojang Studios أو Microsoft. Minecraft علامة تجارية لـ Mojang Studios.",
+    "faqtitle": "الأسئلة الشائعة",
+    "toctitle": "في هذه الصفحة",
+    "relatedtitle": "أدوات مرتبطة",
+    "homecrumb": "محرر NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "المحررات",
+      "أنواع الملفات",
+      "المرجع"
+    ],
+    "sourcehead": "المصدر",
+    "sourcelink": "الكود على GitHub"
+  },
+  "pocketmine-nbt-editor": {
+    "title": "محرر level.dat لـ PocketMine-MP وNukkit",
+    "ogtitle": "محرر level.dat لـ PocketMine-MP وNukkit",
+    "desc": "عدّل level.dat لـ PocketMine-MP وNukkit وPowerNukkitX وBedrock Dedicated Server عبر الإنترنت، وصحح أسماء العوالم المكررة بعد نسخ مجلد العالم.",
+    "keywords": "محرر level.dat PocketMine, تعديل عالم PMMP, تغيير اسم عالم PocketMine-MP, محرر NBT Nukkit, level.dat PowerNukkitX, BDS world name",
+    "h1": "محرر level.dat لخوادم PocketMine-MP وBedrock",
+    "crumb": "PocketMine-MP",
+    "reltitle": "محرر PocketMine-MP",
+    "reldesc": "ملف level.dat على الخادم لـ PMMP وNukkit وBDS.",
+    "answer": "تقرأ برمجيات خوادم Bedrock، ومنها PocketMine-MP وNukkit وPowerNukkitX وCloudburst وDragonfly وBedrock Dedicated Server الرسمي، ملف <code>level.dat</code> نفسه بترتيب صغير النهاية وترويسة من 8 بايت من المسار <code>worlds/&lt;World&gt;/</code>. أسقط ملفك أدناه لتصحيح اسم العالم بعد نسخ مجلد أو نقل نقطة الظهور أو تغيير قواعد اللعب أو معرفة الإصدار الذي كتب العالم آخر مرة.",
+    "droplabel": "worlds/&lt;World&gt;/level.dat",
+    "body": "\n<section class=\"content\" aria-label=\"Duplicate world names\">\n<h2>مشكلة تكرار اسم العالم</h2>\n<p>يواجه كل مدير خادم Bedrock هذه المشكلة. تنسخ <code>worlds/hub</code> إلى <code>worlds/hub2</code> لإنشاء ساحة ثانية، لكن وحدة التحكم ومدير العوالم وكل إضافة تعرض اسم العالم تواصل تسمية العالمين <em>hub</em>. لقد تغير اسم المجلد، لكن <code>LevelName</code> داخل <code>level.dat</code> لم يتغير.</p>\n<p>العواقب ليست شكلية. قد تصل الإضافات التي تبحث عن العوالم بالاسم الداخلي، مثل منصات الانتقال وإعدادات كل عالم وحماية المناطق، إلى العالم الخطأ، كما تصبح أوامر إدارة العوالم ملتبسة. أصلح ذلك بتعديل الوسم: أسقط الملف أعلاه وسينتقل المحرر مباشرة إلى <code>LevelName</code> ويفتحه للتعديل.</p>\n<div class=\"card\">\n<ol class=\"steps\">\n<li>أوقف الخادم. يعيد الخادم العامل كتابة <code>level.dat</code> عند الحفظ وسيلغي تعديلك.</li>\n<li>نزّل <code>worlds/&lt;World&gt;/level.dat</code> عبر SFTP أو مدير الملفات في لوحة التحكم.</li>\n<li>أسقطه في المحرر، وغيّر <code>LevelName</code> إلى الاسم الجديد، ثم احفظه.</li>\n<li>ارفعه مكان الملف الأصلي مع الاحتفاظ بالملف القديم نسخةً احتياطية.</li>\n<li>شغّل الخادم وافحص سطر وحدة التحكم الذي يعرض العوالم المحمّلة.</li>\n</ol>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Core specifics\">\n<h2>ملاحظات حسب النواة البرمجية</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>النواة البرمجية</th><th>مسار العالم</th><th>ملاحظات</th></tr></thead>\n<tbody>\n<tr><td>PocketMine-MP ‏(PM5)</td><td><code>worlds/&lt;World&gt;/</code></td><td>يُحدّد العالم الافتراضي عبر <code>level-name</code> في <code>server.properties</code>؛ تمثل هذه القيمة اسم المجلد، بينما يمثل <code>LevelName</code> الاسم الداخلي للعالم.</td></tr>\n<tr><td>Nukkit / PowerNukkitX</td><td><code>worlds/&lt;World&gt;/</code></td><td>بنية Bedrock نفسها؛ يضيف PNX ملفات إعداداته الخاصة بجانبها.</td></tr>\n<tr><td>Bedrock Dedicated Server</td><td><code>worlds/&lt;World&gt;/</code></td><td>يختار <code>level-name</code> في <code>server.properties</code> المجلد، ويكون إصدار التخزين في الترويسة عادةً 10.</td></tr>\n<tr><td>Cloudburst / Dragonfly</td><td><code>worlds/&lt;World&gt;/</code></td><td>يقرآن <code>level.dat</code> نفسه؛ وقد يحتفظ Dragonfly بحالة إضافية في قاعدة بياناته الخاصة.</td></tr>\n<tr><td>WaterdogPE، Geyser</td><td>—</td><td>خوادم وكيلة لا تملك عوالم؛ تمر بيانات NBT عبرها على الشبكة بصيغة NBT الشبكية فقط.</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Server workflow\">\n<h2>تنفيذ التعديل دون تعطيل بيئة الإنتاج</h2>\n<div class=\"card\">\n<ul>\n<li><strong>أنشئ نسخة احتياطية من مجلد العالم كاملًا،</strong> لا من <code>level.dat</code> وحده. يستغرق ذلك ثواني، وهو الوسيلة الوحيدة للتراجع عن تعديل خاطئ.</li>\n<li><strong>لا تعدّل ملفًا قيد الاستخدام مباشرة عبر SFTP.</strong> نزّل الملف وعدّله ثم ارفعه بينما الخادم متوقف. يؤدي التعديل في مكانه مع إبقاء الخادم للعالم مفتوحًا إلى ملف مبتور.</li>\n<li><strong>هل تنسخ عالمًا لنمط جديد؟</strong> غيّر <code>LevelName</code> فور النسخ وقبل أن يراه الخادم، حتى لا يخزّن أي مكوّن الاسم الخطأ مؤقتًا.</li>\n<li><strong>افحص شريط الملف بعد التحميل.</strong> يعرض الشريط التنسيق المكتشف وإصدار التخزين؛ إذا ظهر ملف Bedrock بأي صيغة غير <em>level.dat في Bedrock</em>فقد اخترت الملف الخطأ أو أن الملف تالف.</li>\n</ul>\n</div>\n</section>\n",
+    "chips": [
+      "PocketMine-MP",
+      "Nukkit",
+      "PowerNukkitX",
+      "Cloudburst",
+      "Bedrock Dedicated Server",
+      "Dragonfly",
+      "Endstone",
+      "WaterdogPE"
+    ],
+    "faq": [
+      [
+        "هل يستخدم PocketMine-MP ملف level.dat نفسه في Bedrock؟",
+        "<p>نعم. يطبّق PocketMine-MP تنسيق عالم Bedrock، لذا يكون <code>level.dat</code> لديه NBT صغير النهاية مع ترويسة 8 بايت، وبالبنية نفسها بايتًا ببايت التي يكتبها خادم Bedrock الرسمي.</p>"
+      ],
+      [
+        "لماذا يظهر عالمان بالاسم نفسه في وحدة التحكم؟",
+        "<p>لأنهما نُسخا من مجلد واحد ويشتركان في <code>LevelName</code>. اسم المجلد والوسم مستقلان؛ غيّر الوسم.</p>"
+      ],
+      [
+        "هل يمكنني إعادة تسمية عالم دون إعادة تشغيل الخادم؟",
+        "<p>لا. يكون العالم محمّلًا في الذاكرة ويُعاد كتابته عند الحفظ، لذلك يُهمل أي تعديل أثناء تشغيله. أوقف الخادم ثم عدّل الملف وشغّله.</p>"
+      ],
+      [
+        "هل يعمل مع Nukkit وPowerNukkitX؟",
+        "<p>نعم؛ التنسيق ومسار الملف والخطوات نفسها.</p>"
+      ],
+      [
+        "كيف أحوّل عالم Bedrock إلى Java؟",
+        "<p>لا يتم ذلك بمحرر NBT. ترتيب البايتات هو الجزء السهل؛ تختلف بنية الوسوم ولوحات الكتل وتخزين القطع بالكامل. استخدم محولًا مخصصًا، ثم استخدم هذا المحرر للبيانات الوصفية المتبقية.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "تم التحميل بصيغة {0}",
+      "trailing": "تم تجاهل {0} بايت لاحق بعد وسم الجذر",
+      "error": "خطأ: {0}",
+      "readfail": "تعذرت قراءة الملف",
+      "nofile": "لم يتم تحميل ملف",
+      "saved": "تم حفظ {0} ({1}, {2})",
+      "savefail": "خطأ في الحفظ: {0}",
+      "exported": "تم تصدير {0}",
+      "snbtfail": "خطأ SNBT: {0}",
+      "tagadded": "تمت إضافة الوسم",
+      "tagremoved": "تمت إزالة الوسم",
+      "arrayupdated": "تم تحديث المصفوفة",
+      "badvalue": "قيمة غير صالحة: {0}",
+      "badarray": "مصفوفة غير صالحة: {0}",
+      "nameneeded": "اسم الوسم مطلوب",
+      "nametaken": "يوجد هنا وسم باسم {0} بالفعل",
+      "listtype": "تحتوي القائمة بالفعل على عناصر من النوع {0}",
+      "editlevelname": "✎ تعديل LevelName",
+      "showmore": "إظهار {0} أخرى من {1} …",
+      "matches": "{0} نتيجة مطابقة",
+      "nomatch": "لا يوجد وسم يطابق \"{0}\"",
+      "arraytoobig": "تحتوي المصفوفة على {0} عنصرًا — وسّعها وعدّل العناصر منفردة",
+      "uncompressed": "غير مضغوط",
+      "storage": "إصدار التخزين v{0}",
+      "entries": "{0} عنصرًا",
+      "langprompt": "هل تريد فتح هذه الصفحة باللغة {0}؟",
+      "langyes": "تبديل",
+      "langno": "البقاء"
+    },
+    "support": "<strong>يدعم Minecraft Bedrock Edition وJava Edition</strong> — وجميع برمجيات الخوادم لكليهما، الشائعة والنادرة: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina وغيرها. <a href=\"__HOME__#server-software\">القائمة الكاملة</a>.",
+    "footernote": "مجاني ومفتوح المصدر (MIT)، ويعمل بالكامل داخل المتصفح. لا يتبع Mojang Studios أو Microsoft. Minecraft علامة تجارية لـ Mojang Studios.",
+    "faqtitle": "الأسئلة الشائعة",
+    "toctitle": "في هذه الصفحة",
+    "relatedtitle": "أدوات مرتبطة",
+    "homecrumb": "محرر NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "المحررات",
+      "أنواع الملفات",
+      "المرجع"
+    ],
+    "sourcehead": "المصدر",
+    "sourcelink": "الكود على GitHub"
+  },
+  "mcstructure-editor": {
+    "title": "محرر .mcstructure عبر الإنترنت لبُنى Bedrock",
+    "ogtitle": "محرر .mcstructure — فتح بُنى Bedrock وتعديلها",
+    "desc": "افتح ملفات .mcstructure الخاصة بـ Bedrock عبر الإنترنت، وعدّل لوحة الكتل والأبعاد وفهارس الكتل وبيانات كيانات الكتل، ثم احفظها بالترميز نفسه.",
+    "keywords": "محرر mcstructure اون لاين, فتح ملف mcstructure, تعديل mcstructure, ملفات بناء ماين كرافت بيدروك, محرر بنية Bedrock",
+    "h1": "محرر .mcstructure — ملفات بنية Bedrock",
+    "crumb": ".mcstructure",
+    "reltitle": "محرر .mcstructure",
+    "reldesc": "كتل البنية في Bedrock: اللوحة والأبعاد وكيانات الكتل.",
+    "answer": "ملف <code>.mcstructure</code> هو NBT غير مضغوط بترتيب بايتات little-endian تكتبه كتلة بنية في Bedrock. أفلت ملفًا أدناه لقراءة أبعاده ولوحة الكتل وفهارس الكتل وبيانات كيانات الكتل، وتعديل أي منها، ثم تنزيل الملف مجددًا بالترميز نفسه — وهذا ما يحتاجه صانعو الإضافات والخرائط لتصحيح بنية من دون إعادة فتح العالم.",
+    "droplabel": "ملف .mcstructure",
+    "body": "\n<section class=\"content\" aria-label=\"Inside a mcstructure file\">\n<h2>ما الذي يوجد داخل <code>.mcstructure</code></h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>الوسم</th><th>النوع</th><th>ما الذي يحتويه</th></tr></thead>\n<tbody>\n<tr><td><code>format_version</code></td><td>Int</td><td>مراجعة تنسيق البنية، وقيمتها 1 في الملفات الحالية</td></tr>\n<tr><td><code>size</code></td><td>قائمة من Int</td><td>أبعاد الحجم الملتقط على المحاور X وY وZ</td></tr>\n<tr><td><code>structure_world_origin</code></td><td>قائمة من Int</td><td>الموضع الذي التُقطت منه البنية في العالم</td></tr>\n<tr><td><code>structure</code></td><td>Compound</td><td>توجد هنا جميع البيانات التالية</td></tr>\n<tr><td><code>structure.block_indices</code></td><td>قائمة من Int[]</td><td>طبقتان من فهارس اللوحة — للكتل والتشبع بالماء عادةً؛ وتعني <code>-1</code> «اترك الموجود في الموضع كما هو»</td></tr>\n<tr><td><code>structure.entities</code></td><td>قائمة من Compound</td><td>الكيانات التي التُقطت مع البنية</td></tr>\n<tr><td><code>structure.palette.default.block_palette</code></td><td>قائمة من Compound</td><td>كل حالة كتلة مميزة: <code>name</code> و<code>states</code> و<code>version</code></td></tr>\n<tr><td><code>structure.palette.default.block_position_data</code></td><td>Compound</td><td>بيانات NBT لكيان الكتلة، ومفتاحها الفهرس المسطح للموضع</td></tr>\n</tbody>\n</table>\n</div>\n<p>تسير الفهارس في <code>block_indices</code> وفق X ثم Z ثم Y، ويكون الفهرس المسطح <code>(x * sizeZ + z) * sizeY + y</code> داخل قائمة اللوحة. يتيح لك هذا الربط إصلاح كتلة واحدة مضبوطة خطأ من دون إعادة إنشاء البنية.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Typical edits\">\n<h2>التعديلات الشائعة هنا</h2>\n<ul>\n<li><strong>استبدال نوع كتلة في جميع المواضع</strong> بتعديل إدخال واحد في <code>block_palette</code>؛ فتتغير معه كل المواضع التي تشير إلى ذلك الفهرس.</li>\n<li><strong>تصحيح حالة كتلة</strong> مثل قيمة <code>facing</code> خاطئة أو قيمة <code>waterlogged</code> غير مقصودة داخل مركب <code>states</code>.</li>\n<li><strong>إزالة الكيانات</strong> التي التُقطت بالخطأ، وذلك بحذف إدخالاتها من قائمة <code>entities</code>.</li>\n<li><strong>إصلاح بيانات كيان كتلة</strong> — مثل محتويات الصندوق ونص اللافتة وإعدادات المولّد — داخل <code>block_position_data</code>.</li>\n<li><strong>التحقق من ختم الإصدار</strong> في إدخالات اللوحة عندما يؤدي تحديث اللعبة إلى استيراد البنية بكتل خاطئة.</li>\n</ul>\n</section>\n\n<section class=\"content\" aria-label=\"Where mcstructure files live\">\n<h2>أماكن وجود الملفات</h2>\n<p>تحفظ كتل البنية الملفات في مجلد <code>structures/</code> داخل مجلد العالم، بأسماء من النمط <code>&lt;namespace&gt;_&lt;name&gt;.mcstructure</code>. وتضعها حزم السلوك في مجلد <code>structures/</code> داخل الحزمة، حيث تحمّلها اللعبة بحسب مساحة الاسم. يستخدم الموضعان التنسيق نفسه، ويمكن فتح ملفاتهما هنا.</p>\n<p>المكافئ في Java Edition هو ملف البنية <code>.nbt</code> المضغوط بـ gzip والمرمّز بترتيب big-endian؛ وهو ترميز مختلف بتخطيط وسوم مختلف. تشرح <a href=\"../java-nbt-editor/\">صفحة محرر Java</a> هذه الملفات، ويمكن لهذا المحرر فتحها أيضًا.</p>\n</section>\n",
+    "chips": [
+      "كتل البنية",
+      "إضافات Bedrock",
+      "حزم السلوك",
+      "NBT بترتيب little-endian"
+    ],
+    "faq": [
+      [
+        "هل يمكنني تحويل .mcstructure إلى بنية Java بصيغة .nbt؟",
+        "<p>يمكن للمحرر إعادة ترميز البايتات إلى big-endian مضغوط بـ gzip، لكن تخطيط الوسوم مختلف؛ إذ تستخدم بُنى Java الوسمين <code>palette</code>/<code>blocks</code> بمفاتيح وأسماء كتل مختلفة. يمكن قراءة الملف المعاد ترميزه، لكنه ليس بنية Java صالحة.</p>"
+      ],
+      [
+        "لماذا لا يكون ملف .mcstructure مضغوطًا؟",
+        "<p>يكتب Bedrock ملفات البنية بصيغة NBT خام بترتيب little-endian ومن دون غلاف gzip. هذا طبيعي؛ ويكتشفه المحرر على أنه <em>Bedrock الخام</em>.</p>"
+      ],
+      [
+        "ماذا يعني الفهرس -1 في block_indices؟",
+        "<p>يشير إلى موضع لا تعدّله البنية، ولذلك تبقى الكتلة الموجودة في العالم عند وضع البنية.</p>"
+      ],
+      [
+        "هل يمكن تغيير حجم البنية بتعديل size؟",
+        "<p>ليس وحده؛ يحتوي <code>block_indices</code> إدخالًا لكل موضع، ولذلك يجب أن يطابق طول المصفوفة الحجم الجديد تمامًا. يؤدي تغيير <code>size</code> وحده إلى ملف ترفضه اللعبة.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "تم التحميل بصيغة {0}",
+      "trailing": "تم تجاهل {0} بايت لاحق بعد وسم الجذر",
+      "error": "خطأ: {0}",
+      "readfail": "تعذرت قراءة الملف",
+      "nofile": "لم يتم تحميل ملف",
+      "saved": "تم حفظ {0} ({1}, {2})",
+      "savefail": "خطأ في الحفظ: {0}",
+      "exported": "تم تصدير {0}",
+      "snbtfail": "خطأ SNBT: {0}",
+      "tagadded": "تمت إضافة الوسم",
+      "tagremoved": "تمت إزالة الوسم",
+      "arrayupdated": "تم تحديث المصفوفة",
+      "badvalue": "قيمة غير صالحة: {0}",
+      "badarray": "مصفوفة غير صالحة: {0}",
+      "nameneeded": "اسم الوسم مطلوب",
+      "nametaken": "يوجد هنا وسم باسم {0} بالفعل",
+      "listtype": "تحتوي القائمة بالفعل على عناصر من النوع {0}",
+      "editlevelname": "✎ تعديل LevelName",
+      "showmore": "إظهار {0} أخرى من {1} …",
+      "matches": "{0} نتيجة مطابقة",
+      "nomatch": "لا يوجد وسم يطابق \"{0}\"",
+      "arraytoobig": "تحتوي المصفوفة على {0} عنصرًا — وسّعها وعدّل العناصر منفردة",
+      "uncompressed": "غير مضغوط",
+      "storage": "إصدار التخزين v{0}",
+      "entries": "{0} عنصرًا",
+      "langprompt": "هل تريد فتح هذه الصفحة باللغة {0}؟",
+      "langyes": "تبديل",
+      "langno": "البقاء"
+    },
+    "support": "<strong>يدعم Minecraft Bedrock Edition وJava Edition</strong> — وجميع برمجيات الخوادم لكليهما، الشائعة والنادرة: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina وغيرها. <a href=\"__HOME__#server-software\">القائمة الكاملة</a>.",
+    "footernote": "مجاني ومفتوح المصدر (MIT)، ويعمل بالكامل داخل المتصفح. لا يتبع Mojang Studios أو Microsoft. Minecraft علامة تجارية لـ Mojang Studios.",
+    "faqtitle": "الأسئلة الشائعة",
+    "toctitle": "في هذه الصفحة",
+    "relatedtitle": "أدوات مرتبطة",
+    "homecrumb": "محرر NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "المحررات",
+      "أنواع الملفات",
+      "المرجع"
+    ],
+    "sourcehead": "المصدر",
+    "sourcelink": "الكود على GitHub"
+  },
+  "schematic-editor": {
+    "title": "محرر .schem و.schematic عبر الإنترنت — WorldEdit وMCEdit",
+    "ogtitle": "محرر .schem و.schematic — ملفات WorldEdit وMCEdit",
+    "desc": "افتح ملفات WorldEdit بصيغة .schem وملفات MCEdit بصيغة .schematic عبر الإنترنت، واقرأ اللوحة والأبعاد والإزاحات وكيانات الكتل وعدّل الوسوم ثم نزّل المخطط.",
+    "keywords": "محرر schem اون لاين, فتح ملف schematic, تعديل ملف schem, محرر WorldEdit schematic, عارض مخططات ماين كرافت, ملف MCEdit",
+    "h1": "محرر Schematic — ملفات .schem و.schematic عبر الإنترنت",
+    "crumb": ".schem",
+    "reltitle": "محرر Schematic",
+    "reldesc": "ملفات WorldEdit بصيغة .schem وملفات MCEdit القديمة بصيغة .schematic.",
+    "answer": "المخططات هي ملفات NBT بترتيب big-endian ومضغوطة بـ gzip. أفلت أدناه ملف WorldEdit حديثًا بصيغة <code>.schem</code> (تنسيق Sponge Schematic) أو ملف MCEdit قديمًا بصيغة <code>.schematic</code> لفحص اللوحة والأبعاد والإزاحات وقائمة كيانات الكتل والبيانات الوصفية، وتعديل أي وسم، ثم تنزيل الملف جاهزًا للأمر <code>//paste</code>.",
+    "droplabel": "ملف .schem أو .schematic",
+    "body": "\n<section class=\"content\" aria-label=\"Schematic formats\">\n<h2>تنسيقان ضمن عائلة امتدادات واحدة</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>التنسيق</th><th>الامتداد</th><th>الوسوم الأساسية</th></tr></thead>\n<tbody>\n<tr><td>Sponge Schematic v2 (WorldEdit 7)</td><td><code>.schem</code></td><td><code>Version</code> و<code>DataVersion</code> و<code>Width</code> و<code>Height</code> و<code>Length</code> و<code>Palette</code> و<code>BlockData</code> و<code>BlockEntities</code> و<code>Offset</code> و<code>Metadata</code></td></tr>\n<tr><td>Sponge Schematic v3</td><td><code>.schem</code></td><td>البيانات نفسها متداخلة داخل مركب <code>Schematic</code>، بينما يحتوي <code>Blocks</code> على <code>Palette</code> و<code>Data</code></td></tr>\n<tr><td>MCEdit القديم</td><td><code>.schematic</code></td><td><code>Width</code> و<code>Height</code> و<code>Length</code> و<code>Blocks</code> و<code>Data</code> و<code>Entities</code> و<code>TileEntities</code> و<code>Materials</code></td></tr>\n</tbody>\n</table>\n</div>\n<p>يمثل <code>BlockData</code> في تنسيقات Sponge مصفوفة بايتات من فهارس اللوحة بترميز varint، وليس بايتًا واحدًا لكل كتلة؛ إذ تمتد المعرّفات الطويلة عبر عدة بايتات. أما التنسيق القديم فيخزن معرّفات الكتل الرقمية الخام في <code>Blocks</code> مع مصفوفة <code>Data</code> موازية لأنصاف بايتات البيانات الوصفية، ولذلك تفقد المخططات القديمة بعض الدقة في الإصدارات الحديثة.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Editing schematics\">\n<h2>ما يستحق التعديل يدويًا</h2>\n<ul>\n<li><strong>إدخالات اللوحة.</strong> يؤدي استبدال <code>minecraft:oak_planks</code> بـ <code>minecraft:spruce_planks</code> داخل <code>Palette</code> إلى تغيير مظهر كل كتلة مطابقة في المخطط دفعة واحدة.</li>\n<li><strong>الإزاحة ونقطة الأصل.</strong> يحدد <code>Offset</code> موضع اللصق نسبةً إلى موضعك؛ وهذا أسرع إصلاح لبناء يظهر دائمًا على بُعد ثلاث كتل من مكانه الصحيح.</li>\n<li><strong>كيانات الكتل.</strong> توجد محتويات الصناديق وأسطر اللافتات وبيانات المولّدات في <code>BlockEntities</code>، ويمكن تنظيفها قبل مشاركة البناء.</li>\n<li><strong>البيانات الوصفية.</strong> يحمل <code>Metadata</code> اسم المؤلف ونقطة أصل WorldEdit؛ ويمكن تعديله بأمان، وغالبًا يستحسن مسحه قبل النشر.</li>\n<li><strong>DataVersion.</strong> يبيّن إصدار Minecraft الذي أنشأ المخطط، وهذا يفسر معظم أخطاء «كتلة غير معروفة» عند اللصق.</li>\n</ul>\n</section>\n\n<section class=\"content\" aria-label=\"Compatibility\">\n<h2>التوافق مع أدوات التحميل</h2>\n<p>يقرأ WorldEdit وFastAsyncWorldEdit ملفات <code>.schem</code> من <code>plugins/WorldEdit/schematics/</code>؛ وما زال بالإمكان تحميل ملفات <code>.schematic</code> القديمة، لكنها تُحوّل أثناء الاستيراد. يستخدم Litematica حاوية <code>.litematic</code> خاصة به؛ وهي أيضًا NBT ويمكن فتحها في هذا المحرر، إلا أن تخطيطها يختلف عن تخطيط Sponge. أيا كان التنسيق، يقرأه المحرر بوصفه NBT ويكتبه مجددًا مضغوطًا بـ gzip، وبذلك تحصل أداة التحميل على الملف المتوقع.</p>\n</section>\n",
+    "chips": [
+      "WorldEdit",
+      "FastAsyncWorldEdit",
+      "Sponge Schematic v2/v3",
+      "MCEdit القديم",
+      "ملفات Litematica ذات الصلة"
+    ],
+    "faq": [
+      [
+        "هل يمكن فتح .schem من دون خادم أو WorldEdit؟",
+        "<p>نعم. ملف <code>.schem</code> ليس إلا NBT بترتيب big-endian ومضغوطًا بـ gzip؛ ويفتحه المحرر في المتصفح من دون تثبيت أي شيء آخر.</p>"
+      ],
+      [
+        "لماذا يُلصق المخطط بكتل خاطئة؟",
+        "<p>يكون السبب عادةً عدم توافق الإصدار؛ افحص <code>DataVersion</code> واللوحة. قد يشير مخطط صُدّر من إصدار أحدث إلى حالات كتل لا يعرفها خادم أقدم.</p>"
+      ],
+      [
+        "هل يمكن تغيير حجم المخطط هنا؟",
+        "<p>ليس بتعديل <code>Width</code>/<code>Height</code>/<code>Length</code> وحدها. يتحدد حجم <code>BlockData</code> بحسب حجم البنية، ولذلك يجب تغيير الأبعاد والبيانات معًا؛ وهذه مهمة WorldEdit وليست مهمة محرر وسوم.</p>"
+      ],
+      [
+        "هل يفتح ملفات .litematic؟",
+        "<p>نعم، بوصفها NBT. يختلف تخطيط وسوم Litematica عن تخطيط Sponge، ولذلك سترى بنيته الأصلية لا لوحة مخطط من نوع Sponge.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "تم التحميل بصيغة {0}",
+      "trailing": "تم تجاهل {0} بايت لاحق بعد وسم الجذر",
+      "error": "خطأ: {0}",
+      "readfail": "تعذرت قراءة الملف",
+      "nofile": "لم يتم تحميل ملف",
+      "saved": "تم حفظ {0} ({1}, {2})",
+      "savefail": "خطأ في الحفظ: {0}",
+      "exported": "تم تصدير {0}",
+      "snbtfail": "خطأ SNBT: {0}",
+      "tagadded": "تمت إضافة الوسم",
+      "tagremoved": "تمت إزالة الوسم",
+      "arrayupdated": "تم تحديث المصفوفة",
+      "badvalue": "قيمة غير صالحة: {0}",
+      "badarray": "مصفوفة غير صالحة: {0}",
+      "nameneeded": "اسم الوسم مطلوب",
+      "nametaken": "يوجد هنا وسم باسم {0} بالفعل",
+      "listtype": "تحتوي القائمة بالفعل على عناصر من النوع {0}",
+      "editlevelname": "✎ تعديل LevelName",
+      "showmore": "إظهار {0} أخرى من {1} …",
+      "matches": "{0} نتيجة مطابقة",
+      "nomatch": "لا يوجد وسم يطابق \"{0}\"",
+      "arraytoobig": "تحتوي المصفوفة على {0} عنصرًا — وسّعها وعدّل العناصر منفردة",
+      "uncompressed": "غير مضغوط",
+      "storage": "إصدار التخزين v{0}",
+      "entries": "{0} عنصرًا",
+      "langprompt": "هل تريد فتح هذه الصفحة باللغة {0}؟",
+      "langyes": "تبديل",
+      "langno": "البقاء"
+    },
+    "support": "<strong>يدعم Minecraft Bedrock Edition وJava Edition</strong> — وجميع برمجيات الخوادم لكليهما، الشائعة والنادرة: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina وغيرها. <a href=\"__HOME__#server-software\">القائمة الكاملة</a>.",
+    "footernote": "مجاني ومفتوح المصدر (MIT)، ويعمل بالكامل داخل المتصفح. لا يتبع Mojang Studios أو Microsoft. Minecraft علامة تجارية لـ Mojang Studios.",
+    "faqtitle": "الأسئلة الشائعة",
+    "toctitle": "في هذه الصفحة",
+    "relatedtitle": "أدوات مرتبطة",
+    "homecrumb": "محرر NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "المحررات",
+      "أنواع الملفات",
+      "المرجع"
+    ],
+    "sourcehead": "المصدر",
+    "sourcelink": "الكود على GitHub"
+  },
+  "playerdata-editor": {
+    "title": "محرر playerdata .dat في Minecraft عبر الإنترنت",
+    "ogtitle": "محرر playerdata — المخزون والموضع والإحصاءات",
+    "desc": "عدّل ملفات playerdata بصيغة .dat في Minecraft عبر الإنترنت: أصلح موضع لاعب عالق، أو احذف عنصرًا تالفًا، أو غيّر الصحة والخبرة ونمط اللعب.",
+    "keywords": "محرر playerdata, تعديل ملف اللاعب ماين كرافت, تعديل مخزون اللاعب NBT, ملف uuid dat, اصلاح لاعب عالق ماين كرافت, محرر inventory",
+    "h1": "محرر playerdata — ملفات اللاعب .dat في Minecraft",
+    "crumb": "playerdata",
+    "reltitle": "محرر playerdata",
+    "reldesc": "المخزون والموضع والصحة والإحصاءات لكل لاعب.",
+    "answer": "يكتب Java Edition ملف NBT واحدًا لكل لاعب بترتيب big-endian ومضغوطًا بـ gzip في <code>world/playerdata/&lt;uuid&gt;.dat</code>. ويحتوي الملف على المخزون وصندوق Ender والموضع والبُعد والصحة والجوع والخبرة والسمات. أفلت ملفًا أدناه لإخراج لاعب عالق داخل التضاريس أو حذف عنصر يسبب التعطل أو إعادة ضبط الإحصاءات؛ على أن يكون الخادم متوقفًا، أو أن يكون ذلك اللاعب غير متصل على الأقل.",
+    "droplabel": "ملف playerdata بصيغة .dat",
+    "body": "\n<section class=\"content\" aria-label=\"playerdata tags\">\n<h2>الوسوم داخل ملف اللاعب</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>الوسم</th><th>النوع</th><th>ما الذي يمثله</th></tr></thead>\n<tbody>\n<tr><td><code>Pos</code></td><td>قائمة من Double</td><td>الإحداثيات X وY وZ. تستخدم لإصلاح لاعب عالق داخل جدار أو أسفل طبقة bedrock.</td></tr>\n<tr><td><code>Rotation</code></td><td>قائمة من Float</td><td>زاويتا yaw وpitch.</td></tr>\n<tr><td><code>Dimension</code></td><td>String / Int</td><td>البُعد الذي يدخل إليه اللاعب عند الاتصال.</td></tr>\n<tr><td><code>Inventory</code></td><td>قائمة من Compound</td><td>إدخال لكل رزمة: <code>id</code> و<code>Count</code> و<code>Slot</code> و<code>components</code> أو <code>tag</code>.</td></tr>\n<tr><td><code>EnderItems</code></td><td>قائمة من Compound</td><td>محتويات صندوق Ender بالبنية نفسها.</td></tr>\n<tr><td><code>Health</code>, <code>foodLevel</code>, <code>XpLevel</code>, <code>XpTotal</code></td><td>Float / Int</td><td>المؤشرات الحيوية والخبرة.</td></tr>\n<tr><td><code>playerGameType</code></td><td>Int</td><td>نمط اللعب الخاص باللاعب.</td></tr>\n<tr><td><code>abilities</code></td><td>Compound</td><td>الطيران والحصانة وسرعتا المشي والطيران.</td></tr>\n<tr><td><code>Attributes</code></td><td>قائمة من Compound</td><td>الصحة القصوى وسرعة الحركة والمعدّلات الأخرى.</td></tr>\n<tr><td><code>SpawnX</code>/<code>SpawnY</code>/<code>SpawnZ</code> أو <code>respawn</code></td><td>Int / Compound</td><td>نقطة إعادة الظهور الشخصية، بحسب الإصدار.</td></tr>\n<tr><td><code>UUID</code></td><td>Int[4]</td><td>قيمة UUID للاعب ممثلة بأربعة أعداد صحيحة في الإصدارات الحديثة.</td></tr>\n</tbody>\n</table>\n</div>\n<p>تغيرت بنية رزم العناصر في 1.20.5؛ إذ انتقلت البيانات المخصصة من مركب <code>tag</code> واحد إلى عناصر <code>components</code> منفردة. يمكن فتح البنيتين هنا؛ عدّل البنية التي يكتبها إصدارك.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Common repairs\">\n<h2>الإصلاحات الشائعة</h2>\n<div class=\"card\">\n<ul>\n<li><strong>لاعب عالق داخل التضاريس أو يسقط بلا نهاية.</strong> اضبط <code>Pos</code> على إحداثيات آمنة — ثلاث قيم Double بالترتيب X ثم Y ثم Z — وامسح <code>Motion</code> إذا كان يحتوي على قيمة ضخمة.</li>\n<li><strong>يتعطل العميل عند تسجيل الدخول.</strong> يكون السبب غالبًا عنصرًا غير صالح البنية. احذف الإدخال المسبب للمشكلة من <code>Inventory</code> بدلًا من مسح القائمة كاملة.</li>\n<li><strong>بُعد خاطئ بعد خلل في بوابة.</strong> أعد <code>Dimension</code> إلى <code>minecraft:overworld</code> واضبط <code>Pos</code> على إحداثيات مناسبة.</li>\n<li><strong>اللاعب عالق في نمط spectator.</strong> اضبط <code>playerGameType</code> على 0 لنمط survival أو 1 لنمط creative.</li>\n<li><strong>معدّلات سمات تركتها إضافة محذوفة.</strong> احذف الإدخالات القديمة من <code>Attributes</code>.</li>\n</ul>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Server safety\">\n<h2>نفّذ التعديل واللاعب غير متصل</h2>\n<p>يحتفظ الخادم بحالة اللاعب في الذاكرة ويكتبها إلى الملف عند تسجيل الخروج والحفظ التلقائي. يضمن تعديل الملف أثناء اتصال اللاعب أن تُستبدل تغييراتك، وقد يؤدي التعديل أثناء الحفظ إلى اقتطاع الملف. افصل اللاعب — أو أوقف الخادم — ثم انسخ الملف وعدّله وأعده قبل اتصاله مجددًا. احتفظ بالنسخة الأصلية حتى ينجح تسجيل الدخول.</p>\n<p>لا تستخدم خوادم Bedrock هذا التخطيط؛ إذ توجد بيانات اللاعب داخل LevelDB للعالم تحت مفاتيح مثل <code>player_&lt;uuid&gt;</code>، وتكون قيمها NBT بترتيب little-endian. استخرج إحدى القيم وستُفتح هنا بصيغة <em>Bedrock الخام</em>.</p>\n</section>\n",
+    "chips": [
+      "playerdata في Java",
+      "صندوق Ender",
+      "المخزون",
+      "الموضع",
+      "السمات",
+      "مرتبط بالتقدمات"
+    ],
+    "faq": [
+      [
+        "أي ملف يخص لاعبي؟",
+        "<p>تُسمى الملفات وفق UUID. ابحث عن UUID الخاص باللاعب باستخدام عارض Mojang API، أو رتّب مجلد <code>playerdata/</code> حسب وقت التعديل وطابقه مع آخر تسجيل دخول.</p>"
+      ],
+      [
+        "هل يمكنني منح نفسي عناصر بتعديل playerdata؟",
+        "<p>نعم، على خادمك؛ أضف إدخالًا إلى قائمة <code>Inventory</code> يتضمن <code>id</code> و<code>Count</code> و<code>Slot</code>. أما على خادم شخص آخر فهذا اختراق، ولن ينجح أصلًا لأن الخادم النشط يعيد كتابة الملف.</p>"
+      ],
+      [
+        "لماذا اختفى تعديلي؟",
+        "<p>كان الخادم أو اللاعب متصلًا عند إجراء التعديل. تتغلب حالة اللاعب الموجودة في الذاكرة عند عملية الحفظ التالية.</p>"
+      ],
+      [
+        "هل تكون playerdata بالشكل نفسه في Bedrock؟",
+        "<p>لا. يحتفظ Bedrock باللاعبين داخل LevelDB للعالم بدلًا من ملفات منفصلة لكل UUID. تكون بيانات NBT داخل تلك القيم بترتيب little-endian، ويمكن فتحها هنا بعد استخراجها.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "تم التحميل بصيغة {0}",
+      "trailing": "تم تجاهل {0} بايت لاحق بعد وسم الجذر",
+      "error": "خطأ: {0}",
+      "readfail": "تعذرت قراءة الملف",
+      "nofile": "لم يتم تحميل ملف",
+      "saved": "تم حفظ {0} ({1}, {2})",
+      "savefail": "خطأ في الحفظ: {0}",
+      "exported": "تم تصدير {0}",
+      "snbtfail": "خطأ SNBT: {0}",
+      "tagadded": "تمت إضافة الوسم",
+      "tagremoved": "تمت إزالة الوسم",
+      "arrayupdated": "تم تحديث المصفوفة",
+      "badvalue": "قيمة غير صالحة: {0}",
+      "badarray": "مصفوفة غير صالحة: {0}",
+      "nameneeded": "اسم الوسم مطلوب",
+      "nametaken": "يوجد هنا وسم باسم {0} بالفعل",
+      "listtype": "تحتوي القائمة بالفعل على عناصر من النوع {0}",
+      "editlevelname": "✎ تعديل LevelName",
+      "showmore": "إظهار {0} أخرى من {1} …",
+      "matches": "{0} نتيجة مطابقة",
+      "nomatch": "لا يوجد وسم يطابق \"{0}\"",
+      "arraytoobig": "تحتوي المصفوفة على {0} عنصرًا — وسّعها وعدّل العناصر منفردة",
+      "uncompressed": "غير مضغوط",
+      "storage": "إصدار التخزين v{0}",
+      "entries": "{0} عنصرًا",
+      "langprompt": "هل تريد فتح هذه الصفحة باللغة {0}؟",
+      "langyes": "تبديل",
+      "langno": "البقاء"
+    },
+    "support": "<strong>يدعم Minecraft Bedrock Edition وJava Edition</strong> — وجميع برمجيات الخوادم لكليهما، الشائعة والنادرة: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina وغيرها. <a href=\"__HOME__#server-software\">القائمة الكاملة</a>.",
+    "footernote": "مجاني ومفتوح المصدر (MIT)، ويعمل بالكامل داخل المتصفح. لا يتبع Mojang Studios أو Microsoft. Minecraft علامة تجارية لـ Mojang Studios.",
+    "faqtitle": "الأسئلة الشائعة",
+    "toctitle": "في هذه الصفحة",
+    "relatedtitle": "أدوات مرتبطة",
+    "homecrumb": "محرر NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "المحررات",
+      "أنواع الملفات",
+      "المرجع"
+    ],
+    "sourcehead": "المصدر",
+    "sourcelink": "الكود على GitHub"
+  },
+  "nbt-viewer": {
+    "title": "عارض NBT عبر الإنترنت — فتح ملفات .nbt و.dat وقراءتها",
+    "ogtitle": "عارض NBT — فتح أي ملف .nbt أو .dat في المتصفح",
+    "desc": "افتح أي ملف NBT في Minecraft واقرأه عبر الإنترنت. اعرض شجرة الوسوم الكاملة لملفات .nbt و.dat و.mcstructure و.schem، وابحث فيها وصدّرها كنص SNBT.",
+    "keywords": "عارض NBT اون لاين, فتح ملف nbt, قراءة ملف dat ماين كرافت, برنامج فتح ملفات NBT, عرض nbt, تحويل nbt الى snbt, محرر dat",
+    "h1": "عارض NBT — فتح أي ملف NBT في Minecraft",
+    "crumb": "عارض NBT",
+    "reltitle": "عارض NBT",
+    "reldesc": "فحص للقراءة فقط، وبحث، وتصدير SNBT.",
+    "answer": "هل تريد الاطلاع على محتويات ملف Minecraft بدلًا من تغييره؟ أفلت أدناه أي ملف <code>.nbt</code> أو <code>.dat</code> أو <code>.mcstructure</code> أو <code>.schem</code> أو تفريغ NBT خام لعرض شجرة وسومه الكاملة مع الأنواع والقيم، والبحث فيه بالاسم أو القيمة، وتصديره كاملًا كنص SNBT. لا يُرفع شيء ولا يُكتب شيء ما لم تنقر على الحفظ.",
+    "droplabel": "أي ملف .nbt أو .dat",
+    "body": "\n<section class=\"content\" aria-label=\"What you can inspect\">\n<h2>قراءة ملف لم تنشئه بنفسك</h2>\n<p>التشخيص سبب أساسي لفتح ملف NBT: ما الإصدار الذي كتب هذا الملف، ولماذا يرفض هذا العالم التحميل، وما الموجود فعلًا داخل المخطط الذي أرسله شخص آخر. يعرض العارض كل وسم بنوعه الدقيق، ولذلك يمكنك تمييز <code>TAG_Byte</code> قيمته 1 من <code>TAG_Int</code> قيمته 1؛ وهو فرق مهم لـ Minecraft تفقده تفريغات النص عادةً.</p>\n<ul>\n<li><strong>شارة نوع في كل صف</strong> — Byte وShort وInt وLong وFloat وDouble وByte[] وString وList وCompound وInt[] وLong[].</li>\n<li><strong>قيم Long كاملة من 64 بت</strong> تُعرض بدقة، فتُقرأ البذور وأنصاف UUID بشكل صحيح بدلًا من تقريبها.</li>\n<li><strong>بحث</strong> في الشجرة كاملة باسم الوسم أو قيمته، مع الانتقال مباشرةً إلى النتيجة.</li>\n<li><strong>التنسيق المكتشف</strong> يظهر في شريط الملف: الإصدار وترتيب البايتات والضغط وإصدار تخزين Bedrock.</li>\n<li><strong>تصدير SNBT</strong> للحصول على المستند كاملًا كنص يمكنك مقارنته أو لصقه في أمر أو تمريره إلى أداة أخرى.</li>\n</ul>\n</section>\n\n<section class=\"content\" aria-label=\"SNBT\">\n<h2>الفرق بين NBT وSNBT</h2>\n<p>SNBT هو الشكل النصي لـ NBT؛ وهو ما يطبعه <code>/data get</code> وما تقبله الأوامر. يحتفظ بمعلومات النوع باستخدام لواحق: <code>3b</code> قيمة Byte، و<code>3s</code> قيمة Short، و<code>3L</code> قيمة Long، و<code>3.0f</code> قيمة Float، و<code>3.0d</code> قيمة Double، و<code>[I;1,2,3]</code> مصفوفة Int. ينتج زر التصدير هذا الشكل تمامًا، فيتحول الملف الثنائي إلى نص يمكن لصقه في command block أو إضافته إلى git ومقارنته سطرًا بسطر.</p>\n<p>ليس JSON بديلًا مناسبًا؛ فلديه نوع رقمي واحد ولا يدعم مصفوفات البايتات، ولذلك يؤدي تحويل NBT إلى JSON إلى فقد الفروق التي تهم Minecraft من دون تنبيه. لهذا تصدّر الأداة SNBT بدلًا من JSON.</p>\n</section>\n\n<section class=\"content\" aria-label=\"File types\">\n<h2>الملفات التي يمكن فتحها هنا</h2>\n<p>يمكن فتح أي ملف تكون حمولته مستند NBT واحدًا: <a href=\"../level-dat-editor/\">level.dat</a> في Java وBedrock، و<a href=\"../playerdata-editor/\">playerdata</a>، و<code>servers.dat</code>، و<code>hotbar.nbt</code>، و<code>idcounts.dat</code>، و<code>raids.dat</code>، و<code>scoreboard.dat</code>، وبيانات الخرائط، وملفات البنية <code>.nbt</code>، و<a href=\"../schematic-editor/\">.schem و.schematic</a>، و<a href=\"../mcstructure-editor/\">.mcstructure</a>، و<code>.litematic</code>، وحمولات القطع المستخرجة وتفريغات الحزم. أما الحاويات مثل مناطق <code>.mca</code> وأرشيفات <code>.mcworld</code> ومجلدات LevelDB، فيجب استخراج مستند واحد منها أولًا.</p>\n</section>\n",
+    "chips": [
+      ".nbt",
+      ".dat",
+      ".mcstructure",
+      ".schem",
+      ".schematic",
+      "تصدير SNBT",
+      "البحث"
+    ],
+    "faq": [
+      [
+        "هل يمكن عرض ملف NBT من دون تعديله؟",
+        "<p>نعم. لا يكتب المحرر ملفًا إلا عند النقر على الحفظ والتنزيل، ولا يغيّر الملف الذي أفلتّه مطلقًا.</p>"
+      ],
+      [
+        "هل يمكنه تحويل NBT إلى JSON؟",
+        "<p>يصدّر الأداة SNBT الذي يحافظ على أنواع الوسوم. سيحوّل JSON قيم Byte وShort وInt وLong وFloat إلى نوع رقمي واحد ويفقد مصفوفات البايتات، ولذلك لا يصلح لإعادة تحويل بيانات Minecraft إلى أصلها.</p>"
+      ],
+      [
+        "لماذا يظهر ملفي كإصدار مختلف عما توقعت؟",
+        "<p>يُكتشف التنسيق من البايتات لا من الامتداد. إذا ظهر الملف على أنه Java بينما توقعت Bedrock، فهو غالبًا ملف من الإصدار الآخر أو جزء صادف أن أمكن تحليله؛ افحص الإزاحات المبلغ عنها إذا ظهر تحذير بشأن بايتات زائدة.</p>"
+      ],
+      [
+        "ما أكبر حجم ملف يمكن فتحه؟",
+        "<p>يمكن التعامل مع مستندات بحجم عدة ميغابايت؛ إذ تُحفظ المصفوفات في مصفوفات ذات أنواع محددة، وتُعرض الشجرة عند الحاجة، فلا توجد في الصفحة إلا الصفوف التي توسعها.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "تم التحميل بصيغة {0}",
+      "trailing": "تم تجاهل {0} بايت لاحق بعد وسم الجذر",
+      "error": "خطأ: {0}",
+      "readfail": "تعذرت قراءة الملف",
+      "nofile": "لم يتم تحميل ملف",
+      "saved": "تم حفظ {0} ({1}, {2})",
+      "savefail": "خطأ في الحفظ: {0}",
+      "exported": "تم تصدير {0}",
+      "snbtfail": "خطأ SNBT: {0}",
+      "tagadded": "تمت إضافة الوسم",
+      "tagremoved": "تمت إزالة الوسم",
+      "arrayupdated": "تم تحديث المصفوفة",
+      "badvalue": "قيمة غير صالحة: {0}",
+      "badarray": "مصفوفة غير صالحة: {0}",
+      "nameneeded": "اسم الوسم مطلوب",
+      "nametaken": "يوجد هنا وسم باسم {0} بالفعل",
+      "listtype": "تحتوي القائمة بالفعل على عناصر من النوع {0}",
+      "editlevelname": "✎ تعديل LevelName",
+      "showmore": "إظهار {0} أخرى من {1} …",
+      "matches": "{0} نتيجة مطابقة",
+      "nomatch": "لا يوجد وسم يطابق \"{0}\"",
+      "arraytoobig": "تحتوي المصفوفة على {0} عنصرًا — وسّعها وعدّل العناصر منفردة",
+      "uncompressed": "غير مضغوط",
+      "storage": "إصدار التخزين v{0}",
+      "entries": "{0} عنصرًا",
+      "langprompt": "هل تريد فتح هذه الصفحة باللغة {0}؟",
+      "langyes": "تبديل",
+      "langno": "البقاء"
+    },
+    "support": "<strong>يدعم Minecraft Bedrock Edition وJava Edition</strong> — وجميع برمجيات الخوادم لكليهما، الشائعة والنادرة: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina وغيرها. <a href=\"__HOME__#server-software\">القائمة الكاملة</a>.",
+    "footernote": "مجاني ومفتوح المصدر (MIT)، ويعمل بالكامل داخل المتصفح. لا يتبع Mojang Studios أو Microsoft. Minecraft علامة تجارية لـ Mojang Studios.",
+    "faqtitle": "الأسئلة الشائعة",
+    "toctitle": "في هذه الصفحة",
+    "relatedtitle": "أدوات مرتبطة",
+    "homecrumb": "محرر NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "المحررات",
+      "أنواع الملفات",
+      "المرجع"
+    ],
+    "sourcehead": "المصدر",
+    "sourcelink": "الكود على GitHub"
+  },
+  "nbtexplorer-online": {
+    "title": "NBTExplorer عبر الإنترنت — بديل في المتصفح بلا تنزيل",
+    "ogtitle": "NBTExplorer عبر الإنترنت — البديل في المتصفح",
+    "desc": "بديل لـ NBTExplorer يعمل في المتصفح: تحرير شجرة وسوم ملفات Minecraft ودعم Bedrock بترتيب little-endian، من دون تثبيت أي برنامج.",
+    "keywords": "NBTExplorer اون لاين, بديل NBTExplorer, محرر NBT بدون تحميل, NBTExplorer للاندرويد, NBTExplorer Bedrock, فتح ملفات NBT من المتصفح",
+    "h1": "NBTExplorer عبر الإنترنت — بديل يعمل في المتصفح",
+    "crumb": "NBTExplorer عبر الإنترنت",
+    "reltitle": "NBTExplorer عبر الإنترنت",
+    "reldesc": "ما يقدمه مثل أداة سطح المكتب، وما لا يقدمه.",
+    "answer": "NBTExplorer هو محرر وسوم سطح المكتب الذي يعرفه معظم لاعبي Minecraft، ويتطلب .NET أو Mono وتنزيلًا وجهاز كمبيوتر. تؤدي هذه الصفحة المهمة نفسها — شجرة وسوم وتعديلًا مباشرًا وإضافة الوسوم وحذفها — داخل المتصفح وعلى أي نظام تشغيل، بما في ذلك الهواتف. كما تقرأ ملفات Bedrock بترتيب little-endian، وهو ما لا يفعله NBTExplorer.",
+    "droplabel": "أي ملف NBT",
+    "body": "\n<section class=\"content\" aria-label=\"Comparison\">\n<h2>مقارنة بين الأداتين</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>الإمكانات</th><th>NBTExplorer (سطح المكتب)</th><th>هذا المحرر (المتصفح)</th></tr></thead>\n<tbody>\n<tr><td>يتطلب التثبيت</td><td>نعم — بيئة تشغيل .NET / Mono</td><td>لا</td></tr>\n<tr><td>NBT في Java بترتيب big-endian</td><td>نعم</td><td>نعم</td></tr>\n<tr><td>gzip / zlib</td><td>نعم</td><td>نعم، عبر مسارات الضغط الأصلية في المتصفح</td></tr>\n<tr><td>NBT في Bedrock بترتيب little-endian</td><td>لا</td><td>نعم، بما في ذلك ترويسة <code>level.dat</code> ذات 8 بايتات</td></tr>\n<tr><td>NBT للشبكة / varint في Bedrock</td><td>لا</td><td>نعم</td></tr>\n<tr><td>استعراض مناطق <code>.mca</code> والمجلدات</td><td>نعم — ميزته الأساسية</td><td>لا، مستند واحد في كل مرة</td></tr>\n<tr><td>استعراض LevelDB في Bedrock</td><td>لا</td><td>لا، يجب استخراج القيمة أولًا</td></tr>\n<tr><td>البحث في الشجرة كاملة</td><td>نعم</td><td>نعم</td></tr>\n<tr><td>تصدير SNBT</td><td>لا</td><td>نعم</td></tr>\n<tr><td>يعمل على الهاتف</td><td>لا</td><td>نعم</td></tr>\n<tr><td>يرسل ملفك إلى أي جهة</td><td>لا</td><td>لا</td></tr>\n</tbody>\n</table>\n</div>\n<p>الخلاصة بوضوح: إذا أردت التنقل داخل مجلد مناطق كامل وفتح القطع بحسب إحداثياتها، فما زالت أداة سطح المكتب أفضل. أما إذا أردت فتح ملف واحد — مثل <code>level.dat</code> أو ملف لاعب أو مخطط أو عالم Bedrock — على أي جهاز تستخدمه، فهذه الصفحة أسرع وتدعم إصدارات لم تتعلم أداة سطح المكتب التعامل معها.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Migrating\">\n<h2>للقادمين من أداة سطح المكتب</h2>\n<ul>\n<li><strong>تعمل الشجرة بالطريقة نفسها.</strong> وسّع مركبات Compound وقوائم List، وانقر على قيمة لتعديلها، واستخدم + و× لتغيير البنية.</li>\n<li><strong>تُفرض الأنواع بالطريقة نفسها.</strong> تظل قيمة Byte من نوع Byte؛ وتُرفض القيم خارج النطاق بدلًا من اقتطاعها من دون تنبيه.</li>\n<li><strong>الحفظ هو عملية تنزيل،</strong> وليس كتابة في موضع الملف. لا يُعدّل الملف الذي أفلتّه مطلقًا، ولذلك تبقى النسخة الأصلية احتياطية تلقائيًا.</li>\n<li><strong>يُحافظ على الضغط عند الحفظ.</strong> يُحفظ ملف gzip بصيغة gzip مجددًا، فتقبله اللعبة من دون خطوة يدوية لإعادة الضغط.</li>\n<li><strong>تعمل ملفات Bedrock مباشرةً.</strong> لا تحتاج إلى أداة منفصلة أو محرر hex لتصحيح طول الترويسة بعد التعديل.</li>\n</ul>\n</section>\n\n<section class=\"content\" aria-label=\"Other tools\">\n<h2>المهام التي تناسب الأدوات الأخرى</h2>\n<p>استخدم <strong>NBTExplorer</strong> أو <strong>NBTStudio</strong> لاستعراض المناطق على نطاق واسع. واستخدم <strong>Amulet</strong> أو <strong>MCA Selector</strong> لإجراء تعديلات على مستوى القطع وتقليص العالم. واستخدم <strong>WorldEdit</strong> لأي مهمة هندسية. استخدم هذه الصفحة عندما تكون المهمة «افتح هذا الملف الواحد، وعدّل هذه الوسوم، ثم أعده» — وهو المطلوب في معظم الحالات — أو عندما يكون الملف من Bedrock وترفضه أدوات سطح المكتب.</p>\n</section>\n",
+    "chips": [
+      "من دون تثبيت",
+      "Windows",
+      "macOS",
+      "Linux",
+      "Android",
+      "ChromeOS"
+    ],
+    "faq": [
+      [
+        "هل توجد نسخة ويب رسمية من NBTExplorer؟",
+        "<p>لا. NBTExplorer تطبيق لسطح المكتب؛ وهذا محرر مستقل ينفذ المهام اليومية نفسها في المتصفح ويضيف دعم Bedrock.</p>"
+      ],
+      [
+        "هل يعمل على macOS وLinux من دون Mono؟",
+        "<p>نعم؛ فهو صفحة ويب. يمكن تشغيله في أي متصفح حديث على macOS أو Linux أو Windows أو Android أو ChromeOS.</p>"
+      ],
+      [
+        "هل يمكنه فتح ملف منطقة كامل مثل NBTExplorer؟",
+        "<p>لا. فهو يعدّل مستند NBT واحدًا في كل مرة. استخرج قطعة من <code>.mca</code> أولًا، ثم أفلت الحمولة هنا.</p>"
+      ],
+      [
+        "هل استخدامه آمن مع نسخة الحفظ الوحيدة لدي؟",
+        "<p>لا يكتب في الملف الذي تفتحه مطلقًا؛ إذ تُنزّل التعديلات في ملف جديد. ومع ذلك، احتفظ بنسخة احتياطية خاصة بك كما تفعل مع أي محرر.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "تم التحميل بصيغة {0}",
+      "trailing": "تم تجاهل {0} بايت لاحق بعد وسم الجذر",
+      "error": "خطأ: {0}",
+      "readfail": "تعذرت قراءة الملف",
+      "nofile": "لم يتم تحميل ملف",
+      "saved": "تم حفظ {0} ({1}, {2})",
+      "savefail": "خطأ في الحفظ: {0}",
+      "exported": "تم تصدير {0}",
+      "snbtfail": "خطأ SNBT: {0}",
+      "tagadded": "تمت إضافة الوسم",
+      "tagremoved": "تمت إزالة الوسم",
+      "arrayupdated": "تم تحديث المصفوفة",
+      "badvalue": "قيمة غير صالحة: {0}",
+      "badarray": "مصفوفة غير صالحة: {0}",
+      "nameneeded": "اسم الوسم مطلوب",
+      "nametaken": "يوجد هنا وسم باسم {0} بالفعل",
+      "listtype": "تحتوي القائمة بالفعل على عناصر من النوع {0}",
+      "editlevelname": "✎ تعديل LevelName",
+      "showmore": "إظهار {0} أخرى من {1} …",
+      "matches": "{0} نتيجة مطابقة",
+      "nomatch": "لا يوجد وسم يطابق \"{0}\"",
+      "arraytoobig": "تحتوي المصفوفة على {0} عنصرًا — وسّعها وعدّل العناصر منفردة",
+      "uncompressed": "غير مضغوط",
+      "storage": "إصدار التخزين v{0}",
+      "entries": "{0} عنصرًا",
+      "langprompt": "هل تريد فتح هذه الصفحة باللغة {0}؟",
+      "langyes": "تبديل",
+      "langno": "البقاء"
+    },
+    "support": "<strong>يدعم Minecraft Bedrock Edition وJava Edition</strong> — وجميع برمجيات الخوادم لكليهما، الشائعة والنادرة: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina وغيرها. <a href=\"__HOME__#server-software\">القائمة الكاملة</a>.",
+    "footernote": "مجاني ومفتوح المصدر (MIT)، ويعمل بالكامل داخل المتصفح. لا يتبع Mojang Studios أو Microsoft. Minecraft علامة تجارية لـ Mojang Studios.",
+    "faqtitle": "الأسئلة الشائعة",
+    "toctitle": "في هذه الصفحة",
+    "relatedtitle": "أدوات مرتبطة",
+    "homecrumb": "محرر NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "المحررات",
+      "أنواع الملفات",
+      "المرجع"
+    ],
+    "sourcehead": "المصدر",
+    "sourcelink": "الكود على GitHub"
+  },
+  "nbt-format": {
+    "title": "مرجع تنسيق NBT — أنواع الوسوم والترميزات",
+    "ogtitle": "مرجع تنسيق NBT — الوسوم والترميزات وتخطيط البايتات",
+    "desc": "مرجع لتنسيق NBT في Minecraft: أنواع الوسوم الـ13 وتخطيط البايتات، وترميز Java كبير النهاية وBedrock صغير النهاية وvarint وSNBT.",
+    "keywords": "تنسيق NBT ماين كرافت, شرح NBT, انواع وسوم NBT, بنية ملف NBT, TAG_Compound, NBT صغير النهاية, network NBT, صيغة SNBT",
+    "h1": "مرجع تنسيق NBT",
+    "crumb": "تنسيق NBT",
+    "reltitle": "مرجع تنسيق NBT",
+    "reldesc": "أنواع الوسوم الـ13 وجميع الترميزات، بايتًا بعد بايت.",
+    "answer": "NBT (Named Binary Tag) هو تنسيق Minecraft الشجري الثنائي: يتكون الوسم من نوع بطول بايت واحد، واسم مسبوق بطوله، وحمولة، وتتداخل المركبات حتى يغلقها بايت <code>TAG_End</code>. توجد 13 نوعًا من الوسوم وخمسة ترميزات متداولة في Java وBedrock. توثق هذه الصفحة جميعها، ويتيح لك المحرر أعلاه التحقق من أي معلومة باستخدام ملف حقيقي.",
+    "droplabel": "أي ملف NBT لفحصه",
+    "body": "\n<section class=\"content\" aria-label=\"Tag types\">\n<h2>أنواع الوسوم الـ13</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>المعرّف</th><th>الوسم</th><th>الحمولة</th><th>SNBT</th></tr></thead>\n<tbody>\n<tr><td>0</td><td><code>TAG_End</code></td><td>لا شيء — يغلق مركبًا</td><td>—</td></tr>\n<tr><td>1</td><td><code>TAG_Byte</code></td><td>1 بايت، عدد بإشارة من −128 إلى 127</td><td><code>1b</code></td></tr>\n<tr><td>2</td><td><code>TAG_Short</code></td><td>2 بايت، بإشارة</td><td><code>1s</code></td></tr>\n<tr><td>3</td><td><code>TAG_Int</code></td><td>4 بايت، بإشارة</td><td><code>1</code></td></tr>\n<tr><td>4</td><td><code>TAG_Long</code></td><td>8 بايت، بإشارة</td><td><code>1L</code></td></tr>\n<tr><td>5</td><td><code>TAG_Float</code></td><td>4 بايت، IEEE 754</td><td><code>1.0f</code></td></tr>\n<tr><td>6</td><td><code>TAG_Double</code></td><td>8 بايت، IEEE 754</td><td><code>1.0d</code></td></tr>\n<tr><td>7</td><td><code>TAG_Byte_Array</code></td><td>طول من نوع int، ثم هذا العدد من البايتات</td><td><code>[B;1b,2b]</code></td></tr>\n<tr><td>8</td><td><code>TAG_String</code></td><td>طول من نوع short بلا إشارة، ثم بايتات UTF-8</td><td><code>\"text\"</code></td></tr>\n<tr><td>9</td><td><code>TAG_List</code></td><td>بايت لنوع العنصر، وطول من نوع int، ثم حمولات بلا أسماء</td><td><code>[1,2]</code></td></tr>\n<tr><td>10</td><td><code>TAG_Compound</code></td><td>نوع + اسم + حمولة، تتكرر حتى <code>TAG_End</code></td><td><code>{a:1}</code></td></tr>\n<tr><td>11</td><td><code>TAG_Int_Array</code></td><td>طول من نوع int، ثم هذا العدد من أعداد int ذات 4 بايت</td><td><code>[I;1,2]</code></td></tr>\n<tr><td>12</td><td><code>TAG_Long_Array</code></td><td>طول من نوع int، ثم هذا العدد من أعداد long ذات 8 بايت</td><td><code>[L;1L,2L]</code></td></tr>\n</tbody>\n</table>\n</div>\n<p>يتكون الملف من <code>TAG_Compound</code> جذري واحد: بايت نوع واحد <code>0x0A</code>، ثم اسم، ثم محتويات المركب. لا تظهر الوسوم المسماة إلا داخل المركبات؛ أما عناصر القوائم فتحمل الحمولات فقط، ولهذا تكون القائمة متجانسة.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Encodings\">\n<h2>خمسة ترميزات مستخدمة فعليًا</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>الترميز</th><th>الأعداد الصحيحة</th><th>طول السلسلة</th><th>الجذر</th><th>يُستخدم في</th></tr></thead>\n<tbody>\n<tr><td>Java (الكلاسيكي)</td><td>بعرض ثابت وبترتيب كبير النهاية</td><td>2 بايت بترتيب كبير النهاية</td><td>مسمى</td><td>عوالم Java والبُنى والمخططات</td></tr>\n<tr><td>شبكة Java (1.20.2+)</td><td>بعرض ثابت وبترتيب كبير النهاية</td><td>2 بايت بترتيب كبير النهاية</td><td>بلا اسم</td><td>بروتوكول Java</td></tr>\n<tr><td>Bedrock</td><td>بعرض ثابت وبترتيب صغير النهاية</td><td>2 بايت بترتيب صغير النهاية</td><td>مسمى</td><td>عوالم Bedrock وملفات <code>.mcstructure</code> وقيم LevelDB</td></tr>\n<tr><td>Bedrock <code>level.dat</code></td><td>بعرض ثابت وبترتيب صغير النهاية</td><td>2 بايت بترتيب صغير النهاية</td><td>مسمى، بعد ترويسة من 8 بايت</td><td>بيانات تعريف عالم Bedrock</td></tr>\n<tr><td>شبكة Bedrock</td><td>Zigzag varint لأعداد int وlong</td><td>varint بلا إشارة</td><td>مسمى</td><td>بروتوكول Bedrock</td></tr>\n</tbody>\n</table>\n</div>\n<p>في ترميز varint، تبقى <code>TAG_Short</code> و<code>TAG_Float</code> و<code>TAG_Double</code> بعرض ثابت وبترتيب صغير النهاية؛ وحدهما <code>TAG_Int</code> و<code>TAG_Long</code> يتحولان إلى zigzag varints، وتتبع أطوال المصفوفات والقوائم الطريقة التي يستخدمها <code>TAG_Int</code>. أطوال السلاسل هي varints بلا إشارة، وهذا يزيل أيضًا حد 65535 بايت الذي تفرضه الترميزات ثابتة العرض.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Strings\">\n<h2>السلاسل: UTF-8 المعدّل مقابل UTF-8</h2>\n<p>تسلسل Java السلاسل باستخدام <code>DataOutputStream.writeUTF</code>، وهو UTF-8 <em>معدّل</em>: يُكتب محرف NUL على هيئة <code>C0 80</code> بدلًا من <code>00</code>، وتُكتب المحارف خارج المستوى الأساسي متعدد اللغات كنصفين بديلين من ثلاثة بايتات (CESU-8) بدلًا من تسلسل واحد من أربعة بايتات. يستخدم Bedrock ترميز UTF-8 القياسي. الأداة التي تفترض ترميزًا واحدًا للنسختين ستفسد الرموز التعبيرية وبعض النصوص الصينية واليابانية والكورية عند الحفظ؛ يرمّز هذا المحرر وفق تنسيق الملف، ولذلك يبقى اسم العالم الذي يحتوي رمزًا تعبيريًا سليمًا بعد فتحه وحفظه هنا.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Compression\">\n<h2>الضغط</h2>\n<p>لا يكون NBT نفسه مضغوطًا؛ فالحاوية هي التي تحدد ذلك. تكون ملفات Java عادةً مضغوطة باستخدام gzip (البصمة <code>1F 8B</code>)، وتستخدم حمولات المقاطع داخل ملفات المناطق zlib (البصمة <code>78 01</code> أو <code>78 9C</code> أو <code>78 DA</code>)، بينما يخزن Bedrock ملف <code>level.dat</code> وملفات البُنى بلا ضغط. يجري الكشف بواسطة بايتات البصمة، لذا يعالج المحلل نفسه الأنواع الثلاثة؛ وحفظ ملف بالضغط الخطأ هو السبب الأكثر شيوعًا لعدم تحميل عالم عُدّل يدويًا.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Byte walkthrough\">\n<h2>ملف بسيط، بايتًا بعد بايت</h2>\n<p>ملف <code>hello_world.nbt</code> القياسي: مركب جذري اسمه <code>hello world</code> يحتوي وسم سلسلة واحدًا اسمه <code>name</code> وقيمته <code>Bananrama</code>. في ترميز Java كبير النهاية:</p>\n<pre class=\"code\"><code>0A                          TAG_Compound\n00 0B 68 65 6C 6C 6F 20 77 6F 72 6C 64   name length 11, \"hello world\"\n   08                       TAG_String\n   00 04 6E 61 6D 65        name length 4, \"name\"\n   00 09 42 61 6E 61 6E 72 61 6D 61      value length 9, \"Bananrama\"\n00                          TAG_End</code></pre>\n<p>تختلف الوثيقة نفسها في ترميز Bedrock صغير النهاية فقط في ترتيب بايتات حقلي الطول: <code>0B 00</code> بدلًا من <code>00 0B</code>. في NBT الشبكي لـBedrock تصبح الأطوال بايتات varint مفردة، <code>0B</code> و<code>04</code>، من دون أي حشو. ضع أيًا من الملفات الثلاثة في المحرر أعلاه وسيحدد الترميز الذي استلمه.</p>\n</section>\n\n<section class=\"content\" aria-label=\"SNBT\">\n<h2>SNBT</h2>\n<p>SNBT هو NBT مكتوب كنص، وهو ما تستخدمه الأوامر: <code>/data merge entity @s {Invulnerable:1b}</code>. تحافظ لواحق الأنواع على البيانات دون فقد: <code>b</code> لـbyte، و<code>s</code> لـshort، و<code>L</code> لـlong، و<code>f</code> لـfloat، و<code>d</code> لـdouble، ومن دون لاحقة لـint؛ وتُكتب مصفوفات الأنواع هكذا: <code>[B;…]</code> و<code>[I;…]</code> و<code>[L;…]</code>. يصدّر المحرر SNBT من أي ملف محمّل، مما يتيح مقارنة نسختين من العالم باستخدام أداة عادية لمقارنة النصوص.</p>\n</section>\n",
+    "chips": [
+      "13 نوعًا من الوسوم",
+      "كبير النهاية",
+      "صغير النهاية",
+      "Varint",
+      "gzip",
+      "zlib",
+      "SNBT"
+    ],
+    "faq": [
+      [
+        "هل توجد مواصفة رسمية لتنسيق NBT؟",
+        "<p>لا توجد مواصفة رسمية من Mojang. وثّق Notch التنسيق في 2010، وتولى المجتمع صيانته منذ ذلك الحين؛ وتتطابق معرّفات الوسوم وتخطيطها في هذه الصفحة مع ما تقرؤه اللعبة وتكتبه حاليًا.</p>"
+      ],
+      [
+        "لماذا يستخدم Bedrock ترتيب صغير النهاية؟",
+        "<p>محرك Bedrock مكتوب بلغة C++ ويستهدف عتادًا بترتيب صغير النهاية، لذلك يخزن القيم بترتيبها الأصلي. أما تسلسل Java فهو كبير النهاية لأن عقد Java DataOutput يحدد ذلك.</p>"
+      ],
+      [
+        "ما ترميز zigzag varint؟",
+        "<p>هو أسلوب لكتابة الأعداد الصحيحة بأقل عدد ممكن من البايتات مع إبقاء الأعداد السالبة قصيرة: تُدمج الإشارة في البت الأقل أهمية، فيُرمّز −1 إلى 1 ويُرمّز 1 إلى 2. يستخدمه بروتوكول Bedrock لأعداد int وlong.</p>"
+      ],
+      [
+        "هل يمكن أن تحتوي TAG_List أنواعًا مختلفة؟",
+        "<p>لا. تعلن القائمة نوعًا واحدًا للعناصر، ويجب أن يطابقه كل إدخال. تتطلب البيانات المختلطة قائمة من المركبات.</p>"
+      ],
+      [
+        "ما الحد الأقصى لطول السلسلة؟",
+        "<p>65535 بايت في الترميزات ثابتة العرض، لأن حقل الطول هو short بلا إشارة. لا يفرض ترميز varint الشبكي حدًا عمليًا.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "تم التحميل بصيغة {0}",
+      "trailing": "تم تجاهل {0} بايت لاحق بعد وسم الجذر",
+      "error": "خطأ: {0}",
+      "readfail": "تعذرت قراءة الملف",
+      "nofile": "لم يتم تحميل ملف",
+      "saved": "تم حفظ {0} ({1}, {2})",
+      "savefail": "خطأ في الحفظ: {0}",
+      "exported": "تم تصدير {0}",
+      "snbtfail": "خطأ SNBT: {0}",
+      "tagadded": "تمت إضافة الوسم",
+      "tagremoved": "تمت إزالة الوسم",
+      "arrayupdated": "تم تحديث المصفوفة",
+      "badvalue": "قيمة غير صالحة: {0}",
+      "badarray": "مصفوفة غير صالحة: {0}",
+      "nameneeded": "اسم الوسم مطلوب",
+      "nametaken": "يوجد هنا وسم باسم {0} بالفعل",
+      "listtype": "تحتوي القائمة بالفعل على عناصر من النوع {0}",
+      "editlevelname": "✎ تعديل LevelName",
+      "showmore": "إظهار {0} أخرى من {1} …",
+      "matches": "{0} نتيجة مطابقة",
+      "nomatch": "لا يوجد وسم يطابق \"{0}\"",
+      "arraytoobig": "تحتوي المصفوفة على {0} عنصرًا — وسّعها وعدّل العناصر منفردة",
+      "uncompressed": "غير مضغوط",
+      "storage": "إصدار التخزين v{0}",
+      "entries": "{0} عنصرًا",
+      "langprompt": "هل تريد فتح هذه الصفحة باللغة {0}؟",
+      "langyes": "تبديل",
+      "langno": "البقاء"
+    },
+    "support": "<strong>يدعم Minecraft Bedrock Edition وJava Edition</strong> — وجميع برمجيات الخوادم لكليهما، الشائعة والنادرة: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina وغيرها. <a href=\"__HOME__#server-software\">القائمة الكاملة</a>.",
+    "footernote": "مجاني ومفتوح المصدر (MIT)، ويعمل بالكامل داخل المتصفح. لا يتبع Mojang Studios أو Microsoft. Minecraft علامة تجارية لـ Mojang Studios.",
+    "faqtitle": "الأسئلة الشائعة",
+    "toctitle": "في هذه الصفحة",
+    "relatedtitle": "أدوات مرتبطة",
+    "homecrumb": "محرر NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "المحررات",
+      "أنواع الملفات",
+      "المرجع"
+    ],
+    "sourcehead": "المصدر",
+    "sourcelink": "الكود على GitHub"
+  },
+  "guides/change-world-name": {
+    "title": "كيفية تغيير اسم عالم Minecraft في Java وBedrock",
+    "ogtitle": "كيفية تغيير اسم عالم Minecraft",
+    "desc": "أعد تسمية عالم Minecraft بصورة صحيحة بتعديل LevelName في level.dat، على Java وBedrock وللعب الفردي والخوادم، مع حل مشكلة تكرار الاسم.",
+    "keywords": "تغيير اسم عالم ماين كرافت, اعادة تسمية عالم ماين كرافت, تغيير اسم العالم في السيرفر, تعديل LevelName, اسم العالم القديم ما زال يظهر, تكرار اسم العالم",
+    "h1": "كيفية تغيير اسم عالم Minecraft",
+    "crumb": "تغيير اسم العالم",
+    "reltitle": "إعادة تسمية عالم",
+    "reldesc": "تصحيح LevelName بعد نسخ مجلد عالم.",
+    "answer": "يوجد اسم العرض الخاص بالعالم في الوسم <code>LevelName</code> داخل <code>level.dat</code>، وليس في اسم المجلد. لا يغيّر إعادة تسمية المجلد أي شيء تعرضه اللعبة، ولهذا يستمر العالم المنسوخ في استخدام اسمه الأصلي. ضع <code>level.dat</code> في المحرر أدناه؛ سينتقل مباشرة إلى <code>LevelName</code>. غيّر القيمة واحفظ الملف ثم أعده إلى مكانه.",
+    "droplabel": "level.dat",
+    "body": "\n<section class=\"content\" aria-label=\"Why the folder name is not the world name\">\n<h2>لماذا لا تفيد إعادة تسمية المجلد</h2>\n<p>تعامل Minecraft المجلد بوصفه عنوانًا، وتعامل <code>LevelName</code> بوصفه التسمية. تقرأ قائمة العوالم ووحدة تحكم الخادم وإضافات إدارة العوالم وأي وظيفة تطبع كلمة \"world\" في الدردشة هذا الوسم. لذلك يؤدي نسخ مجلد، مثل <code>cp -r worlds/hub worlds/hub2</code>، إلى عالمين يصرّ كلاهما على أن اسمه <em>hub</em>، ولا يوجد حل إلا من داخل الملف.</p>\n<p>على الخادم، لا يقتصر ضرر التكرار على الالتباس. قد تعمل الإضافات التي تحدد العوالم بالاسم الداخلي على العالم الخطأ، ومنها منصات النقل وإعدادات كل عالم ومناطق الحماية ومضاعفات الاقتصاد. أعد تسمية الوسم فور نسخ عالم وقبل أن تخزن أي أداة اسمه مؤقتًا.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Per platform\">\n<h2>حسب المنصة</h2>\n<div class=\"card\">\n<h3>Java في اللعب الفردي</h3>\n<p>يتيح العميل إعادة التسمية في شاشة خيارات العالم، ويعدّل <code>LevelName</code> نيابة عنك. يصبح تعديل الملف يدويًا مهمًا عندما يتعذر تحميل العالم، أو عند العمل على نسخة، أو عندما تريد أن يختلف اسم المجلد عن التسمية عمدًا.</p>\n<h3>خادم Java</h3>\n<p>يحدد <code>level-name</code> في <code>server.properties</code> <em>المجلد</em> الذي سيُحمّل، ولا يعيد تسمية أي شيء. غيّر <code>LevelName</code> في <code>world/level.dat</code> لتعديل التسمية.</p>\n<h3>Bedrock وMCPE</h3>\n<p>تعيد شاشة تعديل العالم داخل اللعبة تسمية العالم. عندما يكون العالم على خادم، أو عندما تعدّل ملف <code>.mcworld</code> مصدّرًا، عدّل <code>LevelName</code> في <code>level.dat</code> مباشرة؛ يخزنه Bedrock مسطحًا في الجذر، بلا ضغط، بعد الترويسة ذات 8 بايت التي يعالجها المحرر نيابة عنك.</p>\n<h3>خوادم Bedrock (PocketMine-MP وNukkit وBDS)</h3>\n<p>الملف نفسه والوسم نفسه، وينطبق التحذير نفسه بضرورة إيقاف الخادم أولًا. تتضمن <a href=\"../../pocketmine-nbt-editor/\">صفحة الخادم</a> سير العمل كاملًا، بما في ذلك حالة نسخ المجلد.</p>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Troubleshooting\">\n<h2>إذا لم يتغير الاسم</h2>\n<ul>\n<li><strong>كان الخادم قيد التشغيل.</strong> أعاد كتابة نسخته الموجودة في الذاكرة فوق ملفك عند الحفظ التالي. أوقفه وأعد التعديل.</li>\n<li><strong>عدّلت العالم الخطأ.</strong> تحمل مجلدات عوالم Bedrock معرّفات عشوائية. افتح الملف واقرأ <code>LevelName</code> للتأكد من اختيار العالم الصحيح قبل التعديل.</li>\n<li><strong>عدّلت <code>level.dat_old</code>.</strong> هذا هو الحفظ السابق، وليس الملف المستخدم حاليًا.</li>\n<li><strong>يخزن المشغّل أو لوحة التحكم الاسم مؤقتًا.</strong> تعرض بعض لوحات الاستضافة اسمًا من قاعدة بياناتها بدلًا من ملف العالم؛ أما الاسم داخل اللعبة فسيكون صحيحًا.</li>\n<li><strong>لم يعد العالم يُحمّل إطلاقًا.</strong> استعد النسخة الاحتياطية وراجع <a href=\"../fix-corrupted-level-dat/\">إصلاح ملف level.dat تالف</a>.</li>\n</ul>\n</section>\n",
+    "chips": [
+      "Java",
+      "Bedrock",
+      "الخوادم",
+      "اللعب الفردي",
+      "2 دقيقة"
+    ],
+    "faq": [
+      [
+        "هل تؤدي إعادة تسمية العالم إلى حذف أي شيء؟",
+        "<p>لا. <code>LevelName</code> مجرد تسمية. توجد التضاريس واللاعبون والمخزونات والكيانات في ملفات أخرى ولا تتأثر.</p>"
+      ],
+      [
+        "هل يمكنني استخدام مسافات أو ألوان أو رموز تعبيرية في اسم العالم؟",
+        "<p>يمكن استخدام المسافات. تعمل رموز الألوان بعلامة القسم في بعض برمجيات الخوادم وتظهر كمحارف عادية في غيرها. تبقى الرموز التعبيرية سليمة بعد فتح الملف وحفظه هنا لأن المحرر يستخدم ترميز السلاسل الصحيح لكل إصدار، لكن قد تعرضها وحدات التحكم وملفات السجل بصورة سيئة.</p>"
+      ],
+      [
+        "هل يجب أن أعيد تسمية المجلد أيضًا؟",
+        "<p>لا، وغالبًا ينبغي ألا تفعل ذلك، فقد يشير إعداد <code>level-name</code> في الخادم أو إعداد إضافة إلى مسار المجلد. غيّر شيئًا واحدًا في كل مرة.</p>"
+      ],
+      [
+        "هل سيرى اللاعبون الاسم الجديد فورًا؟",
+        "<p>نعم، بعد إعادة تحميل العالم. قد يحتاج العملاء الذين خزّنوا إدخال قائمة الخوادم مؤقتًا إلى تحديثها.</p>"
+      ]
+    ],
+    "howto": {
+      "name": "تغيير اسم عالم Minecraft بتعديل level.dat",
+      "time": "PT3M",
+      "steps": [
+        [
+          "أوقف اللعبة أو الخادم",
+          "أغلق العالم أو أوقف الخادم. تعيد Minecraft كتابة level.dat عند الحفظ التلقائي والإيقاف، وستستبدل النسخة قيد التشغيل تعديلك."
+        ],
+        [
+          "حدد موقع level.dat",
+          "Java: المسار world/level.dat على الخادم، أو saves/<World>/level.dat في العميل. Bedrock: المسار worlds/<World>/level.dat على الخادم، أو مجلد معرّف العالم تحت minecraftWorlds على الجهاز."
+        ],
+        [
+          "افتحه في المحرر",
+          "ضع الملف في محرر NBT. سيكتشف الإصدار والترميز وينتقل تلقائيًا إلى الوسم LevelName."
+        ],
+        [
+          "عدّل LevelName",
+          "انقر القيمة، واكتب الاسم الجديد، ثم اضغط Enter. استخدم محارف عادية إذا كان يجب أن يظهر الاسم بصورة سليمة في وحدة التحكم."
+        ],
+        [
+          "احفظ ونزّل",
+          "انقر «حفظ وتنزيل». سيبقى تنسيق الإخراج والضغط مطابقين تمامًا للملف عند إدخاله، فلا يتغير أي شيء آخر فيه."
+        ],
+        [
+          "استبدل الملف الأصلي",
+          "انسخ الملف المنزّل فوق الملف الأصلي مع الاحتفاظ بنسخة احتياطية، ثم شغّل اللعبة أو الخادم وتأكد من الاسم الجديد في قائمة العوالم."
+        ]
+      ]
+    },
+    "ui": {
+      "loaded": "تم التحميل بصيغة {0}",
+      "trailing": "تم تجاهل {0} بايت لاحق بعد وسم الجذر",
+      "error": "خطأ: {0}",
+      "readfail": "تعذرت قراءة الملف",
+      "nofile": "لم يتم تحميل ملف",
+      "saved": "تم حفظ {0} ({1}, {2})",
+      "savefail": "خطأ في الحفظ: {0}",
+      "exported": "تم تصدير {0}",
+      "snbtfail": "خطأ SNBT: {0}",
+      "tagadded": "تمت إضافة الوسم",
+      "tagremoved": "تمت إزالة الوسم",
+      "arrayupdated": "تم تحديث المصفوفة",
+      "badvalue": "قيمة غير صالحة: {0}",
+      "badarray": "مصفوفة غير صالحة: {0}",
+      "nameneeded": "اسم الوسم مطلوب",
+      "nametaken": "يوجد هنا وسم باسم {0} بالفعل",
+      "listtype": "تحتوي القائمة بالفعل على عناصر من النوع {0}",
+      "editlevelname": "✎ تعديل LevelName",
+      "showmore": "إظهار {0} أخرى من {1} …",
+      "matches": "{0} نتيجة مطابقة",
+      "nomatch": "لا يوجد وسم يطابق \"{0}\"",
+      "arraytoobig": "تحتوي المصفوفة على {0} عنصرًا — وسّعها وعدّل العناصر منفردة",
+      "uncompressed": "غير مضغوط",
+      "storage": "إصدار التخزين v{0}",
+      "entries": "{0} عنصرًا",
+      "langprompt": "هل تريد فتح هذه الصفحة باللغة {0}؟",
+      "langyes": "تبديل",
+      "langno": "البقاء"
+    },
+    "support": "<strong>يدعم Minecraft Bedrock Edition وJava Edition</strong> — وجميع برمجيات الخوادم لكليهما، الشائعة والنادرة: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina وغيرها. <a href=\"__HOME__#server-software\">القائمة الكاملة</a>.",
+    "footernote": "مجاني ومفتوح المصدر (MIT)، ويعمل بالكامل داخل المتصفح. لا يتبع Mojang Studios أو Microsoft. Minecraft علامة تجارية لـ Mojang Studios.",
+    "faqtitle": "الأسئلة الشائعة",
+    "toctitle": "في هذه الصفحة",
+    "relatedtitle": "أدوات مرتبطة",
+    "homecrumb": "محرر NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "المحررات",
+      "أنواع الملفات",
+      "المرجع"
+    ],
+    "sourcehead": "المصدر",
+    "sourcelink": "الكود على GitHub"
+  },
+  "guides/fix-corrupted-level-dat": {
+    "title": "إصلاح level.dat تالف — عالم Minecraft لا يُحمّل",
+    "ogtitle": "إصلاح ملف level.dat تالف",
+    "desc": "أصلح عالم Minecraft لا يُحمّل: استعد level.dat_old، وافحص الملف في محرر NBT، وحدد سبب التلف الفعلي في Java أو Bedrock بدقة.",
+    "keywords": "اصلاح level.dat تالف, عالم ماين كرافت لا يفتح, استرجاع level.dat_old, اصلاح عالم ماين كرافت, خطأ level.dat في السيرفر, استعادة عالم Bedrock",
+    "h1": "إصلاح ملف <code>level.dat</code> تالف",
+    "crumb": "إصلاح level.dat تالف",
+    "reltitle": "إصلاح level.dat تالف",
+    "reldesc": "شخّص سبب رفض العالم للتحميل وأصلحه.",
+    "answer": "غالبًا ما تكون للعالم الذي يرفض التحميل واحدة من أربع مشكلات: ملف <code>level.dat</code> مبتور بسبب تعطل أثناء الحفظ، أو ضغط غير صحيح بعد تعديل يدوي، أو طول ترويسة Bedrock تالف، أو وسم تغير نوعه. ضع الملف أدناه؛ سيبلغ المحرر بدقة عن الموضع الذي توقف عنده التحليل، مما يحصر السبب في واحدة من الحالات الأربع خلال ثوانٍ.",
+    "droplabel": "level.dat أو level.dat_old",
+    "body": "\n<section class=\"content\" aria-label=\"Causes\">\n<h2>ما الذي يتلف فعليًا</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>العَرَض</th><th>السبب</th><th>الحل</th></tr></thead>\n<tbody>\n<tr><td>يعرض المحرر \"Unexpected end of data\"</td><td>ملف مبتور؛ توقفت العملية أثناء الحفظ أو امتلأ القرص</td><td>استعد <code>level.dat_old</code> أو نسخة احتياطية؛ فالبايتات المفقودة لم تعد موجودة</td></tr>\n<tr><td>تقول اللعبة إن العالم تالف، لكن المحرر يحمّله بلا مشكلة</td><td>أداة أخرى كتبت ضغطًا أو ترتيب بايتات غير صحيح</td><td>أعد حفظه هنا بالتنسيق الصحيح للإصدار</td></tr>\n<tr><td>عالم Bedrock غير موجود في القائمة</td><td>لم يعد طول الترويسة يطابق الحمولة</td><td>افتحه واحفظه هنا؛ سيُعاد حساب الطول تلقائيًا</td></tr>\n<tr><td>يسجل الخادم خطأ تحويل صنف أو نوع عند التحميل</td><td>تغير نوع وسم يدويًا (Byte حيث يُتوقع Int)</td><td>أعد الوسم إلى النوع الذي تتوقعه اللعبة</td></tr>\n<tr><td>يُحمّل العالم لكنه يضعك في عالم جديد</td><td>استُبدل <code>level.dat</code> بملف مولّد حديثًا</td><td>استعد النسخة الاحتياطية؛ فعادةً ما تكون المقاطع في <code>region/</code> أو <code>db/</code> سليمة</td></tr>\n<tr><td>لا يمكن تحليل أي شيء، بما في ذلك <code>_old</code></td><td>عطل في التخزين؛ أعاد نظام الملفات أصفارًا أو بيانات تالفة لكليهما</td><td>استعد من نسخة احتياطية خارج الجهاز، وافحص القرص قبل الوثوق بالمضيف</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Salvage\">\n<h2>إنقاذ عالم من دون <code>level.dat</code></h2>\n<p>لا توجد تضاريس العالم وصناديقه ولاعبوه في <code>level.dat</code>، بل في <code>region/</code> في Java أو <code>db/</code> في Bedrock. إذا تعذر إصلاح ملف البيانات الوصفية، فأنشئ عالمًا جديدًا بالإصدار والإعدادات نفسيهما، ثم انقل بيانات المقاطع إليه واضبط <code>LevelName</code> وإحداثيات نقطة الظهور وقواعد اللعب في الملف الجديد. ستفقد البيانات الوصفية لا المباني. تأكد من الإصدار أولًا؛ يحمل عالم Java الوسم <code>DataVersion</code>، ويجب ألا يكون الملف المولّد حديثًا أقدم من المقاطع التي تستوردها.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Prevention\">\n<h2>منع تكرار المشكلة</h2>\n<ul>\n<li><strong>أوقف الخادم قبل النسخ أو التعديل.</strong> يبدأ معظم التلف بنسخ ملف أثناء كتابته.</li>\n<li><strong>أنشئ لقطات مجدولة خارج الجهاز.</strong> لن تصمد نسخة احتياطية على القرص نفسه أمام عطل التخزين الذي سبب المشكلة.</li>\n<li><strong>استخدم <code>save-off</code> / <code>save-all</code> عند أخذ لقطات لعالم يعمل</strong> حتى تؤخذ النسخة والعالم في حالة مستقرة لا تجري فيها كتابة.</li>\n<li><strong>راقب مساحة القرص.</strong> يبتر القرص الممتلئ عمليات الحفظ بصمت، ويُكتب <code>level.dat</code> أخيرًا.</li>\n<li><strong>عدّل القيم لا البنية.</strong> إعادة تسمية الوسوم أو تغيير أنواعها هو التعديل الوحيد الذي لا تستطيع اللعبة تجاوزه.</li>\n</ul>\n</section>\n",
+    "chips": [
+      "التشخيص",
+      "level.dat_old",
+      "الترويسة",
+      "الضغط",
+      "الملف المبتور"
+    ],
+    "faq": [
+      [
+        "ما هو level.dat_old؟",
+        "<p>هو الحفظ السابق. تعيد Minecraft تسمية الملف الحالي إلى <code>level.dat_old</code> قبل كتابة ملف جديد، لذا فهو نسخة احتياطية من جيل واحد ولا توجد خسارة في تجربته أولًا.</p>"
+      ],
+      [
+        "هل يستطيع محرر NBT إصلاح ملف مبتور؟",
+        "<p>يمكنه تحديد الموضع الذي تتوقف عنده البيانات بدقة، لكن لا يمكن إعادة بناء البايتات المفقودة. يعني التحليل الجزئي أنك تحتاج إلى نسخة احتياطية.</p>"
+      ],
+      [
+        "هل سأفقد ما بنيته؟",
+        "<p>ليس بسبب تلف <code>level.dat</code> وحده. توجد المقاطع في <code>region/</code> أو <code>db/</code>، ويمكن لملف عالم جديد من الإصدار نفسه أن يتبناها.</p>"
+      ],
+      [
+        "يقول الخادم إن level.dat سليم لكن العالم فارغ.",
+        "<p>المشكلة إذًا في تخزين المقاطع لا في البيانات الوصفية. تأكد من أن <code>region/</code> أو <code>db/</code> نُسخ مع العالم، وأن إحداثيات نقطة الظهور في <code>level.dat</code> تشير إلى الموقع المتوقع.</p>"
+      ]
+    ],
+    "howto": {
+      "name": "تشخيص ملف level.dat تالف وإصلاحه",
+      "time": "PT10M",
+      "steps": [
+        [
+          "أنشئ نسخة احتياطية من مجلد العالم",
+          "انسخ مجلد العالم كاملًا قبل لمس أي شيء. لا يمكن التراجع عن كل خطوة أدناه إلا بوجود هذه النسخة."
+        ],
+        [
+          "جرّب level.dat_old",
+          "تحتفظ Minecraft بالحفظ السابق باسم level.dat_old. افتحه في محرر NBT؛ إذا جرى تحليله بلا أخطاء، فانسخه فوق level.dat وشغّل العالم."
+        ],
+        [
+          "افتح الملف التالف",
+          "ضع level.dat في المحرر. يعني التحليل السليم أن الملف صالح وأن المشكلة في مكان آخر: المقاطع أو التعديلات أو الخادم نفسه."
+        ],
+        [
+          "اقرأ الخطأ",
+          "يسمي المحرر نوع العطل: تعني نهاية البيانات غير المتوقعة أن الملف مبتور، ويعني إصدار التخزين غير المنطقي تلف ترويسة Bedrock، ويعني غياب أي تنسيق معروف أن الملف ليس NBT أصلًا."
+        ],
+        [
+          "تحقق من الضغط والتنسيق",
+          "إذا حُمّل الملف، فانظر إلى شريط الملف. يجب حفظ level.dat في Java بصيغة gzip كبير النهاية، وفي Bedrock بصيغة صغير النهاية مع الترويسة. تصلح إعادة الحفظ بالإعدادات الصحيحة الملفات التي أفسدتها أداة أخرى."
+        ],
+        [
+          "أعد بناء ما فُقد فقط",
+          "إذا حُذف وسم واحد، فأعد إضافته بالنوع الصحيح. إذا كان الملف مبتورًا، فاستخدم level.dat_old أو نسخة احتياطية؛ فالملف المحلل جزئيًا يفتقد بيانات لا يستطيع أي محرر اختراعها."
+        ]
+      ]
+    },
+    "ui": {
+      "loaded": "تم التحميل بصيغة {0}",
+      "trailing": "تم تجاهل {0} بايت لاحق بعد وسم الجذر",
+      "error": "خطأ: {0}",
+      "readfail": "تعذرت قراءة الملف",
+      "nofile": "لم يتم تحميل ملف",
+      "saved": "تم حفظ {0} ({1}, {2})",
+      "savefail": "خطأ في الحفظ: {0}",
+      "exported": "تم تصدير {0}",
+      "snbtfail": "خطأ SNBT: {0}",
+      "tagadded": "تمت إضافة الوسم",
+      "tagremoved": "تمت إزالة الوسم",
+      "arrayupdated": "تم تحديث المصفوفة",
+      "badvalue": "قيمة غير صالحة: {0}",
+      "badarray": "مصفوفة غير صالحة: {0}",
+      "nameneeded": "اسم الوسم مطلوب",
+      "nametaken": "يوجد هنا وسم باسم {0} بالفعل",
+      "listtype": "تحتوي القائمة بالفعل على عناصر من النوع {0}",
+      "editlevelname": "✎ تعديل LevelName",
+      "showmore": "إظهار {0} أخرى من {1} …",
+      "matches": "{0} نتيجة مطابقة",
+      "nomatch": "لا يوجد وسم يطابق \"{0}\"",
+      "arraytoobig": "تحتوي المصفوفة على {0} عنصرًا — وسّعها وعدّل العناصر منفردة",
+      "uncompressed": "غير مضغوط",
+      "storage": "إصدار التخزين v{0}",
+      "entries": "{0} عنصرًا",
+      "langprompt": "هل تريد فتح هذه الصفحة باللغة {0}؟",
+      "langyes": "تبديل",
+      "langno": "البقاء"
+    },
+    "support": "<strong>يدعم Minecraft Bedrock Edition وJava Edition</strong> — وجميع برمجيات الخوادم لكليهما، الشائعة والنادرة: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina وغيرها. <a href=\"__HOME__#server-software\">القائمة الكاملة</a>.",
+    "footernote": "مجاني ومفتوح المصدر (MIT)، ويعمل بالكامل داخل المتصفح. لا يتبع Mojang Studios أو Microsoft. Minecraft علامة تجارية لـ Mojang Studios.",
+    "faqtitle": "الأسئلة الشائعة",
+    "toctitle": "في هذه الصفحة",
+    "relatedtitle": "أدوات مرتبطة",
+    "homecrumb": "محرر NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "المحررات",
+      "أنواع الملفات",
+      "المرجع"
+    ],
+    "sourcehead": "المصدر",
+    "sourcelink": "الكود على GitHub"
+  },
+  "guides/edit-gamerules": {
+    "title": "تعديل قواعد لعب Minecraft في level.dat",
+    "ogtitle": "تعديل قواعد اللعب في level.dat",
+    "desc": "غيّر keepInventory وdoDaylightCycle وmobGriefing وغيرها بتعديل level.dat في Java وBedrock مباشرة، من دون أوامر أو تفعيل الغش.",
+    "keywords": "تعديل gamerule ماين كرافت, تفعيل keepInventory بدون اوامر, تعديل GameRules في level.dat, تغيير قواعد اللعب بدون غش, gamerules Bedrock, gamerules Java",
+    "h1": "تعديل قواعد اللعب في <code>level.dat</code>",
+    "crumb": "قواعد اللعب",
+    "reltitle": "تعديل قواعد اللعب",
+    "reldesc": "تعديل keepInventory وغيرها دون تحميل العالم.",
+    "answer": "تُخزن قواعد اللعب في <code>level.dat</code>، لذا يمكنك تغييرها من دون تحميل العالم أو تفعيل الغش. يفيد ذلك عندما لا يبدأ العالم، أو يكون الغش معطلًا، أو تجهز عالمًا منسوخًا قبل انضمام اللاعبين. تحتفظ Java بها كسلاسل داخل مركب <code>GameRules</code>، بينما يحتفظ Bedrock بكل قاعدة في وسم byte مستقل بحروف صغيرة عند الجذر.",
+    "droplabel": "level.dat",
+    "body": "\n<section class=\"content\" aria-label=\"Java gamerules\">\n<h2>Java: مركب <code>GameRules</code> من السلاسل</h2>\n<p>في Java Edition، يحتوي <code>Data</code> ← <code>GameRules</code> على وسم <code>TAG_String</code> واحد لكل قاعدة، ويكون مفتاحه الاسم الدقيق الذي يستخدمه <code>/gamerule</code>، وتُكتب القيمة كنص: <code>\"true\"</code> أو <code>\"false\"</code> أو رقم. القواعد التي لم يضبطها العالم من قبل تكون غائبة ببساطة وتعود إلى قيمها الافتراضية؛ وتؤدي إضافة الوسم بالاسم الصحيح وقيمة سلسلة إلى النتيجة نفسها تمامًا التي يحققها تشغيل الأمر.</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>القاعدة</th><th>القيمة</th><th>التأثير</th></tr></thead>\n<tbody>\n<tr><td><code>keepInventory</code></td><td><code>\"true\"</code></td><td>الاحتفاظ بالعناصر عند الموت</td></tr>\n<tr><td><code>doDaylightCycle</code></td><td><code>\"false\"</code></td><td>تجميد وقت اليوم</td></tr>\n<tr><td><code>doWeatherCycle</code></td><td><code>\"false\"</code></td><td>تجميد الطقس</td></tr>\n<tr><td><code>mobGriefing</code></td><td><code>\"false\"</code></td><td>منع creepers وendermen من تغيير الكتل</td></tr>\n<tr><td><code>doMobSpawning</code></td><td><code>\"false\"</code></td><td>إيقاف الظهور الطبيعي للمخلوقات</td></tr>\n<tr><td><code>doFireTick</code></td><td><code>\"false\"</code></td><td>إيقاف انتشار النار</td></tr>\n<tr><td><code>commandBlockOutput</code></td><td><code>\"false\"</code></td><td>إيقاف رسائل كتل الأوامر المزعجة في الدردشة</td></tr>\n<tr><td><code>randomTickSpeed</code></td><td><code>\"3\"</code></td><td>معدل نمو المحاصيل وانتشار النار</td></tr>\n<tr><td><code>playersSleepingPercentage</code></td><td><code>\"50\"</code></td><td>نسبة اللاعبين المطلوبة لتجاوز الليل</td></tr>\n<tr><td><code>spawnRadius</code></td><td><code>\"10\"</code></td><td>نطاق منطقة الظهور</td></tr>\n</tbody>\n</table>\n</div>\n<p>حالة الأحرف مهمة. الوسم <code>keepinventory</code> في ملف Java ليس الوسم نفسه <code>keepInventory</code> وسيجري تجاهله.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Bedrock gamerules\">\n<h2>Bedrock: وسوم byte منفردة بحروف صغيرة</h2>\n<p>لا يجمع Bedrock القواعد. كل قاعدة هي وسم <code>TAG_Byte</code> عند جذر <code>level.dat</code>، واسمها بأحرف صغيرة، وتحمل 1 أو 0: <code>keepinventory</code> و<code>domobspawning</code> و<code>domobloot</code> و<code>dodaylightcycle</code> و<code>doweathercycle</code> و<code>mobgriefing</code> و<code>firedamage</code> و<code>falldamage</code> و<code>drowningdamage</code> و<code>pvp</code> و<code>showcoordinates</code> و<code>commandblockoutput</code> و<code>sendcommandfeedback</code> و<code>naturalregeneration</code> و<code>tntexplodes</code> و<code>respawnblocksexplode</code> و<code>showdeathmessages</code> و<code>doimmediaterespawn</code>. أما القواعد الرقمية مثل <code>randomtickspeed</code> و<code>functioncommandlimit</code> فهي من نوع <code>TAG_Int</code> بدلًا من ذلك.</p>\n<p>يعني ضبط قاعدة غير موجودة بعد إضافة الوسم بالنوع الصحيح: Byte لخيار تشغيل وإيقاف، وInt لرقم. يُتجاهل الوسم المخزّن بنوع خاطئ، أو يتسبب في رفض التحميل.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Why edit the file\">\n<h2>متى يكون تعديل الملف أفضل من الأمر</h2>\n<ul>\n<li><strong>الغش معطل</strong> ولا تريد تفعيله ثم تعطيله لتشغيل أمر واحد.</li>\n<li><strong>العالم لا يُحمّل</strong>؛ فيمكن ضبط قاعدة مثل <code>doImmediateRespawn</code> قبل أول انضمام.</li>\n<li><strong>تجهز عالمًا نموذجيًا</strong> ليُنسخ إلى عدة خوادم، وتريد تضمين القواعد في النسخة.</li>\n<li><strong>غيّرت إضافة إحدى القواعد</strong> وتريد رؤية القيمة المخزنة فعليًا بدلًا من القيمة التي يبلغ عنها أمر.</li>\n<li><strong>تعديلات جماعية.</strong> يكون ضبط اثنتي عشرة قاعدة في عدة عوالم أسرع داخل الملف منه في الدردشة.</li>\n</ul>\n<p>أوقف الخادم أولًا، كما تفعل مع أي تعديل على <code>level.dat</code>؛ فالعالم قيد التشغيل يعيد كتابة الملف عند الحفظ وسيلغي التغيير.</p>\n</section>\n",
+    "chips": [
+      "keepInventory",
+      "doDaylightCycle",
+      "mobGriefing",
+      "commandBlockOutput",
+      "randomTickSpeed"
+    ],
+    "faq": [
+      [
+        "لماذا تُخزن قاعدة اللعب كسلسلة في Java؟",
+        "<p>تخزين قواعد اللعب في Java قائم على السلاسل لجميع القواعد، بما فيها القيم المنطقية والأرقام. اكتب <code>\"true\"</code>، لا قيمة byte مقدارها 1.</p>"
+      ],
+      [
+        "لماذا تُخزن كـbyte في Bedrock؟",
+        "<p>يخزن Bedrock خيارات التشغيل والإيقاف كوسوم byte عند الجذر، والقواعد الرقمية كأعداد int. لا يوجد مركب <code>GameRules</code>.</p>"
+      ],
+      [
+        "إحدى القواعد غير موجودة في الملف إطلاقًا.",
+        "<p>يعني ذلك أنها تستخدم قيمتها الافتراضية. أضف الوسم بالاسم الدقيق والنوع الصحيح، وسيستخدم العالم قيمتك.</p>"
+      ],
+      [
+        "هل تُنسخ قواعد اللعب مع مجلد العالم؟",
+        "<p>نعم؛ فهي موجودة في <code>level.dat</code>، ولذلك يرثها العالم المنسوخ إلى جانب <a href=\"../change-world-name/\">اسم العالم</a> القديم.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "تم التحميل بصيغة {0}",
+      "trailing": "تم تجاهل {0} بايت لاحق بعد وسم الجذر",
+      "error": "خطأ: {0}",
+      "readfail": "تعذرت قراءة الملف",
+      "nofile": "لم يتم تحميل ملف",
+      "saved": "تم حفظ {0} ({1}, {2})",
+      "savefail": "خطأ في الحفظ: {0}",
+      "exported": "تم تصدير {0}",
+      "snbtfail": "خطأ SNBT: {0}",
+      "tagadded": "تمت إضافة الوسم",
+      "tagremoved": "تمت إزالة الوسم",
+      "arrayupdated": "تم تحديث المصفوفة",
+      "badvalue": "قيمة غير صالحة: {0}",
+      "badarray": "مصفوفة غير صالحة: {0}",
+      "nameneeded": "اسم الوسم مطلوب",
+      "nametaken": "يوجد هنا وسم باسم {0} بالفعل",
+      "listtype": "تحتوي القائمة بالفعل على عناصر من النوع {0}",
+      "editlevelname": "✎ تعديل LevelName",
+      "showmore": "إظهار {0} أخرى من {1} …",
+      "matches": "{0} نتيجة مطابقة",
+      "nomatch": "لا يوجد وسم يطابق \"{0}\"",
+      "arraytoobig": "تحتوي المصفوفة على {0} عنصرًا — وسّعها وعدّل العناصر منفردة",
+      "uncompressed": "غير مضغوط",
+      "storage": "إصدار التخزين v{0}",
+      "entries": "{0} عنصرًا",
+      "langprompt": "هل تريد فتح هذه الصفحة باللغة {0}؟",
+      "langyes": "تبديل",
+      "langno": "البقاء"
+    },
+    "support": "<strong>يدعم Minecraft Bedrock Edition وJava Edition</strong> — وجميع برمجيات الخوادم لكليهما، الشائعة والنادرة: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina وغيرها. <a href=\"__HOME__#server-software\">القائمة الكاملة</a>.",
+    "footernote": "مجاني ومفتوح المصدر (MIT)، ويعمل بالكامل داخل المتصفح. لا يتبع Mojang Studios أو Microsoft. Minecraft علامة تجارية لـ Mojang Studios.",
+    "faqtitle": "الأسئلة الشائعة",
+    "toctitle": "في هذه الصفحة",
+    "relatedtitle": "أدوات مرتبطة",
+    "homecrumb": "محرر NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "المحررات",
+      "أنواع الملفات",
+      "المرجع"
+    ],
+    "sourcehead": "المصدر",
+    "sourcelink": "الكود على GitHub"
+  }
+}

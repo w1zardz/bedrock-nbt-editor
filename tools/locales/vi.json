@@ -1,0 +1,1280 @@
+{
+  "": {
+    "title": "Trình sửa NBT Bedrock online — level.dat, MCPE, Java",
+    "ogtitle": "Trình sửa NBT Bedrock &amp; Java — online, không tải lên",
+    "desc": "Trình sửa NBT online miễn phí cho Minecraft Bedrock và Java. Mở level.dat, .mcstructure, playerdata, .nbt hoặc .schem, sửa thẻ rồi tải xuống.",
+    "keywords": "trình sửa nbt minecraft, chỉnh sửa nbt online, nbt editor online, sửa level.dat bedrock, đọc file nbt, chỉnh sửa world minecraft, nbt explorer online, sửa nbt mcpe",
+    "h1": "Trình sửa NBT Bedrock — hỗ trợ cả Java Edition",
+    "crumb": "Trình sửa",
+    "reltitle": "Trình sửa NBT Minecraft",
+    "reldesc": "Trình sửa dùng chung cho mọi phiên bản và mọi loại tệp NBT.",
+    "answer": "<strong>Hỗ trợ Bedrock Edition cùng mọi phần mềm máy chủ Bedrock, đồng thời hỗ trợ Java Edition và mọi phần mềm máy chủ Java, kể cả các bản ít gặp.</strong> Thả tệp <code>level.dat</code>, <code>playerdata</code>, <code>.nbt</code>, <code>.mcstructure</code>, <code>.schem</code> hoặc <code>.schematic</code> vào ô bên dưới, sửa bất kỳ thẻ nào trong cây rồi tải xuống với đúng định dạng nhị phân ban đầu. Thứ tự byte, header và kiểu nén được tự động phát hiện. Mọi thao tác chạy trong trình duyệt — không tải tệp lên, không cần tài khoản hay cài đặt.",
+    "droplabel": "tệp NBT bất kỳ",
+    "body": "\n<section class=\"content\" aria-label=\"Supported files\">\n<h2>Mọi tệp NBT do Minecraft tạo</h2>\n<p>NBT (Named Binary Tag) là một định dạng có nhiều kiểu mã hóa, và mỗi phiên bản Minecraft, launcher cùng phần mềm máy chủ dùng một tổ hợp khác nhau. Trình sửa này triển khai tất cả và tự chọn đúng kiểu từ chính các byte, nên bạn không cần biết biến thể của tệp trước khi mở.</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Tệp</th><th>Nguồn</th><th>Mã hóa</th><th>Kiểu nén</th></tr></thead>\n<tbody>\n<tr><td><code>level.dat</code></td><td>Thế giới Java — Vanilla, Paper, Spigot, Fabric, Forge</td><td>Big-endian, thẻ gốc có tên</td><td>gzip</td></tr>\n<tr><td><code>level.dat</code></td><td>Thế giới Bedrock — BDS, PocketMine-MP, Nukkit, MCPE</td><td>Little-endian + header 8 byte</td><td>Không</td></tr>\n<tr><td><code>&lt;uuid&gt;.dat</code></td><td><code>playerdata/</code> Java</td><td>Big-endian</td><td>gzip</td></tr>\n<tr><td><code>servers.dat</code>, <code>hotbar.nbt</code></td><td>Máy khách Java</td><td>Big-endian</td><td>Không</td></tr>\n<tr><td><code>idcounts.dat</code>, <code>raids.dat</code>, <code>map_*.dat</code></td><td><code>data/</code> của thế giới Java</td><td>Big-endian</td><td>gzip</td></tr>\n<tr><td><code>.nbt</code></td><td>Structure block, cấu trúc datapack</td><td>Big-endian</td><td>gzip</td></tr>\n<tr><td><code>.schem</code>, <code>.schematic</code></td><td>WorldEdit, Sponge, MCEdit</td><td>Big-endian</td><td>gzip</td></tr>\n<tr><td><code>.mcstructure</code></td><td>Structure block Bedrock</td><td>Little-endian</td><td>Không</td></tr>\n<tr><td>Payload chunk</td><td>Trích xuất vùng <code>.mca</code>, giá trị LevelDB</td><td>Một trong hai thứ tự byte</td><td>zlib hoặc không nén</td></tr>\n<tr><td>Bản dump gói tin</td><td>Giao thức Bedrock, giao thức Java 1.20.2+</td><td>Varint LE / BE không tên</td><td>Không</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"How to use\">\n<h2>Cách sửa tệp NBT</h2>\n<div class=\"card\">\n<ol class=\"steps\">\n<li><strong>Lấy tệp khỏi máy chủ hoặc thiết bị.</strong> Máy chủ Java giữ tệp trong <code>world/</code>, máy chủ Bedrock trong <code>worlds/YourWorld/</code>, Android trong <code>games/com.mojang/minecraftWorlds/&lt;id&gt;/</code>. Trước tiên hãy dừng máy chủ để tệp không bị ghi trong lúc sao chép.</li>\n<li><strong>Thả tệp vào trình sửa.</strong> Nhãn phía trên cây cho biết những gì đã phát hiện: phiên bản, kiểu mã hóa, kiểu nén và với Bedrock là phiên bản lưu trữ trong header.</li>\n<li><strong>Sửa.</strong> Chạm vào giá trị để sửa tại chỗ. Dùng tìm kiếm để chuyển đến thẻ theo tên hoặc giá trị, dùng <strong>+</strong> để thêm thẻ vào compound hoặc danh sách, và <strong>×</strong> để xóa.</li>\n<li><strong>Lưu &amp; tải xuống.</strong> Bộ chọn định dạng đầu ra và kiểu nén mặc định dùng đúng giá trị của tệp đầu vào, nên thao tác sửa thông thường giữ nguyên định dạng đến từng byte.</li>\n<li><strong>Chép lại và khởi động.</strong> Giữ tệp gốc làm bản sao lưu cho đến khi thế giới tải thành công một lần và hiển thị đúng.</li>\n</ol>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Features\">\n<h2>Điểm khác biệt của trình sửa này</h2>\n<div class=\"features-grid\">\n<article class=\"feature-card\"><h3>Năm kiểu mã hóa, một vùng thả tệp</h3><p>Java big-endian, Bedrock little-endian, NBT mạng varint Bedrock, NBT mạng không tên gốc từ Java 1.20.2+ và <code>level.dat</code> Bedrock có header. Công cụ phát hiện, không phỏng đoán.</p></article>\n<article class=\"feature-card\"><h3>gzip và zlib trong trình duyệt</h3><p>Việc giải nén và nén lại dùng Compression Streams API gốc, vì vậy <code>level.dat</code> Java được ghi lại thành tệp mà trò chơi chấp nhận với định dạng không đổi.</p></article>\n<article class=\"feature-card\"><h3>Long 64 bit thực</h3><p>Giá trị <code>TAG_Long</code> được giữ dưới dạng <code>BigInt</code>. Seed thế giới và các nửa UUID không bị sai do làm tròn số dấu phẩy động như ở nhiều công cụ NBT trên trình duyệt.</p></article>\n<article class=\"feature-card\"><h3>Mã hóa chuỗi chính xác</h3><p>Java ghi UTF-8 sửa đổi (CESU-8), Bedrock ghi UTF-8 tiêu chuẩn. Trình sửa mã hóa theo từng phiên bản nên emoji và tên thế giới không dùng chữ Latin vẫn nguyên vẹn.</p></article>\n<article class=\"feature-card\"><h3>Được thiết kế cho tệp lớn</h3><p>Mảng được giữ trong typed array và cây kết xuất theo nhu cầu, mỗi lần 200 mục. Một megabyte NBT chunk có thể mở mà không làm treo tab.</p></article>\n<article class=\"feature-card\"><h3>Tìm kiếm toàn cây</h3><p>Tìm thẻ theo tên hoặc giá trị ở bất kỳ đâu trong tệp và chuyển thẳng đến thẻ với đường dẫn đã mở rộng.</p></article>\n<article class=\"feature-card\"><h3>Xuất SNBT</h3><p>Xuất toàn bộ cây thành SNBT — dạng văn bản dùng bởi <code>/data</code> và datapack — để so sánh, chia sẻ hoặc dán vào lệnh.</p></article>\n<article class=\"feature-card\"><h3>Chuyển đổi định dạng</h3><p>Đọc tệp Bedrock rồi ghi thành Java big-endian gzip hoặc ngược lại. Hữu ích cho công việc giao thức, kiểm thử và xây dựng công cụ.</p></article>\n<article class=\"feature-card\"><h3>Dữ liệu không rời thiết bị</h3><p>Tệp được đọc bằng <code>FileReader</code>, phân tích trong JavaScript và trả lại dưới dạng blob trong bộ nhớ. Không tồn tại endpoint tải lên.</p></article>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Supported server software\" id=\"server-software\">\n<h2>Phần mềm máy chủ được hỗ trợ — tất cả</h2>\n<p>NBT do trò chơi ghi, không phải do cách triển khai máy chủ quyết định, nên mọi phần mềm lưu thế giới Minecraft đều dùng một trong các kiểu mã hóa mà trình sửa đọc được. Danh sách bên dưới là đầy đủ theo nghĩa đó, không phải nội dung quảng cáo: phần mềm ghi thế giới phải dùng cấu trúc của Vanilla vì máy khách ở đầu kia cần đọc được.</p>\n<div class=\"card\">\n<h3>Bedrock Edition — NBT little-endian, header <code>level.dat</code> 8 byte</h3>\n<p><strong>Bedrock Dedicated Server (BDS)</strong>, <strong>PocketMine-MP</strong> (PM3, PM4, PM5), <strong>Nukkit</strong>, <strong>Nukkit-MOT</strong>, <strong>PowerNukkitX</strong>, <strong>Cloudburst Server</strong>, <strong>Dragonfly</strong>, <strong>Endstone</strong>, <strong>LeviLamina</strong> và <strong>BDSX</strong>, <strong>Allay</strong>, <strong>JukeboxMC</strong>, <strong>GoMint</strong>, <strong>Sculk</strong>, <strong>ElementZero</strong>, <strong>LiteLoaderBDS</strong>, cùng chính các máy khách <strong>MCPE</strong> và <strong>MCBE</strong> trên Android, iOS, Windows, console và Switch. Cùng <code>worlds/&lt;World&gt;/level.dat</code>, cùng header, cùng thẻ — xem <a href=\"pocketmine-nbt-editor/\">quy trình phía máy chủ</a>.</p>\n<h3>Java Edition — NBT big-endian, gzip</h3>\n<p><strong>Vanilla</strong>, <strong>CraftBukkit</strong>, <strong>Spigot</strong>, <strong>Paper</strong>, <strong>Purpur</strong>, <strong>Pufferfish</strong>, <strong>Folia</strong>, <strong>Leaves</strong>, <strong>Gale</strong>, <strong>Petal</strong>, <strong>Airplane</strong>, <strong>Sponge</strong> (SpongeVanilla, SpongeForge), <strong>Fabric</strong>, <strong>Quilt</strong>, <strong>Forge</strong>, <strong>NeoForge</strong>, <strong>Mohist</strong>, <strong>Arclight</strong>, <strong>Magma</strong>, <strong>Ketting</strong>, <strong>Banner</strong>, <strong>Cardboard</strong>, <strong>Glowstone</strong>, <strong>Thermos</strong>, <strong>Uberbukkit</strong> và mọi fork, máy chủ modpack hoặc bản cũ khác. Nếu ghi <code>world/level.dat</code>, trình sửa này sẽ mở được — xem <a href=\"java-nbt-editor/\">chi tiết tại đây</a>.</p>\n<h3>Proxy và cầu nối</h3>\n<p><strong>Geyser</strong>, <strong>WaterdogPE</strong>, <strong>Waterfall</strong>, <strong>Velocity</strong> và <strong>BungeeCord</strong> không sở hữu thế giới; chúng truyền NBT qua mạng. Dữ liệu bắt từ các socket này là NBT mạng — varint little-endian phía Bedrock, big-endian không tên gốc trên Java 1.20.2+ — và cả hai đều mở trực tiếp tại đây.</p>\n<h3>Phần mềm không có trong danh sách</h3>\n<p>Fork tùy chỉnh, phần mềm riêng, dự án học tập hoặc máy chủ do bạn tự viết: nếu tệp là NBT, trình sửa sẽ phát hiện một trong năm kiểu mã hóa và mở nó. Không có chức năng nào ở đây phụ thuộc vào tên phần mềm.</p>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Scripting\">\n<h2>Dùng bộ phân tích trong mã của bạn</h2>\n<p>Trang cung cấp engine qua <code>window.NBT</code>, vì vậy bộ phân tích chạy giao diện cũng có thể được điều khiển từ console trình duyệt hoặc tái sử dụng trong userscript:</p>\n<pre class=\"code\"><code>const bytes = new Uint8Array(await file.arrayBuffer());\nconst { root, format, compression, headerVersion } = await NBT.read(bytes);\n\nroot.value.find(t =&gt; t.name === \"LevelName\").value = \"New World\";\n\nconst out = await NBT.write(root, format, { compression, headerVersion });</code></pre>\n<p>Thẻ là các đối tượng thuần — <code>{ type, name, value, listType }</code> — mảng dùng <code>Int8Array</code>, <code>Int32Array</code> và <code>BigInt64Array</code>, còn long dùng <code>BigInt</code>. <a href=\"nbt-format/\">Tài liệu đầy đủ về định dạng NBT</a> mô tả mọi kiểu thẻ và điểm khác nhau giữa các kiểu mã hóa.</p>\n</section>\n",
+    "chips": [
+      "Bedrock Edition",
+      "Java Edition",
+      "Vanilla",
+      "Paper",
+      "Spigot",
+      "Purpur",
+      "Pufferfish",
+      "Folia",
+      "Leaves",
+      "Fabric",
+      "Quilt",
+      "Forge",
+      "NeoForge",
+      "Mohist",
+      "Arclight",
+      "Sponge",
+      "Bedrock Dedicated Server",
+      "PocketMine-MP",
+      "Nukkit",
+      "PowerNukkitX",
+      "Nukkit-MOT",
+      "Cloudburst",
+      "Dragonfly",
+      "Endstone",
+      "LeviLamina",
+      "Allay",
+      "JukeboxMC",
+      "GoMint",
+      "Geyser",
+      "WaterdogPE"
+    ],
+    "faq": [
+      [
+        "Trình sửa NBT này có miễn phí không?",
+        "<p>Có, và mã nguồn được phát hành theo giấy phép MIT. Không có gói trả phí, không cần đăng ký và không giới hạn dung lượng tải lên vì hoàn toàn không có thành phần máy chủ — toàn bộ trình sửa chỉ gồm một trang tĩnh và hai tệp tài nguyên.</p>"
+      ],
+      [
+        "Công cụ có dùng được với Java Edition và Bedrock Edition không?",
+        "<p>Có, với cả hai. Tệp Java Edition dùng big-endian và thường được nén gzip; tệp Bedrock dùng little-endian, còn <code>level.dat</code> có thêm header 8 byte. Trình sửa tự phát hiện biến thể đã nhận và ghi lại đúng biến thể đó khi lưu.</p>"
+      ],
+      [
+        "Tệp thế giới của tôi có được tải lên đâu không?",
+        "<p>Không. Tệp được đọc cục bộ bằng API FileReader và bản tải xuống được tạo từ blob trong bộ nhớ. Sau khi trang tải xong, bạn có thể ngắt mạng và công cụ vẫn hoạt động.</p>"
+      ],
+      [
+        "Tôi có thể dùng trên Android hoặc iOS không?",
+        "<p>Có. Bố cục ưu tiên thiết bị di động, với vùng chạm 44&nbsp;px và thanh thao tác cố định. Trên Android, bạn có thể chọn tệp thế giới trực tiếp từ trình quản lý tệp; trên iOS, do cơ chế sandbox, trước tiên tệp phải nằm trong ứng dụng Files.</p>"
+      ],
+      [
+        "NBT khác SNBT ở điểm nào?",
+        "<p>NBT là dạng mã hóa nhị phân Minecraft lưu trên đĩa. SNBT là dạng văn bản của nó, tức cú pháp dùng trong các lệnh như <code>/data merge</code>. Trình sửa này đọc NBT nhị phân và có thể xuất SNBT để dễ so sánh hai tệp hoặc dán cấu trúc vào lệnh.</p>"
+      ],
+      [
+        "Công cụ này thay thế những phần mềm nào?",
+        "<p>Các trình sửa NBT trên máy tính như NBTExplorer và các công cụ web chỉ xử lý một phiên bản. Xem phần <a href=\"nbtexplorer-online/\">so sánh NBTExplorer trực tuyến</a> để biết chức năng nào tương đương và chức năng nào không.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Đã tải dưới dạng {0}",
+      "trailing": "Đã bỏ qua {0} byte thừa sau thẻ gốc",
+      "error": "Lỗi: {0}",
+      "readfail": "Không thể đọc tệp",
+      "nofile": "Chưa tải tệp nào",
+      "saved": "Đã lưu {0} ({1}, {2})",
+      "savefail": "Lỗi lưu: {0}",
+      "exported": "Đã xuất {0}",
+      "snbtfail": "Lỗi SNBT: {0}",
+      "tagadded": "Đã thêm thẻ",
+      "tagremoved": "Đã xóa thẻ",
+      "arrayupdated": "Đã cập nhật mảng",
+      "badvalue": "Giá trị không hợp lệ: {0}",
+      "badarray": "Mảng không hợp lệ: {0}",
+      "nameneeded": "Bắt buộc nhập tên thẻ",
+      "nametaken": "Thẻ có tên {0} đã tồn tại tại đây",
+      "listtype": "Danh sách đã chứa các mục kiểu {0}",
+      "editlevelname": "✎ Sửa LevelName",
+      "showmore": "Hiện thêm {0} trong số {1} …",
+      "matches": "{0} kết quả",
+      "nomatch": "Không có thẻ nào khớp \"{0}\"",
+      "arraytoobig": "Mảng có {0} mục — hãy mở rộng và sửa từng phần tử",
+      "uncompressed": "không nén",
+      "storage": "lưu trữ v{0}",
+      "entries": "{0} mục",
+      "langprompt": "Mở trang này bằng {0}?",
+      "langyes": "Chuyển",
+      "langno": "Ở lại"
+    },
+    "support": "<strong>Hỗ trợ Minecraft Bedrock Edition và Java Edition</strong> — cùng mọi phần mềm máy chủ phổ biến hoặc ít gặp của cả hai: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina và các phần mềm còn lại. <a href=\"__HOME__#server-software\">Danh sách đầy đủ</a>.",
+    "footernote": "miễn phí, mã nguồn mở (MIT), chạy hoàn toàn trong trình duyệt. Không liên kết với Mojang Studios hoặc Microsoft. Minecraft là nhãn hiệu của Mojang Studios.",
+    "faqtitle": "Câu hỏi thường gặp",
+    "toctitle": "Nội dung trang",
+    "relatedtitle": "Công cụ liên quan",
+    "homecrumb": "Trình sửa NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Trình sửa",
+      "Loại tệp",
+      "Tài liệu tham khảo"
+    ],
+    "sourcehead": "Mã nguồn",
+    "sourcelink": "Mã trên GitHub"
+  },
+  "level-dat-editor": {
+    "title": "Trình sửa level.dat online — cài đặt thế giới Minecraft",
+    "ogtitle": "Trình sửa level.dat — sửa mọi cài đặt thế giới online",
+    "desc": "Sửa level.dat Minecraft online: tên, chế độ chơi, độ khó, điểm sinh, seed và luật chơi cho thế giới Java hoặc Bedrock. Tệp không được tải lên.",
+    "keywords": "sửa level.dat minecraft, level.dat editor online, đổi tên world minecraft, chỉnh gamemode level.dat, sửa seed minecraft, chỉnh gamerule level.dat, đọc level.dat",
+    "h1": "Trình sửa level.dat — chỉnh cài đặt thế giới Minecraft",
+    "crumb": "Trình sửa level.dat",
+    "reltitle": "Trình sửa level.dat",
+    "reldesc": "Tên thế giới, chế độ chơi, điểm sinh, độ khó và luật chơi.",
+    "answer": "<code>level.dat</code> là tệp chứa mọi thông tin của một thế giới Minecraft về chính nó: tên, chế độ chơi, độ khó, điểm sinh, luật chơi, trạng thái thời tiết và phiên bản mở gần nhất. Thả tệp bên dưới để sửa trực tiếp các giá trị này. Công cụ xử lý cả tệp Java (gzip, big-endian) và Bedrock (little-endian với header 8 byte), rồi ghi lại đúng định dạng ban đầu.",
+    "droplabel": "level.dat",
+    "body": "\n<section class=\"content\" aria-label=\"Tags in level.dat\">\n<h2>Những thẻ thường được sửa</h2>\n<p><code>level.dat</code> Java giữ gần như mọi dữ liệu trong một compound <code>Data</code>; <code>level.dat</code> Bedrock đặt các thẻ trực tiếp ở gốc. Những tên bên dưới là các thẻ cần biết — tìm bất kỳ tên nào trong cây để trình sửa chuyển đến đó.</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Thẻ</th><th>Kiểu</th><th>Phiên bản</th><th>Chức năng</th></tr></thead>\n<tbody>\n<tr><td><code>LevelName</code></td><td>String</td><td>Cả hai</td><td>Tên hiển thị của thế giới. Tên này vẫn cũ sau khi sao chép thư mục — xem <a href=\"../guides/change-world-name/\">hướng dẫn đổi tên</a>.</td></tr>\n<tr><td><code>GameType</code> / <code>gameType</code></td><td>Int</td><td>Cả hai</td><td>0 sinh tồn, 1 sáng tạo, 2 phiêu lưu, 3 khán giả.</td></tr>\n<tr><td><code>Difficulty</code></td><td>Byte / Int</td><td>Cả hai</td><td>0 bình yên, 1 dễ, 2 thường, 3 khó.</td></tr>\n<tr><td><code>hardcore</code></td><td>Byte</td><td>Cả hai</td><td>1 khóa thế giới theo luật hardcore.</td></tr>\n<tr><td><code>allowCommands</code> / <code>commandsEnabled</code></td><td>Byte</td><td>Java / Bedrock</td><td>Cheat có được bật hay không.</td></tr>\n<tr><td><code>SpawnX</code>, <code>SpawnY</code>, <code>SpawnZ</code></td><td>Int</td><td>Cả hai</td><td>Tọa độ sinh của thế giới.</td></tr>\n<tr><td><code>Time</code>, <code>DayTime</code></td><td>Long</td><td>Java</td><td>Tổng số tick và thời gian trong ngày.</td></tr>\n<tr><td><code>currentTick</code></td><td>Int</td><td>Bedrock</td><td>Đồng hồ thế giới tương ứng của Bedrock.</td></tr>\n<tr><td><code>RandomSeed</code> / <code>WorldGenSettings.seed</code></td><td>Long</td><td>Java</td><td>Seed thế giới. Được giữ dưới dạng giá trị 64 bit thực, không phải số double bị làm tròn.</td></tr>\n<tr><td><code>GameRules</code> / các thẻ gamerule riêng lẻ</td><td>Compound / Byte</td><td>Java / Bedrock</td><td>Mọi thiết lập của <code>/gamerule</code> — xem <a href=\"../guides/edit-gamerules/\">hướng dẫn luật chơi</a>.</td></tr>\n<tr><td><code>DataVersion</code></td><td>Int</td><td>Java</td><td>Phiên bản định dạng thế giới. Kiểm tra trước khi chuyển thế giới giữa các phiên bản Minecraft.</td></tr>\n<tr><td><code>lastOpenedWithVersion</code></td><td>Danh sách Int</td><td>Bedrock</td><td>Bản dựng máy khách hoặc máy chủ Bedrock gần nhất đã ghi thế giới.</td></tr>\n<tr><td><code>Player</code></td><td>Compound</td><td>Cả hai</td><td>Túi đồ, vị trí và chỉ số chơi đơn được nhúng trong tệp thế giới.</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Where to find level.dat\">\n<h2>Vị trí của <code>level.dat</code></h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Nền tảng</th><th>Đường dẫn</th></tr></thead>\n<tbody>\n<tr><td>Máy chủ Java (Vanilla, Paper, Spigot, Fabric, Forge)</td><td><code>world/level.dat</code>, cạnh <code>region/</code> và <code>playerdata/</code></td></tr>\n<tr><td>Máy khách Java, Windows</td><td><code>%APPDATA%\\.minecraft\\saves\\&lt;World&gt;\\level.dat</code></td></tr>\n<tr><td>Máy khách Java, macOS</td><td><code>~/Library/Application Support/minecraft/saves/&lt;World&gt;/level.dat</code></td></tr>\n<tr><td>Máy khách Java, Linux</td><td><code>~/.minecraft/saves/&lt;World&gt;/level.dat</code></td></tr>\n<tr><td>Bedrock Dedicated Server, PocketMine-MP, Nukkit</td><td><code>worlds/&lt;World&gt;/level.dat</code></td></tr>\n<tr><td>Bedrock trên Android</td><td><code>Android/data/com.mojang.minecraftpe/files/games/com.mojang/minecraftWorlds/&lt;id&gt;/level.dat</code></td></tr>\n<tr><td>Bedrock trên Windows</td><td><code>%LOCALAPPDATA%\\Packages\\Microsoft.MinecraftUWP_*\\LocalState\\games\\com.mojang\\minecraftWorlds\\&lt;id&gt;\\level.dat</code></td></tr>\n</tbody>\n</table>\n</div>\n<p>Minecraft cũng ghi <code>level.dat_old</code> bên cạnh — đây là bản lưu trước. Tệp này cũng mở được trong trình sửa và là lựa chọn đầu tiên nên thử nếu tệp hiện tại không tải được.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Safety\">\n<h2>Sửa tệp an toàn</h2>\n<div class=\"card\">\n<ul>\n<li><strong>Trước tiên hãy dừng máy chủ hoặc đóng trò chơi.</strong> Minecraft ghi lại <code>level.dat</code> khi tự động lưu và tắt; máy chủ đang chạy sẽ ghi đè thay đổi của bạn, hoặc tệ hơn là ghi lên tệp mới sao chép được một phần.</li>\n<li><strong>Giữ tệp gốc.</strong> Trình sửa không bao giờ thay đổi tệp đã thả vào mà tạo một bản tải xuống mới. Giữ bản cũ cho đến khi thế giới tải thành công một lần.</li>\n<li><strong>Không đổi kiểu thẻ.</strong> Đổi <code>Difficulty</code> từ Byte sang Int hoặc đổi tên thẻ mà Minecraft yêu cầu có thể khiến thế giới ngừng tải. Chỉ sửa giá trị, không sửa cấu trúc, trừ khi bạn hiểu rõ lý do.</li>\n<li><strong>Giữ nguyên header Bedrock.</strong> Header 8 byte chứa phiên bản lưu trữ và độ dài payload. Trình sửa tự ghi lại độ dài và giữ nguyên phiên bản; tệp sửa thủ công bị mất header sẽ không tải được.</li>\n</ul>\n</div>\n</section>\n",
+    "chips": [
+      "level.dat Java",
+      "level.dat Bedrock",
+      "level.dat_old",
+      "gzip",
+      "header 8 byte"
+    ],
+    "faq": [
+      [
+        "Tôi có thể sửa level.dat mà không tải phần mềm không?",
+        "<p>Có — đó chính là chức năng của trang này. Bộ phân tích chạy trong trình duyệt nên không cần cài đặt và chỉ yêu cầu một trình duyệt hiện đại, không phụ thuộc hệ điều hành.</p>"
+      ],
+      [
+        "Tại sao thế giới vẫn hiện tên cũ?",
+        "<p>Vì tên trong danh sách thế giới lấy từ <code>LevelName</code> bên trong <code>level.dat</code>, không phải tên thư mục. Sao chép hoặc đổi tên thư mục không thay đổi thẻ này. Hãy sửa thẻ để cập nhật danh sách.</p>"
+      ],
+      [
+        "Công cụ có dùng được với level.dat_old không?",
+        "<p>Có. <code>level.dat_old</code> là bản lưu trước ở cùng định dạng. Nếu tệp hiện tại bị hỏng, hãy mở bản <code>_old</code>, kiểm tra dữ liệu hợp lệ rồi khôi phục dưới tên gốc.</p>"
+      ],
+      [
+        "Tôi có thể đổi seed của thế giới tại đây không?",
+        "<p>Bạn có thể sửa thẻ seed, nhưng thay đổi chỉ ảnh hưởng đến địa hình được tạo sau đó — các chunk đã lưu vẫn giữ địa hình cũ, nên ranh giới giữa địa hình cũ và mới sẽ nhìn thấy rõ.</p>"
+      ],
+      [
+        "Sửa level.dat có khiến tôi bị cấm hoặc làm hỏng thế giới không?",
+        "<p>Đây là tệp lưu của bạn nên không có lý do để bị cấm. Hỏng dữ liệu thường do sửa khi máy chủ đang chạy hoặc đổi kiểu và tên thẻ thay vì chỉ đổi giá trị. Hãy dừng máy chủ, sửa giá trị và giữ bản sao lưu.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Đã tải dưới dạng {0}",
+      "trailing": "Đã bỏ qua {0} byte thừa sau thẻ gốc",
+      "error": "Lỗi: {0}",
+      "readfail": "Không thể đọc tệp",
+      "nofile": "Chưa tải tệp nào",
+      "saved": "Đã lưu {0} ({1}, {2})",
+      "savefail": "Lỗi lưu: {0}",
+      "exported": "Đã xuất {0}",
+      "snbtfail": "Lỗi SNBT: {0}",
+      "tagadded": "Đã thêm thẻ",
+      "tagremoved": "Đã xóa thẻ",
+      "arrayupdated": "Đã cập nhật mảng",
+      "badvalue": "Giá trị không hợp lệ: {0}",
+      "badarray": "Mảng không hợp lệ: {0}",
+      "nameneeded": "Bắt buộc nhập tên thẻ",
+      "nametaken": "Thẻ có tên {0} đã tồn tại tại đây",
+      "listtype": "Danh sách đã chứa các mục kiểu {0}",
+      "editlevelname": "✎ Sửa LevelName",
+      "showmore": "Hiện thêm {0} trong số {1} …",
+      "matches": "{0} kết quả",
+      "nomatch": "Không có thẻ nào khớp \"{0}\"",
+      "arraytoobig": "Mảng có {0} mục — hãy mở rộng và sửa từng phần tử",
+      "uncompressed": "không nén",
+      "storage": "lưu trữ v{0}",
+      "entries": "{0} mục",
+      "langprompt": "Mở trang này bằng {0}?",
+      "langyes": "Chuyển",
+      "langno": "Ở lại"
+    },
+    "support": "<strong>Hỗ trợ Minecraft Bedrock Edition và Java Edition</strong> — cùng mọi phần mềm máy chủ phổ biến hoặc ít gặp của cả hai: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina và các phần mềm còn lại. <a href=\"__HOME__#server-software\">Danh sách đầy đủ</a>.",
+    "footernote": "miễn phí, mã nguồn mở (MIT), chạy hoàn toàn trong trình duyệt. Không liên kết với Mojang Studios hoặc Microsoft. Minecraft là nhãn hiệu của Mojang Studios.",
+    "faqtitle": "Câu hỏi thường gặp",
+    "toctitle": "Nội dung trang",
+    "relatedtitle": "Công cụ liên quan",
+    "homecrumb": "Trình sửa NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Trình sửa",
+      "Loại tệp",
+      "Tài liệu tham khảo"
+    ],
+    "sourcehead": "Mã nguồn",
+    "sourcelink": "Mã trên GitHub"
+  },
+  "java-nbt-editor": {
+    "title": "Trình sửa NBT Java Edition — level.dat, playerdata, .nbt",
+    "ogtitle": "Trình sửa NBT Java Edition — big-endian, gzip, online",
+    "desc": "Trình sửa NBT online cho Minecraft Java Edition: level.dat big-endian gzip, playerdata, servers.dat và cấu trúc .nbt từ Paper, Spigot, Fabric, Forge.",
+    "keywords": "trình sửa nbt java, nbt editor minecraft java, sửa level.dat java, sửa playerdata minecraft, paper level.dat, spigot nbt editor, đọc file nbt gzip",
+    "h1": "Trình sửa NBT Java Edition",
+    "crumb": "Java",
+    "reltitle": "Trình sửa NBT Java Edition",
+    "reldesc": "Big-endian và gzip — Vanilla, Paper, Spigot, Fabric, Forge.",
+    "answer": "Minecraft Java Edition lưu dữ liệu dưới dạng NBT big-endian, gần như luôn được nén gzip. Thả tệp Java bất kỳ bên dưới — <code>level.dat</code>, tệp UUID trong <code>playerdata</code>, <code>servers.dat</code>, cấu trúc <code>.nbt</code> hoặc schematic WorldEdit — trình sửa sẽ giải nén, phân tích theo big-endian và ghi lại bằng gzip để trò chơi chấp nhận mà không thay đổi định dạng.",
+    "droplabel": "tệp NBT Java",
+    "body": "\n<section class=\"content\" aria-label=\"Java NBT files\">\n<h2>Một thế giới Java gồm những gì</h2>\n<p>Mọi tệp bên dưới đều mở được trong trình sửa phía trên. Bản thân tệp vùng (<code>.mca</code>) là vùng chứa nhiều chunk đã nén chứ không phải một tài liệu NBT, vì vậy trước tiên hãy trích payload của một chunk — trình sửa đọc NBT chunk nén zlib thu được.</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Đường dẫn</th><th>Nội dung</th><th>Kiểu nén</th></tr></thead>\n<tbody>\n<tr><td><code>world/level.dat</code></td><td>Tên thế giới, chế độ chơi, luật, điểm sinh, <code>DataVersion</code></td><td>gzip</td></tr>\n<tr><td><code>world/level.dat_old</code></td><td>Bản lưu trước của cùng tệp</td><td>gzip</td></tr>\n<tr><td><code>world/playerdata/&lt;uuid&gt;.dat</code></td><td>Túi đồ, rương Ender, vị trí, máu, XP, thuộc tính</td><td>gzip</td></tr>\n<tr><td><code>world/data/raids.dat</code>, <code>idcounts.dat</code>, <code>map_*.dat</code></td><td>Trạng thái raid, bộ đếm id thực thể, vật phẩm bản đồ</td><td>gzip</td></tr>\n<tr><td><code>world/data/scoreboard.dat</code></td><td>Mục tiêu, đội, điểm số</td><td>gzip</td></tr>\n<tr><td><code>world/region/*.mca</code></td><td>NBT chunk trong vùng chứa region</td><td>zlib cho mỗi chunk</td></tr>\n<tr><td><code>servers.dat</code></td><td>Danh sách máy chủ nhiều người chơi từ máy khách</td><td>không</td></tr>\n<tr><td><code>hotbar.nbt</code></td><td>Các hotbar sáng tạo đã lưu</td><td>không</td></tr>\n<tr><td><code>*.nbt</code> trong datapack</td><td>Cấu trúc được đặt bởi structure block và jigsaw</td><td>gzip</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Java NBT encoding\">\n<h2>Cách Java mã hóa NBT</h2>\n<div class=\"card\">\n<ul>\n<li><strong>Big-endian.</strong> Mọi số nguyên và số dấu phẩy động đều lưu byte có trọng số cao nhất trước, đúng với <code>DataOutputStream</code> của Java.</li>\n<li><strong>Thẻ gốc có tên.</strong> Tệp bắt đầu bằng kiểu thẻ <code>0x0A</code>, sau đó là tên gốc UTF-8 có tiền tố độ dài — trước đây thường để trống trong <code>level.dat</code>.</li>\n<li><strong>UTF-8 sửa đổi.</strong> Chuỗi dùng mã hóa <code>writeUTF</code> của Java: độ dài hai byte, NUL được ghi thành <code>C0 80</code>, còn ký tự ngoài mặt phẳng cơ bản được tách thành hai nửa ba byte (CESU-8). Công cụ xử lý nó như UTF-8 thường sẽ làm hỏng emoji trong tên thế giới; trình sửa này mã hóa chính xác.</li>\n<li><strong>Mặc định là gzip.</strong> <code>NbtIo.readCompressed</code> yêu cầu luồng gzip. Tệp không nén có thể mở trong một số công cụ nhưng không mở trong trò chơi.</li>\n<li><strong>Thẻ gốc không tên trên mạng.</strong> Từ 1.20.2, giao thức gửi NBT không có tên gốc. Bản dump theo cấu trúc này được phát hiện là <em>Mạng Java</em>.</li>\n</ul>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Server cores\">\n<h2>Paper, Spigot, Fabric, Forge — cùng loại tệp</h2>\n<p>Fork và mod loader thay đổi cách máy chủ chạy, không thay đổi cách thế giới được ghi. Paper, Purpur, Pufferfish, Folia, Fabric, Quilt, Forge, NeoForge, Mohist, Arclight và Sponge đều dùng bố cục NBT của Vanilla, nên mọi nội dung trên trang này áp dụng nguyên vẹn. Fork chỉ thêm các tệp bên cạnh thế giới — <code>paper-world.yml</code>, cấu hình mod — nhưng chúng là YAML hoặc TOML và không liên quan đến NBT.</p>\n<p>Mod và plugin có thể thêm compound riêng trong <code>level.dat</code> hoặc <code>playerdata</code>. Các thẻ đó mở như mọi thẻ khác; không sửa nếu bạn không biết mod sử dụng chúng thế nào.</p>\n</section>\n\n<section class=\"content\" aria-label=\"DataVersion\">\n<h2><code>DataVersion</code> và chuyển đổi phiên bản</h2>\n<p>Thế giới Java có số nguyên <code>DataVersion</code> xác định định dạng thế giới, tăng theo mỗi snapshot. Một số mốc hữu ích: 1.16.5 là 2586, 1.17.1 là 2730, 1.18.2 là 2975, 1.19.4 là 3337, 1.20.4 là 3700, 1.21 là 3953. Máy khách cũ hơn phiên bản đã ghi thế giới từ chối mở chính vì thẻ này; giảm nó thủ công không hạ cấp dữ liệu chunk mà chỉ bỏ lớp bảo vệ. Hãy đọc để biết phiên bản nào đã ghi thế giới; không sửa để ép hạ cấp.</p>\n</section>\n",
+    "chips": [
+      "Vanilla",
+      "Paper",
+      "Spigot",
+      "Purpur",
+      "Folia",
+      "Fabric",
+      "Quilt",
+      "Forge",
+      "NeoForge",
+      "Sponge"
+    ],
+    "faq": [
+      [
+        "Tôi có thể mở level.dat Java mà trò chơi không tải được không?",
+        "<p>Thường là có — trình sửa chấp nhận byte thừa tốt hơn trò chơi và báo chính xác vị trí dừng phân tích nếu tệp bị cắt ngắn. Nếu công cụ cũng từ chối, hãy thử <code>level.dat_old</code>, tức bản tự động lưu trước đó.</p>"
+      ],
+      [
+        "Công cụ có hỗ trợ NBT mạng từ 1.20.2 trở lên không?",
+        "<p>Có. Từ 1.20.2, giao thức bỏ tên thẻ gốc. Bản dump dạng này được phát hiện là định dạng <em>Mạng Java</em> và có thể lưu lại dưới dạng NBT mạng hoặc tệp thông thường có thẻ gốc mang tên.</p>"
+      ],
+      [
+        "Tôi có thể sửa chunk trong tệp vùng .mca không?",
+        "<p>Bạn có thể sửa NBT của chunk sau khi trích nó khỏi vùng chứa. Bản thân <code>.mca</code> gồm một chỉ mục và nhiều payload chunk nén zlib; trình sửa này xử lý một tài liệu NBT riêng lẻ, không xử lý vùng chứa.</p>"
+      ],
+      [
+        "Sửa playerdata có làm hỏng người chơi không?",
+        "<p>Chỉ khi máy chủ đang chạy trong lúc sửa — máy chủ giữ trạng thái người chơi trong bộ nhớ và ghi ra khi đăng xuất, làm mất thay đổi của bạn. Cho người chơi offline, sửa rồi để họ kết nối lại. Xem <a href=\"../playerdata-editor/\">trình sửa playerdata</a>.</p>"
+      ],
+      [
+        "level.dat có bắt buộc phải nén gzip không?",
+        "<p>Bộ nạp Vanilla đọc gzip. Hãy lưu với kiểu nén gzip — mặc định khi tệp đầu vào dùng kiểu này — để trò chơi chấp nhận.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Đã tải dưới dạng {0}",
+      "trailing": "Đã bỏ qua {0} byte thừa sau thẻ gốc",
+      "error": "Lỗi: {0}",
+      "readfail": "Không thể đọc tệp",
+      "nofile": "Chưa tải tệp nào",
+      "saved": "Đã lưu {0} ({1}, {2})",
+      "savefail": "Lỗi lưu: {0}",
+      "exported": "Đã xuất {0}",
+      "snbtfail": "Lỗi SNBT: {0}",
+      "tagadded": "Đã thêm thẻ",
+      "tagremoved": "Đã xóa thẻ",
+      "arrayupdated": "Đã cập nhật mảng",
+      "badvalue": "Giá trị không hợp lệ: {0}",
+      "badarray": "Mảng không hợp lệ: {0}",
+      "nameneeded": "Bắt buộc nhập tên thẻ",
+      "nametaken": "Thẻ có tên {0} đã tồn tại tại đây",
+      "listtype": "Danh sách đã chứa các mục kiểu {0}",
+      "editlevelname": "✎ Sửa LevelName",
+      "showmore": "Hiện thêm {0} trong số {1} …",
+      "matches": "{0} kết quả",
+      "nomatch": "Không có thẻ nào khớp \"{0}\"",
+      "arraytoobig": "Mảng có {0} mục — hãy mở rộng và sửa từng phần tử",
+      "uncompressed": "không nén",
+      "storage": "lưu trữ v{0}",
+      "entries": "{0} mục",
+      "langprompt": "Mở trang này bằng {0}?",
+      "langyes": "Chuyển",
+      "langno": "Ở lại"
+    },
+    "support": "<strong>Hỗ trợ Minecraft Bedrock Edition và Java Edition</strong> — cùng mọi phần mềm máy chủ phổ biến hoặc ít gặp của cả hai: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina và các phần mềm còn lại. <a href=\"__HOME__#server-software\">Danh sách đầy đủ</a>.",
+    "footernote": "miễn phí, mã nguồn mở (MIT), chạy hoàn toàn trong trình duyệt. Không liên kết với Mojang Studios hoặc Microsoft. Minecraft là nhãn hiệu của Mojang Studios.",
+    "faqtitle": "Câu hỏi thường gặp",
+    "toctitle": "Nội dung trang",
+    "relatedtitle": "Công cụ liên quan",
+    "homecrumb": "Trình sửa NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Trình sửa",
+      "Loại tệp",
+      "Tài liệu tham khảo"
+    ],
+    "sourcehead": "Mã nguồn",
+    "sourcelink": "Mã trên GitHub"
+  },
+  "mcpe-nbt-editor": {
+    "title": "Trình sửa NBT MCPE — level.dat Pocket Edition, Android, iOS",
+    "ogtitle": "Trình sửa NBT Bedrock — level.dat, MCPE, MCBE",
+    "desc": "Sửa tệp thế giới MCPE và Bedrock online: level.dat có header 8 byte, .mcstructure và NBT little-endian từ Android, iOS, Windows hoặc máy chủ.",
+    "keywords": "trình sửa nbt mcpe, nbt editor minecraft pe, sửa level.dat bedrock, chỉnh world mcpe, mở file level.dat android, bedrock nbt editor online, sửa mcstructure",
+    "h1": "Trình sửa NBT MCPE — tệp Minecraft Pocket Edition",
+    "crumb": "MCPE",
+    "reltitle": "Trình sửa NBT MCPE",
+    "reldesc": "NBT little-endian và header 8 byte của level.dat.",
+    "answer": "Bedrock Edition ghi NBT theo little-endian và đặt trước <code>level.dat</code> một header 8 byte chứa phiên bản lưu trữ cùng độ dài payload. Thả tệp Bedrock bên dưới — <code>level.dat</code>, <code>.mcstructure</code>, giá trị LevelDB hoặc bản dump giao thức — trình sửa sẽ đọc tệp, giữ nguyên header, tính lại độ dài khi lưu và trả về tệp sẵn sàng chép vào thư mục thế giới.",
+    "droplabel": "tệp level.dat Bedrock",
+    "body": "\n<section class=\"content\" aria-label=\"Bedrock level.dat header\">\n<h2>Header 8 byte và lý do nó quan trọng</h2>\n<p><code>level.dat</code> Bedrock không phải NBT thô. Bốn byte đầu là phiên bản lưu trữ little-endian (8 và 10 là các giá trị đang gặp), bốn byte tiếp theo là độ dài theo byte của payload NBT, sau đó là các thẻ không nén. Nếu sửa payload mà không cập nhật độ dài, trò chơi sẽ từ chối tệp — đây chính là lỗi khi mở bản lưu Bedrock bằng công cụ NBT chỉ hỗ trợ Java.</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Vị trí byte</th><th>Kích thước</th><th>Trường</th></tr></thead>\n<tbody>\n<tr><td>0</td><td>4 byte</td><td>Phiên bản lưu trữ, int little-endian</td></tr>\n<tr><td>4</td><td>4 byte</td><td>Độ dài payload theo byte, unsigned little-endian</td></tr>\n<tr><td>8</td><td>phần còn lại</td><td>NBT little-endian, compound gốc, không nén</td></tr>\n</tbody>\n</table>\n</div>\n<p>Trình sửa hiển thị phiên bản lưu trữ trên thanh tệp, giữ nguyên nó và tự ghi lại độ dài mỗi khi bạn lưu.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Bedrock tags\">\n<h2>Các thẻ Bedrock cần biết</h2>\n<p>Bedrock đặt cài đặt trực tiếp ở gốc <code>level.dat</code> thay vì lồng trong compound <code>Data</code> như Java; luật chơi cũng là các thẻ riêng thay vì một phần tử con <code>GameRules</code>.</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Thẻ</th><th>Kiểu</th><th>Ý nghĩa</th></tr></thead>\n<tbody>\n<tr><td><code>LevelName</code></td><td>String</td><td>Tên thế giới hiện trong danh sách và đầu ra máy chủ</td></tr>\n<tr><td><code>GameType</code></td><td>Int</td><td>0 sinh tồn, 1 sáng tạo, 2 phiêu lưu</td></tr>\n<tr><td><code>Difficulty</code></td><td>Int</td><td>0 bình yên … 3 khó</td></tr>\n<tr><td><code>commandsEnabled</code></td><td>Byte</td><td>Bật hoặc tắt cheat</td></tr>\n<tr><td><code>SpawnX</code>, <code>SpawnY</code>, <code>SpawnZ</code></td><td>Int</td><td>Điểm sinh của thế giới</td></tr>\n<tr><td><code>RandomSeed</code></td><td>Long</td><td>Seed thế giới, một giá trị 64 bit thực</td></tr>\n<tr><td><code>lastOpenedWithVersion</code></td><td>Danh sách Int</td><td>Bản dựng máy khách hoặc máy chủ gần nhất đã ghi thế giới</td></tr>\n<tr><td><code>StorageVersion</code></td><td>Int</td><td>Bản sửa đổi lưu trữ thế giới, phản ánh header</td></tr>\n<tr><td><code>experiments</code></td><td>Compound</td><td>Các tùy chọn thử nghiệm được bật cho thế giới</td></tr>\n<tr><td><code>keepinventory</code>, <code>domobspawning</code>, …</td><td>Byte</td><td>Luật chơi, mỗi luật là một thẻ chữ thường</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Where Bedrock files live\">\n<h2>Tìm tệp trên từng nền tảng</h2>\n<ul>\n<li><strong>Android:</strong> <code>Android/data/com.mojang.minecraftpe/files/games/com.mojang/minecraftWorlds/&lt;id&gt;/level.dat</code>. Android mới giới hạn thư mục này — hãy xuất thế giới trong trò chơi hoặc dùng trình quản lý tệp có quyền phù hợp.</li>\n<li><strong>iOS:</strong> xuất thế giới thành <code>.mcworld</code> từ trò chơi, mở trong ứng dụng Files rồi giải nén tại đó — <code>level.dat</code> nằm ở gốc tệp nén.</li>\n<li><strong>Windows:</strong> <code>%LOCALAPPDATA%\\Packages\\Microsoft.MinecraftUWP_8wekyb3d8bbwe\\LocalState\\games\\com.mojang\\minecraftWorlds\\&lt;id&gt;\\level.dat</code>.</li>\n<li><strong>Bedrock Dedicated Server:</strong> <code>worlds/&lt;World&gt;/level.dat</code>.</li>\n<li><strong>PocketMine-MP, Nukkit, PowerNukkitX:</strong> <code>worlds/&lt;World&gt;/level.dat</code> — xem <a href=\"../pocketmine-nbt-editor/\">hướng dẫn phía máy chủ</a>.</li>\n</ul>\n<p>Tên thư mục thế giới là id ngẫu nhiên, không phải tên thế giới. Sắp xếp theo thời gian sửa đổi hoặc mở vài tệp <code>level.dat</code> tại đây và đọc <code>LevelName</code> để xác định đúng tệp.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Other Bedrock NBT\">\n<h2>Ngoài <code>level.dat</code></h2>\n<p>Bedrock giữ chunk, thực thể và block entity trong cơ sở dữ liệu LevelDB ở thư mục <code>db/</code>, với NBT little-endian làm giá trị của nhiều khóa. Trích một giá trị để mở tại đây dưới dạng <em>Bedrock thô</em> — không header, không nén. Tệp cấu trúc dùng cùng kiểu mã hóa: xem <a href=\"../mcstructure-editor/\">trình sửa .mcstructure</a>. Bản bắt giao thức dùng biến thể varint, được trình sửa phát hiện là <em>Mạng Bedrock</em>.</p>\n</section>\n",
+    "chips": [
+      "MCPE",
+      "MCBE",
+      "Bedrock Dedicated Server",
+      "PocketMine-MP",
+      "Nukkit",
+      "PowerNukkitX",
+      "Cloudburst",
+      "Dragonfly",
+      "Endstone"
+    ],
+    "faq": [
+      [
+        "Tại sao level.dat Bedrock không mở được trong NBTExplorer?",
+        "<p>Vì NBTExplorer yêu cầu bố cục big-endian của Java và không nhận biết header 8 byte của Bedrock. Trình sửa này xử lý cả hai và ghi lại độ dài trong header khi lưu.</p>"
+      ],
+      [
+        "Tôi có thể sửa thế giới MCPE trên điện thoại không?",
+        "<p>Có. Mở trang này trong trình duyệt điện thoại, chọn tệp từ trình quản lý tệp, sửa rồi lưu. Tệp tải xuống nằm trong thư mục Downloads; hãy chép đè nó lên bản gốc.</p>"
+      ],
+      [
+        "Phiên bản lưu trữ 8 và 10 khác nhau thế nào?",
+        "<p>Chúng đánh dấu các lần sửa đổi định dạng lưu trữ thế giới Bedrock; phiên bản 10 được các máy khách hiện tại ghi. Trình sửa giữ giá trị sẵn có thay vì ép sang một phiên bản vì đổi số này không di chuyển dữ liệu thế giới phía sau.</p>"
+      ],
+      [
+        "Công cụ có dùng được với tệp .mcworld không?",
+        "<p>Không trực tiếp — <code>.mcworld</code> là tệp nén zip. Hãy giải nén, sửa <code>level.dat</code> tại đây, đưa tệp trở lại gói nén rồi đổi tên về <code>.mcworld</code>.</p>"
+      ],
+      [
+        "Công cụ có dùng được với luật chơi Bedrock không?",
+        "<p>Có. Bedrock lưu mỗi luật dưới dạng một thẻ byte chữ thường ở gốc — <code>keepinventory</code>, <code>domobspawning</code>, <code>showcoordinates</code> và các thẻ khác. Đặt byte thành 1 hoặc 0. <a href=\"../guides/edit-gamerules/\">Hướng dẫn luật chơi</a> liệt kê đầy đủ.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Đã tải dưới dạng {0}",
+      "trailing": "Đã bỏ qua {0} byte thừa sau thẻ gốc",
+      "error": "Lỗi: {0}",
+      "readfail": "Không thể đọc tệp",
+      "nofile": "Chưa tải tệp nào",
+      "saved": "Đã lưu {0} ({1}, {2})",
+      "savefail": "Lỗi lưu: {0}",
+      "exported": "Đã xuất {0}",
+      "snbtfail": "Lỗi SNBT: {0}",
+      "tagadded": "Đã thêm thẻ",
+      "tagremoved": "Đã xóa thẻ",
+      "arrayupdated": "Đã cập nhật mảng",
+      "badvalue": "Giá trị không hợp lệ: {0}",
+      "badarray": "Mảng không hợp lệ: {0}",
+      "nameneeded": "Bắt buộc nhập tên thẻ",
+      "nametaken": "Thẻ có tên {0} đã tồn tại tại đây",
+      "listtype": "Danh sách đã chứa các mục kiểu {0}",
+      "editlevelname": "✎ Sửa LevelName",
+      "showmore": "Hiện thêm {0} trong số {1} …",
+      "matches": "{0} kết quả",
+      "nomatch": "Không có thẻ nào khớp \"{0}\"",
+      "arraytoobig": "Mảng có {0} mục — hãy mở rộng và sửa từng phần tử",
+      "uncompressed": "không nén",
+      "storage": "lưu trữ v{0}",
+      "entries": "{0} mục",
+      "langprompt": "Mở trang này bằng {0}?",
+      "langyes": "Chuyển",
+      "langno": "Ở lại"
+    },
+    "support": "<strong>Hỗ trợ Minecraft Bedrock Edition và Java Edition</strong> — cùng mọi phần mềm máy chủ phổ biến hoặc ít gặp của cả hai: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina và các phần mềm còn lại. <a href=\"__HOME__#server-software\">Danh sách đầy đủ</a>.",
+    "footernote": "miễn phí, mã nguồn mở (MIT), chạy hoàn toàn trong trình duyệt. Không liên kết với Mojang Studios hoặc Microsoft. Minecraft là nhãn hiệu của Mojang Studios.",
+    "faqtitle": "Câu hỏi thường gặp",
+    "toctitle": "Nội dung trang",
+    "relatedtitle": "Công cụ liên quan",
+    "homecrumb": "Trình sửa NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Trình sửa",
+      "Loại tệp",
+      "Tài liệu tham khảo"
+    ],
+    "sourcehead": "Mã nguồn",
+    "sourcelink": "Mã trên GitHub"
+  },
+  "pocketmine-nbt-editor": {
+    "title": "Trình sửa level.dat PocketMine-MP — PMMP, Nukkit, BDS",
+    "ogtitle": "Trình sửa level.dat PocketMine-MP & Nukkit",
+    "desc": "Sửa level.dat online cho PocketMine-MP, Nukkit, PowerNukkitX và Bedrock Dedicated Server. Khắc phục tên thế giới trùng sau khi sao chép thư mục.",
+    "keywords": "sửa level.dat pocketmine, pmmp nbt editor, đổi tên world pocketmine, nukkit level.dat, sửa world name bds, powernukkitx nbt, pocketmine world editor",
+    "h1": "Trình sửa level.dat cho PocketMine-MP và máy chủ Bedrock",
+    "crumb": "PocketMine-MP",
+    "reltitle": "Trình sửa PocketMine-MP",
+    "reldesc": "level.dat phía máy chủ cho PMMP, Nukkit và BDS.",
+    "answer": "Các phần mềm máy chủ Bedrock — PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly và Bedrock Dedicated Server chính thức — đều đọc cùng một <code>level.dat</code> little-endian có header 8 byte từ <code>worlds/&lt;World&gt;/</code>. Thả tệp bên dưới để sửa tên sau khi nhân bản thư mục, chuyển điểm sinh, đổi luật chơi hoặc kiểm tra bản dựng gần nhất đã ghi thế giới.",
+    "droplabel": "worlds/&lt;World&gt;/level.dat",
+    "body": "\n<section class=\"content\" aria-label=\"Duplicate world names\">\n<h2>Vấn đề trùng tên thế giới</h2>\n<p>Mọi quản trị viên máy chủ Bedrock đều gặp trường hợp này. Bạn sao chép <code>worlds/hub</code> thành <code>worlds/hub2</code> để tạo đấu trường thứ hai, nhưng console, trình quản lý thế giới và mọi plugin báo tên thế giới vẫn gọi cả hai là <em>hub</em>. Tên thư mục đã đổi; <code>LevelName</code> trong <code>level.dat</code> thì chưa.</p>\n<p>Hậu quả không chỉ nằm ở hiển thị. Plugin tra cứu thế giới theo tên nội bộ — điểm dịch chuyển, cấu hình từng thế giới, bảo vệ vùng — có thể chọn nhầm thế giới và các lệnh quản lý trở nên mơ hồ. Sửa bằng cách đổi thẻ: thả tệp phía trên để trình sửa chuyển thẳng đến <code>LevelName</code> và mở giá trị cho bạn sửa.</p>\n<div class=\"card\">\n<ol class=\"steps\">\n<li>Dừng máy chủ. Máy chủ đang chạy ghi lại <code>level.dat</code> khi lưu và sẽ hủy thay đổi.</li>\n<li>Tải <code>worlds/&lt;World&gt;/level.dat</code> qua SFTP hoặc trình quản lý tệp trong bảng điều khiển.</li>\n<li>Thả tệp vào trình sửa, đổi <code>LevelName</code> thành tên mới rồi lưu.</li>\n<li>Tải lên và ghi đè tệp gốc, đồng thời giữ tệp cũ làm bản sao lưu.</li>\n<li>Khởi động máy chủ và kiểm tra dòng console báo các thế giới đã tải.</li>\n</ol>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Core specifics\">\n<h2>Ghi chú theo từng phần mềm</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Phần mềm</th><th>Đường dẫn thế giới</th><th>Ghi chú</th></tr></thead>\n<tbody>\n<tr><td>PocketMine-MP (PM5)</td><td><code>worlds/&lt;World&gt;/</code></td><td>Thế giới mặc định do <code>level-name</code> trong <code>server.properties</code> chọn; giá trị đó là thư mục, còn <code>LevelName</code> là tên nội bộ của thế giới.</td></tr>\n<tr><td>Nukkit / PowerNukkitX</td><td><code>worlds/&lt;World&gt;/</code></td><td>Cùng bố cục Bedrock; PNX thêm các tệp cài đặt riêng bên cạnh.</td></tr>\n<tr><td>Bedrock Dedicated Server</td><td><code>worlds/&lt;World&gt;/</code></td><td><code>level-name</code> trong <code>server.properties</code> chọn thư mục; phiên bản lưu trữ trong header thường là 10.</td></tr>\n<tr><td>Cloudburst / Dragonfly</td><td><code>worlds/&lt;World&gt;/</code></td><td>Đọc cùng <code>level.dat</code>; Dragonfly có thể giữ trạng thái bổ sung trong cơ sở dữ liệu riêng.</td></tr>\n<tr><td>WaterdogPE, Geyser</td><td>—</td><td>Đây là proxy. Chúng không sở hữu thế giới; NBT chỉ truyền qua mạng dưới dạng NBT mạng.</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Server workflow\">\n<h2>Thực hiện mà không làm hỏng máy chủ đang dùng</h2>\n<div class=\"card\">\n<ul>\n<li><strong>Sao lưu toàn bộ thư mục thế giới,</strong> không chỉ <code>level.dat</code>. Chỉ mất vài giây và đây là cách duy nhất để hoàn tác một lần sửa sai.</li>\n<li><strong>Không sửa trực tiếp tệp đang hoạt động qua SFTP.</strong> Tải xuống, sửa rồi tải lên khi máy chủ đã dừng. Sửa tại chỗ trong lúc máy chủ đang mở thế giới có thể tạo tệp bị cắt ngắn.</li>\n<li><strong>Đang sao chép thế giới cho chế độ mới?</strong> Đổi <code>LevelName</code> ngay sau khi sao chép, trước khi máy chủ đọc tệp, để không có thành phần nào lưu tên sai vào bộ nhớ đệm.</li>\n<li><strong>Kiểm tra thanh tệp sau khi tải.</strong> Thanh này hiện định dạng và phiên bản lưu trữ đã phát hiện — nếu tệp Bedrock được nhận là bất cứ thứ gì khác <em>level.dat Bedrock</em>, bạn đã lấy nhầm tệp hoặc tệp bị hỏng.</li>\n</ul>\n</div>\n</section>\n",
+    "chips": [
+      "PocketMine-MP",
+      "Nukkit",
+      "PowerNukkitX",
+      "Cloudburst",
+      "Bedrock Dedicated Server",
+      "Dragonfly",
+      "Endstone",
+      "WaterdogPE"
+    ],
+    "faq": [
+      [
+        "PocketMine-MP có dùng cùng level.dat với Bedrock không?",
+        "<p>Có. PocketMine-MP triển khai định dạng thế giới Bedrock, vì vậy <code>level.dat</code> là NBT little-endian có header 8 byte, với cấu trúc byte giống tệp mà máy chủ Bedrock Vanilla ghi.</p>"
+      ],
+      [
+        "Tại sao hai thế giới hiện cùng tên trong console?",
+        "<p>Vì cả hai được sao chép từ một thư mục và dùng chung <code>LevelName</code>. Tên thư mục và thẻ này độc lập; hãy đổi thẻ.</p>"
+      ],
+      [
+        "Tôi có thể đổi tên thế giới mà không khởi động lại máy chủ không?",
+        "<p>Không. Thế giới đang nằm trong bộ nhớ và được ghi lại khi lưu, vì vậy thay đổi lúc máy chủ chạy sẽ bị hủy. Hãy dừng, sửa rồi khởi động.</p>"
+      ],
+      [
+        "Công cụ có dùng được với Nukkit và PowerNukkitX không?",
+        "<p>Có — cùng định dạng, cùng đường dẫn tệp và cùng quy trình.</p>"
+      ],
+      [
+        "Làm thế nào để chuyển thế giới Bedrock sang Java?",
+        "<p>Không thể chỉ bằng trình sửa NBT. Thứ tự byte là phần dễ; bố cục thẻ, bảng block và cách lưu chunk khác hoàn toàn. Hãy dùng công cụ chuyển đổi chuyên dụng rồi dùng trình sửa này cho phần siêu dữ liệu còn lại.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Đã tải dưới dạng {0}",
+      "trailing": "Đã bỏ qua {0} byte thừa sau thẻ gốc",
+      "error": "Lỗi: {0}",
+      "readfail": "Không thể đọc tệp",
+      "nofile": "Chưa tải tệp nào",
+      "saved": "Đã lưu {0} ({1}, {2})",
+      "savefail": "Lỗi lưu: {0}",
+      "exported": "Đã xuất {0}",
+      "snbtfail": "Lỗi SNBT: {0}",
+      "tagadded": "Đã thêm thẻ",
+      "tagremoved": "Đã xóa thẻ",
+      "arrayupdated": "Đã cập nhật mảng",
+      "badvalue": "Giá trị không hợp lệ: {0}",
+      "badarray": "Mảng không hợp lệ: {0}",
+      "nameneeded": "Bắt buộc nhập tên thẻ",
+      "nametaken": "Thẻ có tên {0} đã tồn tại tại đây",
+      "listtype": "Danh sách đã chứa các mục kiểu {0}",
+      "editlevelname": "✎ Sửa LevelName",
+      "showmore": "Hiện thêm {0} trong số {1} …",
+      "matches": "{0} kết quả",
+      "nomatch": "Không có thẻ nào khớp \"{0}\"",
+      "arraytoobig": "Mảng có {0} mục — hãy mở rộng và sửa từng phần tử",
+      "uncompressed": "không nén",
+      "storage": "lưu trữ v{0}",
+      "entries": "{0} mục",
+      "langprompt": "Mở trang này bằng {0}?",
+      "langyes": "Chuyển",
+      "langno": "Ở lại"
+    },
+    "support": "<strong>Hỗ trợ Minecraft Bedrock Edition và Java Edition</strong> — cùng mọi phần mềm máy chủ phổ biến hoặc ít gặp của cả hai: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina và các phần mềm còn lại. <a href=\"__HOME__#server-software\">Danh sách đầy đủ</a>.",
+    "footernote": "miễn phí, mã nguồn mở (MIT), chạy hoàn toàn trong trình duyệt. Không liên kết với Mojang Studios hoặc Microsoft. Minecraft là nhãn hiệu của Mojang Studios.",
+    "faqtitle": "Câu hỏi thường gặp",
+    "toctitle": "Nội dung trang",
+    "relatedtitle": "Công cụ liên quan",
+    "homecrumb": "Trình sửa NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Trình sửa",
+      "Loại tệp",
+      "Tài liệu tham khảo"
+    ],
+    "sourcehead": "Mã nguồn",
+    "sourcelink": "Mã trên GitHub"
+  },
+  "mcstructure-editor": {
+    "title": "Trình sửa .mcstructure online — tệp cấu trúc Bedrock",
+    "ogtitle": "Trình sửa .mcstructure — mở và sửa cấu trúc Bedrock",
+    "desc": "Mở và sửa tệp .mcstructure Bedrock online: bảng block, kích thước, chỉ số block và dữ liệu block entity, rồi lưu lại đúng kiểu mã hóa.",
+    "keywords": "mcstructure editor, sửa file mcstructure, mở file mcstructure, xem mcstructure online, cấu trúc minecraft bedrock, chỉnh structure block bedrock",
+    "h1": "Trình sửa .mcstructure — tệp cấu trúc Bedrock",
+    "crumb": ".mcstructure",
+    "reltitle": "Trình sửa .mcstructure",
+    "reldesc": "Structure block Bedrock: bảng block, kích thước, block entity.",
+    "answer": "Tệp <code>.mcstructure</code> là NBT little-endian không nén do structure block Bedrock ghi. Thả tệp bên dưới để đọc kích thước, bảng block, chỉ số block và dữ liệu block entity, sửa bất kỳ phần nào rồi tải tệp xuống với cùng kiểu mã hóa — phù hợp khi người làm add-on hoặc bản đồ cần vá cấu trúc mà không mở lại thế giới.",
+    "droplabel": "tệp .mcstructure",
+    "body": "\n<section class=\"content\" aria-label=\"Inside a mcstructure file\">\n<h2>Bên trong <code>.mcstructure</code> có gì</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Thẻ</th><th>Kiểu</th><th>Nội dung</th></tr></thead>\n<tbody>\n<tr><td><code>format_version</code></td><td>Int</td><td>Phiên bản định dạng cấu trúc, bằng 1 trong các tệp hiện tại</td></tr>\n<tr><td><code>size</code></td><td>Danh sách Int</td><td>Kích thước X, Y, Z của vùng đã chụp</td></tr>\n<tr><td><code>structure_world_origin</code></td><td>Danh sách Int</td><td>Vị trí lấy cấu trúc trong thế giới</td></tr>\n<tr><td><code>structure</code></td><td>Compound</td><td>Mọi dữ liệu bên dưới nằm tại đây</td></tr>\n<tr><td><code>structure.block_indices</code></td><td>Danh sách Int[]</td><td>Hai lớp chỉ số bảng block — thường là block và trạng thái ngập nước; <code>-1</code> nghĩa là \"giữ nguyên nội dung hiện có\"</td></tr>\n<tr><td><code>structure.entities</code></td><td>Danh sách Compound</td><td>Các thực thể được chụp cùng cấu trúc</td></tr>\n<tr><td><code>structure.palette.default.block_palette</code></td><td>Danh sách Compound</td><td>Mọi trạng thái block riêng biệt: <code>name</code>, <code>states</code>, <code>version</code></td></tr>\n<tr><td><code>structure.palette.default.block_position_data</code></td><td>Compound</td><td>NBT của block entity, dùng chỉ số phẳng của vị trí làm khóa</td></tr>\n</tbody>\n</table>\n</div>\n<p>Chỉ số trong <code>block_indices</code> chạy theo X, rồi Z, rồi Y — chỉ số phẳng <code>(x * sizeZ + z) * sizeY + y</code> vào danh sách bảng block. Ánh xạ này cho phép sửa một block bị đặt sai mà không cần tạo lại cấu trúc.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Typical edits\">\n<h2>Những thay đổi thường gặp</h2>\n<ul>\n<li><strong>Đổi một loại block ở mọi vị trí</strong> bằng cách sửa một mục trong <code>block_palette</code> — mọi vị trí trỏ đến chỉ số đó sẽ thay đổi theo.</li>\n<li><strong>Sửa trạng thái block</strong> như <code>facing</code> sai hoặc <code>waterlogged</code> vô tình được bật trong compound <code>states</code>.</li>\n<li><strong>Xóa thực thể</strong> bị đưa vào ngoài ý muốn bằng cách xóa các mục khỏi danh sách <code>entities</code>.</li>\n<li><strong>Sửa dữ liệu block entity</strong> — đồ trong rương, văn bản biển, cài đặt spawner — bên trong <code>block_position_data</code>.</li>\n<li><strong>Kiểm tra dấu phiên bản</strong> trên các mục bảng block khi cấu trúc nhập vào có block sai sau khi cập nhật trò chơi.</li>\n</ul>\n</section>\n\n<section class=\"content\" aria-label=\"Where mcstructure files live\">\n<h2>Vị trí các tệp</h2>\n<p>Structure block lưu vào thư mục <code>structures/</code> bên trong thư mục thế giới, trong các tệp có tên <code>&lt;namespace&gt;_&lt;name&gt;.mcstructure</code>. Behavior pack đặt chúng trong <code>structures/</code> của pack, nơi trò chơi tải theo namespace. Cả hai dùng cùng định dạng và đều mở được tại đây.</p>\n<p>Tệp tương đương của Java Edition là cấu trúc <code>.nbt</code> big-endian nén gzip — kiểu mã hóa và bố cục thẻ khác. <a href=\"../java-nbt-editor/\">Trang trình sửa Java</a> mô tả các tệp đó, và công cụ này cũng mở được chúng.</p>\n</section>\n",
+    "chips": [
+      "Structure block",
+      "Add-on Bedrock",
+      "Behavior pack",
+      "NBT little-endian"
+    ],
+    "faq": [
+      [
+        "Tôi có thể chuyển .mcstructure sang cấu trúc .nbt Java không?",
+        "<p>Trình sửa có thể mã hóa lại byte thành big-endian gzip, nhưng bố cục thẻ khác nhau — cấu trúc Java dùng <code>palette</code>/<code>blocks</code> với khóa và tên block khác. Tệp mã hóa lại có thể đọc được nhưng không phải cấu trúc Java hợp lệ.</p>"
+      ],
+      [
+        "Tại sao .mcstructure của tôi không được nén?",
+        "<p>Bedrock ghi tệp cấu trúc dưới dạng NBT little-endian thô, không có lớp bọc gzip. Đây là bình thường; trình sửa phát hiện nó là <em>Bedrock thô</em>.</p>"
+      ],
+      [
+        "Chỉ số -1 trong block_indices có nghĩa gì?",
+        "<p>Nó đánh dấu vị trí mà cấu trúc không thay đổi, vì vậy block hiện có trong thế giới được giữ lại khi đặt cấu trúc.</p>"
+      ],
+      [
+        "Tôi có thể đổi kích thước cấu trúc bằng cách sửa size không?",
+        "<p>Không thể chỉ sửa riêng — <code>block_indices</code> có một mục cho mỗi vị trí nên độ dài mảng phải khớp chính xác với thể tích mới. Chỉ đổi <code>size</code> sẽ tạo tệp bị trò chơi từ chối.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Đã tải dưới dạng {0}",
+      "trailing": "Đã bỏ qua {0} byte thừa sau thẻ gốc",
+      "error": "Lỗi: {0}",
+      "readfail": "Không thể đọc tệp",
+      "nofile": "Chưa tải tệp nào",
+      "saved": "Đã lưu {0} ({1}, {2})",
+      "savefail": "Lỗi lưu: {0}",
+      "exported": "Đã xuất {0}",
+      "snbtfail": "Lỗi SNBT: {0}",
+      "tagadded": "Đã thêm thẻ",
+      "tagremoved": "Đã xóa thẻ",
+      "arrayupdated": "Đã cập nhật mảng",
+      "badvalue": "Giá trị không hợp lệ: {0}",
+      "badarray": "Mảng không hợp lệ: {0}",
+      "nameneeded": "Bắt buộc nhập tên thẻ",
+      "nametaken": "Thẻ có tên {0} đã tồn tại tại đây",
+      "listtype": "Danh sách đã chứa các mục kiểu {0}",
+      "editlevelname": "✎ Sửa LevelName",
+      "showmore": "Hiện thêm {0} trong số {1} …",
+      "matches": "{0} kết quả",
+      "nomatch": "Không có thẻ nào khớp \"{0}\"",
+      "arraytoobig": "Mảng có {0} mục — hãy mở rộng và sửa từng phần tử",
+      "uncompressed": "không nén",
+      "storage": "lưu trữ v{0}",
+      "entries": "{0} mục",
+      "langprompt": "Mở trang này bằng {0}?",
+      "langyes": "Chuyển",
+      "langno": "Ở lại"
+    },
+    "support": "<strong>Hỗ trợ Minecraft Bedrock Edition và Java Edition</strong> — cùng mọi phần mềm máy chủ phổ biến hoặc ít gặp của cả hai: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina và các phần mềm còn lại. <a href=\"__HOME__#server-software\">Danh sách đầy đủ</a>.",
+    "footernote": "miễn phí, mã nguồn mở (MIT), chạy hoàn toàn trong trình duyệt. Không liên kết với Mojang Studios hoặc Microsoft. Minecraft là nhãn hiệu của Mojang Studios.",
+    "faqtitle": "Câu hỏi thường gặp",
+    "toctitle": "Nội dung trang",
+    "relatedtitle": "Công cụ liên quan",
+    "homecrumb": "Trình sửa NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Trình sửa",
+      "Loại tệp",
+      "Tài liệu tham khảo"
+    ],
+    "sourcehead": "Mã nguồn",
+    "sourcelink": "Mã trên GitHub"
+  },
+  "schematic-editor": {
+    "title": "Trình sửa .schem và .schematic online — WorldEdit, MCEdit",
+    "ogtitle": "Trình sửa .schem / .schematic — tệp WorldEdit và MCEdit",
+    "desc": "Mở tệp WorldEdit .schem và MCEdit .schematic online. Xem bảng block, kích thước, offset và block entity, sửa thẻ rồi tải schematic xuống.",
+    "keywords": "schematic editor online, sửa file schem, mở file schematic minecraft, worldedit schematic editor, xem schem online, mcedit schematic, sponge schematic",
+    "h1": "Trình sửa schematic — .schem và .schematic online",
+    "crumb": ".schem",
+    "reltitle": "Trình sửa schematic",
+    "reldesc": "WorldEdit .schem và MCEdit .schematic kiểu cũ.",
+    "answer": "Schematic là NBT big-endian được nén gzip. Thả tệp WorldEdit <code>.schem</code> hiện đại (định dạng Sponge Schematic) hoặc MCEdit <code>.schematic</code> cũ bên dưới để xem bảng block, kích thước, offset, danh sách block entity và siêu dữ liệu, sửa bất kỳ thẻ nào rồi tải tệp sẵn sàng dùng với <code>//paste</code>.",
+    "droplabel": "tệp .schem hoặc .schematic",
+    "body": "\n<section class=\"content\" aria-label=\"Schematic formats\">\n<h2>Hai định dạng, một nhóm phần mở rộng</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Định dạng</th><th>Phần mở rộng</th><th>Thẻ chính</th></tr></thead>\n<tbody>\n<tr><td>Sponge Schematic v2 (WorldEdit 7)</td><td><code>.schem</code></td><td><code>Version</code>, <code>DataVersion</code>, <code>Width</code>, <code>Height</code>, <code>Length</code>, <code>Palette</code>, <code>BlockData</code>, <code>BlockEntities</code>, <code>Offset</code>, <code>Metadata</code></td></tr>\n<tr><td>Sponge Schematic v3</td><td><code>.schem</code></td><td>Cùng dữ liệu được lồng trong compound <code>Schematic</code>, với <code>Blocks</code> chứa <code>Palette</code> và <code>Data</code></td></tr>\n<tr><td>MCEdit cũ</td><td><code>.schematic</code></td><td><code>Width</code>, <code>Height</code>, <code>Length</code>, <code>Blocks</code>, <code>Data</code>, <code>Entities</code>, <code>TileEntities</code>, <code>Materials</code></td></tr>\n</tbody>\n</table>\n</div>\n<p><code>BlockData</code> trong định dạng Sponge là mảng byte chứa chỉ số bảng block dạng varint, không phải một byte cho mỗi block — id dài tiếp tục qua nhiều byte. Định dạng cũ lưu id block dạng số thô trong <code>Blocks</code> với mảng <code>Data</code> song song chứa metadata nibble, vì vậy schematic cũ mất độ chính xác trên phiên bản hiện đại.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Editing schematics\">\n<h2>Những phần nên sửa thủ công</h2>\n<ul>\n<li><strong>Mục trong bảng block.</strong> Đổi <code>minecraft:oak_planks</code> thành <code>minecraft:spruce_planks</code> trong <code>Palette</code> sẽ đổi toàn bộ block tương ứng trong schematic cùng lúc.</li>\n<li><strong>Offset và gốc.</strong> <code>Offset</code> quyết định vị trí dán so với vị trí của bạn — cách nhanh nhất để sửa công trình luôn lệch ba block.</li>\n<li><strong>Block entity.</strong> Đồ trong rương, dòng chữ trên biển và dữ liệu spawner nằm trong <code>BlockEntities</code>, có thể dọn trước khi chia sẻ công trình.</li>\n<li><strong>Siêu dữ liệu.</strong> <code>Metadata</code> chứa tác giả và gốc WorldEdit; có thể sửa an toàn và thường nên xóa trước khi phát hành.</li>\n<li><strong>DataVersion.</strong> Cho biết phiên bản Minecraft đã tạo schematic, qua đó giải thích phần lớn lỗi \"unknown block\" khi dán.</li>\n</ul>\n</section>\n\n<section class=\"content\" aria-label=\"Compatibility\">\n<h2>Khả năng tương thích của bộ nạp</h2>\n<p>WorldEdit và FastAsyncWorldEdit đọc <code>.schem</code> từ <code>plugins/WorldEdit/schematics/</code>; tệp <code>.schematic</code> cũ vẫn tải được nhưng sẽ được chuyển đổi khi nhập. Litematica dùng vùng chứa <code>.litematic</code> riêng — cũng là NBT và mở được trong trình sửa này, dù bố cục khác Sponge. Dù là biến thể nào, trình sửa đọc dưới dạng NBT rồi ghi lại bằng gzip để bộ nạp nhận đúng tệp mong đợi.</p>\n</section>\n",
+    "chips": [
+      "WorldEdit",
+      "FastAsyncWorldEdit",
+      "Sponge Schematic v2/v3",
+      "MCEdit cũ",
+      "Liên quan Litematica"
+    ],
+    "faq": [
+      [
+        "Tôi có thể mở .schem mà không cần máy chủ hoặc WorldEdit không?",
+        "<p>Có. <code>.schem</code> chỉ là NBT big-endian nén gzip; trình sửa mở tệp ngay trong trình duyệt mà không cần cài thêm gì.</p>"
+      ],
+      [
+        "Tại sao schematic dán ra sai block?",
+        "<p>Thường do khác phiên bản — hãy kiểm tra <code>DataVersion</code> và bảng block. Schematic xuất từ phiên bản mới hơn có thể tham chiếu trạng thái block mà máy chủ cũ không biết.</p>"
+      ],
+      [
+        "Tôi có thể đổi kích thước schematic tại đây không?",
+        "<p>Không thể chỉ sửa <code>Width</code>/<code>Height</code>/<code>Length</code>. <code>BlockData</code> có kích thước theo thể tích nên kích thước và dữ liệu phải thay đổi cùng nhau — đây là việc của WorldEdit, không phải trình sửa thẻ.</p>"
+      ],
+      [
+        "Công cụ có mở tệp .litematic không?",
+        "<p>Có, dưới dạng NBT. Bố cục thẻ riêng của Litematica không giống Sponge, nên bạn sẽ thấy cấu trúc gốc của nó thay vì bảng schematic.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Đã tải dưới dạng {0}",
+      "trailing": "Đã bỏ qua {0} byte thừa sau thẻ gốc",
+      "error": "Lỗi: {0}",
+      "readfail": "Không thể đọc tệp",
+      "nofile": "Chưa tải tệp nào",
+      "saved": "Đã lưu {0} ({1}, {2})",
+      "savefail": "Lỗi lưu: {0}",
+      "exported": "Đã xuất {0}",
+      "snbtfail": "Lỗi SNBT: {0}",
+      "tagadded": "Đã thêm thẻ",
+      "tagremoved": "Đã xóa thẻ",
+      "arrayupdated": "Đã cập nhật mảng",
+      "badvalue": "Giá trị không hợp lệ: {0}",
+      "badarray": "Mảng không hợp lệ: {0}",
+      "nameneeded": "Bắt buộc nhập tên thẻ",
+      "nametaken": "Thẻ có tên {0} đã tồn tại tại đây",
+      "listtype": "Danh sách đã chứa các mục kiểu {0}",
+      "editlevelname": "✎ Sửa LevelName",
+      "showmore": "Hiện thêm {0} trong số {1} …",
+      "matches": "{0} kết quả",
+      "nomatch": "Không có thẻ nào khớp \"{0}\"",
+      "arraytoobig": "Mảng có {0} mục — hãy mở rộng và sửa từng phần tử",
+      "uncompressed": "không nén",
+      "storage": "lưu trữ v{0}",
+      "entries": "{0} mục",
+      "langprompt": "Mở trang này bằng {0}?",
+      "langyes": "Chuyển",
+      "langno": "Ở lại"
+    },
+    "support": "<strong>Hỗ trợ Minecraft Bedrock Edition và Java Edition</strong> — cùng mọi phần mềm máy chủ phổ biến hoặc ít gặp của cả hai: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina và các phần mềm còn lại. <a href=\"__HOME__#server-software\">Danh sách đầy đủ</a>.",
+    "footernote": "miễn phí, mã nguồn mở (MIT), chạy hoàn toàn trong trình duyệt. Không liên kết với Mojang Studios hoặc Microsoft. Minecraft là nhãn hiệu của Mojang Studios.",
+    "faqtitle": "Câu hỏi thường gặp",
+    "toctitle": "Nội dung trang",
+    "relatedtitle": "Công cụ liên quan",
+    "homecrumb": "Trình sửa NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Trình sửa",
+      "Loại tệp",
+      "Tài liệu tham khảo"
+    ],
+    "sourcehead": "Mã nguồn",
+    "sourcelink": "Mã trên GitHub"
+  },
+  "playerdata-editor": {
+    "title": "Trình sửa playerdata Minecraft — sửa tệp .dat online",
+    "ogtitle": "Trình sửa playerdata — túi đồ, vị trí, chỉ số",
+    "desc": "Sửa tệp playerdata .dat Minecraft online: cứu người chơi kẹt vị trí, xóa vật phẩm hỏng, điều chỉnh máu, XP hoặc chế độ chơi.",
+    "keywords": "playerdata editor minecraft, sửa file playerdata, chỉnh inventory minecraft nbt, sửa uuid.dat minecraft, cứu player bị kẹt, minecraft inventory editor online",
+    "h1": "Trình sửa playerdata — tệp .dat người chơi Minecraft",
+    "crumb": "playerdata",
+    "reltitle": "Trình sửa playerdata",
+    "reldesc": "Túi đồ, vị trí, máu và chỉ số của từng người chơi.",
+    "answer": "Java Edition ghi một tệp NBT big-endian nén gzip cho mỗi người chơi tại <code>world/playerdata/&lt;uuid&gt;.dat</code>, chứa túi đồ, rương Ender, vị trí, chiều không gian, máu, độ đói, XP và thuộc tính. Thả tệp bên dưới để cứu người chơi kẹt trong địa hình, xóa vật phẩm gây crash hoặc đặt lại chỉ số — khi máy chủ đã dừng, hoặc ít nhất người chơi đó đang offline.",
+    "droplabel": "tệp playerdata .dat",
+    "body": "\n<section class=\"content\" aria-label=\"playerdata tags\">\n<h2>Các thẻ trong tệp người chơi</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Thẻ</th><th>Kiểu</th><th>Nội dung</th></tr></thead>\n<tbody>\n<tr><td><code>Pos</code></td><td>Danh sách Double</td><td>X, Y, Z. Dùng để cứu người chơi kẹt trong tường hoặc dưới bedrock.</td></tr>\n<tr><td><code>Rotation</code></td><td>Danh sách Float</td><td>Góc yaw và pitch.</td></tr>\n<tr><td><code>Dimension</code></td><td>String / Int</td><td>Chiều không gian người chơi sẽ vào khi đăng nhập.</td></tr>\n<tr><td><code>Inventory</code></td><td>Danh sách Compound</td><td>Mỗi stack một mục: <code>id</code>, <code>Count</code>, <code>Slot</code>, <code>components</code> hoặc <code>tag</code>.</td></tr>\n<tr><td><code>EnderItems</code></td><td>Danh sách Compound</td><td>Nội dung rương Ender, cùng cấu trúc.</td></tr>\n<tr><td><code>Health</code>, <code>foodLevel</code>, <code>XpLevel</code>, <code>XpTotal</code></td><td>Float / Int</td><td>Chỉ số sinh tồn và kinh nghiệm.</td></tr>\n<tr><td><code>playerGameType</code></td><td>Int</td><td>Chế độ chơi riêng của người chơi.</td></tr>\n<tr><td><code>abilities</code></td><td>Compound</td><td>Bay, bất tử, tốc độ đi và bay.</td></tr>\n<tr><td><code>Attributes</code></td><td>Danh sách Compound</td><td>Máu tối đa, tốc độ di chuyển và các modifier khác.</td></tr>\n<tr><td><code>SpawnX</code>/<code>SpawnY</code>/<code>SpawnZ</code> hoặc <code>respawn</code></td><td>Int / Compound</td><td>Điểm hồi sinh cá nhân, tùy theo phiên bản.</td></tr>\n<tr><td><code>UUID</code></td><td>Int[4]</td><td>UUID người chơi dưới dạng bốn int trong phiên bản hiện đại.</td></tr>\n</tbody>\n</table>\n</div>\n<p>Item stack đổi cấu trúc từ 1.20.5: dữ liệu tùy chỉnh chuyển từ một compound <code>tag</code> sang các <code>components</code> riêng. Cả hai cấu trúc đều mở được; hãy sửa cấu trúc mà phiên bản của bạn ghi.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Common repairs\">\n<h2>Các cách sửa thường dùng</h2>\n<div class=\"card\">\n<ul>\n<li><strong>Người chơi kẹt trong địa hình hoặc rơi mãi.</strong> Đặt <code>Pos</code> thành tọa độ an toàn — ba số double theo thứ tự X, Y, Z — và xóa <code>Motion</code> nếu chứa giá trị quá lớn.</li>\n<li><strong>Máy khách crash khi đăng nhập.</strong> Nguyên nhân thường là vật phẩm sai cấu trúc. Xóa mục gây lỗi khỏi <code>Inventory</code> thay vì xóa toàn bộ danh sách.</li>\n<li><strong>Sai chiều không gian sau lỗi cổng.</strong> Đặt <code>Dimension</code> về <code>minecraft:overworld</code> và gán tọa độ phù hợp cho <code>Pos</code>.</li>\n<li><strong>Kẹt ở chế độ khán giả.</strong> Đặt <code>playerGameType</code> thành 0 cho sinh tồn, 1 cho sáng tạo.</li>\n<li><strong>Modifier thuộc tính còn lại từ plugin đã gỡ.</strong> Xóa các mục cũ trong <code>Attributes</code>.</li>\n</ul>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Server safety\">\n<h2>Chỉ sửa khi người chơi offline</h2>\n<p>Máy chủ giữ trạng thái người chơi trong bộ nhớ và ghi ra khi đăng xuất hoặc tự động lưu. Sửa tệp lúc người chơi online chắc chắn khiến thay đổi bị ghi đè; sửa đúng lúc lưu có thể cắt ngắn tệp. Cho người chơi offline — hoặc dừng máy chủ — sao chép tệp, sửa rồi chép lại trước khi họ kết nối. Giữ bản gốc cho đến khi đăng nhập thành công.</p>\n<p>Máy chủ Bedrock không dùng bố cục này: dữ liệu người chơi nằm trong LevelDB của thế giới dưới các khóa như <code>player_&lt;uuid&gt;</code>, với giá trị là NBT little-endian. Trích giá trị để mở tại đây dưới dạng <em>Bedrock thô</em>.</p>\n</section>\n",
+    "chips": [
+      "playerdata Java",
+      "Rương Ender",
+      "Túi đồ",
+      "Vị trí",
+      "Thuộc tính",
+      "Liên quan advancement"
+    ],
+    "faq": [
+      [
+        "Tệp nào thuộc về người chơi của tôi?",
+        "<p>Tệp được đặt tên theo UUID. Tra UUID của người chơi bằng công cụ xem API Mojang hoặc sắp xếp <code>playerdata/</code> theo thời gian sửa đổi rồi đối chiếu với lần đăng nhập gần nhất.</p>"
+      ],
+      [
+        "Tôi có thể thêm vật phẩm bằng cách sửa playerdata không?",
+        "<p>Trên máy chủ của chính bạn thì có — thêm một mục vào danh sách <code>Inventory</code> với <code>id</code>, <code>Count</code> và <code>Slot</code>. Trên máy chủ của người khác, đây là hành vi xâm nhập và cũng không hiệu quả vì máy chủ đang chạy sẽ ghi đè tệp.</p>"
+      ],
+      [
+        "Tại sao thay đổi của tôi biến mất?",
+        "<p>Máy chủ hoặc người chơi đang online khi bạn sửa. Trạng thái trong bộ nhớ sẽ được ưu tiên ở lần lưu tiếp theo.</p>"
+      ],
+      [
+        "playerdata trong Bedrock có giống vậy không?",
+        "<p>Không. Bedrock lưu người chơi trong LevelDB của thế giới thay vì tệp riêng theo UUID. NBT trong các giá trị đó là little-endian và có thể mở tại đây sau khi trích xuất.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Đã tải dưới dạng {0}",
+      "trailing": "Đã bỏ qua {0} byte thừa sau thẻ gốc",
+      "error": "Lỗi: {0}",
+      "readfail": "Không thể đọc tệp",
+      "nofile": "Chưa tải tệp nào",
+      "saved": "Đã lưu {0} ({1}, {2})",
+      "savefail": "Lỗi lưu: {0}",
+      "exported": "Đã xuất {0}",
+      "snbtfail": "Lỗi SNBT: {0}",
+      "tagadded": "Đã thêm thẻ",
+      "tagremoved": "Đã xóa thẻ",
+      "arrayupdated": "Đã cập nhật mảng",
+      "badvalue": "Giá trị không hợp lệ: {0}",
+      "badarray": "Mảng không hợp lệ: {0}",
+      "nameneeded": "Bắt buộc nhập tên thẻ",
+      "nametaken": "Thẻ có tên {0} đã tồn tại tại đây",
+      "listtype": "Danh sách đã chứa các mục kiểu {0}",
+      "editlevelname": "✎ Sửa LevelName",
+      "showmore": "Hiện thêm {0} trong số {1} …",
+      "matches": "{0} kết quả",
+      "nomatch": "Không có thẻ nào khớp \"{0}\"",
+      "arraytoobig": "Mảng có {0} mục — hãy mở rộng và sửa từng phần tử",
+      "uncompressed": "không nén",
+      "storage": "lưu trữ v{0}",
+      "entries": "{0} mục",
+      "langprompt": "Mở trang này bằng {0}?",
+      "langyes": "Chuyển",
+      "langno": "Ở lại"
+    },
+    "support": "<strong>Hỗ trợ Minecraft Bedrock Edition và Java Edition</strong> — cùng mọi phần mềm máy chủ phổ biến hoặc ít gặp của cả hai: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina và các phần mềm còn lại. <a href=\"__HOME__#server-software\">Danh sách đầy đủ</a>.",
+    "footernote": "miễn phí, mã nguồn mở (MIT), chạy hoàn toàn trong trình duyệt. Không liên kết với Mojang Studios hoặc Microsoft. Minecraft là nhãn hiệu của Mojang Studios.",
+    "faqtitle": "Câu hỏi thường gặp",
+    "toctitle": "Nội dung trang",
+    "relatedtitle": "Công cụ liên quan",
+    "homecrumb": "Trình sửa NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Trình sửa",
+      "Loại tệp",
+      "Tài liệu tham khảo"
+    ],
+    "sourcehead": "Mã nguồn",
+    "sourcelink": "Mã trên GitHub"
+  },
+  "nbt-viewer": {
+    "title": "Trình xem NBT online — mở và đọc tệp .nbt, .dat",
+    "ogtitle": "Trình xem NBT — mở mọi tệp .nbt hoặc .dat trong trình duyệt",
+    "desc": "Mở và đọc mọi tệp NBT Minecraft online. Xem toàn bộ cây thẻ của .nbt, .dat, .mcstructure hoặc .schem, tìm kiếm và xuất thành văn bản SNBT.",
+    "keywords": "xem file nbt online, nbt viewer, mở file nbt, đọc file dat minecraft, nbt file reader, xem level.dat, nbt sang snbt, minecraft dat viewer",
+    "h1": "Trình xem NBT — mở mọi tệp NBT Minecraft",
+    "crumb": "Trình xem NBT",
+    "reltitle": "Trình xem NBT",
+    "reldesc": "Kiểm tra chỉ đọc, tìm kiếm và xuất SNBT.",
+    "answer": "Chỉ cần xem bên trong tệp Minecraft mà không muốn thay đổi? Thả tệp <code>.nbt</code>, <code>.dat</code>, <code>.mcstructure</code>, <code>.schem</code> hoặc bản dump NBT thô bên dưới để xem toàn bộ cây thẻ cùng kiểu và giá trị, tìm theo tên hoặc giá trị rồi xuất tất cả thành văn bản SNBT. Không có dữ liệu nào được tải lên và tệp chỉ được ghi khi bạn bấm lưu.",
+    "droplabel": "tệp .nbt hoặc .dat bất kỳ",
+    "body": "\n<section class=\"content\" aria-label=\"What you can inspect\">\n<h2>Đọc tệp không phải do bạn tạo</h2>\n<p>Một lý do chính để mở tệp NBT là chẩn đoán: phiên bản nào đã ghi tệp, vì sao thế giới không tải được, bên trong schematic người khác gửi thực sự có gì. Trình xem hiện mọi thẻ với kiểu chính xác để bạn phân biệt <code>TAG_Byte</code> bằng 1 với <code>TAG_Int</code> bằng 1 — khác biệt quan trọng với Minecraft nhưng thường bị mất trong bản dump văn bản.</p>\n<ul>\n<li><strong>Nhãn kiểu trên mỗi hàng</strong> — Byte, Short, Int, Long, Float, Double, Byte[], String, List, Compound, Int[], Long[].</li>\n<li><strong>Long 64 bit đầy đủ</strong> được hiển thị chính xác, nên seed và các nửa UUID không bị làm tròn.</li>\n<li><strong>Tìm kiếm</strong> toàn bộ cây theo tên hoặc giá trị thẻ, rồi chuyển thẳng đến kết quả.</li>\n<li><strong>Định dạng đã phát hiện</strong> hiện trên thanh tệp: phiên bản, thứ tự byte, kiểu nén và phiên bản lưu trữ Bedrock.</li>\n<li><strong>Xuất SNBT</strong> để nhận toàn bộ tài liệu dưới dạng văn bản, có thể so sánh, dán vào lệnh hoặc đưa cho công cụ khác.</li>\n</ul>\n</section>\n\n<section class=\"content\" aria-label=\"SNBT\">\n<h2>NBT và SNBT</h2>\n<p>SNBT là dạng văn bản của NBT — đầu ra của <code>/data get</code> và dạng lệnh chấp nhận. Nó giữ thông tin kiểu bằng hậu tố: <code>3b</code> là byte, <code>3s</code> là short, <code>3L</code> là long, <code>3.0f</code> là float, <code>3.0d</code> là double, <code>[I;1,2,3]</code> là mảng int. Nút xuất tạo đúng dạng đó để tệp nhị phân có thể dán vào command block hoặc đưa vào git và so sánh từng dòng.</p>\n<p>JSON không thể thay thế: nó chỉ có một kiểu số và không có mảng byte, nên chuyển NBT sang JSON âm thầm làm mất những khác biệt Minecraft cần. Vì vậy công cụ này xuất SNBT thay vì JSON.</p>\n</section>\n\n<section class=\"content\" aria-label=\"File types\">\n<h2>Các tệp có thể mở</h2>\n<p>Mọi payload là một tài liệu NBT duy nhất: <a href=\"../level-dat-editor/\">level.dat</a> Java và Bedrock, <a href=\"../playerdata-editor/\">playerdata</a>, <code>servers.dat</code>, <code>hotbar.nbt</code>, <code>idcounts.dat</code>, <code>raids.dat</code>, <code>scoreboard.dat</code>, dữ liệu bản đồ, cấu trúc <code>.nbt</code>, <a href=\"../schematic-editor/\">.schem và .schematic</a>, <a href=\"../mcstructure-editor/\">.mcstructure</a>, <code>.litematic</code>, payload chunk đã trích xuất và bản dump gói tin. Các vùng chứa như region <code>.mca</code>, gói <code>.mcworld</code> và thư mục LevelDB cần được trích một tài liệu trước.</p>\n</section>\n",
+    "chips": [
+      ".nbt",
+      ".dat",
+      ".mcstructure",
+      ".schem",
+      ".schematic",
+      "Xuất SNBT",
+      "Tìm kiếm"
+    ],
+    "faq": [
+      [
+        "Tôi có thể xem tệp NBT mà không sửa không?",
+        "<p>Có. Trình sửa chỉ ghi tệp khi bạn bấm Lưu &amp; tải xuống và không bao giờ thay đổi tệp đã thả vào.</p>"
+      ],
+      [
+        "Công cụ có thể chuyển NBT sang JSON không?",
+        "<p>Công cụ xuất SNBT để giữ nguyên kiểu thẻ. JSON sẽ gộp byte, short, int, long và float thành một kiểu số, đồng thời làm mất mảng byte, nên không phù hợp để chuyển đổi qua lại dữ liệu Minecraft.</p>"
+      ],
+      [
+        "Tại sao tệp được nhận là phiên bản khác với dự kiến?",
+        "<p>Định dạng được phát hiện từ byte, không dựa vào phần mở rộng. Tệp được báo là Java khi bạn nghĩ là Bedrock thường thực sự đến từ phiên bản kia, hoặc chỉ là đoạn dữ liệu tình cờ phân tích được — hãy xem offset được báo nếu có cảnh báo byte thừa.</p>"
+      ],
+      [
+        "Công cụ mở được tệp lớn đến mức nào?",
+        "<p>Tài liệu vài megabyte vẫn xử lý tốt: mảng được giữ trong typed array và cây chỉ kết xuất khi cần, nên chỉ những hàng bạn mở rộng mới tồn tại trên trang.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Đã tải dưới dạng {0}",
+      "trailing": "Đã bỏ qua {0} byte thừa sau thẻ gốc",
+      "error": "Lỗi: {0}",
+      "readfail": "Không thể đọc tệp",
+      "nofile": "Chưa tải tệp nào",
+      "saved": "Đã lưu {0} ({1}, {2})",
+      "savefail": "Lỗi lưu: {0}",
+      "exported": "Đã xuất {0}",
+      "snbtfail": "Lỗi SNBT: {0}",
+      "tagadded": "Đã thêm thẻ",
+      "tagremoved": "Đã xóa thẻ",
+      "arrayupdated": "Đã cập nhật mảng",
+      "badvalue": "Giá trị không hợp lệ: {0}",
+      "badarray": "Mảng không hợp lệ: {0}",
+      "nameneeded": "Bắt buộc nhập tên thẻ",
+      "nametaken": "Thẻ có tên {0} đã tồn tại tại đây",
+      "listtype": "Danh sách đã chứa các mục kiểu {0}",
+      "editlevelname": "✎ Sửa LevelName",
+      "showmore": "Hiện thêm {0} trong số {1} …",
+      "matches": "{0} kết quả",
+      "nomatch": "Không có thẻ nào khớp \"{0}\"",
+      "arraytoobig": "Mảng có {0} mục — hãy mở rộng và sửa từng phần tử",
+      "uncompressed": "không nén",
+      "storage": "lưu trữ v{0}",
+      "entries": "{0} mục",
+      "langprompt": "Mở trang này bằng {0}?",
+      "langyes": "Chuyển",
+      "langno": "Ở lại"
+    },
+    "support": "<strong>Hỗ trợ Minecraft Bedrock Edition và Java Edition</strong> — cùng mọi phần mềm máy chủ phổ biến hoặc ít gặp của cả hai: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina và các phần mềm còn lại. <a href=\"__HOME__#server-software\">Danh sách đầy đủ</a>.",
+    "footernote": "miễn phí, mã nguồn mở (MIT), chạy hoàn toàn trong trình duyệt. Không liên kết với Mojang Studios hoặc Microsoft. Minecraft là nhãn hiệu của Mojang Studios.",
+    "faqtitle": "Câu hỏi thường gặp",
+    "toctitle": "Nội dung trang",
+    "relatedtitle": "Công cụ liên quan",
+    "homecrumb": "Trình sửa NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Trình sửa",
+      "Loại tệp",
+      "Tài liệu tham khảo"
+    ],
+    "sourcehead": "Mã nguồn",
+    "sourcelink": "Mã trên GitHub"
+  },
+  "nbtexplorer-online": {
+    "title": "NBTExplorer trực tuyến — dùng trên trình duyệt, không cần tải",
+    "ogtitle": "NBTExplorer trực tuyến — giải pháp thay thế trên trình duyệt",
+    "desc": "Giải pháp trình duyệt thay cho NBTExplorer: sửa cây thẻ tệp Minecraft, hỗ trợ thêm Bedrock little-endian và không cần cài đặt phần mềm.",
+    "keywords": "nbtexplorer online, nbt explorer web, phần mềm thay thế nbtexplorer, nbt editor không cần tải, nbtexplorer bedrock, sửa nbt trên trình duyệt",
+    "h1": "NBTExplorer trực tuyến — giải pháp thay thế trên trình duyệt",
+    "crumb": "NBTExplorer trực tuyến",
+    "reltitle": "NBTExplorer trực tuyến",
+    "reldesc": "Chức năng tương đương công cụ máy tính và những điểm khác biệt.",
+    "answer": "NBTExplorer là trình sửa thẻ trên máy tính quen thuộc với nhiều người chơi Minecraft, nhưng cần .NET hoặc Mono, phải tải xuống và dùng máy tính. Trang này thực hiện cùng công việc — cây thẻ, sửa trực tiếp, thêm và xóa thẻ — trong trình duyệt trên mọi hệ điều hành, kể cả điện thoại; đồng thời đọc được tệp Bedrock little-endian mà NBTExplorer không hỗ trợ.",
+    "droplabel": "tệp NBT bất kỳ",
+    "body": "\n<section class=\"content\" aria-label=\"Comparison\">\n<h2>So sánh chức năng</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Khả năng</th><th>NBTExplorer (máy tính)</th><th>Trình sửa này (trình duyệt)</th></tr></thead>\n<tbody>\n<tr><td>Cần cài đặt</td><td>Có — runtime .NET / Mono</td><td>Không</td></tr>\n<tr><td>NBT big-endian Java</td><td>Có</td><td>Có</td></tr>\n<tr><td>gzip / zlib</td><td>Có</td><td>Có, qua luồng nén gốc của trình duyệt</td></tr>\n<tr><td>NBT little-endian Bedrock</td><td>Không</td><td>Có, gồm cả header <code>level.dat</code> 8 byte</td></tr>\n<tr><td>NBT mạng / varint Bedrock</td><td>Không</td><td>Có</td></tr>\n<tr><td>Duyệt region và thư mục <code>.mca</code></td><td>Có — ưu điểm chính</td><td>Không, mỗi lần một tài liệu</td></tr>\n<tr><td>Duyệt LevelDB Bedrock</td><td>Không</td><td>Không, cần trích giá trị trước</td></tr>\n<tr><td>Tìm kiếm toàn cây</td><td>Có</td><td>Có</td></tr>\n<tr><td>Xuất SNBT</td><td>Không</td><td>Có</td></tr>\n<tr><td>Chạy trên điện thoại</td><td>Không</td><td>Có</td></tr>\n<tr><td>Gửi tệp của bạn ra ngoài</td><td>Không</td><td>Không</td></tr>\n</tbody>\n</table>\n</div>\n<p>Tóm lại: nếu cần duyệt toàn bộ thư mục region và mở chunk theo tọa độ, công cụ máy tính vẫn phù hợp hơn. Nếu cần mở một tệp — <code>level.dat</code>, tệp người chơi, schematic hoặc thế giới Bedrock — trên bất kỳ máy nào đang dùng, công cụ này nhanh hơn và hỗ trợ các phiên bản mà công cụ máy tính chưa hỗ trợ.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Migrating\">\n<h2>Chuyển từ công cụ máy tính</h2>\n<ul>\n<li><strong>Cây hoạt động theo cùng cách.</strong> Mở rộng compound và danh sách, bấm giá trị để sửa, dùng + và × cho cấu trúc.</li>\n<li><strong>Kiểu được kiểm soát theo cùng cách.</strong> Byte vẫn là byte; giá trị ngoài phạm vi bị từ chối thay vì âm thầm cắt ngắn.</li>\n<li><strong>Lưu sẽ tạo bản tải xuống,</strong> không ghi tại chỗ. Tệp đã thả vào không bị sửa nên bản gốc vẫn nguyên vẹn.</li>\n<li><strong>Kiểu nén được giữ khi ghi lại.</strong> Tệp gzip được xuất lại thành gzip để trò chơi chấp nhận mà không cần bước nén thủ công.</li>\n<li><strong>Bedrock hoạt động trực tiếp.</strong> Không cần công cụ riêng hoặc trình sửa hex để sửa độ dài header sau khi thay đổi.</li>\n</ul>\n</section>\n\n<section class=\"content\" aria-label=\"Other tools\">\n<h2>Khi nào vẫn cần công cụ khác</h2>\n<p>Dùng <strong>NBTExplorer</strong> hoặc <strong>NBTStudio</strong> để duyệt hàng loạt region. Dùng <strong>Amulet</strong> hoặc <strong>MCA Selector</strong> để sửa ở cấp chunk và thu gọn thế giới. Dùng <strong>WorldEdit</strong> cho mọi thao tác hình học. Dùng trang này khi công việc là \"mở tệp này, đổi các thẻ này, trả lại tệp\" — trường hợp thường gặp nhất — hoặc khi tệp là Bedrock và công cụ máy tính từ chối mở.</p>\n</section>\n",
+    "chips": [
+      "Không cần cài",
+      "Windows",
+      "macOS",
+      "Linux",
+      "Android",
+      "ChromeOS"
+    ],
+    "faq": [
+      [
+        "Có phiên bản web chính thức của NBTExplorer không?",
+        "<p>Không. NBTExplorer là ứng dụng máy tính; đây là trình sửa độc lập, thực hiện các tác vụ thường ngày tương tự trong trình duyệt và bổ sung hỗ trợ Bedrock.</p>"
+      ],
+      [
+        "Công cụ có chạy trên macOS và Linux mà không cần Mono không?",
+        "<p>Có — đây là một trang web. Mọi trình duyệt hiện đại trên macOS, Linux, Windows, Android hoặc ChromeOS đều chạy được.</p>"
+      ],
+      [
+        "Công cụ có mở toàn bộ tệp vùng như NBTExplorer không?",
+        "<p>Không. Công cụ sửa từng tài liệu NBT. Trước tiên hãy trích một chunk khỏi <code>.mca</code>, sau đó thả payload vào đây.</p>"
+      ],
+      [
+        "Dùng công cụ cho bản lưu duy nhất có an toàn không?",
+        "<p>Công cụ không ghi vào tệp bạn mở — thay đổi được trả về dưới dạng bản tải xuống mới — nhưng bạn vẫn nên giữ bản sao lưu riêng như khi dùng mọi trình sửa khác.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Đã tải dưới dạng {0}",
+      "trailing": "Đã bỏ qua {0} byte thừa sau thẻ gốc",
+      "error": "Lỗi: {0}",
+      "readfail": "Không thể đọc tệp",
+      "nofile": "Chưa tải tệp nào",
+      "saved": "Đã lưu {0} ({1}, {2})",
+      "savefail": "Lỗi lưu: {0}",
+      "exported": "Đã xuất {0}",
+      "snbtfail": "Lỗi SNBT: {0}",
+      "tagadded": "Đã thêm thẻ",
+      "tagremoved": "Đã xóa thẻ",
+      "arrayupdated": "Đã cập nhật mảng",
+      "badvalue": "Giá trị không hợp lệ: {0}",
+      "badarray": "Mảng không hợp lệ: {0}",
+      "nameneeded": "Bắt buộc nhập tên thẻ",
+      "nametaken": "Thẻ có tên {0} đã tồn tại tại đây",
+      "listtype": "Danh sách đã chứa các mục kiểu {0}",
+      "editlevelname": "✎ Sửa LevelName",
+      "showmore": "Hiện thêm {0} trong số {1} …",
+      "matches": "{0} kết quả",
+      "nomatch": "Không có thẻ nào khớp \"{0}\"",
+      "arraytoobig": "Mảng có {0} mục — hãy mở rộng và sửa từng phần tử",
+      "uncompressed": "không nén",
+      "storage": "lưu trữ v{0}",
+      "entries": "{0} mục",
+      "langprompt": "Mở trang này bằng {0}?",
+      "langyes": "Chuyển",
+      "langno": "Ở lại"
+    },
+    "support": "<strong>Hỗ trợ Minecraft Bedrock Edition và Java Edition</strong> — cùng mọi phần mềm máy chủ phổ biến hoặc ít gặp của cả hai: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina và các phần mềm còn lại. <a href=\"__HOME__#server-software\">Danh sách đầy đủ</a>.",
+    "footernote": "miễn phí, mã nguồn mở (MIT), chạy hoàn toàn trong trình duyệt. Không liên kết với Mojang Studios hoặc Microsoft. Minecraft là nhãn hiệu của Mojang Studios.",
+    "faqtitle": "Câu hỏi thường gặp",
+    "toctitle": "Nội dung trang",
+    "relatedtitle": "Công cụ liên quan",
+    "homecrumb": "Trình sửa NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Trình sửa",
+      "Loại tệp",
+      "Tài liệu tham khảo"
+    ],
+    "sourcehead": "Mã nguồn",
+    "sourcelink": "Mã trên GitHub"
+  },
+  "nbt-format": {
+    "title": "Tham chiếu định dạng NBT — kiểu thẻ, mã hóa, byte",
+    "ogtitle": "Tham chiếu định dạng NBT — thẻ, mã hóa, bố cục byte",
+    "desc": "Tài liệu định dạng NBT Minecraft: 13 kiểu thẻ, bố cục byte, Java big-endian, Bedrock little-endian, NBT mạng varint và cú pháp SNBT.",
+    "keywords": "định dạng nbt minecraft, cấu trúc file nbt, các loại nbt tag, tag_compound, nbt little endian, varint nbt, network nbt, cú pháp snbt, nbt specification",
+    "h1": "Tham chiếu định dạng NBT",
+    "crumb": "Định dạng NBT",
+    "reltitle": "Tham chiếu định dạng NBT",
+    "reldesc": "Toàn bộ 13 kiểu thẻ, mọi kiểu mã hóa, theo từng byte.",
+    "answer": "NBT (Named Binary Tag) là định dạng cây nhị phân của Minecraft: một thẻ gồm kiểu một byte, tên có tiền tố độ dài và payload; các compound lồng nhau cho đến khi byte <code>TAG_End</code> đóng chúng. Có 13 kiểu thẻ và năm kiểu mã hóa đang được dùng trong Java và Bedrock. Trang này mô tả tất cả, còn trình sửa phía trên cho phép kiểm tra bằng tệp thực.",
+    "droplabel": "tệp NBT bất kỳ để kiểm tra",
+    "body": "\n<section class=\"content\" aria-label=\"Tag types\">\n<h2>13 kiểu thẻ</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Id</th><th>Thẻ</th><th>Phần dữ liệu</th><th>SNBT</th></tr></thead>\n<tbody>\n<tr><td>0</td><td><code>TAG_End</code></td><td>Không có — đóng compound</td><td>—</td></tr>\n<tr><td>1</td><td><code>TAG_Byte</code></td><td>1 byte, có dấu −128…127</td><td><code>1b</code></td></tr>\n<tr><td>2</td><td><code>TAG_Short</code></td><td>2 byte, có dấu</td><td><code>1s</code></td></tr>\n<tr><td>3</td><td><code>TAG_Int</code></td><td>4 byte, có dấu</td><td><code>1</code></td></tr>\n<tr><td>4</td><td><code>TAG_Long</code></td><td>8 byte, có dấu</td><td><code>1L</code></td></tr>\n<tr><td>5</td><td><code>TAG_Float</code></td><td>4 byte, IEEE 754</td><td><code>1.0f</code></td></tr>\n<tr><td>6</td><td><code>TAG_Double</code></td><td>8 byte, IEEE 754</td><td><code>1.0d</code></td></tr>\n<tr><td>7</td><td><code>TAG_Byte_Array</code></td><td>độ dài int, sau đó là số byte tương ứng</td><td><code>[B;1b,2b]</code></td></tr>\n<tr><td>8</td><td><code>TAG_String</code></td><td>độ dài unsigned short, sau đó là byte UTF-8</td><td><code>\"text\"</code></td></tr>\n<tr><td>9</td><td><code>TAG_List</code></td><td>byte kiểu phần tử, độ dài int, sau đó là payload không có tên</td><td><code>[1,2]</code></td></tr>\n<tr><td>10</td><td><code>TAG_Compound</code></td><td>lặp kiểu + tên + payload đến <code>TAG_End</code></td><td><code>{a:1}</code></td></tr>\n<tr><td>11</td><td><code>TAG_Int_Array</code></td><td>độ dài int, sau đó là số int 4 byte tương ứng</td><td><code>[I;1,2]</code></td></tr>\n<tr><td>12</td><td><code>TAG_Long_Array</code></td><td>độ dài int, sau đó là số long 8 byte tương ứng</td><td><code>[L;1L,2L]</code></td></tr>\n</tbody>\n</table>\n</div>\n<p>Một tệp gồm một <code>TAG_Compound</code> gốc: một byte kiểu <code>0x0A</code>, một tên rồi đến nội dung compound. Thẻ có tên chỉ xuất hiện trong compound — phần tử danh sách chỉ mang payload, vì vậy danh sách phải đồng nhất kiểu.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Encodings\">\n<h2>Năm kiểu mã hóa đang được dùng</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Mã hóa</th><th>Số nguyên</th><th>Độ dài chuỗi</th><th>Gốc</th><th>Nơi sử dụng</th></tr></thead>\n<tbody>\n<tr><td>Java (cổ điển)</td><td>Độ rộng cố định big-endian</td><td>Big-endian 2 byte</td><td>Có tên</td><td>Thế giới Java, cấu trúc, schematic</td></tr>\n<tr><td>Mạng Java (1.20.2+)</td><td>Độ rộng cố định big-endian</td><td>Big-endian 2 byte</td><td>Không tên</td><td>Giao thức Java</td></tr>\n<tr><td>Bedrock</td><td>Độ rộng cố định little-endian</td><td>Little-endian 2 byte</td><td>Có tên</td><td>Thế giới Bedrock, <code>.mcstructure</code>, giá trị LevelDB</td></tr>\n<tr><td>Bedrock <code>level.dat</code></td><td>Độ rộng cố định little-endian</td><td>Little-endian 2 byte</td><td>Có tên, sau header 8 byte</td><td>Siêu dữ liệu thế giới Bedrock</td></tr>\n<tr><td>Mạng Bedrock</td><td>Zigzag varint cho int và long</td><td>Varint không dấu</td><td>Có tên</td><td>Giao thức Bedrock</td></tr>\n</tbody>\n</table>\n</div>\n<p>Trong mã hóa varint, <code>TAG_Short</code>, <code>TAG_Float</code> và <code>TAG_Double</code> vẫn có độ rộng cố định little-endian; chỉ <code>TAG_Int</code> và <code>TAG_Long</code> trở thành zigzag varint, còn độ dài mảng và danh sách theo cách mã hóa của <code>TAG_Int</code>. Độ dài chuỗi là unsigned varint nên cũng bỏ giới hạn 65535 byte của các kiểu mã hóa cố định.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Strings\">\n<h2>Chuỗi: UTF-8 sửa đổi và UTF-8</h2>\n<p>Java tuần tự hóa chuỗi bằng <code>DataOutputStream.writeUTF</code>, tức UTF-8 <em>sửa đổi</em>: ký tự NUL được ghi thành <code>C0 80</code> thay vì <code>00</code>, còn ký tự ngoài Basic Multilingual Plane được ghi thành hai nửa surrogate ba byte (CESU-8) thay vì một chuỗi bốn byte. Bedrock dùng UTF-8 tiêu chuẩn. Công cụ dùng một kiểu mã hóa cho cả hai sẽ làm hỏng emoji và một số văn bản CJK khi lưu — trình sửa này mã hóa theo định dạng nên tên thế giới có emoji vẫn nguyên vẹn sau khi ghi lại.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Compression\">\n<h2>Kiểu nén</h2>\n<p>Bản thân NBT không được nén; vùng chứa quyết định việc này. Tệp Java thường dùng gzip (magic <code>1F 8B</code>), payload chunk trong tệp region dùng zlib (magic <code>78 01</code>, <code>78 9C</code> hoặc <code>78 DA</code>), còn Bedrock lưu <code>level.dat</code> và tệp cấu trúc không nén. Công cụ phát hiện bằng magic byte nên cùng một bộ phân tích xử lý cả ba — lưu sai kiểu nén là nguyên nhân phổ biến nhất khiến thế giới sửa thủ công không tải được.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Byte walkthrough\">\n<h2>Một tệp tối thiểu, theo từng byte</h2>\n<p>Tệp chuẩn <code>hello_world.nbt</code>: compound gốc tên <code>hello world</code> chứa một thẻ chuỗi <code>name</code> có giá trị <code>Bananrama</code>. Trong mã hóa big-endian của Java:</p>\n<pre class=\"code\"><code>0A                          TAG_Compound\n00 0B 68 65 6C 6C 6F 20 77 6F 72 6C 64   name length 11, \"hello world\"\n   08                       TAG_String\n   00 04 6E 61 6D 65        name length 4, \"name\"\n   00 09 42 61 6E 61 6E 72 61 6D 61      value length 9, \"Bananrama\"\n00                          TAG_End</code></pre>\n<p>Cùng tài liệu trong mã hóa little-endian của Bedrock chỉ khác thứ tự byte của hai trường độ dài: <code>0B 00</code> thay cho <code>00 0B</code>. Trong NBT mạng Bedrock, độ dài trở thành byte varint đơn <code>0B</code> và <code>04</code>, hoàn toàn không có phần đệm. Thả một trong ba tệp vào trình sửa phía trên để biết công cụ đã nhận kiểu nào.</p>\n</section>\n\n<section class=\"content\" aria-label=\"SNBT\">\n<h2>SNBT</h2>\n<p>SNBT là NBT được viết dưới dạng văn bản và là định dạng lệnh sử dụng: <code>/data merge entity @s {Invulnerable:1b}</code>. Hậu tố kiểu giúp giữ nguyên dữ liệu — <code>b</code> byte, <code>s</code> short, <code>L</code> long, <code>f</code> float, <code>d</code> double, không hậu tố cho int — còn literal mảng có kiểu được viết là <code>[B;…]</code>, <code>[I;…]</code>, <code>[L;…]</code>. Trình sửa xuất SNBT từ mọi tệp đã tải để có thể so sánh hai phiên bản thế giới bằng công cụ diff văn bản thông thường.</p>\n</section>\n",
+    "chips": [
+      "13 kiểu thẻ",
+      "Big-endian",
+      "Little-endian",
+      "Varint",
+      "gzip",
+      "zlib",
+      "SNBT"
+    ],
+    "faq": [
+      [
+        "Có đặc tả NBT chính thức không?",
+        "<p>Mojang không có đặc tả chính thức. Notch mô tả định dạng vào năm 2010 và cộng đồng duy trì từ đó; id cùng bố cục thẻ trên trang này khớp với dữ liệu trò chơi hiện đọc và ghi.</p>"
+      ],
+      [
+        "Tại sao Bedrock dùng little-endian?",
+        "<p>Engine Bedrock viết bằng C++ và nhắm đến phần cứng little-endian nên lưu giá trị theo thứ tự gốc. Java dùng big-endian vì hợp đồng Java DataOutput quy định như vậy.</p>"
+      ],
+      [
+        "Mã hóa zigzag varint là gì?",
+        "<p>Đây là cách ghi số nguyên bằng ít byte nhất mà số âm vẫn ngắn: dấu được gấp vào bit thấp, nên −1 được mã hóa thành 1 và 1 thành 2. Giao thức Bedrock dùng nó cho int và long.</p>"
+      ],
+      [
+        "TAG_List có thể chứa nhiều kiểu khác nhau không?",
+        "<p>Không. Danh sách khai báo một kiểu phần tử và mọi mục phải khớp kiểu đó. Dữ liệu hỗn hợp cần dùng danh sách compound.</p>"
+      ],
+      [
+        "Độ dài chuỗi tối đa là bao nhiêu?",
+        "<p>65535 byte trong kiểu mã hóa cố định vì trường độ dài là unsigned short. Kiểu mã hóa mạng varint hầu như không có giới hạn thực tế.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Đã tải dưới dạng {0}",
+      "trailing": "Đã bỏ qua {0} byte thừa sau thẻ gốc",
+      "error": "Lỗi: {0}",
+      "readfail": "Không thể đọc tệp",
+      "nofile": "Chưa tải tệp nào",
+      "saved": "Đã lưu {0} ({1}, {2})",
+      "savefail": "Lỗi lưu: {0}",
+      "exported": "Đã xuất {0}",
+      "snbtfail": "Lỗi SNBT: {0}",
+      "tagadded": "Đã thêm thẻ",
+      "tagremoved": "Đã xóa thẻ",
+      "arrayupdated": "Đã cập nhật mảng",
+      "badvalue": "Giá trị không hợp lệ: {0}",
+      "badarray": "Mảng không hợp lệ: {0}",
+      "nameneeded": "Bắt buộc nhập tên thẻ",
+      "nametaken": "Thẻ có tên {0} đã tồn tại tại đây",
+      "listtype": "Danh sách đã chứa các mục kiểu {0}",
+      "editlevelname": "✎ Sửa LevelName",
+      "showmore": "Hiện thêm {0} trong số {1} …",
+      "matches": "{0} kết quả",
+      "nomatch": "Không có thẻ nào khớp \"{0}\"",
+      "arraytoobig": "Mảng có {0} mục — hãy mở rộng và sửa từng phần tử",
+      "uncompressed": "không nén",
+      "storage": "lưu trữ v{0}",
+      "entries": "{0} mục",
+      "langprompt": "Mở trang này bằng {0}?",
+      "langyes": "Chuyển",
+      "langno": "Ở lại"
+    },
+    "support": "<strong>Hỗ trợ Minecraft Bedrock Edition và Java Edition</strong> — cùng mọi phần mềm máy chủ phổ biến hoặc ít gặp của cả hai: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina và các phần mềm còn lại. <a href=\"__HOME__#server-software\">Danh sách đầy đủ</a>.",
+    "footernote": "miễn phí, mã nguồn mở (MIT), chạy hoàn toàn trong trình duyệt. Không liên kết với Mojang Studios hoặc Microsoft. Minecraft là nhãn hiệu của Mojang Studios.",
+    "faqtitle": "Câu hỏi thường gặp",
+    "toctitle": "Nội dung trang",
+    "relatedtitle": "Công cụ liên quan",
+    "homecrumb": "Trình sửa NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Trình sửa",
+      "Loại tệp",
+      "Tài liệu tham khảo"
+    ],
+    "sourcehead": "Mã nguồn",
+    "sourcelink": "Mã trên GitHub"
+  },
+  "guides/change-world-name": {
+    "title": "Cách đổi tên thế giới Minecraft (Java và Bedrock)",
+    "ogtitle": "Cách đổi tên thế giới Minecraft",
+    "desc": "Đổi tên thế giới Minecraft đúng cách bằng cách sửa LevelName trong level.dat: Java, Bedrock, chơi đơn, máy chủ và cách sửa tên bị trùng.",
+    "keywords": "cách đổi tên world minecraft, đổi tên thế giới minecraft, sửa LevelName level.dat, đổi tên world bedrock, world minecraft vẫn hiện tên cũ, trùng tên world server",
+    "h1": "Cách đổi tên thế giới Minecraft",
+    "crumb": "Đổi tên thế giới",
+    "reltitle": "Đổi tên thế giới",
+    "reldesc": "Sửa LevelName sau khi sao chép thư mục thế giới.",
+    "answer": "Tên hiển thị của thế giới nằm trong thẻ <code>LevelName</code> bên trong <code>level.dat</code>, không nằm ở tên thư mục. Đổi tên thư mục không thay đổi nội dung trò chơi hiển thị, vì vậy bản sao thế giới vẫn dùng tên cũ. Thả <code>level.dat</code> vào trình sửa bên dưới — công cụ chuyển thẳng đến <code>LevelName</code> — đổi giá trị, lưu rồi chép tệp trở lại.",
+    "droplabel": "level.dat",
+    "body": "\n<section class=\"content\" aria-label=\"Why the folder name is not the world name\">\n<h2>Vì sao đổi tên thư mục không có tác dụng</h2>\n<p>Minecraft coi thư mục là địa chỉ và <code>LevelName</code> là nhãn. Danh sách thế giới, console máy chủ, plugin quản lý thế giới và mọi thành phần in \"world\" vào chat đều đọc thẻ này. Vì vậy, sao chép thư mục — <code>cp -r worlds/hub worlds/hub2</code> — tạo hai thế giới đều tự nhận là <em>hub</em>, và chỉ có thể sửa bên trong tệp.</p>\n<p>Trên máy chủ, tên trùng không chỉ gây nhầm lẫn. Plugin tìm thế giới theo tên nội bộ có thể thao tác nhầm: điểm dịch chuyển, cấu hình từng thế giới, vùng bảo vệ, hệ số kinh tế. Hãy đổi tên thẻ ngay khi sao chép thế giới, trước khi bất kỳ thành phần nào lưu tên vào bộ nhớ đệm.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Per platform\">\n<h2>Theo từng nền tảng</h2>\n<div class=\"card\">\n<h3>Chơi đơn Java</h3>\n<p>Máy khách có chức năng đổi tên trong màn hình tùy chọn thế giới và tự sửa <code>LevelName</code>. Sửa tệp thủ công hữu ích khi thế giới không tải, khi làm việc trên bản sao hoặc khi bạn chủ động muốn tên thư mục khác nhãn.</p>\n<h3>Máy chủ Java</h3>\n<p><code>level-name</code> trong <code>server.properties</code> chọn <em>thư mục</em> cần tải. Nó không đổi tên gì cả. Hãy đổi <code>LevelName</code> trong <code>world/level.dat</code> để sửa nhãn.</p>\n<h3>Bedrock và MCPE</h3>\n<p>Màn hình sửa thế giới trong trò chơi có thể đổi tên. Khi thế giới nằm trên máy chủ hoặc bạn đang vá tệp <code>.mcworld</code> đã xuất, hãy sửa trực tiếp <code>LevelName</code> trong <code>level.dat</code> — Bedrock lưu nó ở gốc, không nén, sau header 8 byte mà trình sửa tự xử lý.</p>\n<h3>Máy chủ Bedrock (PocketMine-MP, Nukkit, BDS)</h3>\n<p>Cùng tệp, cùng thẻ và cùng yêu cầu phải dừng máy chủ trước. <a href=\"../../pocketmine-nbt-editor/\">Trang máy chủ</a> có quy trình đầy đủ, gồm trường hợp sao chép thư mục.</p>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Troubleshooting\">\n<h2>Nếu tên không thay đổi</h2>\n<ul>\n<li><strong>Máy chủ vẫn đang chạy.</strong> Bản trong bộ nhớ được ghi đè lên tệp của bạn ở lần lưu tiếp theo. Hãy dừng máy chủ và sửa lại.</li>\n<li><strong>Bạn đã sửa nhầm thế giới.</strong> Thư mục thế giới Bedrock có id ngẫu nhiên. Mở tệp và đọc <code>LevelName</code> để xác nhận trước khi sửa.</li>\n<li><strong>Bạn đã sửa <code>level.dat_old</code>.</strong> Đây là bản lưu trước, không phải tệp đang dùng.</li>\n<li><strong>Launcher hoặc bảng điều khiển lưu tên vào bộ nhớ đệm.</strong> Một số bảng điều khiển hosting hiển thị tên từ cơ sở dữ liệu riêng thay vì tệp thế giới; tên trong trò chơi vẫn đúng.</li>\n<li><strong>Giờ thế giới hoàn toàn không tải được.</strong> Khôi phục bản sao lưu và xem <a href=\"../fix-corrupted-level-dat/\">cách sửa level.dat bị hỏng</a>.</li>\n</ul>\n</section>\n",
+    "chips": [
+      "Java",
+      "Bedrock",
+      "Máy chủ",
+      "Chơi đơn",
+      "2 phút"
+    ],
+    "faq": [
+      [
+        "Đổi tên thế giới có xóa dữ liệu không?",
+        "<p>Không. <code>LevelName</code> chỉ là nhãn. Địa hình, người chơi, túi đồ và thực thể nằm trong các tệp khác và không bị thay đổi.</p>"
+      ],
+      [
+        "Tôi có thể dùng dấu cách, màu hoặc emoji trong tên thế giới không?",
+        "<p>Dấu cách dùng được. Mã màu bằng ký hiệu section hoạt động trên một số phần mềm máy chủ nhưng hiển thị thành ký tự thường ở nơi khác. Emoji vẫn nguyên vẹn vì trình sửa dùng đúng kiểu mã hóa chuỗi cho từng phiên bản, nhưng console và tệp log có thể hiển thị không đúng.</p>"
+      ],
+      [
+        "Tôi có phải đổi cả tên thư mục không?",
+        "<p>Không, và thường không nên — thiết lập <code>level-name</code> của máy chủ hoặc cấu hình plugin có thể trỏ đến đường dẫn thư mục. Chỉ thay đổi từng thứ một.</p>"
+      ],
+      [
+        "Người chơi có thấy tên mới ngay không?",
+        "<p>Có, sau khi thế giới được tải lại. Máy khách đã lưu mục trong danh sách máy chủ có thể cần làm mới.</p>"
+      ]
+    ],
+    "howto": {
+      "name": "Đổi tên thế giới Minecraft bằng cách sửa level.dat",
+      "time": "PT3M",
+      "steps": [
+        [
+          "Dừng trò chơi hoặc máy chủ",
+          "Đóng thế giới hoặc dừng máy chủ. Minecraft ghi lại level.dat khi tự động lưu và tắt; phiên bản đang chạy sẽ ghi đè thay đổi."
+        ],
+        [
+          "Tìm level.dat",
+          "Java: world/level.dat trên máy chủ hoặc saves/<World>/level.dat trên máy khách. Bedrock: worlds/<World>/level.dat trên máy chủ hoặc thư mục id thế giới dưới minecraftWorlds trên thiết bị."
+        ],
+        [
+          "Mở trong trình sửa",
+          "Thả tệp vào trình sửa NBT. Công cụ tự phát hiện phiên bản và kiểu mã hóa rồi chuyển đến thẻ LevelName."
+        ],
+        [
+          "Sửa LevelName",
+          "Bấm vào giá trị, nhập tên mới rồi nhấn Enter. Chỉ dùng ký tự thông thường nếu tên cần hiển thị đúng trong console."
+        ],
+        [
+          "Lưu và tải xuống",
+          "Bấm Lưu & tải xuống. Định dạng đầu ra và kiểu nén được giữ đúng như tệp đầu vào nên các phần khác không thay đổi."
+        ],
+        [
+          "Thay tệp gốc",
+          "Chép tệp đã tải xuống đè lên bản gốc, giữ một bản sao lưu, sau đó khởi động trò chơi hoặc máy chủ và kiểm tra tên mới trong danh sách thế giới."
+        ]
+      ]
+    },
+    "ui": {
+      "loaded": "Đã tải dưới dạng {0}",
+      "trailing": "Đã bỏ qua {0} byte thừa sau thẻ gốc",
+      "error": "Lỗi: {0}",
+      "readfail": "Không thể đọc tệp",
+      "nofile": "Chưa tải tệp nào",
+      "saved": "Đã lưu {0} ({1}, {2})",
+      "savefail": "Lỗi lưu: {0}",
+      "exported": "Đã xuất {0}",
+      "snbtfail": "Lỗi SNBT: {0}",
+      "tagadded": "Đã thêm thẻ",
+      "tagremoved": "Đã xóa thẻ",
+      "arrayupdated": "Đã cập nhật mảng",
+      "badvalue": "Giá trị không hợp lệ: {0}",
+      "badarray": "Mảng không hợp lệ: {0}",
+      "nameneeded": "Bắt buộc nhập tên thẻ",
+      "nametaken": "Thẻ có tên {0} đã tồn tại tại đây",
+      "listtype": "Danh sách đã chứa các mục kiểu {0}",
+      "editlevelname": "✎ Sửa LevelName",
+      "showmore": "Hiện thêm {0} trong số {1} …",
+      "matches": "{0} kết quả",
+      "nomatch": "Không có thẻ nào khớp \"{0}\"",
+      "arraytoobig": "Mảng có {0} mục — hãy mở rộng và sửa từng phần tử",
+      "uncompressed": "không nén",
+      "storage": "lưu trữ v{0}",
+      "entries": "{0} mục",
+      "langprompt": "Mở trang này bằng {0}?",
+      "langyes": "Chuyển",
+      "langno": "Ở lại"
+    },
+    "support": "<strong>Hỗ trợ Minecraft Bedrock Edition và Java Edition</strong> — cùng mọi phần mềm máy chủ phổ biến hoặc ít gặp của cả hai: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina và các phần mềm còn lại. <a href=\"__HOME__#server-software\">Danh sách đầy đủ</a>.",
+    "footernote": "miễn phí, mã nguồn mở (MIT), chạy hoàn toàn trong trình duyệt. Không liên kết với Mojang Studios hoặc Microsoft. Minecraft là nhãn hiệu của Mojang Studios.",
+    "faqtitle": "Câu hỏi thường gặp",
+    "toctitle": "Nội dung trang",
+    "relatedtitle": "Công cụ liên quan",
+    "homecrumb": "Trình sửa NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Trình sửa",
+      "Loại tệp",
+      "Tài liệu tham khảo"
+    ],
+    "sourcehead": "Mã nguồn",
+    "sourcelink": "Mã trên GitHub"
+  },
+  "guides/fix-corrupted-level-dat": {
+    "title": "Sửa level.dat bị hỏng — thế giới Minecraft không tải",
+    "ogtitle": "Sửa tệp level.dat bị hỏng",
+    "desc": "Khôi phục thế giới Minecraft không tải được: phục hồi level.dat_old, kiểm tra bằng trình sửa NBT và xác định chính xác nguyên nhân hỏng.",
+    "keywords": "level.dat bị hỏng, minecraft world không vào được, sửa world minecraft bị lỗi, khôi phục level.dat_old, failed to load level.dat, sửa level.dat server",
+    "h1": "Sửa <code>level.dat</code> bị hỏng",
+    "crumb": "Sửa level.dat bị hỏng",
+    "reltitle": "Sửa level.dat bị hỏng",
+    "reldesc": "Chẩn đoán nguyên nhân thế giới không tải và cách sửa.",
+    "answer": "Thế giới không tải thường do một trong bốn lỗi: <code>level.dat</code> bị cắt ngắn khi crash trong lúc lưu, dùng sai kiểu nén sau khi sửa thủ công, độ dài header Bedrock sai hoặc kiểu của một thẻ bị đổi. Thả tệp bên dưới — trình sửa báo chính xác vị trí phân tích dừng, giúp xác định một trong bốn nguyên nhân trong vài giây.",
+    "droplabel": "level.dat hoặc level.dat_old",
+    "body": "\n<section class=\"content\" aria-label=\"Causes\">\n<h2>Những phần thực sự có thể hỏng</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Triệu chứng</th><th>Nguyên nhân</th><th>Cách sửa</th></tr></thead>\n<tbody>\n<tr><td>Trình sửa báo \"Unexpected end of data\"</td><td>Tệp bị cắt ngắn — tiến trình dừng giữa lúc lưu hoặc ổ đĩa đầy</td><td>Khôi phục <code>level.dat_old</code> hoặc bản sao lưu; các byte bị thiếu đã mất</td></tr>\n<tr><td>Trò chơi báo thế giới hỏng nhưng trình sửa tải bình thường</td><td>Công cụ khác đã ghi sai kiểu nén hoặc thứ tự byte</td><td>Lưu lại tại đây với đúng định dạng của phiên bản</td></tr>\n<tr><td>Thế giới Bedrock biến mất khỏi danh sách</td><td>Độ dài header không còn khớp payload</td><td>Mở và lưu tại đây — độ dài được tự động tính lại</td></tr>\n<tr><td>Log máy chủ báo lỗi ép kiểu hoặc kiểu dữ liệu khi tải</td><td>Kiểu của thẻ bị đổi thủ công (Byte trong khi cần Int)</td><td>Đặt lại thẻ về kiểu trò chơi yêu cầu</td></tr>\n<tr><td>Thế giới tải nhưng đưa bạn vào thế giới mới</td><td><code>level.dat</code> đã bị thay bằng tệp mới tạo</td><td>Khôi phục bản sao lưu; các chunk trong <code>region/</code> hoặc <code>db/</code> thường vẫn nguyên vẹn</td></tr>\n<tr><td>Không tệp nào phân tích được, kể cả <code>_old</code></td><td>Lỗi thiết bị lưu trữ — hệ thống tệp trả về số không hoặc dữ liệu rác cho cả hai</td><td>Khôi phục từ bản sao lưu ngoài máy; kiểm tra ổ đĩa trước khi tiếp tục tin dùng host</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Salvage\">\n<h2>Cứu thế giới khi không còn <code>level.dat</code></h2>\n<p>Địa hình, rương và người chơi không nằm trong <code>level.dat</code> — chúng ở <code>region/</code> (Java) hoặc <code>db/</code> (Bedrock). Nếu không thể sửa tệp siêu dữ liệu, hãy tạo thế giới mới với cùng phiên bản và cài đặt, chuyển dữ liệu chunk vào rồi đặt <code>LevelName</code>, tọa độ sinh và luật chơi trong tệp mới. Bạn mất siêu dữ liệu, không mất công trình. Hãy xác nhận phiên bản trước: thế giới Java có <code>DataVersion</code> và tệp mới tạo không được cũ hơn các chunk sẽ nhập.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Prevention\">\n<h2>Ngăn lỗi tái diễn</h2>\n<ul>\n<li><strong>Dừng máy chủ trước khi sao chép hoặc sửa.</strong> Phần lớn hỏng dữ liệu bắt đầu từ việc sao chép tệp trong lúc nó đang được ghi.</li>\n<li><strong>Tạo snapshot định kỳ và lưu ngoài máy.</strong> Bản sao lưu trên cùng ổ đĩa không sống sót qua lỗi thiết bị lưu trữ gây ra sự cố.</li>\n<li><strong>Dùng <code>save-off</code> / <code>save-all</code> quanh quá trình snapshot đang chạy</strong> để sao chép khi thế giới ở trạng thái tĩnh.</li>\n<li><strong>Theo dõi dung lượng ổ đĩa.</strong> Ổ đĩa đầy có thể âm thầm cắt ngắn bản lưu, và <code>level.dat</code> được ghi sau cùng.</li>\n<li><strong>Sửa giá trị, không sửa cấu trúc.</strong> Đổi tên thẻ hoặc kiểu của thẻ là thay đổi trò chơi không thể bỏ qua.</li>\n</ul>\n</section>\n",
+    "chips": [
+      "Chẩn đoán",
+      "level.dat_old",
+      "Phần đầu",
+      "Kiểu nén",
+      "Cắt ngắn"
+    ],
+    "faq": [
+      [
+        "level.dat_old là gì?",
+        "<p>Đó là bản lưu trước. Minecraft đổi tên tệp hiện tại thành <code>level.dat_old</code> trước khi ghi tệp mới, vì vậy đây là bản sao lưu một thế hệ nên thử đầu tiên.</p>"
+      ],
+      [
+        "Trình sửa NBT có thể khôi phục tệp bị cắt ngắn không?",
+        "<p>Công cụ có thể cho biết chính xác dữ liệu dừng ở đâu, nhưng không thể tái tạo các byte bị thiếu. Nếu chỉ phân tích được một phần, bạn cần bản sao lưu.</p>"
+      ],
+      [
+        "Tôi có mất các công trình không?",
+        "<p>Không nếu chỉ <code>level.dat</code> bị hỏng. Các chunk nằm trong <code>region/</code> hoặc <code>db/</code>; một tệp thế giới mới có cùng phiên bản có thể dùng lại chúng.</p>"
+      ],
+      [
+        "Máy chủ báo level.dat bình thường nhưng thế giới trống.",
+        "<p>Khi đó lỗi nằm ở dữ liệu chunk, không phải siêu dữ liệu. Kiểm tra <code>region/</code> hoặc <code>db/</code> đã được sao chép cùng chưa và tọa độ sinh trong <code>level.dat</code> có trỏ đúng nơi dự kiến không.</p>"
+      ]
+    ],
+    "howto": {
+      "name": "Chẩn đoán và sửa level.dat bị hỏng",
+      "time": "PT10M",
+      "steps": [
+        [
+          "Sao lưu thư mục thế giới",
+          "Sao chép toàn bộ thư mục thế giới trước khi thay đổi. Các bước bên dưới chỉ có thể hoàn tác nếu bạn giữ bản sao này."
+        ],
+        [
+          "Thử level.dat_old",
+          "Minecraft giữ bản lưu trước dưới tên level.dat_old. Mở tệp trong trình sửa NBT: nếu phân tích thành công, chép nó đè lên level.dat rồi khởi động thế giới."
+        ],
+        [
+          "Mở tệp bị hỏng",
+          "Thả level.dat vào trình sửa. Nếu phân tích thành công, tệp còn nguyên và lỗi nằm ở nơi khác — chunk, mod hoặc chính máy chủ."
+        ],
+        [
+          "Đọc thông báo lỗi",
+          "Trình sửa nêu loại lỗi: dữ liệu kết thúc bất ngờ nghĩa là tệp bị cắt ngắn; phiên bản lưu trữ vô lý nghĩa là header Bedrock hỏng; không nhận ra định dạng nghĩa là tệp hoàn toàn không phải NBT."
+        ],
+        [
+          "Kiểm tra kiểu nén và định dạng",
+          "Nếu tệp tải được, xem thanh tệp. level.dat Java phải lưu dưới dạng gzip big-endian; Bedrock phải là little-endian có header. Lưu lại với cài đặt đúng sẽ sửa tệp bị công cụ khác ghi sai."
+        ],
+        [
+          "Chỉ dựng lại phần bị thiếu",
+          "Nếu một thẻ bị xóa, hãy thêm lại với đúng kiểu. Nếu tệp bị cắt ngắn, ưu tiên level.dat_old hoặc bản sao lưu — dữ liệu thiếu trong tệp phân tích dở không thể được trình sửa tự tạo."
+        ]
+      ]
+    },
+    "ui": {
+      "loaded": "Đã tải dưới dạng {0}",
+      "trailing": "Đã bỏ qua {0} byte thừa sau thẻ gốc",
+      "error": "Lỗi: {0}",
+      "readfail": "Không thể đọc tệp",
+      "nofile": "Chưa tải tệp nào",
+      "saved": "Đã lưu {0} ({1}, {2})",
+      "savefail": "Lỗi lưu: {0}",
+      "exported": "Đã xuất {0}",
+      "snbtfail": "Lỗi SNBT: {0}",
+      "tagadded": "Đã thêm thẻ",
+      "tagremoved": "Đã xóa thẻ",
+      "arrayupdated": "Đã cập nhật mảng",
+      "badvalue": "Giá trị không hợp lệ: {0}",
+      "badarray": "Mảng không hợp lệ: {0}",
+      "nameneeded": "Bắt buộc nhập tên thẻ",
+      "nametaken": "Thẻ có tên {0} đã tồn tại tại đây",
+      "listtype": "Danh sách đã chứa các mục kiểu {0}",
+      "editlevelname": "✎ Sửa LevelName",
+      "showmore": "Hiện thêm {0} trong số {1} …",
+      "matches": "{0} kết quả",
+      "nomatch": "Không có thẻ nào khớp \"{0}\"",
+      "arraytoobig": "Mảng có {0} mục — hãy mở rộng và sửa từng phần tử",
+      "uncompressed": "không nén",
+      "storage": "lưu trữ v{0}",
+      "entries": "{0} mục",
+      "langprompt": "Mở trang này bằng {0}?",
+      "langyes": "Chuyển",
+      "langno": "Ở lại"
+    },
+    "support": "<strong>Hỗ trợ Minecraft Bedrock Edition và Java Edition</strong> — cùng mọi phần mềm máy chủ phổ biến hoặc ít gặp của cả hai: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina và các phần mềm còn lại. <a href=\"__HOME__#server-software\">Danh sách đầy đủ</a>.",
+    "footernote": "miễn phí, mã nguồn mở (MIT), chạy hoàn toàn trong trình duyệt. Không liên kết với Mojang Studios hoặc Microsoft. Minecraft là nhãn hiệu của Mojang Studios.",
+    "faqtitle": "Câu hỏi thường gặp",
+    "toctitle": "Nội dung trang",
+    "relatedtitle": "Công cụ liên quan",
+    "homecrumb": "Trình sửa NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Trình sửa",
+      "Loại tệp",
+      "Tài liệu tham khảo"
+    ],
+    "sourcehead": "Mã nguồn",
+    "sourcelink": "Mã trên GitHub"
+  },
+  "guides/edit-gamerules": {
+    "title": "Sửa luật chơi Minecraft trong level.dat — Java và Bedrock",
+    "ogtitle": "Sửa luật chơi trong level.dat",
+    "desc": "Đổi keepInventory, doDaylightCycle, mobGriefing và các luật khác bằng cách sửa level.dat cho Java và Bedrock, không cần lệnh hoặc bật cheat.",
+    "keywords": "sửa gamerule level.dat, keepinventory nbt, đổi luật chơi minecraft không cần lệnh, gamerule bedrock level.dat, dodaylightcycle nbt, chỉnh gamerule server",
+    "h1": "Sửa luật chơi trong <code>level.dat</code>",
+    "crumb": "Sửa luật chơi",
+    "reltitle": "Sửa luật chơi",
+    "reldesc": "keepInventory và các luật khác mà không cần tải thế giới.",
+    "answer": "Luật chơi được lưu trong <code>level.dat</code>, vì vậy bạn có thể thay đổi mà không cần tải thế giới hoặc bật cheat — hữu ích khi thế giới không khởi động, cheat bị tắt hoặc đang chuẩn bị bản sao trước khi người chơi vào. Java lưu chúng dưới dạng chuỗi trong compound <code>GameRules</code>; Bedrock lưu riêng từng thẻ byte chữ thường ở gốc.",
+    "droplabel": "level.dat",
+    "body": "\n<section class=\"content\" aria-label=\"Java gamerules\">\n<h2>Java: compound <code>GameRules</code> gồm các chuỗi</h2>\n<p>Trong Java Edition, <code>Data</code> → <code>GameRules</code> chứa một <code>TAG_String</code> cho mỗi luật, dùng chính xác tên mà <code>/gamerule</code> sử dụng làm khóa, còn giá trị được ghi thành văn bản: <code>\"true\"</code>, <code>\"false\"</code> hoặc một số. Luật chưa từng được đặt sẽ không có trong tệp và dùng giá trị mặc định — thêm thẻ đúng tên với giá trị chuỗi có tác dụng giống hệt chạy lệnh.</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Luật</th><th>Giá trị</th><th>Tác dụng</th></tr></thead>\n<tbody>\n<tr><td><code>keepInventory</code></td><td><code>\"true\"</code></td><td>Giữ vật phẩm khi chết</td></tr>\n<tr><td><code>doDaylightCycle</code></td><td><code>\"false\"</code></td><td>Dừng thời gian trong ngày</td></tr>\n<tr><td><code>doWeatherCycle</code></td><td><code>\"false\"</code></td><td>Dừng thay đổi thời tiết</td></tr>\n<tr><td><code>mobGriefing</code></td><td><code>\"false\"</code></td><td>Ngăn creeper và enderman thay đổi block</td></tr>\n<tr><td><code>doMobSpawning</code></td><td><code>\"false\"</code></td><td>Ngăn mob sinh tự nhiên</td></tr>\n<tr><td><code>doFireTick</code></td><td><code>\"false\"</code></td><td>Ngăn lửa lan</td></tr>\n<tr><td><code>commandBlockOutput</code></td><td><code>\"false\"</code></td><td>Tắt tin nhắn chat từ command block</td></tr>\n<tr><td><code>randomTickSpeed</code></td><td><code>\"3\"</code></td><td>Tốc độ cây trồng phát triển và lửa lan</td></tr>\n<tr><td><code>playersSleepingPercentage</code></td><td><code>\"50\"</code></td><td>Tỷ lệ người chơi cần ngủ để bỏ qua đêm</td></tr>\n<tr><td><code>spawnRadius</code></td><td><code>\"10\"</code></td><td>Phạm vi khu vực sinh</td></tr>\n</tbody>\n</table>\n</div>\n<p>Phân biệt chữ hoa chữ thường. <code>keepinventory</code> trong tệp Java không phải cùng thẻ với <code>keepInventory</code> và sẽ bị bỏ qua.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Bedrock gamerules\">\n<h2>Bedrock: các thẻ byte chữ thường riêng lẻ</h2>\n<p>Bedrock không nhóm luật. Mỗi luật là một <code>TAG_Byte</code> ở gốc <code>level.dat</code>, có tên chữ thường và chứa 1 hoặc 0 — <code>keepinventory</code>, <code>domobspawning</code>, <code>domobloot</code>, <code>dodaylightcycle</code>, <code>doweathercycle</code>, <code>mobgriefing</code>, <code>firedamage</code>, <code>falldamage</code>, <code>drowningdamage</code>, <code>pvp</code>, <code>showcoordinates</code>, <code>commandblockoutput</code>, <code>sendcommandfeedback</code>, <code>naturalregeneration</code>, <code>tntexplodes</code>, <code>respawnblocksexplode</code>, <code>showdeathmessages</code>, <code>doimmediaterespawn</code>. Luật dạng số như <code>randomtickspeed</code> và <code>functioncommandlimit</code> dùng <code>TAG_Int</code>.</p>\n<p>Để đặt một luật chưa có, hãy thêm thẻ với đúng kiểu: Byte cho tùy chọn bật/tắt, Int cho số. Luật lưu sai kiểu sẽ bị bỏ qua hoặc khiến thế giới không tải.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Why edit the file\">\n<h2>Khi sửa tệp phù hợp hơn dùng lệnh</h2>\n<ul>\n<li><strong>Cheat đang tắt</strong> và bạn không muốn bật rồi tắt chỉ để chạy một lệnh.</li>\n<li><strong>Thế giới không tải được</strong> — luật như <code>doImmediateRespawn</code> có thể được đặt trước lần vào đầu tiên.</li>\n<li><strong>Bạn đang chuẩn bị thế giới mẫu</strong> để sao chép cho nhiều máy chủ và muốn luật có sẵn trong mỗi bản.</li>\n<li><strong>Plugin đã đổi một luật</strong> và bạn muốn xem giá trị thực được lưu thay vì kết quả lệnh báo.</li>\n<li><strong>Sửa hàng loạt.</strong> Đặt nhiều luật trên vài thế giới bằng tệp nhanh hơn nhập trong chat.</li>\n</ul>\n<p>Hãy dừng máy chủ trước như với mọi thay đổi <code>level.dat</code> — thế giới đang chạy sẽ ghi lại tệp khi lưu và loại bỏ thay đổi.</p>\n</section>\n",
+    "chips": [
+      "keepInventory",
+      "doDaylightCycle",
+      "mobGriefing",
+      "commandBlockOutput",
+      "randomTickSpeed"
+    ],
+    "faq": [
+      [
+        "Tại sao luật chơi trong Java được lưu dạng chuỗi?",
+        "<p>Java lưu mọi luật dưới dạng chuỗi, kể cả boolean và số. Hãy ghi <code>\"true\"</code>, không phải byte 1.</p>"
+      ],
+      [
+        "Tại sao Bedrock lưu luật dưới dạng byte?",
+        "<p>Bedrock lưu các tùy chọn bật/tắt thành thẻ byte ở gốc và luật dạng số thành int. Không có compound <code>GameRules</code>.</p>"
+      ],
+      [
+        "Một luật hoàn toàn không có trong tệp.",
+        "<p>Điều đó nghĩa là luật đang dùng giá trị mặc định. Thêm thẻ với tên chính xác và đúng kiểu để thế giới dùng giá trị của bạn.</p>"
+      ],
+      [
+        "Luật chơi có được sao chép cùng thư mục thế giới không?",
+        "<p>Có — chúng nằm trong <code>level.dat</code>, vì vậy bản sao thế giới kế thừa chúng cùng <a href=\"../change-world-name/\">tên thế giới</a> cũ.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Đã tải dưới dạng {0}",
+      "trailing": "Đã bỏ qua {0} byte thừa sau thẻ gốc",
+      "error": "Lỗi: {0}",
+      "readfail": "Không thể đọc tệp",
+      "nofile": "Chưa tải tệp nào",
+      "saved": "Đã lưu {0} ({1}, {2})",
+      "savefail": "Lỗi lưu: {0}",
+      "exported": "Đã xuất {0}",
+      "snbtfail": "Lỗi SNBT: {0}",
+      "tagadded": "Đã thêm thẻ",
+      "tagremoved": "Đã xóa thẻ",
+      "arrayupdated": "Đã cập nhật mảng",
+      "badvalue": "Giá trị không hợp lệ: {0}",
+      "badarray": "Mảng không hợp lệ: {0}",
+      "nameneeded": "Bắt buộc nhập tên thẻ",
+      "nametaken": "Thẻ có tên {0} đã tồn tại tại đây",
+      "listtype": "Danh sách đã chứa các mục kiểu {0}",
+      "editlevelname": "✎ Sửa LevelName",
+      "showmore": "Hiện thêm {0} trong số {1} …",
+      "matches": "{0} kết quả",
+      "nomatch": "Không có thẻ nào khớp \"{0}\"",
+      "arraytoobig": "Mảng có {0} mục — hãy mở rộng và sửa từng phần tử",
+      "uncompressed": "không nén",
+      "storage": "lưu trữ v{0}",
+      "entries": "{0} mục",
+      "langprompt": "Mở trang này bằng {0}?",
+      "langyes": "Chuyển",
+      "langno": "Ở lại"
+    },
+    "support": "<strong>Hỗ trợ Minecraft Bedrock Edition và Java Edition</strong> — cùng mọi phần mềm máy chủ phổ biến hoặc ít gặp của cả hai: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina và các phần mềm còn lại. <a href=\"__HOME__#server-software\">Danh sách đầy đủ</a>.",
+    "footernote": "miễn phí, mã nguồn mở (MIT), chạy hoàn toàn trong trình duyệt. Không liên kết với Mojang Studios hoặc Microsoft. Minecraft là nhãn hiệu của Mojang Studios.",
+    "faqtitle": "Câu hỏi thường gặp",
+    "toctitle": "Nội dung trang",
+    "relatedtitle": "Công cụ liên quan",
+    "homecrumb": "Trình sửa NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Trình sửa",
+      "Loại tệp",
+      "Tài liệu tham khảo"
+    ],
+    "sourcehead": "Mã nguồn",
+    "sourcelink": "Mã trên GitHub"
+  }
+}

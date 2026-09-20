@@ -3,79 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>NBT Viewer Online — Open and Read .nbt and .dat Files</title>
-<meta name="description" content="Open and read any Minecraft NBT file online. View the full tag tree of .nbt, .dat, .mcstructure or .schem, search it and export it as SNBT text.">
-<meta name="keywords" content="nbt viewer, nbt viewer online, open nbt file, read .dat file minecraft, nbt file reader, view nbt online, minecraft dat file viewer, nbt to json, snbt export">
-<meta name="robots" content="noindex, follow">
+<title>โปรแกรมดู NBT ออนไลน์ — เปิดไฟล์ .nbt และ .dat</title>
+<meta name="description" content="เปิดและอ่านไฟล์ NBT ของ Minecraft ออนไลน์ ดูโครงสร้างแท็กทั้งหมดในไฟล์ .nbt, .dat, .mcstructure หรือ .schem ค้นหาข้อมูลและส่งออกเป็นข้อความ SNBT">
+<meta name="keywords" content="เปิดไฟล์ nbt, โปรแกรมดู nbt ออนไลน์, อ่านไฟล์ dat minecraft, nbt viewer, ดูไฟล์ .nbt, แปลง nbt เป็น snbt, เปิดไฟล์ level.dat">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="author" content="w1zardz">
 <link rel="canonical" href="https://w1zardz.github.io/bedrock-nbt-editor/th/nbt-viewer/">
+<link rel="alternate" hreflang="en" href="https://w1zardz.github.io/bedrock-nbt-editor/nbt-viewer/">
+<link rel="alternate" hreflang="ru" href="https://w1zardz.github.io/bedrock-nbt-editor/ru/nbt-viewer/">
+<link rel="alternate" hreflang="es" href="https://w1zardz.github.io/bedrock-nbt-editor/es/nbt-viewer/">
+<link rel="alternate" hreflang="pt-BR" href="https://w1zardz.github.io/bedrock-nbt-editor/pt-br/nbt-viewer/">
+<link rel="alternate" hreflang="de" href="https://w1zardz.github.io/bedrock-nbt-editor/de/nbt-viewer/">
+<link rel="alternate" hreflang="fr" href="https://w1zardz.github.io/bedrock-nbt-editor/fr/nbt-viewer/">
+<link rel="alternate" hreflang="it" href="https://w1zardz.github.io/bedrock-nbt-editor/it/nbt-viewer/">
+<link rel="alternate" hreflang="pl" href="https://w1zardz.github.io/bedrock-nbt-editor/pl/nbt-viewer/">
+<link rel="alternate" hreflang="uk" href="https://w1zardz.github.io/bedrock-nbt-editor/uk/nbt-viewer/">
+<link rel="alternate" hreflang="tr" href="https://w1zardz.github.io/bedrock-nbt-editor/tr/nbt-viewer/">
+<link rel="alternate" hreflang="id" href="https://w1zardz.github.io/bedrock-nbt-editor/id/nbt-viewer/">
+<link rel="alternate" hreflang="vi" href="https://w1zardz.github.io/bedrock-nbt-editor/vi/nbt-viewer/">
+<link rel="alternate" hreflang="th" href="https://w1zardz.github.io/bedrock-nbt-editor/th/nbt-viewer/">
+<link rel="alternate" hreflang="zh-Hans" href="https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/nbt-viewer/">
+<link rel="alternate" hreflang="ja" href="https://w1zardz.github.io/bedrock-nbt-editor/ja/nbt-viewer/">
+<link rel="alternate" hreflang="ko" href="https://w1zardz.github.io/bedrock-nbt-editor/ko/nbt-viewer/">
+<link rel="alternate" hreflang="ar" href="https://w1zardz.github.io/bedrock-nbt-editor/ar/nbt-viewer/">
 <link rel="alternate" hreflang="x-default" href="https://w1zardz.github.io/bedrock-nbt-editor/nbt-viewer/">
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="../../favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <link rel="manifest" href="../../site.webmanifest">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NBT viewer — open any .nbt or .dat file in the browser">
-<meta property="og:description" content="Open and read any Minecraft NBT file online. View the full tag tree of .nbt, .dat, .mcstructure or .schem, search it and export it as SNBT text.">
+<meta property="og:title" content="โปรแกรมดู NBT — เปิดไฟล์ .nbt หรือ .dat ในเบราว์เซอร์">
+<meta property="og:description" content="เปิดและอ่านไฟล์ NBT ของ Minecraft ออนไลน์ ดูโครงสร้างแท็กทั้งหมดในไฟล์ .nbt, .dat, .mcstructure หรือ .schem ค้นหาข้อมูลและส่งออกเป็นข้อความ SNBT">
 <meta property="og:url" content="https://w1zardz.github.io/bedrock-nbt-editor/th/nbt-viewer/">
-<meta property="og:site_name" content="Minecraft NBT Editor">
+<meta property="og:site_name" content="ตัวแก้ไข NBT ของ Minecraft">
 <meta property="og:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/viewer.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="th_TH">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="NBT viewer — open any .nbt or .dat file in the browser">
-<meta name="twitter:description" content="Open and read any Minecraft NBT file online. View the full tag tree of .nbt, .dat, .mcstructure or .schem, search it and export it as SNBT text.">
+<meta name="twitter:title" content="โปรแกรมดู NBT — เปิดไฟล์ .nbt หรือ .dat ในเบราว์เซอร์">
+<meta name="twitter:description" content="เปิดและอ่านไฟล์ NBT ของ Minecraft ออนไลน์ ดูโครงสร้างแท็กทั้งหมดในไฟล์ .nbt, .dat, .mcstructure หรือ .schem ค้นหาข้อมูลและส่งออกเป็นข้อความ SNBT">
 <meta name="twitter:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/viewer.png">
-<meta property="article:modified_time" content="2026-08-26">
-<meta property="og:updated_time" content="2026-08-26">
+<meta property="article:modified_time" content="2026-09-21">
+<meta property="og:updated_time" content="2026-09-21">
 <meta name="theme-color" content="#0d1117">
-<meta name="application-name" content="Minecraft NBT Editor">
-<meta name="apple-mobile-web-app-title" content="NBT Editor">
-<link rel="preload" href="../../assets/nbt.js?v=da7967b1" as="script">
-<script>window.__LANG_URLS__={"en":"../../nbt-viewer/","ru":"../../ru/nbt-viewer/","es":"../../es/nbt-viewer/","pt-br":"../../pt-br/nbt-viewer/","de":"../../de/nbt-viewer/","fr":"../../fr/nbt-viewer/","it":"../../it/nbt-viewer/","pl":"../../pl/nbt-viewer/","uk":"../../uk/nbt-viewer/","tr":"../../tr/nbt-viewer/","id":"../../id/nbt-viewer/","vi":"../../vi/nbt-viewer/","th":"./","zh-hans":"../../zh-hans/nbt-viewer/","ja":"../../ja/nbt-viewer/","ko":"../../ko/nbt-viewer/","ar":"../../ar/nbt-viewer/"};window.__NBT_STRINGS__={"loaded":"Loaded as {0}","trailing":"{0} trailing byte(s) after the root tag were ignored","error":"Error: {0}","readfail":"Could not read the file","nofile":"No file loaded","saved":"Saved {0} ({1}, {2})","savefail":"Save error: {0}","exported":"Exported {0}","snbtfail":"SNBT error: {0}","tagadded":"Tag added","tagremoved":"Tag removed","arrayupdated":"Array updated","badvalue":"Invalid value: {0}","badarray":"Invalid array: {0}","nameneeded":"Tag name is required","nametaken":"A tag named {0} already exists here","listtype":"List already holds {0} entries","editlevelname":"✎ Edit LevelName","showmore":"Show {0} more of {1} …","matches":"{0} match(es)","nomatch":"No tag matches \"{0}\"","arraytoobig":"Array has {0} entries — expand it and edit elements individually","uncompressed":"uncompressed","storage":"storage v{0}","entries":"{0} entries","langprompt":"Open this page in {0}?","langyes":"Switch","langno":"Stay"};</script>
-<script src="../../assets/lang.js?v=a3a1db0e" defer></script>
+<meta name="application-name" content="ตัวแก้ไข NBT ของ Minecraft">
+<meta name="apple-mobile-web-app-title" content="ตัวแก้ไข NBT">
+<link rel="preload" href="../../assets/nbt.js?v=6f125422" as="script">
+<script>window.__LANG_URLS__={"en":"../../nbt-viewer/","ru":"../../ru/nbt-viewer/","es":"../../es/nbt-viewer/","pt-br":"../../pt-br/nbt-viewer/","de":"../../de/nbt-viewer/","fr":"../../fr/nbt-viewer/","it":"../../it/nbt-viewer/","pl":"../../pl/nbt-viewer/","uk":"../../uk/nbt-viewer/","tr":"../../tr/nbt-viewer/","id":"../../id/nbt-viewer/","vi":"../../vi/nbt-viewer/","th":"./","zh-hans":"../../zh-hans/nbt-viewer/","ja":"../../ja/nbt-viewer/","ko":"../../ko/nbt-viewer/","ar":"../../ar/nbt-viewer/"};window.__NBT_STRINGS__={"loaded":"โหลดเป็น {0} แล้ว","trailing":"ละเว้นไบต์ส่วนเกิน {0} ไบต์หลังแท็กราก","error":"ข้อผิดพลาด: {0}","readfail":"อ่านไฟล์ไม่ได้","nofile":"ยังไม่ได้โหลดไฟล์","saved":"บันทึก {0} แล้ว ({1}, {2})","savefail":"บันทึกไม่สำเร็จ: {0}","exported":"ส่งออก {0} แล้ว","snbtfail":"ข้อผิดพลาด SNBT: {0}","tagadded":"เพิ่มแท็กแล้ว","tagremoved":"ลบแท็กแล้ว","arrayupdated":"อัปเดตอาร์เรย์แล้ว","badvalue":"ค่าไม่ถูกต้อง: {0}","badarray":"อาร์เรย์ไม่ถูกต้อง: {0}","nameneeded":"ต้องระบุชื่อแท็ก","nametaken":"มีแท็กชื่อ {0} อยู่ที่นี่แล้ว","listtype":"รายการนี้มีรายการชนิด {0} อยู่แล้ว","editlevelname":"✎ แก้ไข LevelName","showmore":"แสดงอีก {0} รายการจาก {1} …","matches":"พบ {0} รายการ","nomatch":"ไม่พบแท็กที่ตรงกับ \"{0}\"","arraytoobig":"อาร์เรย์มี {0} รายการ — ขยายแล้วแก้ไขแต่ละองค์ประกอบแยกกัน","uncompressed":"ไม่บีบอัด","storage":"พื้นที่จัดเก็บ v{0}","entries":"{0} รายการ","langprompt":"เปิดหน้านี้เป็นภาษา {0} หรือไม่?","langyes":"เปลี่ยนภาษา","langno":"ใช้ภาษาเดิม","nav_editor":"ตัวแก้ไข","nav_format":"รูปแบบ NBT","language":"ภาษา: {0}","beta":"เบต้า","skip_editor":"ข้ามไปยังตัวแก้ไข","brand_editor":"ตัวแก้ไข NBT","guides":"คู่มือ","updated":"อัปเดตล่าสุด {0}","drop":"วาง {0} ที่นี่","choose_file":"เลือกไฟล์","file_hint":"level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · ข้อมูลชังก์ที่แยกออกมา","output_format":"รูปแบบไฟล์ที่บันทึก","format_java":"Java — บิ๊กเอนเดียน รากมีชื่อ","format_java_network":"เครือข่าย Java — บิ๊กเอนเดียน รากไม่มีชื่อ","format_bedrock_level":"Bedrock level.dat — ลิตเทิลเอนเดียน + ส่วนหัว 8 ไบต์","format_bedrock":"Bedrock แบบดิบ — ลิตเทิลเอนเดียน","format_bedrock_network":"เครือข่าย Bedrock — ลิตเทิลเอนเดียนแบบ varint","compression":"การบีบอัด","compression_none":"ไม่บีบอัด (ข้อมูลดิบ)","search_placeholder":"ค้นหาชื่อหรือค่าของแท็ก…","search":"ค้นหา","collapse":"ยุบทั้งหมด","add_tag":"+ เพิ่มแท็ก","save_download":"บันทึกและดาวน์โหลด","export_snbt":"ส่งออก SNBT","close":"ปิด","add_new_tag":"เพิ่มแท็กใหม่","tag_name":"ชื่อแท็ก","tag_type":"ชนิดแท็ก","tag_example":"เช่น MyTag","value":"ค่า","list_element_type":"ชนิดสมาชิกในรายการ","cancel":"ยกเลิก","add":"เพิ่ม","edit_array":"แก้ไขอาร์เรย์","comma_values":"ค่าที่คั่นด้วยจุลภาค","apply":"นำไปใช้","format_label_java":"Java แบบบิ๊กเอนเดียน","format_label_java_network":"เครือข่าย Java (รากไม่มีชื่อ)","format_label_bedrock_level":"Bedrock level.dat (ส่วนหัว 8 ไบต์)","format_label_bedrock":"Bedrock แบบลิตเทิลเอนเดียน","format_label_bedrock_network":"เครือข่าย Bedrock (varint)","err_decompress":"เบราว์เซอร์นี้คลายการบีบอัด {0} ไม่ได้ (ไม่มี Compression Streams API)","err_compress":"เบราว์เซอร์นี้บีบอัด {0} ไม่ได้ (ไม่มี Compression Streams API)","err_stream":"ประมวลผลการบีบอัดแบบ {0} ไม่ได้","err_end":"ข้อมูลสิ้นสุดก่อนกำหนดที่ตำแหน่ง {0}","err_tag_limit":"จำนวนแท็กเกินขีดจำกัด","err_varint":"VarInt ยาวเกินไป","err_varlong":"VarLong ยาวเกินไป","err_negative_array":"ความยาวอาร์เรย์เป็นลบ: {0}","err_array_length":"ความยาวอาร์เรย์ {0} เกินข้อมูลที่เหลือ","err_negative_list":"ความยาวรายการเป็นลบ","err_end_list":"รายการ TAG_End มีสมาชิก {0} รายการ","err_list_type":"ไม่รู้จักชนิดสมาชิกในรายการ: {0}","err_tag_type":"ไม่รู้จักชนิดแท็ก: {0}","err_root":"แท็กรากต้องเป็น TAG_Compound แต่ได้รับ {0}","err_string_length":"สตริงยาวเกินกว่าที่รูปแบบนี้รองรับ: {0} ไบต์","err_write_type":"เขียนแท็กชนิด {0} ไม่ได้","err_header_short":"ข้อมูลสั้นเกินกว่าจะมีส่วนหัว","err_storage_version":"เวอร์ชันการจัดเก็บไม่สมเหตุสมผล: {0}","err_header_length":"ความยาว {0} ที่ระบุในส่วนหัวเกินขนาดข้อมูล","err_unknown_file":"ไม่รู้จักรูปแบบไฟล์ NBT นี้ (ลองรูปแบบ Java, Bedrock, เครือข่าย และแบบมีส่วนหัวแล้ว)","err_file_small":"ไฟล์เล็กเกินกว่าจะมีข้อมูล NBT","err_byte":"Byte ต้องอยู่ในช่วง -128..127","err_short":"Short ต้องอยู่ในช่วง -32768..32767","err_int":"Int ต้องอยู่ในช่วง -2147483648..2147483647","err_long":"Long อยู่นอกช่วง 64 บิต","err_float":"ค่า float ไม่ถูกต้อง","err_double":"ค่า double ไม่ถูกต้อง","err_not_inline":"แก้ไขแท็กชนิดนี้โดยตรงไม่ได้","err_array_byte":"ค่า byte ไม่ถูกต้อง: {0}","err_array_int":"ค่า int ไม่ถูกต้อง: {0}","err_array_long":"จำนวนเต็ม 64 บิตไม่ถูกต้อง: {0}","root":"(ราก)","add_child":"เพิ่มแท็กลูก","remove_tag":"ลบแท็ก","array":"อาร์เรย์","array_bytes":"[{0} ไบต์]","array_ints":"[int {0} ค่า]","array_longs":"[long {0} ค่า]","entries_type":"สมาชิกชนิด {1} จำนวน {0} รายการ","unknown_error":"ดำเนินการให้เสร็จสมบูรณ์ไม่ได้","software_name":"ตัวแก้ไข NBT ของ Minecraft","software_alternate_online":"ตัวแก้ไข NBT ออนไลน์","software_alternate_bedrock":"ตัวแก้ไข NBT ของ Bedrock","software_alternate_level":"ตัวแก้ไข level.dat","software_subcategory":"ตัวแก้ไขไฟล์เกม","software_os":"ทุกระบบ (ผ่านเบราว์เซอร์)","software_browser":"เบราว์เซอร์รุ่นใหม่ที่รองรับ BigInt และ Compression Streams","feature_java":"NBT แบบบิ๊กเอนเดียนของ Java Edition","feature_bedrock":"NBT แบบลิตเทิลเอนเดียนของ Bedrock Edition","feature_bedrock_network":"NBT เครือข่าย Bedrock (varint)","feature_java_network":"NBT เครือข่าย Java (รากไม่มีชื่อ)","feature_compression":"การบีบอัดแบบ gzip และ zlib","feature_types":"แท็ก NBT ครบทั้ง 13 ชนิด ด้วยความแม่นยำ 64 บิต","feature_snbt":"ส่งออก SNBT","feature_local":"ทำงานทั้งหมดบนอุปกรณ์ของคุณ","schema_about":"รูปแบบข้อมูล NBT ของ Minecraft","not_found_title":"ไม่พบหน้า — {0}","not_found_heading":"404 — หน้านี้ถูกย้ายหรือไม่เคยมีอยู่","not_found_intro":"ยังเปิดตัวแก้ไขได้ในคลิกเดียว และเครื่องมือทุกตัวมีลิงก์ถาวรอยู่ด้านล่าง","not_found_footer":"{0} — ฟรีและเป็นโอเพนซอร์ส","aria_bedrock_gamerules":"กฎของเกม Bedrock","aria_bedrock_level_dat_header":"ส่วนหัว level.dat ของ Bedrock","aria_bedrock_tags":"แท็ก Bedrock","aria_breadcrumb":"เส้นทางนำทาง","aria_byte_walkthrough":"คำอธิบายทีละไบต์","aria_causes":"สาเหตุ","aria_common_repairs":"การแก้ไขปัญหาที่พบบ่อย","aria_comparison":"การเปรียบเทียบ","aria_compatibility":"ความเข้ากันได้","aria_compression":"การบีบอัด","aria_core_specifics":"รายละเอียดของซอฟต์แวร์เซิร์ฟเวอร์แต่ละตัว","aria_dataversion":"DataVersion","aria_drop_an_nbt_file_here_or_click_to_browse":"วางไฟล์ NBT ที่นี่หรือคลิกเพื่อเลือกไฟล์","aria_duplicate_world_names":"ชื่อโลกซ้ำกัน","aria_editing_schematics":"การแก้ไขสเคแมติก","aria_encodings":"การเข้ารหัสข้อมูล","aria_features":"คุณสมบัติ","aria_file_types":"ชนิดไฟล์","aria_frequently_asked_questions":"คำถามที่พบบ่อย","aria_how_to_use":"วิธีใช้งาน","aria_inside_a_mcstructure_file":"ภายในไฟล์ mcstructure","aria_introduction":"บทนำ","aria_java_nbt_encoding":"การเข้ารหัส NBT ของ Java","aria_java_nbt_files":"ไฟล์ NBT ของ Java","aria_java_gamerules":"กฎของเกม Java","aria_migrating":"การย้ายจากเครื่องมืออื่น","aria_other_bedrock_nbt":"ข้อมูล NBT แบบอื่นของ Bedrock","aria_other_tools":"เครื่องมืออื่น","aria_per_platform":"แยกตามแพลตฟอร์ม","aria_prevention":"การป้องกัน","aria_related_tools":"เครื่องมือที่เกี่ยวข้อง","aria_snbt":"SNBT","aria_safety":"ความปลอดภัย","aria_salvage":"การกู้คืน","aria_schematic_formats":"รูปแบบสเคแมติก","aria_scripting":"การใช้สคริปต์","aria_search_nbt_tags":"ค้นหาแท็ก NBT","aria_server_cores":"ซอฟต์แวร์เซิร์ฟเวอร์","aria_server_safety":"ความปลอดภัยของเซิร์ฟเวอร์","aria_server_workflow":"ขั้นตอนการทำงานบนเซิร์ฟเวอร์","aria_strings":"สตริง","aria_supported_files":"ไฟล์ที่รองรับ","aria_supported_server_software":"ซอฟต์แวร์เซิร์ฟเวอร์ที่รองรับ","aria_tag_types":"ชนิดแท็ก","aria_tags_in_level_dat":"แท็กใน level.dat","aria_tools":"เครื่องมือ","aria_troubleshooting":"การแก้ไขปัญหา","aria_typical_edits":"การแก้ไขที่พบบ่อย","aria_what_you_can_inspect":"ข้อมูลที่ตรวจสอบได้","aria_where_bedrock_files_live":"ตำแหน่งไฟล์ Bedrock","aria_where_mcstructure_files_live":"ตำแหน่งไฟล์ mcstructure","aria_where_to_find_level_dat":"ตำแหน่งของ level.dat","aria_why_edit_the_file":"เหตุผลที่ต้องแก้ไขไฟล์","aria_why_the_folder_name_is_not_the_world_name":"เหตุใดชื่อโฟลเดอร์จึงไม่ใช่ชื่อโลก","aria_playerdata_tags":"แท็ก playerdata","toggle":"ขยายหรือยุบ"};</script>
+<script src="../../assets/lang.js?v=23a64b2c" defer></script>
 <link rel="stylesheet" href="../../assets/app.css?v=f5bdcb0f">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"NBT Viewer Online \u2014 Open and Read .nbt and .dat Files","headline":"NBT Viewer \u2014 Open Any Minecraft NBT File","description":"Open and read any Minecraft NBT file online. View the full tag tree of .nbt, .dat, .mcstructure or .schem, search it and export it as SNBT text.","url":"https://w1zardz.github.io/bedrock-nbt-editor/th/nbt-viewer/","inLanguage":"th","datePublished":"2026-05-29","dateModified":"2026-08-26","isPartOf":{"@type":"WebSite","name":"Minecraft NBT Editor","url":"https://w1zardz.github.io/bedrock-nbt-editor/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/viewer.png"},"about":{"@type":"Thing","name":"Minecraft NBT data format"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT Editor","item":"https://w1zardz.github.io/bedrock-nbt-editor/th/"},{"@type":"ListItem","position":2,"name":"NBT Viewer \u2014 Open Any Minecraft NBT File","item":"https://w1zardz.github.io/bedrock-nbt-editor/th/nbt-viewer/"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I view an NBT file without editing it?","acceptedAnswer":{"@type":"Answer","text":"Yes. The editor only writes a file when you click Save &amp; Download, and it never touches the file you dropped in."}},{"@type":"Question","name":"Can it convert NBT to JSON?","acceptedAnswer":{"@type":"Answer","text":"It exports SNBT, which preserves tag types. JSON would flatten bytes, shorts, ints, longs and floats into one number type and lose byte arrays, so it is the wrong target for round-tripping Minecraft data."}},{"@type":"Question","name":"Why does my file show as a different edition than I expected?","acceptedAnswer":{"@type":"Answer","text":"The format is detected from the bytes, not the extension. A file reported as Java when you expected Bedrock is usually a file from the other edition, or a fragment that happens to parse \u2014 check the offsets reported if it warns about trailing bytes."}},{"@type":"Question","name":"How big a file can it open?","acceptedAnswer":{"@type":"Answer","text":"Multi-megabyte documents are fine: arrays are kept in typed arrays and the tree renders lazily, so only the rows you expand exist in the page."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"โปรแกรมดู NBT ออนไลน์ — เปิดไฟล์ .nbt และ .dat","headline":"โปรแกรมดู NBT — เปิดไฟล์ NBT ของ Minecraft","description":"เปิดและอ่านไฟล์ NBT ของ Minecraft ออนไลน์ ดูโครงสร้างแท็กทั้งหมดในไฟล์ .nbt, .dat, .mcstructure หรือ .schem ค้นหาข้อมูลและส่งออกเป็นข้อความ SNBT","url":"https://w1zardz.github.io/bedrock-nbt-editor/th/nbt-viewer/","inLanguage":"th","datePublished":"2026-05-29","dateModified":"2026-09-21","isPartOf":{"@type":"WebSite","name":"ตัวแก้ไข NBT ของ Minecraft","url":"https://w1zardz.github.io/bedrock-nbt-editor/th/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/viewer.png"},"about":{"@type":"Thing","name":"รูปแบบข้อมูล NBT ของ Minecraft"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ตัวแก้ไข NBT","item":"https://w1zardz.github.io/bedrock-nbt-editor/th/"},{"@type":"ListItem","position":2,"name":"โปรแกรมดู NBT — เปิดไฟล์ NBT ของ Minecraft","item":"https://w1zardz.github.io/bedrock-nbt-editor/th/nbt-viewer/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"ดูไฟล์ NBT โดยไม่แก้ไขได้หรือไม่","acceptedAnswer":{"@type":"Answer","text":"ได้ โปรแกรมจะเขียนไฟล์ก็ต่อเมื่อคุณกด Save &amp; Download และจะไม่แก้ไขไฟล์ที่คุณวางเข้ามา"}},{"@type":"Question","name":"แปลง NBT เป็น JSON ได้หรือไม่","acceptedAnswer":{"@type":"Answer","text":"เครื่องมือส่งออก SNBT ซึ่งเก็บชนิดแท็กไว้ครบ JSON จะรวม byte, short, int, long และ float เป็นตัวเลขชนิดเดียวและทำให้อาร์เรย์ byte สูญหาย จึงไม่เหมาะกับการแปลงข้อมูล Minecraft ไปแล้วแปลงกลับ"}},{"@type":"Question","name":"ทำไมไฟล์จึงแสดงเป็น Edition อื่นจากที่คาดไว้","acceptedAnswer":{"@type":"Answer","text":"ระบบตรวจรูปแบบจากข้อมูลไบต์ ไม่ใช่นามสกุล หากรายงานเป็น Java ทั้งที่คาดว่าเป็น Bedrock มักหมายถึงไฟล์มาจากอีก Edition หรือเป็นชิ้นข้อมูลที่บังเอิญอ่านได้ หากมีคำเตือนเรื่องข้อมูลท้ายไฟล์ ให้ตรวจ offset ที่รายงาน"}},{"@type":"Question","name":"เปิดไฟล์ขนาดใหญ่ได้เพียงใด","acceptedAnswer":{"@type":"Answer","text":"เอกสารขนาดหลายเมกะไบต์ใช้งานได้ อาร์เรย์ถูกเก็บเป็น typed array และโครงสร้างจะแสดงแบบ lazy จึงสร้างบนหน้าเฉพาะแถวที่คุณขยาย"}}]}</script>
 </head>
 <body>
-<a class="skip-link" href="#editor">Skip to the editor</a>
+<a class="skip-link" href="#editor">ข้ามไปยังตัวแก้ไข</a>
 <header class="site-header">
 <div class="container">
-<a class="brand" href="../"><span>Minecraft</span> NBT Editor</a>
+<a class="brand" href="../"><span>Minecraft</span> ตัวแก้ไข NBT</a>
 <span class="badge">Java + Bedrock</span>
-<nav class="site-nav" aria-label="Tools">
-<a href="../">Editor</a>
+<nav class="site-nav" aria-label="เครื่องมือ">
+<a href="../">ตัวแก้ไข</a>
 <a href="../level-dat-editor/">level.dat</a>
 <a href="../java-nbt-editor/">Java</a>
 <a href="../mcpe-nbt-editor/">Bedrock</a>
 <a href="../mcstructure-editor/">.mcstructure</a>
 <a href="../schematic-editor/">.schem</a>
 <a href="../playerdata-editor/">playerdata</a>
-<a href="../nbt-format/">NBT format</a>
+<a href="../nbt-format/">รูปแบบ NBT</a>
 </nav>
-<details class="lang-switch"><summary title="Language: ไทย" aria-label="Language: ไทย"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">Language: ไทย</span></summary><div class="lang-menu"><a href="./" hreflang="th" data-lang="th" aria-current="true" class="current">ไทย</a><a href="../../nbt-viewer/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../ru/nbt-viewer/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../es/nbt-viewer/" hreflang="es" data-lang="es" rel="alternate">Español (beta)</a><a href="../../pt-br/nbt-viewer/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR) (beta)</a><a href="../../de/nbt-viewer/" hreflang="de" data-lang="de" rel="alternate">Deutsch (beta)</a><a href="../../fr/nbt-viewer/" hreflang="fr" data-lang="fr" rel="alternate">Français (beta)</a><a href="../../it/nbt-viewer/" hreflang="it" data-lang="it" rel="alternate">Italiano (beta)</a><a href="../../pl/nbt-viewer/" hreflang="pl" data-lang="pl" rel="alternate">Polski (beta)</a><a href="../../uk/nbt-viewer/" hreflang="uk" data-lang="uk" rel="alternate">Українська (beta)</a><a href="../../tr/nbt-viewer/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe (beta)</a><a href="../../id/nbt-viewer/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia (beta)</a><a href="../../vi/nbt-viewer/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt (beta)</a><a href="../../zh-hans/nbt-viewer/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文 (beta)</a><a href="../../ja/nbt-viewer/" hreflang="ja" data-lang="ja" rel="alternate">日本語 (beta)</a><a href="../../ko/nbt-viewer/" hreflang="ko" data-lang="ko" rel="alternate">한국어 (beta)</a><a href="../../ar/nbt-viewer/" hreflang="ar" data-lang="ar" rel="alternate">العربية (beta)</a></div></details>
+<details class="lang-switch"><summary title="ภาษา: ไทย" aria-label="ภาษา: ไทย"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">ภาษา: ไทย</span></summary><div class="lang-menu"><a href="./" hreflang="th" data-lang="th" aria-current="true" class="current">ไทย</a><a href="../../nbt-viewer/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../ru/nbt-viewer/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../es/nbt-viewer/" hreflang="es" data-lang="es" rel="alternate">Español</a><a href="../../pt-br/nbt-viewer/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR)</a><a href="../../de/nbt-viewer/" hreflang="de" data-lang="de" rel="alternate">Deutsch</a><a href="../../fr/nbt-viewer/" hreflang="fr" data-lang="fr" rel="alternate">Français</a><a href="../../it/nbt-viewer/" hreflang="it" data-lang="it" rel="alternate">Italiano</a><a href="../../pl/nbt-viewer/" hreflang="pl" data-lang="pl" rel="alternate">Polski</a><a href="../../uk/nbt-viewer/" hreflang="uk" data-lang="uk" rel="alternate">Українська</a><a href="../../tr/nbt-viewer/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe</a><a href="../../id/nbt-viewer/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia</a><a href="../../vi/nbt-viewer/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt</a><a href="../../zh-hans/nbt-viewer/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文</a><a href="../../ja/nbt-viewer/" hreflang="ja" data-lang="ja" rel="alternate">日本語</a><a href="../../ko/nbt-viewer/" hreflang="ko" data-lang="ko" rel="alternate">한국어</a><a href="../../ar/nbt-viewer/" hreflang="ar" data-lang="ar" rel="alternate">العربية</a></div></details>
 </div>
 </header>
 <main>
-<nav class="breadcrumbs container" aria-label="Breadcrumb"><a href="../">NBT Editor</a> <span class="sep">/</span> <span>NBT viewer</span></nav>
-<section class="hero" aria-label="Introduction">
+<nav class="breadcrumbs container" aria-label="เส้นทางนำทาง"><a href="../">โปรแกรมแก้ไข NBT</a> <span class="sep">/</span> <span>โปรแกรมดู NBT</span></nav>
+<section class="hero" aria-label="บทนำ">
 <div class="container">
-<h1>NBT Viewer — Open Any Minecraft NBT File</h1>
-<p class="support-line"><strong>Supports Minecraft Bedrock Edition and Java Edition</strong> — and every server core for both, popular or obscure: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina and the rest. <a href="../#server-software">Full list</a>.</p>
-<p class="lede">Need to look inside a Minecraft file rather than change it? Drop any <code>.nbt</code>, <code>.dat</code>, <code>.mcstructure</code>, <code>.schem</code> or raw NBT dump below to see its full tag tree with types and values, search it by name or value, and export the whole thing as SNBT text. Nothing is uploaded and nothing is written unless you click save.</p>
-<div class="chips"><span class="chip">.nbt</span><span class="chip">.dat</span><span class="chip">.mcstructure</span><span class="chip">.schem</span><span class="chip">.schematic</span><span class="chip">SNBT export</span><span class="chip">Search</span></div>
+<h1>โปรแกรมดู NBT — เปิดไฟล์ NBT ของ Minecraft</h1>
+<p class="support-line"><strong>รองรับ Minecraft Bedrock Edition และ Java Edition</strong> — รวมถึงซอฟต์แวร์เซิร์ฟเวอร์ทุกแบบของทั้งสองรุ่น ไม่ว่าจะเป็นที่นิยมหรือเฉพาะทาง: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina และอื่น ๆ <a href="../#server-software">ดูรายการทั้งหมด</a>.</p>
+<p class="lede">หากต้องการดูข้อมูลในไฟล์ Minecraft โดยไม่แก้ไข ให้วางไฟล์ <code>.nbt</code>, <code>.dat</code>, <code>.mcstructure</code>, <code>.schem</code> หรือข้อมูลดิบ NBT ด้านล่าง เพื่อดูโครงสร้างแท็กทั้งหมดพร้อมชนิดและค่า ค้นหาตามชื่อหรือค่า และส่งออกทั้งไฟล์เป็นข้อความ SNBT ไม่มีการอัปโหลดข้อมูลและไม่มีการเขียนไฟล์จนกว่าคุณจะกดบันทึก</p>
+<div class="chips"><span class="chip">.nbt</span><span class="chip">.dat</span><span class="chip">.mcstructure</span><span class="chip">.schem</span><span class="chip">.schematic</span><span class="chip">ส่งออก SNBT</span><span class="chip">ค้นหา</span></div>
 </div>
 </section>
 <div id="editor">
 
-<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="Drop an NBT file here or click to browse">
+<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="วางไฟล์ NBT ที่นี่หรือคลิกเพื่อเลือกไฟล์">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 16V4m0 0L8 8m4-4l4 4"/><path d="M20 16v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2"/></svg>
-<p>Drop <strong>any .nbt or .dat file</strong> here</p>
-<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">Choose File</button>
-<span class="hint">level.dat &middot; .nbt &middot; .mcstructure &middot; .schem &middot; .schematic &middot; .dat &middot; chunk dumps</span>
+<p>วาง <strong>ไฟล์ .nbt หรือ .dat</strong> ที่นี่</p>
+<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">เลือกไฟล์</button>
+<span class="hint">level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · ข้อมูลชังก์ที่แยกออกมา</span>
 <input type="file" id="fileInput">
 </div>
 
@@ -83,18 +100,16 @@
 <div class="file-info" id="fileInfo"></div>
 
 <div class="out-bar" id="outBar">
-<label>Output format
-<select id="outFormat">
-<option value="java">Java — big-endian, named root</option>
-<option value="java-network">Java network — big-endian, nameless root</option>
-<option value="bedrock-level">Bedrock level.dat — little-endian + 8-byte header</option>
-<option value="bedrock">Bedrock raw — little-endian</option>
-<option value="bedrock-network">Bedrock network — little-endian varint</option>
+<label>รูปแบบไฟล์ที่บันทึก<select id="outFormat">
+<option value="java">Java — บิ๊กเอนเดียน รากมีชื่อ</option>
+<option value="java-network">เครือข่าย Java — บิ๊กเอนเดียน รากไม่มีชื่อ</option>
+<option value="bedrock-level">Bedrock level.dat — ลิตเทิลเอนเดียน + ส่วนหัว 8 ไบต์</option>
+<option value="bedrock">Bedrock แบบดิบ — ลิตเทิลเอนเดียน</option>
+<option value="bedrock-network">เครือข่าย Bedrock — ลิตเทิลเอนเดียนแบบ varint</option>
 </select>
 </label>
-<label>Compression
-<select id="outCompression">
-<option value="none">None (raw)</option>
+<label>การบีบอัด<select id="outCompression">
+<option value="none">ไม่บีบอัด (ข้อมูลดิบ)</option>
 <option value="gzip">gzip</option>
 <option value="zlib">zlib (deflate)</option>
 </select>
@@ -102,9 +117,9 @@
 </div>
 
 <div class="search-bar">
-<input type="search" id="searchInput" placeholder="Search tag name or value…" autocomplete="off" spellcheck="false" aria-label="Search NBT tags">
-<button type="button" id="btnSearch">Search</button>
-<button type="button" id="btnCollapse">Collapse all</button>
+<input type="search" id="searchInput" placeholder="ค้นหาชื่อหรือค่าของแท็ก…" autocomplete="off" spellcheck="false" aria-label="ค้นหาแท็ก NBT">
+<button type="button" id="btnSearch">ค้นหา</button>
+<button type="button" id="btnCollapse">ยุบทั้งหมด</button>
 </div>
 <div class="search-results" id="searchResults"></div>
 
@@ -112,61 +127,61 @@
 </div>
 
 <div class="bottom-bar" id="bottomBar">
-<button class="btn-add" id="btnAddRoot" type="button">+ Add Tag</button>
-<button class="btn-save" id="btnSave" type="button">Save &amp; Download</button>
-<button class="btn-snbt" id="btnSnbt" type="button">Export SNBT</button>
-<button class="btn-close" id="btnCloseFile" type="button">Close</button>
+<button class="btn-add" id="btnAddRoot" type="button">+ เพิ่มแท็ก</button>
+<button class="btn-save" id="btnSave" type="button">บันทึกและดาวน์โหลด</button>
+<button class="btn-snbt" id="btnSnbt" type="button">ส่งออก SNBT</button>
+<button class="btn-close" id="btnCloseFile" type="button">ปิด</button>
 </div>
 
 </div>
 <div id="contentSections">
 
-<section class="content" aria-label="What you can inspect">
-<h2 id="reading-a-file-you-did-not-write">Reading a file you did not write</h2>
-<p>Half the reason to open an NBT file is diagnosis: what version wrote this, why does this world refuse to load, what is actually inside the schematic somebody sent you. The viewer shows every tag with its exact type, so you can tell a <code>TAG_Byte</code> of 1 from a <code>TAG_Int</code> of 1 — a distinction that matters to Minecraft and that text dumps usually lose.</p>
+<section class="content" aria-label="ข้อมูลที่ตรวจสอบได้">
+<h2 id="reading-a-file-you-did-not-write">การอ่านไฟล์ที่คุณไม่ได้สร้างเอง</h2>
+<p>เหตุผลสำคัญที่ต้องเปิดไฟล์ NBT คือการวินิจฉัย เช่น ไฟล์นี้เขียนด้วยเวอร์ชันใด ทำไมโลกจึงโหลดไม่ได้ หรือ schematic ที่ได้รับมามีอะไรอยู่จริง โปรแกรมดูจะแสดงทุกแท็กพร้อมชนิดที่แน่นอน จึงแยก <code>TAG_Byte</code> ค่า 1 ออกจาก <code>TAG_Int</code> ค่า 1 ได้ ความแตกต่างนี้มีผลต่อ Minecraft และมักสูญหายเมื่อแปลงเป็นข้อความ</p>
 <ul>
-<li><strong>Type badges on every row</strong> — Byte, Short, Int, Long, Float, Double, Byte[], String, List, Compound, Int[], Long[].</li>
-<li><strong>Full 64-bit longs</strong> shown exactly, so seeds and UUID halves read correctly instead of being rounded.</li>
-<li><strong>Search</strong> across the whole tree by tag name or value, with a jump straight to the match.</li>
-<li><strong>Detected format</strong> shown in the file bar: edition, byte order, compression and Bedrock storage version.</li>
-<li><strong>SNBT export</strong> to get the whole document as text you can diff, paste into a command or hand to another tool.</li>
+<li><strong>ป้ายชนิดในทุกแถว</strong> — Byte, Short, Int, Long, Float, Double, Byte[], String, List, Compound, Int[], Long[]</li>
+<li><strong>Long ขนาด 64 บิตเต็ม</strong> แสดงค่าอย่างแม่นยำ ทำให้อ่าน seed และครึ่ง UUID ได้โดยไม่ถูกปัดเศษ</li>
+<li><strong>ค้นหา</strong> ทั่วทั้งโครงสร้างตามชื่อแท็กหรือค่า และข้ามไปยังผลลัพธ์ได้ทันที</li>
+<li><strong>รูปแบบที่ตรวจพบ</strong> แสดงในแถบไฟล์ ได้แก่ Edition ลำดับไบต์ การบีบอัด และเวอร์ชันพื้นที่เก็บข้อมูล Bedrock</li>
+<li><strong>ส่งออก SNBT</strong> เพื่อรับเอกสารทั้งหมดเป็นข้อความสำหรับเปรียบเทียบ วางในคำสั่ง หรือส่งให้เครื่องมืออื่น</li>
 </ul>
 </section>
 
 <section class="content" aria-label="SNBT">
-<h2 id="nbt-versus-snbt">NBT versus SNBT</h2>
-<p>SNBT is the text form of NBT — what <code>/data get</code> prints and what commands accept. It keeps type information as suffixes: <code>3b</code> is a byte, <code>3s</code> a short, <code>3L</code> a long, <code>3.0f</code> a float, <code>3.0d</code> a double, <code>[I;1,2,3]</code> an int array. The export button produces exactly that, so a binary file becomes something you can paste into a command block or check into git and diff line by line.</p>
-<p>JSON is not a substitute: it has one number type and no byte arrays, so converting NBT to JSON silently loses the distinctions Minecraft cares about. That is why this tool exports SNBT rather than JSON.</p>
+<h2 id="nbt-versus-snbt">NBT กับ SNBT</h2>
+<p>SNBT คือรูปข้อความของ NBT ซึ่งเป็นรูปแบบที่ <code>/data get</code> แสดงและคำสั่งต่าง ๆ รับค่า โดยเก็บข้อมูลชนิดไว้ด้วยส่วนต่อท้าย: <code>3b</code> คือ byte, <code>3s</code> คือ short, <code>3L</code> คือ long, <code>3.0f</code> คือ float, <code>3.0d</code> คือ double และ <code>[I;1,2,3]</code> คืออาร์เรย์ int ปุ่มส่งออกจะสร้างรูปแบบนี้โดยตรง จึงเปลี่ยนไฟล์ไบนารีเป็นข้อความที่วางใน command block หรือเก็บใน git เพื่อเปรียบเทียบทีละบรรทัดได้</p>
+<p>JSON ใช้แทนไม่ได้ เพราะมีชนิดตัวเลขเพียงชนิดเดียวและไม่มีอาร์เรย์ byte การแปลง NBT เป็น JSON จึงทำให้ความแตกต่างที่ Minecraft ใช้สูญหายโดยไม่แจ้งเตือน เครื่องมือนี้จึงส่งออก SNBT แทน JSON</p>
 </section>
 
-<section class="content" aria-label="File types">
-<h2 id="files-that-open-here">Files that open here</h2>
-<p>Anything whose payload is a single NBT document: Java and Bedrock <a href="../level-dat-editor/">level.dat</a>, <a href="../playerdata-editor/">playerdata</a>, <code>servers.dat</code>, <code>hotbar.nbt</code>, <code>idcounts.dat</code>, <code>raids.dat</code>, <code>scoreboard.dat</code>, map data, structure <code>.nbt</code>, <a href="../schematic-editor/">.schem and .schematic</a>, <a href="../mcstructure-editor/">.mcstructure</a>, <code>.litematic</code>, extracted chunk payloads and packet dumps. Containers such as <code>.mca</code> regions, <code>.mcworld</code> archives and LevelDB folders need one document extracted from them first.</p>
+<section class="content" aria-label="ชนิดไฟล์">
+<h2 id="files-that-open-here">ไฟล์ที่เปิดได้ที่นี่</h2>
+<p>เปิดได้กับไฟล์ที่ภายในเป็นเอกสาร NBT เดียว ได้แก่ <a href="../level-dat-editor/">level.dat</a> ของ Java และ Bedrock, <a href="../playerdata-editor/">playerdata</a>, <code>servers.dat</code>, <code>hotbar.nbt</code>, <code>idcounts.dat</code>, <code>raids.dat</code>, <code>scoreboard.dat</code>, ข้อมูลแผนที่, โครงสร้าง <code>.nbt</code>, <a href="../schematic-editor/">.schem และ .schematic</a>, <a href="../mcstructure-editor/">.mcstructure</a>, <code>.litematic</code>, ข้อมูล chunk ที่แยกแล้ว และข้อมูลแพ็กเก็ต ส่วนคอนเทนเนอร์ เช่น region <code>.mca</code>, ไฟล์บีบอัด <code>.mcworld</code> และโฟลเดอร์ LevelDB ต้องแยกเอกสารหนึ่งรายการออกมาก่อน</p>
 </section>
 
-<section class="content" aria-label="Frequently asked questions"><h2>Frequently Asked Questions</h2><details><summary>Can I view an NBT file without editing it?</summary><div class="faq-body"><p>Yes. The editor only writes a file when you click Save &amp; Download, and it never touches the file you dropped in.</p></div></details><details><summary>Can it convert NBT to JSON?</summary><div class="faq-body"><p>It exports SNBT, which preserves tag types. JSON would flatten bytes, shorts, ints, longs and floats into one number type and lose byte arrays, so it is the wrong target for round-tripping Minecraft data.</p></div></details><details><summary>Why does my file show as a different edition than I expected?</summary><div class="faq-body"><p>The format is detected from the bytes, not the extension. A file reported as Java when you expected Bedrock is usually a file from the other edition, or a fragment that happens to parse — check the offsets reported if it warns about trailing bytes.</p></div></details><details><summary>How big a file can it open?</summary><div class="faq-body"><p>Multi-megabyte documents are fine: arrays are kept in typed arrays and the tree renders lazily, so only the rows you expand exist in the page.</p></div></details></section>
-<section class="content" aria-label="Related tools"><h2>Related tools</h2><div class="rel-grid"><a class="rel-card" href="../"><strong>Minecraft NBT editor</strong><span>The universal editor — every edition, every NBT file type.</span></a><a class="rel-card" href="../nbtexplorer-online/"><strong>NBTExplorer online</strong><span>What carries over from the desktop tool, and what does not.</span></a><a class="rel-card" href="../nbt-format/"><strong>NBT format reference</strong><span>All 13 tag types, every encoding, byte by byte.</span></a><a class="rel-card" href="../schematic-editor/"><strong>Schematic editor</strong><span>WorldEdit .schem and legacy MCEdit .schematic.</span></a><a class="rel-card" href="../mcstructure-editor/"><strong>.mcstructure editor</strong><span>Bedrock structure blocks: palette, size, block entities.</span></a><a class="rel-card" href="../playerdata-editor/"><strong>playerdata editor</strong><span>Inventory, position, health and stats per player.</span></a></div></section>
+<section class="content" aria-label="คำถามที่พบบ่อย"><h2>คำถามที่พบบ่อย</h2><details><summary>ดูไฟล์ NBT โดยไม่แก้ไขได้หรือไม่</summary><div class="faq-body"><p>ได้ โปรแกรมจะเขียนไฟล์ก็ต่อเมื่อคุณกด Save &amp; Download และจะไม่แก้ไขไฟล์ที่คุณวางเข้ามา</p></div></details><details><summary>แปลง NBT เป็น JSON ได้หรือไม่</summary><div class="faq-body"><p>เครื่องมือส่งออก SNBT ซึ่งเก็บชนิดแท็กไว้ครบ JSON จะรวม byte, short, int, long และ float เป็นตัวเลขชนิดเดียวและทำให้อาร์เรย์ byte สูญหาย จึงไม่เหมาะกับการแปลงข้อมูล Minecraft ไปแล้วแปลงกลับ</p></div></details><details><summary>ทำไมไฟล์จึงแสดงเป็น Edition อื่นจากที่คาดไว้</summary><div class="faq-body"><p>ระบบตรวจรูปแบบจากข้อมูลไบต์ ไม่ใช่นามสกุล หากรายงานเป็น Java ทั้งที่คาดว่าเป็น Bedrock มักหมายถึงไฟล์มาจากอีก Edition หรือเป็นชิ้นข้อมูลที่บังเอิญอ่านได้ หากมีคำเตือนเรื่องข้อมูลท้ายไฟล์ ให้ตรวจ offset ที่รายงาน</p></div></details><details><summary>เปิดไฟล์ขนาดใหญ่ได้เพียงใด</summary><div class="faq-body"><p>เอกสารขนาดหลายเมกะไบต์ใช้งานได้ อาร์เรย์ถูกเก็บเป็น typed array และโครงสร้างจะแสดงแบบ lazy จึงสร้างบนหน้าเฉพาะแถวที่คุณขยาย</p></div></details></section>
+<section class="content" aria-label="เครื่องมือที่เกี่ยวข้อง"><h2>เครื่องมือที่เกี่ยวข้อง</h2><div class="rel-grid"><a class="rel-card" href="../"><strong>โปรแกรมแก้ไข NBT Minecraft</strong><span>โปรแกรมแก้ไขเดียวสำหรับทุก Edition และไฟล์ NBT ทุกชนิด</span></a><a class="rel-card" href="../nbtexplorer-online/"><strong>NBTExplorer ออนไลน์</strong><span>สิ่งที่ทำได้เหมือนเครื่องมือเดสก์ท็อปและข้อแตกต่าง</span></a><a class="rel-card" href="../nbt-format/"><strong>ข้อมูลอ้างอิงรูปแบบ NBT</strong><span>แท็กทั้ง 13 ชนิดและการเข้ารหัสทุกแบบ อธิบายทีละไบต์</span></a><a class="rel-card" href="../schematic-editor/"><strong>โปรแกรมแก้ไข Schematic</strong><span>รองรับ WorldEdit .schem และ MCEdit .schematic แบบเก่า</span></a><a class="rel-card" href="../mcstructure-editor/"><strong>โปรแกรมแก้ไข .mcstructure</strong><span>แก้พาเลต ขนาด และ block entity ของ Structure Block</span></a><a class="rel-card" href="../playerdata-editor/"><strong>โปรแกรมแก้ไข playerdata</strong><span>แก้ช่องเก็บของ ตำแหน่ง พลังชีวิต และสถิติของผู้เล่น</span></a></div></section>
 </div>
 </main>
 
 <footer class="site-footer">
 <div class="container footer-grid">
-<div><h4>Editors</h4><a href="../">Minecraft NBT editor</a><a href="../level-dat-editor/">level.dat editor</a><a href="../java-nbt-editor/">Java Edition NBT editor</a><a href="../mcpe-nbt-editor/">MCPE NBT editor</a><a href="../pocketmine-nbt-editor/">PocketMine-MP editor</a></div>
-<div><h4>File types</h4><a href="../mcstructure-editor/">.mcstructure editor</a><a href="../schematic-editor/">Schematic editor</a><a href="../playerdata-editor/">playerdata editor</a><a href="./">NBT viewer</a><a href="../nbtexplorer-online/">NBTExplorer online</a></div>
-<div><h4>Reference</h4><a href="../nbt-format/">NBT format reference</a><a href="../guides/change-world-name/">Rename a world</a><a href="../guides/fix-corrupted-level-dat/">Fix a broken level.dat</a><a href="../guides/edit-gamerules/">Edit game rules</a></div>
-<div><h4>Source</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">Code on GitHub</a><a href="../../llms.txt">llms.txt</a></div>
+<div><h4>โปรแกรมแก้ไข</h4><a href="../">โปรแกรมแก้ไข NBT Minecraft</a><a href="../level-dat-editor/">โปรแกรมแก้ไข level.dat</a><a href="../java-nbt-editor/">โปรแกรมแก้ไข NBT Java Edition</a><a href="../mcpe-nbt-editor/">โปรแกรมแก้ไข NBT MCPE</a><a href="../pocketmine-nbt-editor/">โปรแกรมแก้ไข PocketMine-MP</a></div>
+<div><h4>ประเภทไฟล์</h4><a href="../mcstructure-editor/">โปรแกรมแก้ไข .mcstructure</a><a href="../schematic-editor/">โปรแกรมแก้ไข Schematic</a><a href="../playerdata-editor/">โปรแกรมแก้ไข playerdata</a><a href="./">โปรแกรมดู NBT</a><a href="../nbtexplorer-online/">NBTExplorer ออนไลน์</a></div>
+<div><h4>ข้อมูลอ้างอิง</h4><a href="../nbt-format/">ข้อมูลอ้างอิงรูปแบบ NBT</a><a href="../guides/change-world-name/">เปลี่ยนชื่อโลก</a><a href="../guides/fix-corrupted-level-dat/">แก้ level.dat ที่เสีย</a><a href="../guides/edit-gamerules/">แก้กฎเกม</a></div>
+<div><h4>ซอร์สโค้ด</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">โค้ดบน GitHub</a><a href="../../llms.txt">llms.txt</a></div>
 </div>
-<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">อัปเดตล่าสุด 2026-09-21 ตัวแก้ไข NBT ของ Minecraft — ใช้งานฟรี เป็นโอเพนซอร์ส (MIT) และทำงานทั้งหมดในเบราว์เซอร์ของคุณ ไม่มีความเกี่ยวข้องกับ Mojang Studios หรือ Microsoft โดย Minecraft เป็นเครื่องหมายการค้าของ Mojang Studios</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
 <div class="modal-overlay" id="addTagModal">
 <div class="modal">
-<h3>Add New Tag</h3>
-<label for="newTagName">Tag Name</label>
-<input type="text" id="newTagName" placeholder="e.g. MyTag" autocomplete="off">
-<label for="newTagType">Tag Type</label>
+<h3>เพิ่มแท็กใหม่</h3>
+<label for="newTagName">ชื่อแท็ก</label>
+<input type="text" id="newTagName" placeholder="เช่น MyTag" autocomplete="off">
+<label for="newTagType">ชนิดแท็ก</label>
 <select id="newTagType">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -181,10 +196,10 @@
 <option value="11">TAG_Int_Array</option>
 <option value="12">TAG_Long_Array</option>
 </select>
-<label for="newTagValue">Value</label>
-<input type="text" id="newTagValue" placeholder="Value" autocomplete="off">
+<label for="newTagValue">ค่า</label>
+<input type="text" id="newTagValue" placeholder="ค่า" autocomplete="off">
 <div id="listSubtypeRow" style="display:none">
-<label for="newListSubtype">List Element Type</label>
+<label for="newListSubtype">ชนิดสมาชิกในรายการ</label>
 <select id="newListSubtype">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -201,24 +216,24 @@
 </select>
 </div>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="addTagCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="addTagConfirm">Add</button>
+<button class="btn-cancel" type="button" id="addTagCancel">ยกเลิก</button>
+<button class="btn-confirm" type="button" id="addTagConfirm">เพิ่ม</button>
 </div>
 </div>
 </div>
 
 <div class="modal-overlay" id="arrayModal">
 <div class="modal">
-<h3 id="arrayModalTitle">Edit Array</h3>
-<label for="arrayModalText">Comma-separated values</label>
+<h3 id="arrayModalTitle">แก้ไขอาร์เรย์</h3>
+<label for="arrayModalText">ค่าที่คั่นด้วยจุลภาค</label>
 <textarea id="arrayModalText" spellcheck="false" autocomplete="off"></textarea>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="arrayModalCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="arrayModalConfirm">Apply</button>
+<button class="btn-cancel" type="button" id="arrayModalCancel">ยกเลิก</button>
+<button class="btn-confirm" type="button" id="arrayModalConfirm">นำไปใช้</button>
 </div>
 </div>
 </div>
 
-<script src="../../assets/nbt.js?v=da7967b1" defer></script>
+<script src="../../assets/nbt.js?v=6f125422" defer></script>
 </body>
 </html>

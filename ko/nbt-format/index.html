@@ -3,79 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>NBT Format Reference — Tag Types, Encodings, Byte Layout</title>
-<meta name="description" content="Reference for Minecraft's NBT format: all 13 tag types with byte layout, Java big-endian vs Bedrock little-endian vs varint network NBT, and SNBT.">
-<meta name="keywords" content="nbt format, nbt file format, minecraft nbt specification, nbt tag types, tag_compound, little-endian nbt, varint nbt, network nbt, snbt syntax, nbt byte layout">
-<meta name="robots" content="noindex, follow">
+<title>NBT 형식 참고 자료 — 태그 유형, 인코딩, 바이트 구조</title>
+<meta name="description" content="Minecraft NBT 형식 참고 자료입니다. 13개 태그의 바이트 구조, Java 빅 엔디언과 Bedrock 리틀 엔디언 및 varint 네트워크 NBT, SNBT 문법을 설명합니다. 압축과 문자열 인코딩도 실제 파일과 함께 확인할 수 있습니다.">
+<meta name="keywords" content="NBT 형식, NBT 파일 형식, 마인크래프트 NBT 명세, NBT 태그 유형, TAG_Compound, 리틀 엔디언 NBT, varint NBT, 네트워크 NBT, SNBT 문법, NBT 바이트 구조">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="author" content="w1zardz">
 <link rel="canonical" href="https://w1zardz.github.io/bedrock-nbt-editor/ko/nbt-format/">
+<link rel="alternate" hreflang="en" href="https://w1zardz.github.io/bedrock-nbt-editor/nbt-format/">
+<link rel="alternate" hreflang="ru" href="https://w1zardz.github.io/bedrock-nbt-editor/ru/nbt-format/">
+<link rel="alternate" hreflang="es" href="https://w1zardz.github.io/bedrock-nbt-editor/es/nbt-format/">
+<link rel="alternate" hreflang="pt-BR" href="https://w1zardz.github.io/bedrock-nbt-editor/pt-br/nbt-format/">
+<link rel="alternate" hreflang="de" href="https://w1zardz.github.io/bedrock-nbt-editor/de/nbt-format/">
+<link rel="alternate" hreflang="fr" href="https://w1zardz.github.io/bedrock-nbt-editor/fr/nbt-format/">
+<link rel="alternate" hreflang="it" href="https://w1zardz.github.io/bedrock-nbt-editor/it/nbt-format/">
+<link rel="alternate" hreflang="pl" href="https://w1zardz.github.io/bedrock-nbt-editor/pl/nbt-format/">
+<link rel="alternate" hreflang="uk" href="https://w1zardz.github.io/bedrock-nbt-editor/uk/nbt-format/">
+<link rel="alternate" hreflang="tr" href="https://w1zardz.github.io/bedrock-nbt-editor/tr/nbt-format/">
+<link rel="alternate" hreflang="id" href="https://w1zardz.github.io/bedrock-nbt-editor/id/nbt-format/">
+<link rel="alternate" hreflang="vi" href="https://w1zardz.github.io/bedrock-nbt-editor/vi/nbt-format/">
+<link rel="alternate" hreflang="th" href="https://w1zardz.github.io/bedrock-nbt-editor/th/nbt-format/">
+<link rel="alternate" hreflang="zh-Hans" href="https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/nbt-format/">
+<link rel="alternate" hreflang="ja" href="https://w1zardz.github.io/bedrock-nbt-editor/ja/nbt-format/">
+<link rel="alternate" hreflang="ko" href="https://w1zardz.github.io/bedrock-nbt-editor/ko/nbt-format/">
+<link rel="alternate" hreflang="ar" href="https://w1zardz.github.io/bedrock-nbt-editor/ar/nbt-format/">
 <link rel="alternate" hreflang="x-default" href="https://w1zardz.github.io/bedrock-nbt-editor/nbt-format/">
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="../../favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <link rel="manifest" href="../../site.webmanifest">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NBT format reference — tags, encodings, byte layout">
-<meta property="og:description" content="Reference for Minecraft's NBT format: all 13 tag types with byte layout, Java big-endian vs Bedrock little-endian vs varint network NBT, and SNBT.">
+<meta property="og:title" content="NBT 형식 참고 자료 — 태그, 인코딩, 바이트 구조">
+<meta property="og:description" content="Minecraft NBT 형식 참고 자료입니다. 13개 태그의 바이트 구조, Java 빅 엔디언과 Bedrock 리틀 엔디언 및 varint 네트워크 NBT, SNBT 문법을 설명합니다. 압축과 문자열 인코딩도 실제 파일과 함께 확인할 수 있습니다.">
 <meta property="og:url" content="https://w1zardz.github.io/bedrock-nbt-editor/ko/nbt-format/">
-<meta property="og:site_name" content="Minecraft NBT Editor">
+<meta property="og:site_name" content="Minecraft NBT 편집기">
 <meta property="og:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/format.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="NBT format reference — tags, encodings, byte layout">
-<meta name="twitter:description" content="Reference for Minecraft's NBT format: all 13 tag types with byte layout, Java big-endian vs Bedrock little-endian vs varint network NBT, and SNBT.">
+<meta name="twitter:title" content="NBT 형식 참고 자료 — 태그, 인코딩, 바이트 구조">
+<meta name="twitter:description" content="Minecraft NBT 형식 참고 자료입니다. 13개 태그의 바이트 구조, Java 빅 엔디언과 Bedrock 리틀 엔디언 및 varint 네트워크 NBT, SNBT 문법을 설명합니다. 압축과 문자열 인코딩도 실제 파일과 함께 확인할 수 있습니다.">
 <meta name="twitter:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/format.png">
-<meta property="article:modified_time" content="2026-08-26">
-<meta property="og:updated_time" content="2026-08-26">
+<meta property="article:modified_time" content="2026-09-21">
+<meta property="og:updated_time" content="2026-09-21">
 <meta name="theme-color" content="#0d1117">
-<meta name="application-name" content="Minecraft NBT Editor">
-<meta name="apple-mobile-web-app-title" content="NBT Editor">
-<link rel="preload" href="../../assets/nbt.js?v=da7967b1" as="script">
-<script>window.__LANG_URLS__={"en":"../../nbt-format/","ru":"../../ru/nbt-format/","es":"../../es/nbt-format/","pt-br":"../../pt-br/nbt-format/","de":"../../de/nbt-format/","fr":"../../fr/nbt-format/","it":"../../it/nbt-format/","pl":"../../pl/nbt-format/","uk":"../../uk/nbt-format/","tr":"../../tr/nbt-format/","id":"../../id/nbt-format/","vi":"../../vi/nbt-format/","th":"../../th/nbt-format/","zh-hans":"../../zh-hans/nbt-format/","ja":"../../ja/nbt-format/","ko":"./","ar":"../../ar/nbt-format/"};window.__NBT_STRINGS__={"loaded":"Loaded as {0}","trailing":"{0} trailing byte(s) after the root tag were ignored","error":"Error: {0}","readfail":"Could not read the file","nofile":"No file loaded","saved":"Saved {0} ({1}, {2})","savefail":"Save error: {0}","exported":"Exported {0}","snbtfail":"SNBT error: {0}","tagadded":"Tag added","tagremoved":"Tag removed","arrayupdated":"Array updated","badvalue":"Invalid value: {0}","badarray":"Invalid array: {0}","nameneeded":"Tag name is required","nametaken":"A tag named {0} already exists here","listtype":"List already holds {0} entries","editlevelname":"✎ Edit LevelName","showmore":"Show {0} more of {1} …","matches":"{0} match(es)","nomatch":"No tag matches \"{0}\"","arraytoobig":"Array has {0} entries — expand it and edit elements individually","uncompressed":"uncompressed","storage":"storage v{0}","entries":"{0} entries","langprompt":"Open this page in {0}?","langyes":"Switch","langno":"Stay"};</script>
-<script src="../../assets/lang.js?v=a3a1db0e" defer></script>
+<meta name="application-name" content="Minecraft NBT 편집기">
+<meta name="apple-mobile-web-app-title" content="NBT 편집기">
+<link rel="preload" href="../../assets/nbt.js?v=6f125422" as="script">
+<script>window.__LANG_URLS__={"en":"../../nbt-format/","ru":"../../ru/nbt-format/","es":"../../es/nbt-format/","pt-br":"../../pt-br/nbt-format/","de":"../../de/nbt-format/","fr":"../../fr/nbt-format/","it":"../../it/nbt-format/","pl":"../../pl/nbt-format/","uk":"../../uk/nbt-format/","tr":"../../tr/nbt-format/","id":"../../id/nbt-format/","vi":"../../vi/nbt-format/","th":"../../th/nbt-format/","zh-hans":"../../zh-hans/nbt-format/","ja":"../../ja/nbt-format/","ko":"./","ar":"../../ar/nbt-format/"};window.__NBT_STRINGS__={"loaded":"{0}(으)로 불러옴","trailing":"루트 태그 뒤의 후행 바이트 {0}개를 무시했습니다","error":"오류: {0}","readfail":"파일을 읽을 수 없습니다","nofile":"불러온 파일이 없습니다","saved":"{0} 저장 완료 ({1}, {2})","savefail":"저장 오류: {0}","exported":"{0} 내보내기 완료","snbtfail":"SNBT 오류: {0}","tagadded":"태그를 추가했습니다","tagremoved":"태그를 제거했습니다","arrayupdated":"배열을 업데이트했습니다","badvalue":"잘못된 값: {0}","badarray":"잘못된 배열: {0}","nameneeded":"태그 이름을 입력해야 합니다","nametaken":"이 위치에 {0} 이름의 태그가 이미 있습니다","listtype":"목록에 이미 {0} 항목이 들어 있습니다","editlevelname":"✎ LevelName 편집","showmore":"{1}개 중 {0}개 더 보기 …","matches":"일치 항목 {0}개","nomatch":"\"{0}\"과 일치하는 태그가 없습니다","arraytoobig":"배열에 항목이 {0}개 있습니다. 펼친 뒤 각 요소를 따로 수정하세요","uncompressed":"압축 안 함","storage":"저장소 v{0}","entries":"항목 {0}개","langprompt":"이 페이지를 {0}(으)로 여시겠습니까?","langyes":"전환","langno":"유지","nav_editor":"편집기","nav_format":"NBT 형식","language":"언어: {0}","beta":"베타","skip_editor":"편집기로 건너뛰기","brand_editor":"NBT 편집기","guides":"안내서","updated":"마지막 업데이트: {0}","drop":"여기에 {0} 놓기","choose_file":"파일 선택","file_hint":"level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · 청크 덤프","output_format":"출력 형식","format_java":"Java — 빅 엔디언, 이름 있는 루트","format_java_network":"Java 네트워크 — 빅 엔디언, 이름 없는 루트","format_bedrock_level":"Bedrock level.dat — 리틀 엔디언 + 8바이트 헤더","format_bedrock":"Bedrock 원시 형식 — 리틀 엔디언","format_bedrock_network":"Bedrock 네트워크 — 리틀 엔디언 varint","compression":"압축","compression_none":"없음(원시 데이터)","search_placeholder":"태그 이름 또는 값 검색…","search":"검색","collapse":"모두 접기","add_tag":"+ 태그 추가","save_download":"저장 및 다운로드","export_snbt":"SNBT 내보내기","close":"닫기","add_new_tag":"새 태그 추가","tag_name":"태그 이름","tag_type":"태그 유형","tag_example":"예: MyTag","value":"값","list_element_type":"목록 요소 유형","cancel":"취소","add":"추가","edit_array":"배열 편집","comma_values":"쉼표로 구분한 값","apply":"적용","format_label_java":"Java 빅 엔디언","format_label_java_network":"Java 네트워크(이름 없는 루트)","format_label_bedrock_level":"Bedrock level.dat(8바이트 헤더)","format_label_bedrock":"Bedrock 리틀 엔디언","format_label_bedrock_network":"Bedrock 네트워크(varint)","err_decompress":"이 브라우저에서는 {0} 압축을 풀 수 없습니다(Compression Streams API 없음)","err_compress":"이 브라우저에서는 {0} 형식으로 압축할 수 없습니다(Compression Streams API 없음)","err_stream":"{0} 압축을 처리할 수 없습니다","err_end":"오프셋 {0}에서 데이터가 예기치 않게 끝났습니다","err_tag_limit":"태그 개수 제한을 초과했습니다","err_varint":"VarInt가 너무 깁니다","err_varlong":"VarLong이 너무 깁니다","err_negative_array":"배열 길이가 음수입니다: {0}","err_array_length":"배열 길이 {0}이(가) 남은 데이터보다 큽니다","err_negative_list":"목록 길이가 음수입니다","err_end_list":"항목이 {0}개인 TAG_End 목록입니다","err_list_type":"알 수 없는 목록 요소 유형: {0}","err_tag_type":"알 수 없는 태그 유형: {0}","err_root":"루트 태그는 TAG_Compound여야 하지만 {0}입니다","err_string_length":"이 형식에 사용하기에는 문자열이 너무 깁니다: {0}바이트","err_write_type":"태그 유형 {0}을(를) 기록할 수 없습니다","err_header_short":"헤더로 사용하기에는 너무 짧습니다","err_storage_version":"유효하지 않아 보이는 저장소 버전: {0}","err_header_length":"헤더 길이 {0}이(가) 페이로드보다 큽니다","err_unknown_file":"인식할 수 있는 NBT 파일이 아닙니다(Java, Bedrock, 네트워크, 헤더 변형을 모두 확인함)","err_file_small":"NBT 데이터를 담기에는 파일이 너무 작습니다","err_byte":"Byte는 -128..127 범위여야 합니다","err_short":"Short는 -32768..32767 범위여야 합니다","err_int":"Int는 -2147483648..2147483647 범위여야 합니다","err_long":"Long이 64비트 범위를 벗어났습니다","err_float":"잘못된 float 값입니다","err_double":"잘못된 double 값입니다","err_not_inline":"이 태그 유형은 인라인으로 편집할 수 없습니다","err_array_byte":"잘못된 byte 값: {0}","err_array_int":"잘못된 int 값: {0}","err_array_long":"잘못된 64비트 정수: {0}","root":"(루트)","add_child":"하위 태그 추가","remove_tag":"태그 제거","array":"배열","array_bytes":"[{0}바이트]","array_ints":"[int {0}개]","array_longs":"[long {0}개]","entries_type":"{1} 유형 항목 {0}개","unknown_error":"작업을 완료할 수 없습니다","software_name":"Minecraft NBT 편집기","software_alternate_online":"온라인 NBT 편집기","software_alternate_bedrock":"Bedrock NBT 편집기","software_alternate_level":"level.dat 편집기","software_subcategory":"게임 파일 편집기","software_os":"모든 운영체제(브라우저)","software_browser":"BigInt 및 Compression Streams를 지원하는 최신 브라우저","feature_java":"Java Edition 빅 엔디언 NBT","feature_bedrock":"Bedrock Edition 리틀 엔디언 NBT","feature_bedrock_network":"Bedrock 네트워크 NBT(varint)","feature_java_network":"Java 네트워크 NBT(이름 없는 루트)","feature_compression":"gzip 및 zlib 압축","feature_types":"64비트 정밀도를 지원하는 NBT 태그 13종 전체","feature_snbt":"SNBT 내보내기","feature_local":"클라이언트에서만 완전히 실행","schema_about":"Minecraft NBT 데이터 형식","not_found_title":"페이지를 찾을 수 없음 — {0}","not_found_heading":"404 — 이동했거나 존재하지 않는 페이지입니다","not_found_intro":"편집기는 한 번만 누르면 열 수 있으며 모든 도구의 고정 주소는 아래에 있습니다.","not_found_footer":"{0} — 무료 오픈 소스","aria_bedrock_gamerules":"Bedrock 게임 규칙","aria_bedrock_level_dat_header":"Bedrock level.dat 헤더","aria_bedrock_tags":"Bedrock 태그","aria_breadcrumb":"이동 경로","aria_byte_walkthrough":"바이트별 분석","aria_causes":"원인","aria_common_repairs":"일반적인 복구","aria_comparison":"비교","aria_compatibility":"호환성","aria_compression":"압축","aria_core_specifics":"코어별 정보","aria_dataversion":"DataVersion","aria_drop_an_nbt_file_here_or_click_to_browse":"여기에 NBT 파일을 놓거나 눌러 찾아보기","aria_duplicate_world_names":"중복 월드 이름","aria_editing_schematics":"Schematic 편집","aria_encodings":"인코딩","aria_features":"기능","aria_file_types":"파일 형식","aria_frequently_asked_questions":"자주 묻는 질문","aria_how_to_use":"사용 방법","aria_inside_a_mcstructure_file":"mcstructure 파일 내부","aria_introduction":"소개","aria_java_nbt_encoding":"Java NBT 인코딩","aria_java_nbt_files":"Java NBT 파일","aria_java_gamerules":"Java 게임 규칙","aria_migrating":"이전 방법","aria_other_bedrock_nbt":"기타 Bedrock NBT","aria_other_tools":"기타 도구","aria_per_platform":"플랫폼별 방법","aria_prevention":"예방","aria_related_tools":"관련 도구","aria_snbt":"SNBT","aria_safety":"안전 수칙","aria_salvage":"복구","aria_schematic_formats":"Schematic 형식","aria_scripting":"스크립팅","aria_search_nbt_tags":"NBT 태그 검색","aria_server_cores":"서버 코어","aria_server_safety":"서버 안전","aria_server_workflow":"서버 작업 절차","aria_strings":"문자열","aria_supported_files":"지원 파일","aria_supported_server_software":"지원 서버 소프트웨어","aria_tag_types":"태그 유형","aria_tags_in_level_dat":"level.dat의 태그","aria_tools":"도구","aria_troubleshooting":"문제 해결","aria_typical_edits":"일반적인 수정","aria_what_you_can_inspect":"검사 가능한 항목","aria_where_bedrock_files_live":"Bedrock 파일 위치","aria_where_mcstructure_files_live":"mcstructure 파일 위치","aria_where_to_find_level_dat":"level.dat 위치","aria_why_edit_the_file":"파일을 편집하는 이유","aria_why_the_folder_name_is_not_the_world_name":"폴더 이름과 월드 이름이 다른 이유","aria_playerdata_tags":"playerdata 태그","toggle":"펼치기 또는 접기"};</script>
+<script src="../../assets/lang.js?v=23a64b2c" defer></script>
 <link rel="stylesheet" href="../../assets/app.css?v=f5bdcb0f">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"NBT Format Reference \u2014 Tag Types, Encodings, Byte Layout","headline":"NBT Format Reference","description":"Reference for Minecraft's NBT format: all 13 tag types with byte layout, Java big-endian vs Bedrock little-endian vs varint network NBT, and SNBT.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ko/nbt-format/","inLanguage":"ko","datePublished":"2026-05-29","dateModified":"2026-08-26","isPartOf":{"@type":"WebSite","name":"Minecraft NBT Editor","url":"https://w1zardz.github.io/bedrock-nbt-editor/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/format.png"},"about":{"@type":"Thing","name":"Minecraft NBT data format"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT Editor","item":"https://w1zardz.github.io/bedrock-nbt-editor/ko/"},{"@type":"ListItem","position":2,"name":"NBT Format Reference","item":"https://w1zardz.github.io/bedrock-nbt-editor/ko/nbt-format/"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is there an official NBT specification?","acceptedAnswer":{"@type":"Answer","text":"No formal spec from Mojang. The format was documented by Notch in 2010 and has been maintained by the community since; the tag ids and layout on this page match what the game reads and writes today."}},{"@type":"Question","name":"Why does Bedrock use little-endian?","acceptedAnswer":{"@type":"Answer","text":"Bedrock's engine is C++ and targets little-endian hardware, so it stores values in native order. Java's serialisation is big-endian because that is what the Java DataOutput contract specifies."}},{"@type":"Question","name":"What is zigzag varint encoding?","acceptedAnswer":{"@type":"Answer","text":"A way of writing integers in as few bytes as possible while keeping negatives short: the sign is folded into the low bit, so \u22121 encodes as 1 and 1 encodes as 2. Bedrock's protocol uses it for ints and longs."}},{"@type":"Question","name":"Can a TAG_List hold mixed types?","acceptedAnswer":{"@type":"Answer","text":"No. A list declares one element type and every entry has to match it. Mixed data needs a list of compounds."}},{"@type":"Question","name":"What is the maximum string length?","acceptedAnswer":{"@type":"Answer","text":"65535 bytes in the fixed encodings, because the length field is an unsigned short. The varint network encoding has no practical limit."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"NBT 형식 참고 자료 — 태그 유형, 인코딩, 바이트 구조","headline":"NBT 형식 참고 자료","description":"Minecraft NBT 형식 참고 자료입니다. 13개 태그의 바이트 구조, Java 빅 엔디언과 Bedrock 리틀 엔디언 및 varint 네트워크 NBT, SNBT 문법을 설명합니다. 압축과 문자열 인코딩도 실제 파일과 함께 확인할 수 있습니다.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ko/nbt-format/","inLanguage":"ko","datePublished":"2026-05-29","dateModified":"2026-09-21","isPartOf":{"@type":"WebSite","name":"Minecraft NBT 편집기","url":"https://w1zardz.github.io/bedrock-nbt-editor/ko/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/format.png"},"about":{"@type":"Thing","name":"Minecraft NBT 데이터 형식"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT 편집기","item":"https://w1zardz.github.io/bedrock-nbt-editor/ko/"},{"@type":"ListItem","position":2,"name":"NBT 형식 참고 자료","item":"https://w1zardz.github.io/bedrock-nbt-editor/ko/nbt-format/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"공식 NBT 명세가 있나요?","acceptedAnswer":{"@type":"Answer","text":"Mojang이 발표한 정식 명세는 없습니다. Notch가 2010년에 형식을 문서화한 뒤 커뮤니티에서 유지해 왔습니다. 이 페이지의 태그 ID와 구조는 현재 게임이 읽고 쓰는 방식과 일치합니다."}},{"@type":"Question","name":"Bedrock이 리틀 엔디언을 사용하는 이유는 무엇인가요?","acceptedAnswer":{"@type":"Answer","text":"Bedrock 엔진은 C++로 작성되었고 리틀 엔디언 하드웨어를 대상으로 하므로 값을 기본 바이트 순서로 저장합니다. Java 직렬화는 Java DataOutput 계약에 따라 빅 엔디언을 사용합니다."}},{"@type":"Question","name":"zigzag varint 인코딩이 무엇인가요?","acceptedAnswer":{"@type":"Answer","text":"음수를 짧게 유지하면서 정수를 가능한 적은 바이트로 기록하는 방식입니다. 부호를 최하위 비트에 접어 넣으므로 −1은 1로, 1은 2로 인코딩됩니다. Bedrock 프로토콜은 int와 long에 이 방식을 씁니다."}},{"@type":"Question","name":"TAG_List에 서로 다른 유형을 넣을 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. list는 요소 유형 하나를 선언하고 모든 항목이 그 유형과 일치해야 합니다. 서로 다른 데이터를 넣으려면 compound list를 사용하세요."}},{"@type":"Question","name":"문자열 최대 길이는 얼마인가요?","acceptedAnswer":{"@type":"Answer","text":"길이 필드가 unsigned short인 고정 폭 인코딩에서는 65535바이트입니다. varint 네트워크 인코딩에는 실질적인 제한이 없습니다."}}]}</script>
 </head>
 <body>
-<a class="skip-link" href="#editor">Skip to the editor</a>
+<a class="skip-link" href="#editor">편집기로 건너뛰기</a>
 <header class="site-header">
 <div class="container">
-<a class="brand" href="../"><span>Minecraft</span> NBT Editor</a>
+<a class="brand" href="../"><span>Minecraft</span> NBT 편집기</a>
 <span class="badge">Java + Bedrock</span>
-<nav class="site-nav" aria-label="Tools">
-<a href="../">Editor</a>
+<nav class="site-nav" aria-label="도구">
+<a href="../">편집기</a>
 <a href="../level-dat-editor/">level.dat</a>
 <a href="../java-nbt-editor/">Java</a>
 <a href="../mcpe-nbt-editor/">Bedrock</a>
 <a href="../mcstructure-editor/">.mcstructure</a>
 <a href="../schematic-editor/">.schem</a>
 <a href="../playerdata-editor/">playerdata</a>
-<a href="./" class="active">NBT format</a>
+<a href="./" class="active">NBT 형식</a>
 </nav>
-<details class="lang-switch"><summary title="Language: 한국어" aria-label="Language: 한국어"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">Language: 한국어</span></summary><div class="lang-menu"><a href="./" hreflang="ko" data-lang="ko" aria-current="true" class="current">한국어</a><a href="../../nbt-format/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../ru/nbt-format/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../es/nbt-format/" hreflang="es" data-lang="es" rel="alternate">Español (beta)</a><a href="../../pt-br/nbt-format/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR) (beta)</a><a href="../../de/nbt-format/" hreflang="de" data-lang="de" rel="alternate">Deutsch (beta)</a><a href="../../fr/nbt-format/" hreflang="fr" data-lang="fr" rel="alternate">Français (beta)</a><a href="../../it/nbt-format/" hreflang="it" data-lang="it" rel="alternate">Italiano (beta)</a><a href="../../pl/nbt-format/" hreflang="pl" data-lang="pl" rel="alternate">Polski (beta)</a><a href="../../uk/nbt-format/" hreflang="uk" data-lang="uk" rel="alternate">Українська (beta)</a><a href="../../tr/nbt-format/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe (beta)</a><a href="../../id/nbt-format/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia (beta)</a><a href="../../vi/nbt-format/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt (beta)</a><a href="../../th/nbt-format/" hreflang="th" data-lang="th" rel="alternate">ไทย (beta)</a><a href="../../zh-hans/nbt-format/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文 (beta)</a><a href="../../ja/nbt-format/" hreflang="ja" data-lang="ja" rel="alternate">日本語 (beta)</a><a href="../../ar/nbt-format/" hreflang="ar" data-lang="ar" rel="alternate">العربية (beta)</a></div></details>
+<details class="lang-switch"><summary title="언어: 한국어" aria-label="언어: 한국어"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">언어: 한국어</span></summary><div class="lang-menu"><a href="./" hreflang="ko" data-lang="ko" aria-current="true" class="current">한국어</a><a href="../../nbt-format/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../ru/nbt-format/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../es/nbt-format/" hreflang="es" data-lang="es" rel="alternate">Español</a><a href="../../pt-br/nbt-format/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR)</a><a href="../../de/nbt-format/" hreflang="de" data-lang="de" rel="alternate">Deutsch</a><a href="../../fr/nbt-format/" hreflang="fr" data-lang="fr" rel="alternate">Français</a><a href="../../it/nbt-format/" hreflang="it" data-lang="it" rel="alternate">Italiano</a><a href="../../pl/nbt-format/" hreflang="pl" data-lang="pl" rel="alternate">Polski</a><a href="../../uk/nbt-format/" hreflang="uk" data-lang="uk" rel="alternate">Українська</a><a href="../../tr/nbt-format/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe</a><a href="../../id/nbt-format/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia</a><a href="../../vi/nbt-format/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt</a><a href="../../th/nbt-format/" hreflang="th" data-lang="th" rel="alternate">ไทย</a><a href="../../zh-hans/nbt-format/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文</a><a href="../../ja/nbt-format/" hreflang="ja" data-lang="ja" rel="alternate">日本語</a><a href="../../ar/nbt-format/" hreflang="ar" data-lang="ar" rel="alternate">العربية</a></div></details>
 </div>
 </header>
 <main>
-<nav class="breadcrumbs container" aria-label="Breadcrumb"><a href="../">NBT Editor</a> <span class="sep">/</span> <span>NBT format</span></nav>
-<section class="hero" aria-label="Introduction">
+<nav class="breadcrumbs container" aria-label="이동 경로"><a href="../">NBT 편집기</a> <span class="sep">/</span> <span>NBT 형식</span></nav>
+<section class="hero" aria-label="소개">
 <div class="container">
-<h1>NBT Format Reference</h1>
-<p class="support-line"><strong>Supports Minecraft Bedrock Edition and Java Edition</strong> — and every server core for both, popular or obscure: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina and the rest. <a href="../#server-software">Full list</a>.</p>
-<p class="lede">NBT (Named Binary Tag) is Minecraft's binary tree format: a tag is a one-byte type, a length-prefixed name and a payload, and compounds nest until a <code>TAG_End</code> byte closes them. There are 13 tag types and five encodings in circulation across Java and Bedrock. This page documents all of them, and the editor above lets you check any claim against a real file.</p>
-<div class="chips"><span class="chip">13 tag types</span><span class="chip">Big-endian</span><span class="chip">Little-endian</span><span class="chip">Varint</span><span class="chip">gzip</span><span class="chip">zlib</span><span class="chip">SNBT</span></div>
+<h1>NBT 형식 참고 자료</h1>
+<p class="support-line"><strong>Minecraft Bedrock Edition과 Java Edition을 지원합니다.</strong> Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina 등 유명하거나 잘 알려지지 않은 양쪽 에디션의 모든 서버 코어를 지원합니다. <a href="../#server-software">전체 목록</a></p>
+<p class="lede">NBT(Named Binary Tag)는 Minecraft의 바이너리 트리 형식입니다. 태그는 1바이트 유형, 길이 접두사가 붙은 이름, 페이로드로 구성되며 compound는 <code>TAG_End</code> 바이트가 닫을 때까지 중첩됩니다. Java와 Bedrock에서 사용되는 태그 유형은 13개, 인코딩은 5개입니다. 이 페이지에서 모두 설명하며 위 편집기로 실제 파일을 열어 각 내용을 확인할 수 있습니다.</p>
+<div class="chips"><span class="chip">13개 태그 유형</span><span class="chip">빅 엔디언</span><span class="chip">리틀 엔디언</span><span class="chip">Varint</span><span class="chip">gzip</span><span class="chip">zlib</span><span class="chip">SNBT</span></div>
 </div>
 </section>
 <div id="editor">
 
-<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="Drop an NBT file here or click to browse">
+<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="여기에 NBT 파일을 놓거나 눌러 찾아보기">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 16V4m0 0L8 8m4-4l4 4"/><path d="M20 16v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2"/></svg>
-<p>Drop <strong>any NBT file to inspect</strong> here</p>
-<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">Choose File</button>
-<span class="hint">level.dat &middot; .nbt &middot; .mcstructure &middot; .schem &middot; .schematic &middot; .dat &middot; chunk dumps</span>
+<p>여기에 <strong>검사할 모든 NBT 파일</strong> 놓기</p>
+<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">파일 선택</button>
+<span class="hint">level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · 청크 덤프</span>
 <input type="file" id="fileInput">
 </div>
 
@@ -83,18 +100,16 @@
 <div class="file-info" id="fileInfo"></div>
 
 <div class="out-bar" id="outBar">
-<label>Output format
-<select id="outFormat">
-<option value="java">Java — big-endian, named root</option>
-<option value="java-network">Java network — big-endian, nameless root</option>
-<option value="bedrock-level">Bedrock level.dat — little-endian + 8-byte header</option>
-<option value="bedrock">Bedrock raw — little-endian</option>
-<option value="bedrock-network">Bedrock network — little-endian varint</option>
+<label>출력 형식<select id="outFormat">
+<option value="java">Java — 빅 엔디언, 이름 있는 루트</option>
+<option value="java-network">Java 네트워크 — 빅 엔디언, 이름 없는 루트</option>
+<option value="bedrock-level">Bedrock level.dat — 리틀 엔디언 + 8바이트 헤더</option>
+<option value="bedrock">Bedrock 원시 형식 — 리틀 엔디언</option>
+<option value="bedrock-network">Bedrock 네트워크 — 리틀 엔디언 varint</option>
 </select>
 </label>
-<label>Compression
-<select id="outCompression">
-<option value="none">None (raw)</option>
+<label>압축<select id="outCompression">
+<option value="none">없음(원시 데이터)</option>
 <option value="gzip">gzip</option>
 <option value="zlib">zlib (deflate)</option>
 </select>
@@ -102,9 +117,9 @@
 </div>
 
 <div class="search-bar">
-<input type="search" id="searchInput" placeholder="Search tag name or value…" autocomplete="off" spellcheck="false" aria-label="Search NBT tags">
-<button type="button" id="btnSearch">Search</button>
-<button type="button" id="btnCollapse">Collapse all</button>
+<input type="search" id="searchInput" placeholder="태그 이름 또는 값 검색…" autocomplete="off" spellcheck="false" aria-label="NBT 태그 검색">
+<button type="button" id="btnSearch">검색</button>
+<button type="button" id="btnCollapse">모두 접기</button>
 </div>
 <div class="search-results" id="searchResults"></div>
 
@@ -112,107 +127,107 @@
 </div>
 
 <div class="bottom-bar" id="bottomBar">
-<button class="btn-add" id="btnAddRoot" type="button">+ Add Tag</button>
-<button class="btn-save" id="btnSave" type="button">Save &amp; Download</button>
-<button class="btn-snbt" id="btnSnbt" type="button">Export SNBT</button>
-<button class="btn-close" id="btnCloseFile" type="button">Close</button>
+<button class="btn-add" id="btnAddRoot" type="button">+ 태그 추가</button>
+<button class="btn-save" id="btnSave" type="button">저장 및 다운로드</button>
+<button class="btn-snbt" id="btnSnbt" type="button">SNBT 내보내기</button>
+<button class="btn-close" id="btnCloseFile" type="button">닫기</button>
 </div>
 
 </div>
 <div id="contentSections">
-<nav class="toc" aria-label="On this page"><h2 id="on-this-page">On this page</h2><ul><li><a href="#the-13-tag-types">The 13 tag types</a></li><li><a href="#five-encodings-in-the-wild">Five encodings in the wild</a></li><li><a href="#strings-modified-utf-8-versus-utf-8">Strings: modified UTF-8 versus UTF-8</a></li><li><a href="#compression">Compression</a></li><li><a href="#a-minimal-file-byte-by-byte">A minimal file, byte by byte</a></li><li><a href="#snbt">SNBT</a></li></ul></nav>
-<section class="content" aria-label="Tag types">
-<h2 id="the-13-tag-types">The 13 tag types</h2>
+<nav class="toc" aria-label="이 페이지의 내용"><h2 id="on-this-page">이 페이지의 내용</h2><ul><li><a href="#the-13-tag-types">13개 태그 유형</a></li><li><a href="#five-encodings-in-the-wild">실제로 쓰이는 다섯 가지 인코딩</a></li><li><a href="#strings-modified-utf-8-versus-utf-8">문자열: 수정된 UTF-8과 UTF-8</a></li><li><a href="#compression">압축</a></li><li><a href="#a-minimal-file-byte-by-byte">최소 파일을 바이트별로 보기</a></li><li><a href="#snbt">SNBT</a></li></ul></nav>
+<section class="content" aria-label="태그 유형">
+<h2 id="the-13-tag-types">13개 태그 유형</h2>
 <div class="table-wrap">
 <table class="matrix">
-<thead><tr><th>Id</th><th>Tag</th><th>Payload</th><th>SNBT</th></tr></thead>
+<thead><tr><th>ID</th><th>태그</th><th>페이로드</th><th>SNBT</th></tr></thead>
 <tbody>
-<tr><td>0</td><td><code>TAG_End</code></td><td>None — closes a compound</td><td>—</td></tr>
-<tr><td>1</td><td><code>TAG_Byte</code></td><td>1 byte, signed −128…127</td><td><code>1b</code></td></tr>
-<tr><td>2</td><td><code>TAG_Short</code></td><td>2 bytes, signed</td><td><code>1s</code></td></tr>
-<tr><td>3</td><td><code>TAG_Int</code></td><td>4 bytes, signed</td><td><code>1</code></td></tr>
-<tr><td>4</td><td><code>TAG_Long</code></td><td>8 bytes, signed</td><td><code>1L</code></td></tr>
-<tr><td>5</td><td><code>TAG_Float</code></td><td>4 bytes, IEEE 754</td><td><code>1.0f</code></td></tr>
-<tr><td>6</td><td><code>TAG_Double</code></td><td>8 bytes, IEEE 754</td><td><code>1.0d</code></td></tr>
-<tr><td>7</td><td><code>TAG_Byte_Array</code></td><td>int length, then that many bytes</td><td><code>[B;1b,2b]</code></td></tr>
-<tr><td>8</td><td><code>TAG_String</code></td><td>unsigned short length, then UTF-8 bytes</td><td><code>"text"</code></td></tr>
-<tr><td>9</td><td><code>TAG_List</code></td><td>element type byte, int length, then payloads with no names</td><td><code>[1,2]</code></td></tr>
-<tr><td>10</td><td><code>TAG_Compound</code></td><td>type + name + payload repeated until <code>TAG_End</code></td><td><code>{a:1}</code></td></tr>
-<tr><td>11</td><td><code>TAG_Int_Array</code></td><td>int length, then that many 4-byte ints</td><td><code>[I;1,2]</code></td></tr>
-<tr><td>12</td><td><code>TAG_Long_Array</code></td><td>int length, then that many 8-byte longs</td><td><code>[L;1L,2L]</code></td></tr>
+<tr><td>0</td><td><code>TAG_End</code></td><td>없음 — compound를 닫음</td><td>—</td></tr>
+<tr><td>1</td><td><code>TAG_Byte</code></td><td>1바이트, 부호 있음 −128…127</td><td><code>1b</code></td></tr>
+<tr><td>2</td><td><code>TAG_Short</code></td><td>2바이트, 부호 있음</td><td><code>1s</code></td></tr>
+<tr><td>3</td><td><code>TAG_Int</code></td><td>4바이트, 부호 있음</td><td><code>1</code></td></tr>
+<tr><td>4</td><td><code>TAG_Long</code></td><td>8바이트, 부호 있음</td><td><code>1L</code></td></tr>
+<tr><td>5</td><td><code>TAG_Float</code></td><td>4바이트, IEEE 754</td><td><code>1.0f</code></td></tr>
+<tr><td>6</td><td><code>TAG_Double</code></td><td>8바이트, IEEE 754</td><td><code>1.0d</code></td></tr>
+<tr><td>7</td><td><code>TAG_Byte_Array</code></td><td>int 길이 뒤에 해당 개수의 byte</td><td><code>[B;1b,2b]</code></td></tr>
+<tr><td>8</td><td><code>TAG_String</code></td><td>unsigned short 길이 뒤에 UTF-8 바이트</td><td><code>"text"</code></td></tr>
+<tr><td>9</td><td><code>TAG_List</code></td><td>요소 유형 byte, int 길이, 이름 없는 페이로드 순서</td><td><code>[1,2]</code></td></tr>
+<tr><td>10</td><td><code>TAG_Compound</code></td><td><code>TAG_End</code>까지 유형 + 이름 + 페이로드 반복</td><td><code>{a:1}</code></td></tr>
+<tr><td>11</td><td><code>TAG_Int_Array</code></td><td>int 길이 뒤에 해당 개수의 4바이트 int</td><td><code>[I;1,2]</code></td></tr>
+<tr><td>12</td><td><code>TAG_Long_Array</code></td><td>int 길이 뒤에 해당 개수의 8바이트 long</td><td><code>[L;1L,2L]</code></td></tr>
 </tbody>
 </table>
 </div>
-<p>A file is a single root <code>TAG_Compound</code>: one type byte <code>0x0A</code>, a name, then the compound's contents. Named tags appear only inside compounds — list elements carry payloads only, which is why a list is homogeneous.</p>
+<p>파일은 하나의 루트 <code>TAG_Compound</code>입니다. 유형 byte <code>0x0A</code> 하나, 이름, compound 내용 순서로 구성됩니다. 이름 있는 태그는 compound 안에서만 나옵니다. list 요소에는 페이로드만 들어가므로 list의 모든 요소는 같은 유형입니다.</p>
 </section>
 
-<section class="content" aria-label="Encodings">
-<h2 id="five-encodings-in-the-wild">Five encodings in the wild</h2>
+<section class="content" aria-label="인코딩">
+<h2 id="five-encodings-in-the-wild">실제로 쓰이는 다섯 가지 인코딩</h2>
 <div class="table-wrap">
 <table class="matrix">
-<thead><tr><th>Encoding</th><th>Integers</th><th>String length</th><th>Root</th><th>Used by</th></tr></thead>
+<thead><tr><th>인코딩</th><th>정수</th><th>문자열 길이</th><th>루트</th><th>사용처</th></tr></thead>
 <tbody>
-<tr><td>Java (classic)</td><td>Big-endian fixed width</td><td>2-byte big-endian</td><td>Named</td><td>Java worlds, structures, schematics</td></tr>
-<tr><td>Java network (1.20.2+)</td><td>Big-endian fixed width</td><td>2-byte big-endian</td><td>Nameless</td><td>Java protocol</td></tr>
-<tr><td>Bedrock</td><td>Little-endian fixed width</td><td>2-byte little-endian</td><td>Named</td><td>Bedrock worlds, <code>.mcstructure</code>, LevelDB values</td></tr>
-<tr><td>Bedrock <code>level.dat</code></td><td>Little-endian fixed width</td><td>2-byte little-endian</td><td>Named, after an 8-byte header</td><td>Bedrock world metadata</td></tr>
-<tr><td>Bedrock network</td><td>Zigzag varint for int and long</td><td>Unsigned varint</td><td>Named</td><td>Bedrock protocol</td></tr>
+<tr><td>Java(클래식)</td><td>고정 폭 빅 엔디언</td><td>2바이트 빅 엔디언</td><td>이름 있음</td><td>Java 월드, 구조물, schematic</td></tr>
+<tr><td>Java 네트워크(1.20.2+)</td><td>고정 폭 빅 엔디언</td><td>2바이트 빅 엔디언</td><td>이름 없음</td><td>Java 프로토콜</td></tr>
+<tr><td>Bedrock</td><td>고정 폭 리틀 엔디언</td><td>2바이트 리틀 엔디언</td><td>이름 있음</td><td>Bedrock 월드, <code>.mcstructure</code>, LevelDB 값</td></tr>
+<tr><td>Bedrock <code>level.dat</code></td><td>고정 폭 리틀 엔디언</td><td>2바이트 리틀 엔디언</td><td>8바이트 헤더 뒤에 이름 있음</td><td>Bedrock 월드 메타데이터</td></tr>
+<tr><td>Bedrock 네트워크</td><td>int와 long에 zigzag varint</td><td>unsigned varint</td><td>이름 있음</td><td>Bedrock 프로토콜</td></tr>
 </tbody>
 </table>
 </div>
-<p>In the varint encoding, <code>TAG_Short</code>, <code>TAG_Float</code> and <code>TAG_Double</code> stay fixed-width little-endian; only <code>TAG_Int</code> and <code>TAG_Long</code> become zigzag varints, and array and list lengths follow whatever <code>TAG_Int</code> does. String lengths are unsigned varints, which also lifts the 65535-byte ceiling that the fixed encodings impose.</p>
+<p>varint 인코딩에서도 <code>TAG_Short</code>, <code>TAG_Float</code>, <code>TAG_Double</code>은 고정 폭 리틀 엔디언을 유지합니다. <code>TAG_Int</code>와 <code>TAG_Long</code>만 zigzag varint가 되며 배열과 list 길이는 <code>TAG_Int</code>의 방식을 따릅니다. 문자열 길이는 unsigned varint라서 고정 폭 인코딩의 65535바이트 제한도 사라집니다.</p>
 </section>
 
-<section class="content" aria-label="Strings">
-<h2 id="strings-modified-utf-8-versus-utf-8">Strings: modified UTF-8 versus UTF-8</h2>
-<p>Java serialises strings with <code>DataOutputStream.writeUTF</code>, which is <em>modified</em> UTF-8: a NUL character is written as <code>C0 80</code> rather than <code>00</code>, and characters outside the Basic Multilingual Plane are written as two three-byte surrogate halves (CESU-8) instead of one four-byte sequence. Bedrock uses standard UTF-8. A tool that assumes one encoding for both will corrupt emoji and some CJK text on save — this editor encodes per format, which is why a world named with an emoji survives a round trip here.</p>
+<section class="content" aria-label="문자열">
+<h2 id="strings-modified-utf-8-versus-utf-8">문자열: 수정된 UTF-8과 UTF-8</h2>
+<p>Java는 <code>DataOutputStream.writeUTF</code>로 문자열을 직렬화합니다. 이는 <em>수정된</em> UTF-8입니다. NUL 문자는 <code>C0 80</code> 대신 <code>00</code>으로 기록하고, 기본 다국어 평면 밖 문자는 하나의 4바이트 시퀀스 대신 두 개의 3바이트 surrogate 절반(CESU-8)으로 기록합니다. Bedrock은 표준 UTF-8을 사용합니다. 두 형식에 같은 인코딩을 적용하는 도구는 저장할 때 이모지와 일부 CJK 텍스트를 손상합니다. 이 편집기는 형식별로 올바르게 인코딩하므로 이모지가 들어간 월드 이름도 왕복 과정에서 유지됩니다.</p>
 </section>
 
-<section class="content" aria-label="Compression">
-<h2 id="compression">Compression</h2>
-<p>NBT itself is not compressed; the container decides. Java files are usually gzip (magic <code>1F 8B</code>), chunk payloads inside region files are zlib (magic <code>78 01</code>, <code>78 9C</code> or <code>78 DA</code>), and Bedrock stores <code>level.dat</code> and structure files uncompressed. Detection is by magic bytes, so the same parser handles all three — and a file saved with the wrong compression is the single most common reason a hand-edited world will not load.</p>
+<section class="content" aria-label="압축">
+<h2 id="compression">압축</h2>
+<p>NBT 자체는 압축되지 않으며 컨테이너가 방식을 정합니다. Java 파일은 보통 gzip(magic <code>1F 8B</code>), 리전 파일 안의 청크 페이로드는 zlib(magic <code>78 01</code>, <code>78 9C</code> 또는 <code>78 DA</code>)을 사용합니다. Bedrock의 <code>level.dat</code>와 구조물 파일은 압축하지 않습니다. magic byte로 감지하므로 같은 파서가 세 방식을 모두 처리합니다. 잘못된 압축으로 저장하는 일은 수동 편집한 월드가 열리지 않는 가장 흔한 원인입니다.</p>
 </section>
 
-<section class="content" aria-label="Byte walkthrough">
-<h2 id="a-minimal-file-byte-by-byte">A minimal file, byte by byte</h2>
-<p>The canonical <code>hello_world.nbt</code>: a root compound named <code>hello world</code> holding one string tag <code>name</code> with the value <code>Bananrama</code>. In Java's big-endian encoding:</p>
+<section class="content" aria-label="바이트별 분석">
+<h2 id="a-minimal-file-byte-by-byte">최소 파일을 바이트별로 보기</h2>
+<p>표준 예제 <code>hello_world.nbt</code>입니다. <code>hello world</code>라는 루트 compound에 값이 <code>name</code>인 string 태그 <code>Bananrama</code> 하나가 들어 있습니다. Java 빅 엔디언 인코딩은 다음과 같습니다.</p>
 <pre class="code"><code>0A                          TAG_Compound
 00 0B 68 65 6C 6C 6F 20 77 6F 72 6C 64   name length 11, "hello world"
    08                       TAG_String
    00 04 6E 61 6D 65        name length 4, "name"
    00 09 42 61 6E 61 6E 72 61 6D 61      value length 9, "Bananrama"
 00                          TAG_End</code></pre>
-<p>The same document in Bedrock's little-endian encoding differs only in the byte order of the two length fields: <code>0B 00</code> instead of <code>00 0B</code>. In Bedrock network NBT the lengths become single varint bytes, <code>0B</code> and <code>04</code>, with no padding at all. Drop any of the three into the editor above and it will tell you which one it received.</p>
+<p>같은 문서를 Bedrock 리틀 엔디언으로 인코딩하면 두 길이 필드의 바이트 순서만 달라집니다. <code>0B 00</code> 대신 <code>00 0B</code>입니다. Bedrock 네트워크 NBT에서는 길이가 패딩 없는 단일 varint byte <code>0B</code>와 <code>04</code>가 됩니다. 셋 중 어떤 파일이든 위 편집기에 놓으면 받은 형식을 알려줍니다.</p>
 </section>
 
 <section class="content" aria-label="SNBT">
 <h2 id="snbt">SNBT</h2>
-<p>SNBT is NBT written as text, and it is what commands consume: <code>/data merge entity @s {Invulnerable:1b}</code>. Type suffixes are what keep it lossless — <code>b</code> byte, <code>s</code> short, <code>L</code> long, <code>f</code> float, <code>d</code> double, none for int — and typed array literals are written <code>[B;…]</code>, <code>[I;…]</code>, <code>[L;…]</code>. The editor exports SNBT from any loaded file, which makes two versions of a world diffable in a normal text diff.</p>
+<p>SNBT는 NBT를 텍스트로 기록한 형식이며 명령어가 사용합니다. 예: <code>/data merge entity @s {Invulnerable:1b}</code>. 유형 접미사 덕분에 정보를 잃지 않습니다. <code>b</code>는 byte, <code>s</code>는 short, <code>L</code>은 long, <code>f</code>는 float, <code>d</code>는 double이고 int에는 접미사가 없습니다. 유형 배열 리터럴은 <code>[B;…]</code>, <code>[I;…]</code>, <code>[L;…]</code>로 씁니다. 편집기는 불러온 모든 파일을 SNBT로 내보내므로 일반 텍스트 비교 도구에서 두 월드 버전을 비교할 수 있습니다.</p>
 </section>
 
-<section class="content" aria-label="Frequently asked questions"><h2>Frequently Asked Questions</h2><details><summary>Is there an official NBT specification?</summary><div class="faq-body"><p>No formal spec from Mojang. The format was documented by Notch in 2010 and has been maintained by the community since; the tag ids and layout on this page match what the game reads and writes today.</p></div></details><details><summary>Why does Bedrock use little-endian?</summary><div class="faq-body"><p>Bedrock's engine is C++ and targets little-endian hardware, so it stores values in native order. Java's serialisation is big-endian because that is what the Java DataOutput contract specifies.</p></div></details><details><summary>What is zigzag varint encoding?</summary><div class="faq-body"><p>A way of writing integers in as few bytes as possible while keeping negatives short: the sign is folded into the low bit, so −1 encodes as 1 and 1 encodes as 2. Bedrock's protocol uses it for ints and longs.</p></div></details><details><summary>Can a TAG_List hold mixed types?</summary><div class="faq-body"><p>No. A list declares one element type and every entry has to match it. Mixed data needs a list of compounds.</p></div></details><details><summary>What is the maximum string length?</summary><div class="faq-body"><p>65535 bytes in the fixed encodings, because the length field is an unsigned short. The varint network encoding has no practical limit.</p></div></details></section>
-<section class="content" aria-label="Related tools"><h2>Related tools</h2><div class="rel-grid"><a class="rel-card" href="../"><strong>Minecraft NBT editor</strong><span>The universal editor — every edition, every NBT file type.</span></a><a class="rel-card" href="../nbt-viewer/"><strong>NBT viewer</strong><span>Read-only inspection, search and SNBT export.</span></a><a class="rel-card" href="../java-nbt-editor/"><strong>Java Edition NBT editor</strong><span>Big-endian, gzip — Vanilla, Paper, Spigot, Fabric, Forge.</span></a><a class="rel-card" href="../mcpe-nbt-editor/"><strong>MCPE NBT editor</strong><span>Little-endian NBT and the 8-byte level.dat header.</span></a><a class="rel-card" href="../nbtexplorer-online/"><strong>NBTExplorer online</strong><span>What carries over from the desktop tool, and what does not.</span></a><a class="rel-card" href="../schematic-editor/"><strong>Schematic editor</strong><span>WorldEdit .schem and legacy MCEdit .schematic.</span></a></div></section>
+<section class="content" aria-label="자주 묻는 질문"><h2>자주 묻는 질문</h2><details><summary>공식 NBT 명세가 있나요?</summary><div class="faq-body"><p>Mojang이 발표한 정식 명세는 없습니다. Notch가 2010년에 형식을 문서화한 뒤 커뮤니티에서 유지해 왔습니다. 이 페이지의 태그 ID와 구조는 현재 게임이 읽고 쓰는 방식과 일치합니다.</p></div></details><details><summary>Bedrock이 리틀 엔디언을 사용하는 이유는 무엇인가요?</summary><div class="faq-body"><p>Bedrock 엔진은 C++로 작성되었고 리틀 엔디언 하드웨어를 대상으로 하므로 값을 기본 바이트 순서로 저장합니다. Java 직렬화는 Java DataOutput 계약에 따라 빅 엔디언을 사용합니다.</p></div></details><details><summary>zigzag varint 인코딩이 무엇인가요?</summary><div class="faq-body"><p>음수를 짧게 유지하면서 정수를 가능한 적은 바이트로 기록하는 방식입니다. 부호를 최하위 비트에 접어 넣으므로 −1은 1로, 1은 2로 인코딩됩니다. Bedrock 프로토콜은 int와 long에 이 방식을 씁니다.</p></div></details><details><summary>TAG_List에 서로 다른 유형을 넣을 수 있나요?</summary><div class="faq-body"><p>아니요. list는 요소 유형 하나를 선언하고 모든 항목이 그 유형과 일치해야 합니다. 서로 다른 데이터를 넣으려면 compound list를 사용하세요.</p></div></details><details><summary>문자열 최대 길이는 얼마인가요?</summary><div class="faq-body"><p>길이 필드가 unsigned short인 고정 폭 인코딩에서는 65535바이트입니다. varint 네트워크 인코딩에는 실질적인 제한이 없습니다.</p></div></details></section>
+<section class="content" aria-label="관련 도구"><h2>관련 도구</h2><div class="rel-grid"><a class="rel-card" href="../"><strong>Minecraft NBT 편집기</strong><span>모든 에디션과 모든 NBT 파일 형식을 다루는 범용 편집기입니다.</span></a><a class="rel-card" href="../nbt-viewer/"><strong>NBT 뷰어</strong><span>읽기 전용 검사, 검색, SNBT 내보내기를 지원합니다.</span></a><a class="rel-card" href="../java-nbt-editor/"><strong>Java Edition NBT 편집기</strong><span>빅 엔디언, gzip — Vanilla, Paper, Spigot, Fabric, Forge 지원</span></a><a class="rel-card" href="../mcpe-nbt-editor/"><strong>MCPE NBT 편집기</strong><span>리틀 엔디언 NBT와 8바이트 level.dat 헤더를 처리합니다.</span></a><a class="rel-card" href="../nbtexplorer-online/"><strong>온라인 NBTExplorer</strong><span>데스크톱 도구에서 이어지는 기능과 차이점을 설명합니다.</span></a><a class="rel-card" href="../schematic-editor/"><strong>Schematic 편집기</strong><span>WorldEdit .schem과 레거시 MCEdit .schematic을 처리합니다.</span></a></div></section>
 </div>
 </main>
 
 <footer class="site-footer">
 <div class="container footer-grid">
-<div><h4>Editors</h4><a href="../">Minecraft NBT editor</a><a href="../level-dat-editor/">level.dat editor</a><a href="../java-nbt-editor/">Java Edition NBT editor</a><a href="../mcpe-nbt-editor/">MCPE NBT editor</a><a href="../pocketmine-nbt-editor/">PocketMine-MP editor</a></div>
-<div><h4>File types</h4><a href="../mcstructure-editor/">.mcstructure editor</a><a href="../schematic-editor/">Schematic editor</a><a href="../playerdata-editor/">playerdata editor</a><a href="../nbt-viewer/">NBT viewer</a><a href="../nbtexplorer-online/">NBTExplorer online</a></div>
-<div><h4>Reference</h4><a href="./">NBT format reference</a><a href="../guides/change-world-name/">Rename a world</a><a href="../guides/fix-corrupted-level-dat/">Fix a broken level.dat</a><a href="../guides/edit-gamerules/">Edit game rules</a></div>
-<div><h4>Source</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">Code on GitHub</a><a href="../../llms.txt">llms.txt</a></div>
+<div><h4>편집기</h4><a href="../">Minecraft NBT 편집기</a><a href="../level-dat-editor/">level.dat 편집기</a><a href="../java-nbt-editor/">Java Edition NBT 편집기</a><a href="../mcpe-nbt-editor/">MCPE NBT 편집기</a><a href="../pocketmine-nbt-editor/">PocketMine-MP 편집기</a></div>
+<div><h4>파일 형식</h4><a href="../mcstructure-editor/">.mcstructure 편집기</a><a href="../schematic-editor/">Schematic 편집기</a><a href="../playerdata-editor/">playerdata 편집기</a><a href="../nbt-viewer/">NBT 뷰어</a><a href="../nbtexplorer-online/">온라인 NBTExplorer</a></div>
+<div><h4>참고 자료</h4><a href="./">NBT 형식 참고 자료</a><a href="../guides/change-world-name/">월드 이름 바꾸기</a><a href="../guides/fix-corrupted-level-dat/">손상된 level.dat 복구</a><a href="../guides/edit-gamerules/">게임 규칙 편집</a></div>
+<div><h4>소스</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">GitHub 코드</a><a href="../../llms.txt">llms.txt</a></div>
 </div>
-<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">마지막 업데이트: 2026-09-21 Minecraft NBT 편집기 — 무료 오픈 소스(MIT)이며 브라우저에서만 실행됩니다. Mojang Studios 또는 Microsoft와 제휴 관계가 없습니다. Minecraft는 Mojang Studios의 상표입니다.</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
 <div class="modal-overlay" id="addTagModal">
 <div class="modal">
-<h3>Add New Tag</h3>
-<label for="newTagName">Tag Name</label>
-<input type="text" id="newTagName" placeholder="e.g. MyTag" autocomplete="off">
-<label for="newTagType">Tag Type</label>
+<h3>새 태그 추가</h3>
+<label for="newTagName">태그 이름</label>
+<input type="text" id="newTagName" placeholder="예: MyTag" autocomplete="off">
+<label for="newTagType">태그 유형</label>
 <select id="newTagType">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -227,10 +242,10 @@
 <option value="11">TAG_Int_Array</option>
 <option value="12">TAG_Long_Array</option>
 </select>
-<label for="newTagValue">Value</label>
-<input type="text" id="newTagValue" placeholder="Value" autocomplete="off">
+<label for="newTagValue">값</label>
+<input type="text" id="newTagValue" placeholder="값" autocomplete="off">
 <div id="listSubtypeRow" style="display:none">
-<label for="newListSubtype">List Element Type</label>
+<label for="newListSubtype">목록 요소 유형</label>
 <select id="newListSubtype">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -247,24 +262,24 @@
 </select>
 </div>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="addTagCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="addTagConfirm">Add</button>
+<button class="btn-cancel" type="button" id="addTagCancel">취소</button>
+<button class="btn-confirm" type="button" id="addTagConfirm">추가</button>
 </div>
 </div>
 </div>
 
 <div class="modal-overlay" id="arrayModal">
 <div class="modal">
-<h3 id="arrayModalTitle">Edit Array</h3>
-<label for="arrayModalText">Comma-separated values</label>
+<h3 id="arrayModalTitle">배열 편집</h3>
+<label for="arrayModalText">쉼표로 구분한 값</label>
 <textarea id="arrayModalText" spellcheck="false" autocomplete="off"></textarea>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="arrayModalCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="arrayModalConfirm">Apply</button>
+<button class="btn-cancel" type="button" id="arrayModalCancel">취소</button>
+<button class="btn-confirm" type="button" id="arrayModalConfirm">적용</button>
 </div>
 </div>
 </div>
 
-<script src="../../assets/nbt.js?v=da7967b1" defer></script>
+<script src="../../assets/nbt.js?v=6f125422" defer></script>
 </body>
 </html>

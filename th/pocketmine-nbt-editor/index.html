@@ -3,79 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>PocketMine-MP level.dat Editor — PMMP, Nukkit, BDS Online</title>
-<meta name="description" content="Edit level.dat for PocketMine-MP, Nukkit, PowerNukkitX and Bedrock Dedicated Server online. Fix duplicate world names after copying a world folder.">
-<meta name="keywords" content="pocketmine level.dat, pmmp nbt editor, pocketmine world name, nukkit level.dat editor, powernukkitx nbt, bedrock dedicated server level.dat, bds world name, pocketmine world editor">
-<meta name="robots" content="noindex, follow">
+<title>แก้ level.dat ของ PocketMine-MP, Nukkit และ BDS ออนไลน์</title>
+<meta name="description" content="แก้ไข level.dat ของ PocketMine-MP, Nukkit, PowerNukkitX และ Bedrock Dedicated Server ออนไลน์ พร้อมแก้ชื่อโลกซ้ำหลังคัดลอกโฟลเดอร์โลก">
+<meta name="keywords" content="แก้ level.dat pocketmine, pmmp nbt editor, เปลี่ยนชื่อโลก pocketmine, nukkit level.dat, powernukkitx nbt, bedrock dedicated server level.dat, แก้ชื่อโลกซ้ำ minecraft server">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="author" content="w1zardz">
 <link rel="canonical" href="https://w1zardz.github.io/bedrock-nbt-editor/th/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="en" href="https://w1zardz.github.io/bedrock-nbt-editor/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="ru" href="https://w1zardz.github.io/bedrock-nbt-editor/ru/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="es" href="https://w1zardz.github.io/bedrock-nbt-editor/es/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="pt-BR" href="https://w1zardz.github.io/bedrock-nbt-editor/pt-br/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="de" href="https://w1zardz.github.io/bedrock-nbt-editor/de/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="fr" href="https://w1zardz.github.io/bedrock-nbt-editor/fr/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="it" href="https://w1zardz.github.io/bedrock-nbt-editor/it/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="pl" href="https://w1zardz.github.io/bedrock-nbt-editor/pl/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="uk" href="https://w1zardz.github.io/bedrock-nbt-editor/uk/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="tr" href="https://w1zardz.github.io/bedrock-nbt-editor/tr/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="id" href="https://w1zardz.github.io/bedrock-nbt-editor/id/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="vi" href="https://w1zardz.github.io/bedrock-nbt-editor/vi/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="th" href="https://w1zardz.github.io/bedrock-nbt-editor/th/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="zh-Hans" href="https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="ja" href="https://w1zardz.github.io/bedrock-nbt-editor/ja/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="ko" href="https://w1zardz.github.io/bedrock-nbt-editor/ko/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="ar" href="https://w1zardz.github.io/bedrock-nbt-editor/ar/pocketmine-nbt-editor/">
 <link rel="alternate" hreflang="x-default" href="https://w1zardz.github.io/bedrock-nbt-editor/pocketmine-nbt-editor/">
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="../../favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <link rel="manifest" href="../../site.webmanifest">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PocketMine-MP &amp; Nukkit level.dat editor">
-<meta property="og:description" content="Edit level.dat for PocketMine-MP, Nukkit, PowerNukkitX and Bedrock Dedicated Server online. Fix duplicate world names after copying a world folder.">
+<meta property="og:title" content="โปรแกรมแก้ level.dat สำหรับ PocketMine-MP และ Nukkit">
+<meta property="og:description" content="แก้ไข level.dat ของ PocketMine-MP, Nukkit, PowerNukkitX และ Bedrock Dedicated Server ออนไลน์ พร้อมแก้ชื่อโลกซ้ำหลังคัดลอกโฟลเดอร์โลก">
 <meta property="og:url" content="https://w1zardz.github.io/bedrock-nbt-editor/th/pocketmine-nbt-editor/">
-<meta property="og:site_name" content="Minecraft NBT Editor">
+<meta property="og:site_name" content="ตัวแก้ไข NBT ของ Minecraft">
 <meta property="og:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/pocketmine.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="th_TH">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="PocketMine-MP &amp; Nukkit level.dat editor">
-<meta name="twitter:description" content="Edit level.dat for PocketMine-MP, Nukkit, PowerNukkitX and Bedrock Dedicated Server online. Fix duplicate world names after copying a world folder.">
+<meta name="twitter:title" content="โปรแกรมแก้ level.dat สำหรับ PocketMine-MP และ Nukkit">
+<meta name="twitter:description" content="แก้ไข level.dat ของ PocketMine-MP, Nukkit, PowerNukkitX และ Bedrock Dedicated Server ออนไลน์ พร้อมแก้ชื่อโลกซ้ำหลังคัดลอกโฟลเดอร์โลก">
 <meta name="twitter:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/pocketmine.png">
-<meta property="article:modified_time" content="2026-08-26">
-<meta property="og:updated_time" content="2026-08-26">
+<meta property="article:modified_time" content="2026-09-21">
+<meta property="og:updated_time" content="2026-09-21">
 <meta name="theme-color" content="#0d1117">
-<meta name="application-name" content="Minecraft NBT Editor">
-<meta name="apple-mobile-web-app-title" content="NBT Editor">
-<link rel="preload" href="../../assets/nbt.js?v=da7967b1" as="script">
-<script>window.__LANG_URLS__={"en":"../../pocketmine-nbt-editor/","ru":"../../ru/pocketmine-nbt-editor/","es":"../../es/pocketmine-nbt-editor/","pt-br":"../../pt-br/pocketmine-nbt-editor/","de":"../../de/pocketmine-nbt-editor/","fr":"../../fr/pocketmine-nbt-editor/","it":"../../it/pocketmine-nbt-editor/","pl":"../../pl/pocketmine-nbt-editor/","uk":"../../uk/pocketmine-nbt-editor/","tr":"../../tr/pocketmine-nbt-editor/","id":"../../id/pocketmine-nbt-editor/","vi":"../../vi/pocketmine-nbt-editor/","th":"./","zh-hans":"../../zh-hans/pocketmine-nbt-editor/","ja":"../../ja/pocketmine-nbt-editor/","ko":"../../ko/pocketmine-nbt-editor/","ar":"../../ar/pocketmine-nbt-editor/"};window.__NBT_STRINGS__={"loaded":"Loaded as {0}","trailing":"{0} trailing byte(s) after the root tag were ignored","error":"Error: {0}","readfail":"Could not read the file","nofile":"No file loaded","saved":"Saved {0} ({1}, {2})","savefail":"Save error: {0}","exported":"Exported {0}","snbtfail":"SNBT error: {0}","tagadded":"Tag added","tagremoved":"Tag removed","arrayupdated":"Array updated","badvalue":"Invalid value: {0}","badarray":"Invalid array: {0}","nameneeded":"Tag name is required","nametaken":"A tag named {0} already exists here","listtype":"List already holds {0} entries","editlevelname":"✎ Edit LevelName","showmore":"Show {0} more of {1} …","matches":"{0} match(es)","nomatch":"No tag matches \"{0}\"","arraytoobig":"Array has {0} entries — expand it and edit elements individually","uncompressed":"uncompressed","storage":"storage v{0}","entries":"{0} entries","langprompt":"Open this page in {0}?","langyes":"Switch","langno":"Stay"};</script>
-<script src="../../assets/lang.js?v=a3a1db0e" defer></script>
+<meta name="application-name" content="ตัวแก้ไข NBT ของ Minecraft">
+<meta name="apple-mobile-web-app-title" content="ตัวแก้ไข NBT">
+<link rel="preload" href="../../assets/nbt.js?v=6f125422" as="script">
+<script>window.__LANG_URLS__={"en":"../../pocketmine-nbt-editor/","ru":"../../ru/pocketmine-nbt-editor/","es":"../../es/pocketmine-nbt-editor/","pt-br":"../../pt-br/pocketmine-nbt-editor/","de":"../../de/pocketmine-nbt-editor/","fr":"../../fr/pocketmine-nbt-editor/","it":"../../it/pocketmine-nbt-editor/","pl":"../../pl/pocketmine-nbt-editor/","uk":"../../uk/pocketmine-nbt-editor/","tr":"../../tr/pocketmine-nbt-editor/","id":"../../id/pocketmine-nbt-editor/","vi":"../../vi/pocketmine-nbt-editor/","th":"./","zh-hans":"../../zh-hans/pocketmine-nbt-editor/","ja":"../../ja/pocketmine-nbt-editor/","ko":"../../ko/pocketmine-nbt-editor/","ar":"../../ar/pocketmine-nbt-editor/"};window.__NBT_STRINGS__={"loaded":"โหลดเป็น {0} แล้ว","trailing":"ละเว้นไบต์ส่วนเกิน {0} ไบต์หลังแท็กราก","error":"ข้อผิดพลาด: {0}","readfail":"อ่านไฟล์ไม่ได้","nofile":"ยังไม่ได้โหลดไฟล์","saved":"บันทึก {0} แล้ว ({1}, {2})","savefail":"บันทึกไม่สำเร็จ: {0}","exported":"ส่งออก {0} แล้ว","snbtfail":"ข้อผิดพลาด SNBT: {0}","tagadded":"เพิ่มแท็กแล้ว","tagremoved":"ลบแท็กแล้ว","arrayupdated":"อัปเดตอาร์เรย์แล้ว","badvalue":"ค่าไม่ถูกต้อง: {0}","badarray":"อาร์เรย์ไม่ถูกต้อง: {0}","nameneeded":"ต้องระบุชื่อแท็ก","nametaken":"มีแท็กชื่อ {0} อยู่ที่นี่แล้ว","listtype":"รายการนี้มีรายการชนิด {0} อยู่แล้ว","editlevelname":"✎ แก้ไข LevelName","showmore":"แสดงอีก {0} รายการจาก {1} …","matches":"พบ {0} รายการ","nomatch":"ไม่พบแท็กที่ตรงกับ \"{0}\"","arraytoobig":"อาร์เรย์มี {0} รายการ — ขยายแล้วแก้ไขแต่ละองค์ประกอบแยกกัน","uncompressed":"ไม่บีบอัด","storage":"พื้นที่จัดเก็บ v{0}","entries":"{0} รายการ","langprompt":"เปิดหน้านี้เป็นภาษา {0} หรือไม่?","langyes":"เปลี่ยนภาษา","langno":"ใช้ภาษาเดิม","nav_editor":"ตัวแก้ไข","nav_format":"รูปแบบ NBT","language":"ภาษา: {0}","beta":"เบต้า","skip_editor":"ข้ามไปยังตัวแก้ไข","brand_editor":"ตัวแก้ไข NBT","guides":"คู่มือ","updated":"อัปเดตล่าสุด {0}","drop":"วาง {0} ที่นี่","choose_file":"เลือกไฟล์","file_hint":"level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · ข้อมูลชังก์ที่แยกออกมา","output_format":"รูปแบบไฟล์ที่บันทึก","format_java":"Java — บิ๊กเอนเดียน รากมีชื่อ","format_java_network":"เครือข่าย Java — บิ๊กเอนเดียน รากไม่มีชื่อ","format_bedrock_level":"Bedrock level.dat — ลิตเทิลเอนเดียน + ส่วนหัว 8 ไบต์","format_bedrock":"Bedrock แบบดิบ — ลิตเทิลเอนเดียน","format_bedrock_network":"เครือข่าย Bedrock — ลิตเทิลเอนเดียนแบบ varint","compression":"การบีบอัด","compression_none":"ไม่บีบอัด (ข้อมูลดิบ)","search_placeholder":"ค้นหาชื่อหรือค่าของแท็ก…","search":"ค้นหา","collapse":"ยุบทั้งหมด","add_tag":"+ เพิ่มแท็ก","save_download":"บันทึกและดาวน์โหลด","export_snbt":"ส่งออก SNBT","close":"ปิด","add_new_tag":"เพิ่มแท็กใหม่","tag_name":"ชื่อแท็ก","tag_type":"ชนิดแท็ก","tag_example":"เช่น MyTag","value":"ค่า","list_element_type":"ชนิดสมาชิกในรายการ","cancel":"ยกเลิก","add":"เพิ่ม","edit_array":"แก้ไขอาร์เรย์","comma_values":"ค่าที่คั่นด้วยจุลภาค","apply":"นำไปใช้","format_label_java":"Java แบบบิ๊กเอนเดียน","format_label_java_network":"เครือข่าย Java (รากไม่มีชื่อ)","format_label_bedrock_level":"Bedrock level.dat (ส่วนหัว 8 ไบต์)","format_label_bedrock":"Bedrock แบบลิตเทิลเอนเดียน","format_label_bedrock_network":"เครือข่าย Bedrock (varint)","err_decompress":"เบราว์เซอร์นี้คลายการบีบอัด {0} ไม่ได้ (ไม่มี Compression Streams API)","err_compress":"เบราว์เซอร์นี้บีบอัด {0} ไม่ได้ (ไม่มี Compression Streams API)","err_stream":"ประมวลผลการบีบอัดแบบ {0} ไม่ได้","err_end":"ข้อมูลสิ้นสุดก่อนกำหนดที่ตำแหน่ง {0}","err_tag_limit":"จำนวนแท็กเกินขีดจำกัด","err_varint":"VarInt ยาวเกินไป","err_varlong":"VarLong ยาวเกินไป","err_negative_array":"ความยาวอาร์เรย์เป็นลบ: {0}","err_array_length":"ความยาวอาร์เรย์ {0} เกินข้อมูลที่เหลือ","err_negative_list":"ความยาวรายการเป็นลบ","err_end_list":"รายการ TAG_End มีสมาชิก {0} รายการ","err_list_type":"ไม่รู้จักชนิดสมาชิกในรายการ: {0}","err_tag_type":"ไม่รู้จักชนิดแท็ก: {0}","err_root":"แท็กรากต้องเป็น TAG_Compound แต่ได้รับ {0}","err_string_length":"สตริงยาวเกินกว่าที่รูปแบบนี้รองรับ: {0} ไบต์","err_write_type":"เขียนแท็กชนิด {0} ไม่ได้","err_header_short":"ข้อมูลสั้นเกินกว่าจะมีส่วนหัว","err_storage_version":"เวอร์ชันการจัดเก็บไม่สมเหตุสมผล: {0}","err_header_length":"ความยาว {0} ที่ระบุในส่วนหัวเกินขนาดข้อมูล","err_unknown_file":"ไม่รู้จักรูปแบบไฟล์ NBT นี้ (ลองรูปแบบ Java, Bedrock, เครือข่าย และแบบมีส่วนหัวแล้ว)","err_file_small":"ไฟล์เล็กเกินกว่าจะมีข้อมูล NBT","err_byte":"Byte ต้องอยู่ในช่วง -128..127","err_short":"Short ต้องอยู่ในช่วง -32768..32767","err_int":"Int ต้องอยู่ในช่วง -2147483648..2147483647","err_long":"Long อยู่นอกช่วง 64 บิต","err_float":"ค่า float ไม่ถูกต้อง","err_double":"ค่า double ไม่ถูกต้อง","err_not_inline":"แก้ไขแท็กชนิดนี้โดยตรงไม่ได้","err_array_byte":"ค่า byte ไม่ถูกต้อง: {0}","err_array_int":"ค่า int ไม่ถูกต้อง: {0}","err_array_long":"จำนวนเต็ม 64 บิตไม่ถูกต้อง: {0}","root":"(ราก)","add_child":"เพิ่มแท็กลูก","remove_tag":"ลบแท็ก","array":"อาร์เรย์","array_bytes":"[{0} ไบต์]","array_ints":"[int {0} ค่า]","array_longs":"[long {0} ค่า]","entries_type":"สมาชิกชนิด {1} จำนวน {0} รายการ","unknown_error":"ดำเนินการให้เสร็จสมบูรณ์ไม่ได้","software_name":"ตัวแก้ไข NBT ของ Minecraft","software_alternate_online":"ตัวแก้ไข NBT ออนไลน์","software_alternate_bedrock":"ตัวแก้ไข NBT ของ Bedrock","software_alternate_level":"ตัวแก้ไข level.dat","software_subcategory":"ตัวแก้ไขไฟล์เกม","software_os":"ทุกระบบ (ผ่านเบราว์เซอร์)","software_browser":"เบราว์เซอร์รุ่นใหม่ที่รองรับ BigInt และ Compression Streams","feature_java":"NBT แบบบิ๊กเอนเดียนของ Java Edition","feature_bedrock":"NBT แบบลิตเทิลเอนเดียนของ Bedrock Edition","feature_bedrock_network":"NBT เครือข่าย Bedrock (varint)","feature_java_network":"NBT เครือข่าย Java (รากไม่มีชื่อ)","feature_compression":"การบีบอัดแบบ gzip และ zlib","feature_types":"แท็ก NBT ครบทั้ง 13 ชนิด ด้วยความแม่นยำ 64 บิต","feature_snbt":"ส่งออก SNBT","feature_local":"ทำงานทั้งหมดบนอุปกรณ์ของคุณ","schema_about":"รูปแบบข้อมูล NBT ของ Minecraft","not_found_title":"ไม่พบหน้า — {0}","not_found_heading":"404 — หน้านี้ถูกย้ายหรือไม่เคยมีอยู่","not_found_intro":"ยังเปิดตัวแก้ไขได้ในคลิกเดียว และเครื่องมือทุกตัวมีลิงก์ถาวรอยู่ด้านล่าง","not_found_footer":"{0} — ฟรีและเป็นโอเพนซอร์ส","aria_bedrock_gamerules":"กฎของเกม Bedrock","aria_bedrock_level_dat_header":"ส่วนหัว level.dat ของ Bedrock","aria_bedrock_tags":"แท็ก Bedrock","aria_breadcrumb":"เส้นทางนำทาง","aria_byte_walkthrough":"คำอธิบายทีละไบต์","aria_causes":"สาเหตุ","aria_common_repairs":"การแก้ไขปัญหาที่พบบ่อย","aria_comparison":"การเปรียบเทียบ","aria_compatibility":"ความเข้ากันได้","aria_compression":"การบีบอัด","aria_core_specifics":"รายละเอียดของซอฟต์แวร์เซิร์ฟเวอร์แต่ละตัว","aria_dataversion":"DataVersion","aria_drop_an_nbt_file_here_or_click_to_browse":"วางไฟล์ NBT ที่นี่หรือคลิกเพื่อเลือกไฟล์","aria_duplicate_world_names":"ชื่อโลกซ้ำกัน","aria_editing_schematics":"การแก้ไขสเคแมติก","aria_encodings":"การเข้ารหัสข้อมูล","aria_features":"คุณสมบัติ","aria_file_types":"ชนิดไฟล์","aria_frequently_asked_questions":"คำถามที่พบบ่อย","aria_how_to_use":"วิธีใช้งาน","aria_inside_a_mcstructure_file":"ภายในไฟล์ mcstructure","aria_introduction":"บทนำ","aria_java_nbt_encoding":"การเข้ารหัส NBT ของ Java","aria_java_nbt_files":"ไฟล์ NBT ของ Java","aria_java_gamerules":"กฎของเกม Java","aria_migrating":"การย้ายจากเครื่องมืออื่น","aria_other_bedrock_nbt":"ข้อมูล NBT แบบอื่นของ Bedrock","aria_other_tools":"เครื่องมืออื่น","aria_per_platform":"แยกตามแพลตฟอร์ม","aria_prevention":"การป้องกัน","aria_related_tools":"เครื่องมือที่เกี่ยวข้อง","aria_snbt":"SNBT","aria_safety":"ความปลอดภัย","aria_salvage":"การกู้คืน","aria_schematic_formats":"รูปแบบสเคแมติก","aria_scripting":"การใช้สคริปต์","aria_search_nbt_tags":"ค้นหาแท็ก NBT","aria_server_cores":"ซอฟต์แวร์เซิร์ฟเวอร์","aria_server_safety":"ความปลอดภัยของเซิร์ฟเวอร์","aria_server_workflow":"ขั้นตอนการทำงานบนเซิร์ฟเวอร์","aria_strings":"สตริง","aria_supported_files":"ไฟล์ที่รองรับ","aria_supported_server_software":"ซอฟต์แวร์เซิร์ฟเวอร์ที่รองรับ","aria_tag_types":"ชนิดแท็ก","aria_tags_in_level_dat":"แท็กใน level.dat","aria_tools":"เครื่องมือ","aria_troubleshooting":"การแก้ไขปัญหา","aria_typical_edits":"การแก้ไขที่พบบ่อย","aria_what_you_can_inspect":"ข้อมูลที่ตรวจสอบได้","aria_where_bedrock_files_live":"ตำแหน่งไฟล์ Bedrock","aria_where_mcstructure_files_live":"ตำแหน่งไฟล์ mcstructure","aria_where_to_find_level_dat":"ตำแหน่งของ level.dat","aria_why_edit_the_file":"เหตุผลที่ต้องแก้ไขไฟล์","aria_why_the_folder_name_is_not_the_world_name":"เหตุใดชื่อโฟลเดอร์จึงไม่ใช่ชื่อโลก","aria_playerdata_tags":"แท็ก playerdata","toggle":"ขยายหรือยุบ"};</script>
+<script src="../../assets/lang.js?v=23a64b2c" defer></script>
 <link rel="stylesheet" href="../../assets/app.css?v=f5bdcb0f">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"PocketMine-MP level.dat Editor \u2014 PMMP, Nukkit, BDS Online","headline":"PocketMine-MP & Bedrock Server level.dat Editor","description":"Edit level.dat for PocketMine-MP, Nukkit, PowerNukkitX and Bedrock Dedicated Server online. Fix duplicate world names after copying a world folder.","url":"https://w1zardz.github.io/bedrock-nbt-editor/th/pocketmine-nbt-editor/","inLanguage":"th","datePublished":"2026-05-29","dateModified":"2026-08-26","isPartOf":{"@type":"WebSite","name":"Minecraft NBT Editor","url":"https://w1zardz.github.io/bedrock-nbt-editor/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/pocketmine.png"},"about":{"@type":"Thing","name":"Minecraft NBT data format"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT Editor","item":"https://w1zardz.github.io/bedrock-nbt-editor/th/"},{"@type":"ListItem","position":2,"name":"PocketMine-MP & Bedrock Server level.dat Editor","item":"https://w1zardz.github.io/bedrock-nbt-editor/th/pocketmine-nbt-editor/"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does PocketMine-MP use the same level.dat as Bedrock?","acceptedAnswer":{"@type":"Answer","text":"Yes. PocketMine-MP implements the Bedrock world format, so its level.dat is little-endian NBT with the 8-byte header, byte-for-byte the same shape the vanilla Bedrock server writes."}},{"@type":"Question","name":"Why do two worlds show the same name in console?","acceptedAnswer":{"@type":"Answer","text":"Because both were copied from one folder and share a LevelName. The folder name and the tag are independent; change the tag."}},{"@type":"Question","name":"Can I rename a world without restarting the server?","acceptedAnswer":{"@type":"Answer","text":"No. The world is loaded in memory and rewritten on save, so an edit made while it is running is discarded. Stop, edit, start."}},{"@type":"Question","name":"Does this work with Nukkit and PowerNukkitX?","acceptedAnswer":{"@type":"Answer","text":"Yes \u2014 same format, same file path, same procedure."}},{"@type":"Question","name":"How do I convert a Bedrock world to Java?","acceptedAnswer":{"@type":"Answer","text":"Not with an NBT editor. Byte order is the easy part; the tag layout, block palettes and chunk storage differ completely. Use a purpose-built converter, then use this editor for the leftover metadata."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"แก้ level.dat ของ PocketMine-MP, Nukkit และ BDS ออนไลน์","headline":"โปรแกรมแก้ไข level.dat สำหรับ PocketMine-MP และเซิร์ฟเวอร์ Bedrock","description":"แก้ไข level.dat ของ PocketMine-MP, Nukkit, PowerNukkitX และ Bedrock Dedicated Server ออนไลน์ พร้อมแก้ชื่อโลกซ้ำหลังคัดลอกโฟลเดอร์โลก","url":"https://w1zardz.github.io/bedrock-nbt-editor/th/pocketmine-nbt-editor/","inLanguage":"th","datePublished":"2026-05-29","dateModified":"2026-09-21","isPartOf":{"@type":"WebSite","name":"ตัวแก้ไข NBT ของ Minecraft","url":"https://w1zardz.github.io/bedrock-nbt-editor/th/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/pocketmine.png"},"about":{"@type":"Thing","name":"รูปแบบข้อมูล NBT ของ Minecraft"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ตัวแก้ไข NBT","item":"https://w1zardz.github.io/bedrock-nbt-editor/th/"},{"@type":"ListItem","position":2,"name":"โปรแกรมแก้ไข level.dat สำหรับ PocketMine-MP และเซิร์ฟเวอร์ Bedrock","item":"https://w1zardz.github.io/bedrock-nbt-editor/th/pocketmine-nbt-editor/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"PocketMine-MP ใช้ level.dat แบบเดียวกับ Bedrock หรือไม่?","acceptedAnswer":{"@type":"Answer","text":"ใช่ PocketMine-MP ใช้รูปแบบโลก Bedrock ดังนั้นไฟล์ level.dat จึงเป็น NBT แบบ little-endian พร้อมส่วนหัว 8 ไบต์ มีรูปแบบไบต์เหมือนที่เซิร์ฟเวอร์ Bedrock แบบ Vanilla เขียน"}},{"@type":"Question","name":"ทำไมสองโลกจึงแสดงชื่อเดียวกันในคอนโซล?","acceptedAnswer":{"@type":"Answer","text":"เพราะทั้งสองโลกคัดลอกจากโฟลเดอร์เดียวและใช้ค่า LevelName โดยชื่อโฟลเดอร์และแท็กเป็นคนละค่า ให้แก้แท็ก"}},{"@type":"Question","name":"เปลี่ยนชื่อโลกโดยไม่เริ่มเซิร์ฟเวอร์ใหม่ได้หรือไม่?","acceptedAnswer":{"@type":"Answer","text":"ไม่ได้ โลกถูกโหลดในหน่วยความจำและเขียนใหม่เมื่อบันทึก การแก้ขณะทำงานจึงถูกทิ้ง ให้หยุด แก้ แล้วเริ่มเซิร์ฟเวอร์"}},{"@type":"Question","name":"รองรับ Nukkit และ PowerNukkitX หรือไม่?","acceptedAnswer":{"@type":"Answer","text":"ได้ ใช้รูปแบบ พาธไฟล์ และขั้นตอนเดียวกัน"}},{"@type":"Question","name":"แปลงโลก Bedrock เป็น Java ได้อย่างไร?","acceptedAnswer":{"@type":"Answer","text":"ใช้โปรแกรมแก้ไข NBT แปลงไม่ได้ ลำดับไบต์เป็นเพียงส่วนเล็ก เพราะโครงสร้างแท็ก พาเลตบล็อก และการเก็บชังก์ต่างกันทั้งหมด ให้ใช้โปรแกรมแปลงโลกโดยเฉพาะ แล้วใช้โปรแกรมนี้แก้ metadata ที่เหลือ"}}]}</script>
 </head>
 <body>
-<a class="skip-link" href="#editor">Skip to the editor</a>
+<a class="skip-link" href="#editor">ข้ามไปยังตัวแก้ไข</a>
 <header class="site-header">
 <div class="container">
-<a class="brand" href="../"><span>Minecraft</span> NBT Editor</a>
+<a class="brand" href="../"><span>Minecraft</span> ตัวแก้ไข NBT</a>
 <span class="badge">Java + Bedrock</span>
-<nav class="site-nav" aria-label="Tools">
-<a href="../">Editor</a>
+<nav class="site-nav" aria-label="เครื่องมือ">
+<a href="../">ตัวแก้ไข</a>
 <a href="../level-dat-editor/">level.dat</a>
 <a href="../java-nbt-editor/">Java</a>
 <a href="../mcpe-nbt-editor/">Bedrock</a>
 <a href="../mcstructure-editor/">.mcstructure</a>
 <a href="../schematic-editor/">.schem</a>
 <a href="../playerdata-editor/">playerdata</a>
-<a href="../nbt-format/">NBT format</a>
+<a href="../nbt-format/">รูปแบบ NBT</a>
 </nav>
-<details class="lang-switch"><summary title="Language: ไทย" aria-label="Language: ไทย"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">Language: ไทย</span></summary><div class="lang-menu"><a href="./" hreflang="th" data-lang="th" aria-current="true" class="current">ไทย</a><a href="../../pocketmine-nbt-editor/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../ru/pocketmine-nbt-editor/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../es/pocketmine-nbt-editor/" hreflang="es" data-lang="es" rel="alternate">Español (beta)</a><a href="../../pt-br/pocketmine-nbt-editor/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR) (beta)</a><a href="../../de/pocketmine-nbt-editor/" hreflang="de" data-lang="de" rel="alternate">Deutsch (beta)</a><a href="../../fr/pocketmine-nbt-editor/" hreflang="fr" data-lang="fr" rel="alternate">Français (beta)</a><a href="../../it/pocketmine-nbt-editor/" hreflang="it" data-lang="it" rel="alternate">Italiano (beta)</a><a href="../../pl/pocketmine-nbt-editor/" hreflang="pl" data-lang="pl" rel="alternate">Polski (beta)</a><a href="../../uk/pocketmine-nbt-editor/" hreflang="uk" data-lang="uk" rel="alternate">Українська (beta)</a><a href="../../tr/pocketmine-nbt-editor/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe (beta)</a><a href="../../id/pocketmine-nbt-editor/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia (beta)</a><a href="../../vi/pocketmine-nbt-editor/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt (beta)</a><a href="../../zh-hans/pocketmine-nbt-editor/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文 (beta)</a><a href="../../ja/pocketmine-nbt-editor/" hreflang="ja" data-lang="ja" rel="alternate">日本語 (beta)</a><a href="../../ko/pocketmine-nbt-editor/" hreflang="ko" data-lang="ko" rel="alternate">한국어 (beta)</a><a href="../../ar/pocketmine-nbt-editor/" hreflang="ar" data-lang="ar" rel="alternate">العربية (beta)</a></div></details>
+<details class="lang-switch"><summary title="ภาษา: ไทย" aria-label="ภาษา: ไทย"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">ภาษา: ไทย</span></summary><div class="lang-menu"><a href="./" hreflang="th" data-lang="th" aria-current="true" class="current">ไทย</a><a href="../../pocketmine-nbt-editor/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../ru/pocketmine-nbt-editor/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../es/pocketmine-nbt-editor/" hreflang="es" data-lang="es" rel="alternate">Español</a><a href="../../pt-br/pocketmine-nbt-editor/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR)</a><a href="../../de/pocketmine-nbt-editor/" hreflang="de" data-lang="de" rel="alternate">Deutsch</a><a href="../../fr/pocketmine-nbt-editor/" hreflang="fr" data-lang="fr" rel="alternate">Français</a><a href="../../it/pocketmine-nbt-editor/" hreflang="it" data-lang="it" rel="alternate">Italiano</a><a href="../../pl/pocketmine-nbt-editor/" hreflang="pl" data-lang="pl" rel="alternate">Polski</a><a href="../../uk/pocketmine-nbt-editor/" hreflang="uk" data-lang="uk" rel="alternate">Українська</a><a href="../../tr/pocketmine-nbt-editor/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe</a><a href="../../id/pocketmine-nbt-editor/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia</a><a href="../../vi/pocketmine-nbt-editor/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt</a><a href="../../zh-hans/pocketmine-nbt-editor/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文</a><a href="../../ja/pocketmine-nbt-editor/" hreflang="ja" data-lang="ja" rel="alternate">日本語</a><a href="../../ko/pocketmine-nbt-editor/" hreflang="ko" data-lang="ko" rel="alternate">한국어</a><a href="../../ar/pocketmine-nbt-editor/" hreflang="ar" data-lang="ar" rel="alternate">العربية</a></div></details>
 </div>
 </header>
 <main>
-<nav class="breadcrumbs container" aria-label="Breadcrumb"><a href="../">NBT Editor</a> <span class="sep">/</span> <span>PocketMine-MP</span></nav>
-<section class="hero" aria-label="Introduction">
+<nav class="breadcrumbs container" aria-label="เส้นทางนำทาง"><a href="../">โปรแกรมแก้ไข NBT</a> <span class="sep">/</span> <span>PocketMine-MP</span></nav>
+<section class="hero" aria-label="บทนำ">
 <div class="container">
-<h1>PocketMine-MP &amp; Bedrock Server level.dat Editor</h1>
-<p class="support-line"><strong>Supports Minecraft Bedrock Edition and Java Edition</strong> — and every server core for both, popular or obscure: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina and the rest. <a href="../#server-software">Full list</a>.</p>
-<p class="lede">Bedrock server software — PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly and the official Bedrock Dedicated Server — all read the same little-endian <code>level.dat</code> with an 8-byte header from <code>worlds/&lt;World&gt;/</code>. Drop yours below to fix the world name after duplicating a folder, move spawn, flip game rules or check which build last wrote the world.</p>
+<h1>โปรแกรมแก้ไข level.dat สำหรับ PocketMine-MP และเซิร์ฟเวอร์ Bedrock</h1>
+<p class="support-line"><strong>รองรับ Minecraft Bedrock Edition และ Java Edition</strong> — รวมถึงซอฟต์แวร์เซิร์ฟเวอร์ทุกแบบของทั้งสองรุ่น ไม่ว่าจะเป็นที่นิยมหรือเฉพาะทาง: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina และอื่น ๆ <a href="../#server-software">ดูรายการทั้งหมด</a>.</p>
+<p class="lede">ซอฟต์แวร์เซิร์ฟเวอร์ Bedrock ได้แก่ PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly และ Bedrock Dedicated Server ทางการ ล้วนอ่านไฟล์ <code>level.dat</code> แบบ little-endian พร้อมส่วนหัว 8 ไบต์จาก <code>worlds/&lt;World&gt;/</code>. วางไฟล์ด้านล่างเพื่อแก้ชื่อโลกหลังทำสำเนาโฟลเดอร์ ย้ายจุดเกิด เปลี่ยนกฎเกม หรือตรวจสอบรุ่นที่เขียนโลกครั้งล่าสุด</p>
 <div class="chips"><span class="chip">PocketMine-MP</span><span class="chip">Nukkit</span><span class="chip">PowerNukkitX</span><span class="chip">Cloudburst</span><span class="chip">Bedrock Dedicated Server</span><span class="chip">Dragonfly</span><span class="chip">Endstone</span><span class="chip">WaterdogPE</span></div>
 </div>
 </section>
 <div id="editor">
 
-<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="Drop an NBT file here or click to browse">
+<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="วางไฟล์ NBT ที่นี่หรือคลิกเพื่อเลือกไฟล์">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 16V4m0 0L8 8m4-4l4 4"/><path d="M20 16v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2"/></svg>
-<p>Drop <strong>worlds/&lt;World&gt;/level.dat</strong> here</p>
-<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">Choose File</button>
-<span class="hint">level.dat &middot; .nbt &middot; .mcstructure &middot; .schem &middot; .schematic &middot; .dat &middot; chunk dumps</span>
+<p>วาง <strong>worlds/&lt;World&gt;/level.dat</strong> ที่นี่</p>
+<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">เลือกไฟล์</button>
+<span class="hint">level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · ข้อมูลชังก์ที่แยกออกมา</span>
 <input type="file" id="fileInput">
 </div>
 
@@ -83,18 +100,16 @@
 <div class="file-info" id="fileInfo"></div>
 
 <div class="out-bar" id="outBar">
-<label>Output format
-<select id="outFormat">
-<option value="java">Java — big-endian, named root</option>
-<option value="java-network">Java network — big-endian, nameless root</option>
-<option value="bedrock-level">Bedrock level.dat — little-endian + 8-byte header</option>
-<option value="bedrock">Bedrock raw — little-endian</option>
-<option value="bedrock-network">Bedrock network — little-endian varint</option>
+<label>รูปแบบไฟล์ที่บันทึก<select id="outFormat">
+<option value="java">Java — บิ๊กเอนเดียน รากมีชื่อ</option>
+<option value="java-network">เครือข่าย Java — บิ๊กเอนเดียน รากไม่มีชื่อ</option>
+<option value="bedrock-level">Bedrock level.dat — ลิตเทิลเอนเดียน + ส่วนหัว 8 ไบต์</option>
+<option value="bedrock">Bedrock แบบดิบ — ลิตเทิลเอนเดียน</option>
+<option value="bedrock-network">เครือข่าย Bedrock — ลิตเทิลเอนเดียนแบบ varint</option>
 </select>
 </label>
-<label>Compression
-<select id="outCompression">
-<option value="none">None (raw)</option>
+<label>การบีบอัด<select id="outCompression">
+<option value="none">ไม่บีบอัด (ข้อมูลดิบ)</option>
 <option value="gzip">gzip</option>
 <option value="zlib">zlib (deflate)</option>
 </select>
@@ -102,9 +117,9 @@
 </div>
 
 <div class="search-bar">
-<input type="search" id="searchInput" placeholder="Search tag name or value…" autocomplete="off" spellcheck="false" aria-label="Search NBT tags">
-<button type="button" id="btnSearch">Search</button>
-<button type="button" id="btnCollapse">Collapse all</button>
+<input type="search" id="searchInput" placeholder="ค้นหาชื่อหรือค่าของแท็ก…" autocomplete="off" spellcheck="false" aria-label="ค้นหาแท็ก NBT">
+<button type="button" id="btnSearch">ค้นหา</button>
+<button type="button" id="btnCollapse">ยุบทั้งหมด</button>
 </div>
 <div class="search-results" id="searchResults"></div>
 
@@ -112,81 +127,81 @@
 </div>
 
 <div class="bottom-bar" id="bottomBar">
-<button class="btn-add" id="btnAddRoot" type="button">+ Add Tag</button>
-<button class="btn-save" id="btnSave" type="button">Save &amp; Download</button>
-<button class="btn-snbt" id="btnSnbt" type="button">Export SNBT</button>
-<button class="btn-close" id="btnCloseFile" type="button">Close</button>
+<button class="btn-add" id="btnAddRoot" type="button">+ เพิ่มแท็ก</button>
+<button class="btn-save" id="btnSave" type="button">บันทึกและดาวน์โหลด</button>
+<button class="btn-snbt" id="btnSnbt" type="button">ส่งออก SNBT</button>
+<button class="btn-close" id="btnCloseFile" type="button">ปิด</button>
 </div>
 
 </div>
 <div id="contentSections">
 
-<section class="content" aria-label="Duplicate world names">
-<h2 id="the-duplicated-world-name-problem">The duplicated-world-name problem</h2>
-<p>Every Bedrock server admin hits this. You copy <code>worlds/hub</code> to <code>worlds/hub2</code> to make a second arena, and the console, the world manager and every plugin that reports a world name keep calling both of them <em>hub</em>. The folder name changed; <code>LevelName</code> inside <code>level.dat</code> did not.</p>
-<p>The consequences are not cosmetic. Plugins that look worlds up by their internal name — teleport pads, per-world configs, region protection — can resolve to the wrong world, and world-management commands become ambiguous. Fix it by editing the tag: drop the file above and the editor jumps straight to <code>LevelName</code> and opens it for editing.</p>
+<section class="content" aria-label="ชื่อโลกซ้ำกัน">
+<h2 id="the-duplicated-world-name-problem">ปัญหาชื่อโลกซ้ำ</h2>
+<p>ผู้ดูแลเซิร์ฟเวอร์ Bedrock มักพบปัญหานี้ เมื่อคัดลอก <code>worlds/hub</code> ไปเป็น <code>worlds/hub2</code> เพื่อสร้างสนามที่สอง แต่คอนโซล ตัวจัดการโลก และปลั๊กอินที่รายงานชื่อโลกยังเรียกทั้งสองว่า <em>hub</em>. ชื่อโฟลเดอร์เปลี่ยนแล้ว แต่ <code>LevelName</code> ภายใน <code>level.dat</code> ยังไม่เปลี่ยน</p>
+<p>ผลกระทบไม่ได้มีแค่ชื่อ ปลั๊กอินที่ค้นหาโลกด้วยชื่อภายใน เช่น จุดเทเลพอร์ต config แยกโลก หรือระบบป้องกันพื้นที่ อาจเลือกโลกผิด และคำสั่งจัดการโลกจะกำกวม แก้โดยแก้แท็กนี้: วางไฟล์ด้านบนแล้วโปรแกรมจะไปยัง <code>LevelName</code> และเปิดให้แก้ไข</p>
 <div class="card">
 <ol class="steps">
-<li>Stop the server. A running server rewrites <code>level.dat</code> on save and will undo the edit.</li>
-<li>Download <code>worlds/&lt;World&gt;/level.dat</code> over SFTP or from your panel's file manager.</li>
-<li>Drop it into the editor, change <code>LevelName</code> to the new name, save.</li>
-<li>Upload it back over the original, keeping the old file as a backup.</li>
-<li>Start the server and check the console line that reports loaded worlds.</li>
+<li>หยุดเซิร์ฟเวอร์ เซิร์ฟเวอร์ที่ทำงานอยู่จะเขียน <code>level.dat</code> ใหม่เมื่อบันทึกและทำให้การแก้ไขหาย</li>
+<li>ดาวน์โหลด <code>worlds/&lt;World&gt;/level.dat</code> ผ่าน SFTP หรือจากตัวจัดการไฟล์ในแผงควบคุม</li>
+<li>วางในโปรแกรมแก้ไข แล้วเปลี่ยน <code>LevelName</code> เป็นชื่อใหม่และบันทึก</li>
+<li>อัปโหลดกลับไปทับไฟล์เดิม โดยเก็บไฟล์เก่าเป็นข้อมูลสำรอง</li>
+<li>เริ่มเซิร์ฟเวอร์และตรวจบรรทัดคอนโซลที่รายงานโลกที่โหลด</li>
 </ol>
 </div>
 </section>
 
-<section class="content" aria-label="Core specifics">
-<h2 id="core-by-core-notes">Core-by-core notes</h2>
+<section class="content" aria-label="รายละเอียดของซอฟต์แวร์เซิร์ฟเวอร์แต่ละตัว">
+<h2 id="core-by-core-notes">หมายเหตุแยกตามซอฟต์แวร์</h2>
 <div class="table-wrap">
 <table class="matrix">
-<thead><tr><th>Core</th><th>World path</th><th>Notes</th></tr></thead>
+<thead><tr><th>ซอฟต์แวร์</th><th>พาธของโลก</th><th>หมายเหตุ</th></tr></thead>
 <tbody>
-<tr><td>PocketMine-MP (PM5)</td><td><code>worlds/&lt;World&gt;/</code></td><td>Default world set by <code>level-name</code> in <code>server.properties</code>; that value is the folder, while <code>LevelName</code> is what the world calls itself.</td></tr>
-<tr><td>Nukkit / PowerNukkitX</td><td><code>worlds/&lt;World&gt;/</code></td><td>Same Bedrock layout; PNX adds its own settings files alongside.</td></tr>
-<tr><td>Bedrock Dedicated Server</td><td><code>worlds/&lt;World&gt;/</code></td><td><code>level-name</code> in <code>server.properties</code> picks the folder; the header storage version is typically 10.</td></tr>
-<tr><td>Cloudburst / Dragonfly</td><td><code>worlds/&lt;World&gt;/</code></td><td>Read the same <code>level.dat</code>; Dragonfly may keep extra state in its own database.</td></tr>
-<tr><td>WaterdogPE, Geyser</td><td>—</td><td>Proxies. They do not own worlds; NBT only passes through them on the wire as network NBT.</td></tr>
+<tr><td>PocketMine-MP (PM5)</td><td><code>worlds/&lt;World&gt;/</code></td><td>ตั้งโลกเริ่มต้นด้วย <code>level-name</code> ใน <code>server.properties</code> ซึ่งค่านี้ระบุโฟลเดอร์ ส่วน <code>LevelName</code> คือชื่อภายในของโลก</td></tr>
+<tr><td>Nukkit / PowerNukkitX</td><td><code>worlds/&lt;World&gt;/</code></td><td>ใช้โครงสร้าง Bedrock เดียวกัน โดย PNX เพิ่มไฟล์ตั้งค่าของตนเองไว้ข้างกัน</td></tr>
+<tr><td>Bedrock Dedicated Server</td><td><code>worlds/&lt;World&gt;/</code></td><td><code>level-name</code> ใน <code>server.properties</code> ใช้เลือกโฟลเดอร์ ส่วนเวอร์ชันพื้นที่จัดเก็บในส่วนหัวโดยทั่วไปคือ 10</td></tr>
+<tr><td>Cloudburst / Dragonfly</td><td><code>worlds/&lt;World&gt;/</code></td><td>อ่านไฟล์ <code>level.dat</code> เดียวกัน โดย Dragonfly อาจเก็บสถานะเพิ่มเติมในฐานข้อมูลของตน</td></tr>
+<tr><td>WaterdogPE, Geyser</td><td>—</td><td>เป็นพร็อกซีและไม่เก็บโลก NBT เพียงส่งผ่านเครือข่ายในรูปแบบ network NBT</td></tr>
 </tbody>
 </table>
 </div>
 </section>
 
-<section class="content" aria-label="Server workflow">
-<h2 id="doing-it-without-breaking-production">Doing it without breaking production</h2>
+<section class="content" aria-label="ขั้นตอนการทำงานบนเซิร์ฟเวอร์">
+<h2 id="doing-it-without-breaking-production">ขั้นตอนที่ปลอดภัยสำหรับเซิร์ฟเวอร์ใช้งานจริง</h2>
 <div class="card">
 <ul>
-<li><strong>Back up the whole world folder,</strong> not just <code>level.dat</code>. It costs seconds and it is the only thing that makes a bad edit reversible.</li>
-<li><strong>Never edit a live file over SFTP.</strong> Download, edit, upload while the server is stopped. Editing in place while the server holds the world open is how you end up with a truncated file.</li>
-<li><strong>Copying a world for a new mode?</strong> Change <code>LevelName</code> immediately after copying, before the server sees it, so nothing ever caches the wrong name.</li>
-<li><strong>Check the file bar after loading.</strong> It shows the detected format and the storage version — if a Bedrock file is reported as anything but <em>Bedrock level.dat</em>, you grabbed the wrong file or it is corrupt.</li>
+<li><strong>สำรองทั้งโฟลเดอร์โลก</strong> ไม่ใช่เพียง <code>level.dat</code>. ใช้เวลาเพียงเล็กน้อยและเป็นทางเดียวที่จะย้อนคืนเมื่อแก้ผิด</li>
+<li><strong>อย่าแก้ไฟล์ที่กำลังใช้งานผ่าน SFTP</strong> ดาวน์โหลด แก้ไข และอัปโหลดขณะเซิร์ฟเวอร์หยุด การแก้ไฟล์ตรงจุดขณะเซิร์ฟเวอร์เปิดโลกอยู่ทำให้ไฟล์ถูกตัดได้</li>
+<li><strong>กำลังคัดลอกโลกสำหรับโหมดใหม่หรือไม่?</strong> เปลี่ยน <code>LevelName</code> ทันทีหลังคัดลอก ก่อนเซิร์ฟเวอร์อ่านไฟล์ เพื่อไม่ให้ระบบใดแคชชื่อผิด</li>
+<li><strong>ตรวจแถบไฟล์หลังโหลด</strong> แถบนี้แสดงรูปแบบและเวอร์ชันพื้นที่จัดเก็บที่ตรวจพบ หากไฟล์ Bedrock ถูกรายงานเป็นอย่างอื่นนอกจาก <em>level.dat ของ Bedrock</em>, แสดงว่าเลือกไฟล์ผิดหรือไฟล์เสีย</li>
 </ul>
 </div>
 </section>
 
-<section class="content" aria-label="Frequently asked questions"><h2>Frequently Asked Questions</h2><details><summary>Does PocketMine-MP use the same level.dat as Bedrock?</summary><div class="faq-body"><p>Yes. PocketMine-MP implements the Bedrock world format, so its <code>level.dat</code> is little-endian NBT with the 8-byte header, byte-for-byte the same shape the vanilla Bedrock server writes.</p></div></details><details><summary>Why do two worlds show the same name in console?</summary><div class="faq-body"><p>Because both were copied from one folder and share a <code>LevelName</code>. The folder name and the tag are independent; change the tag.</p></div></details><details><summary>Can I rename a world without restarting the server?</summary><div class="faq-body"><p>No. The world is loaded in memory and rewritten on save, so an edit made while it is running is discarded. Stop, edit, start.</p></div></details><details><summary>Does this work with Nukkit and PowerNukkitX?</summary><div class="faq-body"><p>Yes — same format, same file path, same procedure.</p></div></details><details><summary>How do I convert a Bedrock world to Java?</summary><div class="faq-body"><p>Not with an NBT editor. Byte order is the easy part; the tag layout, block palettes and chunk storage differ completely. Use a purpose-built converter, then use this editor for the leftover metadata.</p></div></details></section>
-<section class="content" aria-label="Related tools"><h2>Related tools</h2><div class="rel-grid"><a class="rel-card" href="../mcpe-nbt-editor/"><strong>MCPE NBT editor</strong><span>Little-endian NBT and the 8-byte level.dat header.</span></a><a class="rel-card" href="../level-dat-editor/"><strong>level.dat editor</strong><span>World name, game mode, spawn, difficulty and game rules.</span></a><a class="rel-card" href="../guides/change-world-name/"><strong>Rename a world</strong><span>Fix LevelName after copying a world folder.</span></a><a class="rel-card" href="../"><strong>Minecraft NBT editor</strong><span>The universal editor — every edition, every NBT file type.</span></a><a class="rel-card" href="../mcstructure-editor/"><strong>.mcstructure editor</strong><span>Bedrock structure blocks: palette, size, block entities.</span></a><a class="rel-card" href="../guides/edit-gamerules/"><strong>Edit game rules</strong><span>keepInventory and friends, without loading the world.</span></a></div></section>
+<section class="content" aria-label="คำถามที่พบบ่อย"><h2>คำถามที่พบบ่อย</h2><details><summary>PocketMine-MP ใช้ level.dat แบบเดียวกับ Bedrock หรือไม่?</summary><div class="faq-body"><p>ใช่ PocketMine-MP ใช้รูปแบบโลก Bedrock ดังนั้นไฟล์ <code>level.dat</code> จึงเป็น NBT แบบ little-endian พร้อมส่วนหัว 8 ไบต์ มีรูปแบบไบต์เหมือนที่เซิร์ฟเวอร์ Bedrock แบบ Vanilla เขียน</p></div></details><details><summary>ทำไมสองโลกจึงแสดงชื่อเดียวกันในคอนโซล?</summary><div class="faq-body"><p>เพราะทั้งสองโลกคัดลอกจากโฟลเดอร์เดียวและใช้ค่า <code>LevelName</code> โดยชื่อโฟลเดอร์และแท็กเป็นคนละค่า ให้แก้แท็ก</p></div></details><details><summary>เปลี่ยนชื่อโลกโดยไม่เริ่มเซิร์ฟเวอร์ใหม่ได้หรือไม่?</summary><div class="faq-body"><p>ไม่ได้ โลกถูกโหลดในหน่วยความจำและเขียนใหม่เมื่อบันทึก การแก้ขณะทำงานจึงถูกทิ้ง ให้หยุด แก้ แล้วเริ่มเซิร์ฟเวอร์</p></div></details><details><summary>รองรับ Nukkit และ PowerNukkitX หรือไม่?</summary><div class="faq-body"><p>ได้ ใช้รูปแบบ พาธไฟล์ และขั้นตอนเดียวกัน</p></div></details><details><summary>แปลงโลก Bedrock เป็น Java ได้อย่างไร?</summary><div class="faq-body"><p>ใช้โปรแกรมแก้ไข NBT แปลงไม่ได้ ลำดับไบต์เป็นเพียงส่วนเล็ก เพราะโครงสร้างแท็ก พาเลตบล็อก และการเก็บชังก์ต่างกันทั้งหมด ให้ใช้โปรแกรมแปลงโลกโดยเฉพาะ แล้วใช้โปรแกรมนี้แก้ metadata ที่เหลือ</p></div></details></section>
+<section class="content" aria-label="เครื่องมือที่เกี่ยวข้อง"><h2>เครื่องมือที่เกี่ยวข้อง</h2><div class="rel-grid"><a class="rel-card" href="../mcpe-nbt-editor/"><strong>โปรแกรมแก้ไข NBT MCPE</strong><span>รองรับ NBT แบบ little-endian และส่วนหัว level.dat 8 ไบต์</span></a><a class="rel-card" href="../level-dat-editor/"><strong>โปรแกรมแก้ไข level.dat</strong><span>แก้ชื่อโลก โหมดเกม จุดเกิด ความยาก และกฎเกม</span></a><a class="rel-card" href="../guides/change-world-name/"><strong>เปลี่ยนชื่อโลก</strong><span>แก้ LevelName หลังคัดลอกโฟลเดอร์โลก</span></a><a class="rel-card" href="../"><strong>โปรแกรมแก้ไข NBT Minecraft</strong><span>โปรแกรมแก้ไขเดียวสำหรับทุก Edition และไฟล์ NBT ทุกชนิด</span></a><a class="rel-card" href="../mcstructure-editor/"><strong>โปรแกรมแก้ไข .mcstructure</strong><span>แก้พาเลต ขนาด และ block entity ของ Structure Block</span></a><a class="rel-card" href="../guides/edit-gamerules/"><strong>แก้กฎเกม</strong><span>ตั้ง keepInventory และกฎอื่นโดยไม่ต้องโหลดโลก</span></a></div></section>
 </div>
 </main>
 
 <footer class="site-footer">
 <div class="container footer-grid">
-<div><h4>Editors</h4><a href="../">Minecraft NBT editor</a><a href="../level-dat-editor/">level.dat editor</a><a href="../java-nbt-editor/">Java Edition NBT editor</a><a href="../mcpe-nbt-editor/">MCPE NBT editor</a><a href="./">PocketMine-MP editor</a></div>
-<div><h4>File types</h4><a href="../mcstructure-editor/">.mcstructure editor</a><a href="../schematic-editor/">Schematic editor</a><a href="../playerdata-editor/">playerdata editor</a><a href="../nbt-viewer/">NBT viewer</a><a href="../nbtexplorer-online/">NBTExplorer online</a></div>
-<div><h4>Reference</h4><a href="../nbt-format/">NBT format reference</a><a href="../guides/change-world-name/">Rename a world</a><a href="../guides/fix-corrupted-level-dat/">Fix a broken level.dat</a><a href="../guides/edit-gamerules/">Edit game rules</a></div>
-<div><h4>Source</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">Code on GitHub</a><a href="../../llms.txt">llms.txt</a></div>
+<div><h4>โปรแกรมแก้ไข</h4><a href="../">โปรแกรมแก้ไข NBT Minecraft</a><a href="../level-dat-editor/">โปรแกรมแก้ไข level.dat</a><a href="../java-nbt-editor/">โปรแกรมแก้ไข NBT Java Edition</a><a href="../mcpe-nbt-editor/">โปรแกรมแก้ไข NBT MCPE</a><a href="./">โปรแกรมแก้ไข PocketMine-MP</a></div>
+<div><h4>ประเภทไฟล์</h4><a href="../mcstructure-editor/">โปรแกรมแก้ไข .mcstructure</a><a href="../schematic-editor/">โปรแกรมแก้ไข Schematic</a><a href="../playerdata-editor/">โปรแกรมแก้ไข playerdata</a><a href="../nbt-viewer/">โปรแกรมดู NBT</a><a href="../nbtexplorer-online/">NBTExplorer ออนไลน์</a></div>
+<div><h4>ข้อมูลอ้างอิง</h4><a href="../nbt-format/">ข้อมูลอ้างอิงรูปแบบ NBT</a><a href="../guides/change-world-name/">เปลี่ยนชื่อโลก</a><a href="../guides/fix-corrupted-level-dat/">แก้ level.dat ที่เสีย</a><a href="../guides/edit-gamerules/">แก้กฎเกม</a></div>
+<div><h4>ซอร์สโค้ด</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">โค้ดบน GitHub</a><a href="../../llms.txt">llms.txt</a></div>
 </div>
-<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">อัปเดตล่าสุด 2026-09-21 ตัวแก้ไข NBT ของ Minecraft — ใช้งานฟรี เป็นโอเพนซอร์ส (MIT) และทำงานทั้งหมดในเบราว์เซอร์ของคุณ ไม่มีความเกี่ยวข้องกับ Mojang Studios หรือ Microsoft โดย Minecraft เป็นเครื่องหมายการค้าของ Mojang Studios</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
 <div class="modal-overlay" id="addTagModal">
 <div class="modal">
-<h3>Add New Tag</h3>
-<label for="newTagName">Tag Name</label>
-<input type="text" id="newTagName" placeholder="e.g. MyTag" autocomplete="off">
-<label for="newTagType">Tag Type</label>
+<h3>เพิ่มแท็กใหม่</h3>
+<label for="newTagName">ชื่อแท็ก</label>
+<input type="text" id="newTagName" placeholder="เช่น MyTag" autocomplete="off">
+<label for="newTagType">ชนิดแท็ก</label>
 <select id="newTagType">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -201,10 +216,10 @@
 <option value="11">TAG_Int_Array</option>
 <option value="12">TAG_Long_Array</option>
 </select>
-<label for="newTagValue">Value</label>
-<input type="text" id="newTagValue" placeholder="Value" autocomplete="off">
+<label for="newTagValue">ค่า</label>
+<input type="text" id="newTagValue" placeholder="ค่า" autocomplete="off">
 <div id="listSubtypeRow" style="display:none">
-<label for="newListSubtype">List Element Type</label>
+<label for="newListSubtype">ชนิดสมาชิกในรายการ</label>
 <select id="newListSubtype">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -221,24 +236,24 @@
 </select>
 </div>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="addTagCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="addTagConfirm">Add</button>
+<button class="btn-cancel" type="button" id="addTagCancel">ยกเลิก</button>
+<button class="btn-confirm" type="button" id="addTagConfirm">เพิ่ม</button>
 </div>
 </div>
 </div>
 
 <div class="modal-overlay" id="arrayModal">
 <div class="modal">
-<h3 id="arrayModalTitle">Edit Array</h3>
-<label for="arrayModalText">Comma-separated values</label>
+<h3 id="arrayModalTitle">แก้ไขอาร์เรย์</h3>
+<label for="arrayModalText">ค่าที่คั่นด้วยจุลภาค</label>
 <textarea id="arrayModalText" spellcheck="false" autocomplete="off"></textarea>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="arrayModalCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="arrayModalConfirm">Apply</button>
+<button class="btn-cancel" type="button" id="arrayModalCancel">ยกเลิก</button>
+<button class="btn-confirm" type="button" id="arrayModalConfirm">นำไปใช้</button>
 </div>
 </div>
 </div>
 
-<script src="../../assets/nbt.js?v=da7967b1" defer></script>
+<script src="../../assets/nbt.js?v=6f125422" defer></script>
 </body>
 </html>

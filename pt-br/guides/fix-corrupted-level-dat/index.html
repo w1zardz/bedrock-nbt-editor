@@ -3,51 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Fix a Corrupted level.dat — Minecraft World Will Not Load</title>
-<meta name="description" content="Repair a Minecraft world that will not load: restore level.dat_old, inspect the file in an NBT editor, and find what actually broke it.">
-<meta name="keywords" content="corrupted level.dat, minecraft world will not load, failed to load level.dat, level.dat_old restore, minecraft world corrupted fix, repair minecraft world, level.dat error server">
-<meta name="robots" content="noindex, follow">
+<title>Corrigir level.dat Corrompido — Mundo Não Carrega</title>
+<meta name="description" content="Repare um mundo do Minecraft que não carrega: restaure level.dat_old, inspecione o arquivo em um editor NBT e identifique a causa real da corrupção.">
+<meta name="keywords" content="level.dat corrompido, mundo minecraft não carrega, restaurar level.dat_old, corrigir mundo corrompido minecraft, reparar mundo minecraft, erro level.dat servidor">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="author" content="w1zardz">
 <link rel="canonical" href="https://w1zardz.github.io/bedrock-nbt-editor/pt-br/guides/fix-corrupted-level-dat/">
+<link rel="alternate" hreflang="en" href="https://w1zardz.github.io/bedrock-nbt-editor/guides/fix-corrupted-level-dat/">
+<link rel="alternate" hreflang="ru" href="https://w1zardz.github.io/bedrock-nbt-editor/ru/guides/fix-corrupted-level-dat/">
+<link rel="alternate" hreflang="es" href="https://w1zardz.github.io/bedrock-nbt-editor/es/guides/fix-corrupted-level-dat/">
+<link rel="alternate" hreflang="pt-BR" href="https://w1zardz.github.io/bedrock-nbt-editor/pt-br/guides/fix-corrupted-level-dat/">
+<link rel="alternate" hreflang="de" href="https://w1zardz.github.io/bedrock-nbt-editor/de/guides/fix-corrupted-level-dat/">
+<link rel="alternate" hreflang="fr" href="https://w1zardz.github.io/bedrock-nbt-editor/fr/guides/fix-corrupted-level-dat/">
+<link rel="alternate" hreflang="it" href="https://w1zardz.github.io/bedrock-nbt-editor/it/guides/fix-corrupted-level-dat/">
+<link rel="alternate" hreflang="pl" href="https://w1zardz.github.io/bedrock-nbt-editor/pl/guides/fix-corrupted-level-dat/">
+<link rel="alternate" hreflang="uk" href="https://w1zardz.github.io/bedrock-nbt-editor/uk/guides/fix-corrupted-level-dat/">
+<link rel="alternate" hreflang="tr" href="https://w1zardz.github.io/bedrock-nbt-editor/tr/guides/fix-corrupted-level-dat/">
+<link rel="alternate" hreflang="id" href="https://w1zardz.github.io/bedrock-nbt-editor/id/guides/fix-corrupted-level-dat/">
+<link rel="alternate" hreflang="vi" href="https://w1zardz.github.io/bedrock-nbt-editor/vi/guides/fix-corrupted-level-dat/">
+<link rel="alternate" hreflang="th" href="https://w1zardz.github.io/bedrock-nbt-editor/th/guides/fix-corrupted-level-dat/">
+<link rel="alternate" hreflang="zh-Hans" href="https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/guides/fix-corrupted-level-dat/">
+<link rel="alternate" hreflang="ja" href="https://w1zardz.github.io/bedrock-nbt-editor/ja/guides/fix-corrupted-level-dat/">
+<link rel="alternate" hreflang="ko" href="https://w1zardz.github.io/bedrock-nbt-editor/ko/guides/fix-corrupted-level-dat/">
+<link rel="alternate" hreflang="ar" href="https://w1zardz.github.io/bedrock-nbt-editor/ar/guides/fix-corrupted-level-dat/">
 <link rel="alternate" hreflang="x-default" href="https://w1zardz.github.io/bedrock-nbt-editor/guides/fix-corrupted-level-dat/">
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="../../../favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
 <link rel="manifest" href="../../../site.webmanifest">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fix a corrupted level.dat">
-<meta property="og:description" content="Repair a Minecraft world that will not load: restore level.dat_old, inspect the file in an NBT editor, and find what actually broke it.">
+<meta property="og:title" content="Corrigir um level.dat corrompido">
+<meta property="og:description" content="Repare um mundo do Minecraft que não carrega: restaure level.dat_old, inspecione o arquivo em um editor NBT e identifique a causa real da corrupção.">
 <meta property="og:url" content="https://w1zardz.github.io/bedrock-nbt-editor/pt-br/guides/fix-corrupted-level-dat/">
-<meta property="og:site_name" content="Minecraft NBT Editor">
+<meta property="og:site_name" content="Editor NBT de Minecraft">
 <meta property="og:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/fix.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Fix a corrupted level.dat">
-<meta name="twitter:description" content="Repair a Minecraft world that will not load: restore level.dat_old, inspect the file in an NBT editor, and find what actually broke it.">
+<meta name="twitter:title" content="Corrigir um level.dat corrompido">
+<meta name="twitter:description" content="Repare um mundo do Minecraft que não carrega: restaure level.dat_old, inspecione o arquivo em um editor NBT e identifique a causa real da corrupção.">
 <meta name="twitter:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/fix.png">
-<meta property="article:modified_time" content="2026-08-26">
-<meta property="og:updated_time" content="2026-08-26">
+<meta property="article:modified_time" content="2026-09-21">
+<meta property="og:updated_time" content="2026-09-21">
 <meta name="theme-color" content="#0d1117">
-<meta name="application-name" content="Minecraft NBT Editor">
-<meta name="apple-mobile-web-app-title" content="NBT Editor">
-<link rel="preload" href="../../../assets/nbt.js?v=da7967b1" as="script">
-<script>window.__LANG_URLS__={"en":"../../../guides/fix-corrupted-level-dat/","ru":"../../../ru/guides/fix-corrupted-level-dat/","es":"../../../es/guides/fix-corrupted-level-dat/","pt-br":"./","de":"../../../de/guides/fix-corrupted-level-dat/","fr":"../../../fr/guides/fix-corrupted-level-dat/","it":"../../../it/guides/fix-corrupted-level-dat/","pl":"../../../pl/guides/fix-corrupted-level-dat/","uk":"../../../uk/guides/fix-corrupted-level-dat/","tr":"../../../tr/guides/fix-corrupted-level-dat/","id":"../../../id/guides/fix-corrupted-level-dat/","vi":"../../../vi/guides/fix-corrupted-level-dat/","th":"../../../th/guides/fix-corrupted-level-dat/","zh-hans":"../../../zh-hans/guides/fix-corrupted-level-dat/","ja":"../../../ja/guides/fix-corrupted-level-dat/","ko":"../../../ko/guides/fix-corrupted-level-dat/","ar":"../../../ar/guides/fix-corrupted-level-dat/"};window.__NBT_STRINGS__={"loaded":"Loaded as {0}","trailing":"{0} trailing byte(s) after the root tag were ignored","error":"Error: {0}","readfail":"Could not read the file","nofile":"No file loaded","saved":"Saved {0} ({1}, {2})","savefail":"Save error: {0}","exported":"Exported {0}","snbtfail":"SNBT error: {0}","tagadded":"Tag added","tagremoved":"Tag removed","arrayupdated":"Array updated","badvalue":"Invalid value: {0}","badarray":"Invalid array: {0}","nameneeded":"Tag name is required","nametaken":"A tag named {0} already exists here","listtype":"List already holds {0} entries","editlevelname":"✎ Edit LevelName","showmore":"Show {0} more of {1} …","matches":"{0} match(es)","nomatch":"No tag matches \"{0}\"","arraytoobig":"Array has {0} entries — expand it and edit elements individually","uncompressed":"uncompressed","storage":"storage v{0}","entries":"{0} entries","langprompt":"Open this page in {0}?","langyes":"Switch","langno":"Stay"};</script>
-<script src="../../../assets/lang.js?v=a3a1db0e" defer></script>
+<meta name="application-name" content="Editor NBT de Minecraft">
+<meta name="apple-mobile-web-app-title" content="Editor NBT">
+<link rel="preload" href="../../../assets/nbt.js?v=6f125422" as="script">
+<script>window.__LANG_URLS__={"en":"../../../guides/fix-corrupted-level-dat/","ru":"../../../ru/guides/fix-corrupted-level-dat/","es":"../../../es/guides/fix-corrupted-level-dat/","pt-br":"./","de":"../../../de/guides/fix-corrupted-level-dat/","fr":"../../../fr/guides/fix-corrupted-level-dat/","it":"../../../it/guides/fix-corrupted-level-dat/","pl":"../../../pl/guides/fix-corrupted-level-dat/","uk":"../../../uk/guides/fix-corrupted-level-dat/","tr":"../../../tr/guides/fix-corrupted-level-dat/","id":"../../../id/guides/fix-corrupted-level-dat/","vi":"../../../vi/guides/fix-corrupted-level-dat/","th":"../../../th/guides/fix-corrupted-level-dat/","zh-hans":"../../../zh-hans/guides/fix-corrupted-level-dat/","ja":"../../../ja/guides/fix-corrupted-level-dat/","ko":"../../../ko/guides/fix-corrupted-level-dat/","ar":"../../../ar/guides/fix-corrupted-level-dat/"};window.__NBT_STRINGS__={"loaded":"Carregado como {0}","trailing":"{0} byte(s) excedente(s) após a tag raiz foram ignorados","error":"Erro: {0}","readfail":"Não foi possível ler o arquivo","nofile":"Nenhum arquivo carregado","saved":"Salvo {0} ({1}, {2})","savefail":"Erro ao salvar: {0}","exported":"{0} exportado","snbtfail":"Erro de SNBT: {0}","tagadded":"Tag adicionada","tagremoved":"Tag removida","arrayupdated":"Array atualizado","badvalue":"Valor inválido: {0}","badarray":"Array inválido: {0}","nameneeded":"O nome da tag é obrigatório","nametaken":"Já existe uma tag chamada {0} aqui","listtype":"A lista já contém entradas do tipo {0}","editlevelname":"✎ Editar LevelName","showmore":"Mostrar mais {0} de {1} …","matches":"{0} resultado(s)","nomatch":"Nenhuma tag corresponde a \"{0}\"","arraytoobig":"O array tem {0} entradas — expanda-o e edite os elementos individualmente","uncompressed":"sem compressão","storage":"armazenamento v{0}","entries":"{0} entradas","langprompt":"Abrir esta página em {0}?","langyes":"Mudar","langno":"Permanecer","nav_editor":"Editor","nav_format":"Formato NBT","language":"Idioma: {0}","beta":"beta","skip_editor":"Ir para o editor","brand_editor":"Editor NBT","guides":"Guias","updated":"Última atualização: {0}.","drop":"Arraste {0} aqui","choose_file":"Escolher arquivo","file_hint":"level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · dumps de chunks","output_format":"Formato de saída","format_java":"Java — big-endian, raiz nomeada","format_java_network":"Rede Java — big-endian, raiz sem nome","format_bedrock_level":"Bedrock level.dat — little-endian + cabeçalho de 8 bytes","format_bedrock":"Bedrock sem cabeçalho — little-endian","format_bedrock_network":"Rede Bedrock — little-endian, varint","compression":"Compressão","compression_none":"Nenhuma (sem compressão)","search_placeholder":"Buscar nome ou valor da tag…","search":"Buscar","collapse":"Recolher tudo","add_tag":"+ Adicionar tag","save_download":"Salvar e baixar","export_snbt":"Exportar SNBT","close":"Fechar","add_new_tag":"Adicionar nova tag","tag_name":"Nome da tag","tag_type":"Tipo da tag","tag_example":"ex.: MyTag","value":"Valor","list_element_type":"Tipo de elemento da lista","cancel":"Cancelar","add":"Adicionar","edit_array":"Editar array","comma_values":"Valores separados por vírgulas","apply":"Aplicar","format_label_java":"Java big-endian","format_label_java_network":"Rede Java (raiz sem nome)","format_label_bedrock_level":"Bedrock level.dat (cabeçalho de 8 bytes)","format_label_bedrock":"Bedrock little-endian","format_label_bedrock_network":"Rede Bedrock (varint)","err_decompress":"Este navegador não pode descomprimir {0} (API Compression Streams indisponível)","err_compress":"Este navegador não pode comprimir {0} (API Compression Streams indisponível)","err_stream":"Não foi possível processar a compressão {0}","err_end":"Fim inesperado dos dados na posição {0}","err_tag_limit":"Limite de tags excedido","err_varint":"VarInt longo demais","err_varlong":"VarLong longo demais","err_negative_array":"Comprimento negativo do array: {0}","err_array_length":"O comprimento {0} do array excede os dados restantes","err_negative_list":"Comprimento negativo da lista","err_end_list":"Lista de TAG_End com {0} entradas","err_list_type":"Tipo de elemento de lista desconhecido: {0}","err_tag_type":"Tipo de tag desconhecido: {0}","err_root":"A tag raiz deve ser TAG_Compound; recebido {0}","err_string_length":"String longa demais para este formato: {0} bytes","err_write_type":"Não é possível gravar o tipo de tag {0}","err_header_short":"Dados insuficientes para um cabeçalho","err_storage_version":"Versão de armazenamento inválida: {0}","err_header_length":"O comprimento {0} do cabeçalho excede os dados","err_unknown_file":"Arquivo NBT não reconhecido (testadas as variantes Java, Bedrock, de rede e com cabeçalho)","err_file_small":"O arquivo é pequeno demais para conter dados NBT","err_byte":"Byte deve estar entre -128 e 127","err_short":"Short deve estar entre -32768 e 32767","err_int":"Int deve estar entre -2147483648 e 2147483647","err_long":"Long fora do intervalo de 64 bits","err_float":"Float inválido","err_double":"Double inválido","err_not_inline":"Este tipo de tag não pode ser editado diretamente","err_array_byte":"Byte inválido: {0}","err_array_int":"Int inválido: {0}","err_array_long":"Inteiro de 64 bits inválido: {0}","root":"(raiz)","add_child":"Adicionar tag filha","remove_tag":"Remover tag","array":"Array","array_bytes":"[{0} bytes]","array_ints":"[{0} inteiros]","array_longs":"[{0} inteiros de 64 bits]","entries_type":"{0} entradas do tipo {1}","unknown_error":"Não foi possível concluir a operação","software_name":"Editor NBT de Minecraft","software_alternate_online":"Editor NBT on-line","software_alternate_bedrock":"Editor NBT de Bedrock","software_alternate_level":"Editor de level.dat","software_subcategory":"Editor de arquivos de jogo","software_os":"Qualquer um (navegador)","software_browser":"Navegador moderno com suporte a BigInt e Compression Streams","feature_java":"NBT big-endian de Java Edition","feature_bedrock":"NBT little-endian de Bedrock Edition","feature_bedrock_network":"NBT de rede do Bedrock (varint)","feature_java_network":"NBT de rede do Java (raiz sem nome)","feature_compression":"Compressão gzip e zlib","feature_types":"Todos os 13 tipos de tags NBT com precisão de 64 bits","feature_snbt":"Exportação SNBT","feature_local":"Executado inteiramente no cliente","schema_about":"Formato de dados NBT do Minecraft","not_found_title":"Página não encontrada — {0}","not_found_heading":"404 — esta página foi movida ou nunca existiu","not_found_intro":"O editor continua a um clique de distância. Todas as ferramentas têm um endereço permanente abaixo.","not_found_footer":"{0} — gratuito e de código aberto.","aria_bedrock_gamerules":"Regras de jogo do Bedrock","aria_bedrock_level_dat_header":"Cabeçalho do level.dat do Bedrock","aria_bedrock_tags":"Tags do Bedrock","aria_breadcrumb":"Caminho de navegação","aria_byte_walkthrough":"Explicação byte a byte","aria_causes":"Causas","aria_common_repairs":"Reparos comuns","aria_comparison":"Comparação","aria_compatibility":"Compatibilidade","aria_compression":"Compressão","aria_core_specifics":"Detalhes de cada núcleo","aria_dataversion":"DataVersion","aria_drop_an_nbt_file_here_or_click_to_browse":"Arraste um arquivo NBT aqui ou clique para procurar","aria_duplicate_world_names":"Nomes de mundos duplicados","aria_editing_schematics":"Edição de esquemas","aria_encodings":"Codificações","aria_features":"Recursos","aria_file_types":"Tipos de arquivo","aria_frequently_asked_questions":"Perguntas frequentes","aria_how_to_use":"Como usar","aria_inside_a_mcstructure_file":"Conteúdo de um arquivo mcstructure","aria_introduction":"Introdução","aria_java_nbt_encoding":"Codificação NBT do Java","aria_java_nbt_files":"Arquivos NBT do Java","aria_java_gamerules":"Regras de jogo do Java","aria_migrating":"Migração","aria_other_bedrock_nbt":"Outros dados NBT do Bedrock","aria_other_tools":"Outras ferramentas","aria_per_platform":"Por plataforma","aria_prevention":"Prevenção","aria_related_tools":"Ferramentas relacionadas","aria_snbt":"SNBT","aria_safety":"Segurança","aria_salvage":"Recuperação","aria_schematic_formats":"Formatos de esquemas","aria_scripting":"Uso de scripts","aria_search_nbt_tags":"Buscar tags NBT","aria_server_cores":"Núcleos de servidor","aria_server_safety":"Segurança do servidor","aria_server_workflow":"Procedimento para servidores","aria_strings":"Strings","aria_supported_files":"Arquivos compatíveis","aria_supported_server_software":"Software de servidor compatível","aria_tag_types":"Tipos de tags","aria_tags_in_level_dat":"Tags em level.dat","aria_tools":"Ferramentas","aria_troubleshooting":"Solução de problemas","aria_typical_edits":"Edições comuns","aria_what_you_can_inspect":"O que você pode inspecionar","aria_where_bedrock_files_live":"Onde ficam os arquivos do Bedrock","aria_where_mcstructure_files_live":"Onde ficam os arquivos mcstructure","aria_where_to_find_level_dat":"Onde encontrar level.dat","aria_why_edit_the_file":"Por que editar o arquivo","aria_why_the_folder_name_is_not_the_world_name":"Por que o nome da pasta não é o nome do mundo","aria_playerdata_tags":"Tags de playerdata","toggle":"Expandir ou recolher"};</script>
+<script src="../../../assets/lang.js?v=23a64b2c" defer></script>
 <link rel="stylesheet" href="../../../assets/app.css?v=f5bdcb0f">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Fix a Corrupted level.dat \u2014 Minecraft World Will Not Load","headline":"Fix a Corrupted level.dat","description":"Repair a Minecraft world that will not load: restore level.dat_old, inspect the file in an NBT editor, and find what actually broke it.","url":"https://w1zardz.github.io/bedrock-nbt-editor/pt-br/guides/fix-corrupted-level-dat/","inLanguage":"pt-br","datePublished":"2026-05-29","dateModified":"2026-08-26","isPartOf":{"@type":"WebSite","name":"Minecraft NBT Editor","url":"https://w1zardz.github.io/bedrock-nbt-editor/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/fix.png"},"about":{"@type":"Thing","name":"Minecraft NBT data format"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT Editor","item":"https://w1zardz.github.io/bedrock-nbt-editor/pt-br/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://w1zardz.github.io/bedrock-nbt-editor/pt-br/guides/"},{"@type":"ListItem","position":3,"name":"Fix a Corrupted level.dat","item":"https://w1zardz.github.io/bedrock-nbt-editor/pt-br/guides/fix-corrupted-level-dat/"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is level.dat_old?","acceptedAnswer":{"@type":"Answer","text":"The previous save. Minecraft renames the current file to level.dat_old before writing a new one, so it is a one-generation backup that costs nothing to try first."}},{"@type":"Question","name":"Can an NBT editor repair a truncated file?","acceptedAnswer":{"@type":"Answer","text":"It can tell you exactly where the data stops, but the missing bytes cannot be reconstructed. A partial parse means you need a backup."}},{"@type":"Question","name":"Will I lose my builds?","acceptedAnswer":{"@type":"Answer","text":"Not from a broken level.dat alone. Chunks live in region/ or db/; a fresh world file with the same version can adopt them."}},{"@type":"Question","name":"The server says level.dat is fine but the world is empty.","acceptedAnswer":{"@type":"Answer","text":"Then the chunk storage is the problem, not the metadata. Check that region/ or db/ came along with the copy and that the spawn coordinates in level.dat point where you expect."}}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"Diagnose and repair a corrupted level.dat","description":"Repair a Minecraft world that will not load: restore level.dat_old, inspect the file in an NBT editor, and find what actually broke it.","totalTime":"PT10M","tool":[{"@type":"HowToTool","name":"Minecraft NBT Editor"}],"step":[{"@type":"HowToStep","position":1,"name":"Back up the world folder","text":"Copy the entire world directory before touching anything. Every step below is reversible only if you have this copy.","url":"https://w1zardz.github.io/bedrock-nbt-editor/pt-br/guides/fix-corrupted-level-dat/#step-1"},{"@type":"HowToStep","position":2,"name":"Try level.dat_old","text":"Minecraft keeps the previous save as level.dat_old. Open it in the NBT editor: if it parses cleanly, copy it over level.dat and start the world.","url":"https://w1zardz.github.io/bedrock-nbt-editor/pt-br/guides/fix-corrupted-level-dat/#step-2"},{"@type":"HowToStep","position":3,"name":"Open the broken file","text":"Drop level.dat into the editor. A clean parse means the file is intact and the problem lies elsewhere \u2014 chunks, mods or the server itself.","url":"https://w1zardz.github.io/bedrock-nbt-editor/pt-br/guides/fix-corrupted-level-dat/#step-3"},{"@type":"HowToStep","position":4,"name":"Read the error","text":"The editor names the failure: unexpected end of data means truncation, an implausible storage version means a damaged Bedrock header, and no recognizable format means the file is not NBT at all.","url":"https://w1zardz.github.io/bedrock-nbt-editor/pt-br/guides/fix-corrupted-level-dat/#step-4"},{"@type":"HowToStep","position":5,"name":"Check compression and format","text":"If it loads, look at the file bar. A Java level.dat must be saved as gzip big-endian; a Bedrock one as little-endian with the header. Re-saving with the correct settings fixes files broken by another tool.","url":"https://w1zardz.github.io/bedrock-nbt-editor/pt-br/guides/fix-corrupted-level-dat/#step-5"},{"@type":"HowToStep","position":6,"name":"Rebuild only what is missing","text":"If a single tag was deleted, add it back with the correct type. If the file is truncated, prefer level.dat_old or a backup \u2014 a partially parsed file is missing data no editor can invent.","url":"https://w1zardz.github.io/bedrock-nbt-editor/pt-br/guides/fix-corrupted-level-dat/#step-6"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Corrigir level.dat Corrompido — Mundo Não Carrega","headline":"Corrigir um level.dat","description":"Repare um mundo do Minecraft que não carrega: restaure level.dat_old, inspecione o arquivo em um editor NBT e identifique a causa real da corrupção.","url":"https://w1zardz.github.io/bedrock-nbt-editor/pt-br/guides/fix-corrupted-level-dat/","inLanguage":"pt-br","datePublished":"2026-05-29","dateModified":"2026-09-21","isPartOf":{"@type":"WebSite","name":"Editor NBT de Minecraft","url":"https://w1zardz.github.io/bedrock-nbt-editor/pt-br/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/fix.png"},"about":{"@type":"Thing","name":"Formato de dados NBT do Minecraft"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Editor NBT","item":"https://w1zardz.github.io/bedrock-nbt-editor/pt-br/"},{"@type":"ListItem","position":2,"name":"Guias","item":"https://w1zardz.github.io/bedrock-nbt-editor/pt-br/guides/"},{"@type":"ListItem","position":3,"name":"Corrigir um level.dat","item":"https://w1zardz.github.io/bedrock-nbt-editor/pt-br/guides/fix-corrupted-level-dat/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"O que é level.dat_old?","acceptedAnswer":{"@type":"Answer","text":"É o save anterior. O Minecraft renomeia o arquivo atual para level.dat_old antes de gravar outro, criando um backup de uma geração que deve ser testado primeiro."}},{"@type":"Question","name":"Um editor NBT consegue reparar um arquivo truncado?","acceptedAnswer":{"@type":"Answer","text":"Ele informa onde os dados terminam, mas não reconstrói bytes ausentes. Uma leitura parcial exige um backup."}},{"@type":"Question","name":"Vou perder minhas construções?","acceptedAnswer":{"@type":"Answer","text":"Não apenas por um level.dat corrompido. Os chunks ficam em region/ ou db/; um arquivo de mundo novo da mesma versão pode usá-los."}},{"@type":"Question","name":"O servidor diz que level.dat está correto, mas o mundo está vazio.","acceptedAnswer":{"@type":"Answer","text":"Nesse caso, o problema está nos chunks, não nos metadados. Confira se region/ ou db/ foram copiados e se as coordenadas de spawn em level.dat apontam para o local esperado."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"Diagnosticar e reparar um level.dat corrompido","description":"Repare um mundo do Minecraft que não carrega: restaure level.dat_old, inspecione o arquivo em um editor NBT e identifique a causa real da corrupção.","totalTime":"PT10M","tool":[{"@type":"HowToTool","name":"Minecraft NBT Editor"}],"step":[{"@type":"HowToStep","position":1,"name":"Faça backup da pasta do mundo","text":"Copie todo o diretório do mundo antes de alterar qualquer coisa. Os passos só são reversíveis com essa cópia.","url":"https://w1zardz.github.io/bedrock-nbt-editor/pt-br/guides/fix-corrupted-level-dat/#step-1"},{"@type":"HowToStep","position":2,"name":"Tente level.dat_old","text":"O Minecraft mantém o save anterior como level.dat_old. Abra-o no editor NBT; se a leitura for correta, copie-o sobre level.dat e inicie o mundo.","url":"https://w1zardz.github.io/bedrock-nbt-editor/pt-br/guides/fix-corrupted-level-dat/#step-2"},{"@type":"HowToStep","position":3,"name":"Abra o arquivo corrompido","text":"Solte level.dat no editor. Uma leitura correta indica que o arquivo está intacto e o problema fica nos chunks, mods ou servidor.","url":"https://w1zardz.github.io/bedrock-nbt-editor/pt-br/guides/fix-corrupted-level-dat/#step-3"},{"@type":"HowToStep","position":4,"name":"Leia o erro","text":"O editor identifica a falha: fim inesperado indica truncamento; versão de armazenamento improvável indica cabeçalho Bedrock danificado; formato não reconhecido indica que o arquivo não é NBT.","url":"https://w1zardz.github.io/bedrock-nbt-editor/pt-br/guides/fix-corrupted-level-dat/#step-4"},{"@type":"HowToStep","position":5,"name":"Confira a compressão e o formato","text":"Se carregar, confira a barra. Um level.dat Java deve usar gzip big-endian; o Bedrock, little-endian com cabeçalho. Salvar nas opções corretas corrige arquivos alterados por outra ferramenta.","url":"https://w1zardz.github.io/bedrock-nbt-editor/pt-br/guides/fix-corrupted-level-dat/#step-5"},{"@type":"HowToStep","position":6,"name":"Reconstrua apenas o que falta","text":"Se uma tag foi excluída, adicione-a com o tipo correto. Se o arquivo está truncado, prefira level.dat_old ou backup; nenhum editor pode inventar os dados ausentes.","url":"https://w1zardz.github.io/bedrock-nbt-editor/pt-br/guides/fix-corrupted-level-dat/#step-6"}]}</script>
 </head>
 <body>
-<a class="skip-link" href="#editor">Skip to the editor</a>
+<a class="skip-link" href="#editor">Ir para o editor</a>
 <header class="site-header">
 <div class="container">
-<a class="brand" href="../../"><span>Minecraft</span> NBT Editor</a>
+<a class="brand" href="../../"><span>Minecraft</span> Editor NBT</a>
 <span class="badge">Java + Bedrock</span>
-<nav class="site-nav" aria-label="Tools">
+<nav class="site-nav" aria-label="Ferramentas">
 <a href="../../">Editor</a>
 <a href="../../level-dat-editor/">level.dat</a>
 <a href="../../java-nbt-editor/">Java</a>
@@ -55,28 +72,28 @@
 <a href="../../mcstructure-editor/">.mcstructure</a>
 <a href="../../schematic-editor/">.schem</a>
 <a href="../../playerdata-editor/">playerdata</a>
-<a href="../../nbt-format/">NBT format</a>
+<a href="../../nbt-format/">Formato NBT</a>
 </nav>
-<details class="lang-switch"><summary title="Language: Português (BR)" aria-label="Language: Português (BR)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">Language: Português (BR)</span></summary><div class="lang-menu"><a href="./" hreflang="pt-BR" data-lang="pt-br" aria-current="true" class="current">Português (BR)</a><a href="../../../guides/fix-corrupted-level-dat/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../../ru/guides/fix-corrupted-level-dat/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../../es/guides/fix-corrupted-level-dat/" hreflang="es" data-lang="es" rel="alternate">Español (beta)</a><a href="../../../de/guides/fix-corrupted-level-dat/" hreflang="de" data-lang="de" rel="alternate">Deutsch (beta)</a><a href="../../../fr/guides/fix-corrupted-level-dat/" hreflang="fr" data-lang="fr" rel="alternate">Français (beta)</a><a href="../../../it/guides/fix-corrupted-level-dat/" hreflang="it" data-lang="it" rel="alternate">Italiano (beta)</a><a href="../../../pl/guides/fix-corrupted-level-dat/" hreflang="pl" data-lang="pl" rel="alternate">Polski (beta)</a><a href="../../../uk/guides/fix-corrupted-level-dat/" hreflang="uk" data-lang="uk" rel="alternate">Українська (beta)</a><a href="../../../tr/guides/fix-corrupted-level-dat/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe (beta)</a><a href="../../../id/guides/fix-corrupted-level-dat/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia (beta)</a><a href="../../../vi/guides/fix-corrupted-level-dat/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt (beta)</a><a href="../../../th/guides/fix-corrupted-level-dat/" hreflang="th" data-lang="th" rel="alternate">ไทย (beta)</a><a href="../../../zh-hans/guides/fix-corrupted-level-dat/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文 (beta)</a><a href="../../../ja/guides/fix-corrupted-level-dat/" hreflang="ja" data-lang="ja" rel="alternate">日本語 (beta)</a><a href="../../../ko/guides/fix-corrupted-level-dat/" hreflang="ko" data-lang="ko" rel="alternate">한국어 (beta)</a><a href="../../../ar/guides/fix-corrupted-level-dat/" hreflang="ar" data-lang="ar" rel="alternate">العربية (beta)</a></div></details>
+<details class="lang-switch"><summary title="Idioma: Português (BR)" aria-label="Idioma: Português (BR)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">Idioma: Português (BR)</span></summary><div class="lang-menu"><a href="./" hreflang="pt-BR" data-lang="pt-br" aria-current="true" class="current">Português (BR)</a><a href="../../../guides/fix-corrupted-level-dat/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../../ru/guides/fix-corrupted-level-dat/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../../es/guides/fix-corrupted-level-dat/" hreflang="es" data-lang="es" rel="alternate">Español</a><a href="../../../de/guides/fix-corrupted-level-dat/" hreflang="de" data-lang="de" rel="alternate">Deutsch</a><a href="../../../fr/guides/fix-corrupted-level-dat/" hreflang="fr" data-lang="fr" rel="alternate">Français</a><a href="../../../it/guides/fix-corrupted-level-dat/" hreflang="it" data-lang="it" rel="alternate">Italiano</a><a href="../../../pl/guides/fix-corrupted-level-dat/" hreflang="pl" data-lang="pl" rel="alternate">Polski</a><a href="../../../uk/guides/fix-corrupted-level-dat/" hreflang="uk" data-lang="uk" rel="alternate">Українська</a><a href="../../../tr/guides/fix-corrupted-level-dat/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe</a><a href="../../../id/guides/fix-corrupted-level-dat/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia</a><a href="../../../vi/guides/fix-corrupted-level-dat/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt</a><a href="../../../th/guides/fix-corrupted-level-dat/" hreflang="th" data-lang="th" rel="alternate">ไทย</a><a href="../../../zh-hans/guides/fix-corrupted-level-dat/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文</a><a href="../../../ja/guides/fix-corrupted-level-dat/" hreflang="ja" data-lang="ja" rel="alternate">日本語</a><a href="../../../ko/guides/fix-corrupted-level-dat/" hreflang="ko" data-lang="ko" rel="alternate">한국어</a><a href="../../../ar/guides/fix-corrupted-level-dat/" hreflang="ar" data-lang="ar" rel="alternate">العربية</a></div></details>
 </div>
 </header>
 <main>
-<nav class="breadcrumbs container" aria-label="Breadcrumb"><a href="../../">NBT Editor</a> <span class="sep">/</span> <span>Guides</span> <span class="sep">/</span> <span>Fix a broken level.dat</span></nav>
-<section class="hero" aria-label="Introduction">
+<nav class="breadcrumbs container" aria-label="Caminho de navegação"><a href="../../">Editor NBT</a> <span class="sep">/</span> <span>Guias</span> <span class="sep">/</span> <span>Corrigir level.dat corrompido</span></nav>
+<section class="hero" aria-label="Introdução">
 <div class="container">
-<h1>Fix a Corrupted <code>level.dat</code></h1>
-<p class="support-line"><strong>Supports Minecraft Bedrock Edition and Java Edition</strong> — and every server core for both, popular or obscure: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina and the rest. <a href="../../#server-software">Full list</a>.</p>
-<p class="lede">A world that refuses to load usually has one of four problems: a truncated <code>level.dat</code> from a crash during save, the wrong compression after a hand edit, a broken Bedrock header length, or a tag whose type was changed. Drop the file below — the editor reports exactly where parsing stopped, which narrows it to one of the four in seconds.</p>
-<div class="chips"><span class="chip">Diagnosis</span><span class="chip">level.dat_old</span><span class="chip">Header</span><span class="chip">Compression</span><span class="chip">Truncation</span></div>
+<h1>Corrigir um <code>level.dat</code></h1>
+<p class="support-line"><strong>Compatível com Minecraft Bedrock Edition e Java Edition</strong> — e com todos os softwares de servidor de ambas as edições, conhecidos ou não: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina e outros. <a href="../../#server-software">Lista completa</a>.</p>
+<p class="lede">Um mundo que não carrega geralmente tem um destes problemas: <code>level.dat</code> truncado após falha durante o save, compressão incorreta após edição manual, tamanho inválido no cabeçalho Bedrock ou tipo de tag alterado. Solte o arquivo abaixo; o editor informa onde a leitura parou e ajuda a identificar a causa.</p>
+<div class="chips"><span class="chip">Diagnóstico</span><span class="chip">level.dat_old</span><span class="chip">Cabeçalho</span><span class="chip">Compressão</span><span class="chip">Truncamento</span></div>
 </div>
 </section>
 <div id="editor">
 
-<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="Drop an NBT file here or click to browse">
+<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="Arraste um arquivo NBT aqui ou clique para procurar">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 16V4m0 0L8 8m4-4l4 4"/><path d="M20 16v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2"/></svg>
-<p>Drop <strong>level.dat or level.dat_old</strong> here</p>
-<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">Choose File</button>
-<span class="hint">level.dat &middot; .nbt &middot; .mcstructure &middot; .schem &middot; .schematic &middot; .dat &middot; chunk dumps</span>
+<p>Arraste <strong>level.dat ou level.dat_old</strong> aqui</p>
+<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">Escolher arquivo</button>
+<span class="hint">level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · dumps de chunks</span>
 <input type="file" id="fileInput">
 </div>
 
@@ -84,18 +101,16 @@
 <div class="file-info" id="fileInfo"></div>
 
 <div class="out-bar" id="outBar">
-<label>Output format
-<select id="outFormat">
-<option value="java">Java — big-endian, named root</option>
-<option value="java-network">Java network — big-endian, nameless root</option>
-<option value="bedrock-level">Bedrock level.dat — little-endian + 8-byte header</option>
-<option value="bedrock">Bedrock raw — little-endian</option>
-<option value="bedrock-network">Bedrock network — little-endian varint</option>
+<label>Formato de saída<select id="outFormat">
+<option value="java">Java — big-endian, raiz nomeada</option>
+<option value="java-network">Rede Java — big-endian, raiz sem nome</option>
+<option value="bedrock-level">Bedrock level.dat — little-endian + cabeçalho de 8 bytes</option>
+<option value="bedrock">Bedrock sem cabeçalho — little-endian</option>
+<option value="bedrock-network">Rede Bedrock — little-endian, varint</option>
 </select>
 </label>
-<label>Compression
-<select id="outCompression">
-<option value="none">None (raw)</option>
+<label>Compressão<select id="outCompression">
+<option value="none">Nenhuma (sem compressão)</option>
 <option value="gzip">gzip</option>
 <option value="zlib">zlib (deflate)</option>
 </select>
@@ -103,9 +118,9 @@
 </div>
 
 <div class="search-bar">
-<input type="search" id="searchInput" placeholder="Search tag name or value…" autocomplete="off" spellcheck="false" aria-label="Search NBT tags">
-<button type="button" id="btnSearch">Search</button>
-<button type="button" id="btnCollapse">Collapse all</button>
+<input type="search" id="searchInput" placeholder="Buscar nome ou valor da tag…" autocomplete="off" spellcheck="false" aria-label="Buscar tags NBT">
+<button type="button" id="btnSearch">Buscar</button>
+<button type="button" id="btnCollapse">Recolher tudo</button>
 </div>
 <div class="search-results" id="searchResults"></div>
 
@@ -113,71 +128,71 @@
 </div>
 
 <div class="bottom-bar" id="bottomBar">
-<button class="btn-add" id="btnAddRoot" type="button">+ Add Tag</button>
-<button class="btn-save" id="btnSave" type="button">Save &amp; Download</button>
-<button class="btn-snbt" id="btnSnbt" type="button">Export SNBT</button>
-<button class="btn-close" id="btnCloseFile" type="button">Close</button>
+<button class="btn-add" id="btnAddRoot" type="button">+ Adicionar tag</button>
+<button class="btn-save" id="btnSave" type="button">Salvar e baixar</button>
+<button class="btn-snbt" id="btnSnbt" type="button">Exportar SNBT</button>
+<button class="btn-close" id="btnCloseFile" type="button">Fechar</button>
 </div>
 
 </div>
 <div id="contentSections">
 
-<section class="content" aria-label="Causes">
-<h2 id="what-actually-breaks">What actually breaks</h2>
+<section class="content" aria-label="Causas">
+<h2 id="what-actually-breaks">O que realmente causa falhas</h2>
 <div class="table-wrap">
 <table class="matrix">
-<thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+<thead><tr><th>Sintoma</th><th>Causa</th><th>Correção</th></tr></thead>
 <tbody>
-<tr><td>Editor reports "Unexpected end of data"</td><td>Truncated file — the process died mid-save, or the disk filled up</td><td>Restore <code>level.dat_old</code> or a backup; the missing bytes are gone</td></tr>
-<tr><td>Game says the world is corrupted, editor loads it fine</td><td>Wrong compression or byte order written by another tool</td><td>Re-save here with the correct format for the edition</td></tr>
-<tr><td>Bedrock world missing from the list</td><td>Header length no longer matches the payload</td><td>Open and save here — the length is recalculated automatically</td></tr>
-<tr><td>Server logs a class-cast or type error on load</td><td>A tag's type was changed by hand (Byte where an Int is expected)</td><td>Set the tag back to the type the game expects</td></tr>
-<tr><td>World loads but spawns you in a fresh world</td><td><code>level.dat</code> was replaced by a newly generated one</td><td>Restore the backup; the chunks in <code>region/</code> or <code>db/</code> are usually still fine</td></tr>
-<tr><td>Nothing parses, including <code>_old</code></td><td>Storage failure — the filesystem returned zeros or garbage for both</td><td>Restore from an off-machine backup; check the disk before trusting the host</td></tr>
+<tr><td>O editor informa “Unexpected end of data”</td><td>Arquivo truncado: o processo parou durante o save ou o disco ficou cheio</td><td>Restaure <code>level.dat_old</code> ou um backup; os bytes ausentes não podem ser recuperados</td></tr>
+<tr><td>O jogo diz que o mundo está corrompido, mas o editor o abre</td><td>Compressão ou ordem de bytes incorreta gravada por outra ferramenta</td><td>Salve novamente no formato correto da edição</td></tr>
+<tr><td>Mundo Bedrock não aparece na lista</td><td>O tamanho no cabeçalho não corresponde aos dados</td><td>Abra e salve aqui; o tamanho será recalculado</td></tr>
+<tr><td>O servidor registra erro de classe ou tipo ao carregar</td><td>O tipo de uma tag foi alterado (Byte onde deveria ser Int)</td><td>Restaure o tipo esperado pelo jogo</td></tr>
+<tr><td>O mundo carrega, mas você surge em um mundo novo</td><td><code>level.dat</code> foi substituído por um novo arquivo</td><td>Restaure o backup; os chunks em <code>region/</code> ou <code>db/</code> geralmente continuam intactos</td></tr>
+<tr><td>Nenhum arquivo é interpretado, nem <code>_old</code></td><td>Falha de armazenamento: o sistema retornou zeros ou dados inválidos nos dois arquivos</td><td>Restaure um backup externo e verifique o disco antes de confiar no host</td></tr>
 </tbody>
 </table>
 </div>
 </section>
 
-<section class="content" aria-label="Salvage">
-<h2 id="salvaging-a-world-without-level-dat">Salvaging a world without <code>level.dat</code></h2>
-<p>The world's terrain, chests and players do not live in <code>level.dat</code> — they are in <code>region/</code> (Java) or <code>db/</code> (Bedrock). If the metadata file is beyond repair, create a fresh world with the same version and settings, then move the chunk data into it and set <code>LevelName</code>, spawn coordinates and game rules on the new file. You lose the metadata, not the builds. Confirm the version first: a Java world carries <code>DataVersion</code>, and the freshly generated file must not be older than the chunks you are importing.</p>
+<section class="content" aria-label="Recuperação">
+<h2 id="salvaging-a-world-without-level-dat">Recuperação de um mundo sem <code>level.dat</code></h2>
+<p>Terreno, baús e jogadores não ficam em <code>level.dat</code>; eles ficam em <code>region/</code> (Java) ou <code>db/</code> (Bedrock). Se os metadados não puderem ser reparados, crie um mundo novo com a mesma versão e configurações, mova os chunks e defina <code>LevelName</code>, coordenadas de spawn e regras no arquivo novo. Você perde metadados, não construções. Confirme a versão: um mundo Java contém <code>DataVersion</code>, e o arquivo novo não pode ser mais antigo que os chunks importados.</p>
 </section>
 
-<section class="content" aria-label="Prevention">
-<h2 id="preventing-the-next-one">Preventing the next one</h2>
+<section class="content" aria-label="Prevenção">
+<h2 id="preventing-the-next-one">Como evitar outra corrupção</h2>
 <ul>
-<li><strong>Stop the server before copying or editing.</strong> Most corruption starts as a file copied while it was being written.</li>
-<li><strong>Snapshot on a schedule, off the machine.</strong> A backup on the same disk does not survive the storage failure that caused the problem.</li>
-<li><strong>Use <code>save-off</code> / <code>save-all</code> around live snapshots</strong> so the copy is taken against a quiesced world.</li>
-<li><strong>Watch disk space.</strong> A full disk truncates saves silently, and <code>level.dat</code> is written last.</li>
-<li><strong>Edit values, not structure.</strong> Renaming tags or changing their types is the one edit the game cannot forgive.</li>
+<li><strong>Pare o servidor antes de copiar ou editar.</strong> Muitas corrupções começam com uma cópia feita durante a gravação.</li>
+<li><strong>Faça snapshots agendados fora da máquina.</strong> Um backup no mesmo disco não sobrevive à falha de armazenamento que causou o problema.</li>
+<li><strong>Use <code>save-off</code> / <code>save-all</code> antes e depois de snapshots com o servidor ligado</strong> para copiar o mundo sem gravações em andamento.</li>
+<li><strong>Monitore o espaço em disco.</strong> Um disco cheio trunca saves sem aviso, e <code>level.dat</code> é gravado por último.</li>
+<li><strong>Edite valores, não a estrutura.</strong> Renomear tags ou alterar tipos pode impedir o jogo de carregar o arquivo.</li>
 </ul>
 </section>
 
-<section class="content" aria-label="Frequently asked questions"><h2>Frequently Asked Questions</h2><details><summary>What is level.dat_old?</summary><div class="faq-body"><p>The previous save. Minecraft renames the current file to <code>level.dat_old</code> before writing a new one, so it is a one-generation backup that costs nothing to try first.</p></div></details><details><summary>Can an NBT editor repair a truncated file?</summary><div class="faq-body"><p>It can tell you exactly where the data stops, but the missing bytes cannot be reconstructed. A partial parse means you need a backup.</p></div></details><details><summary>Will I lose my builds?</summary><div class="faq-body"><p>Not from a broken <code>level.dat</code> alone. Chunks live in <code>region/</code> or <code>db/</code>; a fresh world file with the same version can adopt them.</p></div></details><details><summary>The server says level.dat is fine but the world is empty.</summary><div class="faq-body"><p>Then the chunk storage is the problem, not the metadata. Check that <code>region/</code> or <code>db/</code> came along with the copy and that the spawn coordinates in <code>level.dat</code> point where you expect.</p></div></details></section>
-<section class="content" aria-label="Related tools"><h2>Related tools</h2><div class="rel-grid"><a class="rel-card" href="../../level-dat-editor/"><strong>level.dat editor</strong><span>World name, game mode, spawn, difficulty and game rules.</span></a><a class="rel-card" href="../change-world-name/"><strong>Rename a world</strong><span>Fix LevelName after copying a world folder.</span></a><a class="rel-card" href="../../"><strong>Minecraft NBT editor</strong><span>The universal editor — every edition, every NBT file type.</span></a><a class="rel-card" href="../../java-nbt-editor/"><strong>Java Edition NBT editor</strong><span>Big-endian, gzip — Vanilla, Paper, Spigot, Fabric, Forge.</span></a><a class="rel-card" href="../../mcpe-nbt-editor/"><strong>MCPE NBT editor</strong><span>Little-endian NBT and the 8-byte level.dat header.</span></a><a class="rel-card" href="../../playerdata-editor/"><strong>playerdata editor</strong><span>Inventory, position, health and stats per player.</span></a></div></section>
+<section class="content" aria-label="Perguntas frequentes"><h2>Perguntas frequentes</h2><details><summary>O que é level.dat_old?</summary><div class="faq-body"><p>É o save anterior. O Minecraft renomeia o arquivo atual para <code>level.dat_old</code> antes de gravar outro, criando um backup de uma geração que deve ser testado primeiro.</p></div></details><details><summary>Um editor NBT consegue reparar um arquivo truncado?</summary><div class="faq-body"><p>Ele informa onde os dados terminam, mas não reconstrói bytes ausentes. Uma leitura parcial exige um backup.</p></div></details><details><summary>Vou perder minhas construções?</summary><div class="faq-body"><p>Não apenas por um <code>level.dat</code> corrompido. Os chunks ficam em <code>region/</code> ou <code>db/</code>; um arquivo de mundo novo da mesma versão pode usá-los.</p></div></details><details><summary>O servidor diz que level.dat está correto, mas o mundo está vazio.</summary><div class="faq-body"><p>Nesse caso, o problema está nos chunks, não nos metadados. Confira se <code>region/</code> ou <code>db/</code> foram copiados e se as coordenadas de spawn em <code>level.dat</code> apontam para o local esperado.</p></div></details></section>
+<section class="content" aria-label="Ferramentas relacionadas"><h2>Ferramentas relacionadas</h2><div class="rel-grid"><a class="rel-card" href="../../level-dat-editor/"><strong>Editor level.dat</strong><span>Nome do mundo, modo de jogo, spawn, dificuldade e regras.</span></a><a class="rel-card" href="../change-world-name/"><strong>Renomear um mundo</strong><span>Corrija LevelName após copiar a pasta de um mundo.</span></a><a class="rel-card" href="../../"><strong>Editor NBT do Minecraft</strong><span>Editor universal para todas as edições e tipos de arquivo NBT.</span></a><a class="rel-card" href="../../java-nbt-editor/"><strong>Editor NBT da Java Edition</strong><span>Big-endian e gzip: Vanilla, Paper, Spigot, Fabric e Forge.</span></a><a class="rel-card" href="../../mcpe-nbt-editor/"><strong>Editor NBT para MCPE</strong><span>NBT little-endian e cabeçalho de 8 bytes do level.dat.</span></a><a class="rel-card" href="../../playerdata-editor/"><strong>Editor de playerdata</strong><span>Inventário, posição, vida e estatísticas por jogador.</span></a></div></section>
 </div>
 </main>
 
 <footer class="site-footer">
 <div class="container footer-grid">
-<div><h4>Editors</h4><a href="../../">Minecraft NBT editor</a><a href="../../level-dat-editor/">level.dat editor</a><a href="../../java-nbt-editor/">Java Edition NBT editor</a><a href="../../mcpe-nbt-editor/">MCPE NBT editor</a><a href="../../pocketmine-nbt-editor/">PocketMine-MP editor</a></div>
-<div><h4>File types</h4><a href="../../mcstructure-editor/">.mcstructure editor</a><a href="../../schematic-editor/">Schematic editor</a><a href="../../playerdata-editor/">playerdata editor</a><a href="../../nbt-viewer/">NBT viewer</a><a href="../../nbtexplorer-online/">NBTExplorer online</a></div>
-<div><h4>Reference</h4><a href="../../nbt-format/">NBT format reference</a><a href="../change-world-name/">Rename a world</a><a href="./">Fix a broken level.dat</a><a href="../edit-gamerules/">Edit game rules</a></div>
-<div><h4>Source</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">Code on GitHub</a><a href="../../../llms.txt">llms.txt</a></div>
+<div><h4>Editores</h4><a href="../../">Editor NBT do Minecraft</a><a href="../../level-dat-editor/">Editor level.dat</a><a href="../../java-nbt-editor/">Editor NBT da Java Edition</a><a href="../../mcpe-nbt-editor/">Editor NBT para MCPE</a><a href="../../pocketmine-nbt-editor/">Editor para PocketMine-MP</a></div>
+<div><h4>Tipos de arquivo</h4><a href="../../mcstructure-editor/">Editor de .mcstructure</a><a href="../../schematic-editor/">Editor de schematic</a><a href="../../playerdata-editor/">Editor de playerdata</a><a href="../../nbt-viewer/">Visualizador NBT</a><a href="../../nbtexplorer-online/">NBTExplorer on-line</a></div>
+<div><h4>Referência</h4><a href="../../nbt-format/">Referência do formato NBT</a><a href="../change-world-name/">Renomear um mundo</a><a href="./">Corrigir level.dat corrompido</a><a href="../edit-gamerules/">Editar regras de jogo</a></div>
+<div><h4>Código-fonte</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">Código no GitHub</a><a href="../../../llms.txt">llms.txt</a></div>
 </div>
-<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">Última atualização: 2026-09-21. Editor NBT de Minecraft — gratuito, de código aberto (MIT) e executado inteiramente no navegador. Não é afiliado à Mojang Studios nem à Microsoft. Minecraft é uma marca da Mojang Studios.</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
 <div class="modal-overlay" id="addTagModal">
 <div class="modal">
-<h3>Add New Tag</h3>
-<label for="newTagName">Tag Name</label>
-<input type="text" id="newTagName" placeholder="e.g. MyTag" autocomplete="off">
-<label for="newTagType">Tag Type</label>
+<h3>Adicionar nova tag</h3>
+<label for="newTagName">Nome da tag</label>
+<input type="text" id="newTagName" placeholder="ex.: MyTag" autocomplete="off">
+<label for="newTagType">Tipo da tag</label>
 <select id="newTagType">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -192,10 +207,10 @@
 <option value="11">TAG_Int_Array</option>
 <option value="12">TAG_Long_Array</option>
 </select>
-<label for="newTagValue">Value</label>
-<input type="text" id="newTagValue" placeholder="Value" autocomplete="off">
+<label for="newTagValue">Valor</label>
+<input type="text" id="newTagValue" placeholder="Valor" autocomplete="off">
 <div id="listSubtypeRow" style="display:none">
-<label for="newListSubtype">List Element Type</label>
+<label for="newListSubtype">Tipo de elemento da lista</label>
 <select id="newListSubtype">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -212,24 +227,24 @@
 </select>
 </div>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="addTagCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="addTagConfirm">Add</button>
+<button class="btn-cancel" type="button" id="addTagCancel">Cancelar</button>
+<button class="btn-confirm" type="button" id="addTagConfirm">Adicionar</button>
 </div>
 </div>
 </div>
 
 <div class="modal-overlay" id="arrayModal">
 <div class="modal">
-<h3 id="arrayModalTitle">Edit Array</h3>
-<label for="arrayModalText">Comma-separated values</label>
+<h3 id="arrayModalTitle">Editar array</h3>
+<label for="arrayModalText">Valores separados por vírgulas</label>
 <textarea id="arrayModalText" spellcheck="false" autocomplete="off"></textarea>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="arrayModalCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="arrayModalConfirm">Apply</button>
+<button class="btn-cancel" type="button" id="arrayModalCancel">Cancelar</button>
+<button class="btn-confirm" type="button" id="arrayModalConfirm">Aplicar</button>
 </div>
 </div>
 </div>
 
-<script src="../../../assets/nbt.js?v=da7967b1" defer></script>
+<script src="../../../assets/nbt.js?v=6f125422" defer></script>
 </body>
 </html>

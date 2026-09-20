@@ -3,79 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Minecraft playerdata Editor — Edit player .dat Files Online</title>
-<meta name="description" content="Edit Minecraft playerdata .dat files online: fix a stuck player position, drop a corrupted inventory item, adjust health, XP or game mode.">
-<meta name="keywords" content="playerdata editor, minecraft player.dat editor, edit player inventory nbt, player data nbt editor, uuid.dat minecraft, stuck player position fix, minecraft inventory editor online">
-<meta name="robots" content="noindex, follow">
+<title>محرر playerdata .dat في Minecraft عبر الإنترنت</title>
+<meta name="description" content="عدّل ملفات playerdata بصيغة .dat في Minecraft عبر الإنترنت: أصلح موضع لاعب عالق، أو احذف عنصرًا تالفًا، أو غيّر الصحة والخبرة ونمط اللعب.">
+<meta name="keywords" content="محرر playerdata, تعديل ملف اللاعب ماين كرافت, تعديل مخزون اللاعب NBT, ملف uuid dat, اصلاح لاعب عالق ماين كرافت, محرر inventory">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="author" content="w1zardz">
 <link rel="canonical" href="https://w1zardz.github.io/bedrock-nbt-editor/ar/playerdata-editor/">
+<link rel="alternate" hreflang="en" href="https://w1zardz.github.io/bedrock-nbt-editor/playerdata-editor/">
+<link rel="alternate" hreflang="ru" href="https://w1zardz.github.io/bedrock-nbt-editor/ru/playerdata-editor/">
+<link rel="alternate" hreflang="es" href="https://w1zardz.github.io/bedrock-nbt-editor/es/playerdata-editor/">
+<link rel="alternate" hreflang="pt-BR" href="https://w1zardz.github.io/bedrock-nbt-editor/pt-br/playerdata-editor/">
+<link rel="alternate" hreflang="de" href="https://w1zardz.github.io/bedrock-nbt-editor/de/playerdata-editor/">
+<link rel="alternate" hreflang="fr" href="https://w1zardz.github.io/bedrock-nbt-editor/fr/playerdata-editor/">
+<link rel="alternate" hreflang="it" href="https://w1zardz.github.io/bedrock-nbt-editor/it/playerdata-editor/">
+<link rel="alternate" hreflang="pl" href="https://w1zardz.github.io/bedrock-nbt-editor/pl/playerdata-editor/">
+<link rel="alternate" hreflang="uk" href="https://w1zardz.github.io/bedrock-nbt-editor/uk/playerdata-editor/">
+<link rel="alternate" hreflang="tr" href="https://w1zardz.github.io/bedrock-nbt-editor/tr/playerdata-editor/">
+<link rel="alternate" hreflang="id" href="https://w1zardz.github.io/bedrock-nbt-editor/id/playerdata-editor/">
+<link rel="alternate" hreflang="vi" href="https://w1zardz.github.io/bedrock-nbt-editor/vi/playerdata-editor/">
+<link rel="alternate" hreflang="th" href="https://w1zardz.github.io/bedrock-nbt-editor/th/playerdata-editor/">
+<link rel="alternate" hreflang="zh-Hans" href="https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/playerdata-editor/">
+<link rel="alternate" hreflang="ja" href="https://w1zardz.github.io/bedrock-nbt-editor/ja/playerdata-editor/">
+<link rel="alternate" hreflang="ko" href="https://w1zardz.github.io/bedrock-nbt-editor/ko/playerdata-editor/">
+<link rel="alternate" hreflang="ar" href="https://w1zardz.github.io/bedrock-nbt-editor/ar/playerdata-editor/">
 <link rel="alternate" hreflang="x-default" href="https://w1zardz.github.io/bedrock-nbt-editor/playerdata-editor/">
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="../../favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <link rel="manifest" href="../../site.webmanifest">
 <meta property="og:type" content="article">
-<meta property="og:title" content="playerdata editor — inventory, position, stats">
-<meta property="og:description" content="Edit Minecraft playerdata .dat files online: fix a stuck player position, drop a corrupted inventory item, adjust health, XP or game mode.">
+<meta property="og:title" content="محرر playerdata — المخزون والموضع والإحصاءات">
+<meta property="og:description" content="عدّل ملفات playerdata بصيغة .dat في Minecraft عبر الإنترنت: أصلح موضع لاعب عالق، أو احذف عنصرًا تالفًا، أو غيّر الصحة والخبرة ونمط اللعب.">
 <meta property="og:url" content="https://w1zardz.github.io/bedrock-nbt-editor/ar/playerdata-editor/">
-<meta property="og:site_name" content="Minecraft NBT Editor">
+<meta property="og:site_name" content="محرر NBT لـ Minecraft">
 <meta property="og:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/playerdata.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="ar_AR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="playerdata editor — inventory, position, stats">
-<meta name="twitter:description" content="Edit Minecraft playerdata .dat files online: fix a stuck player position, drop a corrupted inventory item, adjust health, XP or game mode.">
+<meta name="twitter:title" content="محرر playerdata — المخزون والموضع والإحصاءات">
+<meta name="twitter:description" content="عدّل ملفات playerdata بصيغة .dat في Minecraft عبر الإنترنت: أصلح موضع لاعب عالق، أو احذف عنصرًا تالفًا، أو غيّر الصحة والخبرة ونمط اللعب.">
 <meta name="twitter:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/playerdata.png">
-<meta property="article:modified_time" content="2026-08-26">
-<meta property="og:updated_time" content="2026-08-26">
+<meta property="article:modified_time" content="2026-09-21">
+<meta property="og:updated_time" content="2026-09-21">
 <meta name="theme-color" content="#0d1117">
-<meta name="application-name" content="Minecraft NBT Editor">
-<meta name="apple-mobile-web-app-title" content="NBT Editor">
-<link rel="preload" href="../../assets/nbt.js?v=da7967b1" as="script">
-<script>window.__LANG_URLS__={"en":"../../playerdata-editor/","ru":"../../ru/playerdata-editor/","es":"../../es/playerdata-editor/","pt-br":"../../pt-br/playerdata-editor/","de":"../../de/playerdata-editor/","fr":"../../fr/playerdata-editor/","it":"../../it/playerdata-editor/","pl":"../../pl/playerdata-editor/","uk":"../../uk/playerdata-editor/","tr":"../../tr/playerdata-editor/","id":"../../id/playerdata-editor/","vi":"../../vi/playerdata-editor/","th":"../../th/playerdata-editor/","zh-hans":"../../zh-hans/playerdata-editor/","ja":"../../ja/playerdata-editor/","ko":"../../ko/playerdata-editor/","ar":"./"};window.__NBT_STRINGS__={"loaded":"Loaded as {0}","trailing":"{0} trailing byte(s) after the root tag were ignored","error":"Error: {0}","readfail":"Could not read the file","nofile":"No file loaded","saved":"Saved {0} ({1}, {2})","savefail":"Save error: {0}","exported":"Exported {0}","snbtfail":"SNBT error: {0}","tagadded":"Tag added","tagremoved":"Tag removed","arrayupdated":"Array updated","badvalue":"Invalid value: {0}","badarray":"Invalid array: {0}","nameneeded":"Tag name is required","nametaken":"A tag named {0} already exists here","listtype":"List already holds {0} entries","editlevelname":"✎ Edit LevelName","showmore":"Show {0} more of {1} …","matches":"{0} match(es)","nomatch":"No tag matches \"{0}\"","arraytoobig":"Array has {0} entries — expand it and edit elements individually","uncompressed":"uncompressed","storage":"storage v{0}","entries":"{0} entries","langprompt":"Open this page in {0}?","langyes":"Switch","langno":"Stay"};</script>
-<script src="../../assets/lang.js?v=a3a1db0e" defer></script>
+<meta name="application-name" content="محرر NBT لـ Minecraft">
+<meta name="apple-mobile-web-app-title" content="محرر NBT">
+<link rel="preload" href="../../assets/nbt.js?v=6f125422" as="script">
+<script>window.__LANG_URLS__={"en":"../../playerdata-editor/","ru":"../../ru/playerdata-editor/","es":"../../es/playerdata-editor/","pt-br":"../../pt-br/playerdata-editor/","de":"../../de/playerdata-editor/","fr":"../../fr/playerdata-editor/","it":"../../it/playerdata-editor/","pl":"../../pl/playerdata-editor/","uk":"../../uk/playerdata-editor/","tr":"../../tr/playerdata-editor/","id":"../../id/playerdata-editor/","vi":"../../vi/playerdata-editor/","th":"../../th/playerdata-editor/","zh-hans":"../../zh-hans/playerdata-editor/","ja":"../../ja/playerdata-editor/","ko":"../../ko/playerdata-editor/","ar":"./"};window.__NBT_STRINGS__={"loaded":"تم التحميل بصيغة {0}","trailing":"تم تجاهل {0} بايت لاحق بعد وسم الجذر","error":"خطأ: {0}","readfail":"تعذرت قراءة الملف","nofile":"لم يتم تحميل ملف","saved":"تم حفظ {0} ({1}, {2})","savefail":"خطأ في الحفظ: {0}","exported":"تم تصدير {0}","snbtfail":"خطأ SNBT: {0}","tagadded":"تمت إضافة الوسم","tagremoved":"تمت إزالة الوسم","arrayupdated":"تم تحديث المصفوفة","badvalue":"قيمة غير صالحة: {0}","badarray":"مصفوفة غير صالحة: {0}","nameneeded":"اسم الوسم مطلوب","nametaken":"يوجد هنا وسم باسم {0} بالفعل","listtype":"تحتوي القائمة بالفعل على عناصر من النوع {0}","editlevelname":"✎ تعديل LevelName","showmore":"إظهار {0} أخرى من {1} …","matches":"{0} نتيجة مطابقة","nomatch":"لا يوجد وسم يطابق \"{0}\"","arraytoobig":"تحتوي المصفوفة على {0} عنصرًا — وسّعها وعدّل العناصر منفردة","uncompressed":"غير مضغوط","storage":"إصدار التخزين v{0}","entries":"{0} عنصرًا","langprompt":"هل تريد فتح هذه الصفحة باللغة {0}؟","langyes":"تبديل","langno":"البقاء","nav_editor":"المحرر","nav_format":"صيغة NBT","language":"اللغة: {0}","beta":"تجريبية","skip_editor":"الانتقال إلى المحرر","brand_editor":"محرر NBT","guides":"الأدلة","updated":"آخر تحديث: {0}.","drop":"أفلت {0} هنا","choose_file":"اختر ملفًا","file_hint":"level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · بيانات مقاطع مستخرجة","output_format":"صيغة الإخراج","format_java":"Java — بترتيب big-endian وجذر ذي اسم","format_java_network":"شبكة Java — بترتيب big-endian وجذر بلا اسم","format_bedrock_level":"Bedrock level.dat — بترتيب little-endian مع ترويسة من 8 بايت","format_bedrock":"Bedrock الخام — بترتيب little-endian","format_bedrock_network":"شبكة Bedrock — أعداد varint بترتيب little-endian","compression":"الضغط","compression_none":"بلا ضغط (بيانات خام)","search_placeholder":"ابحث عن اسم وسم أو قيمته…","search":"بحث","collapse":"طي الكل","add_tag":"+ إضافة وسم","save_download":"حفظ وتنزيل","export_snbt":"تصدير SNBT","close":"إغلاق","add_new_tag":"إضافة وسم جديد","tag_name":"اسم الوسم","tag_type":"نوع الوسم","tag_example":"مثلًا MyTag","value":"القيمة","list_element_type":"نوع عناصر القائمة","cancel":"إلغاء","add":"إضافة","edit_array":"تعديل المصفوفة","comma_values":"قيم مفصولة بفواصل","apply":"تطبيق","format_label_java":"Java بترتيب big-endian","format_label_java_network":"شبكة Java (جذر بلا اسم)","format_label_bedrock_level":"Bedrock level.dat (ترويسة من 8 بايت)","format_label_bedrock":"Bedrock بترتيب little-endian","format_label_bedrock_network":"شبكة Bedrock (varint)","err_decompress":"لا يستطيع هذا المتصفح فك ضغط {0} (واجهة Compression Streams API غير متوفرة)","err_compress":"لا يستطيع هذا المتصفح الضغط بصيغة {0} (واجهة Compression Streams API غير متوفرة)","err_stream":"تعذرت معالجة الضغط بصيغة {0}","err_end":"انتهت البيانات بشكل غير متوقع عند الإزاحة {0}","err_tag_limit":"تم تجاوز الحد الأقصى لعدد الوسوم","err_varint":"قيمة VarInt أطول من المسموح","err_varlong":"قيمة VarLong أطول من المسموح","err_negative_array":"طول المصفوفة سالب: {0}","err_array_length":"طول المصفوفة {0} يتجاوز البيانات المتبقية","err_negative_list":"طول القائمة سالب","err_end_list":"قائمة TAG_End تحتوي على {0} عنصرًا","err_list_type":"نوع عناصر القائمة غير معروف: {0}","err_tag_type":"نوع الوسم غير معروف: {0}","err_root":"يجب أن يكون وسم الجذر TAG_Compound، لكن النوع الفعلي هو {0}","err_string_length":"السلسلة النصية أطول مما تسمح به هذه الصيغة: {0} بايت","err_write_type":"لا يمكن كتابة وسم من النوع {0}","err_header_short":"البيانات أقصر من أن تحتوي على ترويسة","err_storage_version":"إصدار تخزين غير منطقي: {0}","err_header_length":"الطول المحدد في الترويسة، {0}، يتجاوز حجم البيانات","err_unknown_file":"تعذر التعرف على ملف NBT (جُرّبت صيغ Java وBedrock والشبكة والصيغ ذات الترويسة)","err_file_small":"الملف أصغر من أن يحتوي على بيانات NBT","err_byte":"يجب أن تكون قيمة Byte ضمن النطاق -128..127","err_short":"يجب أن تكون قيمة Short ضمن النطاق -32768..32767","err_int":"يجب أن تكون قيمة Int ضمن النطاق -2147483648..2147483647","err_long":"قيمة Long خارج نطاق 64 بت","err_float":"قيمة float غير صالحة","err_double":"قيمة double غير صالحة","err_not_inline":"لا يمكن تعديل هذا النوع من الوسوم مباشرة","err_array_byte":"قيمة byte غير صالحة: {0}","err_array_int":"قيمة int غير صالحة: {0}","err_array_long":"عدد صحيح من 64 بت غير صالح: {0}","root":"(الجذر)","add_child":"إضافة وسم فرعي","remove_tag":"إزالة الوسم","array":"مصفوفة","array_bytes":"[{0} بايت]","array_ints":"[{0} قيمة int]","array_longs":"[{0} قيمة long]","entries_type":"{0} عنصرًا من النوع {1}","unknown_error":"تعذر إكمال العملية","software_name":"محرر NBT لـ Minecraft","software_alternate_online":"محرر NBT عبر الإنترنت","software_alternate_bedrock":"محرر NBT لـ Bedrock","software_alternate_level":"محرر level.dat","software_subcategory":"محرر ملفات الألعاب","software_os":"أي نظام (عبر المتصفح)","software_browser":"متصفح حديث يدعم BigInt وCompression Streams","feature_java":"NBT بترتيب big-endian في Java Edition","feature_bedrock":"NBT بترتيب little-endian في Bedrock Edition","feature_bedrock_network":"NBT لشبكة Bedrock (varint)","feature_java_network":"NBT لشبكة Java (جذر بلا اسم)","feature_compression":"ضغط gzip وzlib","feature_types":"أنواع وسوم NBT الثلاثة عشر كلها بدقة 64 بت","feature_snbt":"تصدير SNBT","feature_local":"يعمل بالكامل على جهازك","schema_about":"صيغة بيانات NBT في Minecraft","not_found_title":"الصفحة غير موجودة — {0}","not_found_heading":"404 — نُقلت هذه الصفحة أو لم تكن موجودة أصلًا","not_found_intro":"لا يزال المحرر متاحًا بنقرة واحدة، ولكل أداة رابط دائم أدناه.","not_found_footer":"{0} — مجاني ومفتوح المصدر.","aria_bedrock_gamerules":"قواعد اللعب في Bedrock","aria_bedrock_level_dat_header":"ترويسة level.dat في Bedrock","aria_bedrock_tags":"وسوم Bedrock","aria_breadcrumb":"مسار التنقل","aria_byte_walkthrough":"شرح بايتًا ببايت","aria_causes":"الأسباب","aria_common_repairs":"الإصلاحات الشائعة","aria_comparison":"المقارنة","aria_compatibility":"التوافق","aria_compression":"الضغط","aria_core_specifics":"تفاصيل برامج الخوادم","aria_dataversion":"DataVersion","aria_drop_an_nbt_file_here_or_click_to_browse":"أفلت ملف NBT هنا أو انقر لاختيار ملف","aria_duplicate_world_names":"أسماء العوالم المكررة","aria_editing_schematics":"تعديل المخططات","aria_encodings":"طرق الترميز","aria_features":"الميزات","aria_file_types":"أنواع الملفات","aria_frequently_asked_questions":"الأسئلة الشائعة","aria_how_to_use":"طريقة الاستخدام","aria_inside_a_mcstructure_file":"محتويات ملف mcstructure","aria_introduction":"مقدمة","aria_java_nbt_encoding":"ترميز NBT في Java","aria_java_nbt_files":"ملفات NBT في Java","aria_java_gamerules":"قواعد اللعب في Java","aria_migrating":"الانتقال من أدوات أخرى","aria_other_bedrock_nbt":"بيانات NBT الأخرى في Bedrock","aria_other_tools":"أدوات أخرى","aria_per_platform":"حسب المنصة","aria_prevention":"الوقاية","aria_related_tools":"أدوات ذات صلة","aria_snbt":"SNBT","aria_safety":"السلامة","aria_salvage":"استعادة البيانات","aria_schematic_formats":"صيغ المخططات","aria_scripting":"استخدام السكربتات","aria_search_nbt_tags":"البحث في وسوم NBT","aria_server_cores":"برامج الخوادم","aria_server_safety":"سلامة الخادم","aria_server_workflow":"خطوات العمل على الخادم","aria_strings":"السلاسل النصية","aria_supported_files":"الملفات المدعومة","aria_supported_server_software":"برامج الخوادم المدعومة","aria_tag_types":"أنواع الوسوم","aria_tags_in_level_dat":"الوسوم داخل level.dat","aria_tools":"الأدوات","aria_troubleshooting":"استكشاف المشكلات وإصلاحها","aria_typical_edits":"التعديلات المعتادة","aria_what_you_can_inspect":"البيانات التي يمكنك فحصها","aria_where_bedrock_files_live":"أماكن ملفات Bedrock","aria_where_mcstructure_files_live":"أماكن ملفات mcstructure","aria_where_to_find_level_dat":"مكان العثور على level.dat","aria_why_edit_the_file":"لماذا نعدل الملف","aria_why_the_folder_name_is_not_the_world_name":"لماذا يختلف اسم المجلد عن اسم العالم","aria_playerdata_tags":"وسوم playerdata","toggle":"توسيع أو طي"};</script>
+<script src="../../assets/lang.js?v=23a64b2c" defer></script>
 <link rel="stylesheet" href="../../assets/app.css?v=f5bdcb0f">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Minecraft playerdata Editor \u2014 Edit player .dat Files Online","headline":"playerdata Editor \u2014 Minecraft Player .dat Files","description":"Edit Minecraft playerdata .dat files online: fix a stuck player position, drop a corrupted inventory item, adjust health, XP or game mode.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ar/playerdata-editor/","inLanguage":"ar","datePublished":"2026-05-29","dateModified":"2026-08-26","isPartOf":{"@type":"WebSite","name":"Minecraft NBT Editor","url":"https://w1zardz.github.io/bedrock-nbt-editor/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/playerdata.png"},"about":{"@type":"Thing","name":"Minecraft NBT data format"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT Editor","item":"https://w1zardz.github.io/bedrock-nbt-editor/ar/"},{"@type":"ListItem","position":2,"name":"playerdata Editor \u2014 Minecraft Player .dat Files","item":"https://w1zardz.github.io/bedrock-nbt-editor/ar/playerdata-editor/"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which file is my player?","acceptedAnswer":{"@type":"Answer","text":"Files are named by UUID. Look the player's UUID up on a Mojang API viewer, or sort playerdata/ by modification time and match against the last login."}},{"@type":"Question","name":"Can I give myself items by editing playerdata?","acceptedAnswer":{"@type":"Answer","text":"On your own server, yes \u2014 add an entry to the Inventory list with id, Count and Slot. On someone else's server that is an intrusion, and it will not work anyway because the live server rewrites the file."}},{"@type":"Question","name":"Why did my edit disappear?","acceptedAnswer":{"@type":"Answer","text":"The server or the player was online when you edited. Player state in memory wins on the next save."}},{"@type":"Question","name":"Is playerdata the same in Bedrock?","acceptedAnswer":{"@type":"Answer","text":"No. Bedrock keeps players inside the world LevelDB rather than in per-UUID files. The NBT inside those values is little-endian and opens here once extracted."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"محرر playerdata .dat في Minecraft عبر الإنترنت","headline":"محرر playerdata — ملفات اللاعب .dat في Minecraft","description":"عدّل ملفات playerdata بصيغة .dat في Minecraft عبر الإنترنت: أصلح موضع لاعب عالق، أو احذف عنصرًا تالفًا، أو غيّر الصحة والخبرة ونمط اللعب.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ar/playerdata-editor/","inLanguage":"ar","datePublished":"2026-05-29","dateModified":"2026-09-21","isPartOf":{"@type":"WebSite","name":"محرر NBT لـ Minecraft","url":"https://w1zardz.github.io/bedrock-nbt-editor/ar/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/playerdata.png"},"about":{"@type":"Thing","name":"صيغة بيانات NBT في Minecraft"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"محرر NBT","item":"https://w1zardz.github.io/bedrock-nbt-editor/ar/"},{"@type":"ListItem","position":2,"name":"محرر playerdata — ملفات اللاعب .dat في Minecraft","item":"https://w1zardz.github.io/bedrock-nbt-editor/ar/playerdata-editor/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"أي ملف يخص لاعبي؟","acceptedAnswer":{"@type":"Answer","text":"تُسمى الملفات وفق UUID. ابحث عن UUID الخاص باللاعب باستخدام عارض Mojang API، أو رتّب مجلد playerdata/ حسب وقت التعديل وطابقه مع آخر تسجيل دخول."}},{"@type":"Question","name":"هل يمكنني منح نفسي عناصر بتعديل playerdata؟","acceptedAnswer":{"@type":"Answer","text":"نعم، على خادمك؛ أضف إدخالًا إلى قائمة Inventory يتضمن id وCount وSlot. أما على خادم شخص آخر فهذا اختراق، ولن ينجح أصلًا لأن الخادم النشط يعيد كتابة الملف."}},{"@type":"Question","name":"لماذا اختفى تعديلي؟","acceptedAnswer":{"@type":"Answer","text":"كان الخادم أو اللاعب متصلًا عند إجراء التعديل. تتغلب حالة اللاعب الموجودة في الذاكرة عند عملية الحفظ التالية."}},{"@type":"Question","name":"هل تكون playerdata بالشكل نفسه في Bedrock؟","acceptedAnswer":{"@type":"Answer","text":"لا. يحتفظ Bedrock باللاعبين داخل LevelDB للعالم بدلًا من ملفات منفصلة لكل UUID. تكون بيانات NBT داخل تلك القيم بترتيب little-endian، ويمكن فتحها هنا بعد استخراجها."}}]}</script>
 </head>
 <body>
-<a class="skip-link" href="#editor">Skip to the editor</a>
+<a class="skip-link" href="#editor">الانتقال إلى المحرر</a>
 <header class="site-header">
 <div class="container">
-<a class="brand" href="../"><span>Minecraft</span> NBT Editor</a>
+<a class="brand" href="../"><span>Minecraft</span> محرر NBT</a>
 <span class="badge">Java + Bedrock</span>
-<nav class="site-nav" aria-label="Tools">
-<a href="../">Editor</a>
+<nav class="site-nav" aria-label="الأدوات">
+<a href="../">المحرر</a>
 <a href="../level-dat-editor/">level.dat</a>
 <a href="../java-nbt-editor/">Java</a>
 <a href="../mcpe-nbt-editor/">Bedrock</a>
 <a href="../mcstructure-editor/">.mcstructure</a>
 <a href="../schematic-editor/">.schem</a>
 <a href="./" class="active">playerdata</a>
-<a href="../nbt-format/">NBT format</a>
+<a href="../nbt-format/">صيغة NBT</a>
 </nav>
-<details class="lang-switch"><summary title="Language: العربية" aria-label="Language: العربية"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">Language: العربية</span></summary><div class="lang-menu"><a href="./" hreflang="ar" data-lang="ar" aria-current="true" class="current">العربية</a><a href="../../playerdata-editor/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../ru/playerdata-editor/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../es/playerdata-editor/" hreflang="es" data-lang="es" rel="alternate">Español (beta)</a><a href="../../pt-br/playerdata-editor/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR) (beta)</a><a href="../../de/playerdata-editor/" hreflang="de" data-lang="de" rel="alternate">Deutsch (beta)</a><a href="../../fr/playerdata-editor/" hreflang="fr" data-lang="fr" rel="alternate">Français (beta)</a><a href="../../it/playerdata-editor/" hreflang="it" data-lang="it" rel="alternate">Italiano (beta)</a><a href="../../pl/playerdata-editor/" hreflang="pl" data-lang="pl" rel="alternate">Polski (beta)</a><a href="../../uk/playerdata-editor/" hreflang="uk" data-lang="uk" rel="alternate">Українська (beta)</a><a href="../../tr/playerdata-editor/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe (beta)</a><a href="../../id/playerdata-editor/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia (beta)</a><a href="../../vi/playerdata-editor/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt (beta)</a><a href="../../th/playerdata-editor/" hreflang="th" data-lang="th" rel="alternate">ไทย (beta)</a><a href="../../zh-hans/playerdata-editor/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文 (beta)</a><a href="../../ja/playerdata-editor/" hreflang="ja" data-lang="ja" rel="alternate">日本語 (beta)</a><a href="../../ko/playerdata-editor/" hreflang="ko" data-lang="ko" rel="alternate">한국어 (beta)</a></div></details>
+<details class="lang-switch"><summary title="اللغة: العربية" aria-label="اللغة: العربية"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">اللغة: العربية</span></summary><div class="lang-menu"><a href="./" hreflang="ar" data-lang="ar" aria-current="true" class="current">العربية</a><a href="../../playerdata-editor/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../ru/playerdata-editor/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../es/playerdata-editor/" hreflang="es" data-lang="es" rel="alternate">Español</a><a href="../../pt-br/playerdata-editor/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR)</a><a href="../../de/playerdata-editor/" hreflang="de" data-lang="de" rel="alternate">Deutsch</a><a href="../../fr/playerdata-editor/" hreflang="fr" data-lang="fr" rel="alternate">Français</a><a href="../../it/playerdata-editor/" hreflang="it" data-lang="it" rel="alternate">Italiano</a><a href="../../pl/playerdata-editor/" hreflang="pl" data-lang="pl" rel="alternate">Polski</a><a href="../../uk/playerdata-editor/" hreflang="uk" data-lang="uk" rel="alternate">Українська</a><a href="../../tr/playerdata-editor/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe</a><a href="../../id/playerdata-editor/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia</a><a href="../../vi/playerdata-editor/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt</a><a href="../../th/playerdata-editor/" hreflang="th" data-lang="th" rel="alternate">ไทย</a><a href="../../zh-hans/playerdata-editor/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文</a><a href="../../ja/playerdata-editor/" hreflang="ja" data-lang="ja" rel="alternate">日本語</a><a href="../../ko/playerdata-editor/" hreflang="ko" data-lang="ko" rel="alternate">한국어</a></div></details>
 </div>
 </header>
 <main>
-<nav class="breadcrumbs container" aria-label="Breadcrumb"><a href="../">NBT Editor</a> <span class="sep">/</span> <span>playerdata</span></nav>
-<section class="hero" aria-label="Introduction">
+<nav class="breadcrumbs container" aria-label="مسار التنقل"><a href="../">محرر NBT</a> <span class="sep">/</span> <span>playerdata</span></nav>
+<section class="hero" aria-label="مقدمة">
 <div class="container">
-<h1>playerdata Editor — Minecraft Player .dat Files</h1>
-<p class="support-line"><strong>Supports Minecraft Bedrock Edition and Java Edition</strong> — and every server core for both, popular or obscure: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina and the rest. <a href="../#server-software">Full list</a>.</p>
-<p class="lede">Java Edition writes one gzip big-endian NBT file per player in <code>world/playerdata/&lt;uuid&gt;.dat</code>, holding inventory, ender chest, position, dimension, health, hunger, XP and attributes. Drop one below to fix a player stuck inside terrain, drop a crash-inducing item, or reset stats — with the server stopped, or at least with that player offline.</p>
-<div class="chips"><span class="chip">Java playerdata</span><span class="chip">Ender chest</span><span class="chip">Inventory</span><span class="chip">Position</span><span class="chip">Attributes</span><span class="chip">Advancement-adjacent</span></div>
+<h1>محرر playerdata — ملفات اللاعب .dat في Minecraft</h1>
+<p class="support-line"><strong>يدعم Minecraft Bedrock Edition وJava Edition</strong> — وجميع برمجيات الخوادم لكليهما، الشائعة والنادرة: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina وغيرها. <a href="../#server-software">القائمة الكاملة</a>.</p>
+<p class="lede">يكتب Java Edition ملف NBT واحدًا لكل لاعب بترتيب big-endian ومضغوطًا بـ gzip في <code>world/playerdata/&lt;uuid&gt;.dat</code>. ويحتوي الملف على المخزون وصندوق Ender والموضع والبُعد والصحة والجوع والخبرة والسمات. أفلت ملفًا أدناه لإخراج لاعب عالق داخل التضاريس أو حذف عنصر يسبب التعطل أو إعادة ضبط الإحصاءات؛ على أن يكون الخادم متوقفًا، أو أن يكون ذلك اللاعب غير متصل على الأقل.</p>
+<div class="chips"><span class="chip">playerdata في Java</span><span class="chip">صندوق Ender</span><span class="chip">المخزون</span><span class="chip">الموضع</span><span class="chip">السمات</span><span class="chip">مرتبط بالتقدمات</span></div>
 </div>
 </section>
 <div id="editor">
 
-<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="Drop an NBT file here or click to browse">
+<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="أفلت ملف NBT هنا أو انقر لاختيار ملف">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 16V4m0 0L8 8m4-4l4 4"/><path d="M20 16v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2"/></svg>
-<p>Drop <strong>a playerdata .dat file</strong> here</p>
-<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">Choose File</button>
-<span class="hint">level.dat &middot; .nbt &middot; .mcstructure &middot; .schem &middot; .schematic &middot; .dat &middot; chunk dumps</span>
+<p>أفلت <strong>ملف playerdata بصيغة .dat</strong> هنا</p>
+<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">اختر ملفًا</button>
+<span class="hint">level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · بيانات مقاطع مستخرجة</span>
 <input type="file" id="fileInput">
 </div>
 
@@ -83,18 +100,16 @@
 <div class="file-info" id="fileInfo"></div>
 
 <div class="out-bar" id="outBar">
-<label>Output format
-<select id="outFormat">
-<option value="java">Java — big-endian, named root</option>
-<option value="java-network">Java network — big-endian, nameless root</option>
-<option value="bedrock-level">Bedrock level.dat — little-endian + 8-byte header</option>
-<option value="bedrock">Bedrock raw — little-endian</option>
-<option value="bedrock-network">Bedrock network — little-endian varint</option>
+<label>صيغة الإخراج<select id="outFormat">
+<option value="java">Java — بترتيب big-endian وجذر ذي اسم</option>
+<option value="java-network">شبكة Java — بترتيب big-endian وجذر بلا اسم</option>
+<option value="bedrock-level">Bedrock level.dat — بترتيب little-endian مع ترويسة من 8 بايت</option>
+<option value="bedrock">Bedrock الخام — بترتيب little-endian</option>
+<option value="bedrock-network">شبكة Bedrock — أعداد varint بترتيب little-endian</option>
 </select>
 </label>
-<label>Compression
-<select id="outCompression">
-<option value="none">None (raw)</option>
+<label>الضغط<select id="outCompression">
+<option value="none">بلا ضغط (بيانات خام)</option>
 <option value="gzip">gzip</option>
 <option value="zlib">zlib (deflate)</option>
 </select>
@@ -102,9 +117,9 @@
 </div>
 
 <div class="search-bar">
-<input type="search" id="searchInput" placeholder="Search tag name or value…" autocomplete="off" spellcheck="false" aria-label="Search NBT tags">
-<button type="button" id="btnSearch">Search</button>
-<button type="button" id="btnCollapse">Collapse all</button>
+<input type="search" id="searchInput" placeholder="ابحث عن اسم وسم أو قيمته…" autocomplete="off" spellcheck="false" aria-label="البحث في وسوم NBT">
+<button type="button" id="btnSearch">بحث</button>
+<button type="button" id="btnCollapse">طي الكل</button>
 </div>
 <div class="search-results" id="searchResults"></div>
 
@@ -112,80 +127,80 @@
 </div>
 
 <div class="bottom-bar" id="bottomBar">
-<button class="btn-add" id="btnAddRoot" type="button">+ Add Tag</button>
-<button class="btn-save" id="btnSave" type="button">Save &amp; Download</button>
-<button class="btn-snbt" id="btnSnbt" type="button">Export SNBT</button>
-<button class="btn-close" id="btnCloseFile" type="button">Close</button>
+<button class="btn-add" id="btnAddRoot" type="button">+ إضافة وسم</button>
+<button class="btn-save" id="btnSave" type="button">حفظ وتنزيل</button>
+<button class="btn-snbt" id="btnSnbt" type="button">تصدير SNBT</button>
+<button class="btn-close" id="btnCloseFile" type="button">إغلاق</button>
 </div>
 
 </div>
 <div id="contentSections">
 
-<section class="content" aria-label="playerdata tags">
-<h2 id="the-tags-in-a-player-file">The tags in a player file</h2>
+<section class="content" aria-label="وسوم playerdata">
+<h2 id="the-tags-in-a-player-file">الوسوم داخل ملف اللاعب</h2>
 <div class="table-wrap">
 <table class="matrix">
-<thead><tr><th>Tag</th><th>Type</th><th>What it is</th></tr></thead>
+<thead><tr><th>الوسم</th><th>النوع</th><th>ما الذي يمثله</th></tr></thead>
 <tbody>
-<tr><td><code>Pos</code></td><td>List of Double</td><td>X, Y, Z. The fix for a player stuck in a wall or below bedrock.</td></tr>
-<tr><td><code>Rotation</code></td><td>List of Float</td><td>Yaw and pitch.</td></tr>
-<tr><td><code>Dimension</code></td><td>String / Int</td><td>Which dimension the player logs into.</td></tr>
-<tr><td><code>Inventory</code></td><td>List of Compound</td><td>One entry per stack: <code>id</code>, <code>Count</code>, <code>Slot</code>, <code>components</code> or <code>tag</code>.</td></tr>
-<tr><td><code>EnderItems</code></td><td>List of Compound</td><td>Ender chest contents, same shape.</td></tr>
-<tr><td><code>Health</code>, <code>foodLevel</code>, <code>XpLevel</code>, <code>XpTotal</code></td><td>Float / Int</td><td>Vitals and experience.</td></tr>
-<tr><td><code>playerGameType</code></td><td>Int</td><td>Per-player game mode.</td></tr>
-<tr><td><code>abilities</code></td><td>Compound</td><td>Flying, invulnerable, walk and fly speed.</td></tr>
-<tr><td><code>Attributes</code></td><td>List of Compound</td><td>Max health, movement speed and other modifiers.</td></tr>
-<tr><td><code>SpawnX</code>/<code>SpawnY</code>/<code>SpawnZ</code> or <code>respawn</code></td><td>Int / Compound</td><td>Personal respawn point, depending on version.</td></tr>
-<tr><td><code>UUID</code></td><td>Int[4]</td><td>The player's UUID as four ints in modern versions.</td></tr>
+<tr><td><code>Pos</code></td><td>قائمة من Double</td><td>الإحداثيات X وY وZ. تستخدم لإصلاح لاعب عالق داخل جدار أو أسفل طبقة bedrock.</td></tr>
+<tr><td><code>Rotation</code></td><td>قائمة من Float</td><td>زاويتا yaw وpitch.</td></tr>
+<tr><td><code>Dimension</code></td><td>String / Int</td><td>البُعد الذي يدخل إليه اللاعب عند الاتصال.</td></tr>
+<tr><td><code>Inventory</code></td><td>قائمة من Compound</td><td>إدخال لكل رزمة: <code>id</code> و<code>Count</code> و<code>Slot</code> و<code>components</code> أو <code>tag</code>.</td></tr>
+<tr><td><code>EnderItems</code></td><td>قائمة من Compound</td><td>محتويات صندوق Ender بالبنية نفسها.</td></tr>
+<tr><td><code>Health</code>, <code>foodLevel</code>, <code>XpLevel</code>, <code>XpTotal</code></td><td>Float / Int</td><td>المؤشرات الحيوية والخبرة.</td></tr>
+<tr><td><code>playerGameType</code></td><td>Int</td><td>نمط اللعب الخاص باللاعب.</td></tr>
+<tr><td><code>abilities</code></td><td>Compound</td><td>الطيران والحصانة وسرعتا المشي والطيران.</td></tr>
+<tr><td><code>Attributes</code></td><td>قائمة من Compound</td><td>الصحة القصوى وسرعة الحركة والمعدّلات الأخرى.</td></tr>
+<tr><td><code>SpawnX</code>/<code>SpawnY</code>/<code>SpawnZ</code> أو <code>respawn</code></td><td>Int / Compound</td><td>نقطة إعادة الظهور الشخصية، بحسب الإصدار.</td></tr>
+<tr><td><code>UUID</code></td><td>Int[4]</td><td>قيمة UUID للاعب ممثلة بأربعة أعداد صحيحة في الإصدارات الحديثة.</td></tr>
 </tbody>
 </table>
 </div>
-<p>Item stacks changed shape in 1.20.5: custom data moved from a single <code>tag</code> compound to individual <code>components</code>. Both shapes open here; edit whichever your version writes.</p>
+<p>تغيرت بنية رزم العناصر في 1.20.5؛ إذ انتقلت البيانات المخصصة من مركب <code>tag</code> واحد إلى عناصر <code>components</code> منفردة. يمكن فتح البنيتين هنا؛ عدّل البنية التي يكتبها إصدارك.</p>
 </section>
 
-<section class="content" aria-label="Common repairs">
-<h2 id="common-repairs">Common repairs</h2>
+<section class="content" aria-label="الإصلاحات الشائعة">
+<h2 id="common-repairs">الإصلاحات الشائعة</h2>
 <div class="card">
 <ul>
-<li><strong>Player stuck in terrain or falling forever.</strong> Set <code>Pos</code> to safe coordinates — three doubles, in order X, Y, Z — and clear <code>Motion</code> if it holds a huge value.</li>
-<li><strong>Client crashes on login.</strong> A malformed item is the usual cause. Remove the offending entry from <code>Inventory</code> rather than wiping the whole list.</li>
-<li><strong>Wrong dimension after a portal bug.</strong> Set <code>Dimension</code> back to <code>minecraft:overworld</code> and give <code>Pos</code> matching coordinates.</li>
-<li><strong>Stuck in spectator.</strong> Set <code>playerGameType</code> to 0 for survival, 1 for creative.</li>
-<li><strong>Attribute modifiers left by a removed plugin.</strong> Delete the stale entries in <code>Attributes</code>.</li>
+<li><strong>لاعب عالق داخل التضاريس أو يسقط بلا نهاية.</strong> اضبط <code>Pos</code> على إحداثيات آمنة — ثلاث قيم Double بالترتيب X ثم Y ثم Z — وامسح <code>Motion</code> إذا كان يحتوي على قيمة ضخمة.</li>
+<li><strong>يتعطل العميل عند تسجيل الدخول.</strong> يكون السبب غالبًا عنصرًا غير صالح البنية. احذف الإدخال المسبب للمشكلة من <code>Inventory</code> بدلًا من مسح القائمة كاملة.</li>
+<li><strong>بُعد خاطئ بعد خلل في بوابة.</strong> أعد <code>Dimension</code> إلى <code>minecraft:overworld</code> واضبط <code>Pos</code> على إحداثيات مناسبة.</li>
+<li><strong>اللاعب عالق في نمط spectator.</strong> اضبط <code>playerGameType</code> على 0 لنمط survival أو 1 لنمط creative.</li>
+<li><strong>معدّلات سمات تركتها إضافة محذوفة.</strong> احذف الإدخالات القديمة من <code>Attributes</code>.</li>
 </ul>
 </div>
 </section>
 
-<section class="content" aria-label="Server safety">
-<h2 id="do-it-with-the-player-offline">Do it with the player offline</h2>
-<p>The server holds player state in memory and writes it out on logout and on autosave. Editing the file while that player is online guarantees your changes are overwritten, and editing during a save can truncate the file. Take the player offline — or stop the server — copy the file, edit, and put it back before they reconnect. Keep the original until the login works.</p>
-<p>Bedrock servers do not use this layout: player data lives in the world's LevelDB under keys such as <code>player_&lt;uuid&gt;</code>, whose values are little-endian NBT. Extract a value and it opens here as <em>Bedrock raw</em>.</p>
+<section class="content" aria-label="سلامة الخادم">
+<h2 id="do-it-with-the-player-offline">نفّذ التعديل واللاعب غير متصل</h2>
+<p>يحتفظ الخادم بحالة اللاعب في الذاكرة ويكتبها إلى الملف عند تسجيل الخروج والحفظ التلقائي. يضمن تعديل الملف أثناء اتصال اللاعب أن تُستبدل تغييراتك، وقد يؤدي التعديل أثناء الحفظ إلى اقتطاع الملف. افصل اللاعب — أو أوقف الخادم — ثم انسخ الملف وعدّله وأعده قبل اتصاله مجددًا. احتفظ بالنسخة الأصلية حتى ينجح تسجيل الدخول.</p>
+<p>لا تستخدم خوادم Bedrock هذا التخطيط؛ إذ توجد بيانات اللاعب داخل LevelDB للعالم تحت مفاتيح مثل <code>player_&lt;uuid&gt;</code>، وتكون قيمها NBT بترتيب little-endian. استخرج إحدى القيم وستُفتح هنا بصيغة <em>Bedrock الخام</em>.</p>
 </section>
 
-<section class="content" aria-label="Frequently asked questions"><h2>Frequently Asked Questions</h2><details><summary>Which file is my player?</summary><div class="faq-body"><p>Files are named by UUID. Look the player's UUID up on a Mojang API viewer, or sort <code>playerdata/</code> by modification time and match against the last login.</p></div></details><details><summary>Can I give myself items by editing playerdata?</summary><div class="faq-body"><p>On your own server, yes — add an entry to the <code>Inventory</code> list with <code>id</code>, <code>Count</code> and <code>Slot</code>. On someone else's server that is an intrusion, and it will not work anyway because the live server rewrites the file.</p></div></details><details><summary>Why did my edit disappear?</summary><div class="faq-body"><p>The server or the player was online when you edited. Player state in memory wins on the next save.</p></div></details><details><summary>Is playerdata the same in Bedrock?</summary><div class="faq-body"><p>No. Bedrock keeps players inside the world LevelDB rather than in per-UUID files. The NBT inside those values is little-endian and opens here once extracted.</p></div></details></section>
-<section class="content" aria-label="Related tools"><h2>Related tools</h2><div class="rel-grid"><a class="rel-card" href="../java-nbt-editor/"><strong>Java Edition NBT editor</strong><span>Big-endian, gzip — Vanilla, Paper, Spigot, Fabric, Forge.</span></a><a class="rel-card" href="../"><strong>Minecraft NBT editor</strong><span>The universal editor — every edition, every NBT file type.</span></a><a class="rel-card" href="../level-dat-editor/"><strong>level.dat editor</strong><span>World name, game mode, spawn, difficulty and game rules.</span></a><a class="rel-card" href="../nbt-format/"><strong>NBT format reference</strong><span>All 13 tag types, every encoding, byte by byte.</span></a><a class="rel-card" href="../nbt-viewer/"><strong>NBT viewer</strong><span>Read-only inspection, search and SNBT export.</span></a><a class="rel-card" href="../guides/fix-corrupted-level-dat/"><strong>Fix a broken level.dat</strong><span>Diagnose why a world refuses to load, and repair it.</span></a></div></section>
+<section class="content" aria-label="الأسئلة الشائعة"><h2>الأسئلة الشائعة</h2><details><summary>أي ملف يخص لاعبي؟</summary><div class="faq-body"><p>تُسمى الملفات وفق UUID. ابحث عن UUID الخاص باللاعب باستخدام عارض Mojang API، أو رتّب مجلد <code>playerdata/</code> حسب وقت التعديل وطابقه مع آخر تسجيل دخول.</p></div></details><details><summary>هل يمكنني منح نفسي عناصر بتعديل playerdata؟</summary><div class="faq-body"><p>نعم، على خادمك؛ أضف إدخالًا إلى قائمة <code>Inventory</code> يتضمن <code>id</code> و<code>Count</code> و<code>Slot</code>. أما على خادم شخص آخر فهذا اختراق، ولن ينجح أصلًا لأن الخادم النشط يعيد كتابة الملف.</p></div></details><details><summary>لماذا اختفى تعديلي؟</summary><div class="faq-body"><p>كان الخادم أو اللاعب متصلًا عند إجراء التعديل. تتغلب حالة اللاعب الموجودة في الذاكرة عند عملية الحفظ التالية.</p></div></details><details><summary>هل تكون playerdata بالشكل نفسه في Bedrock؟</summary><div class="faq-body"><p>لا. يحتفظ Bedrock باللاعبين داخل LevelDB للعالم بدلًا من ملفات منفصلة لكل UUID. تكون بيانات NBT داخل تلك القيم بترتيب little-endian، ويمكن فتحها هنا بعد استخراجها.</p></div></details></section>
+<section class="content" aria-label="أدوات ذات صلة"><h2>أدوات مرتبطة</h2><div class="rel-grid"><a class="rel-card" href="../java-nbt-editor/"><strong>محرر NBT لإصدار Java</strong><span>big-endian وgzip — Vanilla وPaper وSpigot وFabric وForge.</span></a><a class="rel-card" href="../"><strong>محرر NBT لـ Minecraft</strong><span>محرر شامل لكل إصدارات Minecraft وجميع أنواع ملفات NBT.</span></a><a class="rel-card" href="../level-dat-editor/"><strong>محرر level.dat</strong><span>اسم العالم ونمط اللعب ونقطة الظهور والصعوبة وقواعد اللعب.</span></a><a class="rel-card" href="../nbt-format/"><strong>مرجع تنسيق NBT</strong><span>أنواع الوسوم الـ13 وجميع الترميزات، بايتًا بعد بايت.</span></a><a class="rel-card" href="../nbt-viewer/"><strong>عارض NBT</strong><span>فحص للقراءة فقط، وبحث، وتصدير SNBT.</span></a><a class="rel-card" href="../guides/fix-corrupted-level-dat/"><strong>إصلاح level.dat تالف</strong><span>شخّص سبب رفض العالم للتحميل وأصلحه.</span></a></div></section>
 </div>
 </main>
 
 <footer class="site-footer">
 <div class="container footer-grid">
-<div><h4>Editors</h4><a href="../">Minecraft NBT editor</a><a href="../level-dat-editor/">level.dat editor</a><a href="../java-nbt-editor/">Java Edition NBT editor</a><a href="../mcpe-nbt-editor/">MCPE NBT editor</a><a href="../pocketmine-nbt-editor/">PocketMine-MP editor</a></div>
-<div><h4>File types</h4><a href="../mcstructure-editor/">.mcstructure editor</a><a href="../schematic-editor/">Schematic editor</a><a href="./">playerdata editor</a><a href="../nbt-viewer/">NBT viewer</a><a href="../nbtexplorer-online/">NBTExplorer online</a></div>
-<div><h4>Reference</h4><a href="../nbt-format/">NBT format reference</a><a href="../guides/change-world-name/">Rename a world</a><a href="../guides/fix-corrupted-level-dat/">Fix a broken level.dat</a><a href="../guides/edit-gamerules/">Edit game rules</a></div>
-<div><h4>Source</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">Code on GitHub</a><a href="../../llms.txt">llms.txt</a></div>
+<div><h4>المحررات</h4><a href="../">محرر NBT لـ Minecraft</a><a href="../level-dat-editor/">محرر level.dat</a><a href="../java-nbt-editor/">محرر NBT لإصدار Java</a><a href="../mcpe-nbt-editor/">محرر NBT لـ MCPE</a><a href="../pocketmine-nbt-editor/">محرر PocketMine-MP</a></div>
+<div><h4>أنواع الملفات</h4><a href="../mcstructure-editor/">محرر .mcstructure</a><a href="../schematic-editor/">محرر Schematic</a><a href="./">محرر playerdata</a><a href="../nbt-viewer/">عارض NBT</a><a href="../nbtexplorer-online/">NBTExplorer عبر الإنترنت</a></div>
+<div><h4>المرجع</h4><a href="../nbt-format/">مرجع تنسيق NBT</a><a href="../guides/change-world-name/">إعادة تسمية عالم</a><a href="../guides/fix-corrupted-level-dat/">إصلاح level.dat تالف</a><a href="../guides/edit-gamerules/">تعديل قواعد اللعب</a></div>
+<div><h4>المصدر</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">الكود على GitHub</a><a href="../../llms.txt">llms.txt</a></div>
 </div>
-<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">آخر تحديث: 2026-09-21. محرر NBT لـ Minecraft — مجاني ومفتوح المصدر (MIT)، ويعمل بالكامل داخل المتصفح. لا يتبع Mojang Studios أو Microsoft. Minecraft علامة تجارية لـ Mojang Studios.</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
 <div class="modal-overlay" id="addTagModal">
 <div class="modal">
-<h3>Add New Tag</h3>
-<label for="newTagName">Tag Name</label>
-<input type="text" id="newTagName" placeholder="e.g. MyTag" autocomplete="off">
-<label for="newTagType">Tag Type</label>
+<h3>إضافة وسم جديد</h3>
+<label for="newTagName">اسم الوسم</label>
+<input type="text" id="newTagName" placeholder="مثلًا MyTag" autocomplete="off">
+<label for="newTagType">نوع الوسم</label>
 <select id="newTagType">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -200,10 +215,10 @@
 <option value="11">TAG_Int_Array</option>
 <option value="12">TAG_Long_Array</option>
 </select>
-<label for="newTagValue">Value</label>
-<input type="text" id="newTagValue" placeholder="Value" autocomplete="off">
+<label for="newTagValue">القيمة</label>
+<input type="text" id="newTagValue" placeholder="القيمة" autocomplete="off">
 <div id="listSubtypeRow" style="display:none">
-<label for="newListSubtype">List Element Type</label>
+<label for="newListSubtype">نوع عناصر القائمة</label>
 <select id="newListSubtype">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -220,24 +235,24 @@
 </select>
 </div>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="addTagCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="addTagConfirm">Add</button>
+<button class="btn-cancel" type="button" id="addTagCancel">إلغاء</button>
+<button class="btn-confirm" type="button" id="addTagConfirm">إضافة</button>
 </div>
 </div>
 </div>
 
 <div class="modal-overlay" id="arrayModal">
 <div class="modal">
-<h3 id="arrayModalTitle">Edit Array</h3>
-<label for="arrayModalText">Comma-separated values</label>
+<h3 id="arrayModalTitle">تعديل المصفوفة</h3>
+<label for="arrayModalText">قيم مفصولة بفواصل</label>
 <textarea id="arrayModalText" spellcheck="false" autocomplete="off"></textarea>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="arrayModalCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="arrayModalConfirm">Apply</button>
+<button class="btn-cancel" type="button" id="arrayModalCancel">إلغاء</button>
+<button class="btn-confirm" type="button" id="arrayModalConfirm">تطبيق</button>
 </div>
 </div>
 </div>
 
-<script src="../../assets/nbt.js?v=da7967b1" defer></script>
+<script src="../../assets/nbt.js?v=6f125422" defer></script>
 </body>
 </html>

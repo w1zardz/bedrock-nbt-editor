@@ -3,79 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Minecraft playerdata Editor — Edit player .dat Files Online</title>
-<meta name="description" content="Edit Minecraft playerdata .dat files online: fix a stuck player position, drop a corrupted inventory item, adjust health, XP or game mode.">
-<meta name="keywords" content="playerdata editor, minecraft player.dat editor, edit player inventory nbt, player data nbt editor, uuid.dat minecraft, stuck player position fix, minecraft inventory editor online">
-<meta name="robots" content="noindex, follow">
+<title>Minecraft playerdata Düzenleyici — Oyuncu .dat</title>
+<meta name="description" content="Minecraft playerdata .dat dosyasını çevrimiçi düzenleyin: takılan oyuncu konumunu düzeltin, bozuk eşyayı silin; sağlık, XP veya oyun modunu ayarlayın.">
+<meta name="keywords" content="playerdata editör, minecraft player.dat düzenleme, oyuncu envanteri nbt, uuid.dat minecraft, takılan oyuncu konumu düzeltme, minecraft inventory editor">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="author" content="w1zardz">
 <link rel="canonical" href="https://w1zardz.github.io/bedrock-nbt-editor/tr/playerdata-editor/">
+<link rel="alternate" hreflang="en" href="https://w1zardz.github.io/bedrock-nbt-editor/playerdata-editor/">
+<link rel="alternate" hreflang="ru" href="https://w1zardz.github.io/bedrock-nbt-editor/ru/playerdata-editor/">
+<link rel="alternate" hreflang="es" href="https://w1zardz.github.io/bedrock-nbt-editor/es/playerdata-editor/">
+<link rel="alternate" hreflang="pt-BR" href="https://w1zardz.github.io/bedrock-nbt-editor/pt-br/playerdata-editor/">
+<link rel="alternate" hreflang="de" href="https://w1zardz.github.io/bedrock-nbt-editor/de/playerdata-editor/">
+<link rel="alternate" hreflang="fr" href="https://w1zardz.github.io/bedrock-nbt-editor/fr/playerdata-editor/">
+<link rel="alternate" hreflang="it" href="https://w1zardz.github.io/bedrock-nbt-editor/it/playerdata-editor/">
+<link rel="alternate" hreflang="pl" href="https://w1zardz.github.io/bedrock-nbt-editor/pl/playerdata-editor/">
+<link rel="alternate" hreflang="uk" href="https://w1zardz.github.io/bedrock-nbt-editor/uk/playerdata-editor/">
+<link rel="alternate" hreflang="tr" href="https://w1zardz.github.io/bedrock-nbt-editor/tr/playerdata-editor/">
+<link rel="alternate" hreflang="id" href="https://w1zardz.github.io/bedrock-nbt-editor/id/playerdata-editor/">
+<link rel="alternate" hreflang="vi" href="https://w1zardz.github.io/bedrock-nbt-editor/vi/playerdata-editor/">
+<link rel="alternate" hreflang="th" href="https://w1zardz.github.io/bedrock-nbt-editor/th/playerdata-editor/">
+<link rel="alternate" hreflang="zh-Hans" href="https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/playerdata-editor/">
+<link rel="alternate" hreflang="ja" href="https://w1zardz.github.io/bedrock-nbt-editor/ja/playerdata-editor/">
+<link rel="alternate" hreflang="ko" href="https://w1zardz.github.io/bedrock-nbt-editor/ko/playerdata-editor/">
+<link rel="alternate" hreflang="ar" href="https://w1zardz.github.io/bedrock-nbt-editor/ar/playerdata-editor/">
 <link rel="alternate" hreflang="x-default" href="https://w1zardz.github.io/bedrock-nbt-editor/playerdata-editor/">
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="../../favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <link rel="manifest" href="../../site.webmanifest">
 <meta property="og:type" content="article">
-<meta property="og:title" content="playerdata editor — inventory, position, stats">
-<meta property="og:description" content="Edit Minecraft playerdata .dat files online: fix a stuck player position, drop a corrupted inventory item, adjust health, XP or game mode.">
+<meta property="og:title" content="playerdata düzenleyici — envanter, konum, istatistik">
+<meta property="og:description" content="Minecraft playerdata .dat dosyasını çevrimiçi düzenleyin: takılan oyuncu konumunu düzeltin, bozuk eşyayı silin; sağlık, XP veya oyun modunu ayarlayın.">
 <meta property="og:url" content="https://w1zardz.github.io/bedrock-nbt-editor/tr/playerdata-editor/">
-<meta property="og:site_name" content="Minecraft NBT Editor">
+<meta property="og:site_name" content="Minecraft NBT Düzenleyici">
 <meta property="og:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/playerdata.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="tr_TR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="playerdata editor — inventory, position, stats">
-<meta name="twitter:description" content="Edit Minecraft playerdata .dat files online: fix a stuck player position, drop a corrupted inventory item, adjust health, XP or game mode.">
+<meta name="twitter:title" content="playerdata düzenleyici — envanter, konum, istatistik">
+<meta name="twitter:description" content="Minecraft playerdata .dat dosyasını çevrimiçi düzenleyin: takılan oyuncu konumunu düzeltin, bozuk eşyayı silin; sağlık, XP veya oyun modunu ayarlayın.">
 <meta name="twitter:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/playerdata.png">
-<meta property="article:modified_time" content="2026-08-26">
-<meta property="og:updated_time" content="2026-08-26">
+<meta property="article:modified_time" content="2026-09-21">
+<meta property="og:updated_time" content="2026-09-21">
 <meta name="theme-color" content="#0d1117">
-<meta name="application-name" content="Minecraft NBT Editor">
-<meta name="apple-mobile-web-app-title" content="NBT Editor">
-<link rel="preload" href="../../assets/nbt.js?v=da7967b1" as="script">
-<script>window.__LANG_URLS__={"en":"../../playerdata-editor/","ru":"../../ru/playerdata-editor/","es":"../../es/playerdata-editor/","pt-br":"../../pt-br/playerdata-editor/","de":"../../de/playerdata-editor/","fr":"../../fr/playerdata-editor/","it":"../../it/playerdata-editor/","pl":"../../pl/playerdata-editor/","uk":"../../uk/playerdata-editor/","tr":"./","id":"../../id/playerdata-editor/","vi":"../../vi/playerdata-editor/","th":"../../th/playerdata-editor/","zh-hans":"../../zh-hans/playerdata-editor/","ja":"../../ja/playerdata-editor/","ko":"../../ko/playerdata-editor/","ar":"../../ar/playerdata-editor/"};window.__NBT_STRINGS__={"loaded":"Loaded as {0}","trailing":"{0} trailing byte(s) after the root tag were ignored","error":"Error: {0}","readfail":"Could not read the file","nofile":"No file loaded","saved":"Saved {0} ({1}, {2})","savefail":"Save error: {0}","exported":"Exported {0}","snbtfail":"SNBT error: {0}","tagadded":"Tag added","tagremoved":"Tag removed","arrayupdated":"Array updated","badvalue":"Invalid value: {0}","badarray":"Invalid array: {0}","nameneeded":"Tag name is required","nametaken":"A tag named {0} already exists here","listtype":"List already holds {0} entries","editlevelname":"✎ Edit LevelName","showmore":"Show {0} more of {1} …","matches":"{0} match(es)","nomatch":"No tag matches \"{0}\"","arraytoobig":"Array has {0} entries — expand it and edit elements individually","uncompressed":"uncompressed","storage":"storage v{0}","entries":"{0} entries","langprompt":"Open this page in {0}?","langyes":"Switch","langno":"Stay"};</script>
-<script src="../../assets/lang.js?v=a3a1db0e" defer></script>
+<meta name="application-name" content="Minecraft NBT Düzenleyici">
+<meta name="apple-mobile-web-app-title" content="NBT Düzenleyici">
+<link rel="preload" href="../../assets/nbt.js?v=6f125422" as="script">
+<script>window.__LANG_URLS__={"en":"../../playerdata-editor/","ru":"../../ru/playerdata-editor/","es":"../../es/playerdata-editor/","pt-br":"../../pt-br/playerdata-editor/","de":"../../de/playerdata-editor/","fr":"../../fr/playerdata-editor/","it":"../../it/playerdata-editor/","pl":"../../pl/playerdata-editor/","uk":"../../uk/playerdata-editor/","tr":"./","id":"../../id/playerdata-editor/","vi":"../../vi/playerdata-editor/","th":"../../th/playerdata-editor/","zh-hans":"../../zh-hans/playerdata-editor/","ja":"../../ja/playerdata-editor/","ko":"../../ko/playerdata-editor/","ar":"../../ar/playerdata-editor/"};window.__NBT_STRINGS__={"loaded":"{0} olarak yüklendi","trailing":"Kök etiketten sonraki {0} ek bayt yok sayıldı","error":"Hata: {0}","readfail":"Dosya okunamadı","nofile":"Dosya yüklenmedi","saved":"{0} kaydedildi ({1}, {2})","savefail":"Kaydetme hatası: {0}","exported":"{0} dışa aktarıldı","snbtfail":"SNBT hatası: {0}","tagadded":"Etiket eklendi","tagremoved":"Etiket kaldırıldı","arrayupdated":"Dizi güncellendi","badvalue":"Geçersiz değer: {0}","badarray":"Geçersiz dizi: {0}","nameneeded":"Etiket adı gerekli","nametaken":"Burada {0} adlı bir etiket zaten var","listtype":"Liste zaten {0} türünde öğeler içeriyor","editlevelname":"✎ LevelName değerini düzenle","showmore":"{1} öğeden {0} tane daha göster …","matches":"{0} eşleşme","nomatch":"“{0}” ile eşleşen etiket yok","arraytoobig":"Dizide {0} öğe var — diziyi genişletip öğeleri ayrı ayrı düzenleyin","uncompressed":"sıkıştırılmamış","storage":"depolama v{0}","entries":"{0} öğe","langprompt":"Bu sayfa {0} dilinde açılsın mı?","langyes":"Geç","langno":"Kal","nav_editor":"Düzenleyici","nav_format":"NBT biçimi","language":"Dil: {0}","beta":"beta","skip_editor":"Düzenleyiciye geç","brand_editor":"NBT Düzenleyici","guides":"Kılavuzlar","updated":"Son güncelleme: {0}.","drop":"{0} öğesini buraya bırakın","choose_file":"Dosya seç","file_hint":"level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · chunk dökümleri","output_format":"Çıktı biçimi","format_java":"Java — big-endian, adlandırılmış kök","format_java_network":"Java ağ biçimi — big-endian, adsız kök","format_bedrock_level":"Bedrock level.dat — little-endian + 8 baytlık başlık","format_bedrock":"Bedrock ham biçimi — little-endian","format_bedrock_network":"Bedrock ağ biçimi — little-endian varint","compression":"Sıkıştırma","compression_none":"Yok (ham veri)","search_placeholder":"Etiket adı veya değeri ara…","search":"Ara","collapse":"Tümünü daralt","add_tag":"+ Etiket ekle","save_download":"Kaydet ve indir","export_snbt":"SNBT olarak dışa aktar","close":"Kapat","add_new_tag":"Yeni etiket ekle","tag_name":"Etiket adı","tag_type":"Etiket türü","tag_example":"Ör. MyTag","value":"Değer","list_element_type":"Liste öğesi türü","cancel":"İptal","add":"Ekle","edit_array":"Diziyi düzenle","comma_values":"Virgülle ayrılmış değerler","apply":"Uygula","format_label_java":"Java big-endian","format_label_java_network":"Java ağ biçimi (adsız kök)","format_label_bedrock_level":"Bedrock level.dat (8 baytlık başlık)","format_label_bedrock":"Bedrock little-endian","format_label_bedrock_network":"Bedrock ağ biçimi (varint)","err_decompress":"Bu tarayıcı {0} sıkıştırmasını açamıyor (Compression Streams API yok)","err_compress":"Bu tarayıcı {0} biçiminde sıkıştıramıyor (Compression Streams API yok)","err_stream":"{0} sıkıştırması işlenemedi","err_end":"{0} konumunda beklenmeyen veri sonu","err_tag_limit":"Etiket sayısı sınırı aşıldı","err_varint":"VarInt çok uzun","err_varlong":"VarLong çok uzun","err_negative_array":"Negatif dizi uzunluğu: {0}","err_array_length":"{0} dizi uzunluğu kalan veri miktarını aşıyor","err_negative_list":"Negatif liste uzunluğu","err_end_list":"{0} öğe içeren TAG_End listesi","err_list_type":"Bilinmeyen liste öğesi türü: {0}","err_tag_type":"Bilinmeyen etiket türü: {0}","err_root":"Kök etiket TAG_Compound olmalıdır; alınan tür: {0}","err_string_length":"Dize bu biçim için çok uzun: {0} bayt","err_write_type":"{0} türündeki etiket yazılamıyor","err_header_short":"Başlık için yeterli veri yok","err_storage_version":"Geçersiz depolama sürümü: {0}","err_header_length":"Başlıktaki {0} uzunluğu veri boyutunu aşıyor","err_unknown_file":"NBT dosyası tanınamadı (Java, Bedrock, ağ ve başlıklı biçimler denendi)","err_file_small":"Dosya NBT verisi içeremeyecek kadar küçük","err_byte":"Byte değeri -128..127 aralığında olmalıdır","err_short":"Short değeri -32768..32767 aralığında olmalıdır","err_int":"Int değeri -2147483648..2147483647 aralığında olmalıdır","err_long":"Long değeri 64 bit aralığının dışında","err_float":"Geçersiz float değeri","err_double":"Geçersiz double değeri","err_not_inline":"Bu etiket türü doğrudan satır içinde düzenlenemez","err_array_byte":"Geçersiz byte değeri: {0}","err_array_int":"Geçersiz int değeri: {0}","err_array_long":"Geçersiz 64 bit tamsayı: {0}","root":"(kök)","add_child":"Alt etiket ekle","remove_tag":"Etiketi sil","array":"Dizi","array_bytes":"[{0} bayt]","array_ints":"[{0} int]","array_longs":"[{0} long]","entries_type":"{1} türünde {0} öğe","unknown_error":"İşlem tamamlanamadı","software_name":"Minecraft NBT Düzenleyici","software_alternate_online":"Çevrimiçi NBT Düzenleyici","software_alternate_bedrock":"Bedrock NBT Düzenleyici","software_alternate_level":"level.dat düzenleyici","software_subcategory":"Oyun dosyası düzenleyici","software_os":"Her işletim sistemi (tarayıcı)","software_browser":"BigInt ve Compression Streams destekleyen güncel bir tarayıcı","feature_java":"Java Edition big-endian NBT biçimi","feature_bedrock":"Bedrock Edition little-endian NBT biçimi","feature_bedrock_network":"Bedrock ağ NBT biçimi (varint)","feature_java_network":"Java ağ NBT biçimi (adsız kök)","feature_compression":"gzip ve zlib sıkıştırması","feature_types":"64 bit hassasiyetle 13 NBT etiket türünün tümü","feature_snbt":"SNBT dışa aktarma","feature_local":"Tamamen kullanıcının cihazında çalışır","schema_about":"Minecraft NBT veri biçimi","not_found_title":"Sayfa bulunamadı — {0}","not_found_heading":"404 — sayfa taşındı veya hiç var olmadı","not_found_intro":"Düzenleyiciye hâlâ tek tıklamayla ulaşabilirsiniz. Tüm araçların kalıcı bağlantıları aşağıdadır.","not_found_footer":"{0} — ücretsiz ve açık kaynaklıdır.","aria_bedrock_gamerules":"Bedrock oyun kuralları","aria_bedrock_level_dat_header":"Bedrock level.dat başlığı","aria_bedrock_tags":"Bedrock etiketleri","aria_breadcrumb":"Gezinti yolu","aria_byte_walkthrough":"Bayt bayt inceleme","aria_causes":"Nedenler","aria_common_repairs":"Yaygın onarımlar","aria_comparison":"Karşılaştırma","aria_compatibility":"Uyumluluk","aria_compression":"Sıkıştırma","aria_core_specifics":"Sunucu çekirdeklerine özgü ayrıntılar","aria_dataversion":"DataVersion","aria_drop_an_nbt_file_here_or_click_to_browse":"Bir NBT dosyasını buraya bırakın veya seçmek için tıklayın","aria_duplicate_world_names":"Aynı dünya adları","aria_editing_schematics":"Şemaları düzenleme","aria_encodings":"Kodlama biçimleri","aria_features":"Özellikler","aria_file_types":"Dosya türleri","aria_frequently_asked_questions":"Sık sorulan sorular","aria_how_to_use":"Kullanım","aria_inside_a_mcstructure_file":"mcstructure dosyasının içeriği","aria_introduction":"Giriş","aria_java_nbt_encoding":"Java NBT kodlaması","aria_java_nbt_files":"Java NBT dosyaları","aria_java_gamerules":"Java oyun kuralları","aria_migrating":"Veri taşıma","aria_other_bedrock_nbt":"Diğer Bedrock NBT dosyaları","aria_other_tools":"Diğer araçlar","aria_per_platform":"Platforma göre ayrıntılar","aria_prevention":"Sorunları önleme","aria_related_tools":"İlgili araçlar","aria_snbt":"SNBT","aria_safety":"Güvenlik","aria_salvage":"Veri kurtarma","aria_schematic_formats":"Şema biçimleri","aria_scripting":"Betik yazma","aria_search_nbt_tags":"NBT etiketlerinde ara","aria_server_cores":"Sunucu çekirdekleri","aria_server_safety":"Sunucu güvenliği","aria_server_workflow":"Sunucuda çalışma adımları","aria_strings":"Dizeler","aria_supported_files":"Desteklenen dosyalar","aria_supported_server_software":"Desteklenen sunucu yazılımları","aria_tag_types":"Etiket türleri","aria_tags_in_level_dat":"level.dat içindeki etiketler","aria_tools":"Araçlar","aria_troubleshooting":"Sorun giderme","aria_typical_edits":"Yaygın düzenlemeler","aria_what_you_can_inspect":"İncelenebilecek veriler","aria_where_bedrock_files_live":"Bedrock dosyalarının konumu","aria_where_mcstructure_files_live":"mcstructure dosyalarının konumu","aria_where_to_find_level_dat":"level.dat dosyasının konumu","aria_why_edit_the_file":"Dosyayı düzenleme nedenleri","aria_why_the_folder_name_is_not_the_world_name":"Klasör adı neden dünya adı değildir?","aria_playerdata_tags":"playerdata etiketleri","toggle":"Genişlet veya daralt"};</script>
+<script src="../../assets/lang.js?v=23a64b2c" defer></script>
 <link rel="stylesheet" href="../../assets/app.css?v=f5bdcb0f">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Minecraft playerdata Editor \u2014 Edit player .dat Files Online","headline":"playerdata Editor \u2014 Minecraft Player .dat Files","description":"Edit Minecraft playerdata .dat files online: fix a stuck player position, drop a corrupted inventory item, adjust health, XP or game mode.","url":"https://w1zardz.github.io/bedrock-nbt-editor/tr/playerdata-editor/","inLanguage":"tr","datePublished":"2026-05-29","dateModified":"2026-08-26","isPartOf":{"@type":"WebSite","name":"Minecraft NBT Editor","url":"https://w1zardz.github.io/bedrock-nbt-editor/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/playerdata.png"},"about":{"@type":"Thing","name":"Minecraft NBT data format"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT Editor","item":"https://w1zardz.github.io/bedrock-nbt-editor/tr/"},{"@type":"ListItem","position":2,"name":"playerdata Editor \u2014 Minecraft Player .dat Files","item":"https://w1zardz.github.io/bedrock-nbt-editor/tr/playerdata-editor/"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which file is my player?","acceptedAnswer":{"@type":"Answer","text":"Files are named by UUID. Look the player's UUID up on a Mojang API viewer, or sort playerdata/ by modification time and match against the last login."}},{"@type":"Question","name":"Can I give myself items by editing playerdata?","acceptedAnswer":{"@type":"Answer","text":"On your own server, yes \u2014 add an entry to the Inventory list with id, Count and Slot. On someone else's server that is an intrusion, and it will not work anyway because the live server rewrites the file."}},{"@type":"Question","name":"Why did my edit disappear?","acceptedAnswer":{"@type":"Answer","text":"The server or the player was online when you edited. Player state in memory wins on the next save."}},{"@type":"Question","name":"Is playerdata the same in Bedrock?","acceptedAnswer":{"@type":"Answer","text":"No. Bedrock keeps players inside the world LevelDB rather than in per-UUID files. The NBT inside those values is little-endian and opens here once extracted."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Minecraft playerdata Düzenleyici — Oyuncu .dat","headline":"playerdata Düzenleyici — Minecraft Oyuncu .dat","description":"Minecraft playerdata .dat dosyasını çevrimiçi düzenleyin: takılan oyuncu konumunu düzeltin, bozuk eşyayı silin; sağlık, XP veya oyun modunu ayarlayın.","url":"https://w1zardz.github.io/bedrock-nbt-editor/tr/playerdata-editor/","inLanguage":"tr","datePublished":"2026-05-29","dateModified":"2026-09-21","isPartOf":{"@type":"WebSite","name":"Minecraft NBT Düzenleyici","url":"https://w1zardz.github.io/bedrock-nbt-editor/tr/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/playerdata.png"},"about":{"@type":"Thing","name":"Minecraft NBT veri biçimi"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT Düzenleyici","item":"https://w1zardz.github.io/bedrock-nbt-editor/tr/"},{"@type":"ListItem","position":2,"name":"playerdata Düzenleyici — Minecraft Oyuncu .dat","item":"https://w1zardz.github.io/bedrock-nbt-editor/tr/playerdata-editor/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Hangi dosya benim oyuncuma ait?","acceptedAnswer":{"@type":"Answer","text":"Dosyalar UUID ile adlandırılır. Oyuncunun UUID’sini Mojang API görüntüleyicisinden bulun veya playerdata/ klasörünü değiştirme zamanına göre sıralayıp son girişle eşleştirin."}},{"@type":"Question","name":"playerdata düzenleyerek kendime eşya verebilir miyim?","acceptedAnswer":{"@type":"Answer","text":"Kendi sunucunuzda evet: Inventory listesine id, Count ve Slot içeren girdi ekleyin. Başkasının sunucusunda bu yetkisiz erişimdir ve canlı sunucu dosyayı yeniden yazdığı için çalışmaz."}},{"@type":"Question","name":"Düzenlemem neden kayboldu?","acceptedAnswer":{"@type":"Answer","text":"Düzenleme sırasında sunucu veya oyuncu çevrimiçiydi. Bir sonraki kayıtta bellekteki oyuncu durumu geçerli olur."}},{"@type":"Question","name":"Bedrock’ta playerdata aynı mı?","acceptedAnswer":{"@type":"Answer","text":"Hayır. Bedrock oyuncuları UUID başına dosyalarda değil, dünya LevelDB’sinde tutar. Bu değerlerin içindeki NBT little-endian’dır ve çıkarıldıktan sonra burada açılır."}}]}</script>
 </head>
 <body>
-<a class="skip-link" href="#editor">Skip to the editor</a>
+<a class="skip-link" href="#editor">Düzenleyiciye geç</a>
 <header class="site-header">
 <div class="container">
-<a class="brand" href="../"><span>Minecraft</span> NBT Editor</a>
+<a class="brand" href="../"><span>Minecraft</span> NBT Düzenleyici</a>
 <span class="badge">Java + Bedrock</span>
-<nav class="site-nav" aria-label="Tools">
-<a href="../">Editor</a>
+<nav class="site-nav" aria-label="Araçlar">
+<a href="../">Düzenleyici</a>
 <a href="../level-dat-editor/">level.dat</a>
 <a href="../java-nbt-editor/">Java</a>
 <a href="../mcpe-nbt-editor/">Bedrock</a>
 <a href="../mcstructure-editor/">.mcstructure</a>
 <a href="../schematic-editor/">.schem</a>
 <a href="./" class="active">playerdata</a>
-<a href="../nbt-format/">NBT format</a>
+<a href="../nbt-format/">NBT biçimi</a>
 </nav>
-<details class="lang-switch"><summary title="Language: Türkçe" aria-label="Language: Türkçe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">Language: Türkçe</span></summary><div class="lang-menu"><a href="./" hreflang="tr" data-lang="tr" aria-current="true" class="current">Türkçe</a><a href="../../playerdata-editor/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../ru/playerdata-editor/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../es/playerdata-editor/" hreflang="es" data-lang="es" rel="alternate">Español (beta)</a><a href="../../pt-br/playerdata-editor/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR) (beta)</a><a href="../../de/playerdata-editor/" hreflang="de" data-lang="de" rel="alternate">Deutsch (beta)</a><a href="../../fr/playerdata-editor/" hreflang="fr" data-lang="fr" rel="alternate">Français (beta)</a><a href="../../it/playerdata-editor/" hreflang="it" data-lang="it" rel="alternate">Italiano (beta)</a><a href="../../pl/playerdata-editor/" hreflang="pl" data-lang="pl" rel="alternate">Polski (beta)</a><a href="../../uk/playerdata-editor/" hreflang="uk" data-lang="uk" rel="alternate">Українська (beta)</a><a href="../../id/playerdata-editor/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia (beta)</a><a href="../../vi/playerdata-editor/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt (beta)</a><a href="../../th/playerdata-editor/" hreflang="th" data-lang="th" rel="alternate">ไทย (beta)</a><a href="../../zh-hans/playerdata-editor/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文 (beta)</a><a href="../../ja/playerdata-editor/" hreflang="ja" data-lang="ja" rel="alternate">日本語 (beta)</a><a href="../../ko/playerdata-editor/" hreflang="ko" data-lang="ko" rel="alternate">한국어 (beta)</a><a href="../../ar/playerdata-editor/" hreflang="ar" data-lang="ar" rel="alternate">العربية (beta)</a></div></details>
+<details class="lang-switch"><summary title="Dil: Türkçe" aria-label="Dil: Türkçe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">Dil: Türkçe</span></summary><div class="lang-menu"><a href="./" hreflang="tr" data-lang="tr" aria-current="true" class="current">Türkçe</a><a href="../../playerdata-editor/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../ru/playerdata-editor/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../es/playerdata-editor/" hreflang="es" data-lang="es" rel="alternate">Español</a><a href="../../pt-br/playerdata-editor/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR)</a><a href="../../de/playerdata-editor/" hreflang="de" data-lang="de" rel="alternate">Deutsch</a><a href="../../fr/playerdata-editor/" hreflang="fr" data-lang="fr" rel="alternate">Français</a><a href="../../it/playerdata-editor/" hreflang="it" data-lang="it" rel="alternate">Italiano</a><a href="../../pl/playerdata-editor/" hreflang="pl" data-lang="pl" rel="alternate">Polski</a><a href="../../uk/playerdata-editor/" hreflang="uk" data-lang="uk" rel="alternate">Українська</a><a href="../../id/playerdata-editor/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia</a><a href="../../vi/playerdata-editor/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt</a><a href="../../th/playerdata-editor/" hreflang="th" data-lang="th" rel="alternate">ไทย</a><a href="../../zh-hans/playerdata-editor/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文</a><a href="../../ja/playerdata-editor/" hreflang="ja" data-lang="ja" rel="alternate">日本語</a><a href="../../ko/playerdata-editor/" hreflang="ko" data-lang="ko" rel="alternate">한국어</a><a href="../../ar/playerdata-editor/" hreflang="ar" data-lang="ar" rel="alternate">العربية</a></div></details>
 </div>
 </header>
 <main>
-<nav class="breadcrumbs container" aria-label="Breadcrumb"><a href="../">NBT Editor</a> <span class="sep">/</span> <span>playerdata</span></nav>
-<section class="hero" aria-label="Introduction">
+<nav class="breadcrumbs container" aria-label="Gezinti yolu"><a href="../">NBT Düzenleyici</a> <span class="sep">/</span> <span>playerdata</span></nav>
+<section class="hero" aria-label="Giriş">
 <div class="container">
-<h1>playerdata Editor — Minecraft Player .dat Files</h1>
-<p class="support-line"><strong>Supports Minecraft Bedrock Edition and Java Edition</strong> — and every server core for both, popular or obscure: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina and the rest. <a href="../#server-software">Full list</a>.</p>
-<p class="lede">Java Edition writes one gzip big-endian NBT file per player in <code>world/playerdata/&lt;uuid&gt;.dat</code>, holding inventory, ender chest, position, dimension, health, hunger, XP and attributes. Drop one below to fix a player stuck inside terrain, drop a crash-inducing item, or reset stats — with the server stopped, or at least with that player offline.</p>
-<div class="chips"><span class="chip">Java playerdata</span><span class="chip">Ender chest</span><span class="chip">Inventory</span><span class="chip">Position</span><span class="chip">Attributes</span><span class="chip">Advancement-adjacent</span></div>
+<h1>playerdata Düzenleyici — Minecraft Oyuncu .dat</h1>
+<p class="support-line"><strong>Minecraft Bedrock Edition ve Java Edition desteği</strong> — her iki sürümün yaygın veya az bilinen tüm sunucu çekirdekleriyle: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina ve diğerleri. <a href="../#server-software">Tam liste</a>.</p>
+<p class="lede">Java Edition, her oyuncu için <code>world/playerdata/&lt;uuid&gt;.dat</code>, envanter, ender chest, konum, dimension, sağlık, açlık, XP ve nitelikleri tutar. Sıkışan oyuncuyu düzeltmek, çökme yaratan eşyayı silmek veya istatistikleri sıfırlamak için dosyayı aşağıya bırakın; sunucu durmalı veya oyuncu çevrimdışı olmalıdır.</p>
+<div class="chips"><span class="chip">Java playerdata</span><span class="chip">Ender sandığı</span><span class="chip">Envanter</span><span class="chip">Konum</span><span class="chip">Nitelikler</span><span class="chip">Advancement ile ilişkili</span></div>
 </div>
 </section>
 <div id="editor">
 
-<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="Drop an NBT file here or click to browse">
+<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="Bir NBT dosyasını buraya bırakın veya seçmek için tıklayın">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 16V4m0 0L8 8m4-4l4 4"/><path d="M20 16v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2"/></svg>
-<p>Drop <strong>a playerdata .dat file</strong> here</p>
-<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">Choose File</button>
-<span class="hint">level.dat &middot; .nbt &middot; .mcstructure &middot; .schem &middot; .schematic &middot; .dat &middot; chunk dumps</span>
+<p><strong>bir playerdata .dat dosyası</strong> öğesini buraya bırakın</p>
+<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">Dosya seç</button>
+<span class="hint">level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · chunk dökümleri</span>
 <input type="file" id="fileInput">
 </div>
 
@@ -83,18 +100,16 @@
 <div class="file-info" id="fileInfo"></div>
 
 <div class="out-bar" id="outBar">
-<label>Output format
-<select id="outFormat">
-<option value="java">Java — big-endian, named root</option>
-<option value="java-network">Java network — big-endian, nameless root</option>
-<option value="bedrock-level">Bedrock level.dat — little-endian + 8-byte header</option>
-<option value="bedrock">Bedrock raw — little-endian</option>
-<option value="bedrock-network">Bedrock network — little-endian varint</option>
+<label>Çıktı biçimi<select id="outFormat">
+<option value="java">Java — big-endian, adlandırılmış kök</option>
+<option value="java-network">Java ağ biçimi — big-endian, adsız kök</option>
+<option value="bedrock-level">Bedrock level.dat — little-endian + 8 baytlık başlık</option>
+<option value="bedrock">Bedrock ham biçimi — little-endian</option>
+<option value="bedrock-network">Bedrock ağ biçimi — little-endian varint</option>
 </select>
 </label>
-<label>Compression
-<select id="outCompression">
-<option value="none">None (raw)</option>
+<label>Sıkıştırma<select id="outCompression">
+<option value="none">Yok (ham veri)</option>
 <option value="gzip">gzip</option>
 <option value="zlib">zlib (deflate)</option>
 </select>
@@ -102,9 +117,9 @@
 </div>
 
 <div class="search-bar">
-<input type="search" id="searchInput" placeholder="Search tag name or value…" autocomplete="off" spellcheck="false" aria-label="Search NBT tags">
-<button type="button" id="btnSearch">Search</button>
-<button type="button" id="btnCollapse">Collapse all</button>
+<input type="search" id="searchInput" placeholder="Etiket adı veya değeri ara…" autocomplete="off" spellcheck="false" aria-label="NBT etiketlerinde ara">
+<button type="button" id="btnSearch">Ara</button>
+<button type="button" id="btnCollapse">Tümünü daralt</button>
 </div>
 <div class="search-results" id="searchResults"></div>
 
@@ -112,80 +127,80 @@
 </div>
 
 <div class="bottom-bar" id="bottomBar">
-<button class="btn-add" id="btnAddRoot" type="button">+ Add Tag</button>
-<button class="btn-save" id="btnSave" type="button">Save &amp; Download</button>
-<button class="btn-snbt" id="btnSnbt" type="button">Export SNBT</button>
-<button class="btn-close" id="btnCloseFile" type="button">Close</button>
+<button class="btn-add" id="btnAddRoot" type="button">+ Etiket ekle</button>
+<button class="btn-save" id="btnSave" type="button">Kaydet ve indir</button>
+<button class="btn-snbt" id="btnSnbt" type="button">SNBT olarak dışa aktar</button>
+<button class="btn-close" id="btnCloseFile" type="button">Kapat</button>
 </div>
 
 </div>
 <div id="contentSections">
 
-<section class="content" aria-label="playerdata tags">
-<h2 id="the-tags-in-a-player-file">The tags in a player file</h2>
+<section class="content" aria-label="playerdata etiketleri">
+<h2 id="the-tags-in-a-player-file">Oyuncu dosyasındaki etiketler</h2>
 <div class="table-wrap">
 <table class="matrix">
-<thead><tr><th>Tag</th><th>Type</th><th>What it is</th></tr></thead>
+<thead><tr><th>Etiket</th><th>Tür</th><th>İçerik</th></tr></thead>
 <tbody>
-<tr><td><code>Pos</code></td><td>List of Double</td><td>X, Y, Z. The fix for a player stuck in a wall or below bedrock.</td></tr>
-<tr><td><code>Rotation</code></td><td>List of Float</td><td>Yaw and pitch.</td></tr>
-<tr><td><code>Dimension</code></td><td>String / Int</td><td>Which dimension the player logs into.</td></tr>
-<tr><td><code>Inventory</code></td><td>List of Compound</td><td>One entry per stack: <code>id</code>, <code>Count</code>, <code>Slot</code>, <code>components</code> or <code>tag</code>.</td></tr>
-<tr><td><code>EnderItems</code></td><td>List of Compound</td><td>Ender chest contents, same shape.</td></tr>
-<tr><td><code>Health</code>, <code>foodLevel</code>, <code>XpLevel</code>, <code>XpTotal</code></td><td>Float / Int</td><td>Vitals and experience.</td></tr>
-<tr><td><code>playerGameType</code></td><td>Int</td><td>Per-player game mode.</td></tr>
-<tr><td><code>abilities</code></td><td>Compound</td><td>Flying, invulnerable, walk and fly speed.</td></tr>
-<tr><td><code>Attributes</code></td><td>List of Compound</td><td>Max health, movement speed and other modifiers.</td></tr>
-<tr><td><code>SpawnX</code>/<code>SpawnY</code>/<code>SpawnZ</code> or <code>respawn</code></td><td>Int / Compound</td><td>Personal respawn point, depending on version.</td></tr>
-<tr><td><code>UUID</code></td><td>Int[4]</td><td>The player's UUID as four ints in modern versions.</td></tr>
+<tr><td><code>Pos</code></td><td>Double listesi</td><td>X, Y, Z. Duvara veya bedrock altına sıkışan oyuncunun düzeltmesi.</td></tr>
+<tr><td><code>Rotation</code></td><td>Float listesi</td><td>Yaw ve pitch.</td></tr>
+<tr><td><code>Dimension</code></td><td>String / Int</td><td>Oyuncunun giriş yaptığı dimension.</td></tr>
+<tr><td><code>Inventory</code></td><td>Compound listesi</td><td>Her stack için bir girdi: <code>id</code>, <code>Count</code>, <code>Slot</code>, <code>components</code> veya <code>tag</code>.</td></tr>
+<tr><td><code>EnderItems</code></td><td>Compound listesi</td><td>Aynı yapıdaki ender chest içeriği.</td></tr>
+<tr><td><code>Health</code>, <code>foodLevel</code>, <code>XpLevel</code>, <code>XpTotal</code></td><td>Float / Int</td><td>Hayati değerler ve deneyim.</td></tr>
+<tr><td><code>playerGameType</code></td><td>Int</td><td>Oyuncuya özel oyun modu.</td></tr>
+<tr><td><code>abilities</code></td><td>Compound</td><td>Uçma, hasar almama, yürüme ve uçuş hızı.</td></tr>
+<tr><td><code>Attributes</code></td><td>Compound listesi</td><td>Azami sağlık, hareket hızı ve diğer değiştiriciler.</td></tr>
+<tr><td><code>SpawnX</code>/<code>SpawnY</code>/<code>SpawnZ</code> veya <code>respawn</code></td><td>Int / Compound</td><td>Sürüme göre kişisel yeniden doğma noktası.</td></tr>
+<tr><td><code>UUID</code></td><td>Int[4]</td><td>Güncel sürümlerde oyuncu UUID’si dört int olarak.</td></tr>
 </tbody>
 </table>
 </div>
-<p>Item stacks changed shape in 1.20.5: custom data moved from a single <code>tag</code> compound to individual <code>components</code>. Both shapes open here; edit whichever your version writes.</p>
+<p>Eşya yığınlarının yapısı 1.20.5 sürümünde değişti: özel veriler tek bir <code>tag</code> bileşiğinden ayrı <code>components</code> bileşenlerine taşındı. Her iki yapı da burada açılır; kullandığınız sürümün yazdığı yapıyı düzenleyin.</p>
 </section>
 
-<section class="content" aria-label="Common repairs">
-<h2 id="common-repairs">Common repairs</h2>
+<section class="content" aria-label="Yaygın onarımlar">
+<h2 id="common-repairs">Yaygın onarımlar</h2>
 <div class="card">
 <ul>
-<li><strong>Player stuck in terrain or falling forever.</strong> Set <code>Pos</code> to safe coordinates — three doubles, in order X, Y, Z — and clear <code>Motion</code> if it holds a huge value.</li>
-<li><strong>Client crashes on login.</strong> A malformed item is the usual cause. Remove the offending entry from <code>Inventory</code> rather than wiping the whole list.</li>
-<li><strong>Wrong dimension after a portal bug.</strong> Set <code>Dimension</code> back to <code>minecraft:overworld</code> and give <code>Pos</code> matching coordinates.</li>
-<li><strong>Stuck in spectator.</strong> Set <code>playerGameType</code> to 0 for survival, 1 for creative.</li>
-<li><strong>Attribute modifiers left by a removed plugin.</strong> Delete the stale entries in <code>Attributes</code>.</li>
+<li><strong>Arazide sıkışan veya sürekli düşen oyuncu.</strong>  <code>Pos</code> değerini X, Y, Z sırasıyla üç double güvenli koordinata ayarlayın; çok büyük değer taşıyorsa <code>Motion</code> alanını temizleyin.</li>
+<li><strong>İstemci girişte çöküyor.</strong> Genellikle bozuk bir eşya neden olur. Tüm listeyi silmek yerine sorunlu girdiyi <code>Inventory</code> içinden kaldırın.</li>
+<li><strong>Portal hatasından sonra yanlış dimension.</strong>  <code>Dimension</code> değerini yeniden <code>minecraft:overworld</code> yapın ve <code>Pos</code> için eşleşen koordinatlar verin.</li>
+<li><strong>Spectator modunda takılma.</strong>  <code>playerGameType</code> değerini survival için 0, creative için 1 yapın.</li>
+<li><strong>Kaldırılan eklentiden kalan nitelik değiştiricileri.</strong> Eski girdileri <code>Attributes</code>.</li>
 </ul>
 </div>
 </section>
 
-<section class="content" aria-label="Server safety">
-<h2 id="do-it-with-the-player-offline">Do it with the player offline</h2>
-<p>The server holds player state in memory and writes it out on logout and on autosave. Editing the file while that player is online guarantees your changes are overwritten, and editing during a save can truncate the file. Take the player offline — or stop the server — copy the file, edit, and put it back before they reconnect. Keep the original until the login works.</p>
-<p>Bedrock servers do not use this layout: player data lives in the world's LevelDB under keys such as <code>player_&lt;uuid&gt;</code>, whose values are little-endian NBT. Extract a value and it opens here as <em>Bedrock raw</em>.</p>
+<section class="content" aria-label="Sunucu güvenliği">
+<h2 id="do-it-with-the-player-offline">Oyuncu çevrimdışıyken yapın</h2>
+<p>Sunucu oyuncu durumunu bellekte tutar; çıkışta ve otomatik kayıtta dosyaya yazar. Oyuncu çevrimiçiyken düzenlerseniz değişiklikleriniz kesinlikle ezilir; kayıt sırasında düzenlemek dosyayı kesebilir. Oyuncuyu çevrimdışı bırakın veya sunucuyu durdurun, dosyayı kopyalayıp düzenleyin ve yeniden bağlanmadan geri koyun. Giriş çalışana kadar özgün dosyayı saklayın.</p>
+<p>Bedrock sunucuları bu düzeni kullanmaz. Oyuncu verileri, dünyanın LevelDB veritabanında <code>player_&lt;uuid&gt;</code> gibi anahtarlar altında tutulur. Değerler little-endian NBT biçimindedir. Bir değeri çıkardığınızda burada <em>Bedrock ham biçimi</em> olarak açabilirsiniz.</p>
 </section>
 
-<section class="content" aria-label="Frequently asked questions"><h2>Frequently Asked Questions</h2><details><summary>Which file is my player?</summary><div class="faq-body"><p>Files are named by UUID. Look the player's UUID up on a Mojang API viewer, or sort <code>playerdata/</code> by modification time and match against the last login.</p></div></details><details><summary>Can I give myself items by editing playerdata?</summary><div class="faq-body"><p>On your own server, yes — add an entry to the <code>Inventory</code> list with <code>id</code>, <code>Count</code> and <code>Slot</code>. On someone else's server that is an intrusion, and it will not work anyway because the live server rewrites the file.</p></div></details><details><summary>Why did my edit disappear?</summary><div class="faq-body"><p>The server or the player was online when you edited. Player state in memory wins on the next save.</p></div></details><details><summary>Is playerdata the same in Bedrock?</summary><div class="faq-body"><p>No. Bedrock keeps players inside the world LevelDB rather than in per-UUID files. The NBT inside those values is little-endian and opens here once extracted.</p></div></details></section>
-<section class="content" aria-label="Related tools"><h2>Related tools</h2><div class="rel-grid"><a class="rel-card" href="../java-nbt-editor/"><strong>Java Edition NBT editor</strong><span>Big-endian, gzip — Vanilla, Paper, Spigot, Fabric, Forge.</span></a><a class="rel-card" href="../"><strong>Minecraft NBT editor</strong><span>The universal editor — every edition, every NBT file type.</span></a><a class="rel-card" href="../level-dat-editor/"><strong>level.dat editor</strong><span>World name, game mode, spawn, difficulty and game rules.</span></a><a class="rel-card" href="../nbt-format/"><strong>NBT format reference</strong><span>All 13 tag types, every encoding, byte by byte.</span></a><a class="rel-card" href="../nbt-viewer/"><strong>NBT viewer</strong><span>Read-only inspection, search and SNBT export.</span></a><a class="rel-card" href="../guides/fix-corrupted-level-dat/"><strong>Fix a broken level.dat</strong><span>Diagnose why a world refuses to load, and repair it.</span></a></div></section>
+<section class="content" aria-label="Sık sorulan sorular"><h2>Sık Sorulan Sorular</h2><details><summary>Hangi dosya benim oyuncuma ait?</summary><div class="faq-body"><p>Dosyalar UUID ile adlandırılır. Oyuncunun UUID’sini Mojang API görüntüleyicisinden bulun veya <code>playerdata/</code> klasörünü değiştirme zamanına göre sıralayıp son girişle eşleştirin.</p></div></details><details><summary>playerdata düzenleyerek kendime eşya verebilir miyim?</summary><div class="faq-body"><p>Kendi sunucunuzda evet: <code>Inventory</code> listesine <code>id</code>, <code>Count</code> ve <code>Slot</code> içeren girdi ekleyin. Başkasının sunucusunda bu yetkisiz erişimdir ve canlı sunucu dosyayı yeniden yazdığı için çalışmaz.</p></div></details><details><summary>Düzenlemem neden kayboldu?</summary><div class="faq-body"><p>Düzenleme sırasında sunucu veya oyuncu çevrimiçiydi. Bir sonraki kayıtta bellekteki oyuncu durumu geçerli olur.</p></div></details><details><summary>Bedrock’ta playerdata aynı mı?</summary><div class="faq-body"><p>Hayır. Bedrock oyuncuları UUID başına dosyalarda değil, dünya LevelDB’sinde tutar. Bu değerlerin içindeki NBT little-endian’dır ve çıkarıldıktan sonra burada açılır.</p></div></details></section>
+<section class="content" aria-label="İlgili araçlar"><h2>İlgili araçlar</h2><div class="rel-grid"><a class="rel-card" href="../java-nbt-editor/"><strong>Java Edition NBT düzenleyici</strong><span>Big-endian ve gzip — Vanilla, Paper, Spigot, Fabric, Forge.</span></a><a class="rel-card" href="../"><strong>Minecraft NBT düzenleyici</strong><span>Tüm sürümler ve tüm NBT dosya türleri için genel düzenleyici.</span></a><a class="rel-card" href="../level-dat-editor/"><strong>level.dat düzenleyici</strong><span>Dünya adı, oyun modu, spawn, zorluk ve oyun kuralları.</span></a><a class="rel-card" href="../nbt-format/"><strong>NBT biçimi başvurusu</strong><span>13 etiket türü ve tüm kodlamalar, bayt bayt.</span></a><a class="rel-card" href="../nbt-viewer/"><strong>NBT görüntüleyici</strong><span>Salt okunur inceleme, arama ve SNBT dışa aktarma.</span></a><a class="rel-card" href="../guides/fix-corrupted-level-dat/"><strong>Bozuk level.dat düzelt</strong><span>Dünyanın neden yüklenmediğini tanılayıp onarın.</span></a></div></section>
 </div>
 </main>
 
 <footer class="site-footer">
 <div class="container footer-grid">
-<div><h4>Editors</h4><a href="../">Minecraft NBT editor</a><a href="../level-dat-editor/">level.dat editor</a><a href="../java-nbt-editor/">Java Edition NBT editor</a><a href="../mcpe-nbt-editor/">MCPE NBT editor</a><a href="../pocketmine-nbt-editor/">PocketMine-MP editor</a></div>
-<div><h4>File types</h4><a href="../mcstructure-editor/">.mcstructure editor</a><a href="../schematic-editor/">Schematic editor</a><a href="./">playerdata editor</a><a href="../nbt-viewer/">NBT viewer</a><a href="../nbtexplorer-online/">NBTExplorer online</a></div>
-<div><h4>Reference</h4><a href="../nbt-format/">NBT format reference</a><a href="../guides/change-world-name/">Rename a world</a><a href="../guides/fix-corrupted-level-dat/">Fix a broken level.dat</a><a href="../guides/edit-gamerules/">Edit game rules</a></div>
-<div><h4>Source</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">Code on GitHub</a><a href="../../llms.txt">llms.txt</a></div>
+<div><h4>Düzenleyiciler</h4><a href="../">Minecraft NBT düzenleyici</a><a href="../level-dat-editor/">level.dat düzenleyici</a><a href="../java-nbt-editor/">Java Edition NBT düzenleyici</a><a href="../mcpe-nbt-editor/">MCPE NBT düzenleyici</a><a href="../pocketmine-nbt-editor/">PocketMine-MP düzenleyici</a></div>
+<div><h4>Dosya türleri</h4><a href="../mcstructure-editor/">.mcstructure düzenleyici</a><a href="../schematic-editor/">Schematic düzenleyici</a><a href="./">playerdata düzenleyici</a><a href="../nbt-viewer/">NBT görüntüleyici</a><a href="../nbtexplorer-online/">Çevrimiçi NBTExplorer</a></div>
+<div><h4>Başvuru</h4><a href="../nbt-format/">NBT biçimi başvurusu</a><a href="../guides/change-world-name/">Dünyayı yeniden adlandır</a><a href="../guides/fix-corrupted-level-dat/">Bozuk level.dat düzelt</a><a href="../guides/edit-gamerules/">Oyun kurallarını düzenle</a></div>
+<div><h4>Kaynak</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">GitHub’daki kod</a><a href="../../llms.txt">llms.txt</a></div>
 </div>
-<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">Son güncelleme: 2026-09-21. Minecraft NBT Düzenleyici — ücretsiz ve açık kaynaklıdır (MIT); tamamen tarayıcınızda çalışır. Mojang Studios veya Microsoft ile bağlantılı değildir. Minecraft, Mojang Studios’un ticari markasıdır.</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
 <div class="modal-overlay" id="addTagModal">
 <div class="modal">
-<h3>Add New Tag</h3>
-<label for="newTagName">Tag Name</label>
-<input type="text" id="newTagName" placeholder="e.g. MyTag" autocomplete="off">
-<label for="newTagType">Tag Type</label>
+<h3>Yeni etiket ekle</h3>
+<label for="newTagName">Etiket adı</label>
+<input type="text" id="newTagName" placeholder="Ör. MyTag" autocomplete="off">
+<label for="newTagType">Etiket türü</label>
 <select id="newTagType">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -200,10 +215,10 @@
 <option value="11">TAG_Int_Array</option>
 <option value="12">TAG_Long_Array</option>
 </select>
-<label for="newTagValue">Value</label>
-<input type="text" id="newTagValue" placeholder="Value" autocomplete="off">
+<label for="newTagValue">Değer</label>
+<input type="text" id="newTagValue" placeholder="Değer" autocomplete="off">
 <div id="listSubtypeRow" style="display:none">
-<label for="newListSubtype">List Element Type</label>
+<label for="newListSubtype">Liste öğesi türü</label>
 <select id="newListSubtype">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -220,24 +235,24 @@
 </select>
 </div>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="addTagCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="addTagConfirm">Add</button>
+<button class="btn-cancel" type="button" id="addTagCancel">İptal</button>
+<button class="btn-confirm" type="button" id="addTagConfirm">Ekle</button>
 </div>
 </div>
 </div>
 
 <div class="modal-overlay" id="arrayModal">
 <div class="modal">
-<h3 id="arrayModalTitle">Edit Array</h3>
-<label for="arrayModalText">Comma-separated values</label>
+<h3 id="arrayModalTitle">Diziyi düzenle</h3>
+<label for="arrayModalText">Virgülle ayrılmış değerler</label>
 <textarea id="arrayModalText" spellcheck="false" autocomplete="off"></textarea>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="arrayModalCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="arrayModalConfirm">Apply</button>
+<button class="btn-cancel" type="button" id="arrayModalCancel">İptal</button>
+<button class="btn-confirm" type="button" id="arrayModalConfirm">Uygula</button>
 </div>
 </div>
 </div>
 
-<script src="../../assets/nbt.js?v=da7967b1" defer></script>
+<script src="../../assets/nbt.js?v=6f125422" defer></script>
 </body>
 </html>

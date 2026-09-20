@@ -1,0 +1,1280 @@
+{
+  "": {
+    "title": "Editor NBT Bedrock Online — level.dat, MCPE, dan Java",
+    "ogtitle": "Editor NBT Bedrock &amp; Java — online, tanpa unggah",
+    "desc": "Editor NBT online gratis untuk Minecraft Bedrock dan Java. Buka level.dat, .mcstructure, playerdata, .nbt, atau .schem, edit tag, lalu unduh kembali.",
+    "keywords": "editor nbt bedrock, editor nbt online, cara edit nbt minecraft, editor level.dat, edit level.dat minecraft, nbt editor mcpe, pembuka file nbt, nbt viewer online, editor save minecraft, nbtexplorer online, pengedit file nbt, pengedit file dunia bedrock",
+    "h1": "Editor NBT Bedrock dan Java Edition",
+    "crumb": "Editor",
+    "reltitle": "Editor NBT Minecraft",
+    "reldesc": "Editor universal untuk semua edisi dan semua jenis file NBT.",
+    "answer": "<strong>Bedrock Edition didukung beserta semua core server Bedrock; Java Edition dan semua core server Java, termasuk yang jarang digunakan, juga didukung.</strong> Letakkan file <code>level.dat</code>, <code>playerdata</code>, <code>.nbt</code>, <code>.mcstructure</code>, <code>.schem</code> atau <code>.schematic</code> ke kotak di bawah, edit tag apa pun di struktur pohon, lalu unduh kembali dalam format biner yang sama persis. Urutan byte, header, dan kompresi dideteksi otomatis. Semua proses berjalan di browser Anda—tanpa unggahan, akun, atau instalasi.",
+    "droplabel": "file NBT apa pun",
+    "body": "\n<section class=\"content\" aria-label=\"Supported files\">\n<h2>Semua file NBT yang ditulis Minecraft</h2>\n<p>NBT (Named Binary Tag) adalah satu format dengan beberapa pengodean. Setiap edisi Minecraft, launcher, dan core server memakai kombinasi yang berbeda. Editor ini mendukung semuanya dan menentukan format yang tepat langsung dari byte file, jadi Anda tidak perlu mengetahui variannya sebelum membuka file.</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>File</th><th>Berasal dari</th><th>Pengodean</th><th>Kompresi</th></tr></thead>\n<tbody>\n<tr><td><code>level.dat</code></td><td>Dunia Java — Vanilla, Paper, Spigot, Fabric, Forge</td><td>Big-endian, root bernama</td><td>gzip</td></tr>\n<tr><td><code>level.dat</code></td><td>Dunia Bedrock — BDS, PocketMine-MP, Nukkit, MCPE</td><td>Little-endian + header 8 byte</td><td>Tidak ada</td></tr>\n<tr><td><code>&lt;uuid&gt;.dat</code></td><td>Java <code>playerdata/</code></td><td>Big-endian</td><td>gzip</td></tr>\n<tr><td><code>servers.dat</code>, <code>hotbar.nbt</code></td><td>Klien Java</td><td>Big-endian</td><td>Tidak ada</td></tr>\n<tr><td><code>idcounts.dat</code>, <code>raids.dat</code>, <code>map_*.dat</code></td><td>Dunia Java <code>data/</code></td><td>Big-endian</td><td>gzip</td></tr>\n<tr><td><code>.nbt</code></td><td>Blok struktur, struktur datapack</td><td>Big-endian</td><td>gzip</td></tr>\n<tr><td><code>.schem</code>, <code>.schematic</code></td><td>WorldEdit, Sponge, MCEdit</td><td>Big-endian</td><td>gzip</td></tr>\n<tr><td><code>.mcstructure</code></td><td>Blok struktur Bedrock</td><td>Little-endian</td><td>Tidak ada</td></tr>\n<tr><td>Payload chunk</td><td>File region <code>.mca</code> hasil ekstraksi, nilai LevelDB</td><td>Kedua urutan byte</td><td>zlib atau tanpa kompresi</td></tr>\n<tr><td>Dump paket</td><td>Protokol Bedrock, protokol Java 1.20.2+</td><td>Varint LE / BE tanpa nama</td><td>Tidak ada</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"How to use\">\n<h2>Cara mengedit file NBT</h2>\n<div class=\"card\">\n<ol class=\"steps\">\n<li><strong>Salin file dari server atau perangkat.</strong> Server Java menyimpannya di <code>world/</code>, server Bedrock di <code>worlds/YourWorld/</code>, dan Android di <code>games/com.mojang/minecraftWorlds/&lt;id&gt;/</code>. Hentikan server terlebih dahulu agar file tidak sedang ditulis saat disalin.</li>\n<li><strong>Letakkan file di editor.</strong> Lencana di atas struktur pohon menunjukkan edisi, pengodean, kompresi, dan untuk Bedrock, versi penyimpanan dari header yang terdeteksi.</li>\n<li><strong>Ubah nilai.</strong> Ketuk nilai untuk mengubahnya langsung. Gunakan pencarian untuk menuju tag berdasarkan nama atau nilai, <strong>+</strong> untuk menambahkan tag ke compound atau list, <strong>×</strong> untuk menghapusnya.</li>\n<li><strong>Simpan &amp; Unduh.</strong> Format keluaran dan pilihan kompresi mengikuti format file asal secara bawaan, sehingga pengeditan biasa mempertahankan format biner file aslinya.</li>\n<li><strong>Kembalikan file lalu mulai ulang.</strong> Simpan file asli sebagai cadangan sampai dunia berhasil dimuat dan tampil dengan benar.</li>\n</ol>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Features\">\n<h2>Hal yang membuat editor ini berbeda</h2>\n<div class=\"features-grid\">\n<article class=\"feature-card\"><h3>Lima pengodean, satu area file</h3><p>Java big-endian, Bedrock little-endian, NBT jaringan varint Bedrock, NBT jaringan dengan root tanpa nama dari Java 1.20.2+, dan <code>level.dat</code> Bedrock dengan header. Semuanya dideteksi, bukan ditebak.</p></article>\n<article class=\"feature-card\"><h3>gzip dan zlib di browser</h3><p>Dekompresi dan kompresi ulang memakai Compression Streams API bawaan, sehingga <code>level.dat</code> Java dapat disimpan kembali sebagai file yang diterima gim tanpa perubahan format.</p></article>\n<article class=\"feature-card\"><h3>Bilangan bulat 64-bit yang utuh</h3><p><code>TAG_Long</code> disimpan sebagai <code>BigInt</code>. Seed dunia dan kedua bagian UUID tetap utuh setelah diedit, tanpa rusak akibat pembulatan floating-point yang sering bermasalah pada alat NBT berbasis browser.</p></article>\n<article class=\"feature-card\"><h3>Pengodean string yang benar</h3><p>Java menulis UTF-8 termodifikasi (CESU-8), sedangkan Bedrock memakai UTF-8 standar. Editor menerapkan pengodean sesuai edisi agar emoji dan nama dunia non-Latin tetap utuh.</p></article>\n<article class=\"feature-card\"><h3>Dirancang untuk file besar</h3><p>Array disimpan dalam typed array dan pohon dirender bertahap, 200 entri sekaligus. NBT chunk berukuran megabyte dapat dibuka tanpa membuat tab macet.</p></article>\n<article class=\"feature-card\"><h3>Pencarian di seluruh pohon</h3><p>Temukan tag berdasarkan nama atau nilai di seluruh file, lalu langsung buka tag tersebut dengan path yang telah dibentangkan.</p></article>\n<article class=\"feature-card\"><h3>Ekspor SNBT</h3><p>Ekspor seluruh pohon sebagai SNBT, yaitu bentuk teks yang digunakan oleh <code>/data</code> dan datapack, untuk dibandingkan, dibagikan, atau ditempelkan ke perintah.</p></article>\n<article class=\"feature-card\"><h3>Konversi format</h3><p>Baca file Bedrock lalu tulis sebagai Java big-endian gzip, atau sebaliknya. Berguna untuk protokol, pengujian, dan pengembangan alat.</p></article>\n<article class=\"feature-card\"><h3>Tidak ada data yang keluar dari perangkat</h3><p>File dibaca dengan <code>FileReader</code>, diurai dalam JavaScript, lalu dikembalikan sebagai blob di memori. Tidak ada endpoint unggahan.</p></article>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Supported server software\" id=\"server-software\">\n<h2>Perangkat lunak server yang didukung</h2>\n<p>NBT ditulis oleh gim, bukan implementasi server. Karena itu, setiap core yang menyimpan dunia Minecraft memakai salah satu pengodean yang dapat dibaca editor ini. Daftar di bawah bersifat teknis: core yang menulis dunia mengikuti struktur Vanilla agar klien dapat membacanya.</p>\n<div class=\"card\">\n<h3>Bedrock Edition — NBT little-endian, <code>level.dat</code> header 8 byte</h3>\n<p><strong>Bedrock Dedicated Server (BDS)</strong>, <strong>PocketMine-MP</strong> (PM3, PM4, PM5), <strong>Nukkit</strong>, <strong>Nukkit-MOT</strong>, <strong>PowerNukkitX</strong>, <strong>Cloudburst Server</strong>, <strong>Dragonfly</strong>, <strong>Endstone</strong>, <strong>LeviLamina</strong> dan <strong>BDSX</strong>, <strong>Allay</strong>, <strong>JukeboxMC</strong>, <strong>GoMint</strong>, <strong>Sculk</strong>, <strong>ElementZero</strong>, <strong>LiteLoaderBDS</strong>, serta klien <strong>MCPE</strong> dan <strong>MCBE</strong> di Android, iOS, Windows, konsol, dan Switch. Semuanya memakai <code>worlds/&lt;World&gt;/level.dat</code>, header yang sama, dan tag yang sama—lihat <a href=\"pocketmine-nbt-editor/\">alur kerja sisi server</a>.</p>\n<h3>Java Edition — NBT big-endian, gzip</h3>\n<p><strong>Vanilla</strong>, <strong>CraftBukkit</strong>, <strong>Spigot</strong>, <strong>Paper</strong>, <strong>Purpur</strong>, <strong>Pufferfish</strong>, <strong>Folia</strong>, <strong>Leaves</strong>, <strong>Gale</strong>, <strong>Petal</strong>, <strong>Airplane</strong>, <strong>Sponge</strong> (SpongeVanilla, SpongeForge), <strong>Fabric</strong>, <strong>Quilt</strong>, <strong>Forge</strong>, <strong>NeoForge</strong>, <strong>Mohist</strong>, <strong>Arclight</strong>, <strong>Magma</strong>, <strong>Ketting</strong>, <strong>Banner</strong>, <strong>Cardboard</strong>, <strong>Glowstone</strong>, <strong>Thermos</strong>, <strong>Uberbukkit</strong> dan semua fork, server modpack, atau build lama lainnya. Jika menulis <code>world/level.dat</code>, editor ini dapat membukanya— <a href=\"java-nbt-editor/\">lihat detail</a>.</p>\n<h3>Proxy dan bridge</h3>\n<p><strong>Geyser</strong>, <strong>WaterdogPE</strong>, <strong>Waterfall</strong>, <strong>Velocity</strong> dan <strong>BungeeCord</strong> tidak menyimpan dunia; perangkat lunak tersebut mengirim NBT melalui jaringan. Data tangkapan socket berupa NBT jaringan—varint little-endian di sisi Bedrock dan big-endian dengan root tanpa nama pada Java 1.20.2+—dan keduanya dapat langsung dibuka di sini.</p>\n<h3>Perangkat lunak yang tidak tercantum</h3>\n<p>Fork khusus, core privat, proyek pembelajaran, atau server buatan sendiri tetap didukung jika filenya berupa NBT. Editor mendeteksi salah satu dari lima pengodean dan membukanya; tidak ada fungsi yang bergantung pada nama core.</p>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Scripting\">\n<h2>Gunakan parser dari kode Anda sendiri</h2>\n<p>Halaman ini menyediakan engine melalui <code>window.NBT</code>, sehingga parser yang dipakai UI dapat dijalankan dari konsol browser atau digunakan kembali dalam userscript:</p>\n<pre class=\"code\"><code>const bytes = new Uint8Array(await file.arrayBuffer());\nconst { root, format, compression, headerVersion } = await NBT.read(bytes);\n\nroot.value.find(t =&gt; t.name === \"LevelName\").value = \"New World\";\n\nconst out = await NBT.write(root, format, { compression, headerVersion });</code></pre>\n<p>Tag berupa objek biasa— <code>{ type, name, value, listType }</code> —array berupa <code>Int8Array</code>, <code>Int32Array</code> dan <code>BigInt64Array</code>, sedangkan long berupa <code>BigInt</code>. <a href=\"nbt-format/\">Referensi format NBT lengkap</a> menjelaskan setiap jenis tag dan perbedaan antar-pengodean.</p>\n</section>\n",
+    "chips": [
+      "Bedrock Edition",
+      "Java Edition",
+      "Vanilla",
+      "Paper",
+      "Spigot",
+      "Purpur",
+      "Pufferfish",
+      "Folia",
+      "Leaves",
+      "Fabric",
+      "Quilt",
+      "Forge",
+      "NeoForge",
+      "Mohist",
+      "Arclight",
+      "Sponge",
+      "Bedrock Dedicated Server",
+      "PocketMine-MP",
+      "Nukkit",
+      "PowerNukkitX",
+      "Nukkit-MOT",
+      "Cloudburst",
+      "Dragonfly",
+      "Endstone",
+      "LeviLamina",
+      "Allay",
+      "JukeboxMC",
+      "GoMint",
+      "Geyser",
+      "WaterdogPE"
+    ],
+    "faq": [
+      [
+        "Apakah pengedit NBT ini gratis?",
+        "<p>Ya. Editor ini bersumber terbuka dengan lisensi MIT. Tidak ada paket berbayar, pendaftaran, atau kuota unggahan karena tidak ada komponen server; editor hanya terdiri dari satu halaman statis dan dua file aset.</p>"
+      ],
+      [
+        "Apakah editor ini mendukung Java Edition dan Bedrock Edition?",
+        "<p>Keduanya. File Java Edition memakai big-endian dan biasanya dikompresi dengan gzip; file Bedrock memakai little-endian, sedangkan <code>level.dat</code> memiliki header tambahan 8 byte. Editor mendeteksi varian file dan menulis kembali varian yang sama saat disimpan.</p>"
+      ],
+      [
+        "Apakah file dunia saya diunggah?",
+        "<p>Tidak. File dibaca secara lokal dengan FileReader API dan hasil unduhan dibuat dari blob di memori. Setelah halaman dimuat, editor tetap berfungsi meski koneksi jaringan diputus.</p>"
+      ],
+      [
+        "Dapatkah editor ini digunakan di Android atau iOS?",
+        "<p>Ya. Tata letaknya dirancang untuk perangkat seluler dengan target sentuh 44&nbsp;px dan bilah tindakan yang selalu berada di posisi yang sama. Di Android, file dunia dapat dipilih dari pengelola file. Di iOS, file harus lebih dahulu disimpan di aplikasi Files karena sandboxing.</p>"
+      ],
+      [
+        "Apa perbedaan antara NBT dan SNBT?",
+        "<p>NBT adalah format pengodean biner yang digunakan Minecraft untuk menyimpan data di disk. SNBT adalah bentuk teksnya, yaitu sintaks yang Anda ketikkan dalam perintah seperti <code>/data merge</code>. Editor ini membaca NBT biner dan mengekspor SNBT, sehingga Anda dapat membandingkan dua file atau menyisipkan struktur ke dalam perintah.</p>"
+      ],
+      [
+        "Alat apa yang dapat digantikan?",
+        "<p>Editor NBT desktop seperti NBTExplorer serta berbagai alat web khusus yang hanya mendukung satu edisi. Lihat <a href=\"nbtexplorer-online/\">perbandingan NBTExplorer di browser</a> untuk mengetahui fungsi yang tersedia dan yang tidak.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Dimuat sebagai {0}",
+      "trailing": "{0} byte sisa setelah tag root diabaikan",
+      "error": "Kesalahan: {0}",
+      "readfail": "File tidak dapat dibaca",
+      "nofile": "Belum ada file yang dimuat",
+      "saved": "{0} disimpan ({1}, {2})",
+      "savefail": "Kesalahan saat menyimpan: {0}",
+      "exported": "{0} diekspor",
+      "snbtfail": "Kesalahan SNBT: {0}",
+      "tagadded": "Tag ditambahkan",
+      "tagremoved": "Tag dihapus",
+      "arrayupdated": "Array diperbarui",
+      "badvalue": "Nilai tidak valid: {0}",
+      "badarray": "Array tidak valid: {0}",
+      "nameneeded": "Nama tag wajib diisi",
+      "nametaken": "Tag bernama {0} sudah ada di sini",
+      "listtype": "List sudah berisi entri bertipe {0}",
+      "editlevelname": "✎ Ubah LevelName",
+      "showmore": "Tampilkan {0} lagi dari {1} …",
+      "matches": "{0} kecocokan",
+      "nomatch": "Tidak ada tag yang cocok dengan \"{0}\"",
+      "arraytoobig": "Array memiliki {0} entri — bentangkan lalu edit elemennya satu per satu",
+      "uncompressed": "tanpa kompresi",
+      "storage": "penyimpanan v{0}",
+      "entries": "{0} entri",
+      "langprompt": "Buka halaman ini dalam bahasa {0}?",
+      "langyes": "Ganti",
+      "langno": "Tetap di sini"
+    },
+    "support": "<strong>Mendukung Minecraft Bedrock Edition dan Java Edition</strong> — serta semua core server untuk keduanya, baik yang populer maupun yang jarang dikenal: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina, dan lainnya. <a href=\"__HOME__#server-software\">Daftar lengkap</a>.",
+    "footernote": "gratis, sumber terbuka (MIT), dan berjalan sepenuhnya di browser Anda. Tidak berafiliasi dengan Mojang Studios atau Microsoft. Minecraft adalah merek dagang Mojang Studios.",
+    "faqtitle": "Pertanyaan yang sering diajukan",
+    "toctitle": "Di halaman ini",
+    "relatedtitle": "Alat terkait",
+    "homecrumb": "Editor NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Semua editor",
+      "Jenis file",
+      "Referensi"
+    ],
+    "sourcehead": "Sumber",
+    "sourcelink": "Kode di GitHub"
+  },
+  "level-dat-editor": {
+    "title": "Editor level.dat Online — Edit Pengaturan Dunia Minecraft",
+    "ogtitle": "Editor level.dat — edit pengaturan dunia secara online",
+    "desc": "Edit level.dat Minecraft secara online: nama dunia, mode permainan, tingkat kesulitan, spawn, seed, dan aturan permainan Java atau Bedrock.",
+    "keywords": "editor level.dat, cara edit level.dat minecraft, edit level.dat online, mengganti nama world minecraft, editor world minecraft, edit gamerule level.dat, level.dat bedrock, level.dat java",
+    "h1": "Editor level.dat — Edit Pengaturan Dunia Minecraft Online",
+    "crumb": "editor level.dat",
+    "reltitle": "Editor level.dat",
+    "reldesc": "Nama dunia, mode permainan, spawn, tingkat kesulitan, dan aturan permainan.",
+    "answer": "<code>level.dat</code> adalah file yang menyimpan semua informasi dunia Minecraft tentang dirinya sendiri: nama, mode permainan, tingkat kesulitan, titik spawn, aturan permainan, kondisi cuaca, dan versi terakhir yang membukanya. Letakkan file di bawah untuk mengedit nilai tersebut secara langsung. File Java (gzip, big-endian) dan Bedrock (little-endian dengan header 8 byte) sama-sama didukung, lalu file ditulis kembali dalam format asalnya.",
+    "droplabel": "level.dat",
+    "body": "\n<section class=\"content\" aria-label=\"Tags in level.dat\">\n<h2>Tag yang umum diedit</h2>\n<p><code>level.dat</code> Java menyimpan hampir semuanya di dalam satu compound <code>Data</code>; <code>level.dat</code> Bedrock menyimpan tag secara datar di root. Nama di bawah ini penting untuk diketahui — cari salah satunya di pohon dan editor akan langsung membukanya.</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Tag</th><th>Tipe</th><th>Edisi</th><th>Fungsi</th></tr></thead>\n<tbody>\n<tr><td><code>LevelName</code></td><td>String</td><td>Keduanya</td><td>Nama tampilan dunia. Nilainya tidak berubah setelah folder dunia disalin — lihat <a href=\"../guides/change-world-name/\">panduan mengganti nama</a>.</td></tr>\n<tr><td><code>GameType</code> / <code>gameType</code></td><td>Int</td><td>Keduanya</td><td>0 bertahan hidup, 1 kreatif, 2 petualangan, 3 penonton.</td></tr>\n<tr><td><code>Difficulty</code></td><td>Byte / Int</td><td>Keduanya</td><td>0 damai, 1 mudah, 2 normal, 3 sulit.</td></tr>\n<tr><td><code>hardcore</code></td><td>Byte</td><td>Keduanya</td><td>1 mengunci dunia ke aturan hardcore.</td></tr>\n<tr><td><code>allowCommands</code> / <code>commandsEnabled</code></td><td>Byte</td><td>Java / Bedrock</td><td>Menentukan apakah cheat diaktifkan.</td></tr>\n<tr><td><code>SpawnX</code>, <code>SpawnY</code>, <code>SpawnZ</code></td><td>Int</td><td>Keduanya</td><td>Koordinat spawn dunia.</td></tr>\n<tr><td><code>Time</code>, <code>DayTime</code></td><td>Long</td><td>Java</td><td>Total tick dan waktu dalam hari.</td></tr>\n<tr><td><code>currentTick</code></td><td>Int</td><td>Bedrock</td><td>Jam dunia yang setara pada Bedrock.</td></tr>\n<tr><td><code>RandomSeed</code> / <code>WorldGenSettings.seed</code></td><td>Long</td><td>Java</td><td>Seed dunia. Disimpan sebagai nilai 64-bit sebenarnya, bukan double yang dibulatkan.</td></tr>\n<tr><td><code>GameRules</code> / tag aturan permainan tersendiri</td><td>Compound / Byte</td><td>Java / Bedrock</td><td>Semua yang diatur oleh <code>/gamerule</code> — lihat <a href=\"../guides/edit-gamerules/\">panduan aturan permainan</a>.</td></tr>\n<tr><td><code>DataVersion</code></td><td>Int</td><td>Java</td><td>Versi format dunia. Periksa sebelum memindahkan dunia antarversi Minecraft.</td></tr>\n<tr><td><code>lastOpenedWithVersion</code></td><td>List berisi Int</td><td>Bedrock</td><td>Build klien atau server Bedrock yang terakhir menulis dunia.</td></tr>\n<tr><td><code>Player</code></td><td>Compound</td><td>Keduanya</td><td>Inventaris, posisi, dan statistik pemain tunggal yang disimpan dalam file dunia.</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Where to find level.dat\">\n<h2>Lokasi <code>level.dat</code></h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Platform</th><th>Lokasi</th></tr></thead>\n<tbody>\n<tr><td>Server Java (Vanilla, Paper, Spigot, Fabric, Forge)</td><td><code>world/level.dat</code>, di samping <code>region/</code> dan <code>playerdata/</code></td></tr>\n<tr><td>Klien Java, Windows</td><td><code>%APPDATA%\\.minecraft\\saves\\&lt;World&gt;\\level.dat</code></td></tr>\n<tr><td>Klien Java, macOS</td><td><code>~/Library/Application Support/minecraft/saves/&lt;World&gt;/level.dat</code></td></tr>\n<tr><td>Klien Java, Linux</td><td><code>~/.minecraft/saves/&lt;World&gt;/level.dat</code></td></tr>\n<tr><td>Bedrock Dedicated Server, PocketMine-MP, Nukkit</td><td><code>worlds/&lt;World&gt;/level.dat</code></td></tr>\n<tr><td>Bedrock di Android</td><td><code>Android/data/com.mojang.minecraftpe/files/games/com.mojang/minecraftWorlds/&lt;id&gt;/level.dat</code></td></tr>\n<tr><td>Bedrock di Windows</td><td><code>%LOCALAPPDATA%\\Packages\\Microsoft.MinecraftUWP_*\\LocalState\\games\\com.mojang\\minecraftWorlds\\&lt;id&gt;\\level.dat</code></td></tr>\n</tbody>\n</table>\n</div>\n<p>Minecraft juga menulis <code>level.dat_old</code> di sebelahnya sebagai penyimpanan sebelumnya. File ini juga dapat dibuka di editor dan menjadi pilihan pertama jika file saat ini tidak dapat dimuat.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Safety\">\n<h2>Cara mengedit dengan aman</h2>\n<div class=\"card\">\n<ul>\n<li><strong>Hentikan server atau tutup permainan terlebih dahulu.</strong> Minecraft menulis ulang <code>level.dat</code> saat penyimpanan otomatis dan saat ditutup. Server yang masih berjalan akan menimpa hasil edit atau bahkan menulis di atas file yang baru tersalin sebagian.</li>\n<li><strong>Simpan file asli.</strong> Editor ini tidak pernah mengubah file yang Anda masukkan; editor menghasilkan file unduhan baru. Simpan salinan lama hingga dunia berhasil dimuat satu kali.</li>\n<li><strong>Jangan ubah tipe tag.</strong> Mengubah <code>Difficulty</code> dari Byte menjadi Int, atau mengganti nama tag yang dibutuhkan Minecraft, dapat membuat dunia gagal dimuat. Edit nilainya, bukan strukturnya, kecuali Anda memahami alasannya.</li>\n<li><strong>Pertahankan header Bedrock.</strong> Header 8 byte menyimpan versi penyimpanan dan panjang payload. Editor menulis ulang panjang secara otomatis dan mempertahankan versinya; file yang diedit manual dan kehilangan header tidak akan dapat dimuat.</li>\n</ul>\n</div>\n</section>\n",
+    "chips": [
+      "level.dat Java",
+      "level.dat Bedrock",
+      "level.dat_old",
+      "gzip",
+      "header 8 byte"
+    ],
+    "faq": [
+      [
+        "Bisakah saya mengedit level.dat tanpa mengunduh perangkat lunak?",
+        "<p>Bisa. Parser berjalan di browser, jadi tidak ada yang perlu diinstal dan satu-satunya persyaratan sistem operasi adalah browser modern.</p>"
+      ],
+      [
+        "Mengapa dunia saya masih menampilkan nama lama?",
+        "<p>Nama dalam daftar dunia berasal dari <code>LevelName</code> di dalam <code>level.dat</code>, bukan dari nama folder. Menyalin atau mengganti nama folder tidak mengubah tag tersebut. Edit tag agar daftar diperbarui.</p>"
+      ],
+      [
+        "Apakah editor ini dapat membuka level.dat_old?",
+        "<p>Bisa. <code>level.dat_old</code> adalah penyimpanan sebelumnya dalam format yang sama. Jika file saat ini rusak, buka salinan <code>_old</code>, pastikan isinya wajar, lalu pulihkan dengan nama asli.</p>"
+      ],
+      [
+        "Bisakah saya mengubah seed dunia di sini?",
+        "<p>Anda dapat mengedit tag seed, tetapi perubahan hanya memengaruhi medan yang dibuat setelahnya. Chunk yang sudah tersimpan tetap memiliki bentuk lama, sehingga batas antara medan lama dan baru akan terlihat.</p>"
+      ],
+      [
+        "Apakah mengedit level.dat dapat menyebabkan pemblokiran atau merusak dunia?",
+        "<p>Ini adalah file penyimpanan milik Anda, jadi tidak ada alasan untuk pemblokiran. Kerusakan terjadi jika file diedit saat server berjalan atau tipe dan nama tag diubah, bukan nilainya. Hentikan server, edit nilai, dan simpan cadangan.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Dimuat sebagai {0}",
+      "trailing": "{0} byte sisa setelah tag root diabaikan",
+      "error": "Kesalahan: {0}",
+      "readfail": "File tidak dapat dibaca",
+      "nofile": "Belum ada file yang dimuat",
+      "saved": "{0} disimpan ({1}, {2})",
+      "savefail": "Kesalahan saat menyimpan: {0}",
+      "exported": "{0} diekspor",
+      "snbtfail": "Kesalahan SNBT: {0}",
+      "tagadded": "Tag ditambahkan",
+      "tagremoved": "Tag dihapus",
+      "arrayupdated": "Array diperbarui",
+      "badvalue": "Nilai tidak valid: {0}",
+      "badarray": "Array tidak valid: {0}",
+      "nameneeded": "Nama tag wajib diisi",
+      "nametaken": "Tag bernama {0} sudah ada di sini",
+      "listtype": "List sudah berisi entri bertipe {0}",
+      "editlevelname": "✎ Ubah LevelName",
+      "showmore": "Tampilkan {0} lagi dari {1} …",
+      "matches": "{0} kecocokan",
+      "nomatch": "Tidak ada tag yang cocok dengan \"{0}\"",
+      "arraytoobig": "Array memiliki {0} entri — bentangkan lalu edit elemennya satu per satu",
+      "uncompressed": "tanpa kompresi",
+      "storage": "penyimpanan v{0}",
+      "entries": "{0} entri",
+      "langprompt": "Buka halaman ini dalam bahasa {0}?",
+      "langyes": "Ganti",
+      "langno": "Tetap di sini"
+    },
+    "support": "<strong>Mendukung Minecraft Bedrock Edition dan Java Edition</strong> — serta semua core server untuk keduanya, baik yang populer maupun yang jarang dikenal: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina, dan lainnya. <a href=\"__HOME__#server-software\">Daftar lengkap</a>.",
+    "footernote": "gratis, sumber terbuka (MIT), dan berjalan sepenuhnya di browser Anda. Tidak berafiliasi dengan Mojang Studios atau Microsoft. Minecraft adalah merek dagang Mojang Studios.",
+    "faqtitle": "Pertanyaan yang sering diajukan",
+    "toctitle": "Di halaman ini",
+    "relatedtitle": "Alat terkait",
+    "homecrumb": "Editor NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Semua editor",
+      "Jenis file",
+      "Referensi"
+    ],
+    "sourcehead": "Sumber",
+    "sourcelink": "Kode di GitHub"
+  },
+  "java-nbt-editor": {
+    "title": "Editor NBT Java Edition — level.dat dan playerdata",
+    "ogtitle": "Editor NBT Java Edition — big-endian, gzip, online",
+    "desc": "Editor NBT online untuk Minecraft Java Edition: level.dat big-endian gzip, playerdata, servers.dat, dan struktur .nbt dari Paper, Spigot, Fabric, atau Forge.",
+    "keywords": "editor nbt minecraft java, edit level.dat java, editor playerdata minecraft, cara edit nbt java, editor nbt online, edit servers.dat, nbt paper, nbt spigot",
+    "h1": "Editor NBT Java Edition",
+    "crumb": "Java",
+    "reltitle": "Editor NBT Java Edition",
+    "reldesc": "Big-endian dengan gzip — Vanilla, Paper, Spigot, Fabric, Forge.",
+    "answer": "Minecraft Java Edition menyimpan data sebagai NBT big-endian yang hampir selalu dikompresi dengan gzip. Letakkan file Java apa pun di bawah — <code>level.dat</code>, file UUID <code>playerdata</code>, <code>servers.dat</code>, struktur <code>.nbt</code>, atau schematic WorldEdit — lalu editor akan mendekompresi, mengurai dalam big-endian, dan menulisnya kembali dengan kompresi gzip agar tetap diterima oleh permainan.",
+    "droplabel": "file NBT Java",
+    "body": "\n<section class=\"content\" aria-label=\"Java NBT files\">\n<h2>Isi sebuah dunia Java</h2>\n<p>Semua file di bawah dapat dibuka dalam editor di atas. File region (<code>.mca</code>) merupakan wadah berisi banyak chunk terkompresi, bukan satu dokumen NBT. Ekstrak payload chunk terlebih dahulu — editor dapat membaca NBT chunk terkompresi zlib yang dihasilkan.</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Lokasi</th><th>Isi</th><th>Kompresi</th></tr></thead>\n<tbody>\n<tr><td><code>world/level.dat</code></td><td>Nama dunia, mode permainan, aturan, spawn, <code>DataVersion</code></td><td>gzip</td></tr>\n<tr><td><code>world/level.dat_old</code></td><td>Penyimpanan sebelumnya dari file yang sama</td><td>gzip</td></tr>\n<tr><td><code>world/playerdata/&lt;uuid&gt;.dat</code></td><td>Inventaris, peti Ender, posisi, kesehatan, XP, atribut</td><td>gzip</td></tr>\n<tr><td><code>world/data/raids.dat</code>, <code>idcounts.dat</code>, <code>map_*.dat</code></td><td>Status raid, penghitung id entitas, item peta</td><td>gzip</td></tr>\n<tr><td><code>world/data/scoreboard.dat</code></td><td>Objektif, tim, skor</td><td>gzip</td></tr>\n<tr><td><code>world/region/*.mca</code></td><td>NBT chunk di dalam wadah region</td><td>zlib untuk setiap chunk</td></tr>\n<tr><td><code>servers.dat</code></td><td>Daftar server multipemain dari klien</td><td>tanpa kompresi</td></tr>\n<tr><td><code>hotbar.nbt</code></td><td>Hotbar creative yang disimpan</td><td>tanpa kompresi</td></tr>\n<tr><td><code>*.nbt</code> dalam datapack</td><td>Struktur yang ditempatkan oleh structure block dan jigsaw</td><td>gzip</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Java NBT encoding\">\n<h2>Cara Java mengodekan NBT</h2>\n<div class=\"card\">\n<ul>\n<li><strong>Big-endian.</strong> Setiap integer dan float disimpan dengan byte paling signifikan terlebih dahulu, sesuai dengan <code>DataOutputStream</code> Java.</li>\n<li><strong>Root bernama.</strong> File dimulai dengan tipe tag <code>0x0A</code>, lalu nama root UTF-8 dengan awalan panjang — secara historis kosong dalam <code>level.dat</code>.</li>\n<li><strong>UTF-8 termodifikasi.</strong> String menggunakan pengodean <code>writeUTF</code> Java: panjang dua byte, NUL ditulis sebagai <code>C0 80</code>, dan karakter di luar bidang dasar dibagi menjadi dua bagian tiga byte (CESU-8). Alat yang menganggapnya UTF-8 biasa akan merusak emoji dalam nama dunia; editor ini mengodekannya dengan benar.</li>\n<li><strong>gzip secara bawaan.</strong> <code>NbtIo.readCompressed</code> mengharapkan stream gzip. File tanpa kompresi dapat dimuat di beberapa alat, tetapi tidak di dalam permainan.</li>\n<li><strong>Root tanpa nama di jaringan.</strong> Sejak 1.20.2, protokol mengirim NBT tanpa nama root. Dump paket dalam bentuk tersebut dideteksi sebagai <em>Jaringan Java</em> di sini.</li>\n</ul>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Server cores\">\n<h2>Paper, Spigot, Fabric, Forge — file yang sama</h2>\n<p>Fork dan mod loader mengubah cara server berjalan, bukan cara dunia ditulis. Paper, Purpur, Pufferfish, Folia, Fabric, Quilt, Forge, NeoForge, Mohist, Arclight, dan Sponge menggunakan tata letak NBT Vanilla, sehingga semua informasi di halaman ini berlaku tanpa perubahan. Fork menambahkan file lain di samping dunia — <code>paper-world.yml</code>, konfigurasi mod — yang berformat YAML atau TOML dan tidak terkait dengan NBT.</p>\n<p>Mod dan plugin dapat menambahkan compound sendiri di dalam <code>level.dat</code> atau <code>playerdata</code>. Tag tersebut dapat dibuka di sini seperti tag lainnya; jangan ubah jika Anda tidak mengetahui cara mod menggunakannya.</p>\n</section>\n\n<section class=\"content\" aria-label=\"DataVersion\">\n<h2><code>DataVersion</code> dan migrasi versi</h2>\n<p>Dunia Java memiliki integer <code>DataVersion</code> yang mengidentifikasi format dunia dan bertambah pada setiap snapshot. Beberapa acuan: 1.16.5 adalah 2586, 1.17.1 adalah 2730, 1.18.2 adalah 2975, 1.19.4 adalah 3337, 1.20.4 adalah 3700, dan 1.21 adalah 3953. Klien yang lebih lama daripada versi penulis dunia akan menolak membukanya karena tag ini. Menurunkan nilainya secara manual tidak menurunkan versi data chunk di belakangnya, tetapi hanya menghapus pengaman. Baca nilainya untuk mengetahui versi yang menulis dunia; jangan edit untuk memaksa downgrade.</p>\n</section>\n",
+    "chips": [
+      "Vanilla",
+      "Paper",
+      "Spigot",
+      "Purpur",
+      "Folia",
+      "Fabric",
+      "Quilt",
+      "Forge",
+      "NeoForge",
+      "Sponge"
+    ],
+    "faq": [
+      [
+        "Bisakah saya membuka level.dat Java yang gagal dimuat dalam permainan?",
+        "<p>Biasanya bisa. Editor lebih toleran daripada permainan terhadap byte sisa dan melaporkan lokasi penguraian berhenti jika file terpotong. Jika editor juga menolak, coba <code>level.dat_old</code>, yaitu penyimpanan otomatis sebelumnya.</p>"
+      ],
+      [
+        "Apakah NBT jaringan 1.20.2+ didukung?",
+        "<p>Ya. Sejak 1.20.2, protokol tidak menyertakan nama root. Dump dalam bentuk tersebut dideteksi sebagai format <em>Jaringan Java</em> dan dapat disimpan kembali sebagai NBT jaringan atau file biasa dengan root bernama.</p>"
+      ],
+      [
+        "Bisakah saya mengedit chunk dari file region .mca?",
+        "<p>Anda dapat mengedit NBT chunk setelah diekstrak dari wadah region. <code>.mca</code> sendiri berisi indeks dan banyak payload chunk terkompresi zlib, sedangkan editor ini menangani satu dokumen NBT, bukan wadah tersebut.</p>"
+      ],
+      [
+        "Apakah mengedit playerdata akan merusak data pemain?",
+        "<p>Hanya jika server berjalan saat Anda mengeditnya. Server menyimpan status pemain dalam memori dan menulisnya saat pemain keluar, sehingga file Anda akan tertimpa. Putuskan pemain dari server, edit, lalu izinkan mereka masuk kembali. Lihat <a href=\"../playerdata-editor/\">editor playerdata</a>.</p>"
+      ],
+      [
+        "Apakah level.dat harus menggunakan gzip?",
+        "<p>Loader Vanilla membaca gzip. Simpan dengan kompresi gzip — pilihan bawaan jika file masuk dalam format tersebut — agar permainan dapat menerimanya.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Dimuat sebagai {0}",
+      "trailing": "{0} byte sisa setelah tag root diabaikan",
+      "error": "Kesalahan: {0}",
+      "readfail": "File tidak dapat dibaca",
+      "nofile": "Belum ada file yang dimuat",
+      "saved": "{0} disimpan ({1}, {2})",
+      "savefail": "Kesalahan saat menyimpan: {0}",
+      "exported": "{0} diekspor",
+      "snbtfail": "Kesalahan SNBT: {0}",
+      "tagadded": "Tag ditambahkan",
+      "tagremoved": "Tag dihapus",
+      "arrayupdated": "Array diperbarui",
+      "badvalue": "Nilai tidak valid: {0}",
+      "badarray": "Array tidak valid: {0}",
+      "nameneeded": "Nama tag wajib diisi",
+      "nametaken": "Tag bernama {0} sudah ada di sini",
+      "listtype": "List sudah berisi entri bertipe {0}",
+      "editlevelname": "✎ Ubah LevelName",
+      "showmore": "Tampilkan {0} lagi dari {1} …",
+      "matches": "{0} kecocokan",
+      "nomatch": "Tidak ada tag yang cocok dengan \"{0}\"",
+      "arraytoobig": "Array memiliki {0} entri — bentangkan lalu edit elemennya satu per satu",
+      "uncompressed": "tanpa kompresi",
+      "storage": "penyimpanan v{0}",
+      "entries": "{0} entri",
+      "langprompt": "Buka halaman ini dalam bahasa {0}?",
+      "langyes": "Ganti",
+      "langno": "Tetap di sini"
+    },
+    "support": "<strong>Mendukung Minecraft Bedrock Edition dan Java Edition</strong> — serta semua core server untuk keduanya, baik yang populer maupun yang jarang dikenal: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina, dan lainnya. <a href=\"__HOME__#server-software\">Daftar lengkap</a>.",
+    "footernote": "gratis, sumber terbuka (MIT), dan berjalan sepenuhnya di browser Anda. Tidak berafiliasi dengan Mojang Studios atau Microsoft. Minecraft adalah merek dagang Mojang Studios.",
+    "faqtitle": "Pertanyaan yang sering diajukan",
+    "toctitle": "Di halaman ini",
+    "relatedtitle": "Alat terkait",
+    "homecrumb": "Editor NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Semua editor",
+      "Jenis file",
+      "Referensi"
+    ],
+    "sourcehead": "Sumber",
+    "sourcelink": "Kode di GitHub"
+  },
+  "mcpe-nbt-editor": {
+    "title": "Editor NBT MCPE — level.dat Pocket Edition",
+    "ogtitle": "Editor NBT Bedrock — level.dat, MCPE, MCBE",
+    "desc": "Edit file dunia MCPE dan Bedrock secara online: level.dat dengan header 8 byte, .mcstructure, dan NBT little-endian dari Android, iOS, Windows, atau server.",
+    "keywords": "editor nbt mcpe, edit level.dat minecraft pe, editor nbt bedrock, cara edit world minecraft android, editor level.dat bedrock, edit world mcpe, level.dat pocket edition, nbt mcbe",
+    "h1": "Editor NBT MCPE — File Minecraft Pocket Edition",
+    "crumb": "MCPE",
+    "reltitle": "Editor NBT MCPE",
+    "reldesc": "NBT little-endian dan header level.dat 8 byte.",
+    "answer": "Bedrock Edition menulis NBT little-endian, dan <code>level.dat</code>-nya diawali header 8 byte yang menyimpan versi penyimpanan serta panjang payload. Letakkan file Bedrock di bawah — <code>level.dat</code>, <code>.mcstructure</code>, nilai LevelDB, atau dump protokol — lalu editor akan membacanya, mempertahankan header, menghitung ulang panjang saat disimpan, dan menghasilkan file yang siap ditempatkan kembali ke folder dunia.",
+    "droplabel": "level.dat Bedrock",
+    "body": "\n<section class=\"content\" aria-label=\"Bedrock level.dat header\">\n<h2>Header 8 byte dan alasan pentingnya</h2>\n<p><code>level.dat</code> Bedrock bukan NBT mentah. Empat byte pertama adalah versi penyimpanan little-endian (nilai yang umum adalah 8 dan 10), empat byte berikutnya adalah panjang payload NBT dalam byte, lalu tag tanpa kompresi. Jika payload diedit tanpa memperbaiki panjang tersebut, permainan akan menolak file. Hal ini terjadi ketika penyimpanan Bedrock dibuka dengan alat NBT khusus Java.</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Offset</th><th>Ukuran</th><th>Kolom</th></tr></thead>\n<tbody>\n<tr><td>0</td><td>4 byte</td><td>Versi penyimpanan, int little-endian</td></tr>\n<tr><td>4</td><td>4 byte</td><td>Panjang payload dalam byte, unsigned little-endian</td></tr>\n<tr><td>8</td><td>sisanya</td><td>NBT little-endian, compound root, tanpa kompresi</td></tr>\n</tbody>\n</table>\n</div>\n<p>Editor menampilkan versi penyimpanan pada bilah file, mempertahankannya, dan menulis ulang panjang secara otomatis setiap kali Anda menyimpan.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Bedrock tags\">\n<h2>Tag Bedrock yang perlu diketahui</h2>\n<p>Bedrock menyimpan pengaturannya secara datar di root <code>level.dat</code>, bukan menempatkannya di bawah compound <code>Data</code> seperti Java. Aturan permainan juga disimpan sebagai tag individual, bukan sebagai anak <code>GameRules</code>.</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Tag</th><th>Tipe</th><th>Arti</th></tr></thead>\n<tbody>\n<tr><td><code>LevelName</code></td><td>String</td><td>Nama dunia yang ditampilkan dalam daftar dunia dan output server</td></tr>\n<tr><td><code>GameType</code></td><td>Int</td><td>0 bertahan hidup, 1 kreatif, 2 petualangan</td></tr>\n<tr><td><code>Difficulty</code></td><td>Int</td><td>0 damai … 3 sulit</td></tr>\n<tr><td><code>commandsEnabled</code></td><td>Byte</td><td>Cheat aktif atau nonaktif</td></tr>\n<tr><td><code>SpawnX</code>, <code>SpawnY</code>, <code>SpawnZ</code></td><td>Int</td><td>Spawn dunia</td></tr>\n<tr><td><code>RandomSeed</code></td><td>Long</td><td>Seed dunia, nilai 64-bit sebenarnya</td></tr>\n<tr><td><code>lastOpenedWithVersion</code></td><td>List berisi Int</td><td>Build klien atau server yang terakhir menulis dunia</td></tr>\n<tr><td><code>StorageVersion</code></td><td>Int</td><td>Revisi penyimpanan dunia, sama dengan header</td></tr>\n<tr><td><code>experiments</code></td><td>Compound</td><td>Opsi eksperimental yang diaktifkan untuk dunia</td></tr>\n<tr><td><code>keepinventory</code>, <code>domobspawning</code>, …</td><td>Byte</td><td>Aturan permainan, masing-masing satu tag huruf kecil</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Where Bedrock files live\">\n<h2>Menemukan file pada setiap platform</h2>\n<ul>\n<li><strong>Android:</strong> <code>Android/data/com.mojang.minecraftpe/files/games/com.mojang/minecraftWorlds/&lt;id&gt;/level.dat</code>. Versi Android yang lebih baru membatasi folder ini — gunakan ekspor dunia dalam permainan atau pengelola file dengan akses yang sesuai.</li>\n<li><strong>iOS:</strong> ekspor dunia ke <code>.mcworld</code> dari permainan, buka di aplikasi Files, lalu ekstrak di sana — <code>level.dat</code> berada di root arsip.</li>\n<li><strong>Windows:</strong> <code>%LOCALAPPDATA%\\Packages\\Microsoft.MinecraftUWP_8wekyb3d8bbwe\\LocalState\\games\\com.mojang\\minecraftWorlds\\&lt;id&gt;\\level.dat</code>.</li>\n<li><strong>Bedrock Dedicated Server:</strong> <code>worlds/&lt;World&gt;/level.dat</code>.</li>\n<li><strong>PocketMine-MP, Nukkit, PowerNukkitX:</strong> <code>worlds/&lt;World&gt;/level.dat</code> — lihat <a href=\"../pocketmine-nbt-editor/\">panduan sisi server</a>.</li>\n</ul>\n<p>Nama folder dunia adalah id acak, bukan nama dunia. Urutkan menurut waktu modifikasi, atau buka beberapa file <code>level.dat</code> di sini dan baca <code>LevelName</code> untuk menemukan file yang benar.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Other Bedrock NBT\">\n<h2>Selain <code>level.dat</code></h2>\n<p>Bedrock menyimpan chunk, entitas, dan block entity dalam database LevelDB di folder <code>db/</code>, dengan NBT little-endian sebagai nilai untuk banyak key. Ekstrak sebuah nilai dan buka di sini sebagai <em>Bedrock mentah</em> — tanpa header dan tanpa kompresi. File struktur menggunakan pengodean yang sama: lihat <a href=\"../mcstructure-editor/\">editor .mcstructure</a>. Data tangkapan protokol menggunakan varian varint yang dideteksi editor sebagai <em>Jaringan Bedrock</em>.</p>\n</section>\n",
+    "chips": [
+      "MCPE",
+      "MCBE",
+      "Bedrock Dedicated Server",
+      "PocketMine-MP",
+      "Nukkit",
+      "PowerNukkitX",
+      "Cloudburst",
+      "Dragonfly",
+      "Endstone"
+    ],
+    "faq": [
+      [
+        "Mengapa level.dat Bedrock tidak dapat dibuka di NBTExplorer?",
+        "<p>NBTExplorer mengharapkan tata letak big-endian Java dan tidak mengenali header Bedrock 8 byte. Editor ini menangani keduanya dan menulis ulang panjang pada header saat menyimpan.</p>"
+      ],
+      [
+        "Bisakah saya mengedit dunia MCPE di ponsel?",
+        "<p>Bisa. Buka halaman ini di browser ponsel, pilih file dari pengelola file, lalu edit dan simpan. File hasil unduhan berada di folder Downloads; salin kembali untuk menggantikan file asli.</p>"
+      ],
+      [
+        "Apa perbedaan versi penyimpanan 8 dan 10?",
+        "<p>Keduanya menandai revisi format penyimpanan dunia Bedrock; klien saat ini menulis versi 10. Editor mempertahankan nilai asli file dan tidak memaksakan versi tertentu karena mengubahnya tidak memigrasikan data dunia.</p>"
+      ],
+      [
+        "Apakah editor ini dapat membuka file .mcworld?",
+        "<p>Tidak secara langsung — <code>.mcworld</code> adalah arsip zip. Ekstrak arsip, edit <code>level.dat</code> di sini, masukkan kembali ke arsip, lalu ubah kembali namanya menjadi <code>.mcworld</code>.</p>"
+      ],
+      [
+        "Apakah aturan permainan Bedrock didukung?",
+        "<p>Ya. Bedrock menyimpan setiap aturan sebagai tag byte huruf kecil tersendiri di root — <code>keepinventory</code>, <code>domobspawning</code>, <code>showcoordinates</code>, dan seterusnya. Atur byte ke 1 atau 0. <a href=\"../guides/edit-gamerules/\">Panduan aturan permainan</a> memuat daftarnya.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Dimuat sebagai {0}",
+      "trailing": "{0} byte sisa setelah tag root diabaikan",
+      "error": "Kesalahan: {0}",
+      "readfail": "File tidak dapat dibaca",
+      "nofile": "Belum ada file yang dimuat",
+      "saved": "{0} disimpan ({1}, {2})",
+      "savefail": "Kesalahan saat menyimpan: {0}",
+      "exported": "{0} diekspor",
+      "snbtfail": "Kesalahan SNBT: {0}",
+      "tagadded": "Tag ditambahkan",
+      "tagremoved": "Tag dihapus",
+      "arrayupdated": "Array diperbarui",
+      "badvalue": "Nilai tidak valid: {0}",
+      "badarray": "Array tidak valid: {0}",
+      "nameneeded": "Nama tag wajib diisi",
+      "nametaken": "Tag bernama {0} sudah ada di sini",
+      "listtype": "List sudah berisi entri bertipe {0}",
+      "editlevelname": "✎ Ubah LevelName",
+      "showmore": "Tampilkan {0} lagi dari {1} …",
+      "matches": "{0} kecocokan",
+      "nomatch": "Tidak ada tag yang cocok dengan \"{0}\"",
+      "arraytoobig": "Array memiliki {0} entri — bentangkan lalu edit elemennya satu per satu",
+      "uncompressed": "tanpa kompresi",
+      "storage": "penyimpanan v{0}",
+      "entries": "{0} entri",
+      "langprompt": "Buka halaman ini dalam bahasa {0}?",
+      "langyes": "Ganti",
+      "langno": "Tetap di sini"
+    },
+    "support": "<strong>Mendukung Minecraft Bedrock Edition dan Java Edition</strong> — serta semua core server untuk keduanya, baik yang populer maupun yang jarang dikenal: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina, dan lainnya. <a href=\"__HOME__#server-software\">Daftar lengkap</a>.",
+    "footernote": "gratis, sumber terbuka (MIT), dan berjalan sepenuhnya di browser Anda. Tidak berafiliasi dengan Mojang Studios atau Microsoft. Minecraft adalah merek dagang Mojang Studios.",
+    "faqtitle": "Pertanyaan yang sering diajukan",
+    "toctitle": "Di halaman ini",
+    "relatedtitle": "Alat terkait",
+    "homecrumb": "Editor NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Semua editor",
+      "Jenis file",
+      "Referensi"
+    ],
+    "sourcehead": "Sumber",
+    "sourcelink": "Kode di GitHub"
+  },
+  "pocketmine-nbt-editor": {
+    "title": "Editor level.dat PocketMine-MP — PMMP, Nukkit, BDS",
+    "ogtitle": "Editor level.dat PocketMine-MP & Nukkit",
+    "desc": "Edit level.dat PocketMine-MP, Nukkit, PowerNukkitX, dan Bedrock Dedicated Server secara online. Perbaiki nama dunia ganda setelah menyalin folder dunia.",
+    "keywords": "editor level.dat pocketmine, edit world pocketmine, editor nbt pmmp, mengganti nama world pocketmine, editor level.dat nukkit, nbt powernukkitx, level.dat bds",
+    "h1": "Editor level.dat PocketMine-MP &amp; Server Bedrock",
+    "crumb": "PocketMine-MP",
+    "reltitle": "Editor PocketMine-MP",
+    "reldesc": "level.dat sisi server untuk PMMP, Nukkit, dan BDS.",
+    "answer": "Perangkat lunak server Bedrock — PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, dan Bedrock Dedicated Server resmi — membaca <code>level.dat</code> little-endian yang sama, dengan header 8 byte dari <code>worlds/&lt;World&gt;/</code>. Letakkan file Anda di bawah untuk memperbaiki nama dunia setelah menduplikasi folder, memindahkan spawn, mengubah aturan permainan, atau memeriksa build yang terakhir menulis dunia.",
+    "droplabel": "worlds/&lt;World&gt;/level.dat",
+    "body": "\n<section class=\"content\" aria-label=\"Duplicate world names\">\n<h2>Masalah nama dunia yang terduplikasi</h2>\n<p>Semua admin server Bedrock akan menemui masalah ini. Anda menyalin <code>worlds/hub</code> ke <code>worlds/hub2</code> untuk membuat arena kedua, tetapi konsol, pengelola dunia, dan semua plugin yang melaporkan nama dunia tetap menyebut keduanya <em>hub</em>. Nama folder berubah, tetapi <code>LevelName</code> di dalam <code>level.dat</code> tidak.</p>\n<p>Dampaknya bukan sekadar tampilan. Plugin yang mencari dunia berdasarkan nama internal — pad teleportasi, konfigurasi per dunia, perlindungan region — dapat memilih dunia yang salah, dan perintah pengelolaan dunia menjadi ambigu. Perbaiki dengan mengedit tag: letakkan file di atas, lalu editor langsung membuka <code>LevelName</code> untuk diedit.</p>\n<div class=\"card\">\n<ol class=\"steps\">\n<li>Hentikan server. Server yang berjalan menulis ulang <code>level.dat</code> saat menyimpan dan akan membatalkan hasil edit.</li>\n<li>Unduh <code>worlds/&lt;World&gt;/level.dat</code> melalui SFTP atau pengelola file pada panel Anda.</li>\n<li>Letakkan file di editor, ubah <code>LevelName</code> menjadi nama baru, lalu simpan.</li>\n<li>Unggah kembali untuk menggantikan file asli dan simpan file lama sebagai cadangan.</li>\n<li>Mulai server dan periksa baris konsol yang melaporkan dunia yang dimuat.</li>\n</ol>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Core specifics\">\n<h2>Catatan untuk setiap core</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Core server</th><th>Path dunia</th><th>Catatan</th></tr></thead>\n<tbody>\n<tr><td>PocketMine-MP (PM5)</td><td><code>worlds/&lt;World&gt;/</code></td><td>Dunia bawaan ditetapkan oleh <code>level-name</code> dalam <code>server.properties</code>; nilai tersebut adalah folder, sedangkan <code>LevelName</code> adalah nama internal dunia.</td></tr>\n<tr><td>Nukkit / PowerNukkitX</td><td><code>worlds/&lt;World&gt;/</code></td><td>Tata letak Bedrock yang sama; PNX menambahkan file pengaturannya sendiri di sampingnya.</td></tr>\n<tr><td>Bedrock Dedicated Server</td><td><code>worlds/&lt;World&gt;/</code></td><td><code>level-name</code> dalam <code>server.properties</code> memilih folder; versi penyimpanan pada header biasanya 10.</td></tr>\n<tr><td>Cloudburst / Dragonfly</td><td><code>worlds/&lt;World&gt;/</code></td><td>Membaca <code>level.dat</code> yang sama; Dragonfly mungkin menyimpan status tambahan dalam databasenya sendiri.</td></tr>\n<tr><td>WaterdogPE, Geyser</td><td>—</td><td>Proxy. Keduanya tidak memiliki dunia; NBT hanya melewatinya melalui jaringan sebagai NBT jaringan.</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Server workflow\">\n<h2>Mengedit tanpa merusak server produksi</h2>\n<div class=\"card\">\n<ul>\n<li><strong>Cadangkan seluruh folder dunia,</strong> bukan hanya <code>level.dat</code>. Prosesnya hanya memerlukan beberapa detik dan menjadi satu-satunya cara untuk membatalkan edit yang salah.</li>\n<li><strong>Jangan edit file aktif melalui SFTP.</strong> Unduh, edit, lalu unggah saat server dihentikan. Mengedit langsung ketika server masih membuka dunia dapat menghasilkan file terpotong.</li>\n<li><strong>Menyalin dunia untuk mode baru?</strong> Ubah <code>LevelName</code> segera setelah menyalin dan sebelum server membacanya, agar nama yang salah tidak pernah disimpan dalam cache.</li>\n<li><strong>Periksa bilah file setelah memuat.</strong> Bilah tersebut menampilkan format yang terdeteksi dan versi penyimpanan. Jika file Bedrock dilaporkan bukan sebagai <em>level.dat Bedrock</em>, Anda memilih file yang salah atau file tersebut rusak.</li>\n</ul>\n</div>\n</section>\n",
+    "chips": [
+      "PocketMine-MP",
+      "Nukkit",
+      "PowerNukkitX",
+      "Cloudburst",
+      "Bedrock Dedicated Server",
+      "Dragonfly",
+      "Endstone",
+      "WaterdogPE"
+    ],
+    "faq": [
+      [
+        "Apakah PocketMine-MP menggunakan level.dat yang sama dengan Bedrock?",
+        "<p>Ya. PocketMine-MP menerapkan format dunia Bedrock, sehingga <code>level.dat</code>-nya berupa NBT little-endian dengan header 8 byte, dalam bentuk byte yang sama dengan file keluaran server Bedrock Vanilla.</p>"
+      ],
+      [
+        "Mengapa dua dunia menampilkan nama yang sama di konsol?",
+        "<p>Keduanya disalin dari satu folder dan memiliki <code>LevelName</code> yang sama. Nama folder dan tag tidak saling bergantung; ubah tag tersebut.</p>"
+      ],
+      [
+        "Bisakah saya mengganti nama dunia tanpa memulai ulang server?",
+        "<p>Tidak. Dunia dimuat dalam memori dan ditulis ulang saat disimpan, sehingga edit yang dilakukan ketika server berjalan akan dibuang. Hentikan server, edit file, lalu mulai kembali.</p>"
+      ],
+      [
+        "Apakah editor ini berfungsi dengan Nukkit dan PowerNukkitX?",
+        "<p>Ya — format, path file, dan prosedurnya sama.</p>"
+      ],
+      [
+        "Bagaimana cara mengonversi dunia Bedrock ke Java?",
+        "<p>Tidak dengan editor NBT. Urutan byte adalah bagian yang mudah; tata letak tag, palet blok, dan penyimpanan chunk sepenuhnya berbeda. Gunakan konverter khusus, lalu gunakan editor ini untuk metadata yang tersisa.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Dimuat sebagai {0}",
+      "trailing": "{0} byte sisa setelah tag root diabaikan",
+      "error": "Kesalahan: {0}",
+      "readfail": "File tidak dapat dibaca",
+      "nofile": "Belum ada file yang dimuat",
+      "saved": "{0} disimpan ({1}, {2})",
+      "savefail": "Kesalahan saat menyimpan: {0}",
+      "exported": "{0} diekspor",
+      "snbtfail": "Kesalahan SNBT: {0}",
+      "tagadded": "Tag ditambahkan",
+      "tagremoved": "Tag dihapus",
+      "arrayupdated": "Array diperbarui",
+      "badvalue": "Nilai tidak valid: {0}",
+      "badarray": "Array tidak valid: {0}",
+      "nameneeded": "Nama tag wajib diisi",
+      "nametaken": "Tag bernama {0} sudah ada di sini",
+      "listtype": "List sudah berisi entri bertipe {0}",
+      "editlevelname": "✎ Ubah LevelName",
+      "showmore": "Tampilkan {0} lagi dari {1} …",
+      "matches": "{0} kecocokan",
+      "nomatch": "Tidak ada tag yang cocok dengan \"{0}\"",
+      "arraytoobig": "Array memiliki {0} entri — bentangkan lalu edit elemennya satu per satu",
+      "uncompressed": "tanpa kompresi",
+      "storage": "penyimpanan v{0}",
+      "entries": "{0} entri",
+      "langprompt": "Buka halaman ini dalam bahasa {0}?",
+      "langyes": "Ganti",
+      "langno": "Tetap di sini"
+    },
+    "support": "<strong>Mendukung Minecraft Bedrock Edition dan Java Edition</strong> — serta semua core server untuk keduanya, baik yang populer maupun yang jarang dikenal: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina, dan lainnya. <a href=\"__HOME__#server-software\">Daftar lengkap</a>.",
+    "footernote": "gratis, sumber terbuka (MIT), dan berjalan sepenuhnya di browser Anda. Tidak berafiliasi dengan Mojang Studios atau Microsoft. Minecraft adalah merek dagang Mojang Studios.",
+    "faqtitle": "Pertanyaan yang sering diajukan",
+    "toctitle": "Di halaman ini",
+    "relatedtitle": "Alat terkait",
+    "homecrumb": "Editor NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Semua editor",
+      "Jenis file",
+      "Referensi"
+    ],
+    "sourcehead": "Sumber",
+    "sourcelink": "Kode di GitHub"
+  },
+  "mcstructure-editor": {
+    "title": "Editor .mcstructure Online — Struktur Bedrock",
+    "ogtitle": "Editor .mcstructure — buka dan edit struktur Bedrock",
+    "desc": "Buka dan edit file .mcstructure Bedrock secara online: palet blok, ukuran, indeks blok, serta data entitas blok, lalu simpan dalam pengodean yang sama.",
+    "keywords": "editor mcstructure online, cara edit file mcstructure, buka mcstructure, viewer mcstructure, editor struktur minecraft bedrock, file structure block bedrock",
+    "h1": "Editor .mcstructure — File Struktur Bedrock",
+    "crumb": ".mcstructure",
+    "reltitle": "Editor .mcstructure",
+    "reldesc": "Structure block Bedrock: palet, ukuran, dan entitas blok.",
+    "answer": "File <code>.mcstructure</code> adalah NBT little-endian tanpa kompresi yang ditulis oleh structure block Bedrock. Letakkan file di bawah untuk membaca ukuran, palet blok, indeks blok, dan data entitas blok; edit bagian yang diperlukan, lalu unduh kembali dengan pengodean yang sama. Ini berguna bagi pembuat add-on dan peta yang perlu memperbaiki struktur tanpa membuka ulang dunia.",
+    "droplabel": "file .mcstructure",
+    "body": "\n<section class=\"content\" aria-label=\"Inside a mcstructure file\">\n<h2>Isi <code>.mcstructure</code></h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Tag</th><th>Tipe</th><th>Isinya</th></tr></thead>\n<tbody>\n<tr><td><code>format_version</code></td><td>Int</td><td>Revisi format struktur, bernilai 1 pada file saat ini</td></tr>\n<tr><td><code>size</code></td><td>List berisi Int</td><td>Dimensi X, Y, Z dari volume yang disimpan</td></tr>\n<tr><td><code>structure_world_origin</code></td><td>List berisi Int</td><td>Lokasi asal struktur di dunia</td></tr>\n<tr><td><code>structure</code></td><td>Compound</td><td>Semua data di bawah ini berada di sini</td></tr>\n<tr><td><code>structure.block_indices</code></td><td>List berisi Int[]</td><td>Dua lapisan indeks palet — biasanya blok dan waterlogging; <code>-1</code> berarti \"biarkan isi yang sudah ada\"</td></tr>\n<tr><td><code>structure.entities</code></td><td>List berisi Compound</td><td>Entitas yang ikut tersimpan bersama struktur</td></tr>\n<tr><td><code>structure.palette.default.block_palette</code></td><td>List berisi Compound</td><td>Setiap status blok yang berbeda: <code>name</code>, <code>states</code>, <code>version</code></td></tr>\n<tr><td><code>structure.palette.default.block_position_data</code></td><td>Compound</td><td>NBT entitas blok dengan indeks datar posisi sebagai kunci</td></tr>\n</tbody>\n</table>\n</div>\n<p>Indeks dalam <code>block_indices</code> diurutkan berdasarkan X, lalu Z, kemudian Y — indeks datarnya adalah <code>(x * sizeZ + z) * sizeY + y</code> pada daftar palet. Pemetaan ini memungkinkan Anda memperbaiki satu blok yang salah tanpa membuat ulang struktur.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Typical edits\">\n<h2>Bagian yang biasa diubah</h2>\n<ul>\n<li><strong>Mengganti jenis blok di semua posisi</strong> dengan mengedit satu entri dalam <code>block_palette</code> — setiap posisi yang menunjuk ke indeks itu ikut berubah.</li>\n<li><strong>Memperbaiki status blok</strong>, misalnya <code>facing</code> yang salah atau <code>waterlogged</code> yang tidak disengaja dalam compound <code>states</code>.</li>\n<li><strong>Menghapus entitas</strong> yang tidak sengaja ikut tersimpan dengan membuang entri dari daftar <code>entities</code>.</li>\n<li><strong>Memperbaiki data entitas blok</strong> — isi peti, teks papan, dan pengaturan spawner — di dalam <code>block_position_data</code>.</li>\n<li><strong>Memeriksa penanda versi</strong> pada entri palet jika struktur diimpor dengan blok yang salah setelah pembaruan gim.</li>\n</ul>\n</section>\n\n<section class=\"content\" aria-label=\"Where mcstructure files live\">\n<h2>Lokasi file</h2>\n<p>Structure block menyimpan file ke folder <code>structures/</code> dalam direktori dunia, dengan nama <code>&lt;namespace&gt;_&lt;name&gt;.mcstructure</code>. Behavior pack menyimpannya dalam <code>structures/</code> di dalam pack, lalu gim memuatnya berdasarkan namespace. Keduanya memakai format yang sama dan dapat dibuka di sini.</p>\n<p>Padanan Java Edition adalah file struktur <code>.nbt</code> big-endian gzip — pengodeannya berbeda dan susunan tag-nya juga berbeda. <a href=\"../java-nbt-editor/\">Halaman editor Java</a> menjelaskan file tersebut, dan editor ini juga dapat membukanya.</p>\n</section>\n",
+    "chips": [
+      "Structure block",
+      "Add-on Bedrock",
+      "Behavior pack",
+      "NBT little-endian"
+    ],
+    "faq": [
+      [
+        "Bisakah .mcstructure dikonversi menjadi struktur .nbt Java?",
+        "<p>Editor dapat mengodekan ulang byte menjadi big-endian gzip, tetapi susunan tag berbeda — struktur Java menggunakan <code>palette</code>/<code>blocks</code> dengan kunci dan nama blok yang berbeda. File hasil pengodean ulang dapat dibaca, tetapi bukan struktur Java yang valid.</p>"
+      ],
+      [
+        "Mengapa .mcstructure saya tidak dikompresi?",
+        "<p>Bedrock menulis file struktur sebagai NBT little-endian mentah tanpa pembungkus gzip. Ini normal; editor mendeteksinya sebagai <em>Bedrock mentah</em>.</p>"
+      ],
+      [
+        "Apa arti indeks -1 dalam block_indices?",
+        "<p>Nilai tersebut menandai posisi yang tidak diubah oleh struktur, sehingga blok yang sudah ada di dunia tetap dipertahankan saat struktur ditempatkan.</p>"
+      ],
+      [
+        "Bisakah ukuran struktur diubah dengan mengedit size?",
+        "<p>Tidak hanya dengan itu — <code>block_indices</code> memiliki satu entri untuk setiap posisi, sehingga panjang array harus sama persis dengan volume baru. Mengubah <code>size</code> saja menghasilkan file yang ditolak gim.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Dimuat sebagai {0}",
+      "trailing": "{0} byte sisa setelah tag root diabaikan",
+      "error": "Kesalahan: {0}",
+      "readfail": "File tidak dapat dibaca",
+      "nofile": "Belum ada file yang dimuat",
+      "saved": "{0} disimpan ({1}, {2})",
+      "savefail": "Kesalahan saat menyimpan: {0}",
+      "exported": "{0} diekspor",
+      "snbtfail": "Kesalahan SNBT: {0}",
+      "tagadded": "Tag ditambahkan",
+      "tagremoved": "Tag dihapus",
+      "arrayupdated": "Array diperbarui",
+      "badvalue": "Nilai tidak valid: {0}",
+      "badarray": "Array tidak valid: {0}",
+      "nameneeded": "Nama tag wajib diisi",
+      "nametaken": "Tag bernama {0} sudah ada di sini",
+      "listtype": "List sudah berisi entri bertipe {0}",
+      "editlevelname": "✎ Ubah LevelName",
+      "showmore": "Tampilkan {0} lagi dari {1} …",
+      "matches": "{0} kecocokan",
+      "nomatch": "Tidak ada tag yang cocok dengan \"{0}\"",
+      "arraytoobig": "Array memiliki {0} entri — bentangkan lalu edit elemennya satu per satu",
+      "uncompressed": "tanpa kompresi",
+      "storage": "penyimpanan v{0}",
+      "entries": "{0} entri",
+      "langprompt": "Buka halaman ini dalam bahasa {0}?",
+      "langyes": "Ganti",
+      "langno": "Tetap di sini"
+    },
+    "support": "<strong>Mendukung Minecraft Bedrock Edition dan Java Edition</strong> — serta semua core server untuk keduanya, baik yang populer maupun yang jarang dikenal: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina, dan lainnya. <a href=\"__HOME__#server-software\">Daftar lengkap</a>.",
+    "footernote": "gratis, sumber terbuka (MIT), dan berjalan sepenuhnya di browser Anda. Tidak berafiliasi dengan Mojang Studios atau Microsoft. Minecraft adalah merek dagang Mojang Studios.",
+    "faqtitle": "Pertanyaan yang sering diajukan",
+    "toctitle": "Di halaman ini",
+    "relatedtitle": "Alat terkait",
+    "homecrumb": "Editor NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Semua editor",
+      "Jenis file",
+      "Referensi"
+    ],
+    "sourcehead": "Sumber",
+    "sourcelink": "Kode di GitHub"
+  },
+  "schematic-editor": {
+    "title": "Editor .schem &amp; .schematic Online — WorldEdit",
+    "ogtitle": "Editor .schem / .schematic — file WorldEdit dan MCEdit",
+    "desc": "Buka file WorldEdit .schem dan MCEdit .schematic secara online. Baca palet, ukuran, offset, dan entitas blok; edit tag lalu unduh kembali schematic.",
+    "keywords": "editor schematic minecraft online, editor file schem, buka file schem, viewer schematic, edit schematic WorldEdit, cara buka file schematic MCEdit, editor NBT schematic",
+    "h1": "Editor Schematic — .schem dan .schematic Online",
+    "crumb": ".schem",
+    "reltitle": "Editor schematic",
+    "reldesc": "WorldEdit .schem dan MCEdit .schematic lama.",
+    "answer": "Schematic adalah NBT big-endian yang dikompresi dengan gzip. Letakkan file WorldEdit <code>.schem</code> modern (format Sponge Schematic) atau MCEdit <code>.schematic</code> lama di bawah untuk memeriksa palet, dimensi, offset, daftar entitas blok, dan metadata. Edit tag yang diperlukan, lalu unduh file yang siap digunakan dengan <code>//paste</code>.",
+    "droplabel": "file .schem atau .schematic",
+    "body": "\n<section class=\"content\" aria-label=\"Schematic formats\">\n<h2>Dua format dalam satu keluarga ekstensi file</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Format</th><th>Ekstensi</th><th>Tag utama</th></tr></thead>\n<tbody>\n<tr><td>Sponge Schematic v2 (WorldEdit 7)</td><td><code>.schem</code></td><td><code>Version</code>, <code>DataVersion</code>, <code>Width</code>, <code>Height</code>, <code>Length</code>, <code>Palette</code>, <code>BlockData</code>, <code>BlockEntities</code>, <code>Offset</code>, <code>Metadata</code></td></tr>\n<tr><td>Sponge Schematic v3</td><td><code>.schem</code></td><td>Data yang sama berada di dalam compound <code>Schematic</code>, sedangkan <code>Blocks</code> memuat <code>Palette</code> dan <code>Data</code></td></tr>\n<tr><td>MCEdit lama</td><td><code>.schematic</code></td><td><code>Width</code>, <code>Height</code>, <code>Length</code>, <code>Blocks</code>, <code>Data</code>, <code>Entities</code>, <code>TileEntities</code>, <code>Materials</code></td></tr>\n</tbody>\n</table>\n</div>\n<p><code>BlockData</code> dalam format Sponge adalah array byte berisi indeks palet varint, bukan satu byte per blok — id panjang berlanjut pada beberapa byte. Format lama menyimpan id blok numerik mentah dalam <code>Blocks</code> dengan array <code>Data</code> paralel berisi nibble metadata. Karena itu, schematic lama kehilangan ketepatan pada versi modern.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Editing schematics\">\n<h2>Bagian yang layak diedit secara manual</h2>\n<ul>\n<li><strong>Entri palet.</strong> Mengganti <code>minecraft:oak_planks</code> menjadi <code>minecraft:spruce_planks</code> dalam <code>Palette</code> sekaligus mengganti semua blok yang cocok dalam schematic.</li>\n<li><strong>Offset dan titik asal.</strong> <code>Offset</code> menentukan posisi hasil paste relatif terhadap posisi Anda — cara tercepat memperbaiki bangunan yang selalu bergeser tiga blok.</li>\n<li><strong>Entitas blok.</strong> Isi peti, baris teks papan, dan data spawner berada dalam <code>BlockEntities</code> dan dapat dibersihkan sebelum bangunan dibagikan.</li>\n<li><strong>Metadata.</strong> <code>Metadata</code> memuat pembuat dan titik asal WorldEdit; aman diedit dan sering perlu dikosongkan sebelum dipublikasikan.</li>\n<li><strong>DataVersion.</strong> Menunjukkan versi Minecraft yang membuat schematic dan menjelaskan sebagian besar kesalahan \"unknown block\" saat paste.</li>\n</ul>\n</section>\n\n<section class=\"content\" aria-label=\"Compatibility\">\n<h2>Kompatibilitas pemuat</h2>\n<p>WorldEdit dan FastAsyncWorldEdit membaca <code>.schem</code> dari <code>plugins/WorldEdit/schematics/</code>; file <code>.schematic</code> lama masih dapat dimuat, tetapi dikonversi saat masuk. Litematica memakai wadah <code>.litematic</code> sendiri — juga NBT dan dapat dibuka di editor ini, meski susunannya berbeda dari format Sponge. Apa pun formatnya, editor membaca file sebagai NBT dan menulisnya kembali dengan kompresi gzip agar pemuat menerima file sesuai harapan.</p>\n</section>\n",
+    "chips": [
+      "WorldEdit",
+      "FastAsyncWorldEdit",
+      "Sponge Schematic v2/v3",
+      "MCEdit lama",
+      "Terkait Litematica"
+    ],
+    "faq": [
+      [
+        "Bisakah .schem dibuka tanpa server atau WorldEdit?",
+        "<p>Ya. <code>.schem</code> hanyalah NBT big-endian gzip; editor membukanya di browser tanpa perlu memasang perangkat lunak lain.</p>"
+      ],
+      [
+        "Mengapa schematic ditempel dengan blok yang salah?",
+        "<p>Biasanya karena versi tidak cocok — periksa <code>DataVersion</code> dan palet. Schematic yang diekspor dari versi lebih baru dapat merujuk pada status blok yang tidak dikenali server lama.</p>"
+      ],
+      [
+        "Bisakah ukuran schematic diubah di sini?",
+        "<p>Tidak hanya dengan mengedit <code>Width</code>/<code>Height</code>/<code>Length</code>. Ukuran <code>BlockData</code> mengikuti volume, sehingga dimensi dan data harus berubah bersamaan — gunakan WorldEdit untuk pekerjaan ini, bukan editor tag.</p>"
+      ],
+      [
+        "Apakah editor dapat membuka file .litematic?",
+        "<p>Ya, sebagai NBT. Susunan tag Litematica berbeda dari Sponge, sehingga yang ditampilkan adalah struktur aslinya, bukan palet schematic.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Dimuat sebagai {0}",
+      "trailing": "{0} byte sisa setelah tag root diabaikan",
+      "error": "Kesalahan: {0}",
+      "readfail": "File tidak dapat dibaca",
+      "nofile": "Belum ada file yang dimuat",
+      "saved": "{0} disimpan ({1}, {2})",
+      "savefail": "Kesalahan saat menyimpan: {0}",
+      "exported": "{0} diekspor",
+      "snbtfail": "Kesalahan SNBT: {0}",
+      "tagadded": "Tag ditambahkan",
+      "tagremoved": "Tag dihapus",
+      "arrayupdated": "Array diperbarui",
+      "badvalue": "Nilai tidak valid: {0}",
+      "badarray": "Array tidak valid: {0}",
+      "nameneeded": "Nama tag wajib diisi",
+      "nametaken": "Tag bernama {0} sudah ada di sini",
+      "listtype": "List sudah berisi entri bertipe {0}",
+      "editlevelname": "✎ Ubah LevelName",
+      "showmore": "Tampilkan {0} lagi dari {1} …",
+      "matches": "{0} kecocokan",
+      "nomatch": "Tidak ada tag yang cocok dengan \"{0}\"",
+      "arraytoobig": "Array memiliki {0} entri — bentangkan lalu edit elemennya satu per satu",
+      "uncompressed": "tanpa kompresi",
+      "storage": "penyimpanan v{0}",
+      "entries": "{0} entri",
+      "langprompt": "Buka halaman ini dalam bahasa {0}?",
+      "langyes": "Ganti",
+      "langno": "Tetap di sini"
+    },
+    "support": "<strong>Mendukung Minecraft Bedrock Edition dan Java Edition</strong> — serta semua core server untuk keduanya, baik yang populer maupun yang jarang dikenal: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina, dan lainnya. <a href=\"__HOME__#server-software\">Daftar lengkap</a>.",
+    "footernote": "gratis, sumber terbuka (MIT), dan berjalan sepenuhnya di browser Anda. Tidak berafiliasi dengan Mojang Studios atau Microsoft. Minecraft adalah merek dagang Mojang Studios.",
+    "faqtitle": "Pertanyaan yang sering diajukan",
+    "toctitle": "Di halaman ini",
+    "relatedtitle": "Alat terkait",
+    "homecrumb": "Editor NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Semua editor",
+      "Jenis file",
+      "Referensi"
+    ],
+    "sourcehead": "Sumber",
+    "sourcelink": "Kode di GitHub"
+  },
+  "playerdata-editor": {
+    "title": "Editor playerdata Minecraft — Edit File .dat Online",
+    "ogtitle": "Editor playerdata — inventaris, posisi, dan statistik",
+    "desc": "Edit file playerdata .dat Minecraft secara online: perbaiki posisi pemain yang terjebak, hapus item rusak, atau atur kesehatan, XP, dan mode gim.",
+    "keywords": "editor playerdata minecraft, edit file player dat online, editor inventory minecraft, edit inventory pemain NBT, cara memperbaiki player terjebak, edit uuid dat minecraft",
+    "h1": "Editor playerdata — File .dat Pemain Minecraft",
+    "crumb": "playerdata",
+    "reltitle": "Editor playerdata",
+    "reldesc": "Inventaris, posisi, kesehatan, dan statistik tiap pemain.",
+    "answer": "Java Edition menulis satu file NBT big-endian gzip untuk setiap pemain di <code>world/playerdata/&lt;uuid&gt;.dat</code>. File ini memuat inventaris, peti Ender, posisi, dimensi, kesehatan, rasa lapar, XP, dan atribut. Letakkan file di bawah untuk memperbaiki pemain yang terjebak dalam medan, menghapus item yang menyebabkan crash, atau mereset statistik — saat server berhenti, atau setidaknya ketika pemain tersebut offline.",
+    "droplabel": "file playerdata .dat",
+    "body": "\n<section class=\"content\" aria-label=\"playerdata tags\">\n<h2>Tag dalam file pemain</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Tag</th><th>Tipe</th><th>Fungsi</th></tr></thead>\n<tbody>\n<tr><td><code>Pos</code></td><td>List berisi Double</td><td>X, Y, Z. Digunakan untuk memperbaiki pemain yang terjebak di dinding atau di bawah bedrock.</td></tr>\n<tr><td><code>Rotation</code></td><td>List berisi Float</td><td>Sudut putar horizontal (yaw) dan vertikal (pitch).</td></tr>\n<tr><td><code>Dimension</code></td><td>String / Int</td><td>Dimensi tempat pemain masuk.</td></tr>\n<tr><td><code>Inventory</code></td><td>List berisi Compound</td><td>Satu entri per tumpukan item: <code>id</code>, <code>Count</code>, <code>Slot</code>, <code>components</code>, atau <code>tag</code>.</td></tr>\n<tr><td><code>EnderItems</code></td><td>List berisi Compound</td><td>Isi peti Ender dengan struktur yang sama.</td></tr>\n<tr><td><code>Health</code>, <code>foodLevel</code>, <code>XpLevel</code>, <code>XpTotal</code></td><td>Float / Int</td><td>Kondisi pemain dan pengalaman.</td></tr>\n<tr><td><code>playerGameType</code></td><td>Int</td><td>Mode gim per pemain.</td></tr>\n<tr><td><code>abilities</code></td><td>Compound</td><td>Kemampuan terbang, kebal, serta kecepatan berjalan dan terbang.</td></tr>\n<tr><td><code>Attributes</code></td><td>List berisi Compound</td><td>Kesehatan maksimum, kecepatan bergerak, dan pengubah lain.</td></tr>\n<tr><td><code>SpawnX</code>/<code>SpawnY</code>/<code>SpawnZ</code> atau <code>respawn</code></td><td>Int / Compound</td><td>Titik respawn pribadi, bergantung pada versi.</td></tr>\n<tr><td><code>UUID</code></td><td>Int[4]</td><td>UUID pemain sebagai empat int pada versi modern.</td></tr>\n</tbody>\n</table>\n</div>\n<p>Struktur tumpukan item berubah pada 1.20.5: data khusus dipindahkan dari satu compound <code>tag</code> ke <code>components</code> terpisah. Kedua struktur dapat dibuka di sini; edit struktur yang ditulis oleh versi Anda.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Common repairs\">\n<h2>Perbaikan umum</h2>\n<div class=\"card\">\n<ul>\n<li><strong>Pemain terjebak dalam medan atau terus jatuh.</strong> Atur <code>Pos</code> ke koordinat aman — tiga double berurutan X, Y, Z — dan kosongkan <code>Motion</code> jika nilainya sangat besar.</li>\n<li><strong>Klien berhenti saat masuk.</strong> Penyebab yang umum adalah item rusak. Hapus entri bermasalah dari <code>Inventory</code>, jangan mengosongkan seluruh daftar.</li>\n<li><strong>Dimensi salah setelah bug portal.</strong> Atur <code>Dimension</code> kembali ke <code>minecraft:overworld</code> dan isi <code>Pos</code> dengan koordinat yang sesuai.</li>\n<li><strong>Terjebak dalam mode penonton.</strong> Atur <code>playerGameType</code> menjadi 0 untuk mode bertahan hidup atau 1 untuk mode kreatif.</li>\n<li><strong>Pengubah atribut yang tersisa dari plugin yang dihapus.</strong> Hapus entri lama dalam <code>Attributes</code>.</li>\n</ul>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Server safety\">\n<h2>Edit saat pemain offline</h2>\n<p>Server menyimpan status pemain dalam memori dan menulisnya saat pemain keluar serta saat penyimpanan otomatis. Jika file diedit ketika pemain online, perubahan pasti tertimpa; mengedit ketika proses penyimpanan berlangsung juga dapat memotong file. Keluarkan pemain dari server — atau hentikan server — salin file, edit, lalu kembalikan sebelum pemain terhubung lagi. Simpan file asli sampai pemain berhasil masuk.</p>\n<p>Server Bedrock tidak memakai susunan ini: data pemain berada dalam LevelDB dunia dengan kunci seperti <code>player_&lt;uuid&gt;</code>, dan nilainya berupa NBT little-endian. Ekstrak nilainya agar dapat dibuka di sini sebagai <em>Bedrock mentah</em>.</p>\n</section>\n",
+    "chips": [
+      "playerdata Java",
+      "Peti Ender",
+      "Inventaris",
+      "Posisi",
+      "Atribut",
+      "Terkait advancement"
+    ],
+    "faq": [
+      [
+        "File mana yang menyimpan data pemain saya?",
+        "<p>Nama file menggunakan UUID. Cari UUID pemain melalui alat penampil API Mojang, atau urutkan <code>playerdata/</code> berdasarkan waktu modifikasi dan cocokkan dengan waktu masuk terakhir.</p>"
+      ],
+      [
+        "Bisakah saya memberi item kepada diri sendiri dengan mengedit playerdata?",
+        "<p>Di server Anda sendiri, bisa — tambahkan entri ke daftar <code>Inventory</code> dengan <code>id</code>, <code>Count</code>, dan <code>Slot</code>. Melakukannya di server orang lain adalah tindakan tanpa izin dan tetap tidak akan berhasil karena server aktif menulis ulang file tersebut.</p>"
+      ],
+      [
+        "Mengapa hasil edit saya hilang?",
+        "<p>Server atau pemain masih online saat Anda mengedit. Status pemain dalam memori akan menimpa file pada penyimpanan berikutnya.</p>"
+      ],
+      [
+        "Apakah playerdata sama di Bedrock?",
+        "<p>Tidak. Bedrock menyimpan pemain dalam LevelDB dunia, bukan dalam file terpisah per UUID. NBT pada nilai tersebut memakai little-endian dan dapat dibuka di sini setelah diekstrak.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Dimuat sebagai {0}",
+      "trailing": "{0} byte sisa setelah tag root diabaikan",
+      "error": "Kesalahan: {0}",
+      "readfail": "File tidak dapat dibaca",
+      "nofile": "Belum ada file yang dimuat",
+      "saved": "{0} disimpan ({1}, {2})",
+      "savefail": "Kesalahan saat menyimpan: {0}",
+      "exported": "{0} diekspor",
+      "snbtfail": "Kesalahan SNBT: {0}",
+      "tagadded": "Tag ditambahkan",
+      "tagremoved": "Tag dihapus",
+      "arrayupdated": "Array diperbarui",
+      "badvalue": "Nilai tidak valid: {0}",
+      "badarray": "Array tidak valid: {0}",
+      "nameneeded": "Nama tag wajib diisi",
+      "nametaken": "Tag bernama {0} sudah ada di sini",
+      "listtype": "List sudah berisi entri bertipe {0}",
+      "editlevelname": "✎ Ubah LevelName",
+      "showmore": "Tampilkan {0} lagi dari {1} …",
+      "matches": "{0} kecocokan",
+      "nomatch": "Tidak ada tag yang cocok dengan \"{0}\"",
+      "arraytoobig": "Array memiliki {0} entri — bentangkan lalu edit elemennya satu per satu",
+      "uncompressed": "tanpa kompresi",
+      "storage": "penyimpanan v{0}",
+      "entries": "{0} entri",
+      "langprompt": "Buka halaman ini dalam bahasa {0}?",
+      "langyes": "Ganti",
+      "langno": "Tetap di sini"
+    },
+    "support": "<strong>Mendukung Minecraft Bedrock Edition dan Java Edition</strong> — serta semua core server untuk keduanya, baik yang populer maupun yang jarang dikenal: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina, dan lainnya. <a href=\"__HOME__#server-software\">Daftar lengkap</a>.",
+    "footernote": "gratis, sumber terbuka (MIT), dan berjalan sepenuhnya di browser Anda. Tidak berafiliasi dengan Mojang Studios atau Microsoft. Minecraft adalah merek dagang Mojang Studios.",
+    "faqtitle": "Pertanyaan yang sering diajukan",
+    "toctitle": "Di halaman ini",
+    "relatedtitle": "Alat terkait",
+    "homecrumb": "Editor NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Semua editor",
+      "Jenis file",
+      "Referensi"
+    ],
+    "sourcehead": "Sumber",
+    "sourcelink": "Kode di GitHub"
+  },
+  "nbt-viewer": {
+    "title": "Penampil NBT Online — Buka File .nbt dan .dat",
+    "ogtitle": "Penampil NBT — buka file .nbt atau .dat di browser",
+    "desc": "Buka dan baca file NBT Minecraft secara online. Lihat seluruh struktur tag .nbt, .dat, .mcstructure, atau .schem, cari data, lalu ekspor sebagai SNBT.",
+    "keywords": "NBT viewer online, cara buka file NBT, pembaca file dat minecraft, buka file dat minecraft, viewer NBT minecraft, konversi NBT ke SNBT, lihat isi file NBT",
+    "h1": "Penampil NBT — Buka File NBT Minecraft",
+    "crumb": "Penampil NBT",
+    "reltitle": "Penampil NBT",
+    "reldesc": "Pemeriksaan hanya-baca, pencarian, dan ekspor SNBT.",
+    "answer": "Perlu melihat isi file Minecraft tanpa mengubahnya? Letakkan <code>.nbt</code>, <code>.dat</code>, <code>.mcstructure</code>, <code>.schem</code>, atau dump NBT mentah di bawah untuk melihat seluruh struktur tag beserta tipe dan nilainya, mencari berdasarkan nama atau nilai, lalu mengekspor semuanya sebagai teks SNBT. Tidak ada data yang diunggah atau ditulis kecuali Anda mengeklik simpan.",
+    "droplabel": "file .nbt atau .dat apa pun",
+    "body": "\n<section class=\"content\" aria-label=\"What you can inspect\">\n<h2>Membaca file yang bukan buatan Anda</h2>\n<p>Salah satu alasan utama membuka file NBT adalah diagnosis: versi apa yang menulisnya, mengapa dunia menolak dimuat, atau apa isi sebenarnya dari schematic yang dikirim orang lain. Penampil ini menampilkan setiap tag dengan tipe tepatnya, sehingga Anda dapat membedakan <code>TAG_Byte</code> bernilai 1 dari <code>TAG_Int</code> bernilai 1 — perbedaan penting bagi Minecraft yang biasanya hilang dalam dump teks.</p>\n<ul>\n<li><strong>Label tipe pada setiap baris</strong> — Byte, Short, Int, Long, Float, Double, Byte[], String, List, Compound, Int[], Long[].</li>\n<li><strong>Long 64-bit penuh</strong> ditampilkan secara tepat, sehingga seed dan bagian UUID terbaca benar tanpa pembulatan.</li>\n<li><strong>Pencarian</strong> pada seluruh struktur berdasarkan nama atau nilai tag, dengan lompatan langsung ke hasil.</li>\n<li><strong>Format yang terdeteksi</strong> ditampilkan pada bilah file: edisi, urutan byte, kompresi, dan versi penyimpanan Bedrock.</li>\n<li><strong>Ekspor SNBT</strong> untuk memperoleh seluruh dokumen sebagai teks yang dapat dibandingkan, ditempel ke perintah, atau diberikan ke alat lain.</li>\n</ul>\n</section>\n\n<section class=\"content\" aria-label=\"SNBT\">\n<h2>NBT dibandingkan dengan SNBT</h2>\n<p>SNBT adalah bentuk teks NBT — hasil yang dicetak oleh <code>/data get</code> dan format yang diterima perintah. Informasi tipe dipertahankan sebagai sufiks: <code>3b</code> adalah byte, <code>3s</code> short, <code>3L</code> long, <code>3.0f</code> float, <code>3.0d</code> double, dan <code>[I;1,2,3]</code> array int. Tombol ekspor menghasilkan format ini secara tepat, sehingga file biner dapat ditempel ke command block atau disimpan dalam git dan dibandingkan baris demi baris.</p>\n<p>JSON bukan pengganti: JSON hanya memiliki satu tipe angka dan tidak memiliki array byte, sehingga konversi NBT ke JSON diam-diam menghilangkan perbedaan yang diperlukan Minecraft. Karena itu, alat ini mengekspor SNBT, bukan JSON.</p>\n</section>\n\n<section class=\"content\" aria-label=\"File types\">\n<h2>File yang dapat dibuka</h2>\n<p>Semua file yang payload-nya berupa satu dokumen NBT: <a href=\"../level-dat-editor/\">level.dat</a> Java dan Bedrock, <a href=\"../playerdata-editor/\">playerdata</a>, <code>servers.dat</code>, <code>hotbar.nbt</code>, <code>idcounts.dat</code>, <code>raids.dat</code>, <code>scoreboard.dat</code>, data peta, struktur <code>.nbt</code>, <a href=\"../schematic-editor/\">.schem dan .schematic</a>, <a href=\"../mcstructure-editor/\">.mcstructure</a>, <code>.litematic</code>, payload chunk yang diekstrak, dan dump paket. Wadah seperti region <code>.mca</code>, arsip <code>.mcworld</code>, serta folder LevelDB harus diekstrak menjadi satu dokumen terlebih dahulu.</p>\n</section>\n",
+    "chips": [
+      ".nbt",
+      ".dat",
+      ".mcstructure",
+      ".schem",
+      ".schematic",
+      "Ekspor SNBT",
+      "Pencarian"
+    ],
+    "faq": [
+      [
+        "Bisakah file NBT dilihat tanpa diedit?",
+        "<p>Ya. Editor hanya menulis file ketika Anda mengeklik Simpan &amp; Unduh dan tidak pernah mengubah file yang Anda masukkan.</p>"
+      ],
+      [
+        "Bisakah NBT dikonversi menjadi JSON?",
+        "<p>Editor mengekspor SNBT yang mempertahankan tipe tag. JSON menggabungkan byte, short, int, long, dan float menjadi satu tipe angka serta menghilangkan array byte, sehingga tidak tepat untuk konversi bolak-balik data Minecraft.</p>"
+      ],
+      [
+        "Mengapa file saya terdeteksi sebagai edisi yang berbeda?",
+        "<p>Format dideteksi dari byte, bukan ekstensi. File yang dilaporkan sebagai Java saat Anda mengharapkan Bedrock biasanya berasal dari edisi lain, atau berupa fragmen yang kebetulan dapat diuraikan — periksa offset yang dilaporkan jika ada peringatan tentang byte sisa.</p>"
+      ],
+      [
+        "Seberapa besar file yang dapat dibuka?",
+        "<p>Dokumen berukuran beberapa megabyte dapat dibuka: array disimpan sebagai typed array dan struktur dirender secara bertahap, sehingga hanya baris yang Anda bentangkan yang muncul di halaman.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Dimuat sebagai {0}",
+      "trailing": "{0} byte sisa setelah tag root diabaikan",
+      "error": "Kesalahan: {0}",
+      "readfail": "File tidak dapat dibaca",
+      "nofile": "Belum ada file yang dimuat",
+      "saved": "{0} disimpan ({1}, {2})",
+      "savefail": "Kesalahan saat menyimpan: {0}",
+      "exported": "{0} diekspor",
+      "snbtfail": "Kesalahan SNBT: {0}",
+      "tagadded": "Tag ditambahkan",
+      "tagremoved": "Tag dihapus",
+      "arrayupdated": "Array diperbarui",
+      "badvalue": "Nilai tidak valid: {0}",
+      "badarray": "Array tidak valid: {0}",
+      "nameneeded": "Nama tag wajib diisi",
+      "nametaken": "Tag bernama {0} sudah ada di sini",
+      "listtype": "List sudah berisi entri bertipe {0}",
+      "editlevelname": "✎ Ubah LevelName",
+      "showmore": "Tampilkan {0} lagi dari {1} …",
+      "matches": "{0} kecocokan",
+      "nomatch": "Tidak ada tag yang cocok dengan \"{0}\"",
+      "arraytoobig": "Array memiliki {0} entri — bentangkan lalu edit elemennya satu per satu",
+      "uncompressed": "tanpa kompresi",
+      "storage": "penyimpanan v{0}",
+      "entries": "{0} entri",
+      "langprompt": "Buka halaman ini dalam bahasa {0}?",
+      "langyes": "Ganti",
+      "langno": "Tetap di sini"
+    },
+    "support": "<strong>Mendukung Minecraft Bedrock Edition dan Java Edition</strong> — serta semua core server untuk keduanya, baik yang populer maupun yang jarang dikenal: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina, dan lainnya. <a href=\"__HOME__#server-software\">Daftar lengkap</a>.",
+    "footernote": "gratis, sumber terbuka (MIT), dan berjalan sepenuhnya di browser Anda. Tidak berafiliasi dengan Mojang Studios atau Microsoft. Minecraft adalah merek dagang Mojang Studios.",
+    "faqtitle": "Pertanyaan yang sering diajukan",
+    "toctitle": "Di halaman ini",
+    "relatedtitle": "Alat terkait",
+    "homecrumb": "Editor NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Semua editor",
+      "Jenis file",
+      "Referensi"
+    ],
+    "sourcehead": "Sumber",
+    "sourcelink": "Kode di GitHub"
+  },
+  "nbtexplorer-online": {
+    "title": "NBTExplorer Online — Alternatif di Browser",
+    "ogtitle": "NBTExplorer di browser — alternatif berbasis browser",
+    "desc": "Alternatif NBTExplorer di browser: pengeditan struktur tag untuk file Minecraft serta dukungan little-endian Bedrock, tanpa perlu memasang aplikasi.",
+    "keywords": "NBTExplorer di browser, alternatif NBTExplorer, editor NBT tanpa download, NBTExplorer Bedrock, buka NBTExplorer di browser, editor NBT online, NBTExplorer Android",
+    "h1": "NBTExplorer Online — Alternatif di Browser",
+    "crumb": "NBTExplorer di browser",
+    "reltitle": "NBTExplorer di browser",
+    "reldesc": "Fitur yang tersedia dari alat desktop dan batasannya.",
+    "answer": "NBTExplorer adalah editor tag desktop yang dikenal banyak pemain Minecraft dan memerlukan .NET atau Mono, unduhan, serta komputer desktop. Halaman ini menyediakan fungsi yang sama — struktur tag, edit langsung, tambah dan hapus tag — di browser pada semua sistem operasi, termasuk ponsel. Editor ini juga membaca file little-endian Bedrock yang tidak didukung NBTExplorer.",
+    "droplabel": "file NBT apa pun",
+    "body": "\n<section class=\"content\" aria-label=\"Comparison\">\n<h2>Perbandingan fitur</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Kemampuan</th><th>NBTExplorer (desktop)</th><th>Editor ini (browser)</th></tr></thead>\n<tbody>\n<tr><td>Perlu dipasang</td><td>Ya — runtime .NET / Mono</td><td>Tidak</td></tr>\n<tr><td>NBT big-endian Java</td><td>Ya</td><td>Ya</td></tr>\n<tr><td>gzip / zlib</td><td>Ya</td><td>Ya, melalui aliran kompresi bawaan browser</td></tr>\n<tr><td>NBT little-endian Bedrock</td><td>Tidak</td><td>Ya, termasuk header 8 byte <code>level.dat</code></td></tr>\n<tr><td>NBT jaringan / varint Bedrock</td><td>Tidak</td><td>Ya</td></tr>\n<tr><td>Menelusuri region dan folder <code>.mca</code></td><td>Ya — keunggulan utamanya</td><td>Tidak, satu dokumen setiap kali</td></tr>\n<tr><td>Menelusuri LevelDB Bedrock</td><td>Tidak</td><td>Tidak, ekstrak nilainya terlebih dahulu</td></tr>\n<tr><td>Mencari di seluruh struktur</td><td>Ya</td><td>Ya</td></tr>\n<tr><td>Ekspor SNBT</td><td>Tidak</td><td>Ya</td></tr>\n<tr><td>Berjalan di ponsel</td><td>Tidak</td><td>Ya</td></tr>\n<tr><td>Mengirim file Anda ke tempat lain</td><td>Tidak</td><td>Tidak</td></tr>\n</tbody>\n</table>\n</div>\n<p>Ringkasnya: jika Anda perlu menelusuri seluruh folder region dan membuka chunk berdasarkan koordinat, alat desktop masih lebih sesuai. Jika Anda perlu membuka satu file — <code>level.dat</code>, file pemain, schematic, atau dunia Bedrock — pada perangkat yang sedang digunakan, editor ini lebih cepat dan mendukung edisi yang tidak didukung alat desktop.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Migrating\">\n<h2>Beralih dari alat desktop</h2>\n<ul>\n<li><strong>Struktur bekerja dengan cara yang sama.</strong> Bentangkan compound dan list, klik nilai untuk mengeditnya, lalu gunakan + dan × untuk mengubah struktur.</li>\n<li><strong>Tipe diterapkan dengan cara yang sama.</strong> Byte tetap berupa byte; nilai di luar rentang ditolak dan tidak dipotong diam-diam.</li>\n<li><strong>Penyimpanan dilakukan melalui unduhan,</strong> bukan penulisan langsung. File yang Anda masukkan tidak pernah diubah, sehingga file asli otomatis tetap tersedia.</li>\n<li><strong>Kompresi dipertahankan.</strong> File gzip diunduh kembali sebagai gzip, sehingga gim menerimanya tanpa langkah kompresi ulang manual.</li>\n<li><strong>Bedrock langsung didukung.</strong> Tidak perlu alat terpisah atau hex editor untuk memperbaiki panjang header setelah pengeditan.</li>\n</ul>\n</section>\n\n<section class=\"content\" aria-label=\"Other tools\">\n<h2>Kapan alat lain masih diperlukan</h2>\n<p>Gunakan <strong>NBTExplorer</strong> atau <strong>NBTStudio</strong> untuk menelusuri banyak region. Gunakan <strong>Amulet</strong> atau <strong>MCA Selector</strong> untuk perbaikan tingkat chunk dan pemangkasan dunia. Gunakan <strong>WorldEdit</strong> untuk perubahan geometris. Gunakan halaman ini ketika tugasnya adalah \"buka satu file, ubah tag ini, lalu simpan kembali\" — kebutuhan yang paling umum — atau ketika file berasal dari Bedrock dan ditolak alat desktop.</p>\n</section>\n",
+    "chips": [
+      "Tanpa instalasi",
+      "Windows",
+      "macOS",
+      "Linux",
+      "Android",
+      "ChromeOS"
+    ],
+    "faq": [
+      [
+        "Apakah ada versi web resmi NBTExplorer?",
+        "<p>Tidak. NBTExplorer adalah aplikasi desktop; ini adalah editor independen yang menangani tugas harian serupa di browser dan menambahkan dukungan Bedrock.</p>"
+      ],
+      [
+        "Apakah editor berfungsi di macOS dan Linux tanpa Mono?",
+        "<p>Ya — editor ini berupa halaman web. Browser modern di macOS, Linux, Windows, Android, atau ChromeOS dapat menjalankannya.</p>"
+      ],
+      [
+        "Bisakah editor membuka seluruh file region seperti NBTExplorer?",
+        "<p>Tidak. Editor menangani satu dokumen NBT setiap kali. Ekstrak chunk dari <code>.mca</code> terlebih dahulu, lalu masukkan payload-nya di sini.</p>"
+      ],
+      [
+        "Apakah aman digunakan pada satu-satunya file simpanan saya?",
+        "<p>Editor tidak pernah menulis ke file yang dibuka — hasil edit diunduh sebagai file baru — tetapi tetap simpan cadangan sendiri seperti saat memakai editor lain.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Dimuat sebagai {0}",
+      "trailing": "{0} byte sisa setelah tag root diabaikan",
+      "error": "Kesalahan: {0}",
+      "readfail": "File tidak dapat dibaca",
+      "nofile": "Belum ada file yang dimuat",
+      "saved": "{0} disimpan ({1}, {2})",
+      "savefail": "Kesalahan saat menyimpan: {0}",
+      "exported": "{0} diekspor",
+      "snbtfail": "Kesalahan SNBT: {0}",
+      "tagadded": "Tag ditambahkan",
+      "tagremoved": "Tag dihapus",
+      "arrayupdated": "Array diperbarui",
+      "badvalue": "Nilai tidak valid: {0}",
+      "badarray": "Array tidak valid: {0}",
+      "nameneeded": "Nama tag wajib diisi",
+      "nametaken": "Tag bernama {0} sudah ada di sini",
+      "listtype": "List sudah berisi entri bertipe {0}",
+      "editlevelname": "✎ Ubah LevelName",
+      "showmore": "Tampilkan {0} lagi dari {1} …",
+      "matches": "{0} kecocokan",
+      "nomatch": "Tidak ada tag yang cocok dengan \"{0}\"",
+      "arraytoobig": "Array memiliki {0} entri — bentangkan lalu edit elemennya satu per satu",
+      "uncompressed": "tanpa kompresi",
+      "storage": "penyimpanan v{0}",
+      "entries": "{0} entri",
+      "langprompt": "Buka halaman ini dalam bahasa {0}?",
+      "langyes": "Ganti",
+      "langno": "Tetap di sini"
+    },
+    "support": "<strong>Mendukung Minecraft Bedrock Edition dan Java Edition</strong> — serta semua core server untuk keduanya, baik yang populer maupun yang jarang dikenal: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina, dan lainnya. <a href=\"__HOME__#server-software\">Daftar lengkap</a>.",
+    "footernote": "gratis, sumber terbuka (MIT), dan berjalan sepenuhnya di browser Anda. Tidak berafiliasi dengan Mojang Studios atau Microsoft. Minecraft adalah merek dagang Mojang Studios.",
+    "faqtitle": "Pertanyaan yang sering diajukan",
+    "toctitle": "Di halaman ini",
+    "relatedtitle": "Alat terkait",
+    "homecrumb": "Editor NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Semua editor",
+      "Jenis file",
+      "Referensi"
+    ],
+    "sourcehead": "Sumber",
+    "sourcelink": "Kode di GitHub"
+  },
+  "nbt-format": {
+    "title": "Format NBT — Tipe Tag, Pengodean, Tata Letak Byte",
+    "ogtitle": "Referensi format NBT — tag, pengodean, tata letak byte",
+    "desc": "Referensi format NBT Minecraft: 13 tipe tag dan tata letak byte, big-endian Java, little-endian Bedrock, NBT jaringan varint, serta SNBT.",
+    "keywords": "format nbt minecraft, struktur file nbt, tipe tag nbt, spesifikasi nbt minecraft, TAG_Compound, nbt little endian, varint nbt, network nbt, sintaks snbt, tata letak byte nbt",
+    "h1": "Referensi Format NBT",
+    "crumb": "Format NBT",
+    "reltitle": "Referensi format NBT",
+    "reldesc": "Semua 13 tipe tag dan setiap pengodean, byte demi byte.",
+    "answer": "NBT (Named Binary Tag) adalah format pohon biner Minecraft: satu tag terdiri dari tipe satu byte, nama dengan awalan panjang, dan payload; compound dapat bersarang hingga ditutup oleh byte <code>TAG_End</code>. Ada 13 tipe tag dan lima pengodean yang digunakan di Java dan Bedrock. Halaman ini mendokumentasikan semuanya, sedangkan editor di atas dapat memeriksa setiap penjelasan memakai file nyata.",
+    "droplabel": "file NBT apa pun untuk diperiksa",
+    "body": "\n<section class=\"content\" aria-label=\"Tag types\">\n<h2>13 tipe tag</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Id</th><th>Tag</th><th>Isi data</th><th>SNBT</th></tr></thead>\n<tbody>\n<tr><td>0</td><td><code>TAG_End</code></td><td>Tidak ada — menutup compound</td><td>—</td></tr>\n<tr><td>1</td><td><code>TAG_Byte</code></td><td>1 byte, bertanda −128…127</td><td><code>1b</code></td></tr>\n<tr><td>2</td><td><code>TAG_Short</code></td><td>2 byte, bertanda</td><td><code>1s</code></td></tr>\n<tr><td>3</td><td><code>TAG_Int</code></td><td>4 byte, bertanda</td><td><code>1</code></td></tr>\n<tr><td>4</td><td><code>TAG_Long</code></td><td>8 byte, bertanda</td><td><code>1L</code></td></tr>\n<tr><td>5</td><td><code>TAG_Float</code></td><td>4 byte, IEEE 754</td><td><code>1.0f</code></td></tr>\n<tr><td>6</td><td><code>TAG_Double</code></td><td>8 byte, IEEE 754</td><td><code>1.0d</code></td></tr>\n<tr><td>7</td><td><code>TAG_Byte_Array</code></td><td>panjang int, lalu byte sebanyak nilai tersebut</td><td><code>[B;1b,2b]</code></td></tr>\n<tr><td>8</td><td><code>TAG_String</code></td><td>panjang unsigned short, lalu byte UTF-8</td><td><code>\"text\"</code></td></tr>\n<tr><td>9</td><td><code>TAG_List</code></td><td>byte tipe elemen, panjang int, lalu payload tanpa nama</td><td><code>[1,2]</code></td></tr>\n<tr><td>10</td><td><code>TAG_Compound</code></td><td>tipe + nama + payload berulang hingga <code>TAG_End</code></td><td><code>{a:1}</code></td></tr>\n<tr><td>11</td><td><code>TAG_Int_Array</code></td><td>panjang int, lalu sejumlah int 4 byte</td><td><code>[I;1,2]</code></td></tr>\n<tr><td>12</td><td><code>TAG_Long_Array</code></td><td>panjang int, lalu sejumlah long 8 byte</td><td><code>[L;1L,2L]</code></td></tr>\n</tbody>\n</table>\n</div>\n<p>Satu file memiliki satu root <code>TAG_Compound</code>: satu byte tipe <code>0x0A</code>, nama, lalu isi compound. Tag bernama hanya muncul di dalam compound — elemen list hanya membawa payload, sehingga satu list selalu homogen.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Encodings\">\n<h2>Lima pengodean yang digunakan</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Pengodean</th><th>Integer</th><th>Panjang string</th><th>Akar</th><th>Digunakan oleh</th></tr></thead>\n<tbody>\n<tr><td>Java (klasik)</td><td>Big-endian dengan lebar tetap</td><td>Big-endian 2 byte</td><td>Bernama</td><td>Dunia, struktur, dan skematik Java</td></tr>\n<tr><td>Jaringan Java (1.20.2+)</td><td>Big-endian dengan lebar tetap</td><td>Big-endian 2 byte</td><td>Tanpa nama</td><td>Protokol Java</td></tr>\n<tr><td>Bedrock</td><td>Little-endian dengan lebar tetap</td><td>Little-endian 2 byte</td><td>Bernama</td><td>Dunia Bedrock, <code>.mcstructure</code>, nilai LevelDB</td></tr>\n<tr><td>Bedrock <code>level.dat</code></td><td>Little-endian dengan lebar tetap</td><td>Little-endian 2 byte</td><td>Bernama, setelah header 8 byte</td><td>Metadata dunia Bedrock</td></tr>\n<tr><td>Jaringan Bedrock</td><td>Varint zigzag untuk int dan long</td><td>Varint tanpa tanda</td><td>Bernama</td><td>Protokol Bedrock</td></tr>\n</tbody>\n</table>\n</div>\n<p>Dalam pengodean varint, <code>TAG_Short</code>, <code>TAG_Float</code>, dan <code>TAG_Double</code> tetap little-endian dengan lebar tetap; hanya <code>TAG_Int</code> dan <code>TAG_Long</code> yang menjadi varint zigzag, sedangkan panjang array dan list mengikuti perilaku <code>TAG_Int</code>. Panjang string memakai varint tanpa tanda, sehingga batas 65535 byte pada pengodean lebar tetap juga tidak berlaku.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Strings\">\n<h2>String: UTF-8 termodifikasi dan UTF-8</h2>\n<p>Java melakukan serialisasi string dengan <code>DataOutputStream.writeUTF</code>, yaitu UTF-8 <em>termodifikasi</em>: karakter NUL ditulis sebagai <code>C0 80</code>, bukan <code>00</code>, sedangkan karakter di luar Basic Multilingual Plane ditulis sebagai dua bagian surrogate tiga byte (CESU-8), bukan satu urutan empat byte. Bedrock memakai UTF-8 standar. Alat yang mengasumsikan satu pengodean untuk keduanya akan merusak emoji dan sebagian teks CJK saat menyimpan — editor ini memakai pengodean sesuai format, sehingga nama dunia berisi emoji tetap utuh setelah dibuka dan disimpan kembali.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Compression\">\n<h2>Kompresi</h2>\n<p>NBT sendiri tidak dikompresi; wadah yang menentukannya. File Java biasanya memakai gzip (magic <code>1F 8B</code>), payload chunk di dalam file region memakai zlib (magic <code>78 01</code>, <code>78 9C</code>, atau <code>78 DA</code>), sedangkan Bedrock menyimpan <code>level.dat</code> dan file struktur tanpa kompresi. Deteksi dilakukan melalui magic byte, sehingga parser yang sama menangani ketiganya — dan file yang disimpan dengan kompresi salah merupakan penyebab paling umum dunia hasil edit manual tidak dapat dimuat.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Byte walkthrough\">\n<h2>File minimal, byte demi byte</h2>\n<p>Contoh standar <code>hello_world.nbt</code>: root compound bernama <code>hello world</code> yang berisi satu tag string <code>name</code> dengan nilai <code>Bananrama</code>. Dalam pengodean big-endian Java:</p>\n<pre class=\"code\"><code>0A                          TAG_Compound\n00 0B 68 65 6C 6C 6F 20 77 6F 72 6C 64   name length 11, \"hello world\"\n   08                       TAG_String\n   00 04 6E 61 6D 65        name length 4, \"name\"\n   00 09 42 61 6E 61 6E 72 61 6D 61      value length 9, \"Bananrama\"\n00                          TAG_End</code></pre>\n<p>Dokumen yang sama dalam pengodean little-endian Bedrock hanya berbeda pada urutan byte dua field panjang: <code>0B 00</code>, bukan <code>00 0B</code>. Dalam NBT jaringan Bedrock, panjang tersebut menjadi byte varint tunggal, <code>0B</code> dan <code>04</code>, tanpa padding. Masukkan salah satu dari ketiga format ke editor di atas untuk mengetahui format yang diterima.</p>\n</section>\n\n<section class=\"content\" aria-label=\"SNBT\">\n<h2>SNBT</h2>\n<p>SNBT adalah NBT dalam bentuk teks dan digunakan oleh perintah: <code>/data merge entity @s {Invulnerable:1b}</code>. Sufiks tipe menjaga informasi tipe agar tidak hilang — <code>b</code> untuk byte, <code>s</code> untuk short, <code>L</code> untuk long, <code>f</code> untuk float, <code>d</code> untuk double, tanpa sufiks untuk int — dan literal array bertipe ditulis sebagai <code>[B;…]</code>, <code>[I;…]</code>, <code>[L;…]</code>. Editor mengekspor SNBT dari setiap file yang dimuat, sehingga dua versi dunia dapat dibandingkan dengan alat pembanding teks biasa.</p>\n</section>\n",
+    "chips": [
+      "13 tipe tag",
+      "Big-endian",
+      "Little-endian",
+      "Varint",
+      "gzip",
+      "zlib",
+      "SNBT"
+    ],
+    "faq": [
+      [
+        "Apakah ada spesifikasi NBT resmi?",
+        "<p>Tidak ada spesifikasi formal dari Mojang. Format ini didokumentasikan oleh Notch pada 2010 dan sejak itu dipelihara oleh komunitas; id tag dan tata letak pada halaman ini sesuai dengan yang dibaca dan ditulis gim saat ini.</p>"
+      ],
+      [
+        "Mengapa Bedrock memakai little-endian?",
+        "<p>Engine Bedrock menggunakan C++ dan ditujukan untuk perangkat keras little-endian, sehingga nilai disimpan dalam urutan byte bawaan perangkat. Serialisasi Java memakai big-endian karena itulah yang ditetapkan oleh kontrak DataOutput Java.</p>"
+      ],
+      [
+        "Apa itu pengodean varint zigzag?",
+        "<p>Cara menulis integer dengan byte sesedikit mungkin sambil menjaga bilangan negatif tetap pendek: tanda dimasukkan ke bit rendah, sehingga −1 dikodekan sebagai 1 dan 1 sebagai 2. Protokol Bedrock memakainya untuk int dan long.</p>"
+      ],
+      [
+        "Bisakah TAG_List menyimpan tipe campuran?",
+        "<p>Tidak. Satu list mendeklarasikan satu tipe elemen dan setiap entri harus sesuai. Data campuran memerlukan list berisi compound.</p>"
+      ],
+      [
+        "Berapa panjang maksimum string?",
+        "<p>65535 byte pada pengodean lebar tetap karena field panjang berupa unsigned short. Pengodean jaringan varint tidak memiliki batas praktis.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Dimuat sebagai {0}",
+      "trailing": "{0} byte sisa setelah tag root diabaikan",
+      "error": "Kesalahan: {0}",
+      "readfail": "File tidak dapat dibaca",
+      "nofile": "Belum ada file yang dimuat",
+      "saved": "{0} disimpan ({1}, {2})",
+      "savefail": "Kesalahan saat menyimpan: {0}",
+      "exported": "{0} diekspor",
+      "snbtfail": "Kesalahan SNBT: {0}",
+      "tagadded": "Tag ditambahkan",
+      "tagremoved": "Tag dihapus",
+      "arrayupdated": "Array diperbarui",
+      "badvalue": "Nilai tidak valid: {0}",
+      "badarray": "Array tidak valid: {0}",
+      "nameneeded": "Nama tag wajib diisi",
+      "nametaken": "Tag bernama {0} sudah ada di sini",
+      "listtype": "List sudah berisi entri bertipe {0}",
+      "editlevelname": "✎ Ubah LevelName",
+      "showmore": "Tampilkan {0} lagi dari {1} …",
+      "matches": "{0} kecocokan",
+      "nomatch": "Tidak ada tag yang cocok dengan \"{0}\"",
+      "arraytoobig": "Array memiliki {0} entri — bentangkan lalu edit elemennya satu per satu",
+      "uncompressed": "tanpa kompresi",
+      "storage": "penyimpanan v{0}",
+      "entries": "{0} entri",
+      "langprompt": "Buka halaman ini dalam bahasa {0}?",
+      "langyes": "Ganti",
+      "langno": "Tetap di sini"
+    },
+    "support": "<strong>Mendukung Minecraft Bedrock Edition dan Java Edition</strong> — serta semua core server untuk keduanya, baik yang populer maupun yang jarang dikenal: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina, dan lainnya. <a href=\"__HOME__#server-software\">Daftar lengkap</a>.",
+    "footernote": "gratis, sumber terbuka (MIT), dan berjalan sepenuhnya di browser Anda. Tidak berafiliasi dengan Mojang Studios atau Microsoft. Minecraft adalah merek dagang Mojang Studios.",
+    "faqtitle": "Pertanyaan yang sering diajukan",
+    "toctitle": "Di halaman ini",
+    "relatedtitle": "Alat terkait",
+    "homecrumb": "Editor NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Semua editor",
+      "Jenis file",
+      "Referensi"
+    ],
+    "sourcehead": "Sumber",
+    "sourcelink": "Kode di GitHub"
+  },
+  "guides/change-world-name": {
+    "title": "Cara Mengubah Nama Dunia Minecraft (Java &amp; Bedrock)",
+    "ogtitle": "Cara mengubah nama dunia Minecraft",
+    "desc": "Ubah nama dunia Minecraft dengan mengedit LevelName di level.dat untuk Java dan Bedrock, pemain tunggal maupun server, termasuk solusi nama duplikat.",
+    "keywords": "cara mengganti nama world minecraft, ubah nama dunia minecraft, rename world minecraft server, edit LevelName level.dat, ganti nama world bedrock, nama world minecraft tidak berubah",
+    "h1": "Cara Mengubah Nama Dunia Minecraft",
+    "crumb": "Ubah nama dunia",
+    "reltitle": "Ubah nama dunia",
+    "reldesc": "Perbaiki LevelName setelah menyalin folder dunia.",
+    "answer": "Nama tampilan dunia tersimpan dalam tag <code>LevelName</code> di <code>level.dat</code>, bukan pada nama folder. Mengganti nama folder tidak mengubah apa pun yang ditampilkan gim. Karena itu, dunia hasil salinan tetap memakai nama aslinya. Masukkan <code>level.dat</code> ke editor di bawah — editor langsung membuka <code>LevelName</code> — ubah nilainya, simpan, lalu kembalikan file tersebut.",
+    "droplabel": "level.dat",
+    "body": "\n<section class=\"content\" aria-label=\"Why the folder name is not the world name\">\n<h2>Mengapa mengganti nama folder tidak berpengaruh</h2>\n<p>Minecraft memakai folder sebagai alamat dan <code>LevelName</code> sebagai label. Daftar dunia, konsol server, plugin pengelola dunia, dan semua komponen yang menampilkan \"dunia\" di obrolan membaca tag tersebut. Jadi, menyalin folder — <code>cp -r worlds/hub worlds/hub2</code> — menghasilkan dua dunia yang sama-sama mengaku bernama <em>hub</em>, dan satu-satunya perbaikan ada di dalam file.</p>\n<p>Di server, nama duplikat bukan hanya membingungkan. Plugin yang mencari dunia berdasarkan nama internal dapat bertindak pada dunia yang salah: pad teleportasi, konfigurasi per dunia, wilayah perlindungan, dan pengali ekonomi. Ganti nama tag segera setelah menyalin dunia, sebelum komponen lain menyimpannya dalam cache.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Per platform\">\n<h2>Menurut platform</h2>\n<div class=\"card\">\n<h3>Java pemain tunggal</h3>\n<p>Klien menyediakan opsi ganti nama pada layar pengaturan dunia dan mengedit <code>LevelName</code> untuk Anda. Mengedit file secara manual diperlukan ketika dunia tidak dapat dimuat, saat Anda mengerjakan salinannya, atau ketika nama folder dan label sengaja dibuat berbeda.</p>\n<h3>Server Java</h3>\n<p><code>level-name</code> dalam <code>server.properties</code> memilih <em>folder</em> yang akan dimuat. Pengaturan itu tidak mengganti nama apa pun. Ubah <code>LevelName</code> dalam <code>world/level.dat</code> untuk mengubah label.</p>\n<h3>Bedrock dan MCPE</h3>\n<p>Layar edit dunia dalam gim dapat mengganti nama dunia. Jika dunia berada di server atau Anda memperbaiki file <code>.mcworld</code> hasil ekspor, edit <code>LevelName</code> langsung dalam <code>level.dat</code> — Bedrock menyimpannya langsung di root tanpa kompresi, setelah header 8 byte yang ditangani otomatis oleh editor.</p>\n<h3>Server Bedrock (PocketMine-MP, Nukkit, BDS)</h3>\n<p>File dan tag-nya sama, begitu pula peringatan untuk menghentikan server terlebih dahulu. <a href=\"../../pocketmine-nbt-editor/\">Halaman server</a> menjelaskan alur lengkap, termasuk kasus penyalinan folder.</p>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Troubleshooting\">\n<h2>Jika nama tidak berubah</h2>\n<ul>\n<li><strong>Server masih berjalan.</strong> Salinan di memori ditulis kembali menimpa file Anda saat penyimpanan berikutnya. Hentikan server dan ulangi pengeditan.</li>\n<li><strong>Anda mengedit dunia yang salah.</strong> Folder dunia Bedrock memakai id acak. Buka file dan baca <code>LevelName</code> untuk memastikan dunianya benar sebelum mengedit.</li>\n<li><strong>Anda mengedit <code>level.dat_old</code>.</strong> Itu adalah penyimpanan sebelumnya, bukan file aktif.</li>\n<li><strong>Launcher atau panel menyimpan nama dalam cache.</strong> Beberapa panel hosting menampilkan nama dari basis datanya sendiri, bukan dari file dunia; nama di dalam gim tetap benar.</li>\n<li><strong>Sekarang dunia sama sekali tidak dapat dimuat.</strong> Pulihkan cadangan dan baca <a href=\"../fix-corrupted-level-dat/\">cara memperbaiki level.dat yang rusak</a>.</li>\n</ul>\n</section>\n",
+    "chips": [
+      "Java",
+      "Bedrock",
+      "Server",
+      "Pemain tunggal",
+      "2 menit"
+    ],
+    "faq": [
+      [
+        "Apakah mengganti nama dunia menghapus sesuatu?",
+        "<p>Tidak. <code>LevelName</code> hanyalah label. Medan, pemain, inventaris, dan entitas tersimpan dalam file lain dan tidak tersentuh.</p>"
+      ],
+      [
+        "Bisakah nama dunia memakai spasi, warna, atau emoji?",
+        "<p>Spasi dapat digunakan. Kode warna dengan simbol § berfungsi pada beberapa perangkat lunak server, tetapi muncul sebagai karakter biasa di tempat lain. Emoji tetap utuh setelah diedit karena editor memakai pengodean string yang tepat untuk setiap edisi, tetapi konsol dan file log mungkin tidak menampilkannya dengan baik.</p>"
+      ],
+      [
+        "Apakah nama folder juga harus diubah?",
+        "<p>Tidak, dan sering kali sebaiknya jangan — pengaturan <code>level-name</code> server atau konfigurasi plugin mungkin mengarah ke path folder tersebut. Ubah satu hal setiap kali.</p>"
+      ],
+      [
+        "Apakah pemain langsung melihat nama baru?",
+        "<p>Ya, setelah dunia dimuat ulang. Klien yang menyimpan entri daftar server dalam cache mungkin perlu disegarkan.</p>"
+      ]
+    ],
+    "howto": {
+      "name": "Mengubah nama dunia Minecraft dengan mengedit level.dat",
+      "time": "PT3M",
+      "steps": [
+        [
+          "Hentikan gim atau server",
+          "Tutup dunia atau hentikan server. Minecraft menulis ulang level.dat saat penyimpanan otomatis dan penutupan, sehingga instans yang masih berjalan akan menimpa hasil edit."
+        ],
+        [
+          "Temukan level.dat",
+          "Java: world/level.dat di server, atau saves/<World>/level.dat di klien. Bedrock: worlds/<World>/level.dat di server, atau folder id dunia di bawah minecraftWorlds pada perangkat."
+        ],
+        [
+          "Buka di editor",
+          "Masukkan file ke NBT editor. Editor mendeteksi edisi dan pengodeannya, lalu membuka tag LevelName secara otomatis."
+        ],
+        [
+          "Ubah LevelName",
+          "Klik nilainya, ketik nama baru, lalu tekan Enter. Gunakan karakter biasa jika nama harus dapat ditampilkan dengan benar di konsol."
+        ],
+        [
+          "Simpan dan unduh",
+          "Klik Simpan & Unduh. Format keluaran dan kompresi tetap persis seperti file masukan, sehingga tidak ada bagian lain dari file yang berubah."
+        ],
+        [
+          "Ganti file asli",
+          "Salin file unduhan untuk menggantikan file asli sambil tetap menyimpan cadangan, lalu jalankan gim atau server dan pastikan nama baru muncul dalam daftar dunia."
+        ]
+      ]
+    },
+    "ui": {
+      "loaded": "Dimuat sebagai {0}",
+      "trailing": "{0} byte sisa setelah tag root diabaikan",
+      "error": "Kesalahan: {0}",
+      "readfail": "File tidak dapat dibaca",
+      "nofile": "Belum ada file yang dimuat",
+      "saved": "{0} disimpan ({1}, {2})",
+      "savefail": "Kesalahan saat menyimpan: {0}",
+      "exported": "{0} diekspor",
+      "snbtfail": "Kesalahan SNBT: {0}",
+      "tagadded": "Tag ditambahkan",
+      "tagremoved": "Tag dihapus",
+      "arrayupdated": "Array diperbarui",
+      "badvalue": "Nilai tidak valid: {0}",
+      "badarray": "Array tidak valid: {0}",
+      "nameneeded": "Nama tag wajib diisi",
+      "nametaken": "Tag bernama {0} sudah ada di sini",
+      "listtype": "List sudah berisi entri bertipe {0}",
+      "editlevelname": "✎ Ubah LevelName",
+      "showmore": "Tampilkan {0} lagi dari {1} …",
+      "matches": "{0} kecocokan",
+      "nomatch": "Tidak ada tag yang cocok dengan \"{0}\"",
+      "arraytoobig": "Array memiliki {0} entri — bentangkan lalu edit elemennya satu per satu",
+      "uncompressed": "tanpa kompresi",
+      "storage": "penyimpanan v{0}",
+      "entries": "{0} entri",
+      "langprompt": "Buka halaman ini dalam bahasa {0}?",
+      "langyes": "Ganti",
+      "langno": "Tetap di sini"
+    },
+    "support": "<strong>Mendukung Minecraft Bedrock Edition dan Java Edition</strong> — serta semua core server untuk keduanya, baik yang populer maupun yang jarang dikenal: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina, dan lainnya. <a href=\"__HOME__#server-software\">Daftar lengkap</a>.",
+    "footernote": "gratis, sumber terbuka (MIT), dan berjalan sepenuhnya di browser Anda. Tidak berafiliasi dengan Mojang Studios atau Microsoft. Minecraft adalah merek dagang Mojang Studios.",
+    "faqtitle": "Pertanyaan yang sering diajukan",
+    "toctitle": "Di halaman ini",
+    "relatedtitle": "Alat terkait",
+    "homecrumb": "Editor NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Semua editor",
+      "Jenis file",
+      "Referensi"
+    ],
+    "sourcehead": "Sumber",
+    "sourcelink": "Kode di GitHub"
+  },
+  "guides/fix-corrupted-level-dat": {
+    "title": "Perbaiki level.dat Rusak — Dunia Minecraft Gagal Dimuat",
+    "ogtitle": "Perbaiki level.dat yang rusak",
+    "desc": "Perbaiki dunia Minecraft yang gagal dimuat: pulihkan level.dat_old, periksa file dengan NBT editor, lalu temukan penyebab kerusakannya.",
+    "keywords": "cara memperbaiki level.dat rusak, world minecraft tidak bisa dibuka, level.dat corrupt, pulihkan level.dat_old, cara memperbaiki world minecraft rusak, error level.dat server",
+    "h1": "Perbaiki <code>level.dat</code> yang Rusak",
+    "crumb": "Perbaiki level.dat rusak",
+    "reltitle": "Perbaiki level.dat rusak",
+    "reldesc": "Cari penyebab dunia gagal dimuat, lalu perbaiki.",
+    "answer": "Dunia yang gagal dimuat biasanya mengalami salah satu dari empat masalah: <code>level.dat</code> terpotong akibat crash saat penyimpanan, kompresi salah setelah diedit manual, panjang header Bedrock rusak, atau tipe tag diubah. Masukkan file di bawah — editor menunjukkan tepat di mana parsing berhenti sehingga penyebabnya dapat dipersempit dalam hitungan detik.",
+    "droplabel": "level.dat atau level.dat_old",
+    "body": "\n<section class=\"content\" aria-label=\"Causes\">\n<h2>Bagian yang sebenarnya rusak</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Gejala</th><th>Penyebab</th><th>Perbaikan</th></tr></thead>\n<tbody>\n<tr><td>Editor melaporkan \"Unexpected end of data\"</td><td>File terpotong — proses berhenti saat penyimpanan atau disk penuh</td><td>Pulihkan <code>level.dat_old</code> atau cadangan; byte yang hilang tidak dapat dikembalikan</td></tr>\n<tr><td>Gim menyatakan dunia rusak, tetapi editor dapat memuatnya</td><td>Kompresi atau urutan byte yang ditulis alat lain salah</td><td>Simpan ulang di sini memakai format yang tepat untuk edisinya</td></tr>\n<tr><td>Dunia Bedrock tidak muncul dalam daftar</td><td>Panjang header tidak lagi sesuai dengan payload</td><td>Buka dan simpan di sini — panjangnya dihitung ulang secara otomatis</td></tr>\n<tr><td>Log server mencatat error class-cast atau tipe saat pemuatan</td><td>Tipe tag diubah secara manual (Byte ketika seharusnya Int)</td><td>Kembalikan tag ke tipe yang diharapkan gim</td></tr>\n<tr><td>Dunia dimuat, tetapi Anda muncul di dunia baru</td><td><code>level.dat</code> diganti dengan file baru yang dibuat otomatis</td><td>Pulihkan cadangan; chunk dalam <code>region/</code> atau <code>db/</code> biasanya masih baik</td></tr>\n<tr><td>Tidak ada yang dapat diparsing, termasuk <code>_old</code></td><td>Kegagalan penyimpanan — sistem file mengembalikan nol atau data sampah untuk keduanya</td><td>Pulihkan dari cadangan di mesin lain; periksa disk sebelum kembali memercayai host</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Salvage\">\n<h2>Menyelamatkan dunia tanpa <code>level.dat</code></h2>\n<p>Medan, peti, dan pemain tidak tersimpan dalam <code>level.dat</code> — data tersebut berada di <code>region/</code> (Java) atau <code>db/</code> (Bedrock). Jika file metadata tidak dapat diperbaiki, buat dunia baru dengan versi dan pengaturan yang sama, lalu pindahkan data chunk ke dalamnya dan atur <code>LevelName</code>, koordinat spawn, serta aturan permainan pada file baru. Yang hilang adalah metadata, bukan bangunan. Pastikan versinya terlebih dahulu: dunia Java menyimpan <code>DataVersion</code>, dan file baru tidak boleh lebih lama daripada chunk yang diimpor.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Prevention\">\n<h2>Mencegah kerusakan berikutnya</h2>\n<ul>\n<li><strong>Hentikan server sebelum menyalin atau mengedit.</strong> Sebagian besar kerusakan bermula dari file yang disalin saat sedang ditulis.</li>\n<li><strong>Buat snapshot terjadwal di luar mesin.</strong> Cadangan pada disk yang sama tidak akan selamat dari kegagalan penyimpanan penyebab masalah.</li>\n<li><strong>Gunakan <code>save-off</code> / <code>save-all</code> saat membuat snapshot aktif</strong> agar salinan diambil ketika dunia tidak sedang ditulis.</li>\n<li><strong>Pantau ruang disk.</strong> Disk penuh dapat memotong file penyimpanan tanpa pemberitahuan, dan <code>level.dat</code> ditulis paling akhir.</li>\n<li><strong>Edit nilai, bukan struktur.</strong> Mengganti nama tag atau mengubah tipenya adalah pengeditan yang tidak dapat ditangani gim.</li>\n</ul>\n</section>\n",
+    "chips": [
+      "Diagnosis",
+      "level.dat_old",
+      "Header",
+      "Kompresi",
+      "Pemotongan"
+    ],
+    "faq": [
+      [
+        "Apa itu level.dat_old?",
+        "<p>Itu adalah penyimpanan sebelumnya. Minecraft mengganti nama file aktif menjadi <code>level.dat_old</code> sebelum menulis file baru, sehingga file ini merupakan cadangan satu generasi yang dapat dicoba terlebih dahulu.</p>"
+      ],
+      [
+        "Bisakah NBT editor memperbaiki file yang terpotong?",
+        "<p>Editor dapat menunjukkan tepat di mana data berhenti, tetapi byte yang hilang tidak dapat direkonstruksi. Parsing parsial berarti Anda memerlukan cadangan.</p>"
+      ],
+      [
+        "Apakah bangunan saya akan hilang?",
+        "<p>Tidak hanya karena <code>level.dat</code> rusak. Chunk tersimpan dalam <code>region/</code> atau <code>db/</code>; file dunia baru dengan versi yang sama dapat memakainya.</p>"
+      ],
+      [
+        "Server menyatakan level.dat baik, tetapi dunianya kosong.",
+        "<p>Berarti masalahnya ada pada penyimpanan chunk, bukan metadata. Pastikan <code>region/</code> atau <code>db/</code> ikut tersalin dan koordinat spawn dalam <code>level.dat</code> mengarah ke lokasi yang diharapkan.</p>"
+      ]
+    ],
+    "howto": {
+      "name": "Mendiagnosis dan memperbaiki level.dat yang rusak",
+      "time": "PT10M",
+      "steps": [
+        [
+          "Cadangkan folder dunia",
+          "Salin seluruh direktori dunia sebelum mengubah apa pun. Setiap langkah di bawah hanya dapat dibatalkan jika Anda memiliki salinan ini."
+        ],
+        [
+          "Coba level.dat_old",
+          "Minecraft menyimpan hasil penyimpanan sebelumnya sebagai level.dat_old. Buka file itu di NBT editor: jika dapat diparsing tanpa error, salin untuk menggantikan level.dat lalu jalankan dunia."
+        ],
+        [
+          "Buka file yang rusak",
+          "Masukkan level.dat ke editor. Parsing tanpa error berarti file masih utuh dan masalahnya berada di tempat lain — chunk, mod, atau server itu sendiri."
+        ],
+        [
+          "Baca error",
+          "Editor menyebutkan jenis kegagalan: unexpected end of data berarti data terpotong, versi penyimpanan yang tidak masuk akal berarti header Bedrock rusak, dan format yang tidak dikenali berarti file tersebut sama sekali bukan NBT."
+        ],
+        [
+          "Periksa kompresi dan format",
+          "Jika file dapat dimuat, lihat bilah file. level.dat Java harus disimpan sebagai gzip big-endian; versi Bedrock sebagai little-endian dengan header. Menyimpan ulang dengan pengaturan yang tepat akan memperbaiki file yang dirusak alat lain."
+        ],
+        [
+          "Pulihkan hanya yang hilang",
+          "Jika satu tag terhapus, tambahkan kembali dengan tipe yang benar. Jika file terpotong, gunakan level.dat_old atau cadangan — file yang hanya dapat diparsing sebagian kehilangan data yang tidak dapat dibuat ulang oleh editor."
+        ]
+      ]
+    },
+    "ui": {
+      "loaded": "Dimuat sebagai {0}",
+      "trailing": "{0} byte sisa setelah tag root diabaikan",
+      "error": "Kesalahan: {0}",
+      "readfail": "File tidak dapat dibaca",
+      "nofile": "Belum ada file yang dimuat",
+      "saved": "{0} disimpan ({1}, {2})",
+      "savefail": "Kesalahan saat menyimpan: {0}",
+      "exported": "{0} diekspor",
+      "snbtfail": "Kesalahan SNBT: {0}",
+      "tagadded": "Tag ditambahkan",
+      "tagremoved": "Tag dihapus",
+      "arrayupdated": "Array diperbarui",
+      "badvalue": "Nilai tidak valid: {0}",
+      "badarray": "Array tidak valid: {0}",
+      "nameneeded": "Nama tag wajib diisi",
+      "nametaken": "Tag bernama {0} sudah ada di sini",
+      "listtype": "List sudah berisi entri bertipe {0}",
+      "editlevelname": "✎ Ubah LevelName",
+      "showmore": "Tampilkan {0} lagi dari {1} …",
+      "matches": "{0} kecocokan",
+      "nomatch": "Tidak ada tag yang cocok dengan \"{0}\"",
+      "arraytoobig": "Array memiliki {0} entri — bentangkan lalu edit elemennya satu per satu",
+      "uncompressed": "tanpa kompresi",
+      "storage": "penyimpanan v{0}",
+      "entries": "{0} entri",
+      "langprompt": "Buka halaman ini dalam bahasa {0}?",
+      "langyes": "Ganti",
+      "langno": "Tetap di sini"
+    },
+    "support": "<strong>Mendukung Minecraft Bedrock Edition dan Java Edition</strong> — serta semua core server untuk keduanya, baik yang populer maupun yang jarang dikenal: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina, dan lainnya. <a href=\"__HOME__#server-software\">Daftar lengkap</a>.",
+    "footernote": "gratis, sumber terbuka (MIT), dan berjalan sepenuhnya di browser Anda. Tidak berafiliasi dengan Mojang Studios atau Microsoft. Minecraft adalah merek dagang Mojang Studios.",
+    "faqtitle": "Pertanyaan yang sering diajukan",
+    "toctitle": "Di halaman ini",
+    "relatedtitle": "Alat terkait",
+    "homecrumb": "Editor NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Semua editor",
+      "Jenis file",
+      "Referensi"
+    ],
+    "sourcehead": "Sumber",
+    "sourcelink": "Kode di GitHub"
+  },
+  "guides/edit-gamerules": {
+    "title": "Edit Aturan Minecraft di level.dat — Java &amp; Bedrock",
+    "ogtitle": "Edit aturan permainan dalam level.dat",
+    "desc": "Ubah keepInventory, doDaylightCycle, mobGriefing, dan aturan permainan lain lewat level.dat untuk Java dan Bedrock, tanpa perintah atau cheat.",
+    "keywords": "cara edit gamerule level.dat, keepinventory nbt, file gamerule minecraft, ubah gamerule tanpa command, gamerule bedrock level.dat, edit gamerule server minecraft",
+    "h1": "Mengedit Aturan Permainan dalam <code>level.dat</code>",
+    "crumb": "Edit aturan permainan",
+    "reltitle": "Edit aturan permainan",
+    "reldesc": "Ubah keepInventory dan aturan lain tanpa memuat dunia.",
+    "answer": "Aturan permainan tersimpan dalam <code>level.dat</code>, jadi Anda dapat mengubahnya tanpa memuat dunia atau mengaktifkan cheat — berguna ketika dunia tidak dapat dijalankan, cheat dinonaktifkan, atau Anda menyiapkan salinan dunia sebelum pemain masuk. Java menyimpannya sebagai string dalam compound <code>GameRules</code>; Bedrock menyimpan setiap aturan sebagai tag byte huruf kecil tersendiri di root.",
+    "droplabel": "level.dat",
+    "body": "\n<section class=\"content\" aria-label=\"Java gamerules\">\n<h2>Java: compound <code>GameRules</code> berisi string</h2>\n<p>Dalam Java Edition, <code>Data</code> → <code>GameRules</code> menyimpan satu <code>TAG_String</code> untuk setiap aturan dengan nama persis seperti yang digunakan <code>/gamerule</code>, sedangkan nilainya ditulis sebagai teks: <code>\"true\"</code>, <code>\"false\"</code>, atau angka. Aturan yang belum pernah diatur tidak ada dalam file dan memakai nilai bawaan — menambahkan tag dengan nama yang benar dan nilai string bekerja persis seperti menjalankan perintah.</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Aturan</th><th>Nilai</th><th>Efek</th></tr></thead>\n<tbody>\n<tr><td><code>keepInventory</code></td><td><code>\"true\"</code></td><td>Mempertahankan barang saat mati</td></tr>\n<tr><td><code>doDaylightCycle</code></td><td><code>\"false\"</code></td><td>Menghentikan perubahan waktu</td></tr>\n<tr><td><code>doWeatherCycle</code></td><td><code>\"false\"</code></td><td>Menghentikan perubahan cuaca</td></tr>\n<tr><td><code>mobGriefing</code></td><td><code>\"false\"</code></td><td>Mencegah creeper dan enderman mengubah blok</td></tr>\n<tr><td><code>doMobSpawning</code></td><td><code>\"false\"</code></td><td>Menghentikan kemunculan mob secara alami</td></tr>\n<tr><td><code>doFireTick</code></td><td><code>\"false\"</code></td><td>Menghentikan penyebaran api</td></tr>\n<tr><td><code>commandBlockOutput</code></td><td><code>\"false\"</code></td><td>Menonaktifkan pesan berulang dari blok perintah</td></tr>\n<tr><td><code>randomTickSpeed</code></td><td><code>\"3\"</code></td><td>Laju pertumbuhan tanaman dan penyebaran api</td></tr>\n<tr><td><code>playersSleepingPercentage</code></td><td><code>\"50\"</code></td><td>Persentase pemain yang diperlukan untuk melewati malam</td></tr>\n<tr><td><code>spawnRadius</code></td><td><code>\"10\"</code></td><td>Luas penyebaran area spawn</td></tr>\n</tbody>\n</table>\n</div>\n<p>Huruf besar dan kecil berpengaruh. <code>keepinventory</code> dalam file Java bukan tag yang sama dengan <code>keepInventory</code> dan akan diabaikan.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Bedrock gamerules\">\n<h2>Bedrock: tag byte huruf kecil terpisah</h2>\n<p>Bedrock tidak mengelompokkan aturan. Setiap aturan berupa <code>TAG_Byte</code> pada root <code>level.dat</code>, memakai nama berhuruf kecil, dan berisi 1 atau 0 — <code>keepinventory</code>, <code>domobspawning</code>, <code>domobloot</code>, <code>dodaylightcycle</code>, <code>doweathercycle</code>, <code>mobgriefing</code>, <code>firedamage</code>, <code>falldamage</code>, <code>drowningdamage</code>, <code>pvp</code>, <code>showcoordinates</code>, <code>commandblockoutput</code>, <code>sendcommandfeedback</code>, <code>naturalregeneration</code>, <code>tntexplodes</code>, <code>respawnblocksexplode</code>, <code>showdeathmessages</code>, <code>doimmediaterespawn</code>. Aturan angka seperti <code>randomtickspeed</code> dan <code>functioncommandlimit</code> menggunakan <code>TAG_Int</code>.</p>\n<p>Untuk mengatur aturan yang belum ada, tambahkan tag dengan tipe yang tepat: Byte untuk sakelar dan Int untuk angka. Aturan yang tersimpan dengan tipe salah akan diabaikan atau membuat dunia gagal dimuat.</p>\n</section>\n\n<section class=\"content\" aria-label=\"Why edit the file\">\n<h2>Kapan mengedit file lebih tepat daripada memakai perintah</h2>\n<ul>\n<li><strong>Cheat dinonaktifkan</strong> dan Anda tidak ingin mengaktifkan lalu menonaktifkannya hanya untuk menjalankan satu perintah.</li>\n<li><strong>Dunia tidak dapat dimuat</strong> — aturan seperti <code>doImmediateRespawn</code> dapat diatur sebelum pemain pertama masuk.</li>\n<li><strong>Anda menyiapkan dunia templat</strong> yang akan disalin ke banyak server dan ingin aturan sudah tertanam dalam salinan.</li>\n<li><strong>Plugin mengubah aturan</strong> dan Anda ingin melihat nilai yang benar-benar tersimpan, bukan hanya yang dilaporkan perintah.</li>\n<li><strong>Edit massal.</strong> Mengatur belasan aturan di beberapa dunia lebih cepat dilakukan dalam file daripada lewat chat.</li>\n</ul>\n<p>Hentikan server terlebih dahulu, seperti pada setiap pengeditan <code>level.dat</code> — dunia yang masih berjalan menulis ulang file saat menyimpan dan akan membuang perubahan.</p>\n</section>\n",
+    "chips": [
+      "keepInventory",
+      "doDaylightCycle",
+      "mobGriefing",
+      "commandBlockOutput",
+      "randomTickSpeed"
+    ],
+    "faq": [
+      [
+        "Mengapa aturan permainan disimpan sebagai string di Java?",
+        "<p>Java menyimpan setiap aturan permainan sebagai string, termasuk boolean dan angka. Tulis <code>\"true\"</code>, bukan byte bernilai 1.</p>"
+      ],
+      [
+        "Mengapa Bedrock menyimpannya sebagai byte?",
+        "<p>Bedrock menyimpan sakelar sebagai tag byte di root dan aturan angka sebagai int. Tidak ada compound <code>GameRules</code>.</p>"
+      ],
+      [
+        "Sebuah aturan sama sekali tidak ada dalam file.",
+        "<p>Artinya, aturan tersebut memakai nilai bawaan. Tambahkan tag dengan nama persis dan tipe yang benar agar dunia memakai nilai Anda.</p>"
+      ],
+      [
+        "Apakah aturan permainan ikut tersalin bersama folder dunia?",
+        "<p>Ya — aturan tersimpan dalam <code>level.dat</code>, sehingga dunia hasil salinan mewarisinya bersama <a href=\"../change-world-name/\">nama dunia</a> lamanya.</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "Dimuat sebagai {0}",
+      "trailing": "{0} byte sisa setelah tag root diabaikan",
+      "error": "Kesalahan: {0}",
+      "readfail": "File tidak dapat dibaca",
+      "nofile": "Belum ada file yang dimuat",
+      "saved": "{0} disimpan ({1}, {2})",
+      "savefail": "Kesalahan saat menyimpan: {0}",
+      "exported": "{0} diekspor",
+      "snbtfail": "Kesalahan SNBT: {0}",
+      "tagadded": "Tag ditambahkan",
+      "tagremoved": "Tag dihapus",
+      "arrayupdated": "Array diperbarui",
+      "badvalue": "Nilai tidak valid: {0}",
+      "badarray": "Array tidak valid: {0}",
+      "nameneeded": "Nama tag wajib diisi",
+      "nametaken": "Tag bernama {0} sudah ada di sini",
+      "listtype": "List sudah berisi entri bertipe {0}",
+      "editlevelname": "✎ Ubah LevelName",
+      "showmore": "Tampilkan {0} lagi dari {1} …",
+      "matches": "{0} kecocokan",
+      "nomatch": "Tidak ada tag yang cocok dengan \"{0}\"",
+      "arraytoobig": "Array memiliki {0} entri — bentangkan lalu edit elemennya satu per satu",
+      "uncompressed": "tanpa kompresi",
+      "storage": "penyimpanan v{0}",
+      "entries": "{0} entri",
+      "langprompt": "Buka halaman ini dalam bahasa {0}?",
+      "langyes": "Ganti",
+      "langno": "Tetap di sini"
+    },
+    "support": "<strong>Mendukung Minecraft Bedrock Edition dan Java Edition</strong> — serta semua core server untuk keduanya, baik yang populer maupun yang jarang dikenal: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina, dan lainnya. <a href=\"__HOME__#server-software\">Daftar lengkap</a>.",
+    "footernote": "gratis, sumber terbuka (MIT), dan berjalan sepenuhnya di browser Anda. Tidak berafiliasi dengan Mojang Studios atau Microsoft. Minecraft adalah merek dagang Mojang Studios.",
+    "faqtitle": "Pertanyaan yang sering diajukan",
+    "toctitle": "Di halaman ini",
+    "relatedtitle": "Alat terkait",
+    "homecrumb": "Editor NBT",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "Semua editor",
+      "Jenis file",
+      "Referensi"
+    ],
+    "sourcehead": "Sumber",
+    "sourcelink": "Kode di GitHub"
+  }
+}

@@ -3,79 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>NBT Viewer Online — Open and Read .nbt and .dat Files</title>
-<meta name="description" content="Open and read any Minecraft NBT file online. View the full tag tree of .nbt, .dat, .mcstructure or .schem, search it and export it as SNBT text.">
-<meta name="keywords" content="nbt viewer, nbt viewer online, open nbt file, read .dat file minecraft, nbt file reader, view nbt online, minecraft dat file viewer, nbt to json, snbt export">
-<meta name="robots" content="noindex, follow">
+<title>NBT Görüntüleyici — .nbt ve .dat Dosyalarını Açın</title>
+<meta name="description" content="Minecraft NBT dosyalarını çevrimiçi açıp okuyun. .nbt, .dat, .mcstructure veya .schem etiket ağacını görüntüleyin, arayın ve SNBT olarak dışa aktarın.">
+<meta name="keywords" content="nbt görüntüleyici, nbt viewer online, nbt dosyası açma, minecraft .dat dosyası okuma, nbt reader, nbt görüntüleme, snbt dışa aktarma">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="author" content="w1zardz">
 <link rel="canonical" href="https://w1zardz.github.io/bedrock-nbt-editor/tr/nbt-viewer/">
+<link rel="alternate" hreflang="en" href="https://w1zardz.github.io/bedrock-nbt-editor/nbt-viewer/">
+<link rel="alternate" hreflang="ru" href="https://w1zardz.github.io/bedrock-nbt-editor/ru/nbt-viewer/">
+<link rel="alternate" hreflang="es" href="https://w1zardz.github.io/bedrock-nbt-editor/es/nbt-viewer/">
+<link rel="alternate" hreflang="pt-BR" href="https://w1zardz.github.io/bedrock-nbt-editor/pt-br/nbt-viewer/">
+<link rel="alternate" hreflang="de" href="https://w1zardz.github.io/bedrock-nbt-editor/de/nbt-viewer/">
+<link rel="alternate" hreflang="fr" href="https://w1zardz.github.io/bedrock-nbt-editor/fr/nbt-viewer/">
+<link rel="alternate" hreflang="it" href="https://w1zardz.github.io/bedrock-nbt-editor/it/nbt-viewer/">
+<link rel="alternate" hreflang="pl" href="https://w1zardz.github.io/bedrock-nbt-editor/pl/nbt-viewer/">
+<link rel="alternate" hreflang="uk" href="https://w1zardz.github.io/bedrock-nbt-editor/uk/nbt-viewer/">
+<link rel="alternate" hreflang="tr" href="https://w1zardz.github.io/bedrock-nbt-editor/tr/nbt-viewer/">
+<link rel="alternate" hreflang="id" href="https://w1zardz.github.io/bedrock-nbt-editor/id/nbt-viewer/">
+<link rel="alternate" hreflang="vi" href="https://w1zardz.github.io/bedrock-nbt-editor/vi/nbt-viewer/">
+<link rel="alternate" hreflang="th" href="https://w1zardz.github.io/bedrock-nbt-editor/th/nbt-viewer/">
+<link rel="alternate" hreflang="zh-Hans" href="https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/nbt-viewer/">
+<link rel="alternate" hreflang="ja" href="https://w1zardz.github.io/bedrock-nbt-editor/ja/nbt-viewer/">
+<link rel="alternate" hreflang="ko" href="https://w1zardz.github.io/bedrock-nbt-editor/ko/nbt-viewer/">
+<link rel="alternate" hreflang="ar" href="https://w1zardz.github.io/bedrock-nbt-editor/ar/nbt-viewer/">
 <link rel="alternate" hreflang="x-default" href="https://w1zardz.github.io/bedrock-nbt-editor/nbt-viewer/">
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="../../favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <link rel="manifest" href="../../site.webmanifest">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NBT viewer — open any .nbt or .dat file in the browser">
-<meta property="og:description" content="Open and read any Minecraft NBT file online. View the full tag tree of .nbt, .dat, .mcstructure or .schem, search it and export it as SNBT text.">
+<meta property="og:title" content="NBT görüntüleyici — tüm .nbt ve .dat dosyalarını tarayıcıda açın">
+<meta property="og:description" content="Minecraft NBT dosyalarını çevrimiçi açıp okuyun. .nbt, .dat, .mcstructure veya .schem etiket ağacını görüntüleyin, arayın ve SNBT olarak dışa aktarın.">
 <meta property="og:url" content="https://w1zardz.github.io/bedrock-nbt-editor/tr/nbt-viewer/">
-<meta property="og:site_name" content="Minecraft NBT Editor">
+<meta property="og:site_name" content="Minecraft NBT Düzenleyici">
 <meta property="og:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/viewer.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="tr_TR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="NBT viewer — open any .nbt or .dat file in the browser">
-<meta name="twitter:description" content="Open and read any Minecraft NBT file online. View the full tag tree of .nbt, .dat, .mcstructure or .schem, search it and export it as SNBT text.">
+<meta name="twitter:title" content="NBT görüntüleyici — tüm .nbt ve .dat dosyalarını tarayıcıda açın">
+<meta name="twitter:description" content="Minecraft NBT dosyalarını çevrimiçi açıp okuyun. .nbt, .dat, .mcstructure veya .schem etiket ağacını görüntüleyin, arayın ve SNBT olarak dışa aktarın.">
 <meta name="twitter:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/viewer.png">
-<meta property="article:modified_time" content="2026-08-26">
-<meta property="og:updated_time" content="2026-08-26">
+<meta property="article:modified_time" content="2026-09-21">
+<meta property="og:updated_time" content="2026-09-21">
 <meta name="theme-color" content="#0d1117">
-<meta name="application-name" content="Minecraft NBT Editor">
-<meta name="apple-mobile-web-app-title" content="NBT Editor">
-<link rel="preload" href="../../assets/nbt.js?v=da7967b1" as="script">
-<script>window.__LANG_URLS__={"en":"../../nbt-viewer/","ru":"../../ru/nbt-viewer/","es":"../../es/nbt-viewer/","pt-br":"../../pt-br/nbt-viewer/","de":"../../de/nbt-viewer/","fr":"../../fr/nbt-viewer/","it":"../../it/nbt-viewer/","pl":"../../pl/nbt-viewer/","uk":"../../uk/nbt-viewer/","tr":"./","id":"../../id/nbt-viewer/","vi":"../../vi/nbt-viewer/","th":"../../th/nbt-viewer/","zh-hans":"../../zh-hans/nbt-viewer/","ja":"../../ja/nbt-viewer/","ko":"../../ko/nbt-viewer/","ar":"../../ar/nbt-viewer/"};window.__NBT_STRINGS__={"loaded":"Loaded as {0}","trailing":"{0} trailing byte(s) after the root tag were ignored","error":"Error: {0}","readfail":"Could not read the file","nofile":"No file loaded","saved":"Saved {0} ({1}, {2})","savefail":"Save error: {0}","exported":"Exported {0}","snbtfail":"SNBT error: {0}","tagadded":"Tag added","tagremoved":"Tag removed","arrayupdated":"Array updated","badvalue":"Invalid value: {0}","badarray":"Invalid array: {0}","nameneeded":"Tag name is required","nametaken":"A tag named {0} already exists here","listtype":"List already holds {0} entries","editlevelname":"✎ Edit LevelName","showmore":"Show {0} more of {1} …","matches":"{0} match(es)","nomatch":"No tag matches \"{0}\"","arraytoobig":"Array has {0} entries — expand it and edit elements individually","uncompressed":"uncompressed","storage":"storage v{0}","entries":"{0} entries","langprompt":"Open this page in {0}?","langyes":"Switch","langno":"Stay"};</script>
-<script src="../../assets/lang.js?v=a3a1db0e" defer></script>
+<meta name="application-name" content="Minecraft NBT Düzenleyici">
+<meta name="apple-mobile-web-app-title" content="NBT Düzenleyici">
+<link rel="preload" href="../../assets/nbt.js?v=6f125422" as="script">
+<script>window.__LANG_URLS__={"en":"../../nbt-viewer/","ru":"../../ru/nbt-viewer/","es":"../../es/nbt-viewer/","pt-br":"../../pt-br/nbt-viewer/","de":"../../de/nbt-viewer/","fr":"../../fr/nbt-viewer/","it":"../../it/nbt-viewer/","pl":"../../pl/nbt-viewer/","uk":"../../uk/nbt-viewer/","tr":"./","id":"../../id/nbt-viewer/","vi":"../../vi/nbt-viewer/","th":"../../th/nbt-viewer/","zh-hans":"../../zh-hans/nbt-viewer/","ja":"../../ja/nbt-viewer/","ko":"../../ko/nbt-viewer/","ar":"../../ar/nbt-viewer/"};window.__NBT_STRINGS__={"loaded":"{0} olarak yüklendi","trailing":"Kök etiketten sonraki {0} ek bayt yok sayıldı","error":"Hata: {0}","readfail":"Dosya okunamadı","nofile":"Dosya yüklenmedi","saved":"{0} kaydedildi ({1}, {2})","savefail":"Kaydetme hatası: {0}","exported":"{0} dışa aktarıldı","snbtfail":"SNBT hatası: {0}","tagadded":"Etiket eklendi","tagremoved":"Etiket kaldırıldı","arrayupdated":"Dizi güncellendi","badvalue":"Geçersiz değer: {0}","badarray":"Geçersiz dizi: {0}","nameneeded":"Etiket adı gerekli","nametaken":"Burada {0} adlı bir etiket zaten var","listtype":"Liste zaten {0} türünde öğeler içeriyor","editlevelname":"✎ LevelName değerini düzenle","showmore":"{1} öğeden {0} tane daha göster …","matches":"{0} eşleşme","nomatch":"“{0}” ile eşleşen etiket yok","arraytoobig":"Dizide {0} öğe var — diziyi genişletip öğeleri ayrı ayrı düzenleyin","uncompressed":"sıkıştırılmamış","storage":"depolama v{0}","entries":"{0} öğe","langprompt":"Bu sayfa {0} dilinde açılsın mı?","langyes":"Geç","langno":"Kal","nav_editor":"Düzenleyici","nav_format":"NBT biçimi","language":"Dil: {0}","beta":"beta","skip_editor":"Düzenleyiciye geç","brand_editor":"NBT Düzenleyici","guides":"Kılavuzlar","updated":"Son güncelleme: {0}.","drop":"{0} öğesini buraya bırakın","choose_file":"Dosya seç","file_hint":"level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · chunk dökümleri","output_format":"Çıktı biçimi","format_java":"Java — big-endian, adlandırılmış kök","format_java_network":"Java ağ biçimi — big-endian, adsız kök","format_bedrock_level":"Bedrock level.dat — little-endian + 8 baytlık başlık","format_bedrock":"Bedrock ham biçimi — little-endian","format_bedrock_network":"Bedrock ağ biçimi — little-endian varint","compression":"Sıkıştırma","compression_none":"Yok (ham veri)","search_placeholder":"Etiket adı veya değeri ara…","search":"Ara","collapse":"Tümünü daralt","add_tag":"+ Etiket ekle","save_download":"Kaydet ve indir","export_snbt":"SNBT olarak dışa aktar","close":"Kapat","add_new_tag":"Yeni etiket ekle","tag_name":"Etiket adı","tag_type":"Etiket türü","tag_example":"Ör. MyTag","value":"Değer","list_element_type":"Liste öğesi türü","cancel":"İptal","add":"Ekle","edit_array":"Diziyi düzenle","comma_values":"Virgülle ayrılmış değerler","apply":"Uygula","format_label_java":"Java big-endian","format_label_java_network":"Java ağ biçimi (adsız kök)","format_label_bedrock_level":"Bedrock level.dat (8 baytlık başlık)","format_label_bedrock":"Bedrock little-endian","format_label_bedrock_network":"Bedrock ağ biçimi (varint)","err_decompress":"Bu tarayıcı {0} sıkıştırmasını açamıyor (Compression Streams API yok)","err_compress":"Bu tarayıcı {0} biçiminde sıkıştıramıyor (Compression Streams API yok)","err_stream":"{0} sıkıştırması işlenemedi","err_end":"{0} konumunda beklenmeyen veri sonu","err_tag_limit":"Etiket sayısı sınırı aşıldı","err_varint":"VarInt çok uzun","err_varlong":"VarLong çok uzun","err_negative_array":"Negatif dizi uzunluğu: {0}","err_array_length":"{0} dizi uzunluğu kalan veri miktarını aşıyor","err_negative_list":"Negatif liste uzunluğu","err_end_list":"{0} öğe içeren TAG_End listesi","err_list_type":"Bilinmeyen liste öğesi türü: {0}","err_tag_type":"Bilinmeyen etiket türü: {0}","err_root":"Kök etiket TAG_Compound olmalıdır; alınan tür: {0}","err_string_length":"Dize bu biçim için çok uzun: {0} bayt","err_write_type":"{0} türündeki etiket yazılamıyor","err_header_short":"Başlık için yeterli veri yok","err_storage_version":"Geçersiz depolama sürümü: {0}","err_header_length":"Başlıktaki {0} uzunluğu veri boyutunu aşıyor","err_unknown_file":"NBT dosyası tanınamadı (Java, Bedrock, ağ ve başlıklı biçimler denendi)","err_file_small":"Dosya NBT verisi içeremeyecek kadar küçük","err_byte":"Byte değeri -128..127 aralığında olmalıdır","err_short":"Short değeri -32768..32767 aralığında olmalıdır","err_int":"Int değeri -2147483648..2147483647 aralığında olmalıdır","err_long":"Long değeri 64 bit aralığının dışında","err_float":"Geçersiz float değeri","err_double":"Geçersiz double değeri","err_not_inline":"Bu etiket türü doğrudan satır içinde düzenlenemez","err_array_byte":"Geçersiz byte değeri: {0}","err_array_int":"Geçersiz int değeri: {0}","err_array_long":"Geçersiz 64 bit tamsayı: {0}","root":"(kök)","add_child":"Alt etiket ekle","remove_tag":"Etiketi sil","array":"Dizi","array_bytes":"[{0} bayt]","array_ints":"[{0} int]","array_longs":"[{0} long]","entries_type":"{1} türünde {0} öğe","unknown_error":"İşlem tamamlanamadı","software_name":"Minecraft NBT Düzenleyici","software_alternate_online":"Çevrimiçi NBT Düzenleyici","software_alternate_bedrock":"Bedrock NBT Düzenleyici","software_alternate_level":"level.dat düzenleyici","software_subcategory":"Oyun dosyası düzenleyici","software_os":"Her işletim sistemi (tarayıcı)","software_browser":"BigInt ve Compression Streams destekleyen güncel bir tarayıcı","feature_java":"Java Edition big-endian NBT biçimi","feature_bedrock":"Bedrock Edition little-endian NBT biçimi","feature_bedrock_network":"Bedrock ağ NBT biçimi (varint)","feature_java_network":"Java ağ NBT biçimi (adsız kök)","feature_compression":"gzip ve zlib sıkıştırması","feature_types":"64 bit hassasiyetle 13 NBT etiket türünün tümü","feature_snbt":"SNBT dışa aktarma","feature_local":"Tamamen kullanıcının cihazında çalışır","schema_about":"Minecraft NBT veri biçimi","not_found_title":"Sayfa bulunamadı — {0}","not_found_heading":"404 — sayfa taşındı veya hiç var olmadı","not_found_intro":"Düzenleyiciye hâlâ tek tıklamayla ulaşabilirsiniz. Tüm araçların kalıcı bağlantıları aşağıdadır.","not_found_footer":"{0} — ücretsiz ve açık kaynaklıdır.","aria_bedrock_gamerules":"Bedrock oyun kuralları","aria_bedrock_level_dat_header":"Bedrock level.dat başlığı","aria_bedrock_tags":"Bedrock etiketleri","aria_breadcrumb":"Gezinti yolu","aria_byte_walkthrough":"Bayt bayt inceleme","aria_causes":"Nedenler","aria_common_repairs":"Yaygın onarımlar","aria_comparison":"Karşılaştırma","aria_compatibility":"Uyumluluk","aria_compression":"Sıkıştırma","aria_core_specifics":"Sunucu çekirdeklerine özgü ayrıntılar","aria_dataversion":"DataVersion","aria_drop_an_nbt_file_here_or_click_to_browse":"Bir NBT dosyasını buraya bırakın veya seçmek için tıklayın","aria_duplicate_world_names":"Aynı dünya adları","aria_editing_schematics":"Şemaları düzenleme","aria_encodings":"Kodlama biçimleri","aria_features":"Özellikler","aria_file_types":"Dosya türleri","aria_frequently_asked_questions":"Sık sorulan sorular","aria_how_to_use":"Kullanım","aria_inside_a_mcstructure_file":"mcstructure dosyasının içeriği","aria_introduction":"Giriş","aria_java_nbt_encoding":"Java NBT kodlaması","aria_java_nbt_files":"Java NBT dosyaları","aria_java_gamerules":"Java oyun kuralları","aria_migrating":"Veri taşıma","aria_other_bedrock_nbt":"Diğer Bedrock NBT dosyaları","aria_other_tools":"Diğer araçlar","aria_per_platform":"Platforma göre ayrıntılar","aria_prevention":"Sorunları önleme","aria_related_tools":"İlgili araçlar","aria_snbt":"SNBT","aria_safety":"Güvenlik","aria_salvage":"Veri kurtarma","aria_schematic_formats":"Şema biçimleri","aria_scripting":"Betik yazma","aria_search_nbt_tags":"NBT etiketlerinde ara","aria_server_cores":"Sunucu çekirdekleri","aria_server_safety":"Sunucu güvenliği","aria_server_workflow":"Sunucuda çalışma adımları","aria_strings":"Dizeler","aria_supported_files":"Desteklenen dosyalar","aria_supported_server_software":"Desteklenen sunucu yazılımları","aria_tag_types":"Etiket türleri","aria_tags_in_level_dat":"level.dat içindeki etiketler","aria_tools":"Araçlar","aria_troubleshooting":"Sorun giderme","aria_typical_edits":"Yaygın düzenlemeler","aria_what_you_can_inspect":"İncelenebilecek veriler","aria_where_bedrock_files_live":"Bedrock dosyalarının konumu","aria_where_mcstructure_files_live":"mcstructure dosyalarının konumu","aria_where_to_find_level_dat":"level.dat dosyasının konumu","aria_why_edit_the_file":"Dosyayı düzenleme nedenleri","aria_why_the_folder_name_is_not_the_world_name":"Klasör adı neden dünya adı değildir?","aria_playerdata_tags":"playerdata etiketleri","toggle":"Genişlet veya daralt"};</script>
+<script src="../../assets/lang.js?v=23a64b2c" defer></script>
 <link rel="stylesheet" href="../../assets/app.css?v=f5bdcb0f">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"NBT Viewer Online \u2014 Open and Read .nbt and .dat Files","headline":"NBT Viewer \u2014 Open Any Minecraft NBT File","description":"Open and read any Minecraft NBT file online. View the full tag tree of .nbt, .dat, .mcstructure or .schem, search it and export it as SNBT text.","url":"https://w1zardz.github.io/bedrock-nbt-editor/tr/nbt-viewer/","inLanguage":"tr","datePublished":"2026-05-29","dateModified":"2026-08-26","isPartOf":{"@type":"WebSite","name":"Minecraft NBT Editor","url":"https://w1zardz.github.io/bedrock-nbt-editor/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/viewer.png"},"about":{"@type":"Thing","name":"Minecraft NBT data format"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT Editor","item":"https://w1zardz.github.io/bedrock-nbt-editor/tr/"},{"@type":"ListItem","position":2,"name":"NBT Viewer \u2014 Open Any Minecraft NBT File","item":"https://w1zardz.github.io/bedrock-nbt-editor/tr/nbt-viewer/"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I view an NBT file without editing it?","acceptedAnswer":{"@type":"Answer","text":"Yes. The editor only writes a file when you click Save &amp; Download, and it never touches the file you dropped in."}},{"@type":"Question","name":"Can it convert NBT to JSON?","acceptedAnswer":{"@type":"Answer","text":"It exports SNBT, which preserves tag types. JSON would flatten bytes, shorts, ints, longs and floats into one number type and lose byte arrays, so it is the wrong target for round-tripping Minecraft data."}},{"@type":"Question","name":"Why does my file show as a different edition than I expected?","acceptedAnswer":{"@type":"Answer","text":"The format is detected from the bytes, not the extension. A file reported as Java when you expected Bedrock is usually a file from the other edition, or a fragment that happens to parse \u2014 check the offsets reported if it warns about trailing bytes."}},{"@type":"Question","name":"How big a file can it open?","acceptedAnswer":{"@type":"Answer","text":"Multi-megabyte documents are fine: arrays are kept in typed arrays and the tree renders lazily, so only the rows you expand exist in the page."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"NBT Görüntüleyici — .nbt ve .dat Dosyalarını Açın","headline":"NBT Görüntüleyici — Tüm Minecraft NBT Dosyaları","description":"Minecraft NBT dosyalarını çevrimiçi açıp okuyun. .nbt, .dat, .mcstructure veya .schem etiket ağacını görüntüleyin, arayın ve SNBT olarak dışa aktarın.","url":"https://w1zardz.github.io/bedrock-nbt-editor/tr/nbt-viewer/","inLanguage":"tr","datePublished":"2026-05-29","dateModified":"2026-09-21","isPartOf":{"@type":"WebSite","name":"Minecraft NBT Düzenleyici","url":"https://w1zardz.github.io/bedrock-nbt-editor/tr/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/viewer.png"},"about":{"@type":"Thing","name":"Minecraft NBT veri biçimi"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT Düzenleyici","item":"https://w1zardz.github.io/bedrock-nbt-editor/tr/"},{"@type":"ListItem","position":2,"name":"NBT Görüntüleyici — Tüm Minecraft NBT Dosyaları","item":"https://w1zardz.github.io/bedrock-nbt-editor/tr/nbt-viewer/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"NBT dosyasını düzenlemeden görüntüleyebilir miyim?","acceptedAnswer":{"@type":"Answer","text":"Evet. Düzenleyici yalnızca Kaydet ve İndir düğmesine bastığınızda dosya yazar; bıraktığınız dosyaya hiçbir zaman dokunmaz."}},{"@type":"Question","name":"NBT’yi JSON’a dönüştürebilir mi?","acceptedAnswer":{"@type":"Answer","text":"Etiket türlerini koruyan SNBT dışa aktarır. JSON; byte, short, int, long ve float türlerini tek sayı türüne indirger, byte array’leri kaybeder. Minecraft verisini geri yazmak için doğru hedef değildir."}},{"@type":"Question","name":"Dosyam neden beklediğimden farklı bir sürüm olarak görünüyor?","acceptedAnswer":{"@type":"Answer","text":"Biçim uzantıdan değil baytlardan algılanır. Bedrock beklerken Java bildirilen dosya genellikle diğer sürüme aittir veya tesadüfen ayrıştırılan bir parçadır. Sondaki baytlar uyarısı varsa bildirilen ofsetleri denetleyin."}},{"@type":"Question","name":"Ne büyüklükte dosya açabilir?","acceptedAnswer":{"@type":"Answer","text":"Çok megabaytlı belgeler uygundur. Diziler typed array içinde tutulur ve ağaç gerektiğinde çizilir; sayfada yalnızca genişlettiğiniz satırlar oluşturulur."}}]}</script>
 </head>
 <body>
-<a class="skip-link" href="#editor">Skip to the editor</a>
+<a class="skip-link" href="#editor">Düzenleyiciye geç</a>
 <header class="site-header">
 <div class="container">
-<a class="brand" href="../"><span>Minecraft</span> NBT Editor</a>
+<a class="brand" href="../"><span>Minecraft</span> NBT Düzenleyici</a>
 <span class="badge">Java + Bedrock</span>
-<nav class="site-nav" aria-label="Tools">
-<a href="../">Editor</a>
+<nav class="site-nav" aria-label="Araçlar">
+<a href="../">Düzenleyici</a>
 <a href="../level-dat-editor/">level.dat</a>
 <a href="../java-nbt-editor/">Java</a>
 <a href="../mcpe-nbt-editor/">Bedrock</a>
 <a href="../mcstructure-editor/">.mcstructure</a>
 <a href="../schematic-editor/">.schem</a>
 <a href="../playerdata-editor/">playerdata</a>
-<a href="../nbt-format/">NBT format</a>
+<a href="../nbt-format/">NBT biçimi</a>
 </nav>
-<details class="lang-switch"><summary title="Language: Türkçe" aria-label="Language: Türkçe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">Language: Türkçe</span></summary><div class="lang-menu"><a href="./" hreflang="tr" data-lang="tr" aria-current="true" class="current">Türkçe</a><a href="../../nbt-viewer/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../ru/nbt-viewer/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../es/nbt-viewer/" hreflang="es" data-lang="es" rel="alternate">Español (beta)</a><a href="../../pt-br/nbt-viewer/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR) (beta)</a><a href="../../de/nbt-viewer/" hreflang="de" data-lang="de" rel="alternate">Deutsch (beta)</a><a href="../../fr/nbt-viewer/" hreflang="fr" data-lang="fr" rel="alternate">Français (beta)</a><a href="../../it/nbt-viewer/" hreflang="it" data-lang="it" rel="alternate">Italiano (beta)</a><a href="../../pl/nbt-viewer/" hreflang="pl" data-lang="pl" rel="alternate">Polski (beta)</a><a href="../../uk/nbt-viewer/" hreflang="uk" data-lang="uk" rel="alternate">Українська (beta)</a><a href="../../id/nbt-viewer/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia (beta)</a><a href="../../vi/nbt-viewer/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt (beta)</a><a href="../../th/nbt-viewer/" hreflang="th" data-lang="th" rel="alternate">ไทย (beta)</a><a href="../../zh-hans/nbt-viewer/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文 (beta)</a><a href="../../ja/nbt-viewer/" hreflang="ja" data-lang="ja" rel="alternate">日本語 (beta)</a><a href="../../ko/nbt-viewer/" hreflang="ko" data-lang="ko" rel="alternate">한국어 (beta)</a><a href="../../ar/nbt-viewer/" hreflang="ar" data-lang="ar" rel="alternate">العربية (beta)</a></div></details>
+<details class="lang-switch"><summary title="Dil: Türkçe" aria-label="Dil: Türkçe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">Dil: Türkçe</span></summary><div class="lang-menu"><a href="./" hreflang="tr" data-lang="tr" aria-current="true" class="current">Türkçe</a><a href="../../nbt-viewer/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../ru/nbt-viewer/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../es/nbt-viewer/" hreflang="es" data-lang="es" rel="alternate">Español</a><a href="../../pt-br/nbt-viewer/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR)</a><a href="../../de/nbt-viewer/" hreflang="de" data-lang="de" rel="alternate">Deutsch</a><a href="../../fr/nbt-viewer/" hreflang="fr" data-lang="fr" rel="alternate">Français</a><a href="../../it/nbt-viewer/" hreflang="it" data-lang="it" rel="alternate">Italiano</a><a href="../../pl/nbt-viewer/" hreflang="pl" data-lang="pl" rel="alternate">Polski</a><a href="../../uk/nbt-viewer/" hreflang="uk" data-lang="uk" rel="alternate">Українська</a><a href="../../id/nbt-viewer/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia</a><a href="../../vi/nbt-viewer/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt</a><a href="../../th/nbt-viewer/" hreflang="th" data-lang="th" rel="alternate">ไทย</a><a href="../../zh-hans/nbt-viewer/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文</a><a href="../../ja/nbt-viewer/" hreflang="ja" data-lang="ja" rel="alternate">日本語</a><a href="../../ko/nbt-viewer/" hreflang="ko" data-lang="ko" rel="alternate">한국어</a><a href="../../ar/nbt-viewer/" hreflang="ar" data-lang="ar" rel="alternate">العربية</a></div></details>
 </div>
 </header>
 <main>
-<nav class="breadcrumbs container" aria-label="Breadcrumb"><a href="../">NBT Editor</a> <span class="sep">/</span> <span>NBT viewer</span></nav>
-<section class="hero" aria-label="Introduction">
+<nav class="breadcrumbs container" aria-label="Gezinti yolu"><a href="../">NBT Düzenleyici</a> <span class="sep">/</span> <span>NBT görüntüleyici</span></nav>
+<section class="hero" aria-label="Giriş">
 <div class="container">
-<h1>NBT Viewer — Open Any Minecraft NBT File</h1>
-<p class="support-line"><strong>Supports Minecraft Bedrock Edition and Java Edition</strong> — and every server core for both, popular or obscure: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina and the rest. <a href="../#server-software">Full list</a>.</p>
-<p class="lede">Need to look inside a Minecraft file rather than change it? Drop any <code>.nbt</code>, <code>.dat</code>, <code>.mcstructure</code>, <code>.schem</code> or raw NBT dump below to see its full tag tree with types and values, search it by name or value, and export the whole thing as SNBT text. Nothing is uploaded and nothing is written unless you click save.</p>
-<div class="chips"><span class="chip">.nbt</span><span class="chip">.dat</span><span class="chip">.mcstructure</span><span class="chip">.schem</span><span class="chip">.schematic</span><span class="chip">SNBT export</span><span class="chip">Search</span></div>
+<h1>NBT Görüntüleyici — Tüm Minecraft NBT Dosyaları</h1>
+<p class="support-line"><strong>Minecraft Bedrock Edition ve Java Edition desteği</strong> — her iki sürümün yaygın veya az bilinen tüm sunucu çekirdekleriyle: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina ve diğerleri. <a href="../#server-software">Tam liste</a>.</p>
+<p class="lede">Minecraft dosyasını değiştirmek yerine içeriğine mi bakmanız gerekiyor? Herhangi bir <code>.nbt</code>, <code>.dat</code>, <code>.mcstructure</code>, <code>.schem</code> veya ham NBT dökümünü aşağıya bırakın. Türleri ve değerleriyle tüm etiket ağacını görüntüleyin, ada veya değere göre arayın ve tamamını SNBT metni olarak dışa aktarın. Hiçbir şey yüklenmez; kaydet düğmesine basmadıkça yazma yapılmaz.</p>
+<div class="chips"><span class="chip">.nbt</span><span class="chip">.dat</span><span class="chip">.mcstructure</span><span class="chip">.schem</span><span class="chip">.schematic</span><span class="chip">SNBT dışa aktarma</span><span class="chip">Arama</span></div>
 </div>
 </section>
 <div id="editor">
 
-<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="Drop an NBT file here or click to browse">
+<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="Bir NBT dosyasını buraya bırakın veya seçmek için tıklayın">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 16V4m0 0L8 8m4-4l4 4"/><path d="M20 16v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2"/></svg>
-<p>Drop <strong>any .nbt or .dat file</strong> here</p>
-<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">Choose File</button>
-<span class="hint">level.dat &middot; .nbt &middot; .mcstructure &middot; .schem &middot; .schematic &middot; .dat &middot; chunk dumps</span>
+<p><strong>herhangi bir .nbt veya .dat dosyası</strong> öğesini buraya bırakın</p>
+<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">Dosya seç</button>
+<span class="hint">level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · chunk dökümleri</span>
 <input type="file" id="fileInput">
 </div>
 
@@ -83,18 +100,16 @@
 <div class="file-info" id="fileInfo"></div>
 
 <div class="out-bar" id="outBar">
-<label>Output format
-<select id="outFormat">
-<option value="java">Java — big-endian, named root</option>
-<option value="java-network">Java network — big-endian, nameless root</option>
-<option value="bedrock-level">Bedrock level.dat — little-endian + 8-byte header</option>
-<option value="bedrock">Bedrock raw — little-endian</option>
-<option value="bedrock-network">Bedrock network — little-endian varint</option>
+<label>Çıktı biçimi<select id="outFormat">
+<option value="java">Java — big-endian, adlandırılmış kök</option>
+<option value="java-network">Java ağ biçimi — big-endian, adsız kök</option>
+<option value="bedrock-level">Bedrock level.dat — little-endian + 8 baytlık başlık</option>
+<option value="bedrock">Bedrock ham biçimi — little-endian</option>
+<option value="bedrock-network">Bedrock ağ biçimi — little-endian varint</option>
 </select>
 </label>
-<label>Compression
-<select id="outCompression">
-<option value="none">None (raw)</option>
+<label>Sıkıştırma<select id="outCompression">
+<option value="none">Yok (ham veri)</option>
 <option value="gzip">gzip</option>
 <option value="zlib">zlib (deflate)</option>
 </select>
@@ -102,9 +117,9 @@
 </div>
 
 <div class="search-bar">
-<input type="search" id="searchInput" placeholder="Search tag name or value…" autocomplete="off" spellcheck="false" aria-label="Search NBT tags">
-<button type="button" id="btnSearch">Search</button>
-<button type="button" id="btnCollapse">Collapse all</button>
+<input type="search" id="searchInput" placeholder="Etiket adı veya değeri ara…" autocomplete="off" spellcheck="false" aria-label="NBT etiketlerinde ara">
+<button type="button" id="btnSearch">Ara</button>
+<button type="button" id="btnCollapse">Tümünü daralt</button>
 </div>
 <div class="search-results" id="searchResults"></div>
 
@@ -112,61 +127,61 @@
 </div>
 
 <div class="bottom-bar" id="bottomBar">
-<button class="btn-add" id="btnAddRoot" type="button">+ Add Tag</button>
-<button class="btn-save" id="btnSave" type="button">Save &amp; Download</button>
-<button class="btn-snbt" id="btnSnbt" type="button">Export SNBT</button>
-<button class="btn-close" id="btnCloseFile" type="button">Close</button>
+<button class="btn-add" id="btnAddRoot" type="button">+ Etiket ekle</button>
+<button class="btn-save" id="btnSave" type="button">Kaydet ve indir</button>
+<button class="btn-snbt" id="btnSnbt" type="button">SNBT olarak dışa aktar</button>
+<button class="btn-close" id="btnCloseFile" type="button">Kapat</button>
 </div>
 
 </div>
 <div id="contentSections">
 
-<section class="content" aria-label="What you can inspect">
-<h2 id="reading-a-file-you-did-not-write">Reading a file you did not write</h2>
-<p>Half the reason to open an NBT file is diagnosis: what version wrote this, why does this world refuse to load, what is actually inside the schematic somebody sent you. The viewer shows every tag with its exact type, so you can tell a <code>TAG_Byte</code> of 1 from a <code>TAG_Int</code> of 1 — a distinction that matters to Minecraft and that text dumps usually lose.</p>
+<section class="content" aria-label="İncelenebilecek veriler">
+<h2 id="reading-a-file-you-did-not-write">Başkasının yazdığı dosyayı okuma</h2>
+<p>NBT dosyası açmanın önemli nedenlerinden biri tanıdır: dosyayı hangi sürüm yazdı, dünya neden yüklenmiyor, gönderilen şemanın içinde ne var? Görüntüleyici her etiketi tam türüyle gösterir; böylece 1 değerli <code>TAG_Byte</code> ile 1 değerli <code>TAG_Int</code> arasındaki, Minecraft için önemli ancak metin dökümlerinde genellikle kaybolan farkı görebilirsiniz.</p>
 <ul>
-<li><strong>Type badges on every row</strong> — Byte, Short, Int, Long, Float, Double, Byte[], String, List, Compound, Int[], Long[].</li>
-<li><strong>Full 64-bit longs</strong> shown exactly, so seeds and UUID halves read correctly instead of being rounded.</li>
-<li><strong>Search</strong> across the whole tree by tag name or value, with a jump straight to the match.</li>
-<li><strong>Detected format</strong> shown in the file bar: edition, byte order, compression and Bedrock storage version.</li>
-<li><strong>SNBT export</strong> to get the whole document as text you can diff, paste into a command or hand to another tool.</li>
+<li><strong>Her satırda tür rozeti</strong> — Byte, Short, Int, Long, Float, Double, Byte[], String, List, Compound, Int[], Long[].</li>
+<li><strong>Tam 64 bit long değerleri</strong> tam olarak gösterilir; seed ve UUID yarıları yuvarlanmadan doğru okunur.</li>
+<li><strong>Arama</strong> etiket adı veya değerine göre tüm ağaçta çalışır ve doğrudan eşleşmeye gider.</li>
+<li><strong>Algılanan biçim</strong> dosya çubuğunda sürüm, bayt sırası, sıkıştırma ve Bedrock depolama sürümüyle gösterilir.</li>
+<li><strong>SNBT dışa aktarma</strong> belgenin tamamını karşılaştırılabilir, komuta yapıştırılabilir veya başka araca verilebilir metin olarak alır.</li>
 </ul>
 </section>
 
 <section class="content" aria-label="SNBT">
-<h2 id="nbt-versus-snbt">NBT versus SNBT</h2>
-<p>SNBT is the text form of NBT — what <code>/data get</code> prints and what commands accept. It keeps type information as suffixes: <code>3b</code> is a byte, <code>3s</code> a short, <code>3L</code> a long, <code>3.0f</code> a float, <code>3.0d</code> a double, <code>[I;1,2,3]</code> an int array. The export button produces exactly that, so a binary file becomes something you can paste into a command block or check into git and diff line by line.</p>
-<p>JSON is not a substitute: it has one number type and no byte arrays, so converting NBT to JSON silently loses the distinctions Minecraft cares about. That is why this tool exports SNBT rather than JSON.</p>
+<h2 id="nbt-versus-snbt">NBT ve SNBT</h2>
+<p>SNBT, NBT’nin metin biçimidir; <code>/data get</code> çıktısı ve komutların kabul ettiği biçimdir. Tür bilgisini soneklerle korur: <code>3b</code> byte, <code>3s</code> short, <code>3L</code> long, <code>3.0f</code> float, <code>3.0d</code> double, <code>[I;1,2,3]</code> int array’dir. Dışa aktarma düğmesi tam olarak bunu üretir; ikili dosya komut bloğuna yapıştırılabilir veya git’te satır satır karşılaştırılabilir hâle gelir.</p>
+<p>JSON bunun yerine geçmez: tek sayı türü vardır ve byte array içermez. NBT’yi JSON’a dönüştürmek Minecraft’ın önemsediği ayrımları sessizce kaybettirir. Bu nedenle araç JSON yerine SNBT dışa aktarır.</p>
 </section>
 
-<section class="content" aria-label="File types">
-<h2 id="files-that-open-here">Files that open here</h2>
-<p>Anything whose payload is a single NBT document: Java and Bedrock <a href="../level-dat-editor/">level.dat</a>, <a href="../playerdata-editor/">playerdata</a>, <code>servers.dat</code>, <code>hotbar.nbt</code>, <code>idcounts.dat</code>, <code>raids.dat</code>, <code>scoreboard.dat</code>, map data, structure <code>.nbt</code>, <a href="../schematic-editor/">.schem and .schematic</a>, <a href="../mcstructure-editor/">.mcstructure</a>, <code>.litematic</code>, extracted chunk payloads and packet dumps. Containers such as <code>.mca</code> regions, <code>.mcworld</code> archives and LevelDB folders need one document extracted from them first.</p>
+<section class="content" aria-label="Dosya türleri">
+<h2 id="files-that-open-here">Burada açılan dosyalar</h2>
+<p>Yükü tek NBT belgesi olan her şey: Java ve Bedrock <a href="../level-dat-editor/">level.dat</a>, <a href="../playerdata-editor/">playerdata</a>, <code>servers.dat</code>, <code>hotbar.nbt</code>, <code>idcounts.dat</code>, <code>raids.dat</code>, <code>scoreboard.dat</code>, harita verileri, yapı <code>.nbt</code>, <a href="../schematic-editor/">.schem ve .schematic</a>, <a href="../mcstructure-editor/">.mcstructure</a>, <code>.litematic</code>, çıkarılmış chunk yükleri ve paket dökümleri. Şu kapsayıcılardan önce tek belge çıkarılmalıdır: <code>.mca</code> bölgeleri, <code>.mcworld</code> arşivleri ve LevelDB klasörleri gibi kapsayıcılardan önce tek belge çıkarılmalıdır.</p>
 </section>
 
-<section class="content" aria-label="Frequently asked questions"><h2>Frequently Asked Questions</h2><details><summary>Can I view an NBT file without editing it?</summary><div class="faq-body"><p>Yes. The editor only writes a file when you click Save &amp; Download, and it never touches the file you dropped in.</p></div></details><details><summary>Can it convert NBT to JSON?</summary><div class="faq-body"><p>It exports SNBT, which preserves tag types. JSON would flatten bytes, shorts, ints, longs and floats into one number type and lose byte arrays, so it is the wrong target for round-tripping Minecraft data.</p></div></details><details><summary>Why does my file show as a different edition than I expected?</summary><div class="faq-body"><p>The format is detected from the bytes, not the extension. A file reported as Java when you expected Bedrock is usually a file from the other edition, or a fragment that happens to parse — check the offsets reported if it warns about trailing bytes.</p></div></details><details><summary>How big a file can it open?</summary><div class="faq-body"><p>Multi-megabyte documents are fine: arrays are kept in typed arrays and the tree renders lazily, so only the rows you expand exist in the page.</p></div></details></section>
-<section class="content" aria-label="Related tools"><h2>Related tools</h2><div class="rel-grid"><a class="rel-card" href="../"><strong>Minecraft NBT editor</strong><span>The universal editor — every edition, every NBT file type.</span></a><a class="rel-card" href="../nbtexplorer-online/"><strong>NBTExplorer online</strong><span>What carries over from the desktop tool, and what does not.</span></a><a class="rel-card" href="../nbt-format/"><strong>NBT format reference</strong><span>All 13 tag types, every encoding, byte by byte.</span></a><a class="rel-card" href="../schematic-editor/"><strong>Schematic editor</strong><span>WorldEdit .schem and legacy MCEdit .schematic.</span></a><a class="rel-card" href="../mcstructure-editor/"><strong>.mcstructure editor</strong><span>Bedrock structure blocks: palette, size, block entities.</span></a><a class="rel-card" href="../playerdata-editor/"><strong>playerdata editor</strong><span>Inventory, position, health and stats per player.</span></a></div></section>
+<section class="content" aria-label="Sık sorulan sorular"><h2>Sık Sorulan Sorular</h2><details><summary>NBT dosyasını düzenlemeden görüntüleyebilir miyim?</summary><div class="faq-body"><p>Evet. Düzenleyici yalnızca Kaydet ve İndir düğmesine bastığınızda dosya yazar; bıraktığınız dosyaya hiçbir zaman dokunmaz.</p></div></details><details><summary>NBT’yi JSON’a dönüştürebilir mi?</summary><div class="faq-body"><p>Etiket türlerini koruyan SNBT dışa aktarır. JSON; byte, short, int, long ve float türlerini tek sayı türüne indirger, byte array’leri kaybeder. Minecraft verisini geri yazmak için doğru hedef değildir.</p></div></details><details><summary>Dosyam neden beklediğimden farklı bir sürüm olarak görünüyor?</summary><div class="faq-body"><p>Biçim uzantıdan değil baytlardan algılanır. Bedrock beklerken Java bildirilen dosya genellikle diğer sürüme aittir veya tesadüfen ayrıştırılan bir parçadır. Sondaki baytlar uyarısı varsa bildirilen ofsetleri denetleyin.</p></div></details><details><summary>Ne büyüklükte dosya açabilir?</summary><div class="faq-body"><p>Çok megabaytlı belgeler uygundur. Diziler typed array içinde tutulur ve ağaç gerektiğinde çizilir; sayfada yalnızca genişlettiğiniz satırlar oluşturulur.</p></div></details></section>
+<section class="content" aria-label="İlgili araçlar"><h2>İlgili araçlar</h2><div class="rel-grid"><a class="rel-card" href="../"><strong>Minecraft NBT düzenleyici</strong><span>Tüm sürümler ve tüm NBT dosya türleri için genel düzenleyici.</span></a><a class="rel-card" href="../nbtexplorer-online/"><strong>Çevrimiçi NBTExplorer</strong><span>Masaüstü araçtan aktarılanlar ve aktarılmayanlar.</span></a><a class="rel-card" href="../nbt-format/"><strong>NBT biçimi başvurusu</strong><span>13 etiket türü ve tüm kodlamalar, bayt bayt.</span></a><a class="rel-card" href="../schematic-editor/"><strong>Schematic düzenleyici</strong><span>WorldEdit .schem ve eski MCEdit .schematic dosyaları.</span></a><a class="rel-card" href="../mcstructure-editor/"><strong>.mcstructure düzenleyici</strong><span>Bedrock yapı blokları: palet, boyut ve block entity verileri.</span></a><a class="rel-card" href="../playerdata-editor/"><strong>playerdata düzenleyici</strong><span>Oyuncu başına envanter, konum, sağlık ve istatistikler.</span></a></div></section>
 </div>
 </main>
 
 <footer class="site-footer">
 <div class="container footer-grid">
-<div><h4>Editors</h4><a href="../">Minecraft NBT editor</a><a href="../level-dat-editor/">level.dat editor</a><a href="../java-nbt-editor/">Java Edition NBT editor</a><a href="../mcpe-nbt-editor/">MCPE NBT editor</a><a href="../pocketmine-nbt-editor/">PocketMine-MP editor</a></div>
-<div><h4>File types</h4><a href="../mcstructure-editor/">.mcstructure editor</a><a href="../schematic-editor/">Schematic editor</a><a href="../playerdata-editor/">playerdata editor</a><a href="./">NBT viewer</a><a href="../nbtexplorer-online/">NBTExplorer online</a></div>
-<div><h4>Reference</h4><a href="../nbt-format/">NBT format reference</a><a href="../guides/change-world-name/">Rename a world</a><a href="../guides/fix-corrupted-level-dat/">Fix a broken level.dat</a><a href="../guides/edit-gamerules/">Edit game rules</a></div>
-<div><h4>Source</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">Code on GitHub</a><a href="../../llms.txt">llms.txt</a></div>
+<div><h4>Düzenleyiciler</h4><a href="../">Minecraft NBT düzenleyici</a><a href="../level-dat-editor/">level.dat düzenleyici</a><a href="../java-nbt-editor/">Java Edition NBT düzenleyici</a><a href="../mcpe-nbt-editor/">MCPE NBT düzenleyici</a><a href="../pocketmine-nbt-editor/">PocketMine-MP düzenleyici</a></div>
+<div><h4>Dosya türleri</h4><a href="../mcstructure-editor/">.mcstructure düzenleyici</a><a href="../schematic-editor/">Schematic düzenleyici</a><a href="../playerdata-editor/">playerdata düzenleyici</a><a href="./">NBT görüntüleyici</a><a href="../nbtexplorer-online/">Çevrimiçi NBTExplorer</a></div>
+<div><h4>Başvuru</h4><a href="../nbt-format/">NBT biçimi başvurusu</a><a href="../guides/change-world-name/">Dünyayı yeniden adlandır</a><a href="../guides/fix-corrupted-level-dat/">Bozuk level.dat düzelt</a><a href="../guides/edit-gamerules/">Oyun kurallarını düzenle</a></div>
+<div><h4>Kaynak</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">GitHub’daki kod</a><a href="../../llms.txt">llms.txt</a></div>
 </div>
-<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">Son güncelleme: 2026-09-21. Minecraft NBT Düzenleyici — ücretsiz ve açık kaynaklıdır (MIT); tamamen tarayıcınızda çalışır. Mojang Studios veya Microsoft ile bağlantılı değildir. Minecraft, Mojang Studios’un ticari markasıdır.</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
 <div class="modal-overlay" id="addTagModal">
 <div class="modal">
-<h3>Add New Tag</h3>
-<label for="newTagName">Tag Name</label>
-<input type="text" id="newTagName" placeholder="e.g. MyTag" autocomplete="off">
-<label for="newTagType">Tag Type</label>
+<h3>Yeni etiket ekle</h3>
+<label for="newTagName">Etiket adı</label>
+<input type="text" id="newTagName" placeholder="Ör. MyTag" autocomplete="off">
+<label for="newTagType">Etiket türü</label>
 <select id="newTagType">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -181,10 +196,10 @@
 <option value="11">TAG_Int_Array</option>
 <option value="12">TAG_Long_Array</option>
 </select>
-<label for="newTagValue">Value</label>
-<input type="text" id="newTagValue" placeholder="Value" autocomplete="off">
+<label for="newTagValue">Değer</label>
+<input type="text" id="newTagValue" placeholder="Değer" autocomplete="off">
 <div id="listSubtypeRow" style="display:none">
-<label for="newListSubtype">List Element Type</label>
+<label for="newListSubtype">Liste öğesi türü</label>
 <select id="newListSubtype">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -201,24 +216,24 @@
 </select>
 </div>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="addTagCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="addTagConfirm">Add</button>
+<button class="btn-cancel" type="button" id="addTagCancel">İptal</button>
+<button class="btn-confirm" type="button" id="addTagConfirm">Ekle</button>
 </div>
 </div>
 </div>
 
 <div class="modal-overlay" id="arrayModal">
 <div class="modal">
-<h3 id="arrayModalTitle">Edit Array</h3>
-<label for="arrayModalText">Comma-separated values</label>
+<h3 id="arrayModalTitle">Diziyi düzenle</h3>
+<label for="arrayModalText">Virgülle ayrılmış değerler</label>
 <textarea id="arrayModalText" spellcheck="false" autocomplete="off"></textarea>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="arrayModalCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="arrayModalConfirm">Apply</button>
+<button class="btn-cancel" type="button" id="arrayModalCancel">İptal</button>
+<button class="btn-confirm" type="button" id="arrayModalConfirm">Uygula</button>
 </div>
 </div>
 </div>
 
-<script src="../../assets/nbt.js?v=da7967b1" defer></script>
+<script src="../../assets/nbt.js?v=6f125422" defer></script>
 </body>
 </html>

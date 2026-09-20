@@ -3,79 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>.mcstructure Editor Online — Bedrock Structure Files</title>
-<meta name="description" content="Open and edit Bedrock .mcstructure files online: block palette, size, block indices and block entity data, saved back in the same encoding.">
-<meta name="keywords" content="mcstructure editor, mcstructure viewer, edit mcstructure, open mcstructure file, bedrock structure block file, mcstructure online, minecraft bedrock structure editor">
-<meta name="robots" content="noindex, follow">
+<title>محرر .mcstructure عبر الإنترنت لبُنى Bedrock</title>
+<meta name="description" content="افتح ملفات .mcstructure الخاصة بـ Bedrock عبر الإنترنت، وعدّل لوحة الكتل والأبعاد وفهارس الكتل وبيانات كيانات الكتل، ثم احفظها بالترميز نفسه.">
+<meta name="keywords" content="محرر mcstructure اون لاين, فتح ملف mcstructure, تعديل mcstructure, ملفات بناء ماين كرافت بيدروك, محرر بنية Bedrock">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="author" content="w1zardz">
 <link rel="canonical" href="https://w1zardz.github.io/bedrock-nbt-editor/ar/mcstructure-editor/">
+<link rel="alternate" hreflang="en" href="https://w1zardz.github.io/bedrock-nbt-editor/mcstructure-editor/">
+<link rel="alternate" hreflang="ru" href="https://w1zardz.github.io/bedrock-nbt-editor/ru/mcstructure-editor/">
+<link rel="alternate" hreflang="es" href="https://w1zardz.github.io/bedrock-nbt-editor/es/mcstructure-editor/">
+<link rel="alternate" hreflang="pt-BR" href="https://w1zardz.github.io/bedrock-nbt-editor/pt-br/mcstructure-editor/">
+<link rel="alternate" hreflang="de" href="https://w1zardz.github.io/bedrock-nbt-editor/de/mcstructure-editor/">
+<link rel="alternate" hreflang="fr" href="https://w1zardz.github.io/bedrock-nbt-editor/fr/mcstructure-editor/">
+<link rel="alternate" hreflang="it" href="https://w1zardz.github.io/bedrock-nbt-editor/it/mcstructure-editor/">
+<link rel="alternate" hreflang="pl" href="https://w1zardz.github.io/bedrock-nbt-editor/pl/mcstructure-editor/">
+<link rel="alternate" hreflang="uk" href="https://w1zardz.github.io/bedrock-nbt-editor/uk/mcstructure-editor/">
+<link rel="alternate" hreflang="tr" href="https://w1zardz.github.io/bedrock-nbt-editor/tr/mcstructure-editor/">
+<link rel="alternate" hreflang="id" href="https://w1zardz.github.io/bedrock-nbt-editor/id/mcstructure-editor/">
+<link rel="alternate" hreflang="vi" href="https://w1zardz.github.io/bedrock-nbt-editor/vi/mcstructure-editor/">
+<link rel="alternate" hreflang="th" href="https://w1zardz.github.io/bedrock-nbt-editor/th/mcstructure-editor/">
+<link rel="alternate" hreflang="zh-Hans" href="https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/mcstructure-editor/">
+<link rel="alternate" hreflang="ja" href="https://w1zardz.github.io/bedrock-nbt-editor/ja/mcstructure-editor/">
+<link rel="alternate" hreflang="ko" href="https://w1zardz.github.io/bedrock-nbt-editor/ko/mcstructure-editor/">
+<link rel="alternate" hreflang="ar" href="https://w1zardz.github.io/bedrock-nbt-editor/ar/mcstructure-editor/">
 <link rel="alternate" hreflang="x-default" href="https://w1zardz.github.io/bedrock-nbt-editor/mcstructure-editor/">
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="../../favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <link rel="manifest" href="../../site.webmanifest">
 <meta property="og:type" content="article">
-<meta property="og:title" content=".mcstructure editor — open and edit Bedrock structures">
-<meta property="og:description" content="Open and edit Bedrock .mcstructure files online: block palette, size, block indices and block entity data, saved back in the same encoding.">
+<meta property="og:title" content="محرر .mcstructure — فتح بُنى Bedrock وتعديلها">
+<meta property="og:description" content="افتح ملفات .mcstructure الخاصة بـ Bedrock عبر الإنترنت، وعدّل لوحة الكتل والأبعاد وفهارس الكتل وبيانات كيانات الكتل، ثم احفظها بالترميز نفسه.">
 <meta property="og:url" content="https://w1zardz.github.io/bedrock-nbt-editor/ar/mcstructure-editor/">
-<meta property="og:site_name" content="Minecraft NBT Editor">
+<meta property="og:site_name" content="محرر NBT لـ Minecraft">
 <meta property="og:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/mcstructure.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="ar_AR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content=".mcstructure editor — open and edit Bedrock structures">
-<meta name="twitter:description" content="Open and edit Bedrock .mcstructure files online: block palette, size, block indices and block entity data, saved back in the same encoding.">
+<meta name="twitter:title" content="محرر .mcstructure — فتح بُنى Bedrock وتعديلها">
+<meta name="twitter:description" content="افتح ملفات .mcstructure الخاصة بـ Bedrock عبر الإنترنت، وعدّل لوحة الكتل والأبعاد وفهارس الكتل وبيانات كيانات الكتل، ثم احفظها بالترميز نفسه.">
 <meta name="twitter:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/mcstructure.png">
-<meta property="article:modified_time" content="2026-08-26">
-<meta property="og:updated_time" content="2026-08-26">
+<meta property="article:modified_time" content="2026-09-21">
+<meta property="og:updated_time" content="2026-09-21">
 <meta name="theme-color" content="#0d1117">
-<meta name="application-name" content="Minecraft NBT Editor">
-<meta name="apple-mobile-web-app-title" content="NBT Editor">
-<link rel="preload" href="../../assets/nbt.js?v=da7967b1" as="script">
-<script>window.__LANG_URLS__={"en":"../../mcstructure-editor/","ru":"../../ru/mcstructure-editor/","es":"../../es/mcstructure-editor/","pt-br":"../../pt-br/mcstructure-editor/","de":"../../de/mcstructure-editor/","fr":"../../fr/mcstructure-editor/","it":"../../it/mcstructure-editor/","pl":"../../pl/mcstructure-editor/","uk":"../../uk/mcstructure-editor/","tr":"../../tr/mcstructure-editor/","id":"../../id/mcstructure-editor/","vi":"../../vi/mcstructure-editor/","th":"../../th/mcstructure-editor/","zh-hans":"../../zh-hans/mcstructure-editor/","ja":"../../ja/mcstructure-editor/","ko":"../../ko/mcstructure-editor/","ar":"./"};window.__NBT_STRINGS__={"loaded":"Loaded as {0}","trailing":"{0} trailing byte(s) after the root tag were ignored","error":"Error: {0}","readfail":"Could not read the file","nofile":"No file loaded","saved":"Saved {0} ({1}, {2})","savefail":"Save error: {0}","exported":"Exported {0}","snbtfail":"SNBT error: {0}","tagadded":"Tag added","tagremoved":"Tag removed","arrayupdated":"Array updated","badvalue":"Invalid value: {0}","badarray":"Invalid array: {0}","nameneeded":"Tag name is required","nametaken":"A tag named {0} already exists here","listtype":"List already holds {0} entries","editlevelname":"✎ Edit LevelName","showmore":"Show {0} more of {1} …","matches":"{0} match(es)","nomatch":"No tag matches \"{0}\"","arraytoobig":"Array has {0} entries — expand it and edit elements individually","uncompressed":"uncompressed","storage":"storage v{0}","entries":"{0} entries","langprompt":"Open this page in {0}?","langyes":"Switch","langno":"Stay"};</script>
-<script src="../../assets/lang.js?v=a3a1db0e" defer></script>
+<meta name="application-name" content="محرر NBT لـ Minecraft">
+<meta name="apple-mobile-web-app-title" content="محرر NBT">
+<link rel="preload" href="../../assets/nbt.js?v=6f125422" as="script">
+<script>window.__LANG_URLS__={"en":"../../mcstructure-editor/","ru":"../../ru/mcstructure-editor/","es":"../../es/mcstructure-editor/","pt-br":"../../pt-br/mcstructure-editor/","de":"../../de/mcstructure-editor/","fr":"../../fr/mcstructure-editor/","it":"../../it/mcstructure-editor/","pl":"../../pl/mcstructure-editor/","uk":"../../uk/mcstructure-editor/","tr":"../../tr/mcstructure-editor/","id":"../../id/mcstructure-editor/","vi":"../../vi/mcstructure-editor/","th":"../../th/mcstructure-editor/","zh-hans":"../../zh-hans/mcstructure-editor/","ja":"../../ja/mcstructure-editor/","ko":"../../ko/mcstructure-editor/","ar":"./"};window.__NBT_STRINGS__={"loaded":"تم التحميل بصيغة {0}","trailing":"تم تجاهل {0} بايت لاحق بعد وسم الجذر","error":"خطأ: {0}","readfail":"تعذرت قراءة الملف","nofile":"لم يتم تحميل ملف","saved":"تم حفظ {0} ({1}, {2})","savefail":"خطأ في الحفظ: {0}","exported":"تم تصدير {0}","snbtfail":"خطأ SNBT: {0}","tagadded":"تمت إضافة الوسم","tagremoved":"تمت إزالة الوسم","arrayupdated":"تم تحديث المصفوفة","badvalue":"قيمة غير صالحة: {0}","badarray":"مصفوفة غير صالحة: {0}","nameneeded":"اسم الوسم مطلوب","nametaken":"يوجد هنا وسم باسم {0} بالفعل","listtype":"تحتوي القائمة بالفعل على عناصر من النوع {0}","editlevelname":"✎ تعديل LevelName","showmore":"إظهار {0} أخرى من {1} …","matches":"{0} نتيجة مطابقة","nomatch":"لا يوجد وسم يطابق \"{0}\"","arraytoobig":"تحتوي المصفوفة على {0} عنصرًا — وسّعها وعدّل العناصر منفردة","uncompressed":"غير مضغوط","storage":"إصدار التخزين v{0}","entries":"{0} عنصرًا","langprompt":"هل تريد فتح هذه الصفحة باللغة {0}؟","langyes":"تبديل","langno":"البقاء","nav_editor":"المحرر","nav_format":"صيغة NBT","language":"اللغة: {0}","beta":"تجريبية","skip_editor":"الانتقال إلى المحرر","brand_editor":"محرر NBT","guides":"الأدلة","updated":"آخر تحديث: {0}.","drop":"أفلت {0} هنا","choose_file":"اختر ملفًا","file_hint":"level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · بيانات مقاطع مستخرجة","output_format":"صيغة الإخراج","format_java":"Java — بترتيب big-endian وجذر ذي اسم","format_java_network":"شبكة Java — بترتيب big-endian وجذر بلا اسم","format_bedrock_level":"Bedrock level.dat — بترتيب little-endian مع ترويسة من 8 بايت","format_bedrock":"Bedrock الخام — بترتيب little-endian","format_bedrock_network":"شبكة Bedrock — أعداد varint بترتيب little-endian","compression":"الضغط","compression_none":"بلا ضغط (بيانات خام)","search_placeholder":"ابحث عن اسم وسم أو قيمته…","search":"بحث","collapse":"طي الكل","add_tag":"+ إضافة وسم","save_download":"حفظ وتنزيل","export_snbt":"تصدير SNBT","close":"إغلاق","add_new_tag":"إضافة وسم جديد","tag_name":"اسم الوسم","tag_type":"نوع الوسم","tag_example":"مثلًا MyTag","value":"القيمة","list_element_type":"نوع عناصر القائمة","cancel":"إلغاء","add":"إضافة","edit_array":"تعديل المصفوفة","comma_values":"قيم مفصولة بفواصل","apply":"تطبيق","format_label_java":"Java بترتيب big-endian","format_label_java_network":"شبكة Java (جذر بلا اسم)","format_label_bedrock_level":"Bedrock level.dat (ترويسة من 8 بايت)","format_label_bedrock":"Bedrock بترتيب little-endian","format_label_bedrock_network":"شبكة Bedrock (varint)","err_decompress":"لا يستطيع هذا المتصفح فك ضغط {0} (واجهة Compression Streams API غير متوفرة)","err_compress":"لا يستطيع هذا المتصفح الضغط بصيغة {0} (واجهة Compression Streams API غير متوفرة)","err_stream":"تعذرت معالجة الضغط بصيغة {0}","err_end":"انتهت البيانات بشكل غير متوقع عند الإزاحة {0}","err_tag_limit":"تم تجاوز الحد الأقصى لعدد الوسوم","err_varint":"قيمة VarInt أطول من المسموح","err_varlong":"قيمة VarLong أطول من المسموح","err_negative_array":"طول المصفوفة سالب: {0}","err_array_length":"طول المصفوفة {0} يتجاوز البيانات المتبقية","err_negative_list":"طول القائمة سالب","err_end_list":"قائمة TAG_End تحتوي على {0} عنصرًا","err_list_type":"نوع عناصر القائمة غير معروف: {0}","err_tag_type":"نوع الوسم غير معروف: {0}","err_root":"يجب أن يكون وسم الجذر TAG_Compound، لكن النوع الفعلي هو {0}","err_string_length":"السلسلة النصية أطول مما تسمح به هذه الصيغة: {0} بايت","err_write_type":"لا يمكن كتابة وسم من النوع {0}","err_header_short":"البيانات أقصر من أن تحتوي على ترويسة","err_storage_version":"إصدار تخزين غير منطقي: {0}","err_header_length":"الطول المحدد في الترويسة، {0}، يتجاوز حجم البيانات","err_unknown_file":"تعذر التعرف على ملف NBT (جُرّبت صيغ Java وBedrock والشبكة والصيغ ذات الترويسة)","err_file_small":"الملف أصغر من أن يحتوي على بيانات NBT","err_byte":"يجب أن تكون قيمة Byte ضمن النطاق -128..127","err_short":"يجب أن تكون قيمة Short ضمن النطاق -32768..32767","err_int":"يجب أن تكون قيمة Int ضمن النطاق -2147483648..2147483647","err_long":"قيمة Long خارج نطاق 64 بت","err_float":"قيمة float غير صالحة","err_double":"قيمة double غير صالحة","err_not_inline":"لا يمكن تعديل هذا النوع من الوسوم مباشرة","err_array_byte":"قيمة byte غير صالحة: {0}","err_array_int":"قيمة int غير صالحة: {0}","err_array_long":"عدد صحيح من 64 بت غير صالح: {0}","root":"(الجذر)","add_child":"إضافة وسم فرعي","remove_tag":"إزالة الوسم","array":"مصفوفة","array_bytes":"[{0} بايت]","array_ints":"[{0} قيمة int]","array_longs":"[{0} قيمة long]","entries_type":"{0} عنصرًا من النوع {1}","unknown_error":"تعذر إكمال العملية","software_name":"محرر NBT لـ Minecraft","software_alternate_online":"محرر NBT عبر الإنترنت","software_alternate_bedrock":"محرر NBT لـ Bedrock","software_alternate_level":"محرر level.dat","software_subcategory":"محرر ملفات الألعاب","software_os":"أي نظام (عبر المتصفح)","software_browser":"متصفح حديث يدعم BigInt وCompression Streams","feature_java":"NBT بترتيب big-endian في Java Edition","feature_bedrock":"NBT بترتيب little-endian في Bedrock Edition","feature_bedrock_network":"NBT لشبكة Bedrock (varint)","feature_java_network":"NBT لشبكة Java (جذر بلا اسم)","feature_compression":"ضغط gzip وzlib","feature_types":"أنواع وسوم NBT الثلاثة عشر كلها بدقة 64 بت","feature_snbt":"تصدير SNBT","feature_local":"يعمل بالكامل على جهازك","schema_about":"صيغة بيانات NBT في Minecraft","not_found_title":"الصفحة غير موجودة — {0}","not_found_heading":"404 — نُقلت هذه الصفحة أو لم تكن موجودة أصلًا","not_found_intro":"لا يزال المحرر متاحًا بنقرة واحدة، ولكل أداة رابط دائم أدناه.","not_found_footer":"{0} — مجاني ومفتوح المصدر.","aria_bedrock_gamerules":"قواعد اللعب في Bedrock","aria_bedrock_level_dat_header":"ترويسة level.dat في Bedrock","aria_bedrock_tags":"وسوم Bedrock","aria_breadcrumb":"مسار التنقل","aria_byte_walkthrough":"شرح بايتًا ببايت","aria_causes":"الأسباب","aria_common_repairs":"الإصلاحات الشائعة","aria_comparison":"المقارنة","aria_compatibility":"التوافق","aria_compression":"الضغط","aria_core_specifics":"تفاصيل برامج الخوادم","aria_dataversion":"DataVersion","aria_drop_an_nbt_file_here_or_click_to_browse":"أفلت ملف NBT هنا أو انقر لاختيار ملف","aria_duplicate_world_names":"أسماء العوالم المكررة","aria_editing_schematics":"تعديل المخططات","aria_encodings":"طرق الترميز","aria_features":"الميزات","aria_file_types":"أنواع الملفات","aria_frequently_asked_questions":"الأسئلة الشائعة","aria_how_to_use":"طريقة الاستخدام","aria_inside_a_mcstructure_file":"محتويات ملف mcstructure","aria_introduction":"مقدمة","aria_java_nbt_encoding":"ترميز NBT في Java","aria_java_nbt_files":"ملفات NBT في Java","aria_java_gamerules":"قواعد اللعب في Java","aria_migrating":"الانتقال من أدوات أخرى","aria_other_bedrock_nbt":"بيانات NBT الأخرى في Bedrock","aria_other_tools":"أدوات أخرى","aria_per_platform":"حسب المنصة","aria_prevention":"الوقاية","aria_related_tools":"أدوات ذات صلة","aria_snbt":"SNBT","aria_safety":"السلامة","aria_salvage":"استعادة البيانات","aria_schematic_formats":"صيغ المخططات","aria_scripting":"استخدام السكربتات","aria_search_nbt_tags":"البحث في وسوم NBT","aria_server_cores":"برامج الخوادم","aria_server_safety":"سلامة الخادم","aria_server_workflow":"خطوات العمل على الخادم","aria_strings":"السلاسل النصية","aria_supported_files":"الملفات المدعومة","aria_supported_server_software":"برامج الخوادم المدعومة","aria_tag_types":"أنواع الوسوم","aria_tags_in_level_dat":"الوسوم داخل level.dat","aria_tools":"الأدوات","aria_troubleshooting":"استكشاف المشكلات وإصلاحها","aria_typical_edits":"التعديلات المعتادة","aria_what_you_can_inspect":"البيانات التي يمكنك فحصها","aria_where_bedrock_files_live":"أماكن ملفات Bedrock","aria_where_mcstructure_files_live":"أماكن ملفات mcstructure","aria_where_to_find_level_dat":"مكان العثور على level.dat","aria_why_edit_the_file":"لماذا نعدل الملف","aria_why_the_folder_name_is_not_the_world_name":"لماذا يختلف اسم المجلد عن اسم العالم","aria_playerdata_tags":"وسوم playerdata","toggle":"توسيع أو طي"};</script>
+<script src="../../assets/lang.js?v=23a64b2c" defer></script>
 <link rel="stylesheet" href="../../assets/app.css?v=f5bdcb0f">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":".mcstructure Editor Online \u2014 Bedrock Structure Files","headline":".mcstructure Editor \u2014 Bedrock Structure Files","description":"Open and edit Bedrock .mcstructure files online: block palette, size, block indices and block entity data, saved back in the same encoding.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ar/mcstructure-editor/","inLanguage":"ar","datePublished":"2026-05-29","dateModified":"2026-08-26","isPartOf":{"@type":"WebSite","name":"Minecraft NBT Editor","url":"https://w1zardz.github.io/bedrock-nbt-editor/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/mcstructure.png"},"about":{"@type":"Thing","name":"Minecraft NBT data format"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT Editor","item":"https://w1zardz.github.io/bedrock-nbt-editor/ar/"},{"@type":"ListItem","position":2,"name":".mcstructure Editor \u2014 Bedrock Structure Files","item":"https://w1zardz.github.io/bedrock-nbt-editor/ar/mcstructure-editor/"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I convert a .mcstructure to a Java .nbt structure?","acceptedAnswer":{"@type":"Answer","text":"The editor can re-encode the bytes to big-endian gzip, but the tag layout differs \u2014 Java structures use palette/blocks with different keys and block names. A re-encoded file is readable, not a valid Java structure."}},{"@type":"Question","name":"Why is my .mcstructure not compressed?","acceptedAnswer":{"@type":"Answer","text":"Bedrock writes structure files as raw little-endian NBT with no gzip wrapper. That is normal; the editor detects it as Bedrock raw."}},{"@type":"Question","name":"What does an index of -1 mean in block_indices?","acceptedAnswer":{"@type":"Answer","text":"It marks a position the structure does not touch, so the existing block in the world is kept when the structure is placed."}},{"@type":"Question","name":"Can I resize a structure by editing size?","acceptedAnswer":{"@type":"Answer","text":"Not on its own \u2014 block_indices has one entry per position, so the array length has to match the new volume exactly. Changing size alone produces a file the game refuses."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"محرر .mcstructure عبر الإنترنت لبُنى Bedrock","headline":"محرر .mcstructure — ملفات بنية Bedrock","description":"افتح ملفات .mcstructure الخاصة بـ Bedrock عبر الإنترنت، وعدّل لوحة الكتل والأبعاد وفهارس الكتل وبيانات كيانات الكتل، ثم احفظها بالترميز نفسه.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ar/mcstructure-editor/","inLanguage":"ar","datePublished":"2026-05-29","dateModified":"2026-09-21","isPartOf":{"@type":"WebSite","name":"محرر NBT لـ Minecraft","url":"https://w1zardz.github.io/bedrock-nbt-editor/ar/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/mcstructure.png"},"about":{"@type":"Thing","name":"صيغة بيانات NBT في Minecraft"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"محرر NBT","item":"https://w1zardz.github.io/bedrock-nbt-editor/ar/"},{"@type":"ListItem","position":2,"name":"محرر .mcstructure — ملفات بنية Bedrock","item":"https://w1zardz.github.io/bedrock-nbt-editor/ar/mcstructure-editor/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"هل يمكنني تحويل .mcstructure إلى بنية Java بصيغة .nbt؟","acceptedAnswer":{"@type":"Answer","text":"يمكن للمحرر إعادة ترميز البايتات إلى big-endian مضغوط بـ gzip، لكن تخطيط الوسوم مختلف؛ إذ تستخدم بُنى Java الوسمين palette/blocks بمفاتيح وأسماء كتل مختلفة. يمكن قراءة الملف المعاد ترميزه، لكنه ليس بنية Java صالحة."}},{"@type":"Question","name":"لماذا لا يكون ملف .mcstructure مضغوطًا؟","acceptedAnswer":{"@type":"Answer","text":"يكتب Bedrock ملفات البنية بصيغة NBT خام بترتيب little-endian ومن دون غلاف gzip. هذا طبيعي؛ ويكتشفه المحرر على أنه Bedrock الخام."}},{"@type":"Question","name":"ماذا يعني الفهرس -1 في block_indices؟","acceptedAnswer":{"@type":"Answer","text":"يشير إلى موضع لا تعدّله البنية، ولذلك تبقى الكتلة الموجودة في العالم عند وضع البنية."}},{"@type":"Question","name":"هل يمكن تغيير حجم البنية بتعديل size؟","acceptedAnswer":{"@type":"Answer","text":"ليس وحده؛ يحتوي block_indices إدخالًا لكل موضع، ولذلك يجب أن يطابق طول المصفوفة الحجم الجديد تمامًا. يؤدي تغيير size وحده إلى ملف ترفضه اللعبة."}}]}</script>
 </head>
 <body>
-<a class="skip-link" href="#editor">Skip to the editor</a>
+<a class="skip-link" href="#editor">الانتقال إلى المحرر</a>
 <header class="site-header">
 <div class="container">
-<a class="brand" href="../"><span>Minecraft</span> NBT Editor</a>
+<a class="brand" href="../"><span>Minecraft</span> محرر NBT</a>
 <span class="badge">Java + Bedrock</span>
-<nav class="site-nav" aria-label="Tools">
-<a href="../">Editor</a>
+<nav class="site-nav" aria-label="الأدوات">
+<a href="../">المحرر</a>
 <a href="../level-dat-editor/">level.dat</a>
 <a href="../java-nbt-editor/">Java</a>
 <a href="../mcpe-nbt-editor/">Bedrock</a>
 <a href="./" class="active">.mcstructure</a>
 <a href="../schematic-editor/">.schem</a>
 <a href="../playerdata-editor/">playerdata</a>
-<a href="../nbt-format/">NBT format</a>
+<a href="../nbt-format/">صيغة NBT</a>
 </nav>
-<details class="lang-switch"><summary title="Language: العربية" aria-label="Language: العربية"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">Language: العربية</span></summary><div class="lang-menu"><a href="./" hreflang="ar" data-lang="ar" aria-current="true" class="current">العربية</a><a href="../../mcstructure-editor/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../ru/mcstructure-editor/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../es/mcstructure-editor/" hreflang="es" data-lang="es" rel="alternate">Español (beta)</a><a href="../../pt-br/mcstructure-editor/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR) (beta)</a><a href="../../de/mcstructure-editor/" hreflang="de" data-lang="de" rel="alternate">Deutsch (beta)</a><a href="../../fr/mcstructure-editor/" hreflang="fr" data-lang="fr" rel="alternate">Français (beta)</a><a href="../../it/mcstructure-editor/" hreflang="it" data-lang="it" rel="alternate">Italiano (beta)</a><a href="../../pl/mcstructure-editor/" hreflang="pl" data-lang="pl" rel="alternate">Polski (beta)</a><a href="../../uk/mcstructure-editor/" hreflang="uk" data-lang="uk" rel="alternate">Українська (beta)</a><a href="../../tr/mcstructure-editor/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe (beta)</a><a href="../../id/mcstructure-editor/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia (beta)</a><a href="../../vi/mcstructure-editor/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt (beta)</a><a href="../../th/mcstructure-editor/" hreflang="th" data-lang="th" rel="alternate">ไทย (beta)</a><a href="../../zh-hans/mcstructure-editor/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文 (beta)</a><a href="../../ja/mcstructure-editor/" hreflang="ja" data-lang="ja" rel="alternate">日本語 (beta)</a><a href="../../ko/mcstructure-editor/" hreflang="ko" data-lang="ko" rel="alternate">한국어 (beta)</a></div></details>
+<details class="lang-switch"><summary title="اللغة: العربية" aria-label="اللغة: العربية"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">اللغة: العربية</span></summary><div class="lang-menu"><a href="./" hreflang="ar" data-lang="ar" aria-current="true" class="current">العربية</a><a href="../../mcstructure-editor/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../ru/mcstructure-editor/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../es/mcstructure-editor/" hreflang="es" data-lang="es" rel="alternate">Español</a><a href="../../pt-br/mcstructure-editor/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR)</a><a href="../../de/mcstructure-editor/" hreflang="de" data-lang="de" rel="alternate">Deutsch</a><a href="../../fr/mcstructure-editor/" hreflang="fr" data-lang="fr" rel="alternate">Français</a><a href="../../it/mcstructure-editor/" hreflang="it" data-lang="it" rel="alternate">Italiano</a><a href="../../pl/mcstructure-editor/" hreflang="pl" data-lang="pl" rel="alternate">Polski</a><a href="../../uk/mcstructure-editor/" hreflang="uk" data-lang="uk" rel="alternate">Українська</a><a href="../../tr/mcstructure-editor/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe</a><a href="../../id/mcstructure-editor/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia</a><a href="../../vi/mcstructure-editor/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt</a><a href="../../th/mcstructure-editor/" hreflang="th" data-lang="th" rel="alternate">ไทย</a><a href="../../zh-hans/mcstructure-editor/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文</a><a href="../../ja/mcstructure-editor/" hreflang="ja" data-lang="ja" rel="alternate">日本語</a><a href="../../ko/mcstructure-editor/" hreflang="ko" data-lang="ko" rel="alternate">한국어</a></div></details>
 </div>
 </header>
 <main>
-<nav class="breadcrumbs container" aria-label="Breadcrumb"><a href="../">NBT Editor</a> <span class="sep">/</span> <span>.mcstructure</span></nav>
-<section class="hero" aria-label="Introduction">
+<nav class="breadcrumbs container" aria-label="مسار التنقل"><a href="../">محرر NBT</a> <span class="sep">/</span> <span>.mcstructure</span></nav>
+<section class="hero" aria-label="مقدمة">
 <div class="container">
-<h1>.mcstructure Editor — Bedrock Structure Files</h1>
-<p class="support-line"><strong>Supports Minecraft Bedrock Edition and Java Edition</strong> — and every server core for both, popular or obscure: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina and the rest. <a href="../#server-software">Full list</a>.</p>
-<p class="lede">A <code>.mcstructure</code> file is uncompressed little-endian NBT written by a Bedrock structure block. Drop one below to read its size, block palette, block indices and block entity data, edit any of it, and download the file back in the same encoding — which is what add-on and map makers need when a structure has to be patched without reopening the world.</p>
-<div class="chips"><span class="chip">Structure blocks</span><span class="chip">Bedrock add-ons</span><span class="chip">Behavior packs</span><span class="chip">Little-endian NBT</span></div>
+<h1>محرر .mcstructure — ملفات بنية Bedrock</h1>
+<p class="support-line"><strong>يدعم Minecraft Bedrock Edition وJava Edition</strong> — وجميع برمجيات الخوادم لكليهما، الشائعة والنادرة: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina وغيرها. <a href="../#server-software">القائمة الكاملة</a>.</p>
+<p class="lede">ملف <code>.mcstructure</code> هو NBT غير مضغوط بترتيب بايتات little-endian تكتبه كتلة بنية في Bedrock. أفلت ملفًا أدناه لقراءة أبعاده ولوحة الكتل وفهارس الكتل وبيانات كيانات الكتل، وتعديل أي منها، ثم تنزيل الملف مجددًا بالترميز نفسه — وهذا ما يحتاجه صانعو الإضافات والخرائط لتصحيح بنية من دون إعادة فتح العالم.</p>
+<div class="chips"><span class="chip">كتل البنية</span><span class="chip">إضافات Bedrock</span><span class="chip">حزم السلوك</span><span class="chip">NBT بترتيب little-endian</span></div>
 </div>
 </section>
 <div id="editor">
 
-<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="Drop an NBT file here or click to browse">
+<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="أفلت ملف NBT هنا أو انقر لاختيار ملف">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 16V4m0 0L8 8m4-4l4 4"/><path d="M20 16v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2"/></svg>
-<p>Drop <strong>a .mcstructure file</strong> here</p>
-<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">Choose File</button>
-<span class="hint">level.dat &middot; .nbt &middot; .mcstructure &middot; .schem &middot; .schematic &middot; .dat &middot; chunk dumps</span>
+<p>أفلت <strong>ملف .mcstructure</strong> هنا</p>
+<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">اختر ملفًا</button>
+<span class="hint">level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · بيانات مقاطع مستخرجة</span>
 <input type="file" id="fileInput">
 </div>
 
@@ -83,18 +100,16 @@
 <div class="file-info" id="fileInfo"></div>
 
 <div class="out-bar" id="outBar">
-<label>Output format
-<select id="outFormat">
-<option value="java">Java — big-endian, named root</option>
-<option value="java-network">Java network — big-endian, nameless root</option>
-<option value="bedrock-level">Bedrock level.dat — little-endian + 8-byte header</option>
-<option value="bedrock">Bedrock raw — little-endian</option>
-<option value="bedrock-network">Bedrock network — little-endian varint</option>
+<label>صيغة الإخراج<select id="outFormat">
+<option value="java">Java — بترتيب big-endian وجذر ذي اسم</option>
+<option value="java-network">شبكة Java — بترتيب big-endian وجذر بلا اسم</option>
+<option value="bedrock-level">Bedrock level.dat — بترتيب little-endian مع ترويسة من 8 بايت</option>
+<option value="bedrock">Bedrock الخام — بترتيب little-endian</option>
+<option value="bedrock-network">شبكة Bedrock — أعداد varint بترتيب little-endian</option>
 </select>
 </label>
-<label>Compression
-<select id="outCompression">
-<option value="none">None (raw)</option>
+<label>الضغط<select id="outCompression">
+<option value="none">بلا ضغط (بيانات خام)</option>
 <option value="gzip">gzip</option>
 <option value="zlib">zlib (deflate)</option>
 </select>
@@ -102,9 +117,9 @@
 </div>
 
 <div class="search-bar">
-<input type="search" id="searchInput" placeholder="Search tag name or value…" autocomplete="off" spellcheck="false" aria-label="Search NBT tags">
-<button type="button" id="btnSearch">Search</button>
-<button type="button" id="btnCollapse">Collapse all</button>
+<input type="search" id="searchInput" placeholder="ابحث عن اسم وسم أو قيمته…" autocomplete="off" spellcheck="false" aria-label="البحث في وسوم NBT">
+<button type="button" id="btnSearch">بحث</button>
+<button type="button" id="btnCollapse">طي الكل</button>
 </div>
 <div class="search-results" id="searchResults"></div>
 
@@ -112,75 +127,75 @@
 </div>
 
 <div class="bottom-bar" id="bottomBar">
-<button class="btn-add" id="btnAddRoot" type="button">+ Add Tag</button>
-<button class="btn-save" id="btnSave" type="button">Save &amp; Download</button>
-<button class="btn-snbt" id="btnSnbt" type="button">Export SNBT</button>
-<button class="btn-close" id="btnCloseFile" type="button">Close</button>
+<button class="btn-add" id="btnAddRoot" type="button">+ إضافة وسم</button>
+<button class="btn-save" id="btnSave" type="button">حفظ وتنزيل</button>
+<button class="btn-snbt" id="btnSnbt" type="button">تصدير SNBT</button>
+<button class="btn-close" id="btnCloseFile" type="button">إغلاق</button>
 </div>
 
 </div>
 <div id="contentSections">
 
-<section class="content" aria-label="Inside a mcstructure file">
-<h2 id="what-is-inside-a-mcstructure">What is inside a <code>.mcstructure</code></h2>
+<section class="content" aria-label="محتويات ملف mcstructure">
+<h2 id="what-is-inside-a-mcstructure">ما الذي يوجد داخل <code>.mcstructure</code></h2>
 <div class="table-wrap">
 <table class="matrix">
-<thead><tr><th>Tag</th><th>Type</th><th>What it holds</th></tr></thead>
+<thead><tr><th>الوسم</th><th>النوع</th><th>ما الذي يحتويه</th></tr></thead>
 <tbody>
-<tr><td><code>format_version</code></td><td>Int</td><td>Structure format revision, 1 in current files</td></tr>
-<tr><td><code>size</code></td><td>List of Int</td><td>X, Y, Z dimensions of the captured volume</td></tr>
-<tr><td><code>structure_world_origin</code></td><td>List of Int</td><td>Where the structure was captured in the world</td></tr>
-<tr><td><code>structure</code></td><td>Compound</td><td>Everything below lives here</td></tr>
-<tr><td><code>structure.block_indices</code></td><td>List of Int[]</td><td>Two layers of palette indices — normally blocks and waterlogging; <code>-1</code> means "leave whatever is there"</td></tr>
-<tr><td><code>structure.entities</code></td><td>List of Compound</td><td>Entities captured with the structure</td></tr>
-<tr><td><code>structure.palette.default.block_palette</code></td><td>List of Compound</td><td>Every distinct block state: <code>name</code>, <code>states</code>, <code>version</code></td></tr>
-<tr><td><code>structure.palette.default.block_position_data</code></td><td>Compound</td><td>Block entity NBT keyed by the flat index of the position</td></tr>
+<tr><td><code>format_version</code></td><td>Int</td><td>مراجعة تنسيق البنية، وقيمتها 1 في الملفات الحالية</td></tr>
+<tr><td><code>size</code></td><td>قائمة من Int</td><td>أبعاد الحجم الملتقط على المحاور X وY وZ</td></tr>
+<tr><td><code>structure_world_origin</code></td><td>قائمة من Int</td><td>الموضع الذي التُقطت منه البنية في العالم</td></tr>
+<tr><td><code>structure</code></td><td>Compound</td><td>توجد هنا جميع البيانات التالية</td></tr>
+<tr><td><code>structure.block_indices</code></td><td>قائمة من Int[]</td><td>طبقتان من فهارس اللوحة — للكتل والتشبع بالماء عادةً؛ وتعني <code>-1</code> «اترك الموجود في الموضع كما هو»</td></tr>
+<tr><td><code>structure.entities</code></td><td>قائمة من Compound</td><td>الكيانات التي التُقطت مع البنية</td></tr>
+<tr><td><code>structure.palette.default.block_palette</code></td><td>قائمة من Compound</td><td>كل حالة كتلة مميزة: <code>name</code> و<code>states</code> و<code>version</code></td></tr>
+<tr><td><code>structure.palette.default.block_position_data</code></td><td>Compound</td><td>بيانات NBT لكيان الكتلة، ومفتاحها الفهرس المسطح للموضع</td></tr>
 </tbody>
 </table>
 </div>
-<p>Indices in <code>block_indices</code> run X, then Z, then Y — a flat index of <code>(x * sizeZ + z) * sizeY + y</code> into the palette list. That mapping is what lets you fix a single mis-set block without regenerating the structure.</p>
+<p>تسير الفهارس في <code>block_indices</code> وفق X ثم Z ثم Y، ويكون الفهرس المسطح <code>(x * sizeZ + z) * sizeY + y</code> داخل قائمة اللوحة. يتيح لك هذا الربط إصلاح كتلة واحدة مضبوطة خطأ من دون إعادة إنشاء البنية.</p>
 </section>
 
-<section class="content" aria-label="Typical edits">
-<h2 id="what-people-change-here">What people change here</h2>
+<section class="content" aria-label="التعديلات المعتادة">
+<h2 id="what-people-change-here">التعديلات الشائعة هنا</h2>
 <ul>
-<li><strong>Swap a block type everywhere</strong> by editing one entry in <code>block_palette</code> — every position pointing at that index changes with it.</li>
-<li><strong>Fix a block state</strong> such as a wrong <code>facing</code> or an accidental <code>waterlogged</code> in the <code>states</code> compound.</li>
-<li><strong>Strip entities</strong> that were caught by accident, by removing entries from the <code>entities</code> list.</li>
-<li><strong>Repair block entity data</strong> — chest contents, sign text, spawner settings — inside <code>block_position_data</code>.</li>
-<li><strong>Check the version stamp</strong> on palette entries when a structure imports with the wrong blocks after a game update.</li>
+<li><strong>استبدال نوع كتلة في جميع المواضع</strong> بتعديل إدخال واحد في <code>block_palette</code>؛ فتتغير معه كل المواضع التي تشير إلى ذلك الفهرس.</li>
+<li><strong>تصحيح حالة كتلة</strong> مثل قيمة <code>facing</code> خاطئة أو قيمة <code>waterlogged</code> غير مقصودة داخل مركب <code>states</code>.</li>
+<li><strong>إزالة الكيانات</strong> التي التُقطت بالخطأ، وذلك بحذف إدخالاتها من قائمة <code>entities</code>.</li>
+<li><strong>إصلاح بيانات كيان كتلة</strong> — مثل محتويات الصندوق ونص اللافتة وإعدادات المولّد — داخل <code>block_position_data</code>.</li>
+<li><strong>التحقق من ختم الإصدار</strong> في إدخالات اللوحة عندما يؤدي تحديث اللعبة إلى استيراد البنية بكتل خاطئة.</li>
 </ul>
 </section>
 
-<section class="content" aria-label="Where mcstructure files live">
-<h2 id="where-the-files-are">Where the files are</h2>
-<p>Structure blocks save into the world's <code>structures/</code> folder inside the world directory, in files named <code>&lt;namespace&gt;_&lt;name&gt;.mcstructure</code>. Behaviour packs ship them under <code>structures/</code> in the pack, where the game loads them by namespace. Both are the same format and both open here.</p>
-<p>Java Edition's equivalent is the gzip big-endian <code>.nbt</code> structure file — a different encoding with a different tag layout. The <a href="../java-nbt-editor/">Java editor page</a> covers those, and this editor opens them too.</p>
+<section class="content" aria-label="أماكن ملفات mcstructure">
+<h2 id="where-the-files-are">أماكن وجود الملفات</h2>
+<p>تحفظ كتل البنية الملفات في مجلد <code>structures/</code> داخل مجلد العالم، بأسماء من النمط <code>&lt;namespace&gt;_&lt;name&gt;.mcstructure</code>. وتضعها حزم السلوك في مجلد <code>structures/</code> داخل الحزمة، حيث تحمّلها اللعبة بحسب مساحة الاسم. يستخدم الموضعان التنسيق نفسه، ويمكن فتح ملفاتهما هنا.</p>
+<p>المكافئ في Java Edition هو ملف البنية <code>.nbt</code> المضغوط بـ gzip والمرمّز بترتيب big-endian؛ وهو ترميز مختلف بتخطيط وسوم مختلف. تشرح <a href="../java-nbt-editor/">صفحة محرر Java</a> هذه الملفات، ويمكن لهذا المحرر فتحها أيضًا.</p>
 </section>
 
-<section class="content" aria-label="Frequently asked questions"><h2>Frequently Asked Questions</h2><details><summary>Can I convert a .mcstructure to a Java .nbt structure?</summary><div class="faq-body"><p>The editor can re-encode the bytes to big-endian gzip, but the tag layout differs — Java structures use <code>palette</code>/<code>blocks</code> with different keys and block names. A re-encoded file is readable, not a valid Java structure.</p></div></details><details><summary>Why is my .mcstructure not compressed?</summary><div class="faq-body"><p>Bedrock writes structure files as raw little-endian NBT with no gzip wrapper. That is normal; the editor detects it as <em>Bedrock raw</em>.</p></div></details><details><summary>What does an index of -1 mean in block_indices?</summary><div class="faq-body"><p>It marks a position the structure does not touch, so the existing block in the world is kept when the structure is placed.</p></div></details><details><summary>Can I resize a structure by editing size?</summary><div class="faq-body"><p>Not on its own — <code>block_indices</code> has one entry per position, so the array length has to match the new volume exactly. Changing <code>size</code> alone produces a file the game refuses.</p></div></details></section>
-<section class="content" aria-label="Related tools"><h2>Related tools</h2><div class="rel-grid"><a class="rel-card" href="../mcpe-nbt-editor/"><strong>MCPE NBT editor</strong><span>Little-endian NBT and the 8-byte level.dat header.</span></a><a class="rel-card" href="../schematic-editor/"><strong>Schematic editor</strong><span>WorldEdit .schem and legacy MCEdit .schematic.</span></a><a class="rel-card" href="../"><strong>Minecraft NBT editor</strong><span>The universal editor — every edition, every NBT file type.</span></a><a class="rel-card" href="../nbt-format/"><strong>NBT format reference</strong><span>All 13 tag types, every encoding, byte by byte.</span></a><a class="rel-card" href="../pocketmine-nbt-editor/"><strong>PocketMine-MP editor</strong><span>Server-side level.dat for PMMP, Nukkit and BDS.</span></a><a class="rel-card" href="../nbt-viewer/"><strong>NBT viewer</strong><span>Read-only inspection, search and SNBT export.</span></a></div></section>
+<section class="content" aria-label="الأسئلة الشائعة"><h2>الأسئلة الشائعة</h2><details><summary>هل يمكنني تحويل .mcstructure إلى بنية Java بصيغة .nbt؟</summary><div class="faq-body"><p>يمكن للمحرر إعادة ترميز البايتات إلى big-endian مضغوط بـ gzip، لكن تخطيط الوسوم مختلف؛ إذ تستخدم بُنى Java الوسمين <code>palette</code>/<code>blocks</code> بمفاتيح وأسماء كتل مختلفة. يمكن قراءة الملف المعاد ترميزه، لكنه ليس بنية Java صالحة.</p></div></details><details><summary>لماذا لا يكون ملف .mcstructure مضغوطًا؟</summary><div class="faq-body"><p>يكتب Bedrock ملفات البنية بصيغة NBT خام بترتيب little-endian ومن دون غلاف gzip. هذا طبيعي؛ ويكتشفه المحرر على أنه <em>Bedrock الخام</em>.</p></div></details><details><summary>ماذا يعني الفهرس -1 في block_indices؟</summary><div class="faq-body"><p>يشير إلى موضع لا تعدّله البنية، ولذلك تبقى الكتلة الموجودة في العالم عند وضع البنية.</p></div></details><details><summary>هل يمكن تغيير حجم البنية بتعديل size؟</summary><div class="faq-body"><p>ليس وحده؛ يحتوي <code>block_indices</code> إدخالًا لكل موضع، ولذلك يجب أن يطابق طول المصفوفة الحجم الجديد تمامًا. يؤدي تغيير <code>size</code> وحده إلى ملف ترفضه اللعبة.</p></div></details></section>
+<section class="content" aria-label="أدوات ذات صلة"><h2>أدوات مرتبطة</h2><div class="rel-grid"><a class="rel-card" href="../mcpe-nbt-editor/"><strong>محرر NBT لـ MCPE</strong><span>NBT صغير النهاية وترويسة level.dat ذات 8 بايت.</span></a><a class="rel-card" href="../schematic-editor/"><strong>محرر Schematic</strong><span>ملفات WorldEdit بصيغة .schem وملفات MCEdit القديمة بصيغة .schematic.</span></a><a class="rel-card" href="../"><strong>محرر NBT لـ Minecraft</strong><span>محرر شامل لكل إصدارات Minecraft وجميع أنواع ملفات NBT.</span></a><a class="rel-card" href="../nbt-format/"><strong>مرجع تنسيق NBT</strong><span>أنواع الوسوم الـ13 وجميع الترميزات، بايتًا بعد بايت.</span></a><a class="rel-card" href="../pocketmine-nbt-editor/"><strong>محرر PocketMine-MP</strong><span>ملف level.dat على الخادم لـ PMMP وNukkit وBDS.</span></a><a class="rel-card" href="../nbt-viewer/"><strong>عارض NBT</strong><span>فحص للقراءة فقط، وبحث، وتصدير SNBT.</span></a></div></section>
 </div>
 </main>
 
 <footer class="site-footer">
 <div class="container footer-grid">
-<div><h4>Editors</h4><a href="../">Minecraft NBT editor</a><a href="../level-dat-editor/">level.dat editor</a><a href="../java-nbt-editor/">Java Edition NBT editor</a><a href="../mcpe-nbt-editor/">MCPE NBT editor</a><a href="../pocketmine-nbt-editor/">PocketMine-MP editor</a></div>
-<div><h4>File types</h4><a href="./">.mcstructure editor</a><a href="../schematic-editor/">Schematic editor</a><a href="../playerdata-editor/">playerdata editor</a><a href="../nbt-viewer/">NBT viewer</a><a href="../nbtexplorer-online/">NBTExplorer online</a></div>
-<div><h4>Reference</h4><a href="../nbt-format/">NBT format reference</a><a href="../guides/change-world-name/">Rename a world</a><a href="../guides/fix-corrupted-level-dat/">Fix a broken level.dat</a><a href="../guides/edit-gamerules/">Edit game rules</a></div>
-<div><h4>Source</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">Code on GitHub</a><a href="../../llms.txt">llms.txt</a></div>
+<div><h4>المحررات</h4><a href="../">محرر NBT لـ Minecraft</a><a href="../level-dat-editor/">محرر level.dat</a><a href="../java-nbt-editor/">محرر NBT لإصدار Java</a><a href="../mcpe-nbt-editor/">محرر NBT لـ MCPE</a><a href="../pocketmine-nbt-editor/">محرر PocketMine-MP</a></div>
+<div><h4>أنواع الملفات</h4><a href="./">محرر .mcstructure</a><a href="../schematic-editor/">محرر Schematic</a><a href="../playerdata-editor/">محرر playerdata</a><a href="../nbt-viewer/">عارض NBT</a><a href="../nbtexplorer-online/">NBTExplorer عبر الإنترنت</a></div>
+<div><h4>المرجع</h4><a href="../nbt-format/">مرجع تنسيق NBT</a><a href="../guides/change-world-name/">إعادة تسمية عالم</a><a href="../guides/fix-corrupted-level-dat/">إصلاح level.dat تالف</a><a href="../guides/edit-gamerules/">تعديل قواعد اللعب</a></div>
+<div><h4>المصدر</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">الكود على GitHub</a><a href="../../llms.txt">llms.txt</a></div>
 </div>
-<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">آخر تحديث: 2026-09-21. محرر NBT لـ Minecraft — مجاني ومفتوح المصدر (MIT)، ويعمل بالكامل داخل المتصفح. لا يتبع Mojang Studios أو Microsoft. Minecraft علامة تجارية لـ Mojang Studios.</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
 <div class="modal-overlay" id="addTagModal">
 <div class="modal">
-<h3>Add New Tag</h3>
-<label for="newTagName">Tag Name</label>
-<input type="text" id="newTagName" placeholder="e.g. MyTag" autocomplete="off">
-<label for="newTagType">Tag Type</label>
+<h3>إضافة وسم جديد</h3>
+<label for="newTagName">اسم الوسم</label>
+<input type="text" id="newTagName" placeholder="مثلًا MyTag" autocomplete="off">
+<label for="newTagType">نوع الوسم</label>
 <select id="newTagType">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -195,10 +210,10 @@
 <option value="11">TAG_Int_Array</option>
 <option value="12">TAG_Long_Array</option>
 </select>
-<label for="newTagValue">Value</label>
-<input type="text" id="newTagValue" placeholder="Value" autocomplete="off">
+<label for="newTagValue">القيمة</label>
+<input type="text" id="newTagValue" placeholder="القيمة" autocomplete="off">
 <div id="listSubtypeRow" style="display:none">
-<label for="newListSubtype">List Element Type</label>
+<label for="newListSubtype">نوع عناصر القائمة</label>
 <select id="newListSubtype">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -215,24 +230,24 @@
 </select>
 </div>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="addTagCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="addTagConfirm">Add</button>
+<button class="btn-cancel" type="button" id="addTagCancel">إلغاء</button>
+<button class="btn-confirm" type="button" id="addTagConfirm">إضافة</button>
 </div>
 </div>
 </div>
 
 <div class="modal-overlay" id="arrayModal">
 <div class="modal">
-<h3 id="arrayModalTitle">Edit Array</h3>
-<label for="arrayModalText">Comma-separated values</label>
+<h3 id="arrayModalTitle">تعديل المصفوفة</h3>
+<label for="arrayModalText">قيم مفصولة بفواصل</label>
 <textarea id="arrayModalText" spellcheck="false" autocomplete="off"></textarea>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="arrayModalCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="arrayModalConfirm">Apply</button>
+<button class="btn-cancel" type="button" id="arrayModalCancel">إلغاء</button>
+<button class="btn-confirm" type="button" id="arrayModalConfirm">تطبيق</button>
 </div>
 </div>
 </div>
 
-<script src="../../assets/nbt.js?v=da7967b1" defer></script>
+<script src="../../assets/nbt.js?v=6f125422" defer></script>
 </body>
 </html>

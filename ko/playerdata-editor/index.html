@@ -3,79 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Minecraft playerdata Editor — Edit player .dat Files Online</title>
-<meta name="description" content="Edit Minecraft playerdata .dat files online: fix a stuck player position, drop a corrupted inventory item, adjust health, XP or game mode.">
-<meta name="keywords" content="playerdata editor, minecraft player.dat editor, edit player inventory nbt, player data nbt editor, uuid.dat minecraft, stuck player position fix, minecraft inventory editor online">
-<meta name="robots" content="noindex, follow">
+<title>Minecraft playerdata 편집기 — 플레이어 .dat 온라인 수정</title>
+<meta name="description" content="Minecraft playerdata .dat 파일을 온라인에서 편집하세요. 지형에 갇힌 플레이어의 위치를 고치고 손상된 아이템을 제거하며 체력, XP, 게임 모드를 조정할 수 있습니다. 인벤토리와 속성 태그도 파일을 업로드하지 않고 확인해 저장할 수 있습니다.">
+<meta name="keywords" content="playerdata 편집기, 마인크래프트 player.dat 편집기, 플레이어 인벤토리 NBT 수정, 플레이어 데이터 NBT 편집기, uuid.dat 마인크래프트, 플레이어 위치 복구, 온라인 마인크래프트 인벤토리 편집기">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="author" content="w1zardz">
 <link rel="canonical" href="https://w1zardz.github.io/bedrock-nbt-editor/ko/playerdata-editor/">
+<link rel="alternate" hreflang="en" href="https://w1zardz.github.io/bedrock-nbt-editor/playerdata-editor/">
+<link rel="alternate" hreflang="ru" href="https://w1zardz.github.io/bedrock-nbt-editor/ru/playerdata-editor/">
+<link rel="alternate" hreflang="es" href="https://w1zardz.github.io/bedrock-nbt-editor/es/playerdata-editor/">
+<link rel="alternate" hreflang="pt-BR" href="https://w1zardz.github.io/bedrock-nbt-editor/pt-br/playerdata-editor/">
+<link rel="alternate" hreflang="de" href="https://w1zardz.github.io/bedrock-nbt-editor/de/playerdata-editor/">
+<link rel="alternate" hreflang="fr" href="https://w1zardz.github.io/bedrock-nbt-editor/fr/playerdata-editor/">
+<link rel="alternate" hreflang="it" href="https://w1zardz.github.io/bedrock-nbt-editor/it/playerdata-editor/">
+<link rel="alternate" hreflang="pl" href="https://w1zardz.github.io/bedrock-nbt-editor/pl/playerdata-editor/">
+<link rel="alternate" hreflang="uk" href="https://w1zardz.github.io/bedrock-nbt-editor/uk/playerdata-editor/">
+<link rel="alternate" hreflang="tr" href="https://w1zardz.github.io/bedrock-nbt-editor/tr/playerdata-editor/">
+<link rel="alternate" hreflang="id" href="https://w1zardz.github.io/bedrock-nbt-editor/id/playerdata-editor/">
+<link rel="alternate" hreflang="vi" href="https://w1zardz.github.io/bedrock-nbt-editor/vi/playerdata-editor/">
+<link rel="alternate" hreflang="th" href="https://w1zardz.github.io/bedrock-nbt-editor/th/playerdata-editor/">
+<link rel="alternate" hreflang="zh-Hans" href="https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/playerdata-editor/">
+<link rel="alternate" hreflang="ja" href="https://w1zardz.github.io/bedrock-nbt-editor/ja/playerdata-editor/">
+<link rel="alternate" hreflang="ko" href="https://w1zardz.github.io/bedrock-nbt-editor/ko/playerdata-editor/">
+<link rel="alternate" hreflang="ar" href="https://w1zardz.github.io/bedrock-nbt-editor/ar/playerdata-editor/">
 <link rel="alternate" hreflang="x-default" href="https://w1zardz.github.io/bedrock-nbt-editor/playerdata-editor/">
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="../../favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <link rel="manifest" href="../../site.webmanifest">
 <meta property="og:type" content="article">
-<meta property="og:title" content="playerdata editor — inventory, position, stats">
-<meta property="og:description" content="Edit Minecraft playerdata .dat files online: fix a stuck player position, drop a corrupted inventory item, adjust health, XP or game mode.">
+<meta property="og:title" content="playerdata 편집기 — 인벤토리, 위치, 통계">
+<meta property="og:description" content="Minecraft playerdata .dat 파일을 온라인에서 편집하세요. 지형에 갇힌 플레이어의 위치를 고치고 손상된 아이템을 제거하며 체력, XP, 게임 모드를 조정할 수 있습니다. 인벤토리와 속성 태그도 파일을 업로드하지 않고 확인해 저장할 수 있습니다.">
 <meta property="og:url" content="https://w1zardz.github.io/bedrock-nbt-editor/ko/playerdata-editor/">
-<meta property="og:site_name" content="Minecraft NBT Editor">
+<meta property="og:site_name" content="Minecraft NBT 편집기">
 <meta property="og:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/playerdata.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="playerdata editor — inventory, position, stats">
-<meta name="twitter:description" content="Edit Minecraft playerdata .dat files online: fix a stuck player position, drop a corrupted inventory item, adjust health, XP or game mode.">
+<meta name="twitter:title" content="playerdata 편집기 — 인벤토리, 위치, 통계">
+<meta name="twitter:description" content="Minecraft playerdata .dat 파일을 온라인에서 편집하세요. 지형에 갇힌 플레이어의 위치를 고치고 손상된 아이템을 제거하며 체력, XP, 게임 모드를 조정할 수 있습니다. 인벤토리와 속성 태그도 파일을 업로드하지 않고 확인해 저장할 수 있습니다.">
 <meta name="twitter:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/playerdata.png">
-<meta property="article:modified_time" content="2026-08-26">
-<meta property="og:updated_time" content="2026-08-26">
+<meta property="article:modified_time" content="2026-09-21">
+<meta property="og:updated_time" content="2026-09-21">
 <meta name="theme-color" content="#0d1117">
-<meta name="application-name" content="Minecraft NBT Editor">
-<meta name="apple-mobile-web-app-title" content="NBT Editor">
-<link rel="preload" href="../../assets/nbt.js?v=da7967b1" as="script">
-<script>window.__LANG_URLS__={"en":"../../playerdata-editor/","ru":"../../ru/playerdata-editor/","es":"../../es/playerdata-editor/","pt-br":"../../pt-br/playerdata-editor/","de":"../../de/playerdata-editor/","fr":"../../fr/playerdata-editor/","it":"../../it/playerdata-editor/","pl":"../../pl/playerdata-editor/","uk":"../../uk/playerdata-editor/","tr":"../../tr/playerdata-editor/","id":"../../id/playerdata-editor/","vi":"../../vi/playerdata-editor/","th":"../../th/playerdata-editor/","zh-hans":"../../zh-hans/playerdata-editor/","ja":"../../ja/playerdata-editor/","ko":"./","ar":"../../ar/playerdata-editor/"};window.__NBT_STRINGS__={"loaded":"Loaded as {0}","trailing":"{0} trailing byte(s) after the root tag were ignored","error":"Error: {0}","readfail":"Could not read the file","nofile":"No file loaded","saved":"Saved {0} ({1}, {2})","savefail":"Save error: {0}","exported":"Exported {0}","snbtfail":"SNBT error: {0}","tagadded":"Tag added","tagremoved":"Tag removed","arrayupdated":"Array updated","badvalue":"Invalid value: {0}","badarray":"Invalid array: {0}","nameneeded":"Tag name is required","nametaken":"A tag named {0} already exists here","listtype":"List already holds {0} entries","editlevelname":"✎ Edit LevelName","showmore":"Show {0} more of {1} …","matches":"{0} match(es)","nomatch":"No tag matches \"{0}\"","arraytoobig":"Array has {0} entries — expand it and edit elements individually","uncompressed":"uncompressed","storage":"storage v{0}","entries":"{0} entries","langprompt":"Open this page in {0}?","langyes":"Switch","langno":"Stay"};</script>
-<script src="../../assets/lang.js?v=a3a1db0e" defer></script>
+<meta name="application-name" content="Minecraft NBT 편집기">
+<meta name="apple-mobile-web-app-title" content="NBT 편집기">
+<link rel="preload" href="../../assets/nbt.js?v=6f125422" as="script">
+<script>window.__LANG_URLS__={"en":"../../playerdata-editor/","ru":"../../ru/playerdata-editor/","es":"../../es/playerdata-editor/","pt-br":"../../pt-br/playerdata-editor/","de":"../../de/playerdata-editor/","fr":"../../fr/playerdata-editor/","it":"../../it/playerdata-editor/","pl":"../../pl/playerdata-editor/","uk":"../../uk/playerdata-editor/","tr":"../../tr/playerdata-editor/","id":"../../id/playerdata-editor/","vi":"../../vi/playerdata-editor/","th":"../../th/playerdata-editor/","zh-hans":"../../zh-hans/playerdata-editor/","ja":"../../ja/playerdata-editor/","ko":"./","ar":"../../ar/playerdata-editor/"};window.__NBT_STRINGS__={"loaded":"{0}(으)로 불러옴","trailing":"루트 태그 뒤의 후행 바이트 {0}개를 무시했습니다","error":"오류: {0}","readfail":"파일을 읽을 수 없습니다","nofile":"불러온 파일이 없습니다","saved":"{0} 저장 완료 ({1}, {2})","savefail":"저장 오류: {0}","exported":"{0} 내보내기 완료","snbtfail":"SNBT 오류: {0}","tagadded":"태그를 추가했습니다","tagremoved":"태그를 제거했습니다","arrayupdated":"배열을 업데이트했습니다","badvalue":"잘못된 값: {0}","badarray":"잘못된 배열: {0}","nameneeded":"태그 이름을 입력해야 합니다","nametaken":"이 위치에 {0} 이름의 태그가 이미 있습니다","listtype":"목록에 이미 {0} 항목이 들어 있습니다","editlevelname":"✎ LevelName 편집","showmore":"{1}개 중 {0}개 더 보기 …","matches":"일치 항목 {0}개","nomatch":"\"{0}\"과 일치하는 태그가 없습니다","arraytoobig":"배열에 항목이 {0}개 있습니다. 펼친 뒤 각 요소를 따로 수정하세요","uncompressed":"압축 안 함","storage":"저장소 v{0}","entries":"항목 {0}개","langprompt":"이 페이지를 {0}(으)로 여시겠습니까?","langyes":"전환","langno":"유지","nav_editor":"편집기","nav_format":"NBT 형식","language":"언어: {0}","beta":"베타","skip_editor":"편집기로 건너뛰기","brand_editor":"NBT 편집기","guides":"안내서","updated":"마지막 업데이트: {0}","drop":"여기에 {0} 놓기","choose_file":"파일 선택","file_hint":"level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · 청크 덤프","output_format":"출력 형식","format_java":"Java — 빅 엔디언, 이름 있는 루트","format_java_network":"Java 네트워크 — 빅 엔디언, 이름 없는 루트","format_bedrock_level":"Bedrock level.dat — 리틀 엔디언 + 8바이트 헤더","format_bedrock":"Bedrock 원시 형식 — 리틀 엔디언","format_bedrock_network":"Bedrock 네트워크 — 리틀 엔디언 varint","compression":"압축","compression_none":"없음(원시 데이터)","search_placeholder":"태그 이름 또는 값 검색…","search":"검색","collapse":"모두 접기","add_tag":"+ 태그 추가","save_download":"저장 및 다운로드","export_snbt":"SNBT 내보내기","close":"닫기","add_new_tag":"새 태그 추가","tag_name":"태그 이름","tag_type":"태그 유형","tag_example":"예: MyTag","value":"값","list_element_type":"목록 요소 유형","cancel":"취소","add":"추가","edit_array":"배열 편집","comma_values":"쉼표로 구분한 값","apply":"적용","format_label_java":"Java 빅 엔디언","format_label_java_network":"Java 네트워크(이름 없는 루트)","format_label_bedrock_level":"Bedrock level.dat(8바이트 헤더)","format_label_bedrock":"Bedrock 리틀 엔디언","format_label_bedrock_network":"Bedrock 네트워크(varint)","err_decompress":"이 브라우저에서는 {0} 압축을 풀 수 없습니다(Compression Streams API 없음)","err_compress":"이 브라우저에서는 {0} 형식으로 압축할 수 없습니다(Compression Streams API 없음)","err_stream":"{0} 압축을 처리할 수 없습니다","err_end":"오프셋 {0}에서 데이터가 예기치 않게 끝났습니다","err_tag_limit":"태그 개수 제한을 초과했습니다","err_varint":"VarInt가 너무 깁니다","err_varlong":"VarLong이 너무 깁니다","err_negative_array":"배열 길이가 음수입니다: {0}","err_array_length":"배열 길이 {0}이(가) 남은 데이터보다 큽니다","err_negative_list":"목록 길이가 음수입니다","err_end_list":"항목이 {0}개인 TAG_End 목록입니다","err_list_type":"알 수 없는 목록 요소 유형: {0}","err_tag_type":"알 수 없는 태그 유형: {0}","err_root":"루트 태그는 TAG_Compound여야 하지만 {0}입니다","err_string_length":"이 형식에 사용하기에는 문자열이 너무 깁니다: {0}바이트","err_write_type":"태그 유형 {0}을(를) 기록할 수 없습니다","err_header_short":"헤더로 사용하기에는 너무 짧습니다","err_storage_version":"유효하지 않아 보이는 저장소 버전: {0}","err_header_length":"헤더 길이 {0}이(가) 페이로드보다 큽니다","err_unknown_file":"인식할 수 있는 NBT 파일이 아닙니다(Java, Bedrock, 네트워크, 헤더 변형을 모두 확인함)","err_file_small":"NBT 데이터를 담기에는 파일이 너무 작습니다","err_byte":"Byte는 -128..127 범위여야 합니다","err_short":"Short는 -32768..32767 범위여야 합니다","err_int":"Int는 -2147483648..2147483647 범위여야 합니다","err_long":"Long이 64비트 범위를 벗어났습니다","err_float":"잘못된 float 값입니다","err_double":"잘못된 double 값입니다","err_not_inline":"이 태그 유형은 인라인으로 편집할 수 없습니다","err_array_byte":"잘못된 byte 값: {0}","err_array_int":"잘못된 int 값: {0}","err_array_long":"잘못된 64비트 정수: {0}","root":"(루트)","add_child":"하위 태그 추가","remove_tag":"태그 제거","array":"배열","array_bytes":"[{0}바이트]","array_ints":"[int {0}개]","array_longs":"[long {0}개]","entries_type":"{1} 유형 항목 {0}개","unknown_error":"작업을 완료할 수 없습니다","software_name":"Minecraft NBT 편집기","software_alternate_online":"온라인 NBT 편집기","software_alternate_bedrock":"Bedrock NBT 편집기","software_alternate_level":"level.dat 편집기","software_subcategory":"게임 파일 편집기","software_os":"모든 운영체제(브라우저)","software_browser":"BigInt 및 Compression Streams를 지원하는 최신 브라우저","feature_java":"Java Edition 빅 엔디언 NBT","feature_bedrock":"Bedrock Edition 리틀 엔디언 NBT","feature_bedrock_network":"Bedrock 네트워크 NBT(varint)","feature_java_network":"Java 네트워크 NBT(이름 없는 루트)","feature_compression":"gzip 및 zlib 압축","feature_types":"64비트 정밀도를 지원하는 NBT 태그 13종 전체","feature_snbt":"SNBT 내보내기","feature_local":"클라이언트에서만 완전히 실행","schema_about":"Minecraft NBT 데이터 형식","not_found_title":"페이지를 찾을 수 없음 — {0}","not_found_heading":"404 — 이동했거나 존재하지 않는 페이지입니다","not_found_intro":"편집기는 한 번만 누르면 열 수 있으며 모든 도구의 고정 주소는 아래에 있습니다.","not_found_footer":"{0} — 무료 오픈 소스","aria_bedrock_gamerules":"Bedrock 게임 규칙","aria_bedrock_level_dat_header":"Bedrock level.dat 헤더","aria_bedrock_tags":"Bedrock 태그","aria_breadcrumb":"이동 경로","aria_byte_walkthrough":"바이트별 분석","aria_causes":"원인","aria_common_repairs":"일반적인 복구","aria_comparison":"비교","aria_compatibility":"호환성","aria_compression":"압축","aria_core_specifics":"코어별 정보","aria_dataversion":"DataVersion","aria_drop_an_nbt_file_here_or_click_to_browse":"여기에 NBT 파일을 놓거나 눌러 찾아보기","aria_duplicate_world_names":"중복 월드 이름","aria_editing_schematics":"Schematic 편집","aria_encodings":"인코딩","aria_features":"기능","aria_file_types":"파일 형식","aria_frequently_asked_questions":"자주 묻는 질문","aria_how_to_use":"사용 방법","aria_inside_a_mcstructure_file":"mcstructure 파일 내부","aria_introduction":"소개","aria_java_nbt_encoding":"Java NBT 인코딩","aria_java_nbt_files":"Java NBT 파일","aria_java_gamerules":"Java 게임 규칙","aria_migrating":"이전 방법","aria_other_bedrock_nbt":"기타 Bedrock NBT","aria_other_tools":"기타 도구","aria_per_platform":"플랫폼별 방법","aria_prevention":"예방","aria_related_tools":"관련 도구","aria_snbt":"SNBT","aria_safety":"안전 수칙","aria_salvage":"복구","aria_schematic_formats":"Schematic 형식","aria_scripting":"스크립팅","aria_search_nbt_tags":"NBT 태그 검색","aria_server_cores":"서버 코어","aria_server_safety":"서버 안전","aria_server_workflow":"서버 작업 절차","aria_strings":"문자열","aria_supported_files":"지원 파일","aria_supported_server_software":"지원 서버 소프트웨어","aria_tag_types":"태그 유형","aria_tags_in_level_dat":"level.dat의 태그","aria_tools":"도구","aria_troubleshooting":"문제 해결","aria_typical_edits":"일반적인 수정","aria_what_you_can_inspect":"검사 가능한 항목","aria_where_bedrock_files_live":"Bedrock 파일 위치","aria_where_mcstructure_files_live":"mcstructure 파일 위치","aria_where_to_find_level_dat":"level.dat 위치","aria_why_edit_the_file":"파일을 편집하는 이유","aria_why_the_folder_name_is_not_the_world_name":"폴더 이름과 월드 이름이 다른 이유","aria_playerdata_tags":"playerdata 태그","toggle":"펼치기 또는 접기"};</script>
+<script src="../../assets/lang.js?v=23a64b2c" defer></script>
 <link rel="stylesheet" href="../../assets/app.css?v=f5bdcb0f">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Minecraft playerdata Editor \u2014 Edit player .dat Files Online","headline":"playerdata Editor \u2014 Minecraft Player .dat Files","description":"Edit Minecraft playerdata .dat files online: fix a stuck player position, drop a corrupted inventory item, adjust health, XP or game mode.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ko/playerdata-editor/","inLanguage":"ko","datePublished":"2026-05-29","dateModified":"2026-08-26","isPartOf":{"@type":"WebSite","name":"Minecraft NBT Editor","url":"https://w1zardz.github.io/bedrock-nbt-editor/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/playerdata.png"},"about":{"@type":"Thing","name":"Minecraft NBT data format"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT Editor","item":"https://w1zardz.github.io/bedrock-nbt-editor/ko/"},{"@type":"ListItem","position":2,"name":"playerdata Editor \u2014 Minecraft Player .dat Files","item":"https://w1zardz.github.io/bedrock-nbt-editor/ko/playerdata-editor/"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which file is my player?","acceptedAnswer":{"@type":"Answer","text":"Files are named by UUID. Look the player's UUID up on a Mojang API viewer, or sort playerdata/ by modification time and match against the last login."}},{"@type":"Question","name":"Can I give myself items by editing playerdata?","acceptedAnswer":{"@type":"Answer","text":"On your own server, yes \u2014 add an entry to the Inventory list with id, Count and Slot. On someone else's server that is an intrusion, and it will not work anyway because the live server rewrites the file."}},{"@type":"Question","name":"Why did my edit disappear?","acceptedAnswer":{"@type":"Answer","text":"The server or the player was online when you edited. Player state in memory wins on the next save."}},{"@type":"Question","name":"Is playerdata the same in Bedrock?","acceptedAnswer":{"@type":"Answer","text":"No. Bedrock keeps players inside the world LevelDB rather than in per-UUID files. The NBT inside those values is little-endian and opens here once extracted."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Minecraft playerdata 편집기 — 플레이어 .dat 온라인 수정","headline":"playerdata 편집기 — Minecraft 플레이어 .dat 파일","description":"Minecraft playerdata .dat 파일을 온라인에서 편집하세요. 지형에 갇힌 플레이어의 위치를 고치고 손상된 아이템을 제거하며 체력, XP, 게임 모드를 조정할 수 있습니다. 인벤토리와 속성 태그도 파일을 업로드하지 않고 확인해 저장할 수 있습니다.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ko/playerdata-editor/","inLanguage":"ko","datePublished":"2026-05-29","dateModified":"2026-09-21","isPartOf":{"@type":"WebSite","name":"Minecraft NBT 편집기","url":"https://w1zardz.github.io/bedrock-nbt-editor/ko/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/playerdata.png"},"about":{"@type":"Thing","name":"Minecraft NBT 데이터 형식"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT 편집기","item":"https://w1zardz.github.io/bedrock-nbt-editor/ko/"},{"@type":"ListItem","position":2,"name":"playerdata 편집기 — Minecraft 플레이어 .dat 파일","item":"https://w1zardz.github.io/bedrock-nbt-editor/ko/playerdata-editor/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"어느 파일이 제 플레이어 파일인가요?","acceptedAnswer":{"@type":"Answer","text":"파일명은 UUID입니다. Mojang API 뷰어에서 플레이어 UUID를 찾거나 playerdata/를 수정 시간순으로 정렬해 마지막 로그인 시각과 맞춰 보세요."}},{"@type":"Question","name":"playerdata를 편집해 아이템을 받을 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"자신의 서버에서는 가능합니다. Inventory 목록에 id, Count, Slot이 있는 항목을 추가하세요. 다른 사람의 서버에서는 침입에 해당하며, 실행 중인 서버가 파일을 다시 기록하므로 작동하지도 않습니다."}},{"@type":"Question","name":"수정 내용이 사라진 이유는 무엇인가요?","acceptedAnswer":{"@type":"Answer","text":"편집할 때 서버나 플레이어가 온라인이었기 때문입니다. 다음 저장 때 메모리의 플레이어 상태가 파일을 덮어씁니다."}},{"@type":"Question","name":"Bedrock의 playerdata도 같은가요?","acceptedAnswer":{"@type":"Answer","text":"아닙니다. Bedrock은 UUID별 파일 대신 월드 LevelDB 안에 플레이어 데이터를 저장합니다. 해당 값 안의 NBT는 리틀 엔디언이며 추출한 뒤 여기서 열 수 있습니다."}}]}</script>
 </head>
 <body>
-<a class="skip-link" href="#editor">Skip to the editor</a>
+<a class="skip-link" href="#editor">편집기로 건너뛰기</a>
 <header class="site-header">
 <div class="container">
-<a class="brand" href="../"><span>Minecraft</span> NBT Editor</a>
+<a class="brand" href="../"><span>Minecraft</span> NBT 편집기</a>
 <span class="badge">Java + Bedrock</span>
-<nav class="site-nav" aria-label="Tools">
-<a href="../">Editor</a>
+<nav class="site-nav" aria-label="도구">
+<a href="../">편집기</a>
 <a href="../level-dat-editor/">level.dat</a>
 <a href="../java-nbt-editor/">Java</a>
 <a href="../mcpe-nbt-editor/">Bedrock</a>
 <a href="../mcstructure-editor/">.mcstructure</a>
 <a href="../schematic-editor/">.schem</a>
 <a href="./" class="active">playerdata</a>
-<a href="../nbt-format/">NBT format</a>
+<a href="../nbt-format/">NBT 형식</a>
 </nav>
-<details class="lang-switch"><summary title="Language: 한국어" aria-label="Language: 한국어"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">Language: 한국어</span></summary><div class="lang-menu"><a href="./" hreflang="ko" data-lang="ko" aria-current="true" class="current">한국어</a><a href="../../playerdata-editor/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../ru/playerdata-editor/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../es/playerdata-editor/" hreflang="es" data-lang="es" rel="alternate">Español (beta)</a><a href="../../pt-br/playerdata-editor/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR) (beta)</a><a href="../../de/playerdata-editor/" hreflang="de" data-lang="de" rel="alternate">Deutsch (beta)</a><a href="../../fr/playerdata-editor/" hreflang="fr" data-lang="fr" rel="alternate">Français (beta)</a><a href="../../it/playerdata-editor/" hreflang="it" data-lang="it" rel="alternate">Italiano (beta)</a><a href="../../pl/playerdata-editor/" hreflang="pl" data-lang="pl" rel="alternate">Polski (beta)</a><a href="../../uk/playerdata-editor/" hreflang="uk" data-lang="uk" rel="alternate">Українська (beta)</a><a href="../../tr/playerdata-editor/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe (beta)</a><a href="../../id/playerdata-editor/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia (beta)</a><a href="../../vi/playerdata-editor/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt (beta)</a><a href="../../th/playerdata-editor/" hreflang="th" data-lang="th" rel="alternate">ไทย (beta)</a><a href="../../zh-hans/playerdata-editor/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文 (beta)</a><a href="../../ja/playerdata-editor/" hreflang="ja" data-lang="ja" rel="alternate">日本語 (beta)</a><a href="../../ar/playerdata-editor/" hreflang="ar" data-lang="ar" rel="alternate">العربية (beta)</a></div></details>
+<details class="lang-switch"><summary title="언어: 한국어" aria-label="언어: 한국어"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">언어: 한국어</span></summary><div class="lang-menu"><a href="./" hreflang="ko" data-lang="ko" aria-current="true" class="current">한국어</a><a href="../../playerdata-editor/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../ru/playerdata-editor/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../es/playerdata-editor/" hreflang="es" data-lang="es" rel="alternate">Español</a><a href="../../pt-br/playerdata-editor/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR)</a><a href="../../de/playerdata-editor/" hreflang="de" data-lang="de" rel="alternate">Deutsch</a><a href="../../fr/playerdata-editor/" hreflang="fr" data-lang="fr" rel="alternate">Français</a><a href="../../it/playerdata-editor/" hreflang="it" data-lang="it" rel="alternate">Italiano</a><a href="../../pl/playerdata-editor/" hreflang="pl" data-lang="pl" rel="alternate">Polski</a><a href="../../uk/playerdata-editor/" hreflang="uk" data-lang="uk" rel="alternate">Українська</a><a href="../../tr/playerdata-editor/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe</a><a href="../../id/playerdata-editor/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia</a><a href="../../vi/playerdata-editor/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt</a><a href="../../th/playerdata-editor/" hreflang="th" data-lang="th" rel="alternate">ไทย</a><a href="../../zh-hans/playerdata-editor/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文</a><a href="../../ja/playerdata-editor/" hreflang="ja" data-lang="ja" rel="alternate">日本語</a><a href="../../ar/playerdata-editor/" hreflang="ar" data-lang="ar" rel="alternate">العربية</a></div></details>
 </div>
 </header>
 <main>
-<nav class="breadcrumbs container" aria-label="Breadcrumb"><a href="../">NBT Editor</a> <span class="sep">/</span> <span>playerdata</span></nav>
-<section class="hero" aria-label="Introduction">
+<nav class="breadcrumbs container" aria-label="이동 경로"><a href="../">NBT 편집기</a> <span class="sep">/</span> <span>playerdata</span></nav>
+<section class="hero" aria-label="소개">
 <div class="container">
-<h1>playerdata Editor — Minecraft Player .dat Files</h1>
-<p class="support-line"><strong>Supports Minecraft Bedrock Edition and Java Edition</strong> — and every server core for both, popular or obscure: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina and the rest. <a href="../#server-software">Full list</a>.</p>
-<p class="lede">Java Edition writes one gzip big-endian NBT file per player in <code>world/playerdata/&lt;uuid&gt;.dat</code>, holding inventory, ender chest, position, dimension, health, hunger, XP and attributes. Drop one below to fix a player stuck inside terrain, drop a crash-inducing item, or reset stats — with the server stopped, or at least with that player offline.</p>
-<div class="chips"><span class="chip">Java playerdata</span><span class="chip">Ender chest</span><span class="chip">Inventory</span><span class="chip">Position</span><span class="chip">Attributes</span><span class="chip">Advancement-adjacent</span></div>
+<h1>playerdata 편집기 — Minecraft 플레이어 .dat 파일</h1>
+<p class="support-line"><strong>Minecraft Bedrock Edition과 Java Edition을 지원합니다.</strong> Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina 등 유명하거나 잘 알려지지 않은 양쪽 에디션의 모든 서버 코어를 지원합니다. <a href="../#server-software">전체 목록</a></p>
+<p class="lede">Java Edition은 플레이어마다 <code>world/playerdata/&lt;uuid&gt;.dat</code>에 gzip 빅 엔디언 NBT 파일 하나를 기록합니다. 인벤토리, 엔더 상자, 위치, 차원, 체력, 허기, XP, 속성이 들어 있습니다. 아래에 파일을 놓아 지형에 갇힌 플레이어를 옮기거나 충돌을 일으키는 아이템을 제거하고 통계를 초기화하세요. 서버를 중지하거나 최소한 해당 플레이어를 오프라인으로 만든 상태에서 작업해야 합니다.</p>
+<div class="chips"><span class="chip">Java 플레이어 데이터</span><span class="chip">엔더 상자</span><span class="chip">인벤토리</span><span class="chip">위치</span><span class="chip">속성</span><span class="chip">발전 과제 관련 데이터</span></div>
 </div>
 </section>
 <div id="editor">
 
-<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="Drop an NBT file here or click to browse">
+<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="여기에 NBT 파일을 놓거나 눌러 찾아보기">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 16V4m0 0L8 8m4-4l4 4"/><path d="M20 16v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2"/></svg>
-<p>Drop <strong>a playerdata .dat file</strong> here</p>
-<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">Choose File</button>
-<span class="hint">level.dat &middot; .nbt &middot; .mcstructure &middot; .schem &middot; .schematic &middot; .dat &middot; chunk dumps</span>
+<p>여기에 <strong>playerdata .dat 파일</strong> 놓기</p>
+<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">파일 선택</button>
+<span class="hint">level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · 청크 덤프</span>
 <input type="file" id="fileInput">
 </div>
 
@@ -83,18 +100,16 @@
 <div class="file-info" id="fileInfo"></div>
 
 <div class="out-bar" id="outBar">
-<label>Output format
-<select id="outFormat">
-<option value="java">Java — big-endian, named root</option>
-<option value="java-network">Java network — big-endian, nameless root</option>
-<option value="bedrock-level">Bedrock level.dat — little-endian + 8-byte header</option>
-<option value="bedrock">Bedrock raw — little-endian</option>
-<option value="bedrock-network">Bedrock network — little-endian varint</option>
+<label>출력 형식<select id="outFormat">
+<option value="java">Java — 빅 엔디언, 이름 있는 루트</option>
+<option value="java-network">Java 네트워크 — 빅 엔디언, 이름 없는 루트</option>
+<option value="bedrock-level">Bedrock level.dat — 리틀 엔디언 + 8바이트 헤더</option>
+<option value="bedrock">Bedrock 원시 형식 — 리틀 엔디언</option>
+<option value="bedrock-network">Bedrock 네트워크 — 리틀 엔디언 varint</option>
 </select>
 </label>
-<label>Compression
-<select id="outCompression">
-<option value="none">None (raw)</option>
+<label>압축<select id="outCompression">
+<option value="none">없음(원시 데이터)</option>
 <option value="gzip">gzip</option>
 <option value="zlib">zlib (deflate)</option>
 </select>
@@ -102,9 +117,9 @@
 </div>
 
 <div class="search-bar">
-<input type="search" id="searchInput" placeholder="Search tag name or value…" autocomplete="off" spellcheck="false" aria-label="Search NBT tags">
-<button type="button" id="btnSearch">Search</button>
-<button type="button" id="btnCollapse">Collapse all</button>
+<input type="search" id="searchInput" placeholder="태그 이름 또는 값 검색…" autocomplete="off" spellcheck="false" aria-label="NBT 태그 검색">
+<button type="button" id="btnSearch">검색</button>
+<button type="button" id="btnCollapse">모두 접기</button>
 </div>
 <div class="search-results" id="searchResults"></div>
 
@@ -112,80 +127,80 @@
 </div>
 
 <div class="bottom-bar" id="bottomBar">
-<button class="btn-add" id="btnAddRoot" type="button">+ Add Tag</button>
-<button class="btn-save" id="btnSave" type="button">Save &amp; Download</button>
-<button class="btn-snbt" id="btnSnbt" type="button">Export SNBT</button>
-<button class="btn-close" id="btnCloseFile" type="button">Close</button>
+<button class="btn-add" id="btnAddRoot" type="button">+ 태그 추가</button>
+<button class="btn-save" id="btnSave" type="button">저장 및 다운로드</button>
+<button class="btn-snbt" id="btnSnbt" type="button">SNBT 내보내기</button>
+<button class="btn-close" id="btnCloseFile" type="button">닫기</button>
 </div>
 
 </div>
 <div id="contentSections">
 
-<section class="content" aria-label="playerdata tags">
-<h2 id="the-tags-in-a-player-file">The tags in a player file</h2>
+<section class="content" aria-label="playerdata 태그">
+<h2 id="the-tags-in-a-player-file">플레이어 파일의 태그</h2>
 <div class="table-wrap">
 <table class="matrix">
-<thead><tr><th>Tag</th><th>Type</th><th>What it is</th></tr></thead>
+<thead><tr><th>태그</th><th>유형</th><th>내용</th></tr></thead>
 <tbody>
-<tr><td><code>Pos</code></td><td>List of Double</td><td>X, Y, Z. The fix for a player stuck in a wall or below bedrock.</td></tr>
-<tr><td><code>Rotation</code></td><td>List of Float</td><td>Yaw and pitch.</td></tr>
-<tr><td><code>Dimension</code></td><td>String / Int</td><td>Which dimension the player logs into.</td></tr>
-<tr><td><code>Inventory</code></td><td>List of Compound</td><td>One entry per stack: <code>id</code>, <code>Count</code>, <code>Slot</code>, <code>components</code> or <code>tag</code>.</td></tr>
-<tr><td><code>EnderItems</code></td><td>List of Compound</td><td>Ender chest contents, same shape.</td></tr>
-<tr><td><code>Health</code>, <code>foodLevel</code>, <code>XpLevel</code>, <code>XpTotal</code></td><td>Float / Int</td><td>Vitals and experience.</td></tr>
-<tr><td><code>playerGameType</code></td><td>Int</td><td>Per-player game mode.</td></tr>
-<tr><td><code>abilities</code></td><td>Compound</td><td>Flying, invulnerable, walk and fly speed.</td></tr>
-<tr><td><code>Attributes</code></td><td>List of Compound</td><td>Max health, movement speed and other modifiers.</td></tr>
-<tr><td><code>SpawnX</code>/<code>SpawnY</code>/<code>SpawnZ</code> or <code>respawn</code></td><td>Int / Compound</td><td>Personal respawn point, depending on version.</td></tr>
-<tr><td><code>UUID</code></td><td>Int[4]</td><td>The player's UUID as four ints in modern versions.</td></tr>
+<tr><td><code>Pos</code></td><td>Double 목록</td><td>X, Y, Z 좌표입니다. 벽 안이나 기반암 아래에 갇힌 플레이어를 고칠 때 사용합니다.</td></tr>
+<tr><td><code>Rotation</code></td><td>Float 목록</td><td>yaw와 pitch입니다.</td></tr>
+<tr><td><code>Dimension</code></td><td>String / Int</td><td>플레이어가 로그인할 차원입니다.</td></tr>
+<tr><td><code>Inventory</code></td><td>Compound 목록</td><td>스택당 항목 하나이며 <code>id</code>, <code>Count</code>, <code>Slot</code>, <code>components</code> 또는 <code>tag</code>가 들어갑니다.</td></tr>
+<tr><td><code>EnderItems</code></td><td>Compound 목록</td><td>같은 구조의 엔더 상자 내용물입니다.</td></tr>
+<tr><td><code>Health</code>, <code>foodLevel</code>, <code>XpLevel</code>, <code>XpTotal</code></td><td>Float / Int</td><td>생명력과 경험치입니다.</td></tr>
+<tr><td><code>playerGameType</code></td><td>Int</td><td>플레이어별 게임 모드입니다.</td></tr>
+<tr><td><code>abilities</code></td><td>Compound</td><td>비행, 무적, 걷기 및 비행 속도입니다.</td></tr>
+<tr><td><code>Attributes</code></td><td>Compound 목록</td><td>최대 체력, 이동 속도, 기타 수정자입니다.</td></tr>
+<tr><td><code>SpawnX</code>/<code>SpawnY</code>/<code>SpawnZ</code> 또는 <code>respawn</code></td><td>Int / Compound</td><td>버전에 따른 개인 리스폰 지점입니다.</td></tr>
+<tr><td><code>UUID</code></td><td>Int[4]</td><td>최신 버전에서 네 개의 int로 저장하는 플레이어 UUID입니다.</td></tr>
 </tbody>
 </table>
 </div>
-<p>Item stacks changed shape in 1.20.5: custom data moved from a single <code>tag</code> compound to individual <code>components</code>. Both shapes open here; edit whichever your version writes.</p>
+<p>1.20.5에서 아이템 스택 구조가 바뀌었습니다. 사용자 지정 데이터가 하나의 <code>tag</code> compound에서 개별 <code>components</code>로 이동했습니다. 두 구조 모두 여기서 열리므로 사용 중인 버전이 기록한 쪽을 수정하세요.</p>
 </section>
 
-<section class="content" aria-label="Common repairs">
-<h2 id="common-repairs">Common repairs</h2>
+<section class="content" aria-label="일반적인 복구">
+<h2 id="common-repairs">자주 필요한 복구 작업</h2>
 <div class="card">
 <ul>
-<li><strong>Player stuck in terrain or falling forever.</strong> Set <code>Pos</code> to safe coordinates — three doubles, in order X, Y, Z — and clear <code>Motion</code> if it holds a huge value.</li>
-<li><strong>Client crashes on login.</strong> A malformed item is the usual cause. Remove the offending entry from <code>Inventory</code> rather than wiping the whole list.</li>
-<li><strong>Wrong dimension after a portal bug.</strong> Set <code>Dimension</code> back to <code>minecraft:overworld</code> and give <code>Pos</code> matching coordinates.</li>
-<li><strong>Stuck in spectator.</strong> Set <code>playerGameType</code> to 0 for survival, 1 for creative.</li>
-<li><strong>Attribute modifiers left by a removed plugin.</strong> Delete the stale entries in <code>Attributes</code>.</li>
+<li><strong>플레이어가 지형에 갇혔거나 계속 추락합니다.</strong> <code>Pos</code>를 안전한 좌표로 설정하세요. X, Y, Z 순서의 double 세 개입니다. <code>Motion</code> 값이 지나치게 크면 지웁니다.</li>
+<li><strong>로그인할 때 클라이언트가 종료됩니다.</strong> 보통 잘못된 아이템이 원인입니다. 전체 목록을 지우지 말고 <code>Inventory</code>에서 문제 항목만 제거하세요.</li>
+<li><strong>포털 오류 뒤 잘못된 차원에 있습니다.</strong> <code>Dimension</code>을 <code>minecraft:overworld</code>로 되돌리고 <code>Pos</code>에 해당 차원의 좌표를 지정하세요.</li>
+<li><strong>관전자 모드에서 벗어나지 못합니다.</strong> <code>playerGameType</code>을 서바이벌은 0, 크리에이티브는 1로 설정하세요.</li>
+<li><strong>삭제된 플러그인의 속성 수정자가 남았습니다.</strong> <code>Attributes</code>에서 오래된 항목을 삭제하세요.</li>
 </ul>
 </div>
 </section>
 
-<section class="content" aria-label="Server safety">
-<h2 id="do-it-with-the-player-offline">Do it with the player offline</h2>
-<p>The server holds player state in memory and writes it out on logout and on autosave. Editing the file while that player is online guarantees your changes are overwritten, and editing during a save can truncate the file. Take the player offline — or stop the server — copy the file, edit, and put it back before they reconnect. Keep the original until the login works.</p>
-<p>Bedrock servers do not use this layout: player data lives in the world's LevelDB under keys such as <code>player_&lt;uuid&gt;</code>, whose values are little-endian NBT. Extract a value and it opens here as <em>Bedrock raw</em>.</p>
+<section class="content" aria-label="서버 안전">
+<h2 id="do-it-with-the-player-offline">플레이어가 오프라인일 때 작업하세요</h2>
+<p>서버는 플레이어 상태를 메모리에 보관하고 로그아웃과 자동 저장 때 파일에 기록합니다. 해당 플레이어가 온라인일 때 편집하면 변경 사항이 반드시 덮어써지고, 저장 중에 편집하면 파일이 잘릴 수 있습니다. 플레이어를 오프라인으로 만들거나 서버를 중지한 뒤 파일을 복사해 편집하고, 다시 접속하기 전에 원래 위치에 넣으세요. 로그인이 정상적으로 될 때까지 원본을 보관하세요.</p>
+<p>Bedrock 서버는 이 구조를 사용하지 않습니다. 플레이어 데이터는 월드 LevelDB에서 <code>player_&lt;uuid&gt;</code> 같은 키 아래에 있으며 값은 리틀 엔디언 NBT입니다. 값을 추출하면 여기서 <em>Bedrock 원시 형식</em>으로 열립니다.</p>
 </section>
 
-<section class="content" aria-label="Frequently asked questions"><h2>Frequently Asked Questions</h2><details><summary>Which file is my player?</summary><div class="faq-body"><p>Files are named by UUID. Look the player's UUID up on a Mojang API viewer, or sort <code>playerdata/</code> by modification time and match against the last login.</p></div></details><details><summary>Can I give myself items by editing playerdata?</summary><div class="faq-body"><p>On your own server, yes — add an entry to the <code>Inventory</code> list with <code>id</code>, <code>Count</code> and <code>Slot</code>. On someone else's server that is an intrusion, and it will not work anyway because the live server rewrites the file.</p></div></details><details><summary>Why did my edit disappear?</summary><div class="faq-body"><p>The server or the player was online when you edited. Player state in memory wins on the next save.</p></div></details><details><summary>Is playerdata the same in Bedrock?</summary><div class="faq-body"><p>No. Bedrock keeps players inside the world LevelDB rather than in per-UUID files. The NBT inside those values is little-endian and opens here once extracted.</p></div></details></section>
-<section class="content" aria-label="Related tools"><h2>Related tools</h2><div class="rel-grid"><a class="rel-card" href="../java-nbt-editor/"><strong>Java Edition NBT editor</strong><span>Big-endian, gzip — Vanilla, Paper, Spigot, Fabric, Forge.</span></a><a class="rel-card" href="../"><strong>Minecraft NBT editor</strong><span>The universal editor — every edition, every NBT file type.</span></a><a class="rel-card" href="../level-dat-editor/"><strong>level.dat editor</strong><span>World name, game mode, spawn, difficulty and game rules.</span></a><a class="rel-card" href="../nbt-format/"><strong>NBT format reference</strong><span>All 13 tag types, every encoding, byte by byte.</span></a><a class="rel-card" href="../nbt-viewer/"><strong>NBT viewer</strong><span>Read-only inspection, search and SNBT export.</span></a><a class="rel-card" href="../guides/fix-corrupted-level-dat/"><strong>Fix a broken level.dat</strong><span>Diagnose why a world refuses to load, and repair it.</span></a></div></section>
+<section class="content" aria-label="자주 묻는 질문"><h2>자주 묻는 질문</h2><details><summary>어느 파일이 제 플레이어 파일인가요?</summary><div class="faq-body"><p>파일명은 UUID입니다. Mojang API 뷰어에서 플레이어 UUID를 찾거나 <code>playerdata/</code>를 수정 시간순으로 정렬해 마지막 로그인 시각과 맞춰 보세요.</p></div></details><details><summary>playerdata를 편집해 아이템을 받을 수 있나요?</summary><div class="faq-body"><p>자신의 서버에서는 가능합니다. <code>Inventory</code> 목록에 <code>id</code>, <code>Count</code>, <code>Slot</code>이 있는 항목을 추가하세요. 다른 사람의 서버에서는 침입에 해당하며, 실행 중인 서버가 파일을 다시 기록하므로 작동하지도 않습니다.</p></div></details><details><summary>수정 내용이 사라진 이유는 무엇인가요?</summary><div class="faq-body"><p>편집할 때 서버나 플레이어가 온라인이었기 때문입니다. 다음 저장 때 메모리의 플레이어 상태가 파일을 덮어씁니다.</p></div></details><details><summary>Bedrock의 playerdata도 같은가요?</summary><div class="faq-body"><p>아닙니다. Bedrock은 UUID별 파일 대신 월드 LevelDB 안에 플레이어 데이터를 저장합니다. 해당 값 안의 NBT는 리틀 엔디언이며 추출한 뒤 여기서 열 수 있습니다.</p></div></details></section>
+<section class="content" aria-label="관련 도구"><h2>관련 도구</h2><div class="rel-grid"><a class="rel-card" href="../java-nbt-editor/"><strong>Java Edition NBT 편집기</strong><span>빅 엔디언, gzip — Vanilla, Paper, Spigot, Fabric, Forge 지원</span></a><a class="rel-card" href="../"><strong>Minecraft NBT 편집기</strong><span>모든 에디션과 모든 NBT 파일 형식을 다루는 범용 편집기입니다.</span></a><a class="rel-card" href="../level-dat-editor/"><strong>level.dat 편집기</strong><span>월드 이름, 게임 모드, 스폰, 난이도, 게임 규칙을 수정합니다.</span></a><a class="rel-card" href="../nbt-format/"><strong>NBT 형식 참고 자료</strong><span>13개 태그 유형과 모든 인코딩을 바이트 단위로 설명합니다.</span></a><a class="rel-card" href="../nbt-viewer/"><strong>NBT 뷰어</strong><span>읽기 전용 검사, 검색, SNBT 내보내기를 지원합니다.</span></a><a class="rel-card" href="../guides/fix-corrupted-level-dat/"><strong>손상된 level.dat 복구</strong><span>월드가 열리지 않는 원인을 진단하고 복구합니다.</span></a></div></section>
 </div>
 </main>
 
 <footer class="site-footer">
 <div class="container footer-grid">
-<div><h4>Editors</h4><a href="../">Minecraft NBT editor</a><a href="../level-dat-editor/">level.dat editor</a><a href="../java-nbt-editor/">Java Edition NBT editor</a><a href="../mcpe-nbt-editor/">MCPE NBT editor</a><a href="../pocketmine-nbt-editor/">PocketMine-MP editor</a></div>
-<div><h4>File types</h4><a href="../mcstructure-editor/">.mcstructure editor</a><a href="../schematic-editor/">Schematic editor</a><a href="./">playerdata editor</a><a href="../nbt-viewer/">NBT viewer</a><a href="../nbtexplorer-online/">NBTExplorer online</a></div>
-<div><h4>Reference</h4><a href="../nbt-format/">NBT format reference</a><a href="../guides/change-world-name/">Rename a world</a><a href="../guides/fix-corrupted-level-dat/">Fix a broken level.dat</a><a href="../guides/edit-gamerules/">Edit game rules</a></div>
-<div><h4>Source</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">Code on GitHub</a><a href="../../llms.txt">llms.txt</a></div>
+<div><h4>편집기</h4><a href="../">Minecraft NBT 편집기</a><a href="../level-dat-editor/">level.dat 편집기</a><a href="../java-nbt-editor/">Java Edition NBT 편집기</a><a href="../mcpe-nbt-editor/">MCPE NBT 편집기</a><a href="../pocketmine-nbt-editor/">PocketMine-MP 편집기</a></div>
+<div><h4>파일 형식</h4><a href="../mcstructure-editor/">.mcstructure 편집기</a><a href="../schematic-editor/">Schematic 편집기</a><a href="./">playerdata 편집기</a><a href="../nbt-viewer/">NBT 뷰어</a><a href="../nbtexplorer-online/">온라인 NBTExplorer</a></div>
+<div><h4>참고 자료</h4><a href="../nbt-format/">NBT 형식 참고 자료</a><a href="../guides/change-world-name/">월드 이름 바꾸기</a><a href="../guides/fix-corrupted-level-dat/">손상된 level.dat 복구</a><a href="../guides/edit-gamerules/">게임 규칙 편집</a></div>
+<div><h4>소스</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">GitHub 코드</a><a href="../../llms.txt">llms.txt</a></div>
 </div>
-<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">마지막 업데이트: 2026-09-21 Minecraft NBT 편집기 — 무료 오픈 소스(MIT)이며 브라우저에서만 실행됩니다. Mojang Studios 또는 Microsoft와 제휴 관계가 없습니다. Minecraft는 Mojang Studios의 상표입니다.</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
 <div class="modal-overlay" id="addTagModal">
 <div class="modal">
-<h3>Add New Tag</h3>
-<label for="newTagName">Tag Name</label>
-<input type="text" id="newTagName" placeholder="e.g. MyTag" autocomplete="off">
-<label for="newTagType">Tag Type</label>
+<h3>새 태그 추가</h3>
+<label for="newTagName">태그 이름</label>
+<input type="text" id="newTagName" placeholder="예: MyTag" autocomplete="off">
+<label for="newTagType">태그 유형</label>
 <select id="newTagType">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -200,10 +215,10 @@
 <option value="11">TAG_Int_Array</option>
 <option value="12">TAG_Long_Array</option>
 </select>
-<label for="newTagValue">Value</label>
-<input type="text" id="newTagValue" placeholder="Value" autocomplete="off">
+<label for="newTagValue">값</label>
+<input type="text" id="newTagValue" placeholder="값" autocomplete="off">
 <div id="listSubtypeRow" style="display:none">
-<label for="newListSubtype">List Element Type</label>
+<label for="newListSubtype">목록 요소 유형</label>
 <select id="newListSubtype">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -220,24 +235,24 @@
 </select>
 </div>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="addTagCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="addTagConfirm">Add</button>
+<button class="btn-cancel" type="button" id="addTagCancel">취소</button>
+<button class="btn-confirm" type="button" id="addTagConfirm">추가</button>
 </div>
 </div>
 </div>
 
 <div class="modal-overlay" id="arrayModal">
 <div class="modal">
-<h3 id="arrayModalTitle">Edit Array</h3>
-<label for="arrayModalText">Comma-separated values</label>
+<h3 id="arrayModalTitle">배열 편집</h3>
+<label for="arrayModalText">쉼표로 구분한 값</label>
 <textarea id="arrayModalText" spellcheck="false" autocomplete="off"></textarea>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="arrayModalCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="arrayModalConfirm">Apply</button>
+<button class="btn-cancel" type="button" id="arrayModalCancel">취소</button>
+<button class="btn-confirm" type="button" id="arrayModalConfirm">적용</button>
 </div>
 </div>
 </div>
 
-<script src="../../assets/nbt.js?v=da7967b1" defer></script>
+<script src="../../assets/nbt.js?v=6f125422" defer></script>
 </body>
 </html>

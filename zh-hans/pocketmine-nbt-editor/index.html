@@ -3,79 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>PocketMine-MP level.dat Editor — PMMP, Nukkit, BDS Online</title>
-<meta name="description" content="Edit level.dat for PocketMine-MP, Nukkit, PowerNukkitX and Bedrock Dedicated Server online. Fix duplicate world names after copying a world folder.">
-<meta name="keywords" content="pocketmine level.dat, pmmp nbt editor, pocketmine world name, nukkit level.dat editor, powernukkitx nbt, bedrock dedicated server level.dat, bds world name, pocketmine world editor">
-<meta name="robots" content="noindex, follow">
+<title>PocketMine-MP level.dat 在线编辑器</title>
+<meta name="description" content="在线编辑 PocketMine-MP、Nukkit、PowerNukkitX 和 Bedrock Dedicated Server 使用的 level.dat。可修复复制世界文件夹后出现的重复世界名称，修改出生点与游戏规则，并保留基岩版 8 字节文件头；所有操作均在浏览器本地完成。">
+<meta name="keywords" content="PocketMine level.dat编辑器, PMMP NBT编辑器, PocketMine世界改名, Nukkit level.dat, PowerNukkitX NBT, BDS世界名称修改, 基岩版服务器存档编辑, PMMP世界编辑器">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="author" content="w1zardz">
 <link rel="canonical" href="https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="en" href="https://w1zardz.github.io/bedrock-nbt-editor/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="ru" href="https://w1zardz.github.io/bedrock-nbt-editor/ru/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="es" href="https://w1zardz.github.io/bedrock-nbt-editor/es/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="pt-BR" href="https://w1zardz.github.io/bedrock-nbt-editor/pt-br/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="de" href="https://w1zardz.github.io/bedrock-nbt-editor/de/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="fr" href="https://w1zardz.github.io/bedrock-nbt-editor/fr/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="it" href="https://w1zardz.github.io/bedrock-nbt-editor/it/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="pl" href="https://w1zardz.github.io/bedrock-nbt-editor/pl/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="uk" href="https://w1zardz.github.io/bedrock-nbt-editor/uk/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="tr" href="https://w1zardz.github.io/bedrock-nbt-editor/tr/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="id" href="https://w1zardz.github.io/bedrock-nbt-editor/id/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="vi" href="https://w1zardz.github.io/bedrock-nbt-editor/vi/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="th" href="https://w1zardz.github.io/bedrock-nbt-editor/th/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="zh-Hans" href="https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="ja" href="https://w1zardz.github.io/bedrock-nbt-editor/ja/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="ko" href="https://w1zardz.github.io/bedrock-nbt-editor/ko/pocketmine-nbt-editor/">
+<link rel="alternate" hreflang="ar" href="https://w1zardz.github.io/bedrock-nbt-editor/ar/pocketmine-nbt-editor/">
 <link rel="alternate" hreflang="x-default" href="https://w1zardz.github.io/bedrock-nbt-editor/pocketmine-nbt-editor/">
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="../../favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <link rel="manifest" href="../../site.webmanifest">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PocketMine-MP &amp; Nukkit level.dat editor">
-<meta property="og:description" content="Edit level.dat for PocketMine-MP, Nukkit, PowerNukkitX and Bedrock Dedicated Server online. Fix duplicate world names after copying a world folder.">
+<meta property="og:title" content="PocketMine-MP 与 Nukkit level.dat 编辑器">
+<meta property="og:description" content="在线编辑 PocketMine-MP、Nukkit、PowerNukkitX 和 Bedrock Dedicated Server 使用的 level.dat。可修复复制世界文件夹后出现的重复世界名称，修改出生点与游戏规则，并保留基岩版 8 字节文件头；所有操作均在浏览器本地完成。">
 <meta property="og:url" content="https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/pocketmine-nbt-editor/">
-<meta property="og:site_name" content="Minecraft NBT Editor">
+<meta property="og:site_name" content="Minecraft NBT 编辑器">
 <meta property="og:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/pocketmine.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="zh_CN">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="PocketMine-MP &amp; Nukkit level.dat editor">
-<meta name="twitter:description" content="Edit level.dat for PocketMine-MP, Nukkit, PowerNukkitX and Bedrock Dedicated Server online. Fix duplicate world names after copying a world folder.">
+<meta name="twitter:title" content="PocketMine-MP 与 Nukkit level.dat 编辑器">
+<meta name="twitter:description" content="在线编辑 PocketMine-MP、Nukkit、PowerNukkitX 和 Bedrock Dedicated Server 使用的 level.dat。可修复复制世界文件夹后出现的重复世界名称，修改出生点与游戏规则，并保留基岩版 8 字节文件头；所有操作均在浏览器本地完成。">
 <meta name="twitter:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/pocketmine.png">
-<meta property="article:modified_time" content="2026-08-26">
-<meta property="og:updated_time" content="2026-08-26">
+<meta property="article:modified_time" content="2026-09-21">
+<meta property="og:updated_time" content="2026-09-21">
 <meta name="theme-color" content="#0d1117">
-<meta name="application-name" content="Minecraft NBT Editor">
-<meta name="apple-mobile-web-app-title" content="NBT Editor">
-<link rel="preload" href="../../assets/nbt.js?v=da7967b1" as="script">
-<script>window.__LANG_URLS__={"en":"../../pocketmine-nbt-editor/","ru":"../../ru/pocketmine-nbt-editor/","es":"../../es/pocketmine-nbt-editor/","pt-br":"../../pt-br/pocketmine-nbt-editor/","de":"../../de/pocketmine-nbt-editor/","fr":"../../fr/pocketmine-nbt-editor/","it":"../../it/pocketmine-nbt-editor/","pl":"../../pl/pocketmine-nbt-editor/","uk":"../../uk/pocketmine-nbt-editor/","tr":"../../tr/pocketmine-nbt-editor/","id":"../../id/pocketmine-nbt-editor/","vi":"../../vi/pocketmine-nbt-editor/","th":"../../th/pocketmine-nbt-editor/","zh-hans":"./","ja":"../../ja/pocketmine-nbt-editor/","ko":"../../ko/pocketmine-nbt-editor/","ar":"../../ar/pocketmine-nbt-editor/"};window.__NBT_STRINGS__={"loaded":"Loaded as {0}","trailing":"{0} trailing byte(s) after the root tag were ignored","error":"Error: {0}","readfail":"Could not read the file","nofile":"No file loaded","saved":"Saved {0} ({1}, {2})","savefail":"Save error: {0}","exported":"Exported {0}","snbtfail":"SNBT error: {0}","tagadded":"Tag added","tagremoved":"Tag removed","arrayupdated":"Array updated","badvalue":"Invalid value: {0}","badarray":"Invalid array: {0}","nameneeded":"Tag name is required","nametaken":"A tag named {0} already exists here","listtype":"List already holds {0} entries","editlevelname":"✎ Edit LevelName","showmore":"Show {0} more of {1} …","matches":"{0} match(es)","nomatch":"No tag matches \"{0}\"","arraytoobig":"Array has {0} entries — expand it and edit elements individually","uncompressed":"uncompressed","storage":"storage v{0}","entries":"{0} entries","langprompt":"Open this page in {0}?","langyes":"Switch","langno":"Stay"};</script>
-<script src="../../assets/lang.js?v=a3a1db0e" defer></script>
+<meta name="application-name" content="Minecraft NBT 编辑器">
+<meta name="apple-mobile-web-app-title" content="NBT 编辑器">
+<link rel="preload" href="../../assets/nbt.js?v=6f125422" as="script">
+<script>window.__LANG_URLS__={"en":"../../pocketmine-nbt-editor/","ru":"../../ru/pocketmine-nbt-editor/","es":"../../es/pocketmine-nbt-editor/","pt-br":"../../pt-br/pocketmine-nbt-editor/","de":"../../de/pocketmine-nbt-editor/","fr":"../../fr/pocketmine-nbt-editor/","it":"../../it/pocketmine-nbt-editor/","pl":"../../pl/pocketmine-nbt-editor/","uk":"../../uk/pocketmine-nbt-editor/","tr":"../../tr/pocketmine-nbt-editor/","id":"../../id/pocketmine-nbt-editor/","vi":"../../vi/pocketmine-nbt-editor/","th":"../../th/pocketmine-nbt-editor/","zh-hans":"./","ja":"../../ja/pocketmine-nbt-editor/","ko":"../../ko/pocketmine-nbt-editor/","ar":"../../ar/pocketmine-nbt-editor/"};window.__NBT_STRINGS__={"loaded":"已按 {0} 加载","trailing":"已忽略根标签后的 {0} 个尾随字节","error":"错误：{0}","readfail":"无法读取文件","nofile":"未加载文件","saved":"已保存 {0}（{1}，{2}）","savefail":"保存错误：{0}","exported":"已导出 {0}","snbtfail":"SNBT 错误：{0}","tagadded":"已添加标签","tagremoved":"已删除标签","arrayupdated":"已更新数组","badvalue":"无效值：{0}","badarray":"无效数组：{0}","nameneeded":"必须填写标签名称","nametaken":"此处已存在名为 {0} 的标签","listtype":"列表已包含 {0} 类型的项目","editlevelname":"✎ 编辑 LevelName","showmore":"再显示 {1} 项中的 {0} 项…","matches":"{0} 个匹配项","nomatch":"没有标签匹配“{0}”","arraytoobig":"数组包含 {0} 项，请展开并逐项编辑","uncompressed":"未压缩","storage":"存储版本 v{0}","entries":"{0} 项","langprompt":"要使用{0}打开此页面吗？","langyes":"切换","langno":"保留当前语言","nav_editor":"编辑器","nav_format":"NBT 格式","language":"语言：{0}","beta":"测试版","skip_editor":"跳转到编辑器","brand_editor":"NBT 编辑器","guides":"指南","updated":"最后更新：{0}。","drop":"将{0}拖放到这里","choose_file":"选择文件","file_hint":"level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · 区块转储数据","output_format":"输出格式","format_java":"Java — 大端序，根标签有名称","format_java_network":"Java 网络 — 大端序，根标签无名称","format_bedrock_level":"Bedrock level.dat — 小端序 + 8 字节文件头","format_bedrock":"Bedrock 原始数据 — 小端序","format_bedrock_network":"Bedrock 网络 — 小端序变长整数","compression":"压缩","compression_none":"不压缩（原始数据）","search_placeholder":"搜索标签名称或值…","search":"搜索","collapse":"全部折叠","add_tag":"+ 添加标签","save_download":"保存并下载","export_snbt":"导出 SNBT","close":"关闭","add_new_tag":"添加新标签","tag_name":"标签名称","tag_type":"标签类型","tag_example":"例如 MyTag","value":"值","list_element_type":"列表元素类型","cancel":"取消","add":"添加","edit_array":"编辑数组","comma_values":"以逗号分隔的值","apply":"应用","format_label_java":"Java 大端序","format_label_java_network":"Java 网络（根标签无名称）","format_label_bedrock_level":"Bedrock level.dat（8 字节文件头）","format_label_bedrock":"Bedrock 小端序","format_label_bedrock_network":"Bedrock 网络（变长整数）","err_decompress":"此浏览器无法解压 {0}（不支持 Compression Streams API）","err_compress":"此浏览器无法压缩为 {0}（不支持 Compression Streams API）","err_stream":"无法处理 {0} 压缩","err_end":"数据在偏移量 {0} 处意外结束","err_tag_limit":"标签数量超出限制","err_varint":"VarInt 过长","err_varlong":"VarLong 过长","err_negative_array":"数组长度为负数：{0}","err_array_length":"数组长度 {0} 超出剩余数据范围","err_negative_list":"列表长度为负数","err_end_list":"TAG_End 列表包含 {0} 个元素","err_list_type":"未知的列表元素类型：{0}","err_tag_type":"未知的标签类型：{0}","err_root":"根标签必须为 TAG_Compound，实际为 {0}","err_string_length":"字符串超出此格式的长度限制：{0} 字节","err_write_type":"无法写入类型为 {0} 的标签","err_header_short":"数据过短，无法包含文件头","err_storage_version":"不合理的存储版本：{0}","err_header_length":"文件头中声明的长度 {0} 超出有效载荷大小","err_unknown_file":"无法识别此 NBT 文件（已尝试 Java、Bedrock、网络和带文件头的变体）","err_file_small":"文件过小，无法包含 NBT 数据","err_byte":"Byte 必须在 -128..127 范围内","err_short":"Short 必须在 -32768..32767 范围内","err_int":"Int 必须在 -2147483648..2147483647 范围内","err_long":"Long 超出 64 位整数范围","err_float":"无效的 float 值","err_double":"无效的 double 值","err_not_inline":"此标签类型无法直接编辑","err_array_byte":"无效的 byte 值：{0}","err_array_int":"无效的 int 值：{0}","err_array_long":"无效的 64 位整数：{0}","root":"（根）","add_child":"添加子标签","remove_tag":"删除标签","array":"数组","array_bytes":"[{0} 个字节]","array_ints":"[{0} 个 int]","array_longs":"[{0} 个 long]","entries_type":"{0} 个 {1} 类型的元素","unknown_error":"无法完成此操作","software_name":"Minecraft NBT 编辑器","software_alternate_online":"在线 NBT 编辑器","software_alternate_bedrock":"Bedrock NBT 编辑器","software_alternate_level":"level.dat 编辑器","software_subcategory":"游戏文件编辑器","software_os":"任意系统（浏览器）","software_browser":"支持 BigInt 和 Compression Streams 的现代浏览器","feature_java":"Java Edition 大端序 NBT","feature_bedrock":"Bedrock Edition 小端序 NBT","feature_bedrock_network":"Bedrock 网络 NBT（变长整数）","feature_java_network":"Java 网络 NBT（根标签无名称）","feature_compression":"gzip 和 zlib 压缩","feature_types":"全部 13 种 NBT 标签类型，保留 64 位精度","feature_snbt":"导出 SNBT","feature_local":"完全在本地客户端运行","schema_about":"Minecraft NBT 数据格式","not_found_title":"找不到页面 — {0}","not_found_heading":"404 — 此页面已移动或从未存在","not_found_intro":"点击即可打开编辑器，下方提供了各工具的固定链接。","not_found_footer":"{0} — 免费且开源。","aria_bedrock_gamerules":"Bedrock 游戏规则","aria_bedrock_level_dat_header":"Bedrock level.dat 文件头","aria_bedrock_tags":"Bedrock 标签","aria_breadcrumb":"面包屑导航","aria_byte_walkthrough":"逐字节讲解","aria_causes":"原因","aria_common_repairs":"常见修复方法","aria_comparison":"对比","aria_compatibility":"兼容性","aria_compression":"压缩","aria_core_specifics":"各服务端的特点","aria_dataversion":"DataVersion","aria_drop_an_nbt_file_here_or_click_to_browse":"将 NBT 文件拖放到这里，或点击选择文件","aria_duplicate_world_names":"世界名称重复","aria_editing_schematics":"编辑原理图","aria_encodings":"编码方式","aria_features":"功能","aria_file_types":"文件类型","aria_frequently_asked_questions":"常见问题","aria_how_to_use":"使用方法","aria_inside_a_mcstructure_file":"mcstructure 文件内部结构","aria_introduction":"简介","aria_java_nbt_encoding":"Java NBT 编码","aria_java_nbt_files":"Java NBT 文件","aria_java_gamerules":"Java 游戏规则","aria_migrating":"从其他工具迁移","aria_other_bedrock_nbt":"其他 Bedrock NBT","aria_other_tools":"其他工具","aria_per_platform":"各平台说明","aria_prevention":"预防措施","aria_related_tools":"相关工具","aria_snbt":"SNBT","aria_safety":"安全注意事项","aria_salvage":"数据恢复","aria_schematic_formats":"原理图格式","aria_scripting":"脚本调用","aria_search_nbt_tags":"搜索 NBT 标签","aria_server_cores":"服务端核心","aria_server_safety":"服务端安全","aria_server_workflow":"服务端操作流程","aria_strings":"字符串","aria_supported_files":"支持的文件","aria_supported_server_software":"支持的服务端软件","aria_tag_types":"标签类型","aria_tags_in_level_dat":"level.dat 中的标签","aria_tools":"工具","aria_troubleshooting":"故障排查","aria_typical_edits":"常见编辑操作","aria_what_you_can_inspect":"可检查的内容","aria_where_bedrock_files_live":"Bedrock 文件位置","aria_where_mcstructure_files_live":"mcstructure 文件位置","aria_where_to_find_level_dat":"level.dat 的位置","aria_why_edit_the_file":"为什么要编辑文件","aria_why_the_folder_name_is_not_the_world_name":"为什么文件夹名称不等于世界名称","aria_playerdata_tags":"playerdata 标签","toggle":"展开或折叠"};</script>
+<script src="../../assets/lang.js?v=23a64b2c" defer></script>
 <link rel="stylesheet" href="../../assets/app.css?v=f5bdcb0f">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"PocketMine-MP level.dat Editor \u2014 PMMP, Nukkit, BDS Online","headline":"PocketMine-MP & Bedrock Server level.dat Editor","description":"Edit level.dat for PocketMine-MP, Nukkit, PowerNukkitX and Bedrock Dedicated Server online. Fix duplicate world names after copying a world folder.","url":"https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/pocketmine-nbt-editor/","inLanguage":"zh-hans","datePublished":"2026-05-29","dateModified":"2026-08-26","isPartOf":{"@type":"WebSite","name":"Minecraft NBT Editor","url":"https://w1zardz.github.io/bedrock-nbt-editor/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/pocketmine.png"},"about":{"@type":"Thing","name":"Minecraft NBT data format"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT Editor","item":"https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/"},{"@type":"ListItem","position":2,"name":"PocketMine-MP & Bedrock Server level.dat Editor","item":"https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/pocketmine-nbt-editor/"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does PocketMine-MP use the same level.dat as Bedrock?","acceptedAnswer":{"@type":"Answer","text":"Yes. PocketMine-MP implements the Bedrock world format, so its level.dat is little-endian NBT with the 8-byte header, byte-for-byte the same shape the vanilla Bedrock server writes."}},{"@type":"Question","name":"Why do two worlds show the same name in console?","acceptedAnswer":{"@type":"Answer","text":"Because both were copied from one folder and share a LevelName. The folder name and the tag are independent; change the tag."}},{"@type":"Question","name":"Can I rename a world without restarting the server?","acceptedAnswer":{"@type":"Answer","text":"No. The world is loaded in memory and rewritten on save, so an edit made while it is running is discarded. Stop, edit, start."}},{"@type":"Question","name":"Does this work with Nukkit and PowerNukkitX?","acceptedAnswer":{"@type":"Answer","text":"Yes \u2014 same format, same file path, same procedure."}},{"@type":"Question","name":"How do I convert a Bedrock world to Java?","acceptedAnswer":{"@type":"Answer","text":"Not with an NBT editor. Byte order is the easy part; the tag layout, block palettes and chunk storage differ completely. Use a purpose-built converter, then use this editor for the leftover metadata."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"PocketMine-MP level.dat 在线编辑器","headline":"PocketMine-MP 与基岩版服务器 level.dat 编辑器","description":"在线编辑 PocketMine-MP、Nukkit、PowerNukkitX 和 Bedrock Dedicated Server 使用的 level.dat。可修复复制世界文件夹后出现的重复世界名称，修改出生点与游戏规则，并保留基岩版 8 字节文件头；所有操作均在浏览器本地完成。","url":"https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/pocketmine-nbt-editor/","inLanguage":"zh-hans","datePublished":"2026-05-29","dateModified":"2026-09-21","isPartOf":{"@type":"WebSite","name":"Minecraft NBT 编辑器","url":"https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/pocketmine.png"},"about":{"@type":"Thing","name":"Minecraft NBT 数据格式"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT 编辑器","item":"https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/"},{"@type":"ListItem","position":2,"name":"PocketMine-MP 与基岩版服务器 level.dat 编辑器","item":"https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/pocketmine-nbt-editor/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"PocketMine-MP 使用与基岩版相同的 level.dat 吗？","acceptedAnswer":{"@type":"Answer","text":"是。PocketMine-MP 实现基岩版世界格式，因此其 level.dat 是带 8 字节文件头的小端序 NBT，与 Vanilla 基岩版服务器写入的结构逐字节相同。"}},{"@type":"Question","name":"为什么控制台中的两个世界名称相同？","acceptedAnswer":{"@type":"Answer","text":"因为两者从同一文件夹复制而来，共用同一个 LevelName。文件夹名称与标签相互独立；请修改该标签。"}},{"@type":"Question","name":"无需重启服务器就能重命名世界吗？","acceptedAnswer":{"@type":"Answer","text":"不能。世界加载在内存中并会在保存时重写，因此服务器运行期间的编辑会被丢弃。请停止服务器、编辑，再启动。"}},{"@type":"Question","name":"支持 Nukkit 和 PowerNukkitX 吗？","acceptedAnswer":{"@type":"Answer","text":"支持。它们使用相同格式、相同文件路径和相同操作步骤。"}},{"@type":"Question","name":"如何将基岩版世界转换为 Java 版？","acceptedAnswer":{"@type":"Answer","text":"NBT 编辑器无法完成这种转换。字节序只是简单部分；标签布局、方块调色板和区块存储完全不同。请使用专用转换器，再用本编辑器处理剩余元数据。"}}]}</script>
 </head>
 <body>
-<a class="skip-link" href="#editor">Skip to the editor</a>
+<a class="skip-link" href="#editor">跳转到编辑器</a>
 <header class="site-header">
 <div class="container">
-<a class="brand" href="../"><span>Minecraft</span> NBT Editor</a>
+<a class="brand" href="../"><span>Minecraft</span> NBT 编辑器</a>
 <span class="badge">Java + Bedrock</span>
-<nav class="site-nav" aria-label="Tools">
-<a href="../">Editor</a>
+<nav class="site-nav" aria-label="工具">
+<a href="../">编辑器</a>
 <a href="../level-dat-editor/">level.dat</a>
 <a href="../java-nbt-editor/">Java</a>
 <a href="../mcpe-nbt-editor/">Bedrock</a>
 <a href="../mcstructure-editor/">.mcstructure</a>
 <a href="../schematic-editor/">.schem</a>
 <a href="../playerdata-editor/">playerdata</a>
-<a href="../nbt-format/">NBT format</a>
+<a href="../nbt-format/">NBT 格式</a>
 </nav>
-<details class="lang-switch"><summary title="Language: 简体中文" aria-label="Language: 简体中文"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">Language: 简体中文</span></summary><div class="lang-menu"><a href="./" hreflang="zh-Hans" data-lang="zh-hans" aria-current="true" class="current">简体中文</a><a href="../../pocketmine-nbt-editor/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../ru/pocketmine-nbt-editor/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../es/pocketmine-nbt-editor/" hreflang="es" data-lang="es" rel="alternate">Español (beta)</a><a href="../../pt-br/pocketmine-nbt-editor/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR) (beta)</a><a href="../../de/pocketmine-nbt-editor/" hreflang="de" data-lang="de" rel="alternate">Deutsch (beta)</a><a href="../../fr/pocketmine-nbt-editor/" hreflang="fr" data-lang="fr" rel="alternate">Français (beta)</a><a href="../../it/pocketmine-nbt-editor/" hreflang="it" data-lang="it" rel="alternate">Italiano (beta)</a><a href="../../pl/pocketmine-nbt-editor/" hreflang="pl" data-lang="pl" rel="alternate">Polski (beta)</a><a href="../../uk/pocketmine-nbt-editor/" hreflang="uk" data-lang="uk" rel="alternate">Українська (beta)</a><a href="../../tr/pocketmine-nbt-editor/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe (beta)</a><a href="../../id/pocketmine-nbt-editor/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia (beta)</a><a href="../../vi/pocketmine-nbt-editor/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt (beta)</a><a href="../../th/pocketmine-nbt-editor/" hreflang="th" data-lang="th" rel="alternate">ไทย (beta)</a><a href="../../ja/pocketmine-nbt-editor/" hreflang="ja" data-lang="ja" rel="alternate">日本語 (beta)</a><a href="../../ko/pocketmine-nbt-editor/" hreflang="ko" data-lang="ko" rel="alternate">한국어 (beta)</a><a href="../../ar/pocketmine-nbt-editor/" hreflang="ar" data-lang="ar" rel="alternate">العربية (beta)</a></div></details>
+<details class="lang-switch"><summary title="语言：简体中文" aria-label="语言：简体中文"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">语言：简体中文</span></summary><div class="lang-menu"><a href="./" hreflang="zh-Hans" data-lang="zh-hans" aria-current="true" class="current">简体中文</a><a href="../../pocketmine-nbt-editor/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../ru/pocketmine-nbt-editor/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../es/pocketmine-nbt-editor/" hreflang="es" data-lang="es" rel="alternate">Español</a><a href="../../pt-br/pocketmine-nbt-editor/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR)</a><a href="../../de/pocketmine-nbt-editor/" hreflang="de" data-lang="de" rel="alternate">Deutsch</a><a href="../../fr/pocketmine-nbt-editor/" hreflang="fr" data-lang="fr" rel="alternate">Français</a><a href="../../it/pocketmine-nbt-editor/" hreflang="it" data-lang="it" rel="alternate">Italiano</a><a href="../../pl/pocketmine-nbt-editor/" hreflang="pl" data-lang="pl" rel="alternate">Polski</a><a href="../../uk/pocketmine-nbt-editor/" hreflang="uk" data-lang="uk" rel="alternate">Українська</a><a href="../../tr/pocketmine-nbt-editor/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe</a><a href="../../id/pocketmine-nbt-editor/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia</a><a href="../../vi/pocketmine-nbt-editor/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt</a><a href="../../th/pocketmine-nbt-editor/" hreflang="th" data-lang="th" rel="alternate">ไทย</a><a href="../../ja/pocketmine-nbt-editor/" hreflang="ja" data-lang="ja" rel="alternate">日本語</a><a href="../../ko/pocketmine-nbt-editor/" hreflang="ko" data-lang="ko" rel="alternate">한국어</a><a href="../../ar/pocketmine-nbt-editor/" hreflang="ar" data-lang="ar" rel="alternate">العربية</a></div></details>
 </div>
 </header>
 <main>
-<nav class="breadcrumbs container" aria-label="Breadcrumb"><a href="../">NBT Editor</a> <span class="sep">/</span> <span>PocketMine-MP</span></nav>
-<section class="hero" aria-label="Introduction">
+<nav class="breadcrumbs container" aria-label="面包屑导航"><a href="../">NBT 编辑器</a> <span class="sep">/</span> <span>PocketMine-MP</span></nav>
+<section class="hero" aria-label="简介">
 <div class="container">
-<h1>PocketMine-MP &amp; Bedrock Server level.dat Editor</h1>
-<p class="support-line"><strong>Supports Minecraft Bedrock Edition and Java Edition</strong> — and every server core for both, popular or obscure: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina and the rest. <a href="../#server-software">Full list</a>.</p>
-<p class="lede">Bedrock server software — PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly and the official Bedrock Dedicated Server — all read the same little-endian <code>level.dat</code> with an 8-byte header from <code>worlds/&lt;World&gt;/</code>. Drop yours below to fix the world name after duplicating a folder, move spawn, flip game rules or check which build last wrote the world.</p>
+<h1>PocketMine-MP 与基岩版服务器 level.dat 编辑器</h1>
+<p class="support-line"><strong>支持 Minecraft 基岩版和 Java 版</strong>，也支持两者所有常见或少见的服务端核心：Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLamina 等。<a href="../#server-software">完整列表</a>。</p>
+<p class="lede">基岩版服务端软件 PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly 和官方 Bedrock Dedicated Server 都读取带 8 字节文件头的小端序 <code>level.dat</code>，文件位于 <code>worlds/&lt;World&gt;/</code>。将文件拖入下方，可修复复制文件夹后的世界名称、移动出生点、更改游戏规则，或检查最后写入世界的构建版本。</p>
 <div class="chips"><span class="chip">PocketMine-MP</span><span class="chip">Nukkit</span><span class="chip">PowerNukkitX</span><span class="chip">Cloudburst</span><span class="chip">Bedrock Dedicated Server</span><span class="chip">Dragonfly</span><span class="chip">Endstone</span><span class="chip">WaterdogPE</span></div>
 </div>
 </section>
 <div id="editor">
 
-<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="Drop an NBT file here or click to browse">
+<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="将 NBT 文件拖放到这里，或点击选择文件">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 16V4m0 0L8 8m4-4l4 4"/><path d="M20 16v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2"/></svg>
-<p>Drop <strong>worlds/&lt;World&gt;/level.dat</strong> here</p>
-<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">Choose File</button>
-<span class="hint">level.dat &middot; .nbt &middot; .mcstructure &middot; .schem &middot; .schematic &middot; .dat &middot; chunk dumps</span>
+<p>将<strong>worlds/&lt;World&gt;/level.dat</strong>拖放到这里</p>
+<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">选择文件</button>
+<span class="hint">level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · 区块转储数据</span>
 <input type="file" id="fileInput">
 </div>
 
@@ -83,18 +100,16 @@
 <div class="file-info" id="fileInfo"></div>
 
 <div class="out-bar" id="outBar">
-<label>Output format
-<select id="outFormat">
-<option value="java">Java — big-endian, named root</option>
-<option value="java-network">Java network — big-endian, nameless root</option>
-<option value="bedrock-level">Bedrock level.dat — little-endian + 8-byte header</option>
-<option value="bedrock">Bedrock raw — little-endian</option>
-<option value="bedrock-network">Bedrock network — little-endian varint</option>
+<label>输出格式<select id="outFormat">
+<option value="java">Java — 大端序，根标签有名称</option>
+<option value="java-network">Java 网络 — 大端序，根标签无名称</option>
+<option value="bedrock-level">Bedrock level.dat — 小端序 + 8 字节文件头</option>
+<option value="bedrock">Bedrock 原始数据 — 小端序</option>
+<option value="bedrock-network">Bedrock 网络 — 小端序变长整数</option>
 </select>
 </label>
-<label>Compression
-<select id="outCompression">
-<option value="none">None (raw)</option>
+<label>压缩<select id="outCompression">
+<option value="none">不压缩（原始数据）</option>
 <option value="gzip">gzip</option>
 <option value="zlib">zlib (deflate)</option>
 </select>
@@ -102,9 +117,9 @@
 </div>
 
 <div class="search-bar">
-<input type="search" id="searchInput" placeholder="Search tag name or value…" autocomplete="off" spellcheck="false" aria-label="Search NBT tags">
-<button type="button" id="btnSearch">Search</button>
-<button type="button" id="btnCollapse">Collapse all</button>
+<input type="search" id="searchInput" placeholder="搜索标签名称或值…" autocomplete="off" spellcheck="false" aria-label="搜索 NBT 标签">
+<button type="button" id="btnSearch">搜索</button>
+<button type="button" id="btnCollapse">全部折叠</button>
 </div>
 <div class="search-results" id="searchResults"></div>
 
@@ -112,81 +127,81 @@
 </div>
 
 <div class="bottom-bar" id="bottomBar">
-<button class="btn-add" id="btnAddRoot" type="button">+ Add Tag</button>
-<button class="btn-save" id="btnSave" type="button">Save &amp; Download</button>
-<button class="btn-snbt" id="btnSnbt" type="button">Export SNBT</button>
-<button class="btn-close" id="btnCloseFile" type="button">Close</button>
+<button class="btn-add" id="btnAddRoot" type="button">+ 添加标签</button>
+<button class="btn-save" id="btnSave" type="button">保存并下载</button>
+<button class="btn-snbt" id="btnSnbt" type="button">导出 SNBT</button>
+<button class="btn-close" id="btnCloseFile" type="button">关闭</button>
 </div>
 
 </div>
 <div id="contentSections">
 
-<section class="content" aria-label="Duplicate world names">
-<h2 id="the-duplicated-world-name-problem">The duplicated-world-name problem</h2>
-<p>Every Bedrock server admin hits this. You copy <code>worlds/hub</code> to <code>worlds/hub2</code> to make a second arena, and the console, the world manager and every plugin that reports a world name keep calling both of them <em>hub</em>. The folder name changed; <code>LevelName</code> inside <code>level.dat</code> did not.</p>
-<p>The consequences are not cosmetic. Plugins that look worlds up by their internal name — teleport pads, per-world configs, region protection — can resolve to the wrong world, and world-management commands become ambiguous. Fix it by editing the tag: drop the file above and the editor jumps straight to <code>LevelName</code> and opens it for editing.</p>
+<section class="content" aria-label="世界名称重复">
+<h2 id="the-duplicated-world-name-problem">世界名称重复问题</h2>
+<p>基岩版服务器管理员经常遇到这种情况：将 <code>worlds/hub</code> 复制为 <code>worlds/hub2</code> 以创建第二个竞技场后，控制台、世界管理器和所有报告世界名称的插件仍把两个世界都称为 <em>hub</em>。文件夹名称已经改变，但 <code>LevelName</code> 在 <code>level.dat</code> 内没有改变。</p>
+<p>影响不只是显示问题。按内部名称查找世界的插件，如传送点、每世界配置和区域保护，可能解析到错误世界，世界管理命令也会产生歧义。解决方法是编辑该标签：将文件拖入上方，编辑器会直接跳到 <code>LevelName</code> 并打开编辑。</p>
 <div class="card">
 <ol class="steps">
-<li>Stop the server. A running server rewrites <code>level.dat</code> on save and will undo the edit.</li>
-<li>Download <code>worlds/&lt;World&gt;/level.dat</code> over SFTP or from your panel's file manager.</li>
-<li>Drop it into the editor, change <code>LevelName</code> to the new name, save.</li>
-<li>Upload it back over the original, keeping the old file as a backup.</li>
-<li>Start the server and check the console line that reports loaded worlds.</li>
+<li>停止服务器。运行中的服务器会在保存时重写 <code>level.dat</code>，从而撤销编辑。</li>
+<li>通过 SFTP 或面板文件管理器下载 <code>worlds/&lt;World&gt;/level.dat</code>。</li>
+<li>将文件拖入编辑器，把 <code>LevelName</code> 改为新名称，然后保存。</li>
+<li>上传并覆盖原文件，同时保留旧文件作为备份。</li>
+<li>启动服务器，检查控制台中报告已加载世界的行。</li>
 </ol>
 </div>
 </section>
 
-<section class="content" aria-label="Core specifics">
-<h2 id="core-by-core-notes">Core-by-core notes</h2>
+<section class="content" aria-label="各服务端的特点">
+<h2 id="core-by-core-notes">各核心注意事项</h2>
 <div class="table-wrap">
 <table class="matrix">
-<thead><tr><th>Core</th><th>World path</th><th>Notes</th></tr></thead>
+<thead><tr><th>核心</th><th>世界路径</th><th>说明</th></tr></thead>
 <tbody>
-<tr><td>PocketMine-MP (PM5)</td><td><code>worlds/&lt;World&gt;/</code></td><td>Default world set by <code>level-name</code> in <code>server.properties</code>; that value is the folder, while <code>LevelName</code> is what the world calls itself.</td></tr>
-<tr><td>Nukkit / PowerNukkitX</td><td><code>worlds/&lt;World&gt;/</code></td><td>Same Bedrock layout; PNX adds its own settings files alongside.</td></tr>
-<tr><td>Bedrock Dedicated Server</td><td><code>worlds/&lt;World&gt;/</code></td><td><code>level-name</code> in <code>server.properties</code> picks the folder; the header storage version is typically 10.</td></tr>
-<tr><td>Cloudburst / Dragonfly</td><td><code>worlds/&lt;World&gt;/</code></td><td>Read the same <code>level.dat</code>; Dragonfly may keep extra state in its own database.</td></tr>
-<tr><td>WaterdogPE, Geyser</td><td>—</td><td>Proxies. They do not own worlds; NBT only passes through them on the wire as network NBT.</td></tr>
+<tr><td>PocketMine-MP (PM5)</td><td><code>worlds/&lt;World&gt;/</code></td><td>默认世界由 <code>level-name</code> 设置，该项位于 <code>server.properties</code>；该值是文件夹名称，而 <code>LevelName</code> 是世界对自身的命名。</td></tr>
+<tr><td>Nukkit / PowerNukkitX</td><td><code>worlds/&lt;World&gt;/</code></td><td>使用相同的基岩版布局；PNX 会在旁边添加自己的设置文件。</td></tr>
+<tr><td>Bedrock Dedicated Server</td><td><code>worlds/&lt;World&gt;/</code></td><td><code>level-name</code> 在 <code>server.properties</code> 中选择文件夹；文件头存储版本通常为 10。</td></tr>
+<tr><td>Cloudburst / Dragonfly</td><td><code>worlds/&lt;World&gt;/</code></td><td>读取相同的 <code>level.dat</code>；Dragonfly 可能在自己的数据库中保存额外状态。</td></tr>
+<tr><td>WaterdogPE, Geyser</td><td>—</td><td>这些是代理，不保存世界；NBT 仅以网络 NBT 形式从中传递。</td></tr>
 </tbody>
 </table>
 </div>
 </section>
 
-<section class="content" aria-label="Server workflow">
-<h2 id="doing-it-without-breaking-production">Doing it without breaking production</h2>
+<section class="content" aria-label="服务端操作流程">
+<h2 id="doing-it-without-breaking-production">避免破坏生产服务器的操作方法</h2>
 <div class="card">
 <ul>
-<li><strong>Back up the whole world folder,</strong> not just <code>level.dat</code>. It costs seconds and it is the only thing that makes a bad edit reversible.</li>
-<li><strong>Never edit a live file over SFTP.</strong> Download, edit, upload while the server is stopped. Editing in place while the server holds the world open is how you end up with a truncated file.</li>
-<li><strong>Copying a world for a new mode?</strong> Change <code>LevelName</code> immediately after copying, before the server sees it, so nothing ever caches the wrong name.</li>
-<li><strong>Check the file bar after loading.</strong> It shows the detected format and the storage version — if a Bedrock file is reported as anything but <em>Bedrock level.dat</em>, you grabbed the wrong file or it is corrupt.</li>
+<li><strong>备份整个世界文件夹，</strong>不要只备份 <code>level.dat</code>。这只需几秒，也是错误编辑后能够恢复的唯一保障。</li>
+<li><strong>绝不要通过 SFTP 直接编辑在线文件。</strong>停止服务器后再下载、编辑和上传。服务器仍打开世界时原地编辑，可能产生截断文件。</li>
+<li><strong>为新模式复制世界？</strong>复制后、服务器读取前立即更改 <code>LevelName</code>，避免任何组件缓存错误名称。</li>
+<li><strong>加载后检查文件栏。</strong>其中会显示检测到的格式和存储版本。如果基岩版文件未报告为<em>基岩版 level.dat</em>，说明拿错了文件或文件已经损坏。</li>
 </ul>
 </div>
 </section>
 
-<section class="content" aria-label="Frequently asked questions"><h2>Frequently Asked Questions</h2><details><summary>Does PocketMine-MP use the same level.dat as Bedrock?</summary><div class="faq-body"><p>Yes. PocketMine-MP implements the Bedrock world format, so its <code>level.dat</code> is little-endian NBT with the 8-byte header, byte-for-byte the same shape the vanilla Bedrock server writes.</p></div></details><details><summary>Why do two worlds show the same name in console?</summary><div class="faq-body"><p>Because both were copied from one folder and share a <code>LevelName</code>. The folder name and the tag are independent; change the tag.</p></div></details><details><summary>Can I rename a world without restarting the server?</summary><div class="faq-body"><p>No. The world is loaded in memory and rewritten on save, so an edit made while it is running is discarded. Stop, edit, start.</p></div></details><details><summary>Does this work with Nukkit and PowerNukkitX?</summary><div class="faq-body"><p>Yes — same format, same file path, same procedure.</p></div></details><details><summary>How do I convert a Bedrock world to Java?</summary><div class="faq-body"><p>Not with an NBT editor. Byte order is the easy part; the tag layout, block palettes and chunk storage differ completely. Use a purpose-built converter, then use this editor for the leftover metadata.</p></div></details></section>
-<section class="content" aria-label="Related tools"><h2>Related tools</h2><div class="rel-grid"><a class="rel-card" href="../mcpe-nbt-editor/"><strong>MCPE NBT editor</strong><span>Little-endian NBT and the 8-byte level.dat header.</span></a><a class="rel-card" href="../level-dat-editor/"><strong>level.dat editor</strong><span>World name, game mode, spawn, difficulty and game rules.</span></a><a class="rel-card" href="../guides/change-world-name/"><strong>Rename a world</strong><span>Fix LevelName after copying a world folder.</span></a><a class="rel-card" href="../"><strong>Minecraft NBT editor</strong><span>The universal editor — every edition, every NBT file type.</span></a><a class="rel-card" href="../mcstructure-editor/"><strong>.mcstructure editor</strong><span>Bedrock structure blocks: palette, size, block entities.</span></a><a class="rel-card" href="../guides/edit-gamerules/"><strong>Edit game rules</strong><span>keepInventory and friends, without loading the world.</span></a></div></section>
+<section class="content" aria-label="常见问题"><h2>常见问题</h2><details><summary>PocketMine-MP 使用与基岩版相同的 level.dat 吗？</summary><div class="faq-body"><p>是。PocketMine-MP 实现基岩版世界格式，因此其 <code>level.dat</code> 是带 8 字节文件头的小端序 NBT，与 Vanilla 基岩版服务器写入的结构逐字节相同。</p></div></details><details><summary>为什么控制台中的两个世界名称相同？</summary><div class="faq-body"><p>因为两者从同一文件夹复制而来，共用同一个 <code>LevelName</code>。文件夹名称与标签相互独立；请修改该标签。</p></div></details><details><summary>无需重启服务器就能重命名世界吗？</summary><div class="faq-body"><p>不能。世界加载在内存中并会在保存时重写，因此服务器运行期间的编辑会被丢弃。请停止服务器、编辑，再启动。</p></div></details><details><summary>支持 Nukkit 和 PowerNukkitX 吗？</summary><div class="faq-body"><p>支持。它们使用相同格式、相同文件路径和相同操作步骤。</p></div></details><details><summary>如何将基岩版世界转换为 Java 版？</summary><div class="faq-body"><p>NBT 编辑器无法完成这种转换。字节序只是简单部分；标签布局、方块调色板和区块存储完全不同。请使用专用转换器，再用本编辑器处理剩余元数据。</p></div></details></section>
+<section class="content" aria-label="相关工具"><h2>相关工具</h2><div class="rel-grid"><a class="rel-card" href="../mcpe-nbt-editor/"><strong>MCPE NBT 编辑器</strong><span>支持小端序 NBT 和 level.dat 的 8 字节文件头。</span></a><a class="rel-card" href="../level-dat-editor/"><strong>level.dat 编辑器</strong><span>修改世界名称、游戏模式、出生点、难度和游戏规则。</span></a><a class="rel-card" href="../guides/change-world-name/"><strong>重命名世界</strong><span>复制世界文件夹后修正 LevelName。</span></a><a class="rel-card" href="../"><strong>Minecraft NBT 编辑器</strong><span>通用编辑器，支持所有版本和各种 NBT 文件。</span></a><a class="rel-card" href="../mcstructure-editor/"><strong>.mcstructure 编辑器</strong><span>基岩版结构方块：调色板、尺寸和方块实体。</span></a><a class="rel-card" href="../guides/edit-gamerules/"><strong>编辑游戏规则</strong><span>无需加载世界即可修改 keepInventory 等规则。</span></a></div></section>
 </div>
 </main>
 
 <footer class="site-footer">
 <div class="container footer-grid">
-<div><h4>Editors</h4><a href="../">Minecraft NBT editor</a><a href="../level-dat-editor/">level.dat editor</a><a href="../java-nbt-editor/">Java Edition NBT editor</a><a href="../mcpe-nbt-editor/">MCPE NBT editor</a><a href="./">PocketMine-MP editor</a></div>
-<div><h4>File types</h4><a href="../mcstructure-editor/">.mcstructure editor</a><a href="../schematic-editor/">Schematic editor</a><a href="../playerdata-editor/">playerdata editor</a><a href="../nbt-viewer/">NBT viewer</a><a href="../nbtexplorer-online/">NBTExplorer online</a></div>
-<div><h4>Reference</h4><a href="../nbt-format/">NBT format reference</a><a href="../guides/change-world-name/">Rename a world</a><a href="../guides/fix-corrupted-level-dat/">Fix a broken level.dat</a><a href="../guides/edit-gamerules/">Edit game rules</a></div>
-<div><h4>Source</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">Code on GitHub</a><a href="../../llms.txt">llms.txt</a></div>
+<div><h4>编辑器</h4><a href="../">Minecraft NBT 编辑器</a><a href="../level-dat-editor/">level.dat 编辑器</a><a href="../java-nbt-editor/">Java 版 NBT 编辑器</a><a href="../mcpe-nbt-editor/">MCPE NBT 编辑器</a><a href="./">PocketMine-MP 编辑器</a></div>
+<div><h4>文件类型</h4><a href="../mcstructure-editor/">.mcstructure 编辑器</a><a href="../schematic-editor/">Schematic 编辑器</a><a href="../playerdata-editor/">playerdata 编辑器</a><a href="../nbt-viewer/">NBT 查看器</a><a href="../nbtexplorer-online/">NBTExplorer 在线版</a></div>
+<div><h4>参考资料</h4><a href="../nbt-format/">NBT 格式参考</a><a href="../guides/change-world-name/">重命名世界</a><a href="../guides/fix-corrupted-level-dat/">修复损坏的 level.dat</a><a href="../guides/edit-gamerules/">编辑游戏规则</a></div>
+<div><h4>源代码</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">GitHub 上的代码</a><a href="../../llms.txt">llms.txt</a></div>
 </div>
-<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">最后更新：2026-09-21。 Minecraft NBT 编辑器 — 免费并以 MIT 许可证开源，完全在浏览器中运行。与 Mojang Studios 或 Microsoft 无关联。Minecraft 是 Mojang Studios 的商标。</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
 <div class="modal-overlay" id="addTagModal">
 <div class="modal">
-<h3>Add New Tag</h3>
-<label for="newTagName">Tag Name</label>
-<input type="text" id="newTagName" placeholder="e.g. MyTag" autocomplete="off">
-<label for="newTagType">Tag Type</label>
+<h3>添加新标签</h3>
+<label for="newTagName">标签名称</label>
+<input type="text" id="newTagName" placeholder="例如 MyTag" autocomplete="off">
+<label for="newTagType">标签类型</label>
 <select id="newTagType">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -201,10 +216,10 @@
 <option value="11">TAG_Int_Array</option>
 <option value="12">TAG_Long_Array</option>
 </select>
-<label for="newTagValue">Value</label>
-<input type="text" id="newTagValue" placeholder="Value" autocomplete="off">
+<label for="newTagValue">值</label>
+<input type="text" id="newTagValue" placeholder="值" autocomplete="off">
 <div id="listSubtypeRow" style="display:none">
-<label for="newListSubtype">List Element Type</label>
+<label for="newListSubtype">列表元素类型</label>
 <select id="newListSubtype">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -221,24 +236,24 @@
 </select>
 </div>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="addTagCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="addTagConfirm">Add</button>
+<button class="btn-cancel" type="button" id="addTagCancel">取消</button>
+<button class="btn-confirm" type="button" id="addTagConfirm">添加</button>
 </div>
 </div>
 </div>
 
 <div class="modal-overlay" id="arrayModal">
 <div class="modal">
-<h3 id="arrayModalTitle">Edit Array</h3>
-<label for="arrayModalText">Comma-separated values</label>
+<h3 id="arrayModalTitle">编辑数组</h3>
+<label for="arrayModalText">以逗号分隔的值</label>
 <textarea id="arrayModalText" spellcheck="false" autocomplete="off"></textarea>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="arrayModalCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="arrayModalConfirm">Apply</button>
+<button class="btn-cancel" type="button" id="arrayModalCancel">取消</button>
+<button class="btn-confirm" type="button" id="arrayModalConfirm">应用</button>
 </div>
 </div>
 </div>
 
-<script src="../../assets/nbt.js?v=da7967b1" defer></script>
+<script src="../../assets/nbt.js?v=6f125422" defer></script>
 </body>
 </html>

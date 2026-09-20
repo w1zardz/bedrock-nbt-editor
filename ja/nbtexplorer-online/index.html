@@ -3,79 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>NBTExplorer Online — Browser Alternative, No Download</title>
-<meta name="description" content="A browser alternative to NBTExplorer: the same tag tree editing for Minecraft files, plus Bedrock little-endian support, with nothing to install.">
-<meta name="keywords" content="nbtexplorer online, nbtexplorer alternative, nbt editor no download, nbtexplorer mac, nbtexplorer bedrock, online nbt explorer, nbtexplorer web, nbt editor without java">
-<meta name="robots" content="noindex, follow">
+<title>NBTExplorerオンライン — ダウンロード不要のブラウザー版</title>
+<meta name="description" content="NBTExplorerの代わりにブラウザーでMinecraftのNBTタグツリーを編集できます。.NETやMonoは不要です。Javaのビッグエンディアンgzipに加え、Bedrockのリトルエンディアン、8バイトlevel.datヘッダー、ネットワークNBTにも対応し、ファイルはアップロードしません。">
+<meta name="keywords" content="NBTExplorer オンライン, NBTExplorer 代替, NBTエディター ダウンロード不要, NBTExplorer Bedrock, NBT 編集 ブラウザー, NBTExplorer Mac">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="author" content="w1zardz">
 <link rel="canonical" href="https://w1zardz.github.io/bedrock-nbt-editor/ja/nbtexplorer-online/">
+<link rel="alternate" hreflang="en" href="https://w1zardz.github.io/bedrock-nbt-editor/nbtexplorer-online/">
+<link rel="alternate" hreflang="ru" href="https://w1zardz.github.io/bedrock-nbt-editor/ru/nbtexplorer-online/">
+<link rel="alternate" hreflang="es" href="https://w1zardz.github.io/bedrock-nbt-editor/es/nbtexplorer-online/">
+<link rel="alternate" hreflang="pt-BR" href="https://w1zardz.github.io/bedrock-nbt-editor/pt-br/nbtexplorer-online/">
+<link rel="alternate" hreflang="de" href="https://w1zardz.github.io/bedrock-nbt-editor/de/nbtexplorer-online/">
+<link rel="alternate" hreflang="fr" href="https://w1zardz.github.io/bedrock-nbt-editor/fr/nbtexplorer-online/">
+<link rel="alternate" hreflang="it" href="https://w1zardz.github.io/bedrock-nbt-editor/it/nbtexplorer-online/">
+<link rel="alternate" hreflang="pl" href="https://w1zardz.github.io/bedrock-nbt-editor/pl/nbtexplorer-online/">
+<link rel="alternate" hreflang="uk" href="https://w1zardz.github.io/bedrock-nbt-editor/uk/nbtexplorer-online/">
+<link rel="alternate" hreflang="tr" href="https://w1zardz.github.io/bedrock-nbt-editor/tr/nbtexplorer-online/">
+<link rel="alternate" hreflang="id" href="https://w1zardz.github.io/bedrock-nbt-editor/id/nbtexplorer-online/">
+<link rel="alternate" hreflang="vi" href="https://w1zardz.github.io/bedrock-nbt-editor/vi/nbtexplorer-online/">
+<link rel="alternate" hreflang="th" href="https://w1zardz.github.io/bedrock-nbt-editor/th/nbtexplorer-online/">
+<link rel="alternate" hreflang="zh-Hans" href="https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/nbtexplorer-online/">
+<link rel="alternate" hreflang="ja" href="https://w1zardz.github.io/bedrock-nbt-editor/ja/nbtexplorer-online/">
+<link rel="alternate" hreflang="ko" href="https://w1zardz.github.io/bedrock-nbt-editor/ko/nbtexplorer-online/">
+<link rel="alternate" hreflang="ar" href="https://w1zardz.github.io/bedrock-nbt-editor/ar/nbtexplorer-online/">
 <link rel="alternate" hreflang="x-default" href="https://w1zardz.github.io/bedrock-nbt-editor/nbtexplorer-online/">
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="../../favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <link rel="manifest" href="../../site.webmanifest">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NBTExplorer online — the browser alternative">
-<meta property="og:description" content="A browser alternative to NBTExplorer: the same tag tree editing for Minecraft files, plus Bedrock little-endian support, with nothing to install.">
+<meta property="og:title" content="NBTExplorerオンライン — ブラウザーで使える代替ツール">
+<meta property="og:description" content="NBTExplorerの代わりにブラウザーでMinecraftのNBTタグツリーを編集できます。.NETやMonoは不要です。Javaのビッグエンディアンgzipに加え、Bedrockのリトルエンディアン、8バイトlevel.datヘッダー、ネットワークNBTにも対応し、ファイルはアップロードしません。">
 <meta property="og:url" content="https://w1zardz.github.io/bedrock-nbt-editor/ja/nbtexplorer-online/">
-<meta property="og:site_name" content="Minecraft NBT Editor">
+<meta property="og:site_name" content="Minecraft NBT エディター">
 <meta property="og:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/nbtexplorer.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="NBTExplorer online — the browser alternative">
-<meta name="twitter:description" content="A browser alternative to NBTExplorer: the same tag tree editing for Minecraft files, plus Bedrock little-endian support, with nothing to install.">
+<meta name="twitter:title" content="NBTExplorerオンライン — ブラウザーで使える代替ツール">
+<meta name="twitter:description" content="NBTExplorerの代わりにブラウザーでMinecraftのNBTタグツリーを編集できます。.NETやMonoは不要です。Javaのビッグエンディアンgzipに加え、Bedrockのリトルエンディアン、8バイトlevel.datヘッダー、ネットワークNBTにも対応し、ファイルはアップロードしません。">
 <meta name="twitter:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/nbtexplorer.png">
-<meta property="article:modified_time" content="2026-08-26">
-<meta property="og:updated_time" content="2026-08-26">
+<meta property="article:modified_time" content="2026-09-21">
+<meta property="og:updated_time" content="2026-09-21">
 <meta name="theme-color" content="#0d1117">
-<meta name="application-name" content="Minecraft NBT Editor">
-<meta name="apple-mobile-web-app-title" content="NBT Editor">
-<link rel="preload" href="../../assets/nbt.js?v=da7967b1" as="script">
-<script>window.__LANG_URLS__={"en":"../../nbtexplorer-online/","ru":"../../ru/nbtexplorer-online/","es":"../../es/nbtexplorer-online/","pt-br":"../../pt-br/nbtexplorer-online/","de":"../../de/nbtexplorer-online/","fr":"../../fr/nbtexplorer-online/","it":"../../it/nbtexplorer-online/","pl":"../../pl/nbtexplorer-online/","uk":"../../uk/nbtexplorer-online/","tr":"../../tr/nbtexplorer-online/","id":"../../id/nbtexplorer-online/","vi":"../../vi/nbtexplorer-online/","th":"../../th/nbtexplorer-online/","zh-hans":"../../zh-hans/nbtexplorer-online/","ja":"./","ko":"../../ko/nbtexplorer-online/","ar":"../../ar/nbtexplorer-online/"};window.__NBT_STRINGS__={"loaded":"Loaded as {0}","trailing":"{0} trailing byte(s) after the root tag were ignored","error":"Error: {0}","readfail":"Could not read the file","nofile":"No file loaded","saved":"Saved {0} ({1}, {2})","savefail":"Save error: {0}","exported":"Exported {0}","snbtfail":"SNBT error: {0}","tagadded":"Tag added","tagremoved":"Tag removed","arrayupdated":"Array updated","badvalue":"Invalid value: {0}","badarray":"Invalid array: {0}","nameneeded":"Tag name is required","nametaken":"A tag named {0} already exists here","listtype":"List already holds {0} entries","editlevelname":"✎ Edit LevelName","showmore":"Show {0} more of {1} …","matches":"{0} match(es)","nomatch":"No tag matches \"{0}\"","arraytoobig":"Array has {0} entries — expand it and edit elements individually","uncompressed":"uncompressed","storage":"storage v{0}","entries":"{0} entries","langprompt":"Open this page in {0}?","langyes":"Switch","langno":"Stay"};</script>
-<script src="../../assets/lang.js?v=a3a1db0e" defer></script>
+<meta name="application-name" content="Minecraft NBT エディター">
+<meta name="apple-mobile-web-app-title" content="NBT エディター">
+<link rel="preload" href="../../assets/nbt.js?v=6f125422" as="script">
+<script>window.__LANG_URLS__={"en":"../../nbtexplorer-online/","ru":"../../ru/nbtexplorer-online/","es":"../../es/nbtexplorer-online/","pt-br":"../../pt-br/nbtexplorer-online/","de":"../../de/nbtexplorer-online/","fr":"../../fr/nbtexplorer-online/","it":"../../it/nbtexplorer-online/","pl":"../../pl/nbtexplorer-online/","uk":"../../uk/nbtexplorer-online/","tr":"../../tr/nbtexplorer-online/","id":"../../id/nbtexplorer-online/","vi":"../../vi/nbtexplorer-online/","th":"../../th/nbtexplorer-online/","zh-hans":"../../zh-hans/nbtexplorer-online/","ja":"./","ko":"../../ko/nbtexplorer-online/","ar":"../../ar/nbtexplorer-online/"};window.__NBT_STRINGS__={"loaded":"{0} として読み込みました","trailing":"ルートタグ後の末尾バイト {0} 個を無視しました","error":"エラー: {0}","readfail":"ファイルを読み取れませんでした","nofile":"ファイルが読み込まれていません","saved":"{0} を保存しました（{1}、{2}）","savefail":"保存エラー: {0}","exported":"{0} をエクスポートしました","snbtfail":"SNBTエラー: {0}","tagadded":"タグを追加しました","tagremoved":"タグを削除しました","arrayupdated":"配列を更新しました","badvalue":"無効な値: {0}","badarray":"無効な配列: {0}","nameneeded":"タグ名が必要です","nametaken":"{0} というタグはここにすでに存在します","listtype":"このListにはすでに {0} 型の要素があります","editlevelname":"✎ LevelNameを編集","showmore":"さらに {0} 件を表示（全 {1} 件）…","matches":"{0} 件一致","nomatch":"「{0}」に一致するタグはありません","arraytoobig":"配列には {0} 件あります。展開して各要素を個別に編集してください","uncompressed":"非圧縮","storage":"ストレージ v{0}","entries":"{0} 件","langprompt":"このページを{0}で開きますか？","langyes":"切り替える","langno":"このまま","nav_editor":"エディター","nav_format":"NBT 形式","language":"言語：{0}","beta":"ベータ版","skip_editor":"エディターに移動","brand_editor":"NBT エディター","guides":"ガイド","updated":"最終更新日：{0}。","drop":"ここに{0}をドロップ","choose_file":"ファイルを選択","file_hint":"level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · チャンクのダンプ","output_format":"出力形式","format_java":"Java — ビッグエンディアン、名前付きルート","format_java_network":"Java ネットワーク — ビッグエンディアン、名前なしルート","format_bedrock_level":"Bedrock level.dat — リトルエンディアン + 8 バイトのヘッダー","format_bedrock":"Bedrock 生データ — リトルエンディアン","format_bedrock_network":"Bedrock ネットワーク — リトルエンディアンの可変長整数","compression":"圧縮","compression_none":"なし（生データ）","search_placeholder":"タグ名または値を検索…","search":"検索","collapse":"すべて折りたたむ","add_tag":"+ タグを追加","save_download":"保存してダウンロード","export_snbt":"SNBT をエクスポート","close":"閉じる","add_new_tag":"新しいタグを追加","tag_name":"タグ名","tag_type":"タグの型","tag_example":"例：MyTag","value":"値","list_element_type":"リスト要素の型","cancel":"キャンセル","add":"追加","edit_array":"配列を編集","comma_values":"カンマ区切りの値","apply":"適用","format_label_java":"Java ビッグエンディアン","format_label_java_network":"Java ネットワーク（名前なしルート）","format_label_bedrock_level":"Bedrock level.dat（8 バイトのヘッダー）","format_label_bedrock":"Bedrock リトルエンディアン","format_label_bedrock_network":"Bedrock ネットワーク（可変長整数）","err_decompress":"このブラウザーでは {0} を展開できません（Compression Streams API に未対応）","err_compress":"このブラウザーでは {0} で圧縮できません（Compression Streams API に未対応）","err_stream":"{0} 形式の圧縮処理に失敗しました","err_end":"オフセット {0} でデータが予期せず終了しました","err_tag_limit":"タグ数の上限を超えています","err_varint":"VarInt が長すぎます","err_varlong":"VarLong が長すぎます","err_negative_array":"配列の長さが負の値です：{0}","err_array_length":"配列の長さ {0} が残りのデータ量を超えています","err_negative_list":"リストの長さが負の値です","err_end_list":"TAG_End のリストに {0} 個の要素があります","err_list_type":"不明なリスト要素の型です：{0}","err_tag_type":"不明なタグの型です：{0}","err_root":"ルートタグは TAG_Compound である必要がありますが、{0} でした","err_string_length":"文字列がこの形式の長さ制限を超えています：{0} バイト","err_write_type":"型 {0} のタグは書き込めません","err_header_short":"データが短すぎてヘッダーを読み取れません","err_storage_version":"不正と思われる保存形式のバージョンです：{0}","err_header_length":"ヘッダーで指定された長さ {0} がペイロードを超えています","err_unknown_file":"NBT ファイルとして認識できません（Java、Bedrock、ネットワーク、ヘッダー付きの形式を確認済み）","err_file_small":"ファイルが小さすぎて NBT データを格納できません","err_byte":"Byte は -128..127 の範囲にしてください","err_short":"Short は -32768..32767 の範囲にしてください","err_int":"Int は -2147483648..2147483647 の範囲にしてください","err_long":"Long が 64 ビットの範囲外です","err_float":"無効な float 値です","err_double":"無効な double 値です","err_not_inline":"この型のタグはその場で編集できません","err_array_byte":"無効な byte 値です：{0}","err_array_int":"無効な int 値です：{0}","err_array_long":"無効な 64 ビット整数です：{0}","root":"（ルート）","add_child":"子タグを追加","remove_tag":"タグを削除","array":"配列","array_bytes":"[{0} バイト]","array_ints":"[int 型の要素 {0} 個]","array_longs":"[long 型の要素 {0} 個]","entries_type":"{1} 型の要素 {0} 個","unknown_error":"操作を完了できませんでした","software_name":"Minecraft NBT エディター","software_alternate_online":"オンライン NBT エディター","software_alternate_bedrock":"Bedrock NBT エディター","software_alternate_level":"level.dat エディター","software_subcategory":"ゲームファイルエディター","software_os":"すべての OS（ブラウザー）","software_browser":"BigInt と Compression Streams に対応した最新のブラウザー","feature_java":"Java Edition のビッグエンディアン NBT","feature_bedrock":"Bedrock Edition のリトルエンディアン NBT","feature_bedrock_network":"Bedrock ネットワーク NBT（可変長整数）","feature_java_network":"Java ネットワーク NBT（名前なしルート）","feature_compression":"gzip と zlib による圧縮","feature_types":"全 13 種類の NBT タグに対応し、64 ビットの精度を保持","feature_snbt":"SNBT のエクスポート","feature_local":"すべての処理をクライアント側で実行","schema_about":"Minecraft の NBT データ形式","not_found_title":"ページが見つかりません — {0}","not_found_heading":"404 — このページは移動したか、存在しません","not_found_intro":"エディターはワンクリックで開けます。各ツールへの固定リンクは以下にあります。","not_found_footer":"{0} — 無料のオープンソースソフトウェア。","aria_bedrock_gamerules":"Bedrock のゲームルール","aria_bedrock_level_dat_header":"Bedrock の level.dat ヘッダー","aria_bedrock_tags":"Bedrock のタグ","aria_breadcrumb":"パンくずリスト","aria_byte_walkthrough":"バイトごとの解説","aria_causes":"原因","aria_common_repairs":"よくある修復作業","aria_comparison":"比較","aria_compatibility":"互換性","aria_compression":"圧縮","aria_core_specifics":"サーバーソフトウェアごとの違い","aria_dataversion":"DataVersion","aria_drop_an_nbt_file_here_or_click_to_browse":"ここに NBT ファイルをドロップするか、クリックして選択","aria_duplicate_world_names":"重複するワールド名","aria_editing_schematics":"スケマティックの編集","aria_encodings":"エンコーディング","aria_features":"機能","aria_file_types":"ファイルの種類","aria_frequently_asked_questions":"よくある質問","aria_how_to_use":"使い方","aria_inside_a_mcstructure_file":"mcstructure ファイルの内部構造","aria_introduction":"はじめに","aria_java_nbt_encoding":"Java NBT のエンコーディング","aria_java_nbt_files":"Java NBT ファイル","aria_java_gamerules":"Java のゲームルール","aria_migrating":"他のツールからの移行","aria_other_bedrock_nbt":"その他の Bedrock NBT","aria_other_tools":"その他のツール","aria_per_platform":"プラットフォーム別の説明","aria_prevention":"予防","aria_related_tools":"関連ツール","aria_snbt":"SNBT","aria_safety":"安全上の注意","aria_salvage":"データの復旧","aria_schematic_formats":"スケマティックの形式","aria_scripting":"スクリプトでの利用","aria_search_nbt_tags":"NBT タグを検索","aria_server_cores":"サーバーソフトウェア","aria_server_safety":"サーバーでの安全上の注意","aria_server_workflow":"サーバーでの作業手順","aria_strings":"文字列","aria_supported_files":"対応ファイル","aria_supported_server_software":"対応サーバーソフトウェア","aria_tag_types":"タグの型","aria_tags_in_level_dat":"level.dat 内のタグ","aria_tools":"ツール","aria_troubleshooting":"トラブルシューティング","aria_typical_edits":"よく行う編集","aria_what_you_can_inspect":"確認できる内容","aria_where_bedrock_files_live":"Bedrock ファイルの場所","aria_where_mcstructure_files_live":"mcstructure ファイルの場所","aria_where_to_find_level_dat":"level.dat の場所","aria_why_edit_the_file":"ファイルを編集する理由","aria_why_the_folder_name_is_not_the_world_name":"フォルダー名とワールド名が異なる理由","aria_playerdata_tags":"playerdata のタグ","toggle":"展開または折りたたむ"};</script>
+<script src="../../assets/lang.js?v=23a64b2c" defer></script>
 <link rel="stylesheet" href="../../assets/app.css?v=f5bdcb0f">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"NBTExplorer Online \u2014 Browser Alternative, No Download","headline":"NBTExplorer Online \u2014 Browser Alternative","description":"A browser alternative to NBTExplorer: the same tag tree editing for Minecraft files, plus Bedrock little-endian support, with nothing to install.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ja/nbtexplorer-online/","inLanguage":"ja","datePublished":"2026-05-29","dateModified":"2026-08-26","isPartOf":{"@type":"WebSite","name":"Minecraft NBT Editor","url":"https://w1zardz.github.io/bedrock-nbt-editor/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/nbtexplorer.png"},"about":{"@type":"Thing","name":"Minecraft NBT data format"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT Editor","item":"https://w1zardz.github.io/bedrock-nbt-editor/ja/"},{"@type":"ListItem","position":2,"name":"NBTExplorer Online \u2014 Browser Alternative","item":"https://w1zardz.github.io/bedrock-nbt-editor/ja/nbtexplorer-online/"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is there an official NBTExplorer web version?","acceptedAnswer":{"@type":"Answer","text":"No. NBTExplorer is a desktop application; this is an independent editor that covers the same everyday tasks in the browser and adds Bedrock support."}},{"@type":"Question","name":"Does it work on macOS and Linux without Mono?","acceptedAnswer":{"@type":"Answer","text":"Yes \u2014 it is a web page. Any current browser on macOS, Linux, Windows, Android or ChromeOS runs it."}},{"@type":"Question","name":"Can it open a whole region file like NBTExplorer does?","acceptedAnswer":{"@type":"Answer","text":"No. It edits a single NBT document at a time. Extract a chunk from the .mca first, then drop the payload here."}},{"@type":"Question","name":"Is it safe to use for my only save?","acceptedAnswer":{"@type":"Answer","text":"It never writes to the file you open \u2014 edits come back as a new download \u2014 but keep your own backup anyway, as with any editor."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"NBTExplorerオンライン — ダウンロード不要のブラウザー版","headline":"NBTExplorerオンライン — ブラウザーで使える代替ツール","description":"NBTExplorerの代わりにブラウザーでMinecraftのNBTタグツリーを編集できます。.NETやMonoは不要です。Javaのビッグエンディアンgzipに加え、Bedrockのリトルエンディアン、8バイトlevel.datヘッダー、ネットワークNBTにも対応し、ファイルはアップロードしません。","url":"https://w1zardz.github.io/bedrock-nbt-editor/ja/nbtexplorer-online/","inLanguage":"ja","datePublished":"2026-05-29","dateModified":"2026-09-21","isPartOf":{"@type":"WebSite","name":"Minecraft NBT エディター","url":"https://w1zardz.github.io/bedrock-nbt-editor/ja/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/nbtexplorer.png"},"about":{"@type":"Thing","name":"Minecraft の NBT データ形式"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT エディター","item":"https://w1zardz.github.io/bedrock-nbt-editor/ja/"},{"@type":"ListItem","position":2,"name":"NBTExplorerオンライン — ブラウザーで使える代替ツール","item":"https://w1zardz.github.io/bedrock-nbt-editor/ja/nbtexplorer-online/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"公式のNBTExplorer Web版はありますか？","acceptedAnswer":{"@type":"Answer","text":"ありません。NBTExplorerはデスクトップアプリです。このツールは独立したエディターで、日常的な操作をブラウザーで行い、Bedrock対応も追加しています。"}},{"@type":"Question","name":"MonoなしでmacOSやLinuxでも動きますか？","acceptedAnswer":{"@type":"Answer","text":"はい。Webページなので、macOS、Linux、Windows、Android、ChromeOSの最新ブラウザーで動作します。"}},{"@type":"Question","name":"NBTExplorerのようにリージョンファイル全体を開けますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。単一NBT文書を1つずつ編集します。先に .mca からチャンクを抽出し、そのペイロードをドロップしてください。"}},{"@type":"Question","name":"唯一のセーブデータに使っても安全ですか？","acceptedAnswer":{"@type":"Answer","text":"開いたファイルへ直接書き込まず、編集結果を新しいダウンロードとして返します。それでもほかのエディターと同様にバックアップを保持してください。"}}]}</script>
 </head>
 <body>
-<a class="skip-link" href="#editor">Skip to the editor</a>
+<a class="skip-link" href="#editor">エディターに移動</a>
 <header class="site-header">
 <div class="container">
-<a class="brand" href="../"><span>Minecraft</span> NBT Editor</a>
+<a class="brand" href="../"><span>Minecraft</span> NBT エディター</a>
 <span class="badge">Java + Bedrock</span>
-<nav class="site-nav" aria-label="Tools">
-<a href="../">Editor</a>
+<nav class="site-nav" aria-label="ツール">
+<a href="../">エディター</a>
 <a href="../level-dat-editor/">level.dat</a>
 <a href="../java-nbt-editor/">Java</a>
 <a href="../mcpe-nbt-editor/">Bedrock</a>
 <a href="../mcstructure-editor/">.mcstructure</a>
 <a href="../schematic-editor/">.schem</a>
 <a href="../playerdata-editor/">playerdata</a>
-<a href="../nbt-format/">NBT format</a>
+<a href="../nbt-format/">NBT 形式</a>
 </nav>
-<details class="lang-switch"><summary title="Language: 日本語" aria-label="Language: 日本語"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">Language: 日本語</span></summary><div class="lang-menu"><a href="./" hreflang="ja" data-lang="ja" aria-current="true" class="current">日本語</a><a href="../../nbtexplorer-online/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../ru/nbtexplorer-online/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../es/nbtexplorer-online/" hreflang="es" data-lang="es" rel="alternate">Español (beta)</a><a href="../../pt-br/nbtexplorer-online/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR) (beta)</a><a href="../../de/nbtexplorer-online/" hreflang="de" data-lang="de" rel="alternate">Deutsch (beta)</a><a href="../../fr/nbtexplorer-online/" hreflang="fr" data-lang="fr" rel="alternate">Français (beta)</a><a href="../../it/nbtexplorer-online/" hreflang="it" data-lang="it" rel="alternate">Italiano (beta)</a><a href="../../pl/nbtexplorer-online/" hreflang="pl" data-lang="pl" rel="alternate">Polski (beta)</a><a href="../../uk/nbtexplorer-online/" hreflang="uk" data-lang="uk" rel="alternate">Українська (beta)</a><a href="../../tr/nbtexplorer-online/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe (beta)</a><a href="../../id/nbtexplorer-online/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia (beta)</a><a href="../../vi/nbtexplorer-online/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt (beta)</a><a href="../../th/nbtexplorer-online/" hreflang="th" data-lang="th" rel="alternate">ไทย (beta)</a><a href="../../zh-hans/nbtexplorer-online/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文 (beta)</a><a href="../../ko/nbtexplorer-online/" hreflang="ko" data-lang="ko" rel="alternate">한국어 (beta)</a><a href="../../ar/nbtexplorer-online/" hreflang="ar" data-lang="ar" rel="alternate">العربية (beta)</a></div></details>
+<details class="lang-switch"><summary title="言語：日本語" aria-label="言語：日本語"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">言語：日本語</span></summary><div class="lang-menu"><a href="./" hreflang="ja" data-lang="ja" aria-current="true" class="current">日本語</a><a href="../../nbtexplorer-online/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../ru/nbtexplorer-online/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../es/nbtexplorer-online/" hreflang="es" data-lang="es" rel="alternate">Español</a><a href="../../pt-br/nbtexplorer-online/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR)</a><a href="../../de/nbtexplorer-online/" hreflang="de" data-lang="de" rel="alternate">Deutsch</a><a href="../../fr/nbtexplorer-online/" hreflang="fr" data-lang="fr" rel="alternate">Français</a><a href="../../it/nbtexplorer-online/" hreflang="it" data-lang="it" rel="alternate">Italiano</a><a href="../../pl/nbtexplorer-online/" hreflang="pl" data-lang="pl" rel="alternate">Polski</a><a href="../../uk/nbtexplorer-online/" hreflang="uk" data-lang="uk" rel="alternate">Українська</a><a href="../../tr/nbtexplorer-online/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe</a><a href="../../id/nbtexplorer-online/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia</a><a href="../../vi/nbtexplorer-online/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt</a><a href="../../th/nbtexplorer-online/" hreflang="th" data-lang="th" rel="alternate">ไทย</a><a href="../../zh-hans/nbtexplorer-online/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文</a><a href="../../ko/nbtexplorer-online/" hreflang="ko" data-lang="ko" rel="alternate">한국어</a><a href="../../ar/nbtexplorer-online/" hreflang="ar" data-lang="ar" rel="alternate">العربية</a></div></details>
 </div>
 </header>
 <main>
-<nav class="breadcrumbs container" aria-label="Breadcrumb"><a href="../">NBT Editor</a> <span class="sep">/</span> <span>NBTExplorer online</span></nav>
-<section class="hero" aria-label="Introduction">
+<nav class="breadcrumbs container" aria-label="パンくずリスト"><a href="../">NBTエディター</a> <span class="sep">/</span> <span>NBTExplorerオンライン</span></nav>
+<section class="hero" aria-label="はじめに">
 <div class="container">
-<h1>NBTExplorer Online — Browser Alternative</h1>
-<p class="support-line"><strong>Supports Minecraft Bedrock Edition and Java Edition</strong> — and every server core for both, popular or obscure: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina and the rest. <a href="../#server-software">Full list</a>.</p>
-<p class="lede">NBTExplorer is the desktop tag editor most Minecraft players know, and it needs .NET or Mono, a download and a desktop. This page does the same job — tag tree, inline editing, add and remove tags — in the browser, on any operating system including phones, and it also reads Bedrock little-endian files, which NBTExplorer does not.</p>
-<div class="chips"><span class="chip">No install</span><span class="chip">Windows</span><span class="chip">macOS</span><span class="chip">Linux</span><span class="chip">Android</span><span class="chip">ChromeOS</span></div>
+<h1>NBTExplorerオンライン — ブラウザーで使える代替ツール</h1>
+<p class="support-line"><strong>Minecraft Bedrock EditionとJava Editionに対応</strong>し、一般的なものから小規模なものまで両方の全サーバーコアを扱えます: Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLaminaなど。<a href="../#server-software">全一覧</a>。</p>
+<p class="lede">NBTExplorerは広く使われるデスクトップNBTタグエディターですが、.NETまたはMonoとインストール環境が必要です。このページはタグツリー、インライン編集、タグの追加・削除をブラウザーで実行し、スマートフォンを含む各OSで動作します。また、NBTExplorerが扱わないBedrockのリトルエンディアンファイルにも対応します。</p>
+<div class="chips"><span class="chip">インストール不要</span><span class="chip">Windows</span><span class="chip">macOS</span><span class="chip">Linux</span><span class="chip">Android</span><span class="chip">ChromeOS</span></div>
 </div>
 </section>
 <div id="editor">
 
-<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="Drop an NBT file here or click to browse">
+<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="ここに NBT ファイルをドロップするか、クリックして選択">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 16V4m0 0L8 8m4-4l4 4"/><path d="M20 16v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2"/></svg>
-<p>Drop <strong>any NBT file</strong> here</p>
-<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">Choose File</button>
-<span class="hint">level.dat &middot; .nbt &middot; .mcstructure &middot; .schem &middot; .schematic &middot; .dat &middot; chunk dumps</span>
+<p>ここに<strong>任意のNBTファイル</strong>をドロップ</p>
+<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">ファイルを選択</button>
+<span class="hint">level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · チャンクのダンプ</span>
 <input type="file" id="fileInput">
 </div>
 
@@ -83,18 +100,16 @@
 <div class="file-info" id="fileInfo"></div>
 
 <div class="out-bar" id="outBar">
-<label>Output format
-<select id="outFormat">
-<option value="java">Java — big-endian, named root</option>
-<option value="java-network">Java network — big-endian, nameless root</option>
-<option value="bedrock-level">Bedrock level.dat — little-endian + 8-byte header</option>
-<option value="bedrock">Bedrock raw — little-endian</option>
-<option value="bedrock-network">Bedrock network — little-endian varint</option>
+<label>出力形式<select id="outFormat">
+<option value="java">Java — ビッグエンディアン、名前付きルート</option>
+<option value="java-network">Java ネットワーク — ビッグエンディアン、名前なしルート</option>
+<option value="bedrock-level">Bedrock level.dat — リトルエンディアン + 8 バイトのヘッダー</option>
+<option value="bedrock">Bedrock 生データ — リトルエンディアン</option>
+<option value="bedrock-network">Bedrock ネットワーク — リトルエンディアンの可変長整数</option>
 </select>
 </label>
-<label>Compression
-<select id="outCompression">
-<option value="none">None (raw)</option>
+<label>圧縮<select id="outCompression">
+<option value="none">なし（生データ）</option>
 <option value="gzip">gzip</option>
 <option value="zlib">zlib (deflate)</option>
 </select>
@@ -102,9 +117,9 @@
 </div>
 
 <div class="search-bar">
-<input type="search" id="searchInput" placeholder="Search tag name or value…" autocomplete="off" spellcheck="false" aria-label="Search NBT tags">
-<button type="button" id="btnSearch">Search</button>
-<button type="button" id="btnCollapse">Collapse all</button>
+<input type="search" id="searchInput" placeholder="タグ名または値を検索…" autocomplete="off" spellcheck="false" aria-label="NBT タグを検索">
+<button type="button" id="btnSearch">検索</button>
+<button type="button" id="btnCollapse">すべて折りたたむ</button>
 </div>
 <div class="search-results" id="searchResults"></div>
 
@@ -112,77 +127,77 @@
 </div>
 
 <div class="bottom-bar" id="bottomBar">
-<button class="btn-add" id="btnAddRoot" type="button">+ Add Tag</button>
-<button class="btn-save" id="btnSave" type="button">Save &amp; Download</button>
-<button class="btn-snbt" id="btnSnbt" type="button">Export SNBT</button>
-<button class="btn-close" id="btnCloseFile" type="button">Close</button>
+<button class="btn-add" id="btnAddRoot" type="button">+ タグを追加</button>
+<button class="btn-save" id="btnSave" type="button">保存してダウンロード</button>
+<button class="btn-snbt" id="btnSnbt" type="button">SNBT をエクスポート</button>
+<button class="btn-close" id="btnCloseFile" type="button">閉じる</button>
 </div>
 
 </div>
 <div id="contentSections">
 
-<section class="content" aria-label="Comparison">
-<h2 id="how-it-compares">How it compares</h2>
+<section class="content" aria-label="比較">
+<h2 id="how-it-compares">機能比較</h2>
 <div class="table-wrap">
 <table class="matrix">
-<thead><tr><th>Capability</th><th>NBTExplorer (desktop)</th><th>This editor (browser)</th></tr></thead>
+<thead><tr><th>機能</th><th>NBTExplorer（デスクトップ）</th><th>このエディター（ブラウザー）</th></tr></thead>
 <tbody>
-<tr><td>Install required</td><td>Yes — .NET / Mono runtime</td><td>No</td></tr>
-<tr><td>Java big-endian NBT</td><td>Yes</td><td>Yes</td></tr>
-<tr><td>gzip / zlib</td><td>Yes</td><td>Yes, via the browser's native compression streams</td></tr>
-<tr><td>Bedrock little-endian NBT</td><td>No</td><td>Yes, including the 8-byte <code>level.dat</code> header</td></tr>
-<tr><td>Bedrock network / varint NBT</td><td>No</td><td>Yes</td></tr>
-<tr><td>Browse <code>.mca</code> regions and folders</td><td>Yes — its main advantage</td><td>No, one document at a time</td></tr>
-<tr><td>Bedrock LevelDB browsing</td><td>No</td><td>No, extract the value first</td></tr>
-<tr><td>Search across the tree</td><td>Yes</td><td>Yes</td></tr>
-<tr><td>SNBT export</td><td>No</td><td>Yes</td></tr>
-<tr><td>Runs on a phone</td><td>No</td><td>Yes</td></tr>
-<tr><td>Sends your file anywhere</td><td>No</td><td>No</td></tr>
+<tr><td>インストール</td><td>必要 — .NET / Monoランタイム</td><td>不要</td></tr>
+<tr><td>JavaビッグエンディアンNBT</td><td>対応</td><td>対応</td></tr>
+<tr><td>gzip / zlib</td><td>対応</td><td>対応。ブラウザー標準の圧縮ストリームを使用</td></tr>
+<tr><td>BedrockリトルエンディアンNBT</td><td>非対応</td><td>対応。8バイトの <code>level.dat</code> ヘッダーも処理</td></tr>
+<tr><td>Bedrockネットワーク / varint NBT</td><td>非対応</td><td>対応</td></tr>
+<tr><td><code>.mca</code> リージョンとフォルダーの参照</td><td>対応 — 主な利点</td><td>非対応。1文書ずつ処理</td></tr>
+<tr><td>Bedrock LevelDBの参照</td><td>非対応</td><td>非対応。先に値を抽出</td></tr>
+<tr><td>ツリー全体の検索</td><td>対応</td><td>対応</td></tr>
+<tr><td>SNBTエクスポート</td><td>非対応</td><td>対応</td></tr>
+<tr><td>スマートフォンで動作</td><td>非対応</td><td>対応</td></tr>
+<tr><td>ファイルを外部送信</td><td>しない</td><td>しない</td></tr>
 </tbody>
 </table>
 </div>
-<p>The honest summary: if you need to walk a whole region folder and open chunks by coordinate, the desktop tool still wins. If you need to open one file — a <code>level.dat</code>, a player file, a schematic, a Bedrock world — on whatever machine you happen to be at, this is faster and covers editions the desktop tool never learned.</p>
+<p>リージョンフォルダー全体を参照し、座標でチャンクを開く用途ではデスクトップ版が適します。<code>level.dat</code>、プレイヤーファイル、スキーマティック、Bedrockワールドなど1ファイルを任意の端末で開く用途では、このページが各エディションをまとめて扱えます。</p>
 </section>
 
-<section class="content" aria-label="Migrating">
-<h2 id="coming-from-the-desktop-tool">Coming from the desktop tool</h2>
+<section class="content" aria-label="他のツールからの移行">
+<h2 id="coming-from-the-desktop-tool">デスクトップ版との操作対応</h2>
 <ul>
-<li><strong>The tree works the same way.</strong> Expand compounds and lists, click a value to edit it, use + and × for structure.</li>
-<li><strong>Types are enforced the same way.</strong> A byte stays a byte; out-of-range values are rejected instead of being silently truncated.</li>
-<li><strong>Saving is a download,</strong> not an in-place write. The file you dropped in is never modified, so your backup is automatic.</li>
-<li><strong>Compression is round-tripped.</strong> A gzip file goes back out gzip, so the game accepts it without a manual recompress step.</li>
-<li><strong>Bedrock just works.</strong> No separate tool, no hex editor to fix the header length after an edit.</li>
+<li><strong>ツリー操作は同じです。</strong>CompoundとListを展開し、値をクリックして編集し、+と×で構造を変更します。</li>
+<li><strong>型を維持します。</strong>byteはbyteのままで、範囲外の値は切り捨てずエラーにします。</li>
+<li><strong>保存はダウンロードです。</strong>入力ファイルを直接変更しないため、元ファイルは残ります。</li>
+<li><strong>圧縮方式を維持します。</strong>gzipファイルはgzipで出力するため、手動の再圧縮なしでゲームが読み込めます。</li>
+<li><strong>Bedrockもそのまま開けます。</strong>別ツールや、編集後にヘッダー長を直す16進エディターは不要です。</li>
 </ul>
 </section>
 
-<section class="content" aria-label="Other tools">
-<h2 id="where-other-tools-still-fit">Where other tools still fit</h2>
-<p>Use <strong>NBTExplorer</strong> or <strong>NBTStudio</strong> for bulk region browsing. Use <strong>Amulet</strong> or <strong>MCA Selector</strong> for chunk-level surgery and world trimming. Use <strong>WorldEdit</strong> for anything geometric. Use this page when the job is "open this one file, change these tags, give it back" — which is most of the time — or when the file is Bedrock and the desktop tools refuse it.</p>
+<section class="content" aria-label="その他のツール">
+<h2 id="where-other-tools-still-fit">ほかのツールが適する用途</h2>
+<p>リージョンの一括参照には <strong>NBTExplorer</strong> または <strong>NBTStudio</strong>、チャンク単位の修復やワールド縮小には <strong>Amulet</strong> または <strong>MCA Selector</strong>、形状編集には <strong>WorldEdit</strong> を使います。このページは「1ファイルを開き、特定のタグを変更して戻す」作業や、デスクトップツールが拒否するBedrockファイルに適します。</p>
 </section>
 
-<section class="content" aria-label="Frequently asked questions"><h2>Frequently Asked Questions</h2><details><summary>Is there an official NBTExplorer web version?</summary><div class="faq-body"><p>No. NBTExplorer is a desktop application; this is an independent editor that covers the same everyday tasks in the browser and adds Bedrock support.</p></div></details><details><summary>Does it work on macOS and Linux without Mono?</summary><div class="faq-body"><p>Yes — it is a web page. Any current browser on macOS, Linux, Windows, Android or ChromeOS runs it.</p></div></details><details><summary>Can it open a whole region file like NBTExplorer does?</summary><div class="faq-body"><p>No. It edits a single NBT document at a time. Extract a chunk from the <code>.mca</code> first, then drop the payload here.</p></div></details><details><summary>Is it safe to use for my only save?</summary><div class="faq-body"><p>It never writes to the file you open — edits come back as a new download — but keep your own backup anyway, as with any editor.</p></div></details></section>
-<section class="content" aria-label="Related tools"><h2>Related tools</h2><div class="rel-grid"><a class="rel-card" href="../"><strong>Minecraft NBT editor</strong><span>The universal editor — every edition, every NBT file type.</span></a><a class="rel-card" href="../nbt-viewer/"><strong>NBT viewer</strong><span>Read-only inspection, search and SNBT export.</span></a><a class="rel-card" href="../java-nbt-editor/"><strong>Java Edition NBT editor</strong><span>Big-endian, gzip — Vanilla, Paper, Spigot, Fabric, Forge.</span></a><a class="rel-card" href="../mcpe-nbt-editor/"><strong>MCPE NBT editor</strong><span>Little-endian NBT and the 8-byte level.dat header.</span></a><a class="rel-card" href="../nbt-format/"><strong>NBT format reference</strong><span>All 13 tag types, every encoding, byte by byte.</span></a><a class="rel-card" href="../level-dat-editor/"><strong>level.dat editor</strong><span>World name, game mode, spawn, difficulty and game rules.</span></a></div></section>
+<section class="content" aria-label="よくある質問"><h2>よくある質問</h2><details><summary>公式のNBTExplorer Web版はありますか？</summary><div class="faq-body"><p>ありません。NBTExplorerはデスクトップアプリです。このツールは独立したエディターで、日常的な操作をブラウザーで行い、Bedrock対応も追加しています。</p></div></details><details><summary>MonoなしでmacOSやLinuxでも動きますか？</summary><div class="faq-body"><p>はい。Webページなので、macOS、Linux、Windows、Android、ChromeOSの最新ブラウザーで動作します。</p></div></details><details><summary>NBTExplorerのようにリージョンファイル全体を開けますか？</summary><div class="faq-body"><p>いいえ。単一NBT文書を1つずつ編集します。先に <code>.mca</code> からチャンクを抽出し、そのペイロードをドロップしてください。</p></div></details><details><summary>唯一のセーブデータに使っても安全ですか？</summary><div class="faq-body"><p>開いたファイルへ直接書き込まず、編集結果を新しいダウンロードとして返します。それでもほかのエディターと同様にバックアップを保持してください。</p></div></details></section>
+<section class="content" aria-label="関連ツール"><h2>関連ツール</h2><div class="rel-grid"><a class="rel-card" href="../"><strong>Minecraft NBTエディター</strong><span>全エディションと各種NBTファイルに対応する汎用エディター。</span></a><a class="rel-card" href="../nbt-viewer/"><strong>NBTビューア</strong><span>読み取り確認、検索、SNBTエクスポート。</span></a><a class="rel-card" href="../java-nbt-editor/"><strong>Java Edition NBTエディター</strong><span>ビッグエンディアン、gzip — Vanilla、Paper、Spigot、Fabric、Forge。</span></a><a class="rel-card" href="../mcpe-nbt-editor/"><strong>MCPE NBTエディター</strong><span>リトルエンディアンNBTと8バイトのlevel.datヘッダー。</span></a><a class="rel-card" href="../nbt-format/"><strong>NBT形式リファレンス</strong><span>13種類のタグ型と各エンコードをバイト単位で説明。</span></a><a class="rel-card" href="../level-dat-editor/"><strong>level.datエディター</strong><span>ワールド名、ゲームモード、スポーン地点、難易度、ゲームルールを編集。</span></a></div></section>
 </div>
 </main>
 
 <footer class="site-footer">
 <div class="container footer-grid">
-<div><h4>Editors</h4><a href="../">Minecraft NBT editor</a><a href="../level-dat-editor/">level.dat editor</a><a href="../java-nbt-editor/">Java Edition NBT editor</a><a href="../mcpe-nbt-editor/">MCPE NBT editor</a><a href="../pocketmine-nbt-editor/">PocketMine-MP editor</a></div>
-<div><h4>File types</h4><a href="../mcstructure-editor/">.mcstructure editor</a><a href="../schematic-editor/">Schematic editor</a><a href="../playerdata-editor/">playerdata editor</a><a href="../nbt-viewer/">NBT viewer</a><a href="./">NBTExplorer online</a></div>
-<div><h4>Reference</h4><a href="../nbt-format/">NBT format reference</a><a href="../guides/change-world-name/">Rename a world</a><a href="../guides/fix-corrupted-level-dat/">Fix a broken level.dat</a><a href="../guides/edit-gamerules/">Edit game rules</a></div>
-<div><h4>Source</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">Code on GitHub</a><a href="../../llms.txt">llms.txt</a></div>
+<div><h4>エディター</h4><a href="../">Minecraft NBTエディター</a><a href="../level-dat-editor/">level.datエディター</a><a href="../java-nbt-editor/">Java Edition NBTエディター</a><a href="../mcpe-nbt-editor/">MCPE NBTエディター</a><a href="../pocketmine-nbt-editor/">PocketMine-MPエディター</a></div>
+<div><h4>ファイル形式</h4><a href="../mcstructure-editor/">.mcstructureエディター</a><a href="../schematic-editor/">Schematicエディター</a><a href="../playerdata-editor/">playerdataエディター</a><a href="../nbt-viewer/">NBTビューア</a><a href="./">NBTExplorerオンライン</a></div>
+<div><h4>リファレンス</h4><a href="../nbt-format/">NBT形式リファレンス</a><a href="../guides/change-world-name/">ワールド名を変更</a><a href="../guides/fix-corrupted-level-dat/">壊れたlevel.datを修復</a><a href="../guides/edit-gamerules/">ゲームルールを編集</a></div>
+<div><h4>ソース</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">GitHubのコード</a><a href="../../llms.txt">llms.txt</a></div>
 </div>
-<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">最終更新日：2026-09-21。 Minecraft NBT エディター — 無料のオープンソース（MIT）で、すべてブラウザー内で動作します。Mojang StudiosおよびMicrosoftとは関係ありません。MinecraftはMojang Studiosの商標です。</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
 <div class="modal-overlay" id="addTagModal">
 <div class="modal">
-<h3>Add New Tag</h3>
-<label for="newTagName">Tag Name</label>
-<input type="text" id="newTagName" placeholder="e.g. MyTag" autocomplete="off">
-<label for="newTagType">Tag Type</label>
+<h3>新しいタグを追加</h3>
+<label for="newTagName">タグ名</label>
+<input type="text" id="newTagName" placeholder="例：MyTag" autocomplete="off">
+<label for="newTagType">タグの型</label>
 <select id="newTagType">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -197,10 +212,10 @@
 <option value="11">TAG_Int_Array</option>
 <option value="12">TAG_Long_Array</option>
 </select>
-<label for="newTagValue">Value</label>
-<input type="text" id="newTagValue" placeholder="Value" autocomplete="off">
+<label for="newTagValue">値</label>
+<input type="text" id="newTagValue" placeholder="値" autocomplete="off">
 <div id="listSubtypeRow" style="display:none">
-<label for="newListSubtype">List Element Type</label>
+<label for="newListSubtype">リスト要素の型</label>
 <select id="newListSubtype">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -217,24 +232,24 @@
 </select>
 </div>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="addTagCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="addTagConfirm">Add</button>
+<button class="btn-cancel" type="button" id="addTagCancel">キャンセル</button>
+<button class="btn-confirm" type="button" id="addTagConfirm">追加</button>
 </div>
 </div>
 </div>
 
 <div class="modal-overlay" id="arrayModal">
 <div class="modal">
-<h3 id="arrayModalTitle">Edit Array</h3>
-<label for="arrayModalText">Comma-separated values</label>
+<h3 id="arrayModalTitle">配列を編集</h3>
+<label for="arrayModalText">カンマ区切りの値</label>
 <textarea id="arrayModalText" spellcheck="false" autocomplete="off"></textarea>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="arrayModalCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="arrayModalConfirm">Apply</button>
+<button class="btn-cancel" type="button" id="arrayModalCancel">キャンセル</button>
+<button class="btn-confirm" type="button" id="arrayModalConfirm">適用</button>
 </div>
 </div>
 </div>
 
-<script src="../../assets/nbt.js?v=da7967b1" defer></script>
+<script src="../../assets/nbt.js?v=6f125422" defer></script>
 </body>
 </html>

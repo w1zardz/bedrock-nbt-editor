@@ -9,6 +9,7 @@ assets.
     python3 tools/build.py
 """
 import hashlib
+import html as html_lib
 import json
 import os
 import sys
@@ -51,7 +52,8 @@ LOCALES = [
 LOCALE_BY_CODE = {loc["code"]: loc for loc in LOCALES}
 TRANSLATABLE = ("title", "ogtitle", "desc", "keywords", "h1", "crumb", "reltitle",
                 "reldesc", "answer", "droplabel", "body", "chips", "faq", "faqtitle",
-                "howto", "support", "ui")
+                "howto", "support", "ui", "footernote", "toctitle", "relatedtitle",
+                "homecrumb", "badge", "footerheads", "sourcehead", "sourcelink", "updated")
 
 
 def load_translations(code):
@@ -72,6 +74,46 @@ def localized(page, code):
         if key in tr and tr[key]:
             merged[key] = tr[key]
     return merged
+
+
+def load_interface(code):
+    path = os.path.join(ROOT, "tools", "interface", code + ".json")
+    if not os.path.exists(path):
+        return {}
+    with open(path, encoding="utf-8") as fh:
+        return json.load(fh)
+
+
+INTERFACES = {loc["code"]: load_interface(loc["code"]) for loc in LOCALES}
+
+
+def message(code, key, *args):
+    value = INTERFACES.get(code, {}).get(key, INTERFACES["en"][key])
+    return re.sub(r"\{(\d+)\}", lambda m: str(args[int(m[1])])
+                  if int(m[1]) < len(args) else m[0], value)
+
+
+def script_json(value):
+    # Translated text must never be able to terminate an inline script element.
+    return json.dumps(value, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
+
+
+def localize_markup(markup, code):
+    """Translate shared template text and accessibility labels without touching code."""
+    lookup = {value: message(code, key) for key, value in INTERFACES["en"].items()}
+    def text_node(match):
+        import html
+        raw = match[1]
+        content = html.unescape(raw.strip())
+        if content not in lookup:
+            return match[0]
+        return ">" + esc(lookup[content]) + "<"
+    markup = re.sub(r">([^<>]+)<", text_node, markup)
+    def attribute(match):
+        import html
+        value = html.unescape(match[2])
+        return match[1] + '="' + esc(lookup.get(value, value)) + '"'
+    return re.sub(r'(aria-label|placeholder|title)="([^"<>]*)"', attribute, markup)
 
 
 def asset_version(name):
@@ -125,17 +167,26 @@ def slugify(text):
     return text or "section"
 
 
-def anchor_headings(body):
-    """Give every h2 a stable id and return (body, [(id, text)])."""
+def anchor_headings(body, source_body=None):
+    """English-derived anchors stay identical across locales and never collide."""
+    source_body = source_body if source_body is not None else body
+    source_headings = re.findall(r"<h2(?:\s[^>]*)?>(.*?)</h2>", source_body, flags=re.S)
+    used = set(re.findall(r'\bid="([^"]+)"', body))
     found = []
-
-    def sub(m):
-        inner = m.group(1)
-        anchor = slugify(inner)
+    def sub(match):
+        inner = match[2]
+        existing = re.search(r'\bid="([^"]+)"', match[1])
+        base = slugify(source_headings[len(found)] if len(found) < len(source_headings) else inner)
+        anchor = existing[1] if existing else base
+        if not existing:
+            suffix = 2
+            while anchor in used:
+                anchor = "%s-%d" % (base, suffix)
+                suffix += 1
+        used.add(anchor)
         found.append((anchor, plain(inner)))
-        return '<h2 id="%s">%s</h2>' % (anchor, inner)
-
-    return re.sub(r"<h2>(.*?)</h2>", sub, body, flags=re.S), found
+        return '<h2%s>%s</h2>' % (match[1] if existing else match[1] + ' id="%s"' % anchor, inner)
+    return re.sub(r"<h2([^>]*)>(.*?)</h2>", sub, body, flags=re.S), found
 
 
 def toc_html(items, title="On this page"):
@@ -161,6 +212,7 @@ NAV = [
 def nav_html(current, code):
     out = []
     for slug, label in NAV:
+        label = message(code, "nav_editor" if not slug else "nav_format") if slug in ("", "nbt-format") else label
         href = href_between(current, code, slug, code)
         cls = ' class="active"' if slug == current else ""
         out.append('<a href="%s"%s>%s</a>' % (href, cls, esc(label)))
@@ -174,7 +226,7 @@ def lang_switch_html(slug, code):
     for loc in LOCALES:
         if loc["code"] == code:
             continue
-        label = loc["name"] + ("" if loc["status"] == "ready" else " (beta)")
+        label = loc["name"] + ("" if loc["status"] == "ready" else " (" + message(code, "beta") + ")")
         items.append('<a href="%s" hreflang="%s" data-lang="%s" rel="alternate">%s</a>'
                      % (href_between(slug, code, slug, loc["code"]), loc["hreflang"],
                         loc["code"], esc(label)))
@@ -182,7 +234,7 @@ def lang_switch_html(slug, code):
         return ""
     items = ['<a href="./" hreflang="%s" data-lang="%s" aria-current="true" class="current">%s</a>'
              % (cur["hreflang"], cur["code"], esc(cur["name"]))] + items
-    label = "Language: %s" % cur["name"]
+    label = message(code, "language", cur["name"])
     return ('<details class="lang-switch"><summary title="%s" aria-label="%s">'
             '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" '
             'aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/>'
@@ -321,17 +373,18 @@ MODALS = """
 
 # ---------------------------------------------------------------- structured data
 
-def software_schema():
+def software_schema(code="en"):
     return {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": SITE_NAME,
-        "alternateName": ["NBT Editor Online", "Bedrock NBT Editor", "level.dat editor"],
-        "url": BASE,
+        "name": message(code, "software_name"),
+        "inLanguage": LOCALE_BY_CODE[code]["hreflang"],
+        "alternateName": [message(code, key) for key in ("software_alternate_online", "software_alternate_bedrock", "software_alternate_level")],
+        "url": url("", code),
         "applicationCategory": "DeveloperApplication",
-        "applicationSubCategory": "Game file editor",
-        "operatingSystem": "Any (browser)",
-        "browserRequirements": "Modern browser with BigInt and Compression Streams support",
+        "applicationSubCategory": message(code, "software_subcategory"),
+        "operatingSystem": message(code, "software_os"),
+        "browserRequirements": message(code, "software_browser"),
         "softwareVersion": "2.0",
         "isAccessibleForFree": True,
         "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
@@ -339,28 +392,21 @@ def software_schema():
         "publisher": {"@type": "Person", "name": AUTHOR, "url": AUTHOR_URL},
         "license": "https://opensource.org/licenses/MIT",
         "codeRepository": REPO,
-        "featureList": [
-            "Java Edition big-endian NBT",
-            "Bedrock Edition little-endian NBT",
-            "Bedrock network NBT (varint)",
-            "Java network NBT (nameless root)",
-            "gzip and zlib compression",
-            "All 13 NBT tag types with 64-bit precision",
-            "SNBT export",
-            "Runs fully client-side",
-        ],
+        "featureList": [message(code, key) for key in (
+            "feature_java", "feature_bedrock", "feature_bedrock_network", "feature_java_network",
+            "feature_compression", "feature_types", "feature_snbt", "feature_local")],
     }
 
 
 def breadcrumb_schema(slug, title, code="en"):
-    items = [{"@type": "ListItem", "position": 1, "name": "NBT Editor",
+    items = [{"@type": "ListItem", "position": 1, "name": message(code, "brand_editor"),
               "item": url("", code)}]
     if slug:
         parts = slug.split("/")
         acc = ""
         for i, part in enumerate(parts):
             acc = acc + part + "/"
-            name = title if i == len(parts) - 1 else part.replace("-", " ").title()
+            name = title if i == len(parts) - 1 else message(code, "guides")
             items.append({"@type": "ListItem", "position": i + 2, "name": name,
                           "item": url(acc.rstrip("/"), code)})
     return {"@context": "https://schema.org", "@type": "BreadcrumbList",
@@ -390,10 +436,10 @@ def webpage_schema(page, code="en"):
         "inLanguage": code,
         "datePublished": "2026-05-29",
         "dateModified": TODAY,
-        "isPartOf": {"@type": "WebSite", "name": SITE_NAME, "url": BASE},
+        "isPartOf": {"@type": "WebSite", "name": message(code, "software_name"), "url": url("", code)},
         "author": {"@type": "Person", "name": AUTHOR, "url": AUTHOR_URL},
         "primaryImageOfPage": {"@type": "ImageObject", "url": BASE + page["og"]},
-        "about": {"@type": "Thing", "name": "Minecraft NBT data format"},
+        "about": {"@type": "Thing", "name": message(code, "schema_about")},
     }
 
 
@@ -448,7 +494,7 @@ HEAD = """<!DOCTYPE html>
 <meta property="og:updated_time" content="{today}">
 <meta name="theme-color" content="#0d1117">
 <meta name="application-name" content="{site}">
-<meta name="apple-mobile-web-app-title" content="NBT Editor">
+<meta name="apple-mobile-web-app-title" content="{brand}">
 <link rel="preload" href="{r}assets/nbt.js?v={jsv}" as="script">
 <script>window.__LANG_URLS__={langurls};window.__NBT_STRINGS__={uistrings};</script>
 <script src="{r}assets/lang.js?v={langv}" defer></script>
@@ -456,10 +502,10 @@ HEAD = """<!DOCTYPE html>
 {schema}
 </head>
 <body>
-<a class="skip-link" href="#editor">Skip to the editor</a>
+<a class="skip-link" href="#editor">{skipeditor}</a>
 <header class="site-header">
 <div class="container">
-<a class="brand" href="{home}"><span>Minecraft</span> NBT Editor</a>
+<a class="brand" href="{home}"><span>Minecraft</span> {brand}</a>
 <span class="badge">{badge}</span>
 <nav class="site-nav" aria-label="Tools">
 {nav}
@@ -538,7 +584,7 @@ def breadcrumb_html(page, code):
     acc = ""
     for i, part in enumerate(parts):
         acc += part + "/"
-        label = page["crumb"] if i == len(parts) - 1 else part.replace("-", " ").title()
+        label = page["crumb"] if i == len(parts) - 1 else message(code, "guides")
         crumbs.append("<span>%s</span>" % label)
     return ('<nav class="breadcrumbs container" aria-label="Breadcrumb">'
             + ' <span class="sep">/</span> '.join(crumbs) + "</nav>")
@@ -576,7 +622,7 @@ UI_DEFAULTS = {
 }
 
 
-def render(page_en, code):
+def render_html(page_en, code):
     page = localized(page_en, code)
     slug = page["slug"]
     loc = LOCALE_BY_CODE[code]
@@ -590,23 +636,26 @@ def render(page_en, code):
     if page.get("howto"):
         schemas.append(howto_schema(page, code))
     if not slug:
-        schemas.append(software_schema())
+        schemas.append(software_schema(code))
         schemas.append({
-            "@context": "https://schema.org", "@type": "WebSite", "name": SITE_NAME,
+            "@context": "https://schema.org", "@type": "WebSite", "name": message(code, "software_name"),
             "url": BASE, "inLanguage": code,
             "publisher": {"@type": "Person", "name": AUTHOR, "url": AUTHOR_URL},
         })
     schema_html = "\n".join(
-        '<script type="application/ld+json">%s</script>' % json.dumps(s, separators=(",", ":"))
+        '<script type="application/ld+json">%s</script>' % script_json(s)
         for s in schemas)
 
     ui = dict(UI_DEFAULTS)
+    ui.update(INTERFACES["en"])
+    ui.update(INTERFACES.get(code, {}))
     ui.update(page.get("ui") or {})
 
     head = HEAD.format(
-        title=esc(page["title"]), desc=esc(page["desc"]), keywords=esc(page["keywords"]),
+        title=esc(html_lib.unescape(page["title"])), desc=esc(page["desc"]), keywords=esc(page["keywords"]),
+        brand=esc(message(code, "brand_editor")), skipeditor=esc(message(code, "skip_editor")),
         canonical=url(slug, code), r=r, ogtype="website" if not slug else "article",
-        ogtitle=esc(plain(page.get("ogtitle", page["h1"]))), site=SITE_NAME,
+        ogtitle=esc(plain(page.get("ogtitle", page["h1"]))), site=esc(message(code, "software_name")),
         ogimage=BASE + page["og"], schema=schema_html, nav=nav_html(slug, code),
         author=AUTHOR, today=TODAY, jsv=asset_version("nbt.js"), cssv=asset_version("app.css"),
         langv=asset_version("lang.js"), lang=loc["hreflang"],
@@ -617,7 +666,7 @@ def render(page_en, code):
         oglocale=loc["og"], dirattr=' dir="rtl"' if loc.get("rtl") else "",
         home=href_between(slug, code, "", code), badge=esc(page.get("badge", "Java + Bedrock")),
         langswitch=lang_switch_html(slug, code), langurls=lang_urls_json(slug, code),
-        uistrings=json.dumps(ui, separators=(",", ":"), ensure_ascii=False))
+        uistrings=script_json(ui))
 
     faq_html = ""
     if page.get("faq"):
@@ -628,8 +677,10 @@ def render(page_en, code):
                     '<h2>%s</h2>%s</section>'
                     % (esc(page.get("faqtitle", "Frequently Asked Questions")), blocks))
 
-    widget = EDITOR_WIDGET.replace("__DROPLABEL__", page.get("droplabel", "any NBT file"))
-    body_html, headings = anchor_headings(page["body"])
+    widget = EDITOR_WIDGET.replace("Drop <strong>__DROPLABEL__</strong> here",
+                                   esc(message(code, "drop", "__DROP__")).replace("__DROP__", "<strong>" + esc(html_lib.unescape(page.get("droplabel", "any NBT file"))) + "</strong>"))
+    widget = localize_markup(widget, code)
+    body_html, headings = anchor_headings(page["body"], page_en["body"])
     body_html = toc_html(headings, page.get("toctitle", "On this page")) + body_html
 
     body = """
@@ -658,11 +709,22 @@ def render(page_en, code):
                if page.get("chips") else ""))
 
     html = (head + breadcrumb_html(page, code) + body
-            + FOOT.format(r=r, site=SITE_NAME, modals=MODALS, repo=REPO,
+            + FOOT.format(r=r, site=esc(message(code, "software_name")), modals=localize_markup(MODALS, code), repo=REPO,
                           jsv=asset_version("nbt.js"),
                           footerlinks=footer_html(page, code, r),
-                          updated=page.get("updated", "Last updated %s." % TODAY),
+                          updated=esc(page.get("updated", message(code, "updated", TODAY))),
                           footernote=page.get("footernote", FOOTER_NOTE)))
+    # Editorial attributes deliberately remain source-identical in catalogs.
+    # Translate their human-facing labels only at render time.
+    def aria(match):
+        key = "aria_" + re.sub("[^a-z0-9]+", "_", match[1].lower()).strip("_")
+        return 'aria-label="%s"' % esc(message(code, key)) if key in INTERFACES["en"] else match[0]
+    return re.sub(r'aria-label="([^"<>]*)"', aria, html)
+
+
+def render(page_en, code):
+    html = render_html(page_en, code)
+    slug = page_en["slug"]
     out_dir = os.path.join(ROOT, page_dir(slug, code)) if page_dir(slug, code) else ROOT
     os.makedirs(out_dir, exist_ok=True)
     with open(os.path.join(out_dir, "index.html"), "w") as fh:
@@ -1825,44 +1887,42 @@ def llms_txt():
     return "\n".join(lines)
 
 
-NOT_FOUND = """<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Page not found — {site}</title>
-<meta name="robots" content="noindex, follow">
+def not_found_html(code="en"):
+    loc = LOCALE_BY_CODE[code]
+    cards = []
+    for slug in ("", "level-dat-editor", "java-nbt-editor", "mcpe-nbt-editor", "nbt-format", "nbt-viewer"):
+        page = localized(next(p for p in PAGES if p["slug"] == slug), code)
+        cards.append('<a class="rel-card" href="%s"><strong>%s</strong><span>%s</span></a>' %
+                     (url(slug, code), esc(page["reltitle"]), esc(page["reldesc"])))
+    # GitHub Pages serves only the root 404. Select by the explicit URL locale;
+    # retain an English fallback with usable absolute links when JS is disabled.
+    routing = ""
+    if code == "en":
+        targets = {l["dir"]: url("", l["code"]) + "404.html" for l in LOCALES if l["dir"]}
+        routing = ("<script>(function(){var base=new URL(%s).pathname;"
+                   "var path=location.pathname;if(path.indexOf(base)!==0)return;"
+                   "var code=path.slice(base.length).split('/')[0];var targets=%s;"
+                   "if(targets[code]&&path!==new URL(targets[code]).pathname)location.replace(targets[code]);"
+                   "})();</script>") % (script_json(BASE), script_json(targets))
+    return """<!DOCTYPE html>
+<html lang="{lang}"{direction}><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{title}</title><meta name="robots" content="noindex, follow">
 <link rel="icon" href="{base}favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="{base}assets/app.css">
-</head>
-<body>
-<header class="site-header"><div class="container">
-<a class="brand" href="{base}"><span>Minecraft</span> NBT Editor</a>
-</div></header>
-<main>
-<section class="hero"><div class="container">
-<h1>404 — that page moved or never existed</h1>
-<p class="lede">The editor itself is still one click away, and every tool has a permanent home below.</p>
-</div></section>
-<section class="content">
-<div class="rel-grid">
-<a class="rel-card" href="{base}"><strong>NBT editor</strong><span>Open any Minecraft NBT file</span></a>
-<a class="rel-card" href="{base}level-dat-editor/"><strong>level.dat editor</strong><span>World name, spawn, game rules</span></a>
-<a class="rel-card" href="{base}java-nbt-editor/"><strong>Java Edition</strong><span>Big-endian, gzip</span></a>
-<a class="rel-card" href="{base}mcpe-nbt-editor/"><strong>Bedrock Edition</strong><span>Little-endian, 8-byte header</span></a>
-<a class="rel-card" href="{base}nbt-format/"><strong>NBT format reference</strong><span>Every tag type, byte by byte</span></a>
-<a class="rel-card" href="{base}nbt-viewer/"><strong>NBT viewer</strong><span>Read and export SNBT</span></a>
-</div>
-</section>
-</main>
-<footer class="site-footer"><p class="footer-note">{site} — free and open source.</p></footer>
-</body>
-</html>
-""".format(site=SITE_NAME, base=BASE)
+<link rel="stylesheet" href="{base}assets/app.css">{routing}</head><body>
+<header class="site-header"><div class="container"><a class="brand" href="{home}">{brand}</a></div></header>
+<main><section class="hero"><div class="container"><h1>{heading}</h1><p class="lede">{intro}</p></div></section>
+<section class="content"><div class="rel-grid">{cards}</div></section></main>
+<footer class="site-footer"><p class="footer-note">{footer}</p></footer></body></html>
+""".format(lang=loc["hreflang"], direction=' dir="rtl"' if loc.get("rtl") else "",
+           title=esc(message(code, "not_found_title", message(code, "software_name"))),
+           base=BASE, home=url("", code), brand=esc(message(code, "software_name")),
+           heading=esc(message(code, "not_found_heading")), intro=esc(message(code, "not_found_intro")),
+           cards="".join(cards), footer=esc(message(code, "not_found_footer", message(code, "software_name"))), routing=routing)
 
 
-def export_source_strings():
-    """Write tools/locales/en.json — the file translators (and Codex) work from."""
+def source_strings():
+    """Fresh English source, with no writes or status changes during import."""
     out = {}
     for p in PAGES:
         entry = {}
@@ -1881,7 +1941,11 @@ def export_source_strings():
         entry["sourcehead"] = "Source"
         entry["sourcelink"] = "Code on GitHub"
         out[p["slug"]] = entry
-    write("tools/locales/en.json", json.dumps(out, indent=2, ensure_ascii=False) + "\n")
+    return json.loads(json.dumps(out))
+
+
+def export_source_strings():
+    write("tools/locales/en.json", json.dumps(source_strings(), indent=2, ensure_ascii=False) + "\n")
     return "tools/locales/en.json"
 
 
@@ -1893,27 +1957,36 @@ def resolve_status():
     tools/checklocale.py — an unfinished file stays noindex and out of the
     sitemap, so a half-translated language can never hurt the English pages."""
     import checklocale
+    failures = {}
     for loc in LOCALES:
         if loc["code"] == "en" or loc.get("status") == "hold":
             continue
-        problems, coverage = checklocale.check(loc["code"])
-        loc["status"] = "ready" if (not problems and coverage >= 85) else "draft"
+        problems, coverage = checklocale.check(loc["code"], source=source_strings())
+        loc["status"] = "ready" if not problems else "draft"
         loc["coverage"] = coverage
-
-
-resolve_status()
+        if problems:
+            failures[loc["code"]] = problems
+    return failures
 
 
 def main():
-    written = []
+    # Validate the complete release before writing any generated file. Validation
+    # uses source_strings(), so a stale exported en.json cannot promote a locale.
+    failures = resolve_status()
+    if failures:
+        lines = ["Translation validation failed; no pages were written:"]
+        for code, problems in failures.items():
+            lines.extend(code + ": " + problem for problem in problems)
+        raise SystemExit("\n".join(lines))
+    written = [export_source_strings()]
     for loc in LOCALES:
         for p in PAGES:
             written.append(render(p, loc["code"]))
-    written.append(export_source_strings())
     written.append(write("sitemap.xml", sitemap()))
     written.append(write("robots.txt", ROBOTS))
     written.append(write("llms.txt", llms_txt()))
-    written.append(write("404.html", NOT_FOUND))
+    for loc in LOCALES:
+        written.append(write((loc["dir"] + "/" if loc["dir"] else "") + "404.html", not_found_html(loc["code"])))
     ready = [l for l in LOCALES if l["status"] == "ready"]
     print("locales ready: %s" % ", ".join(
         "%s%s" % (l["code"], "" if l["code"] == "en" else " %d%%" % l.get("coverage", 0))

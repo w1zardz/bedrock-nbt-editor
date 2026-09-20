@@ -22,17 +22,20 @@ function t(key,fallback){
   });
 }
 
+class NbtError extends Error {}
+function errorText(err){return err instanceof NbtError?err.message:t("unknown_error","The operation could not be completed")}
+
 const TAG={END:0,BYTE:1,SHORT:2,INT:3,LONG:4,FLOAT:5,DOUBLE:6,BYTE_ARRAY:7,STRING:8,LIST:9,COMPOUND:10,INT_ARRAY:11,LONG_ARRAY:12};
 const TAG_NAMES={0:"End",1:"Byte",2:"Short",3:"Int",4:"Long",5:"Float",6:"Double",7:"Byte[]",8:"String",9:"List",10:"Compound",11:"Int[]",12:"Long[]"};
 const TAG_SNBT_SUFFIX={1:"b",2:"s",3:"",4:"L",5:"f",6:"d"};
 const PLATFORM_LE=new Uint8Array(new Uint32Array([1]).buffer)[0]===1;
 
 const FORMATS={
-  "java":{le:false,varint:false,rootless:false,header:false,edition:"java",label:"Java big-endian"},
-  "java-network":{le:false,varint:false,rootless:true,header:false,edition:"java",label:"Java network (nameless root)"},
-  "bedrock-level":{le:true,varint:false,rootless:false,header:true,edition:"bedrock",label:"Bedrock level.dat (8-byte header)"},
-  "bedrock":{le:true,varint:false,rootless:false,header:false,edition:"bedrock",label:"Bedrock little-endian"},
-  "bedrock-network":{le:true,varint:true,rootless:false,header:false,edition:"bedrock",label:"Bedrock network (varint)"}
+  "java":{le:false,varint:false,rootless:false,header:false,edition:"java",label:t("format_label_java","Java big-endian")},
+  "java-network":{le:false,varint:false,rootless:true,header:false,edition:"java",label:t("format_label_java_network","Java network (nameless root)")},
+  "bedrock-level":{le:true,varint:false,rootless:false,header:true,edition:"bedrock",label:t("format_label_bedrock_level","Bedrock level.dat (8-byte header)")},
+  "bedrock":{le:true,varint:false,rootless:false,header:false,edition:"bedrock",label:t("format_label_bedrock","Bedrock little-endian")},
+  "bedrock-network":{le:true,varint:true,rootless:false,header:false,edition:"bedrock",label:t("format_label_bedrock_network","Bedrock network (varint)")}
 };
 /* probe order: most specific first */
 const PROBE_ORDER=["bedrock-level","java","bedrock","bedrock-network","java-network"];
@@ -115,13 +118,15 @@ async function runStream(bytes,stream){
 }
 async function decompressBytes(bytes,kind){
   if(kind==="none")return bytes;
-  if(!streamsSupported())throw new Error("This browser cannot decompress "+kind+" (Compression Streams API missing)");
-  return runStream(bytes,new DecompressionStream(kind==="gzip"?"gzip":"deflate"));
+  if(!streamsSupported())throw new NbtError(t("err_decompress","This browser cannot decompress {0} (Compression Streams API missing)",kind));
+  try{return await runStream(bytes,new DecompressionStream(kind==="gzip"?"gzip":"deflate"))}
+  catch(err){throw new NbtError(t("err_stream","Could not process {0} compression",kind))}
 }
 async function compressBytes(bytes,kind){
   if(kind==="none")return bytes;
-  if(!streamsSupported())throw new Error("This browser cannot compress "+kind+" (Compression Streams API missing)");
-  return runStream(bytes,new CompressionStream(kind==="gzip"?"gzip":"deflate"));
+  if(!streamsSupported())throw new NbtError(t("err_compress","This browser cannot compress {0} (Compression Streams API missing)",kind));
+  try{return await runStream(bytes,new CompressionStream(kind==="gzip"?"gzip":"deflate"))}
+  catch(err){throw new NbtError(t("err_stream","Could not process {0} compression",kind))}
 }
 
 /* ===== READER ===== */
@@ -136,9 +141,9 @@ class NBTReader{
     this.maxNodes=opts.maxNodes||8000000;
   }
   need(n){
-    if(n<0||this.off+n>this.bytes.length)throw new Error("Unexpected end of data at offset "+this.off);
+    if(n<0||this.off+n>this.bytes.length)throw new NbtError(t("err_end","Unexpected end of data at offset {0}",this.off));
   }
-  tick(){if(++this.nodes>this.maxNodes)throw new Error("Tag count limit exceeded")}
+  tick(){if(++this.nodes>this.maxNodes)throw new NbtError(t("err_tag_limit","Tag count limit exceeded"))}
   readByte(){this.need(1);return this.view.getInt8(this.off++)}
   readUByte(){this.need(1);return this.view.getUint8(this.off++)}
   readShort(){this.need(2);const v=this.view.getInt16(this.off,this.le);this.off+=2;return v}
@@ -154,7 +159,7 @@ class NBTReader{
       if((b&0x80)===0)return result>>>0;
       shift+=7;
     }
-    throw new Error("VarInt too long");
+    throw new NbtError(t("err_varint","VarInt too long"));
   }
   readVarInt(){
     const raw=this.readUVarInt();
@@ -169,7 +174,7 @@ class NBTReader{
       if((b&0x80n)===0n)return BigInt.asUintN(64,result);
       shift+=7n;
     }
-    throw new Error("VarLong too long");
+    throw new NbtError(t("err_varlong","VarLong too long"));
   }
   readVarLong(){
     const raw=this.readUVarLong();
@@ -188,8 +193,8 @@ class NBTReader{
   }
   readLength(elemSize){
     const len=this.readInt();
-    if(len<0)throw new Error("Negative array length: "+len);
-    if(len*elemSize>this.bytes.length-this.off)throw new Error("Array length "+len+" exceeds remaining data");
+    if(len<0)throw new NbtError(t("err_negative_array","Negative array length: {0}",len));
+    if(len*elemSize>this.bytes.length-this.off)throw new NbtError(t("err_array_length","Array length {0} exceeds remaining data",len));
     return len;
   }
   readByteArray(){
@@ -236,9 +241,9 @@ class NBTReader{
       case TAG.LIST:{
         const listType=this.readUByte();
         const len=this.readInt();
-        if(len<0)throw new Error("Negative list length");
-        if(listType===TAG.END&&len>0)throw new Error("List of TAG_End with "+len+" entries");
-        if(listType>12)throw new Error("Unknown list element type: "+listType);
+        if(len<0)throw new NbtError(t("err_negative_list","Negative list length"));
+        if(listType===TAG.END&&len>0)throw new NbtError(t("err_end_list","List of TAG_End with {0} entries",len));
+        if(listType>12)throw new NbtError(t("err_list_type","Unknown list element type: {0}",listType));
         const items=new Array(len);
         for(let i=0;i<len;i++)items[i]=this.readTag(listType);
         return{type:type,listType:listType,value:items};
@@ -246,11 +251,11 @@ class NBTReader{
       case TAG.COMPOUND:{
         const entries=[];
         for(;;){
-          const t=this.readUByte();
-          if(t===TAG.END)break;
-          if(t>12)throw new Error("Unknown tag type: "+t);
+          const typeId=this.readUByte();
+          if(typeId===TAG.END)break;
+          if(typeId>12)throw new NbtError(t("err_tag_type","Unknown tag type: {0}",typeId));
           const name=this.readString();
-          const tag=this.readTag(t);
+          const tag=this.readTag(typeId);
           tag.name=name;
           entries.push(tag);
         }
@@ -258,12 +263,12 @@ class NBTReader{
       }
       case TAG.INT_ARRAY:return{type:type,value:this.readIntArray()};
       case TAG.LONG_ARRAY:return{type:type,value:this.readLongArray()};
-      default:throw new Error("Unknown tag type: "+type);
+      default:throw new NbtError(t("err_tag_type","Unknown tag type: {0}",type));
     }
   }
   parseRoot(rootless){
     const rootType=this.readUByte();
-    if(rootType!==TAG.COMPOUND)throw new Error("Root tag must be TAG_Compound, got "+rootType);
+    if(rootType!==TAG.COMPOUND)throw new NbtError(t("err_root","Root tag must be TAG_Compound, got {0}",rootType));
     const name=rootless?"":this.readString();
     const root=this.readTag(TAG.COMPOUND);
     root.name=name;
@@ -327,7 +332,7 @@ class NBTWriter{
     const bytes=this.mutf8?encodeStringMUTF8(s):encodeStringUTF8(s);
     if(this.varint)this.writeUVarInt(bytes.length);
     else{
-      if(bytes.length>65535)throw new Error("String too long for this format: "+bytes.length+" bytes");
+      if(bytes.length>65535)throw new NbtError(t("err_string_length","String too long for this format: {0} bytes",bytes.length));
       this.writeUShort(bytes.length);
     }
     this.ensure(bytes.length);
@@ -393,7 +398,7 @@ class NBTWriter{
         }
         break;
       }
-      default:throw new Error("Cannot write tag type "+tag.type);
+      default:throw new NbtError(t("err_write_type","Cannot write tag type {0}",tag.type));
     }
   }
   writeRoot(root,rootless){
@@ -409,12 +414,12 @@ function parseWithFormat(bytes,formatId){
   const f=FORMATS[formatId];
   let payload=bytes,headerVersion=null;
   if(f.header){
-    if(bytes.length<8)throw new Error("Too short for a header");
+    if(bytes.length<8)throw new NbtError(t("err_header_short","Too short for a header"));
     const hv=new DataView(bytes.buffer,bytes.byteOffset,8);
     headerVersion=hv.getInt32(0,true);
     const declared=hv.getUint32(4,true);
-    if(headerVersion<0||headerVersion>1000)throw new Error("Implausible storage version: "+headerVersion);
-    if(declared!==bytes.length-8&&declared>bytes.length-8)throw new Error("Header length "+declared+" exceeds payload");
+    if(headerVersion<0||headerVersion>1000)throw new NbtError(t("err_storage_version","Implausible storage version: {0}",headerVersion));
+    if(declared!==bytes.length-8&&declared>bytes.length-8)throw new NbtError(t("err_header_length","Header length {0} exceeds payload",declared));
     payload=bytes.subarray(8);
   }
   const reader=new NBTReader(payload,{le:f.le,varint:f.varint});
@@ -433,7 +438,7 @@ function detectFormat(bytes){
     }catch(e){/* not this format */}
   }
   if(best&&best.score>=0.5)return best;
-  throw new Error("Not a recognizable NBT file (tried Java, Bedrock, network and header variants)");
+  throw new NbtError(t("err_unknown_file","Not a recognizable NBT file (tried Java, Bedrock, network and header variants)"));
 }
 
 function serialize(root,formatId,headerVersion){
@@ -555,7 +560,7 @@ function loadFile(file){
 
 async function openBuffer(raw){
   try{
-    if(raw.length<4)throw new Error("File is too small to contain NBT data");
+    if(raw.length<4)throw new NbtError(t("err_file_small","File is too small to contain NBT data"));
     srcCompression=sniffCompression(raw);
     const bytes=await decompressBytes(raw,srcCompression);
     const det=detectFormat(bytes);
@@ -570,7 +575,7 @@ async function openBuffer(raw){
     if(trailing>0)toast(t("trailing","{0} trailing byte(s) after the root tag were ignored",trailing),"info");
   }catch(err){
     console.error(err);
-    toast(t("error","Error: {0}",err.message),"error");
+    toast(t("error","Error: {0}",errorText(err)),"error");
   }
 }
 
@@ -599,8 +604,8 @@ function renderFileInfo(){
     '<span class="fmt-badge '+f.edition+'">'+(f.edition==="java"?"Java":"Bedrock")+'</span>'+
     '<span class="fname">'+escHtml(fileName)+'</span>'+
     '<span class="fmeta">'+escHtml(f.label)+
-    (srcCompression!=="none"?" &middot; "+srcCompression:" &middot; "+t("uncompressed","uncompressed"))+
-    (f.header?" &middot; "+t("storage","storage v{0}",headerVersion):"")+
+    (srcCompression!=="none"?" &middot; "+srcCompression:" &middot; "+escHtml(t("uncompressed","uncompressed")))+
+    (f.header?" &middot; "+escHtml(t("storage","storage v{0}",headerVersion)):"")+
     " &middot; "+formatBytes(fileSize)+'</span>';
 }
 
@@ -633,25 +638,27 @@ function formatValue(tag){
     case TAG.BYTE:case TAG.SHORT:case TAG.INT:case TAG.LONG:case TAG.FLOAT:case TAG.DOUBLE:
       return String(tag.value);
     case TAG.STRING:return '"'+tag.value+'"';
-    case TAG.BYTE_ARRAY:return "["+tag.value.length+" bytes]";
-    case TAG.INT_ARRAY:return "["+tag.value.length+" ints]";
-    case TAG.LONG_ARRAY:return "["+tag.value.length+" longs]";
-    case TAG.LIST:return tag.value.length+" "+(tag.value.length===1?"entry":"entries")+
-      (tag.value.length?" of "+(TAG_NAMES[tag.listType]||"?"):"");
-    case TAG.COMPOUND:return tag.value.length+" "+(tag.value.length===1?"entry":"entries");
+    case TAG.BYTE_ARRAY:return t("array_bytes","[{0} bytes]",tag.value.length);
+    case TAG.INT_ARRAY:return t("array_ints","[{0} ints]",tag.value.length);
+    case TAG.LONG_ARRAY:return t("array_longs","[{0} longs]",tag.value.length);
+    case TAG.LIST:return tag.value.length?t("entries_type","{0} entries of {1}",tag.value.length,TAG_NAMES[tag.listType]||"?"):t("entries","{0} entries",0);
+    case TAG.COMPOUND:return t("entries","{0} entries",tag.value.length);
     default:return "";
   }
 }
+function parseLongValue(value){
+  try{return BigInt(value)}catch(err){throw new NbtError(t("err_array_long","Invalid 64-bit integer: {0}",value))}
+}
 function applyValue(tag,str){
   switch(tag.type){
-    case TAG.BYTE:{const n=parseInt(str,10);if(isNaN(n)||n<-128||n>255)throw new Error("Byte must be -128..127");tag.value=n>127?n-256:n;break}
-    case TAG.SHORT:{const n=parseInt(str,10);if(isNaN(n)||n<-32768||n>32767)throw new Error("Short must be -32768..32767");tag.value=n;break}
-    case TAG.INT:{const n=parseInt(str,10);if(isNaN(n)||n<-2147483648||n>2147483647)throw new Error("Int must be -2147483648..2147483647");tag.value=n;break}
-    case TAG.LONG:{const b=BigInt(str.trim());if(b<-(2n**63n)||b>2n**63n-1n)throw new Error("Long out of 64-bit range");tag.value=b;break}
-    case TAG.FLOAT:{const n=parseFloat(str);if(isNaN(n))throw new Error("Invalid float");tag.value=Math.fround(n);break}
-    case TAG.DOUBLE:{const n=parseFloat(str);if(isNaN(n))throw new Error("Invalid double");tag.value=n;break}
+    case TAG.BYTE:{const n=parseInt(str,10);if(isNaN(n)||n<-128||n>255)throw new NbtError(t("err_byte","Byte must be -128..127"));tag.value=n>127?n-256:n;break}
+    case TAG.SHORT:{const n=parseInt(str,10);if(isNaN(n)||n<-32768||n>32767)throw new NbtError(t("err_short","Short must be -32768..32767"));tag.value=n;break}
+    case TAG.INT:{const n=parseInt(str,10);if(isNaN(n)||n<-2147483648||n>2147483647)throw new NbtError(t("err_int","Int must be -2147483648..2147483647"));tag.value=n;break}
+    case TAG.LONG:{const b=parseLongValue(str.trim());if(b<-(2n**63n)||b>2n**63n-1n)throw new NbtError(t("err_long","Long out of 64-bit range"));tag.value=b;break}
+    case TAG.FLOAT:{const n=parseFloat(str);if(isNaN(n))throw new NbtError(t("err_float","Invalid float"));tag.value=Math.fround(n);break}
+    case TAG.DOUBLE:{const n=parseFloat(str);if(isNaN(n))throw new NbtError(t("err_double","Invalid double"));tag.value=n;break}
     case TAG.STRING:tag.value=str;break;
-    default:throw new Error("This tag type is not editable inline");
+    default:throw new NbtError(t("err_not_inline","This tag type is not editable inline"));
   }
 }
 function parseArrayText(type,text){
@@ -660,7 +667,7 @@ function parseArrayText(type,text){
     const a=new Int8Array(parts.length);
     for(let i=0;i<parts.length;i++){
       const n=parseInt(parts[i],10);
-      if(isNaN(n)||n<-128||n>255)throw new Error("Invalid byte: "+parts[i]);
+      if(isNaN(n)||n<-128||n>255)throw new NbtError(t("err_array_byte","Invalid byte: {0}",parts[i]));
       a[i]=n;
     }
     return a;
@@ -669,13 +676,13 @@ function parseArrayText(type,text){
     const a=new Int32Array(parts.length);
     for(let i=0;i<parts.length;i++){
       const n=parseInt(parts[i],10);
-      if(isNaN(n))throw new Error("Invalid int: "+parts[i]);
+      if(isNaN(n))throw new NbtError(t("err_array_int","Invalid int: {0}",parts[i]));
       a[i]=n;
     }
     return a;
   }
   const a=new BigInt64Array(parts.length);
-  for(let i=0;i<parts.length;i++)a[i]=BigInt(parts[i].replace(/[lL]$/,""));
+  for(let i=0;i<parts.length;i++)a[i]=parseLongValue(parts[i].replace(/[lL]$/,""));
   return a;
 }
 function typedArrayWithout(arr,index){
@@ -718,7 +725,7 @@ function makeNode(tag,parentTag,index,parentWrapper){
   toggle.className="node-toggle"+(expandable?"":" leaf");
   toggle.textContent="▶";
   toggle.type="button";
-  toggle.setAttribute("aria-label","Toggle");
+  toggle.setAttribute("aria-label",t("toggle","Expand or collapse"));
   row.appendChild(toggle);
 
   const badge=document.createElement("span");
@@ -735,7 +742,7 @@ function makeNode(tag,parentTag,index,parentWrapper){
     nameEl.textContent="["+index+"]";
     nameEl.style.color="var(--text2)";
   }else{
-    nameEl.textContent=tag.name===""?"(root)":"";
+    nameEl.textContent=tag.name===""?t("root","(root)"):"";
     nameEl.style.color="var(--text2)";
   }
   row.appendChild(nameEl);
@@ -759,7 +766,7 @@ function makeNode(tag,parentTag,index,parentWrapper){
     const addBtn=document.createElement("button");
     addBtn.type="button";
     addBtn.textContent="+";
-    addBtn.title="Add child tag";
+    addBtn.title=t("add_child","Add child tag");
     addBtn.addEventListener("click",function(e){e.stopPropagation();openAddTagModal(tag,wrapper)});
     actions.appendChild(addBtn);
   }
@@ -768,7 +775,7 @@ function makeNode(tag,parentTag,index,parentWrapper){
     delBtn.type="button";
     delBtn.className="del";
     delBtn.textContent="×";
-    delBtn.title="Remove tag";
+    delBtn.title=t("remove_tag","Remove tag");
     delBtn.addEventListener("click",function(e){e.stopPropagation();removeChild(parentTag,index,parentWrapper)});
     actions.appendChild(delBtn);
   }
@@ -876,7 +883,7 @@ function startEditing(tag,el){
         applyValue(tag,input.value);
         if(tag.__arr)writeBackArrayElement(tag);
       }catch(err){
-        toast(t("badvalue","Invalid value: {0}",err.message),"error");
+        toast(t("badvalue","Invalid value: {0}",errorText(err)),"error");
       }
     }
     el.textContent=formatValue(tag);
@@ -903,7 +910,7 @@ function openArrayModal(tag,el){
   }
   arrayTargetTag=tag;
   arrayTargetEl=el;
-  document.getElementById("arrayModalTitle").textContent=(TAG_NAMES[tag.type]||"Array")+" — "+t("entries","{0} entries",tag.value.length);
+  document.getElementById("arrayModalTitle").textContent=(TAG_NAMES[tag.type]||t("array","Array"))+" — "+t("entries","{0} entries",tag.value.length);
   document.getElementById("arrayModalText").value=Array.prototype.join.call(tag.value,", ");
   arrayModal.classList.add("visible");
 }
@@ -959,13 +966,13 @@ function createDefaultTag(type,valueStr,listSubtype){
       applyValue(tag,v===""?(type===TAG.STRING?"":"0"):v);
       return tag;
     }
-    case TAG.LONG:return{type:type,value:v===""?0n:BigInt(v)};
+    case TAG.LONG:return{type:type,value:v===""?0n:parseLongValue(v)};
     case TAG.BYTE_ARRAY:return{type:type,value:parseArrayText(TAG.BYTE_ARRAY,v)};
     case TAG.INT_ARRAY:return{type:type,value:parseArrayText(TAG.INT_ARRAY,v)};
     case TAG.LONG_ARRAY:return{type:type,value:parseArrayText(TAG.LONG_ARRAY,v)};
     case TAG.LIST:return{type:type,listType:listSubtype||TAG.COMPOUND,value:[]};
     case TAG.COMPOUND:return{type:type,value:[]};
-    default:throw new Error("Unknown tag type");
+    default:throw new NbtError(t("err_tag_type","Unknown tag type: {0}",type));
   }
 }
 
@@ -974,7 +981,7 @@ function walkModel(visit,limitNodes){
   if(!currentRoot)return;
   const limit=limitNodes||400000;
   let seen=0;
-  const stack=[{tag:currentRoot,path:[],label:currentRoot.name||"(root)"}];
+  const stack=[{tag:currentRoot,path:[],label:currentRoot.name||t("root","(root)")}];
   while(stack.length){
     const cur=stack.pop();
     if(++seen>limit)return;
@@ -1078,7 +1085,7 @@ async function saveFile(){
       FORMATS[fmt].label+(comp!=="none"?" / "+comp:"")),"success");
   }catch(err){
     console.error(err);
-    toast(t("savefail","Save error: {0}",err.message),"error");
+    toast(t("savefail","Save error: {0}",errorText(err)),"error");
   }
 }
 
@@ -1091,7 +1098,7 @@ function exportSNBT(){
     toast(t("exported","Exported {0}",name),"success");
   }catch(err){
     console.error(err);
-    toast(t("snbtfail","SNBT error: {0}",err.message),"error");
+    toast(t("snbtfail","SNBT error: {0}",errorText(err)),"error");
   }
 }
 
@@ -1137,13 +1144,13 @@ document.getElementById("addTagConfirm").addEventListener("click",function(){
     const newTag=createDefaultTag(typeVal,valueStr,listSubtype);
     if(addTargetTag.type===TAG.COMPOUND){
       const name=nameInput.value.trim();
-      if(!name)throw new Error(t("nameneeded","Tag name is required"));
-      if(addTargetTag.value.some(function(t){return t.name===name}))throw new Error(t("nametaken","A tag named {0} already exists here",name));
+      if(!name)throw new NbtError(t("nameneeded","Tag name is required"));
+      if(addTargetTag.value.some(function(t){return t.name===name}))throw new NbtError(t("nametaken","A tag named {0} already exists here",name));
       newTag.name=name;
       addTargetTag.value.push(newTag);
     }else if(addTargetTag.type===TAG.LIST){
       if(addTargetTag.value.length&&addTargetTag.value[0].type!==newTag.type)
-        throw new Error(t("listtype","List already holds {0} entries",TAG_NAMES[addTargetTag.value[0].type]));
+        throw new NbtError(t("listtype","List already holds {0} entries",TAG_NAMES[addTargetTag.value[0].type]));
       addTargetTag.listType=newTag.type;
       addTargetTag.value.push(newTag);
     }
@@ -1153,7 +1160,7 @@ document.getElementById("addTagConfirm").addEventListener("click",function(){
     else renderTree();
     toast(t("tagadded","Tag added"),"success");
   }catch(err){
-    toast(t("error","Error: {0}",err.message),"error");
+    toast(t("error","Error: {0}",errorText(err)),"error");
   }
 });
 function closeAddModal(){
@@ -1184,7 +1191,7 @@ document.getElementById("arrayModalConfirm").addEventListener("click",function()
     }
     toast(t("arrayupdated","Array updated"),"success");
   }catch(err){
-    toast(t("badarray","Invalid array: {0}",err.message),"error");
+    toast(t("badarray","Invalid array: {0}",errorText(err)),"error");
   }
 });
 function closeArrayModal(){

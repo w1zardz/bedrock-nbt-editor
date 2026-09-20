@@ -3,79 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Java Edition NBT Editor — level.dat, playerdata, .nbt Online</title>
-<meta name="description" content="Online NBT editor for Minecraft Java Edition: gzip big-endian level.dat, playerdata, servers.dat and structure .nbt from Paper, Spigot, Fabric, Forge.">
-<meta name="keywords" content="java nbt editor, minecraft java edition nbt, java level.dat editor, paper level.dat, spigot nbt editor, fabric nbt, forge nbt editor, playerdata editor java, big-endian nbt, gzip nbt editor">
-<meta name="robots" content="noindex, follow">
+<title>Minecraft Java 版 NBT 在线编辑器</title>
+<meta name="description" content="适用于 Minecraft Java 版的在线 NBT 编辑器。可打开并修改 gzip 大端序的 level.dat、playerdata、servers.dat 与结构 .nbt 文件，兼容 Vanilla、Paper、Spigot、Fabric、Forge 等服务端；自动识别并按原压缩方式保存，文件不会离开浏览器。">
+<meta name="keywords" content="Java版NBT编辑器, Minecraft Java NBT修改器, Java 的 level.dat编辑器, playerdata编辑器, NBT在线编辑, Paper NBT, Spigot NBT, Fabric NBT, Forge NBT, gzip NBT编辑器">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="author" content="w1zardz">
 <link rel="canonical" href="https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/java-nbt-editor/">
+<link rel="alternate" hreflang="en" href="https://w1zardz.github.io/bedrock-nbt-editor/java-nbt-editor/">
+<link rel="alternate" hreflang="ru" href="https://w1zardz.github.io/bedrock-nbt-editor/ru/java-nbt-editor/">
+<link rel="alternate" hreflang="es" href="https://w1zardz.github.io/bedrock-nbt-editor/es/java-nbt-editor/">
+<link rel="alternate" hreflang="pt-BR" href="https://w1zardz.github.io/bedrock-nbt-editor/pt-br/java-nbt-editor/">
+<link rel="alternate" hreflang="de" href="https://w1zardz.github.io/bedrock-nbt-editor/de/java-nbt-editor/">
+<link rel="alternate" hreflang="fr" href="https://w1zardz.github.io/bedrock-nbt-editor/fr/java-nbt-editor/">
+<link rel="alternate" hreflang="it" href="https://w1zardz.github.io/bedrock-nbt-editor/it/java-nbt-editor/">
+<link rel="alternate" hreflang="pl" href="https://w1zardz.github.io/bedrock-nbt-editor/pl/java-nbt-editor/">
+<link rel="alternate" hreflang="uk" href="https://w1zardz.github.io/bedrock-nbt-editor/uk/java-nbt-editor/">
+<link rel="alternate" hreflang="tr" href="https://w1zardz.github.io/bedrock-nbt-editor/tr/java-nbt-editor/">
+<link rel="alternate" hreflang="id" href="https://w1zardz.github.io/bedrock-nbt-editor/id/java-nbt-editor/">
+<link rel="alternate" hreflang="vi" href="https://w1zardz.github.io/bedrock-nbt-editor/vi/java-nbt-editor/">
+<link rel="alternate" hreflang="th" href="https://w1zardz.github.io/bedrock-nbt-editor/th/java-nbt-editor/">
+<link rel="alternate" hreflang="zh-Hans" href="https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/java-nbt-editor/">
+<link rel="alternate" hreflang="ja" href="https://w1zardz.github.io/bedrock-nbt-editor/ja/java-nbt-editor/">
+<link rel="alternate" hreflang="ko" href="https://w1zardz.github.io/bedrock-nbt-editor/ko/java-nbt-editor/">
+<link rel="alternate" hreflang="ar" href="https://w1zardz.github.io/bedrock-nbt-editor/ar/java-nbt-editor/">
 <link rel="alternate" hreflang="x-default" href="https://w1zardz.github.io/bedrock-nbt-editor/java-nbt-editor/">
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="../../favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <link rel="manifest" href="../../site.webmanifest">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java Edition NBT Editor — big-endian, gzip, online">
-<meta property="og:description" content="Online NBT editor for Minecraft Java Edition: gzip big-endian level.dat, playerdata, servers.dat and structure .nbt from Paper, Spigot, Fabric, Forge.">
+<meta property="og:title" content="Java 版 NBT 编辑器｜大端序、gzip、在线处理">
+<meta property="og:description" content="适用于 Minecraft Java 版的在线 NBT 编辑器。可打开并修改 gzip 大端序的 level.dat、playerdata、servers.dat 与结构 .nbt 文件，兼容 Vanilla、Paper、Spigot、Fabric、Forge 等服务端；自动识别并按原压缩方式保存，文件不会离开浏览器。">
 <meta property="og:url" content="https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/java-nbt-editor/">
-<meta property="og:site_name" content="Minecraft NBT Editor">
+<meta property="og:site_name" content="Minecraft NBT 编辑器">
 <meta property="og:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/java.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="zh_CN">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Java Edition NBT Editor — big-endian, gzip, online">
-<meta name="twitter:description" content="Online NBT editor for Minecraft Java Edition: gzip big-endian level.dat, playerdata, servers.dat and structure .nbt from Paper, Spigot, Fabric, Forge.">
+<meta name="twitter:title" content="Java 版 NBT 编辑器｜大端序、gzip、在线处理">
+<meta name="twitter:description" content="适用于 Minecraft Java 版的在线 NBT 编辑器。可打开并修改 gzip 大端序的 level.dat、playerdata、servers.dat 与结构 .nbt 文件，兼容 Vanilla、Paper、Spigot、Fabric、Forge 等服务端；自动识别并按原压缩方式保存，文件不会离开浏览器。">
 <meta name="twitter:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/java.png">
-<meta property="article:modified_time" content="2026-08-26">
-<meta property="og:updated_time" content="2026-08-26">
+<meta property="article:modified_time" content="2026-09-21">
+<meta property="og:updated_time" content="2026-09-21">
 <meta name="theme-color" content="#0d1117">
-<meta name="application-name" content="Minecraft NBT Editor">
-<meta name="apple-mobile-web-app-title" content="NBT Editor">
-<link rel="preload" href="../../assets/nbt.js?v=da7967b1" as="script">
-<script>window.__LANG_URLS__={"en":"../../java-nbt-editor/","ru":"../../ru/java-nbt-editor/","es":"../../es/java-nbt-editor/","pt-br":"../../pt-br/java-nbt-editor/","de":"../../de/java-nbt-editor/","fr":"../../fr/java-nbt-editor/","it":"../../it/java-nbt-editor/","pl":"../../pl/java-nbt-editor/","uk":"../../uk/java-nbt-editor/","tr":"../../tr/java-nbt-editor/","id":"../../id/java-nbt-editor/","vi":"../../vi/java-nbt-editor/","th":"../../th/java-nbt-editor/","zh-hans":"./","ja":"../../ja/java-nbt-editor/","ko":"../../ko/java-nbt-editor/","ar":"../../ar/java-nbt-editor/"};window.__NBT_STRINGS__={"loaded":"Loaded as {0}","trailing":"{0} trailing byte(s) after the root tag were ignored","error":"Error: {0}","readfail":"Could not read the file","nofile":"No file loaded","saved":"Saved {0} ({1}, {2})","savefail":"Save error: {0}","exported":"Exported {0}","snbtfail":"SNBT error: {0}","tagadded":"Tag added","tagremoved":"Tag removed","arrayupdated":"Array updated","badvalue":"Invalid value: {0}","badarray":"Invalid array: {0}","nameneeded":"Tag name is required","nametaken":"A tag named {0} already exists here","listtype":"List already holds {0} entries","editlevelname":"✎ Edit LevelName","showmore":"Show {0} more of {1} …","matches":"{0} match(es)","nomatch":"No tag matches \"{0}\"","arraytoobig":"Array has {0} entries — expand it and edit elements individually","uncompressed":"uncompressed","storage":"storage v{0}","entries":"{0} entries","langprompt":"Open this page in {0}?","langyes":"Switch","langno":"Stay"};</script>
-<script src="../../assets/lang.js?v=a3a1db0e" defer></script>
+<meta name="application-name" content="Minecraft NBT 编辑器">
+<meta name="apple-mobile-web-app-title" content="NBT 编辑器">
+<link rel="preload" href="../../assets/nbt.js?v=6f125422" as="script">
+<script>window.__LANG_URLS__={"en":"../../java-nbt-editor/","ru":"../../ru/java-nbt-editor/","es":"../../es/java-nbt-editor/","pt-br":"../../pt-br/java-nbt-editor/","de":"../../de/java-nbt-editor/","fr":"../../fr/java-nbt-editor/","it":"../../it/java-nbt-editor/","pl":"../../pl/java-nbt-editor/","uk":"../../uk/java-nbt-editor/","tr":"../../tr/java-nbt-editor/","id":"../../id/java-nbt-editor/","vi":"../../vi/java-nbt-editor/","th":"../../th/java-nbt-editor/","zh-hans":"./","ja":"../../ja/java-nbt-editor/","ko":"../../ko/java-nbt-editor/","ar":"../../ar/java-nbt-editor/"};window.__NBT_STRINGS__={"loaded":"已按 {0} 加载","trailing":"已忽略根标签后的 {0} 个尾随字节","error":"错误：{0}","readfail":"无法读取文件","nofile":"未加载文件","saved":"已保存 {0}（{1}，{2}）","savefail":"保存错误：{0}","exported":"已导出 {0}","snbtfail":"SNBT 错误：{0}","tagadded":"已添加标签","tagremoved":"已删除标签","arrayupdated":"已更新数组","badvalue":"无效值：{0}","badarray":"无效数组：{0}","nameneeded":"必须填写标签名称","nametaken":"此处已存在名为 {0} 的标签","listtype":"列表已包含 {0} 类型的项目","editlevelname":"✎ 编辑 LevelName","showmore":"再显示 {1} 项中的 {0} 项…","matches":"{0} 个匹配项","nomatch":"没有标签匹配“{0}”","arraytoobig":"数组包含 {0} 项，请展开并逐项编辑","uncompressed":"未压缩","storage":"存储版本 v{0}","entries":"{0} 项","langprompt":"要使用{0}打开此页面吗？","langyes":"切换","langno":"保留当前语言","nav_editor":"编辑器","nav_format":"NBT 格式","language":"语言：{0}","beta":"测试版","skip_editor":"跳转到编辑器","brand_editor":"NBT 编辑器","guides":"指南","updated":"最后更新：{0}。","drop":"将{0}拖放到这里","choose_file":"选择文件","file_hint":"level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · 区块转储数据","output_format":"输出格式","format_java":"Java — 大端序，根标签有名称","format_java_network":"Java 网络 — 大端序，根标签无名称","format_bedrock_level":"Bedrock level.dat — 小端序 + 8 字节文件头","format_bedrock":"Bedrock 原始数据 — 小端序","format_bedrock_network":"Bedrock 网络 — 小端序变长整数","compression":"压缩","compression_none":"不压缩（原始数据）","search_placeholder":"搜索标签名称或值…","search":"搜索","collapse":"全部折叠","add_tag":"+ 添加标签","save_download":"保存并下载","export_snbt":"导出 SNBT","close":"关闭","add_new_tag":"添加新标签","tag_name":"标签名称","tag_type":"标签类型","tag_example":"例如 MyTag","value":"值","list_element_type":"列表元素类型","cancel":"取消","add":"添加","edit_array":"编辑数组","comma_values":"以逗号分隔的值","apply":"应用","format_label_java":"Java 大端序","format_label_java_network":"Java 网络（根标签无名称）","format_label_bedrock_level":"Bedrock level.dat（8 字节文件头）","format_label_bedrock":"Bedrock 小端序","format_label_bedrock_network":"Bedrock 网络（变长整数）","err_decompress":"此浏览器无法解压 {0}（不支持 Compression Streams API）","err_compress":"此浏览器无法压缩为 {0}（不支持 Compression Streams API）","err_stream":"无法处理 {0} 压缩","err_end":"数据在偏移量 {0} 处意外结束","err_tag_limit":"标签数量超出限制","err_varint":"VarInt 过长","err_varlong":"VarLong 过长","err_negative_array":"数组长度为负数：{0}","err_array_length":"数组长度 {0} 超出剩余数据范围","err_negative_list":"列表长度为负数","err_end_list":"TAG_End 列表包含 {0} 个元素","err_list_type":"未知的列表元素类型：{0}","err_tag_type":"未知的标签类型：{0}","err_root":"根标签必须为 TAG_Compound，实际为 {0}","err_string_length":"字符串超出此格式的长度限制：{0} 字节","err_write_type":"无法写入类型为 {0} 的标签","err_header_short":"数据过短，无法包含文件头","err_storage_version":"不合理的存储版本：{0}","err_header_length":"文件头中声明的长度 {0} 超出有效载荷大小","err_unknown_file":"无法识别此 NBT 文件（已尝试 Java、Bedrock、网络和带文件头的变体）","err_file_small":"文件过小，无法包含 NBT 数据","err_byte":"Byte 必须在 -128..127 范围内","err_short":"Short 必须在 -32768..32767 范围内","err_int":"Int 必须在 -2147483648..2147483647 范围内","err_long":"Long 超出 64 位整数范围","err_float":"无效的 float 值","err_double":"无效的 double 值","err_not_inline":"此标签类型无法直接编辑","err_array_byte":"无效的 byte 值：{0}","err_array_int":"无效的 int 值：{0}","err_array_long":"无效的 64 位整数：{0}","root":"（根）","add_child":"添加子标签","remove_tag":"删除标签","array":"数组","array_bytes":"[{0} 个字节]","array_ints":"[{0} 个 int]","array_longs":"[{0} 个 long]","entries_type":"{0} 个 {1} 类型的元素","unknown_error":"无法完成此操作","software_name":"Minecraft NBT 编辑器","software_alternate_online":"在线 NBT 编辑器","software_alternate_bedrock":"Bedrock NBT 编辑器","software_alternate_level":"level.dat 编辑器","software_subcategory":"游戏文件编辑器","software_os":"任意系统（浏览器）","software_browser":"支持 BigInt 和 Compression Streams 的现代浏览器","feature_java":"Java Edition 大端序 NBT","feature_bedrock":"Bedrock Edition 小端序 NBT","feature_bedrock_network":"Bedrock 网络 NBT（变长整数）","feature_java_network":"Java 网络 NBT（根标签无名称）","feature_compression":"gzip 和 zlib 压缩","feature_types":"全部 13 种 NBT 标签类型，保留 64 位精度","feature_snbt":"导出 SNBT","feature_local":"完全在本地客户端运行","schema_about":"Minecraft NBT 数据格式","not_found_title":"找不到页面 — {0}","not_found_heading":"404 — 此页面已移动或从未存在","not_found_intro":"点击即可打开编辑器，下方提供了各工具的固定链接。","not_found_footer":"{0} — 免费且开源。","aria_bedrock_gamerules":"Bedrock 游戏规则","aria_bedrock_level_dat_header":"Bedrock level.dat 文件头","aria_bedrock_tags":"Bedrock 标签","aria_breadcrumb":"面包屑导航","aria_byte_walkthrough":"逐字节讲解","aria_causes":"原因","aria_common_repairs":"常见修复方法","aria_comparison":"对比","aria_compatibility":"兼容性","aria_compression":"压缩","aria_core_specifics":"各服务端的特点","aria_dataversion":"DataVersion","aria_drop_an_nbt_file_here_or_click_to_browse":"将 NBT 文件拖放到这里，或点击选择文件","aria_duplicate_world_names":"世界名称重复","aria_editing_schematics":"编辑原理图","aria_encodings":"编码方式","aria_features":"功能","aria_file_types":"文件类型","aria_frequently_asked_questions":"常见问题","aria_how_to_use":"使用方法","aria_inside_a_mcstructure_file":"mcstructure 文件内部结构","aria_introduction":"简介","aria_java_nbt_encoding":"Java NBT 编码","aria_java_nbt_files":"Java NBT 文件","aria_java_gamerules":"Java 游戏规则","aria_migrating":"从其他工具迁移","aria_other_bedrock_nbt":"其他 Bedrock NBT","aria_other_tools":"其他工具","aria_per_platform":"各平台说明","aria_prevention":"预防措施","aria_related_tools":"相关工具","aria_snbt":"SNBT","aria_safety":"安全注意事项","aria_salvage":"数据恢复","aria_schematic_formats":"原理图格式","aria_scripting":"脚本调用","aria_search_nbt_tags":"搜索 NBT 标签","aria_server_cores":"服务端核心","aria_server_safety":"服务端安全","aria_server_workflow":"服务端操作流程","aria_strings":"字符串","aria_supported_files":"支持的文件","aria_supported_server_software":"支持的服务端软件","aria_tag_types":"标签类型","aria_tags_in_level_dat":"level.dat 中的标签","aria_tools":"工具","aria_troubleshooting":"故障排查","aria_typical_edits":"常见编辑操作","aria_what_you_can_inspect":"可检查的内容","aria_where_bedrock_files_live":"Bedrock 文件位置","aria_where_mcstructure_files_live":"mcstructure 文件位置","aria_where_to_find_level_dat":"level.dat 的位置","aria_why_edit_the_file":"为什么要编辑文件","aria_why_the_folder_name_is_not_the_world_name":"为什么文件夹名称不等于世界名称","aria_playerdata_tags":"playerdata 标签","toggle":"展开或折叠"};</script>
+<script src="../../assets/lang.js?v=23a64b2c" defer></script>
 <link rel="stylesheet" href="../../assets/app.css?v=f5bdcb0f">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Java Edition NBT Editor \u2014 level.dat, playerdata, .nbt Online","headline":"Java Edition NBT Editor","description":"Online NBT editor for Minecraft Java Edition: gzip big-endian level.dat, playerdata, servers.dat and structure .nbt from Paper, Spigot, Fabric, Forge.","url":"https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/java-nbt-editor/","inLanguage":"zh-hans","datePublished":"2026-05-29","dateModified":"2026-08-26","isPartOf":{"@type":"WebSite","name":"Minecraft NBT Editor","url":"https://w1zardz.github.io/bedrock-nbt-editor/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/java.png"},"about":{"@type":"Thing","name":"Minecraft NBT data format"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT Editor","item":"https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/"},{"@type":"ListItem","position":2,"name":"Java Edition NBT Editor","item":"https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/java-nbt-editor/"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I open a Java level.dat that will not load in game?","acceptedAnswer":{"@type":"Answer","text":"Usually yes \u2014 the editor is more tolerant than the game about trailing bytes, and it reports exactly where parsing stopped if the file is truncated. If it refuses too, try level.dat_old, which is the previous autosave."}},{"@type":"Question","name":"Does it support 1.20.2+ network NBT?","acceptedAnswer":{"@type":"Answer","text":"Yes. From 1.20.2 the protocol omits the root name. A dump in that shape is detected as the Java network format and can be re-saved either as network NBT or as a normal named-root file."}},{"@type":"Question","name":"Can I edit a chunk from a .mca region file?","acceptedAnswer":{"@type":"Answer","text":"You can edit chunk NBT once it is extracted from the region container. The .mca itself is an index plus many zlib-compressed chunk payloads, and this editor works on a single NBT document, not on the container."}},{"@type":"Question","name":"Will editing playerdata break the player?","acceptedAnswer":{"@type":"Answer","text":"Only if the server is running while you do it \u2014 it holds player state in memory and writes it out on logout, overwriting your file. Take the player offline, edit, then let them reconnect. See the playerdata editor."}},{"@type":"Question","name":"Is a gzip level.dat required?","acceptedAnswer":{"@type":"Answer","text":"The vanilla loader reads gzip. Save with compression set to gzip \u2014 the default when the file arrived that way \u2014 and the game will accept it."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Minecraft Java 版 NBT 在线编辑器","headline":"Java 版 NBT 编辑器","description":"适用于 Minecraft Java 版的在线 NBT 编辑器。可打开并修改 gzip 大端序的 level.dat、playerdata、servers.dat 与结构 .nbt 文件，兼容 Vanilla、Paper、Spigot、Fabric、Forge 等服务端；自动识别并按原压缩方式保存，文件不会离开浏览器。","url":"https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/java-nbt-editor/","inLanguage":"zh-hans","datePublished":"2026-05-29","dateModified":"2026-09-21","isPartOf":{"@type":"WebSite","name":"Minecraft NBT 编辑器","url":"https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/java.png"},"about":{"@type":"Thing","name":"Minecraft NBT 数据格式"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT 编辑器","item":"https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/"},{"@type":"ListItem","position":2,"name":"Java 版 NBT 编辑器","item":"https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/java-nbt-editor/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"可以打开游戏无法加载的 Java 的 level.dat 吗？","acceptedAnswer":{"@type":"Answer","text":"通常可以。编辑器比游戏更能容忍尾随字节；如果文件被截断，它会准确报告解析停止的位置。如果编辑器也拒绝，请尝试上一次自动保存的 level.dat_old。"}},{"@type":"Question","name":"支持 1.20.2+ 网络 NBT 吗？","acceptedAnswer":{"@type":"Answer","text":"支持。从 1.20.2 开始，协议会省略根名称。此类转储会被识别为Java 网络格式，可重新保存为网络 NBT，也可保存为普通的有名称根文件。"}},{"@type":"Question","name":"可以编辑 .mca 区域文件中的区块吗？","acceptedAnswer":{"@type":"Answer","text":"从区域容器提取区块 NBT 后即可编辑。.mca 本身由索引和多个 zlib 压缩的区块负载组成，而本编辑器处理单个 NBT 文档，不处理容器。"}},{"@type":"Question","name":"编辑 playerdata 会破坏玩家数据吗？","acceptedAnswer":{"@type":"Answer","text":"只有在服务器运行时编辑才容易出问题：服务器会将玩家状态保存在内存中，并在退出时写回，从而覆盖文件。先让玩家离线，完成编辑后再重新连接。请参阅 playerdata 编辑器。"}},{"@type":"Question","name":"level.dat 必须使用 gzip 吗？","acceptedAnswer":{"@type":"Answer","text":"Vanilla 加载器读取 gzip。请将压缩方式设为 gzip；如果输入文件原本如此，这也是默认设置，游戏即可正常接受。"}}]}</script>
 </head>
 <body>
-<a class="skip-link" href="#editor">Skip to the editor</a>
+<a class="skip-link" href="#editor">跳转到编辑器</a>
 <header class="site-header">
 <div class="container">
-<a class="brand" href="../"><span>Minecraft</span> NBT Editor</a>
+<a class="brand" href="../"><span>Minecraft</span> NBT 编辑器</a>
 <span class="badge">Java + Bedrock</span>
-<nav class="site-nav" aria-label="Tools">
-<a href="../">Editor</a>
+<nav class="site-nav" aria-label="工具">
+<a href="../">编辑器</a>
 <a href="../level-dat-editor/">level.dat</a>
 <a href="./" class="active">Java</a>
 <a href="../mcpe-nbt-editor/">Bedrock</a>
 <a href="../mcstructure-editor/">.mcstructure</a>
 <a href="../schematic-editor/">.schem</a>
 <a href="../playerdata-editor/">playerdata</a>
-<a href="../nbt-format/">NBT format</a>
+<a href="../nbt-format/">NBT 格式</a>
 </nav>
-<details class="lang-switch"><summary title="Language: 简体中文" aria-label="Language: 简体中文"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">Language: 简体中文</span></summary><div class="lang-menu"><a href="./" hreflang="zh-Hans" data-lang="zh-hans" aria-current="true" class="current">简体中文</a><a href="../../java-nbt-editor/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../ru/java-nbt-editor/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../es/java-nbt-editor/" hreflang="es" data-lang="es" rel="alternate">Español (beta)</a><a href="../../pt-br/java-nbt-editor/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR) (beta)</a><a href="../../de/java-nbt-editor/" hreflang="de" data-lang="de" rel="alternate">Deutsch (beta)</a><a href="../../fr/java-nbt-editor/" hreflang="fr" data-lang="fr" rel="alternate">Français (beta)</a><a href="../../it/java-nbt-editor/" hreflang="it" data-lang="it" rel="alternate">Italiano (beta)</a><a href="../../pl/java-nbt-editor/" hreflang="pl" data-lang="pl" rel="alternate">Polski (beta)</a><a href="../../uk/java-nbt-editor/" hreflang="uk" data-lang="uk" rel="alternate">Українська (beta)</a><a href="../../tr/java-nbt-editor/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe (beta)</a><a href="../../id/java-nbt-editor/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia (beta)</a><a href="../../vi/java-nbt-editor/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt (beta)</a><a href="../../th/java-nbt-editor/" hreflang="th" data-lang="th" rel="alternate">ไทย (beta)</a><a href="../../ja/java-nbt-editor/" hreflang="ja" data-lang="ja" rel="alternate">日本語 (beta)</a><a href="../../ko/java-nbt-editor/" hreflang="ko" data-lang="ko" rel="alternate">한국어 (beta)</a><a href="../../ar/java-nbt-editor/" hreflang="ar" data-lang="ar" rel="alternate">العربية (beta)</a></div></details>
+<details class="lang-switch"><summary title="语言：简体中文" aria-label="语言：简体中文"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">语言：简体中文</span></summary><div class="lang-menu"><a href="./" hreflang="zh-Hans" data-lang="zh-hans" aria-current="true" class="current">简体中文</a><a href="../../java-nbt-editor/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../ru/java-nbt-editor/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../es/java-nbt-editor/" hreflang="es" data-lang="es" rel="alternate">Español</a><a href="../../pt-br/java-nbt-editor/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR)</a><a href="../../de/java-nbt-editor/" hreflang="de" data-lang="de" rel="alternate">Deutsch</a><a href="../../fr/java-nbt-editor/" hreflang="fr" data-lang="fr" rel="alternate">Français</a><a href="../../it/java-nbt-editor/" hreflang="it" data-lang="it" rel="alternate">Italiano</a><a href="../../pl/java-nbt-editor/" hreflang="pl" data-lang="pl" rel="alternate">Polski</a><a href="../../uk/java-nbt-editor/" hreflang="uk" data-lang="uk" rel="alternate">Українська</a><a href="../../tr/java-nbt-editor/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe</a><a href="../../id/java-nbt-editor/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia</a><a href="../../vi/java-nbt-editor/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt</a><a href="../../th/java-nbt-editor/" hreflang="th" data-lang="th" rel="alternate">ไทย</a><a href="../../ja/java-nbt-editor/" hreflang="ja" data-lang="ja" rel="alternate">日本語</a><a href="../../ko/java-nbt-editor/" hreflang="ko" data-lang="ko" rel="alternate">한국어</a><a href="../../ar/java-nbt-editor/" hreflang="ar" data-lang="ar" rel="alternate">العربية</a></div></details>
 </div>
 </header>
 <main>
-<nav class="breadcrumbs container" aria-label="Breadcrumb"><a href="../">NBT Editor</a> <span class="sep">/</span> <span>Java</span></nav>
-<section class="hero" aria-label="Introduction">
+<nav class="breadcrumbs container" aria-label="面包屑导航"><a href="../">NBT 编辑器</a> <span class="sep">/</span> <span>Java</span></nav>
+<section class="hero" aria-label="简介">
 <div class="container">
-<h1>Java Edition NBT Editor</h1>
-<p class="support-line"><strong>Supports Minecraft Bedrock Edition and Java Edition</strong> — and every server core for both, popular or obscure: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina and the rest. <a href="../#server-software">Full list</a>.</p>
-<p class="lede">Minecraft Java Edition stores its data as big-endian NBT, almost always gzip-compressed. Drop any Java file below — <code>level.dat</code>, a <code>playerdata</code> UUID file, <code>servers.dat</code>, a structure <code>.nbt</code>, a WorldEdit schematic — and the editor decompresses it, parses it big-endian and writes it back gzip-compressed so the game accepts it unchanged.</p>
+<h1>Java 版 NBT 编辑器</h1>
+<p class="support-line"><strong>支持 Minecraft 基岩版和 Java 版</strong>，也支持两者所有常见或少见的服务端核心：Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLamina 等。<a href="../#server-software">完整列表</a>。</p>
+<p class="lede">Minecraft Java 版以大端序 NBT 存储数据，并且几乎总是使用 gzip 压缩。将任意 Java 文件拖入下方，例如 <code>level.dat</code>、<code>playerdata</code> UUID 文件、<code>servers.dat</code>、结构 <code>.nbt</code> 或 WorldEdit 原理图；编辑器会解压文件，以大端序解析，再用 gzip 压缩写回，使游戏可以按原样接受。</p>
 <div class="chips"><span class="chip">Vanilla</span><span class="chip">Paper</span><span class="chip">Spigot</span><span class="chip">Purpur</span><span class="chip">Folia</span><span class="chip">Fabric</span><span class="chip">Quilt</span><span class="chip">Forge</span><span class="chip">NeoForge</span><span class="chip">Sponge</span></div>
 </div>
 </section>
 <div id="editor">
 
-<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="Drop an NBT file here or click to browse">
+<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="将 NBT 文件拖放到这里，或点击选择文件">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 16V4m0 0L8 8m4-4l4 4"/><path d="M20 16v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2"/></svg>
-<p>Drop <strong>a Java NBT file</strong> here</p>
-<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">Choose File</button>
-<span class="hint">level.dat &middot; .nbt &middot; .mcstructure &middot; .schem &middot; .schematic &middot; .dat &middot; chunk dumps</span>
+<p>将<strong>Java NBT 文件</strong>拖放到这里</p>
+<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">选择文件</button>
+<span class="hint">level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · 区块转储数据</span>
 <input type="file" id="fileInput">
 </div>
 
@@ -83,18 +100,16 @@
 <div class="file-info" id="fileInfo"></div>
 
 <div class="out-bar" id="outBar">
-<label>Output format
-<select id="outFormat">
-<option value="java">Java — big-endian, named root</option>
-<option value="java-network">Java network — big-endian, nameless root</option>
-<option value="bedrock-level">Bedrock level.dat — little-endian + 8-byte header</option>
-<option value="bedrock">Bedrock raw — little-endian</option>
-<option value="bedrock-network">Bedrock network — little-endian varint</option>
+<label>输出格式<select id="outFormat">
+<option value="java">Java — 大端序，根标签有名称</option>
+<option value="java-network">Java 网络 — 大端序，根标签无名称</option>
+<option value="bedrock-level">Bedrock level.dat — 小端序 + 8 字节文件头</option>
+<option value="bedrock">Bedrock 原始数据 — 小端序</option>
+<option value="bedrock-network">Bedrock 网络 — 小端序变长整数</option>
 </select>
 </label>
-<label>Compression
-<select id="outCompression">
-<option value="none">None (raw)</option>
+<label>压缩<select id="outCompression">
+<option value="none">不压缩（原始数据）</option>
 <option value="gzip">gzip</option>
 <option value="zlib">zlib (deflate)</option>
 </select>
@@ -102,9 +117,9 @@
 </div>
 
 <div class="search-bar">
-<input type="search" id="searchInput" placeholder="Search tag name or value…" autocomplete="off" spellcheck="false" aria-label="Search NBT tags">
-<button type="button" id="btnSearch">Search</button>
-<button type="button" id="btnCollapse">Collapse all</button>
+<input type="search" id="searchInput" placeholder="搜索标签名称或值…" autocomplete="off" spellcheck="false" aria-label="搜索 NBT 标签">
+<button type="button" id="btnSearch">搜索</button>
+<button type="button" id="btnCollapse">全部折叠</button>
 </div>
 <div class="search-results" id="searchResults"></div>
 
@@ -112,83 +127,83 @@
 </div>
 
 <div class="bottom-bar" id="bottomBar">
-<button class="btn-add" id="btnAddRoot" type="button">+ Add Tag</button>
-<button class="btn-save" id="btnSave" type="button">Save &amp; Download</button>
-<button class="btn-snbt" id="btnSnbt" type="button">Export SNBT</button>
-<button class="btn-close" id="btnCloseFile" type="button">Close</button>
+<button class="btn-add" id="btnAddRoot" type="button">+ 添加标签</button>
+<button class="btn-save" id="btnSave" type="button">保存并下载</button>
+<button class="btn-snbt" id="btnSnbt" type="button">导出 SNBT</button>
+<button class="btn-close" id="btnCloseFile" type="button">关闭</button>
 </div>
 
 </div>
 <div id="contentSections">
-<nav class="toc" aria-label="On this page"><h2 id="on-this-page">On this page</h2><ul><li><a href="#what-a-java-world-is-made-of">What a Java world is made of</a></li><li><a href="#how-java-encodes-nbt">How Java encodes NBT</a></li><li><a href="#paper-spigot-fabric-forge-same-files">Paper, Spigot, Fabric, Forge — same files</a></li><li><a href="#dataversion-and-version-migration">DataVersion and version migration</a></li></ul></nav>
-<section class="content" aria-label="Java NBT files">
-<h2 id="what-a-java-world-is-made-of">What a Java world is made of</h2>
-<p>Everything below opens in the editor above. Region files themselves (<code>.mca</code>) are a container of many compressed chunks rather than a single NBT document, so extract a chunk payload first — the editor reads the zlib-compressed chunk NBT that comes out.</p>
+<nav class="toc" aria-label="本页目录"><h2 id="on-this-page">本页目录</h2><ul><li><a href="#what-a-java-world-is-made-of">Java 世界包含哪些文件</a></li><li><a href="#how-java-encodes-nbt">Java 如何编码 NBT</a></li><li><a href="#paper-spigot-fabric-forge-same-files">Paper、Spigot、Fabric、Forge 使用相同文件</a></li><li><a href="#dataversion-and-version-migration">DataVersion 与版本迁移</a></li></ul></nav>
+<section class="content" aria-label="Java NBT 文件">
+<h2 id="what-a-java-world-is-made-of">Java 世界包含哪些文件</h2>
+<p>下表中的文件都能在上方编辑器中打开。区域文件本身（<code>.mca</code>）是包含许多压缩区块的容器，而不是单个 NBT 文档，因此需要先提取区块负载；编辑器可读取提取出的 zlib 压缩区块 NBT。</p>
 <div class="table-wrap">
 <table class="matrix">
-<thead><tr><th>Path</th><th>Contents</th><th>Compression</th></tr></thead>
+<thead><tr><th>路径</th><th>内容</th><th>压缩</th></tr></thead>
 <tbody>
-<tr><td><code>world/level.dat</code></td><td>World name, game mode, rules, spawn, <code>DataVersion</code></td><td>gzip</td></tr>
-<tr><td><code>world/level.dat_old</code></td><td>Previous save of the same file</td><td>gzip</td></tr>
-<tr><td><code>world/playerdata/&lt;uuid&gt;.dat</code></td><td>Inventory, ender chest, position, health, XP, attributes</td><td>gzip</td></tr>
-<tr><td><code>world/data/raids.dat</code>, <code>idcounts.dat</code>, <code>map_*.dat</code></td><td>Raid state, entity id counters, map items</td><td>gzip</td></tr>
-<tr><td><code>world/data/scoreboard.dat</code></td><td>Objectives, teams, scores</td><td>gzip</td></tr>
-<tr><td><code>world/region/*.mca</code></td><td>Chunk NBT inside a region container</td><td>zlib per chunk</td></tr>
-<tr><td><code>servers.dat</code></td><td>Multiplayer server list from the client</td><td>none</td></tr>
-<tr><td><code>hotbar.nbt</code></td><td>Saved creative hotbars</td><td>none</td></tr>
-<tr><td><code>*.nbt</code> in datapacks</td><td>Structures placed by structure blocks and jigsaws</td><td>gzip</td></tr>
+<tr><td><code>world/level.dat</code></td><td>世界名称、游戏模式、规则、出生点、<code>DataVersion</code></td><td>gzip</td></tr>
+<tr><td><code>world/level.dat_old</code></td><td>同一文件的上一次保存</td><td>gzip</td></tr>
+<tr><td><code>world/playerdata/&lt;uuid&gt;.dat</code></td><td>物品栏、末影箱、位置、生命值、经验、属性</td><td>gzip</td></tr>
+<tr><td><code>world/data/raids.dat</code>, <code>idcounts.dat</code>, <code>map_*.dat</code></td><td>袭击状态、实体 ID 计数器、地图物品</td><td>gzip</td></tr>
+<tr><td><code>world/data/scoreboard.dat</code></td><td>记分项、队伍、分数</td><td>gzip</td></tr>
+<tr><td><code>world/region/*.mca</code></td><td>区域容器内的区块 NBT</td><td>每个区块使用 zlib</td></tr>
+<tr><td><code>servers.dat</code></td><td>客户端的多人服务器列表</td><td>无</td></tr>
+<tr><td><code>hotbar.nbt</code></td><td>已保存的创造模式快捷栏</td><td>无</td></tr>
+<tr><td>数据包中的 <code>*.nbt</code></td><td>由结构方块和拼图方块放置的结构</td><td>gzip</td></tr>
 </tbody>
 </table>
 </div>
 </section>
 
-<section class="content" aria-label="Java NBT encoding">
-<h2 id="how-java-encodes-nbt">How Java encodes NBT</h2>
+<section class="content" aria-label="Java NBT 编码">
+<h2 id="how-java-encodes-nbt">Java 如何编码 NBT</h2>
 <div class="card">
 <ul>
-<li><strong>Big-endian.</strong> Every integer and float is stored most-significant byte first, matching Java's <code>DataOutputStream</code>.</li>
-<li><strong>Named root.</strong> The file starts with tag type <code>0x0A</code>, then a UTF-8 length-prefixed root name — historically empty in <code>level.dat</code>.</li>
-<li><strong>Modified UTF-8.</strong> Strings use Java's <code>writeUTF</code> encoding: a two-byte length, NUL written as <code>C0 80</code>, and characters outside the basic plane split into two three-byte halves (CESU-8). A tool that treats this as plain UTF-8 mangles emoji in world names; this editor encodes it correctly.</li>
-<li><strong>gzip by default.</strong> <code>NbtIo.readCompressed</code> expects a gzip stream. Files written uncompressed load in some tools but not in the game.</li>
-<li><strong>Nameless root on the network.</strong> Since 1.20.2 the protocol sends NBT without the root name. Packet dumps in that shape are detected as <em>Java network</em> here.</li>
+<li><strong>大端序。</strong>每个整数和浮点数都先存储最高有效字节，与 Java 的 <code>DataOutputStream</code> 一致。</li>
+<li><strong>有名称的根标签。</strong>文件以标签类型 <code>0x0A</code> 开头，之后是带 UTF-8 长度前缀的根名称；在 <code>level.dat</code> 中，该名称历来为空。</li>
+<li><strong>修改版 UTF-8。</strong>字符串使用 Java 的 <code>writeUTF</code> 编码：长度占两个字节，NUL 写为 <code>C0 80</code>，基本平面以外的字符拆成两个三字节部分（CESU-8）。将其当作普通 UTF-8 的工具会破坏世界名称中的表情符号；本编辑器会正确编码。</li>
+<li><strong>默认使用 gzip。</strong><code>NbtIo.readCompressed</code> 需要 gzip 流。未压缩文件可在某些工具中加载，但游戏无法读取。</li>
+<li><strong>网络中使用无名称根。</strong>从 1.20.2 开始，协议发送的 NBT 不含根名称。此类数据包转储会在这里被识别为<em>Java 网络</em>格式。</li>
 </ul>
 </div>
 </section>
 
-<section class="content" aria-label="Server cores">
-<h2 id="paper-spigot-fabric-forge-same-files">Paper, Spigot, Fabric, Forge — same files</h2>
-<p>Forks and mod loaders change how the server runs, not how the world is written. Paper, Purpur, Pufferfish, Folia, Fabric, Quilt, Forge, NeoForge, Mohist, Arclight and Sponge all use Vanilla's NBT layout, so anything on this page applies to them unchanged. What forks do add is extra files beside the world — <code>paper-world.yml</code>, mod configs — which are YAML or TOML and unrelated to NBT.</p>
-<p>Mods and plugins may add their own compounds inside <code>level.dat</code> or <code>playerdata</code>. Those tags open here like any other; leave them alone unless you know what the mod does with them.</p>
+<section class="content" aria-label="服务端核心">
+<h2 id="paper-spigot-fabric-forge-same-files">Paper、Spigot、Fabric、Forge 使用相同文件</h2>
+<p>分支和模组加载器改变服务器的运行方式，不改变世界的写入格式。Paper、Purpur、Pufferfish、Folia、Fabric、Quilt、Forge、NeoForge、Mohist、Arclight 和 Sponge 都使用 Vanilla 的 NBT 布局，因此本页内容可直接适用。分支会在世界旁添加 <code>paper-world.yml</code>、模组配置等额外文件，但它们属于 YAML 或 TOML，与 NBT 无关。</p>
+<p>模组和插件可能在 <code>level.dat</code> 或 <code>playerdata</code> 内加入自己的复合标签。这些标签可以像其他标签一样打开；除非了解对应模组的处理方式，否则不要修改。</p>
 </section>
 
 <section class="content" aria-label="DataVersion">
-<h2 id="dataversion-and-version-migration"><code>DataVersion</code> and version migration</h2>
-<p>Java worlds carry a <code>DataVersion</code> integer that identifies the world format, incremented on every snapshot. Some useful anchors: 1.16.5 is 2586, 1.17.1 is 2730, 1.18.2 is 2975, 1.19.4 is 3337, 1.20.4 is 3700, 1.21 is 3953. Opening a world in an older client than the one that wrote it is refused precisely because of this tag, and lowering it by hand does not downgrade the chunk data behind it — it just removes the guard rail. Read it to find out what wrote a world; do not edit it to force a downgrade.</p>
+<h2 id="dataversion-and-version-migration"><code>DataVersion</code> 与版本迁移</h2>
+<p>Java 世界带有标识世界格式的 <code>DataVersion</code> 整数，每个快照都会递增。常用参考值：1.16.5 为 2586，1.17.1 为 2730，1.18.2 为 2975，1.19.4 为 3337，1.20.4 为 3700，1.21 为 3953。比写入世界的版本更旧的客户端会因该标签而拒绝打开；手动降低数值不会降级其后的区块数据，只会移除保护。可读取它来判断世界由哪个版本写入，但不要通过编辑它强制降级。</p>
 </section>
 
-<section class="content" aria-label="Frequently asked questions"><h2>Frequently Asked Questions</h2><details><summary>Can I open a Java level.dat that will not load in game?</summary><div class="faq-body"><p>Usually yes — the editor is more tolerant than the game about trailing bytes, and it reports exactly where parsing stopped if the file is truncated. If it refuses too, try <code>level.dat_old</code>, which is the previous autosave.</p></div></details><details><summary>Does it support 1.20.2+ network NBT?</summary><div class="faq-body"><p>Yes. From 1.20.2 the protocol omits the root name. A dump in that shape is detected as the <em>Java network</em> format and can be re-saved either as network NBT or as a normal named-root file.</p></div></details><details><summary>Can I edit a chunk from a .mca region file?</summary><div class="faq-body"><p>You can edit chunk NBT once it is extracted from the region container. The <code>.mca</code> itself is an index plus many zlib-compressed chunk payloads, and this editor works on a single NBT document, not on the container.</p></div></details><details><summary>Will editing playerdata break the player?</summary><div class="faq-body"><p>Only if the server is running while you do it — it holds player state in memory and writes it out on logout, overwriting your file. Take the player offline, edit, then let them reconnect. See the <a href="../playerdata-editor/">playerdata editor</a>.</p></div></details><details><summary>Is a gzip level.dat required?</summary><div class="faq-body"><p>The vanilla loader reads gzip. Save with compression set to gzip — the default when the file arrived that way — and the game will accept it.</p></div></details></section>
-<section class="content" aria-label="Related tools"><h2>Related tools</h2><div class="rel-grid"><a class="rel-card" href="../"><strong>Minecraft NBT editor</strong><span>The universal editor — every edition, every NBT file type.</span></a><a class="rel-card" href="../level-dat-editor/"><strong>level.dat editor</strong><span>World name, game mode, spawn, difficulty and game rules.</span></a><a class="rel-card" href="../playerdata-editor/"><strong>playerdata editor</strong><span>Inventory, position, health and stats per player.</span></a><a class="rel-card" href="../schematic-editor/"><strong>Schematic editor</strong><span>WorldEdit .schem and legacy MCEdit .schematic.</span></a><a class="rel-card" href="../nbt-format/"><strong>NBT format reference</strong><span>All 13 tag types, every encoding, byte by byte.</span></a><a class="rel-card" href="../mcpe-nbt-editor/"><strong>MCPE NBT editor</strong><span>Little-endian NBT and the 8-byte level.dat header.</span></a></div></section>
+<section class="content" aria-label="常见问题"><h2>常见问题</h2><details><summary>可以打开游戏无法加载的 Java 的 level.dat 吗？</summary><div class="faq-body"><p>通常可以。编辑器比游戏更能容忍尾随字节；如果文件被截断，它会准确报告解析停止的位置。如果编辑器也拒绝，请尝试上一次自动保存的 <code>level.dat_old</code>。</p></div></details><details><summary>支持 1.20.2+ 网络 NBT 吗？</summary><div class="faq-body"><p>支持。从 1.20.2 开始，协议会省略根名称。此类转储会被识别为<em>Java 网络</em>格式，可重新保存为网络 NBT，也可保存为普通的有名称根文件。</p></div></details><details><summary>可以编辑 .mca 区域文件中的区块吗？</summary><div class="faq-body"><p>从区域容器提取区块 NBT 后即可编辑。<code>.mca</code> 本身由索引和多个 zlib 压缩的区块负载组成，而本编辑器处理单个 NBT 文档，不处理容器。</p></div></details><details><summary>编辑 playerdata 会破坏玩家数据吗？</summary><div class="faq-body"><p>只有在服务器运行时编辑才容易出问题：服务器会将玩家状态保存在内存中，并在退出时写回，从而覆盖文件。先让玩家离线，完成编辑后再重新连接。请参阅 <a href="../playerdata-editor/">playerdata 编辑器</a>。</p></div></details><details><summary>level.dat 必须使用 gzip 吗？</summary><div class="faq-body"><p>Vanilla 加载器读取 gzip。请将压缩方式设为 gzip；如果输入文件原本如此，这也是默认设置，游戏即可正常接受。</p></div></details></section>
+<section class="content" aria-label="相关工具"><h2>相关工具</h2><div class="rel-grid"><a class="rel-card" href="../"><strong>Minecraft NBT 编辑器</strong><span>通用编辑器，支持所有版本和各种 NBT 文件。</span></a><a class="rel-card" href="../level-dat-editor/"><strong>level.dat 编辑器</strong><span>修改世界名称、游戏模式、出生点、难度和游戏规则。</span></a><a class="rel-card" href="../playerdata-editor/"><strong>playerdata 编辑器</strong><span>按玩家修改物品栏、位置、生命值和统计数据。</span></a><a class="rel-card" href="../schematic-editor/"><strong>Schematic 编辑器</strong><span>支持 WorldEdit .schem 和旧版 MCEdit .schematic。</span></a><a class="rel-card" href="../nbt-format/"><strong>NBT 格式参考</strong><span>逐字节说明全部 13 种标签类型和各种编码。</span></a><a class="rel-card" href="../mcpe-nbt-editor/"><strong>MCPE NBT 编辑器</strong><span>支持小端序 NBT 和 level.dat 的 8 字节文件头。</span></a></div></section>
 </div>
 </main>
 
 <footer class="site-footer">
 <div class="container footer-grid">
-<div><h4>Editors</h4><a href="../">Minecraft NBT editor</a><a href="../level-dat-editor/">level.dat editor</a><a href="./">Java Edition NBT editor</a><a href="../mcpe-nbt-editor/">MCPE NBT editor</a><a href="../pocketmine-nbt-editor/">PocketMine-MP editor</a></div>
-<div><h4>File types</h4><a href="../mcstructure-editor/">.mcstructure editor</a><a href="../schematic-editor/">Schematic editor</a><a href="../playerdata-editor/">playerdata editor</a><a href="../nbt-viewer/">NBT viewer</a><a href="../nbtexplorer-online/">NBTExplorer online</a></div>
-<div><h4>Reference</h4><a href="../nbt-format/">NBT format reference</a><a href="../guides/change-world-name/">Rename a world</a><a href="../guides/fix-corrupted-level-dat/">Fix a broken level.dat</a><a href="../guides/edit-gamerules/">Edit game rules</a></div>
-<div><h4>Source</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">Code on GitHub</a><a href="../../llms.txt">llms.txt</a></div>
+<div><h4>编辑器</h4><a href="../">Minecraft NBT 编辑器</a><a href="../level-dat-editor/">level.dat 编辑器</a><a href="./">Java 版 NBT 编辑器</a><a href="../mcpe-nbt-editor/">MCPE NBT 编辑器</a><a href="../pocketmine-nbt-editor/">PocketMine-MP 编辑器</a></div>
+<div><h4>文件类型</h4><a href="../mcstructure-editor/">.mcstructure 编辑器</a><a href="../schematic-editor/">Schematic 编辑器</a><a href="../playerdata-editor/">playerdata 编辑器</a><a href="../nbt-viewer/">NBT 查看器</a><a href="../nbtexplorer-online/">NBTExplorer 在线版</a></div>
+<div><h4>参考资料</h4><a href="../nbt-format/">NBT 格式参考</a><a href="../guides/change-world-name/">重命名世界</a><a href="../guides/fix-corrupted-level-dat/">修复损坏的 level.dat</a><a href="../guides/edit-gamerules/">编辑游戏规则</a></div>
+<div><h4>源代码</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">GitHub 上的代码</a><a href="../../llms.txt">llms.txt</a></div>
 </div>
-<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">最后更新：2026-09-21。 Minecraft NBT 编辑器 — 免费并以 MIT 许可证开源，完全在浏览器中运行。与 Mojang Studios 或 Microsoft 无关联。Minecraft 是 Mojang Studios 的商标。</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
 <div class="modal-overlay" id="addTagModal">
 <div class="modal">
-<h3>Add New Tag</h3>
-<label for="newTagName">Tag Name</label>
-<input type="text" id="newTagName" placeholder="e.g. MyTag" autocomplete="off">
-<label for="newTagType">Tag Type</label>
+<h3>添加新标签</h3>
+<label for="newTagName">标签名称</label>
+<input type="text" id="newTagName" placeholder="例如 MyTag" autocomplete="off">
+<label for="newTagType">标签类型</label>
 <select id="newTagType">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -203,10 +218,10 @@
 <option value="11">TAG_Int_Array</option>
 <option value="12">TAG_Long_Array</option>
 </select>
-<label for="newTagValue">Value</label>
-<input type="text" id="newTagValue" placeholder="Value" autocomplete="off">
+<label for="newTagValue">值</label>
+<input type="text" id="newTagValue" placeholder="值" autocomplete="off">
 <div id="listSubtypeRow" style="display:none">
-<label for="newListSubtype">List Element Type</label>
+<label for="newListSubtype">列表元素类型</label>
 <select id="newListSubtype">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -223,24 +238,24 @@
 </select>
 </div>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="addTagCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="addTagConfirm">Add</button>
+<button class="btn-cancel" type="button" id="addTagCancel">取消</button>
+<button class="btn-confirm" type="button" id="addTagConfirm">添加</button>
 </div>
 </div>
 </div>
 
 <div class="modal-overlay" id="arrayModal">
 <div class="modal">
-<h3 id="arrayModalTitle">Edit Array</h3>
-<label for="arrayModalText">Comma-separated values</label>
+<h3 id="arrayModalTitle">编辑数组</h3>
+<label for="arrayModalText">以逗号分隔的值</label>
 <textarea id="arrayModalText" spellcheck="false" autocomplete="off"></textarea>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="arrayModalCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="arrayModalConfirm">Apply</button>
+<button class="btn-cancel" type="button" id="arrayModalCancel">取消</button>
+<button class="btn-confirm" type="button" id="arrayModalConfirm">应用</button>
 </div>
 </div>
 </div>
 
-<script src="../../assets/nbt.js?v=da7967b1" defer></script>
+<script src="../../assets/nbt.js?v=6f125422" defer></script>
 </body>
 </html>

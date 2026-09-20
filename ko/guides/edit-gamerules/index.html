@@ -3,79 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Edit Minecraft Game Rules in level.dat — Java &amp;amp; Bedrock</title>
-<meta name="description" content="Change keepInventory, doDaylightCycle, mobGriefing and other game rules by editing level.dat, for Java and Bedrock. No commands, no cheats needed.">
-<meta name="keywords" content="edit gamerules level.dat, keepinventory nbt, minecraft gamerules file, change gamerule without commands, bedrock gamerules level.dat, dodaylightcycle nbt, gamerules server">
-<meta name="robots" content="noindex, follow">
+<title>level.dat에서 Minecraft 게임 규칙 편집 — Java 및 Bedrock</title>
+<meta name="description" content="Java와 Bedrock의 level.dat를 편집해 keepInventory, doDaylightCycle, mobGriefing 등 게임 규칙을 바꾸세요. 명령어나 치트 권한 없이 적용할 수 있습니다.">
+<meta name="keywords" content="level.dat gamerule 편집, keepInventory NBT, 마인크래프트 게임 규칙 파일, 명령어 없이 gamerule 변경, Bedrock gamerule level.dat, doDaylightCycle NBT, 서버 gamerule">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="author" content="w1zardz">
 <link rel="canonical" href="https://w1zardz.github.io/bedrock-nbt-editor/ko/guides/edit-gamerules/">
+<link rel="alternate" hreflang="en" href="https://w1zardz.github.io/bedrock-nbt-editor/guides/edit-gamerules/">
+<link rel="alternate" hreflang="ru" href="https://w1zardz.github.io/bedrock-nbt-editor/ru/guides/edit-gamerules/">
+<link rel="alternate" hreflang="es" href="https://w1zardz.github.io/bedrock-nbt-editor/es/guides/edit-gamerules/">
+<link rel="alternate" hreflang="pt-BR" href="https://w1zardz.github.io/bedrock-nbt-editor/pt-br/guides/edit-gamerules/">
+<link rel="alternate" hreflang="de" href="https://w1zardz.github.io/bedrock-nbt-editor/de/guides/edit-gamerules/">
+<link rel="alternate" hreflang="fr" href="https://w1zardz.github.io/bedrock-nbt-editor/fr/guides/edit-gamerules/">
+<link rel="alternate" hreflang="it" href="https://w1zardz.github.io/bedrock-nbt-editor/it/guides/edit-gamerules/">
+<link rel="alternate" hreflang="pl" href="https://w1zardz.github.io/bedrock-nbt-editor/pl/guides/edit-gamerules/">
+<link rel="alternate" hreflang="uk" href="https://w1zardz.github.io/bedrock-nbt-editor/uk/guides/edit-gamerules/">
+<link rel="alternate" hreflang="tr" href="https://w1zardz.github.io/bedrock-nbt-editor/tr/guides/edit-gamerules/">
+<link rel="alternate" hreflang="id" href="https://w1zardz.github.io/bedrock-nbt-editor/id/guides/edit-gamerules/">
+<link rel="alternate" hreflang="vi" href="https://w1zardz.github.io/bedrock-nbt-editor/vi/guides/edit-gamerules/">
+<link rel="alternate" hreflang="th" href="https://w1zardz.github.io/bedrock-nbt-editor/th/guides/edit-gamerules/">
+<link rel="alternate" hreflang="zh-Hans" href="https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/guides/edit-gamerules/">
+<link rel="alternate" hreflang="ja" href="https://w1zardz.github.io/bedrock-nbt-editor/ja/guides/edit-gamerules/">
+<link rel="alternate" hreflang="ko" href="https://w1zardz.github.io/bedrock-nbt-editor/ko/guides/edit-gamerules/">
+<link rel="alternate" hreflang="ar" href="https://w1zardz.github.io/bedrock-nbt-editor/ar/guides/edit-gamerules/">
 <link rel="alternate" hreflang="x-default" href="https://w1zardz.github.io/bedrock-nbt-editor/guides/edit-gamerules/">
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="../../../favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
 <link rel="manifest" href="../../../site.webmanifest">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Edit game rules in level.dat">
-<meta property="og:description" content="Change keepInventory, doDaylightCycle, mobGriefing and other game rules by editing level.dat, for Java and Bedrock. No commands, no cheats needed.">
+<meta property="og:title" content="level.dat에서 게임 규칙 편집">
+<meta property="og:description" content="Java와 Bedrock의 level.dat를 편집해 keepInventory, doDaylightCycle, mobGriefing 등 게임 규칙을 바꾸세요. 명령어나 치트 권한 없이 적용할 수 있습니다.">
 <meta property="og:url" content="https://w1zardz.github.io/bedrock-nbt-editor/ko/guides/edit-gamerules/">
-<meta property="og:site_name" content="Minecraft NBT Editor">
+<meta property="og:site_name" content="Minecraft NBT 편집기">
 <meta property="og:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/gamerules.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Edit game rules in level.dat">
-<meta name="twitter:description" content="Change keepInventory, doDaylightCycle, mobGriefing and other game rules by editing level.dat, for Java and Bedrock. No commands, no cheats needed.">
+<meta name="twitter:title" content="level.dat에서 게임 규칙 편집">
+<meta name="twitter:description" content="Java와 Bedrock의 level.dat를 편집해 keepInventory, doDaylightCycle, mobGriefing 등 게임 규칙을 바꾸세요. 명령어나 치트 권한 없이 적용할 수 있습니다.">
 <meta name="twitter:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/gamerules.png">
-<meta property="article:modified_time" content="2026-08-26">
-<meta property="og:updated_time" content="2026-08-26">
+<meta property="article:modified_time" content="2026-09-21">
+<meta property="og:updated_time" content="2026-09-21">
 <meta name="theme-color" content="#0d1117">
-<meta name="application-name" content="Minecraft NBT Editor">
-<meta name="apple-mobile-web-app-title" content="NBT Editor">
-<link rel="preload" href="../../../assets/nbt.js?v=da7967b1" as="script">
-<script>window.__LANG_URLS__={"en":"../../../guides/edit-gamerules/","ru":"../../../ru/guides/edit-gamerules/","es":"../../../es/guides/edit-gamerules/","pt-br":"../../../pt-br/guides/edit-gamerules/","de":"../../../de/guides/edit-gamerules/","fr":"../../../fr/guides/edit-gamerules/","it":"../../../it/guides/edit-gamerules/","pl":"../../../pl/guides/edit-gamerules/","uk":"../../../uk/guides/edit-gamerules/","tr":"../../../tr/guides/edit-gamerules/","id":"../../../id/guides/edit-gamerules/","vi":"../../../vi/guides/edit-gamerules/","th":"../../../th/guides/edit-gamerules/","zh-hans":"../../../zh-hans/guides/edit-gamerules/","ja":"../../../ja/guides/edit-gamerules/","ko":"./","ar":"../../../ar/guides/edit-gamerules/"};window.__NBT_STRINGS__={"loaded":"Loaded as {0}","trailing":"{0} trailing byte(s) after the root tag were ignored","error":"Error: {0}","readfail":"Could not read the file","nofile":"No file loaded","saved":"Saved {0} ({1}, {2})","savefail":"Save error: {0}","exported":"Exported {0}","snbtfail":"SNBT error: {0}","tagadded":"Tag added","tagremoved":"Tag removed","arrayupdated":"Array updated","badvalue":"Invalid value: {0}","badarray":"Invalid array: {0}","nameneeded":"Tag name is required","nametaken":"A tag named {0} already exists here","listtype":"List already holds {0} entries","editlevelname":"✎ Edit LevelName","showmore":"Show {0} more of {1} …","matches":"{0} match(es)","nomatch":"No tag matches \"{0}\"","arraytoobig":"Array has {0} entries — expand it and edit elements individually","uncompressed":"uncompressed","storage":"storage v{0}","entries":"{0} entries","langprompt":"Open this page in {0}?","langyes":"Switch","langno":"Stay"};</script>
-<script src="../../../assets/lang.js?v=a3a1db0e" defer></script>
+<meta name="application-name" content="Minecraft NBT 편집기">
+<meta name="apple-mobile-web-app-title" content="NBT 편집기">
+<link rel="preload" href="../../../assets/nbt.js?v=6f125422" as="script">
+<script>window.__LANG_URLS__={"en":"../../../guides/edit-gamerules/","ru":"../../../ru/guides/edit-gamerules/","es":"../../../es/guides/edit-gamerules/","pt-br":"../../../pt-br/guides/edit-gamerules/","de":"../../../de/guides/edit-gamerules/","fr":"../../../fr/guides/edit-gamerules/","it":"../../../it/guides/edit-gamerules/","pl":"../../../pl/guides/edit-gamerules/","uk":"../../../uk/guides/edit-gamerules/","tr":"../../../tr/guides/edit-gamerules/","id":"../../../id/guides/edit-gamerules/","vi":"../../../vi/guides/edit-gamerules/","th":"../../../th/guides/edit-gamerules/","zh-hans":"../../../zh-hans/guides/edit-gamerules/","ja":"../../../ja/guides/edit-gamerules/","ko":"./","ar":"../../../ar/guides/edit-gamerules/"};window.__NBT_STRINGS__={"loaded":"{0}(으)로 불러옴","trailing":"루트 태그 뒤의 후행 바이트 {0}개를 무시했습니다","error":"오류: {0}","readfail":"파일을 읽을 수 없습니다","nofile":"불러온 파일이 없습니다","saved":"{0} 저장 완료 ({1}, {2})","savefail":"저장 오류: {0}","exported":"{0} 내보내기 완료","snbtfail":"SNBT 오류: {0}","tagadded":"태그를 추가했습니다","tagremoved":"태그를 제거했습니다","arrayupdated":"배열을 업데이트했습니다","badvalue":"잘못된 값: {0}","badarray":"잘못된 배열: {0}","nameneeded":"태그 이름을 입력해야 합니다","nametaken":"이 위치에 {0} 이름의 태그가 이미 있습니다","listtype":"목록에 이미 {0} 항목이 들어 있습니다","editlevelname":"✎ LevelName 편집","showmore":"{1}개 중 {0}개 더 보기 …","matches":"일치 항목 {0}개","nomatch":"\"{0}\"과 일치하는 태그가 없습니다","arraytoobig":"배열에 항목이 {0}개 있습니다. 펼친 뒤 각 요소를 따로 수정하세요","uncompressed":"압축 안 함","storage":"저장소 v{0}","entries":"항목 {0}개","langprompt":"이 페이지를 {0}(으)로 여시겠습니까?","langyes":"전환","langno":"유지","nav_editor":"편집기","nav_format":"NBT 형식","language":"언어: {0}","beta":"베타","skip_editor":"편집기로 건너뛰기","brand_editor":"NBT 편집기","guides":"안내서","updated":"마지막 업데이트: {0}","drop":"여기에 {0} 놓기","choose_file":"파일 선택","file_hint":"level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · 청크 덤프","output_format":"출력 형식","format_java":"Java — 빅 엔디언, 이름 있는 루트","format_java_network":"Java 네트워크 — 빅 엔디언, 이름 없는 루트","format_bedrock_level":"Bedrock level.dat — 리틀 엔디언 + 8바이트 헤더","format_bedrock":"Bedrock 원시 형식 — 리틀 엔디언","format_bedrock_network":"Bedrock 네트워크 — 리틀 엔디언 varint","compression":"압축","compression_none":"없음(원시 데이터)","search_placeholder":"태그 이름 또는 값 검색…","search":"검색","collapse":"모두 접기","add_tag":"+ 태그 추가","save_download":"저장 및 다운로드","export_snbt":"SNBT 내보내기","close":"닫기","add_new_tag":"새 태그 추가","tag_name":"태그 이름","tag_type":"태그 유형","tag_example":"예: MyTag","value":"값","list_element_type":"목록 요소 유형","cancel":"취소","add":"추가","edit_array":"배열 편집","comma_values":"쉼표로 구분한 값","apply":"적용","format_label_java":"Java 빅 엔디언","format_label_java_network":"Java 네트워크(이름 없는 루트)","format_label_bedrock_level":"Bedrock level.dat(8바이트 헤더)","format_label_bedrock":"Bedrock 리틀 엔디언","format_label_bedrock_network":"Bedrock 네트워크(varint)","err_decompress":"이 브라우저에서는 {0} 압축을 풀 수 없습니다(Compression Streams API 없음)","err_compress":"이 브라우저에서는 {0} 형식으로 압축할 수 없습니다(Compression Streams API 없음)","err_stream":"{0} 압축을 처리할 수 없습니다","err_end":"오프셋 {0}에서 데이터가 예기치 않게 끝났습니다","err_tag_limit":"태그 개수 제한을 초과했습니다","err_varint":"VarInt가 너무 깁니다","err_varlong":"VarLong이 너무 깁니다","err_negative_array":"배열 길이가 음수입니다: {0}","err_array_length":"배열 길이 {0}이(가) 남은 데이터보다 큽니다","err_negative_list":"목록 길이가 음수입니다","err_end_list":"항목이 {0}개인 TAG_End 목록입니다","err_list_type":"알 수 없는 목록 요소 유형: {0}","err_tag_type":"알 수 없는 태그 유형: {0}","err_root":"루트 태그는 TAG_Compound여야 하지만 {0}입니다","err_string_length":"이 형식에 사용하기에는 문자열이 너무 깁니다: {0}바이트","err_write_type":"태그 유형 {0}을(를) 기록할 수 없습니다","err_header_short":"헤더로 사용하기에는 너무 짧습니다","err_storage_version":"유효하지 않아 보이는 저장소 버전: {0}","err_header_length":"헤더 길이 {0}이(가) 페이로드보다 큽니다","err_unknown_file":"인식할 수 있는 NBT 파일이 아닙니다(Java, Bedrock, 네트워크, 헤더 변형을 모두 확인함)","err_file_small":"NBT 데이터를 담기에는 파일이 너무 작습니다","err_byte":"Byte는 -128..127 범위여야 합니다","err_short":"Short는 -32768..32767 범위여야 합니다","err_int":"Int는 -2147483648..2147483647 범위여야 합니다","err_long":"Long이 64비트 범위를 벗어났습니다","err_float":"잘못된 float 값입니다","err_double":"잘못된 double 값입니다","err_not_inline":"이 태그 유형은 인라인으로 편집할 수 없습니다","err_array_byte":"잘못된 byte 값: {0}","err_array_int":"잘못된 int 값: {0}","err_array_long":"잘못된 64비트 정수: {0}","root":"(루트)","add_child":"하위 태그 추가","remove_tag":"태그 제거","array":"배열","array_bytes":"[{0}바이트]","array_ints":"[int {0}개]","array_longs":"[long {0}개]","entries_type":"{1} 유형 항목 {0}개","unknown_error":"작업을 완료할 수 없습니다","software_name":"Minecraft NBT 편집기","software_alternate_online":"온라인 NBT 편집기","software_alternate_bedrock":"Bedrock NBT 편집기","software_alternate_level":"level.dat 편집기","software_subcategory":"게임 파일 편집기","software_os":"모든 운영체제(브라우저)","software_browser":"BigInt 및 Compression Streams를 지원하는 최신 브라우저","feature_java":"Java Edition 빅 엔디언 NBT","feature_bedrock":"Bedrock Edition 리틀 엔디언 NBT","feature_bedrock_network":"Bedrock 네트워크 NBT(varint)","feature_java_network":"Java 네트워크 NBT(이름 없는 루트)","feature_compression":"gzip 및 zlib 압축","feature_types":"64비트 정밀도를 지원하는 NBT 태그 13종 전체","feature_snbt":"SNBT 내보내기","feature_local":"클라이언트에서만 완전히 실행","schema_about":"Minecraft NBT 데이터 형식","not_found_title":"페이지를 찾을 수 없음 — {0}","not_found_heading":"404 — 이동했거나 존재하지 않는 페이지입니다","not_found_intro":"편집기는 한 번만 누르면 열 수 있으며 모든 도구의 고정 주소는 아래에 있습니다.","not_found_footer":"{0} — 무료 오픈 소스","aria_bedrock_gamerules":"Bedrock 게임 규칙","aria_bedrock_level_dat_header":"Bedrock level.dat 헤더","aria_bedrock_tags":"Bedrock 태그","aria_breadcrumb":"이동 경로","aria_byte_walkthrough":"바이트별 분석","aria_causes":"원인","aria_common_repairs":"일반적인 복구","aria_comparison":"비교","aria_compatibility":"호환성","aria_compression":"압축","aria_core_specifics":"코어별 정보","aria_dataversion":"DataVersion","aria_drop_an_nbt_file_here_or_click_to_browse":"여기에 NBT 파일을 놓거나 눌러 찾아보기","aria_duplicate_world_names":"중복 월드 이름","aria_editing_schematics":"Schematic 편집","aria_encodings":"인코딩","aria_features":"기능","aria_file_types":"파일 형식","aria_frequently_asked_questions":"자주 묻는 질문","aria_how_to_use":"사용 방법","aria_inside_a_mcstructure_file":"mcstructure 파일 내부","aria_introduction":"소개","aria_java_nbt_encoding":"Java NBT 인코딩","aria_java_nbt_files":"Java NBT 파일","aria_java_gamerules":"Java 게임 규칙","aria_migrating":"이전 방법","aria_other_bedrock_nbt":"기타 Bedrock NBT","aria_other_tools":"기타 도구","aria_per_platform":"플랫폼별 방법","aria_prevention":"예방","aria_related_tools":"관련 도구","aria_snbt":"SNBT","aria_safety":"안전 수칙","aria_salvage":"복구","aria_schematic_formats":"Schematic 형식","aria_scripting":"스크립팅","aria_search_nbt_tags":"NBT 태그 검색","aria_server_cores":"서버 코어","aria_server_safety":"서버 안전","aria_server_workflow":"서버 작업 절차","aria_strings":"문자열","aria_supported_files":"지원 파일","aria_supported_server_software":"지원 서버 소프트웨어","aria_tag_types":"태그 유형","aria_tags_in_level_dat":"level.dat의 태그","aria_tools":"도구","aria_troubleshooting":"문제 해결","aria_typical_edits":"일반적인 수정","aria_what_you_can_inspect":"검사 가능한 항목","aria_where_bedrock_files_live":"Bedrock 파일 위치","aria_where_mcstructure_files_live":"mcstructure 파일 위치","aria_where_to_find_level_dat":"level.dat 위치","aria_why_edit_the_file":"파일을 편집하는 이유","aria_why_the_folder_name_is_not_the_world_name":"폴더 이름과 월드 이름이 다른 이유","aria_playerdata_tags":"playerdata 태그","toggle":"펼치기 또는 접기"};</script>
+<script src="../../../assets/lang.js?v=23a64b2c" defer></script>
 <link rel="stylesheet" href="../../../assets/app.css?v=f5bdcb0f">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Edit Minecraft Game Rules in level.dat \u2014 Java & Bedrock","headline":"Editing Game Rules in level.dat","description":"Change keepInventory, doDaylightCycle, mobGriefing and other game rules by editing level.dat, for Java and Bedrock. No commands, no cheats needed.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ko/guides/edit-gamerules/","inLanguage":"ko","datePublished":"2026-05-29","dateModified":"2026-08-26","isPartOf":{"@type":"WebSite","name":"Minecraft NBT Editor","url":"https://w1zardz.github.io/bedrock-nbt-editor/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/gamerules.png"},"about":{"@type":"Thing","name":"Minecraft NBT data format"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT Editor","item":"https://w1zardz.github.io/bedrock-nbt-editor/ko/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://w1zardz.github.io/bedrock-nbt-editor/ko/guides/"},{"@type":"ListItem","position":3,"name":"Editing Game Rules in level.dat","item":"https://w1zardz.github.io/bedrock-nbt-editor/ko/guides/edit-gamerules/"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why is my game rule stored as a string in Java?","acceptedAnswer":{"@type":"Answer","text":"Java's game rule storage is string-based for every rule, including booleans and numbers. Write \"true\", not a byte of 1."}},{"@type":"Question","name":"Why is it a byte in Bedrock?","acceptedAnswer":{"@type":"Answer","text":"Bedrock stores toggles as byte tags at the root and numeric rules as ints. There is no GameRules compound."}},{"@type":"Question","name":"A rule is missing from the file entirely.","acceptedAnswer":{"@type":"Answer","text":"That means it is at its default. Add the tag with the exact name and correct type and the world will use your value."}},{"@type":"Question","name":"Do game rules copy with a world folder?","acceptedAnswer":{"@type":"Answer","text":"Yes \u2014 they live in level.dat, so a copied world inherits them along with its stale world name."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"level.dat에서 Minecraft 게임 규칙 편집 — Java 및 Bedrock","headline":"level.dat에서 게임 규칙 편집","description":"Java와 Bedrock의 level.dat를 편집해 keepInventory, doDaylightCycle, mobGriefing 등 게임 규칙을 바꾸세요. 명령어나 치트 권한 없이 적용할 수 있습니다.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ko/guides/edit-gamerules/","inLanguage":"ko","datePublished":"2026-05-29","dateModified":"2026-09-21","isPartOf":{"@type":"WebSite","name":"Minecraft NBT 편집기","url":"https://w1zardz.github.io/bedrock-nbt-editor/ko/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/gamerules.png"},"about":{"@type":"Thing","name":"Minecraft NBT 데이터 형식"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT 편집기","item":"https://w1zardz.github.io/bedrock-nbt-editor/ko/"},{"@type":"ListItem","position":2,"name":"안내서","item":"https://w1zardz.github.io/bedrock-nbt-editor/ko/guides/"},{"@type":"ListItem","position":3,"name":"level.dat에서 게임 규칙 편집","item":"https://w1zardz.github.io/bedrock-nbt-editor/ko/guides/edit-gamerules/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Java에서 게임 규칙을 문자열로 저장하는 이유는 무엇인가요?","acceptedAnswer":{"@type":"Answer","text":"Java의 게임 규칙 저장 방식은 boolean과 숫자를 포함해 모든 규칙을 문자열로 기록합니다. 1인 byte가 아니라 \"true\"를 쓰세요."}},{"@type":"Question","name":"Bedrock에서는 왜 byte인가요?","acceptedAnswer":{"@type":"Answer","text":"Bedrock은 켜고 끄는 규칙을 루트의 byte 태그로, 숫자 규칙을 int로 저장합니다. GameRules compound는 없습니다."}},{"@type":"Question","name":"파일에 규칙이 아예 없습니다.","acceptedAnswer":{"@type":"Answer","text":"해당 규칙이 기본값을 사용한다는 뜻입니다. 정확한 이름과 올바른 유형으로 태그를 추가하면 월드에서 지정한 값을 사용합니다."}},{"@type":"Question","name":"월드 폴더를 복사하면 게임 규칙도 복사되나요?","acceptedAnswer":{"@type":"Answer","text":"네. 게임 규칙은 level.dat에 있으므로 오래된 월드 이름과 함께 사본에 그대로 들어갑니다."}}]}</script>
 </head>
 <body>
-<a class="skip-link" href="#editor">Skip to the editor</a>
+<a class="skip-link" href="#editor">편집기로 건너뛰기</a>
 <header class="site-header">
 <div class="container">
-<a class="brand" href="../../"><span>Minecraft</span> NBT Editor</a>
+<a class="brand" href="../../"><span>Minecraft</span> NBT 편집기</a>
 <span class="badge">Java + Bedrock</span>
-<nav class="site-nav" aria-label="Tools">
-<a href="../../">Editor</a>
+<nav class="site-nav" aria-label="도구">
+<a href="../../">편집기</a>
 <a href="../../level-dat-editor/">level.dat</a>
 <a href="../../java-nbt-editor/">Java</a>
 <a href="../../mcpe-nbt-editor/">Bedrock</a>
 <a href="../../mcstructure-editor/">.mcstructure</a>
 <a href="../../schematic-editor/">.schem</a>
 <a href="../../playerdata-editor/">playerdata</a>
-<a href="../../nbt-format/">NBT format</a>
+<a href="../../nbt-format/">NBT 형식</a>
 </nav>
-<details class="lang-switch"><summary title="Language: 한국어" aria-label="Language: 한국어"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">Language: 한국어</span></summary><div class="lang-menu"><a href="./" hreflang="ko" data-lang="ko" aria-current="true" class="current">한국어</a><a href="../../../guides/edit-gamerules/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../../ru/guides/edit-gamerules/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../../es/guides/edit-gamerules/" hreflang="es" data-lang="es" rel="alternate">Español (beta)</a><a href="../../../pt-br/guides/edit-gamerules/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR) (beta)</a><a href="../../../de/guides/edit-gamerules/" hreflang="de" data-lang="de" rel="alternate">Deutsch (beta)</a><a href="../../../fr/guides/edit-gamerules/" hreflang="fr" data-lang="fr" rel="alternate">Français (beta)</a><a href="../../../it/guides/edit-gamerules/" hreflang="it" data-lang="it" rel="alternate">Italiano (beta)</a><a href="../../../pl/guides/edit-gamerules/" hreflang="pl" data-lang="pl" rel="alternate">Polski (beta)</a><a href="../../../uk/guides/edit-gamerules/" hreflang="uk" data-lang="uk" rel="alternate">Українська (beta)</a><a href="../../../tr/guides/edit-gamerules/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe (beta)</a><a href="../../../id/guides/edit-gamerules/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia (beta)</a><a href="../../../vi/guides/edit-gamerules/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt (beta)</a><a href="../../../th/guides/edit-gamerules/" hreflang="th" data-lang="th" rel="alternate">ไทย (beta)</a><a href="../../../zh-hans/guides/edit-gamerules/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文 (beta)</a><a href="../../../ja/guides/edit-gamerules/" hreflang="ja" data-lang="ja" rel="alternate">日本語 (beta)</a><a href="../../../ar/guides/edit-gamerules/" hreflang="ar" data-lang="ar" rel="alternate">العربية (beta)</a></div></details>
+<details class="lang-switch"><summary title="언어: 한국어" aria-label="언어: 한국어"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">언어: 한국어</span></summary><div class="lang-menu"><a href="./" hreflang="ko" data-lang="ko" aria-current="true" class="current">한국어</a><a href="../../../guides/edit-gamerules/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../../ru/guides/edit-gamerules/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../../es/guides/edit-gamerules/" hreflang="es" data-lang="es" rel="alternate">Español</a><a href="../../../pt-br/guides/edit-gamerules/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR)</a><a href="../../../de/guides/edit-gamerules/" hreflang="de" data-lang="de" rel="alternate">Deutsch</a><a href="../../../fr/guides/edit-gamerules/" hreflang="fr" data-lang="fr" rel="alternate">Français</a><a href="../../../it/guides/edit-gamerules/" hreflang="it" data-lang="it" rel="alternate">Italiano</a><a href="../../../pl/guides/edit-gamerules/" hreflang="pl" data-lang="pl" rel="alternate">Polski</a><a href="../../../uk/guides/edit-gamerules/" hreflang="uk" data-lang="uk" rel="alternate">Українська</a><a href="../../../tr/guides/edit-gamerules/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe</a><a href="../../../id/guides/edit-gamerules/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia</a><a href="../../../vi/guides/edit-gamerules/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt</a><a href="../../../th/guides/edit-gamerules/" hreflang="th" data-lang="th" rel="alternate">ไทย</a><a href="../../../zh-hans/guides/edit-gamerules/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文</a><a href="../../../ja/guides/edit-gamerules/" hreflang="ja" data-lang="ja" rel="alternate">日本語</a><a href="../../../ar/guides/edit-gamerules/" hreflang="ar" data-lang="ar" rel="alternate">العربية</a></div></details>
 </div>
 </header>
 <main>
-<nav class="breadcrumbs container" aria-label="Breadcrumb"><a href="../../">NBT Editor</a> <span class="sep">/</span> <span>Guides</span> <span class="sep">/</span> <span>Edit game rules</span></nav>
-<section class="hero" aria-label="Introduction">
+<nav class="breadcrumbs container" aria-label="이동 경로"><a href="../../">NBT 편집기</a> <span class="sep">/</span> <span>안내서</span> <span class="sep">/</span> <span>게임 규칙 편집</span></nav>
+<section class="hero" aria-label="소개">
 <div class="container">
-<h1>Editing Game Rules in <code>level.dat</code></h1>
-<p class="support-line"><strong>Supports Minecraft Bedrock Edition and Java Edition</strong> — and every server core for both, popular or obscure: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina and the rest. <a href="../../#server-software">Full list</a>.</p>
-<p class="lede">Game rules are stored in <code>level.dat</code>, so you can change them without loading the world or having cheats enabled — useful when a world will not start, when cheats are off, or when you are preparing a copied world before players join. Java keeps them in a <code>GameRules</code> compound as strings; Bedrock keeps each one as its own lowercase byte tag at the root.</p>
+<h1><code>level.dat</code>에서 게임 규칙 편집</h1>
+<p class="support-line"><strong>Minecraft Bedrock Edition과 Java Edition을 지원합니다.</strong> Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina 등 유명하거나 잘 알려지지 않은 양쪽 에디션의 모든 서버 코어를 지원합니다. <a href="../../#server-software">전체 목록</a></p>
+<p class="lede">게임 규칙은 <code>level.dat</code>에 저장되므로 월드를 불러오거나 치트를 켜지 않고도 바꿀 수 있습니다. 월드가 시작되지 않을 때, 치트가 꺼져 있을 때, 플레이어가 접속하기 전에 복사한 월드를 준비할 때 유용합니다. Java는 문자열을 값으로 갖는 <code>GameRules</code> compound에 저장하고, Bedrock은 루트에 각 규칙을 소문자 byte 태그로 저장합니다.</p>
 <div class="chips"><span class="chip">keepInventory</span><span class="chip">doDaylightCycle</span><span class="chip">mobGriefing</span><span class="chip">commandBlockOutput</span><span class="chip">randomTickSpeed</span></div>
 </div>
 </section>
 <div id="editor">
 
-<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="Drop an NBT file here or click to browse">
+<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="여기에 NBT 파일을 놓거나 눌러 찾아보기">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 16V4m0 0L8 8m4-4l4 4"/><path d="M20 16v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2"/></svg>
-<p>Drop <strong>level.dat</strong> here</p>
-<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">Choose File</button>
-<span class="hint">level.dat &middot; .nbt &middot; .mcstructure &middot; .schem &middot; .schematic &middot; .dat &middot; chunk dumps</span>
+<p>여기에 <strong>level.dat</strong> 놓기</p>
+<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">파일 선택</button>
+<span class="hint">level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · 청크 덤프</span>
 <input type="file" id="fileInput">
 </div>
 
@@ -83,18 +100,16 @@
 <div class="file-info" id="fileInfo"></div>
 
 <div class="out-bar" id="outBar">
-<label>Output format
-<select id="outFormat">
-<option value="java">Java — big-endian, named root</option>
-<option value="java-network">Java network — big-endian, nameless root</option>
-<option value="bedrock-level">Bedrock level.dat — little-endian + 8-byte header</option>
-<option value="bedrock">Bedrock raw — little-endian</option>
-<option value="bedrock-network">Bedrock network — little-endian varint</option>
+<label>출력 형식<select id="outFormat">
+<option value="java">Java — 빅 엔디언, 이름 있는 루트</option>
+<option value="java-network">Java 네트워크 — 빅 엔디언, 이름 없는 루트</option>
+<option value="bedrock-level">Bedrock level.dat — 리틀 엔디언 + 8바이트 헤더</option>
+<option value="bedrock">Bedrock 원시 형식 — 리틀 엔디언</option>
+<option value="bedrock-network">Bedrock 네트워크 — 리틀 엔디언 varint</option>
 </select>
 </label>
-<label>Compression
-<select id="outCompression">
-<option value="none">None (raw)</option>
+<label>압축<select id="outCompression">
+<option value="none">없음(원시 데이터)</option>
 <option value="gzip">gzip</option>
 <option value="zlib">zlib (deflate)</option>
 </select>
@@ -102,9 +117,9 @@
 </div>
 
 <div class="search-bar">
-<input type="search" id="searchInput" placeholder="Search tag name or value…" autocomplete="off" spellcheck="false" aria-label="Search NBT tags">
-<button type="button" id="btnSearch">Search</button>
-<button type="button" id="btnCollapse">Collapse all</button>
+<input type="search" id="searchInput" placeholder="태그 이름 또는 값 검색…" autocomplete="off" spellcheck="false" aria-label="NBT 태그 검색">
+<button type="button" id="btnSearch">검색</button>
+<button type="button" id="btnCollapse">모두 접기</button>
 </div>
 <div class="search-results" id="searchResults"></div>
 
@@ -112,79 +127,79 @@
 </div>
 
 <div class="bottom-bar" id="bottomBar">
-<button class="btn-add" id="btnAddRoot" type="button">+ Add Tag</button>
-<button class="btn-save" id="btnSave" type="button">Save &amp; Download</button>
-<button class="btn-snbt" id="btnSnbt" type="button">Export SNBT</button>
-<button class="btn-close" id="btnCloseFile" type="button">Close</button>
+<button class="btn-add" id="btnAddRoot" type="button">+ 태그 추가</button>
+<button class="btn-save" id="btnSave" type="button">저장 및 다운로드</button>
+<button class="btn-snbt" id="btnSnbt" type="button">SNBT 내보내기</button>
+<button class="btn-close" id="btnCloseFile" type="button">닫기</button>
 </div>
 
 </div>
 <div id="contentSections">
 
-<section class="content" aria-label="Java gamerules">
-<h2 id="java-a-gamerules-compound-of-strings">Java: a <code>GameRules</code> compound of strings</h2>
-<p>In Java Edition, <code>Data</code> → <code>GameRules</code> holds one <code>TAG_String</code> per rule, keyed by the exact name <code>/gamerule</code> uses, with the value written as text: <code>"true"</code>, <code>"false"</code> or a number. Rules the world has never set are simply absent and fall back to their defaults — adding the tag with the correct name and a string value works exactly like running the command.</p>
+<section class="content" aria-label="Java 게임 규칙">
+<h2 id="java-a-gamerules-compound-of-strings">Java: 문자열로 된 <code>GameRules</code> compound</h2>
+<p>Java Edition에서는 <code>Data</code> → <code>GameRules</code> 아래에 규칙마다 <code>TAG_String</code> 하나가 있습니다. 키는 <code>/gamerule</code>이 사용하는 정확한 이름이며 값은 <code>"true"</code>, <code>"false"</code> 또는 숫자를 텍스트로 기록합니다. 월드에서 한 번도 설정하지 않은 규칙은 파일에 없고 기본값을 사용합니다. 정확한 이름과 string 값으로 태그를 추가하면 명령어를 실행한 것과 똑같이 동작합니다.</p>
 <div class="table-wrap">
 <table class="matrix">
-<thead><tr><th>Rule</th><th>Value</th><th>Effect</th></tr></thead>
+<thead><tr><th>규칙</th><th>값</th><th>효과</th></tr></thead>
 <tbody>
-<tr><td><code>keepInventory</code></td><td><code>"true"</code></td><td>Keep items on death</td></tr>
-<tr><td><code>doDaylightCycle</code></td><td><code>"false"</code></td><td>Freeze the time of day</td></tr>
-<tr><td><code>doWeatherCycle</code></td><td><code>"false"</code></td><td>Freeze the weather</td></tr>
-<tr><td><code>mobGriefing</code></td><td><code>"false"</code></td><td>Stop creepers and endermen changing blocks</td></tr>
-<tr><td><code>doMobSpawning</code></td><td><code>"false"</code></td><td>Stop natural mob spawning</td></tr>
-<tr><td><code>doFireTick</code></td><td><code>"false"</code></td><td>Fire stops spreading</td></tr>
-<tr><td><code>commandBlockOutput</code></td><td><code>"false"</code></td><td>Silence command block chat spam</td></tr>
-<tr><td><code>randomTickSpeed</code></td><td><code>"3"</code></td><td>Crop growth and fire spread rate</td></tr>
-<tr><td><code>playersSleepingPercentage</code></td><td><code>"50"</code></td><td>Share of players needed to skip the night</td></tr>
-<tr><td><code>spawnRadius</code></td><td><code>"10"</code></td><td>Spread of the spawn area</td></tr>
+<tr><td><code>keepInventory</code></td><td><code>"true"</code></td><td>죽어도 아이템 유지</td></tr>
+<tr><td><code>doDaylightCycle</code></td><td><code>"false"</code></td><td>시간 흐름 정지</td></tr>
+<tr><td><code>doWeatherCycle</code></td><td><code>"false"</code></td><td>날씨 변화 정지</td></tr>
+<tr><td><code>mobGriefing</code></td><td><code>"false"</code></td><td>크리퍼와 엔더맨의 블록 변경 방지</td></tr>
+<tr><td><code>doMobSpawning</code></td><td><code>"false"</code></td><td>자연적인 몹 생성 중지</td></tr>
+<tr><td><code>doFireTick</code></td><td><code>"false"</code></td><td>불 번짐 중지</td></tr>
+<tr><td><code>commandBlockOutput</code></td><td><code>"false"</code></td><td>명령 블록의 채팅 출력 숨김</td></tr>
+<tr><td><code>randomTickSpeed</code></td><td><code>"3"</code></td><td>작물 성장과 불 번짐 속도</td></tr>
+<tr><td><code>playersSleepingPercentage</code></td><td><code>"50"</code></td><td>밤을 넘기는 데 필요한 플레이어 비율</td></tr>
+<tr><td><code>spawnRadius</code></td><td><code>"10"</code></td><td>스폰 영역의 분산 범위</td></tr>
 </tbody>
 </table>
 </div>
-<p>Case matters. <code>keepinventory</code> in a Java file is not the same tag as <code>keepInventory</code> and will be ignored.</p>
+<p>대소문자를 구분합니다. Java 파일의 <code>keepinventory</code>는 <code>keepInventory</code>와 다른 태그이므로 무시됩니다.</p>
 </section>
 
-<section class="content" aria-label="Bedrock gamerules">
-<h2 id="bedrock-individual-lowercase-byte-tags">Bedrock: individual lowercase byte tags</h2>
-<p>Bedrock does not group rules. Each one is a <code>TAG_Byte</code> at the root of <code>level.dat</code>, named in lowercase, holding 1 or 0 — <code>keepinventory</code>, <code>domobspawning</code>, <code>domobloot</code>, <code>dodaylightcycle</code>, <code>doweathercycle</code>, <code>mobgriefing</code>, <code>firedamage</code>, <code>falldamage</code>, <code>drowningdamage</code>, <code>pvp</code>, <code>showcoordinates</code>, <code>commandblockoutput</code>, <code>sendcommandfeedback</code>, <code>naturalregeneration</code>, <code>tntexplodes</code>, <code>respawnblocksexplode</code>, <code>showdeathmessages</code>, <code>doimmediaterespawn</code>. Numeric rules such as <code>randomtickspeed</code> and <code>functioncommandlimit</code> are <code>TAG_Int</code> instead.</p>
-<p>Setting a rule that is not yet present means adding the tag with the right type: Byte for a toggle, Int for a number. A rule stored with the wrong type is ignored, or refuses to load.</p>
+<section class="content" aria-label="Bedrock 게임 규칙">
+<h2 id="bedrock-individual-lowercase-byte-tags">Bedrock: 개별 소문자 byte 태그</h2>
+<p>Bedrock은 규칙을 묶지 않습니다. 각 규칙은 <code>TAG_Byte</code> 루트의 <code>level.dat</code>이며 소문자 이름과 1 또는 0 값을 가집니다. <code>keepinventory</code>, <code>domobspawning</code>, <code>domobloot</code>, <code>dodaylightcycle</code>, <code>doweathercycle</code>, <code>mobgriefing</code>, <code>firedamage</code>, <code>falldamage</code>, <code>drowningdamage</code>, <code>pvp</code>, <code>showcoordinates</code>, <code>commandblockoutput</code>, <code>sendcommandfeedback</code>, <code>naturalregeneration</code>, <code>tntexplodes</code>, <code>respawnblocksexplode</code>, <code>showdeathmessages</code>, <code>doimmediaterespawn</code> 등이 있습니다. <code>randomtickspeed</code>와 <code>functioncommandlimit</code> 같은 숫자 규칙은 <code>TAG_Int</code>입니다.</p>
+<p>아직 없는 규칙은 올바른 유형으로 태그를 추가해야 합니다. 켜고 끄는 값은 Byte, 숫자는 Int입니다. 잘못된 유형으로 저장한 규칙은 무시되거나 월드 불러오기가 실패합니다.</p>
 </section>
 
-<section class="content" aria-label="Why edit the file">
-<h2 id="when-editing-the-file-beats-the-command">When editing the file beats the command</h2>
+<section class="content" aria-label="파일을 편집하는 이유">
+<h2 id="when-editing-the-file-beats-the-command">명령어보다 파일 편집이 나은 경우</h2>
 <ul>
-<li><strong>Cheats are off</strong> and you do not want to toggle them on and off to run one command.</li>
-<li><strong>The world will not load</strong> — a rule such as <code>doImmediateRespawn</code> can be set before the first join.</li>
-<li><strong>You are preparing a template world</strong> to be copied for many servers, and want the rules baked into the copy.</li>
-<li><strong>A plugin changed a rule</strong> and you want to see what is actually stored rather than what a command reports.</li>
-<li><strong>Bulk edits.</strong> Setting a dozen rules across several worlds is faster in the file than in chat.</li>
+<li><strong>치트가 꺼져 있고</strong> 명령어 하나 때문에 켰다가 다시 끄고 싶지 않을 때</li>
+<li><strong>월드가 불러와지지 않아</strong> 첫 접속 전에 <code>doImmediateRespawn</code> 같은 규칙을 설정해야 할 때</li>
+<li><strong>여러 서버에 복사할 템플릿 월드를 준비하면서</strong> 사본에 규칙을 미리 넣고 싶을 때</li>
+<li><strong>플러그인이 규칙을 바꿔서</strong> 명령어가 보고하는 값이 아니라 실제 저장 값을 확인하고 싶을 때</li>
+<li><strong>여러 값을 한꺼번에 바꿀 때.</strong> 여러 월드에서 규칙 열두 개를 설정하려면 채팅보다 파일이 빠릅니다.</li>
 </ul>
-<p>Stop the server first, as with any <code>level.dat</code> edit — a running world rewrites the file on save and will discard the change.</p>
+<p>다른 <code>level.dat</code> 편집과 마찬가지로 먼저 서버를 중지하세요. 실행 중인 월드는 저장할 때 파일을 다시 기록해 변경 사항을 버립니다.</p>
 </section>
 
-<section class="content" aria-label="Frequently asked questions"><h2>Frequently Asked Questions</h2><details><summary>Why is my game rule stored as a string in Java?</summary><div class="faq-body"><p>Java's game rule storage is string-based for every rule, including booleans and numbers. Write <code>"true"</code>, not a byte of 1.</p></div></details><details><summary>Why is it a byte in Bedrock?</summary><div class="faq-body"><p>Bedrock stores toggles as byte tags at the root and numeric rules as ints. There is no <code>GameRules</code> compound.</p></div></details><details><summary>A rule is missing from the file entirely.</summary><div class="faq-body"><p>That means it is at its default. Add the tag with the exact name and correct type and the world will use your value.</p></div></details><details><summary>Do game rules copy with a world folder?</summary><div class="faq-body"><p>Yes — they live in <code>level.dat</code>, so a copied world inherits them along with its stale <a href="../change-world-name/">world name</a>.</p></div></details></section>
-<section class="content" aria-label="Related tools"><h2>Related tools</h2><div class="rel-grid"><a class="rel-card" href="../../level-dat-editor/"><strong>level.dat editor</strong><span>World name, game mode, spawn, difficulty and game rules.</span></a><a class="rel-card" href="../change-world-name/"><strong>Rename a world</strong><span>Fix LevelName after copying a world folder.</span></a><a class="rel-card" href="../../mcpe-nbt-editor/"><strong>MCPE NBT editor</strong><span>Little-endian NBT and the 8-byte level.dat header.</span></a><a class="rel-card" href="../../java-nbt-editor/"><strong>Java Edition NBT editor</strong><span>Big-endian, gzip — Vanilla, Paper, Spigot, Fabric, Forge.</span></a><a class="rel-card" href="../../"><strong>Minecraft NBT editor</strong><span>The universal editor — every edition, every NBT file type.</span></a><a class="rel-card" href="../../pocketmine-nbt-editor/"><strong>PocketMine-MP editor</strong><span>Server-side level.dat for PMMP, Nukkit and BDS.</span></a></div></section>
+<section class="content" aria-label="자주 묻는 질문"><h2>자주 묻는 질문</h2><details><summary>Java에서 게임 규칙을 문자열로 저장하는 이유는 무엇인가요?</summary><div class="faq-body"><p>Java의 게임 규칙 저장 방식은 boolean과 숫자를 포함해 모든 규칙을 문자열로 기록합니다. 1인 byte가 아니라 <code>"true"</code>를 쓰세요.</p></div></details><details><summary>Bedrock에서는 왜 byte인가요?</summary><div class="faq-body"><p>Bedrock은 켜고 끄는 규칙을 루트의 byte 태그로, 숫자 규칙을 int로 저장합니다. <code>GameRules</code> compound는 없습니다.</p></div></details><details><summary>파일에 규칙이 아예 없습니다.</summary><div class="faq-body"><p>해당 규칙이 기본값을 사용한다는 뜻입니다. 정확한 이름과 올바른 유형으로 태그를 추가하면 월드에서 지정한 값을 사용합니다.</p></div></details><details><summary>월드 폴더를 복사하면 게임 규칙도 복사되나요?</summary><div class="faq-body"><p>네. 게임 규칙은 <code>level.dat</code>에 있으므로 오래된 <a href="../change-world-name/">월드 이름</a>과 함께 사본에 그대로 들어갑니다.</p></div></details></section>
+<section class="content" aria-label="관련 도구"><h2>관련 도구</h2><div class="rel-grid"><a class="rel-card" href="../../level-dat-editor/"><strong>level.dat 편집기</strong><span>월드 이름, 게임 모드, 스폰, 난이도, 게임 규칙을 수정합니다.</span></a><a class="rel-card" href="../change-world-name/"><strong>월드 이름 바꾸기</strong><span>월드 폴더 복사 뒤 LevelName을 바로잡습니다.</span></a><a class="rel-card" href="../../mcpe-nbt-editor/"><strong>MCPE NBT 편집기</strong><span>리틀 엔디언 NBT와 8바이트 level.dat 헤더를 처리합니다.</span></a><a class="rel-card" href="../../java-nbt-editor/"><strong>Java Edition NBT 편집기</strong><span>빅 엔디언, gzip — Vanilla, Paper, Spigot, Fabric, Forge 지원</span></a><a class="rel-card" href="../../"><strong>Minecraft NBT 편집기</strong><span>모든 에디션과 모든 NBT 파일 형식을 다루는 범용 편집기입니다.</span></a><a class="rel-card" href="../../pocketmine-nbt-editor/"><strong>PocketMine-MP 편집기</strong><span>PMMP, Nukkit, BDS의 서버 측 level.dat를 편집합니다.</span></a></div></section>
 </div>
 </main>
 
 <footer class="site-footer">
 <div class="container footer-grid">
-<div><h4>Editors</h4><a href="../../">Minecraft NBT editor</a><a href="../../level-dat-editor/">level.dat editor</a><a href="../../java-nbt-editor/">Java Edition NBT editor</a><a href="../../mcpe-nbt-editor/">MCPE NBT editor</a><a href="../../pocketmine-nbt-editor/">PocketMine-MP editor</a></div>
-<div><h4>File types</h4><a href="../../mcstructure-editor/">.mcstructure editor</a><a href="../../schematic-editor/">Schematic editor</a><a href="../../playerdata-editor/">playerdata editor</a><a href="../../nbt-viewer/">NBT viewer</a><a href="../../nbtexplorer-online/">NBTExplorer online</a></div>
-<div><h4>Reference</h4><a href="../../nbt-format/">NBT format reference</a><a href="../change-world-name/">Rename a world</a><a href="../fix-corrupted-level-dat/">Fix a broken level.dat</a><a href="./">Edit game rules</a></div>
-<div><h4>Source</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">Code on GitHub</a><a href="../../../llms.txt">llms.txt</a></div>
+<div><h4>편집기</h4><a href="../../">Minecraft NBT 편집기</a><a href="../../level-dat-editor/">level.dat 편집기</a><a href="../../java-nbt-editor/">Java Edition NBT 편집기</a><a href="../../mcpe-nbt-editor/">MCPE NBT 편집기</a><a href="../../pocketmine-nbt-editor/">PocketMine-MP 편집기</a></div>
+<div><h4>파일 형식</h4><a href="../../mcstructure-editor/">.mcstructure 편집기</a><a href="../../schematic-editor/">Schematic 편집기</a><a href="../../playerdata-editor/">playerdata 편집기</a><a href="../../nbt-viewer/">NBT 뷰어</a><a href="../../nbtexplorer-online/">온라인 NBTExplorer</a></div>
+<div><h4>참고 자료</h4><a href="../../nbt-format/">NBT 형식 참고 자료</a><a href="../change-world-name/">월드 이름 바꾸기</a><a href="../fix-corrupted-level-dat/">손상된 level.dat 복구</a><a href="./">게임 규칙 편집</a></div>
+<div><h4>소스</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">GitHub 코드</a><a href="../../../llms.txt">llms.txt</a></div>
 </div>
-<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">마지막 업데이트: 2026-09-21 Minecraft NBT 편집기 — 무료 오픈 소스(MIT)이며 브라우저에서만 실행됩니다. Mojang Studios 또는 Microsoft와 제휴 관계가 없습니다. Minecraft는 Mojang Studios의 상표입니다.</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
 <div class="modal-overlay" id="addTagModal">
 <div class="modal">
-<h3>Add New Tag</h3>
-<label for="newTagName">Tag Name</label>
-<input type="text" id="newTagName" placeholder="e.g. MyTag" autocomplete="off">
-<label for="newTagType">Tag Type</label>
+<h3>새 태그 추가</h3>
+<label for="newTagName">태그 이름</label>
+<input type="text" id="newTagName" placeholder="예: MyTag" autocomplete="off">
+<label for="newTagType">태그 유형</label>
 <select id="newTagType">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -199,10 +214,10 @@
 <option value="11">TAG_Int_Array</option>
 <option value="12">TAG_Long_Array</option>
 </select>
-<label for="newTagValue">Value</label>
-<input type="text" id="newTagValue" placeholder="Value" autocomplete="off">
+<label for="newTagValue">값</label>
+<input type="text" id="newTagValue" placeholder="값" autocomplete="off">
 <div id="listSubtypeRow" style="display:none">
-<label for="newListSubtype">List Element Type</label>
+<label for="newListSubtype">목록 요소 유형</label>
 <select id="newListSubtype">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -219,24 +234,24 @@
 </select>
 </div>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="addTagCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="addTagConfirm">Add</button>
+<button class="btn-cancel" type="button" id="addTagCancel">취소</button>
+<button class="btn-confirm" type="button" id="addTagConfirm">추가</button>
 </div>
 </div>
 </div>
 
 <div class="modal-overlay" id="arrayModal">
 <div class="modal">
-<h3 id="arrayModalTitle">Edit Array</h3>
-<label for="arrayModalText">Comma-separated values</label>
+<h3 id="arrayModalTitle">배열 편집</h3>
+<label for="arrayModalText">쉼표로 구분한 값</label>
 <textarea id="arrayModalText" spellcheck="false" autocomplete="off"></textarea>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="arrayModalCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="arrayModalConfirm">Apply</button>
+<button class="btn-cancel" type="button" id="arrayModalCancel">취소</button>
+<button class="btn-confirm" type="button" id="arrayModalConfirm">적용</button>
 </div>
 </div>
 </div>
 
-<script src="../../../assets/nbt.js?v=da7967b1" defer></script>
+<script src="../../../assets/nbt.js?v=6f125422" defer></script>
 </body>
 </html>

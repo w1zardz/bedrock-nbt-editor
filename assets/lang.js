@@ -5,11 +5,11 @@
 var COOKIE="nbtlang";
 var MAXAGE=60*60*24*365;
 var urls=window.__LANG_URLS__||{};
-var current=document.documentElement.lang||"en";
+var current=(document.documentElement.lang||"en").toLowerCase();
 
 function readCookie(){
   var m=document.cookie.match(/(?:^|;\s*)nbtlang=([^;]+)/);
-  return m?decodeURIComponent(m[1]):"";
+  return m?decodeURIComponent(m[1]).toLowerCase():"";
 }
 function writeCookie(code){
   try{

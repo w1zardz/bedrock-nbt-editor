@@ -3,79 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Edit Minecraft Game Rules in level.dat — Java &amp;amp; Bedrock</title>
-<meta name="description" content="Change keepInventory, doDaylightCycle, mobGriefing and other game rules by editing level.dat, for Java and Bedrock. No commands, no cheats needed.">
-<meta name="keywords" content="edit gamerules level.dat, keepinventory nbt, minecraft gamerules file, change gamerule without commands, bedrock gamerules level.dat, dodaylightcycle nbt, gamerules server">
-<meta name="robots" content="noindex, follow">
+<title>level.datでMinecraftゲームルールを編集 — Java・Bedrock</title>
+<meta name="description" content="level.datを編集し、keepInventory、doDaylightCycle、mobGriefingなどのゲームルールを変更します。JavaではGameRules内の文字列、Bedrockではルート直下の小文字ByteまたはIntとして保存されます。正しいタグ名と型、サーバー停止手順を説明します。">
+<meta name="keywords" content="Minecraft ゲームルール 変更, keepInventory NBT, level.dat gamerule 編集, チートなし ゲームルール, Bedrock ゲームルール level.dat, doDaylightCycle 設定">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="author" content="w1zardz">
 <link rel="canonical" href="https://w1zardz.github.io/bedrock-nbt-editor/ja/guides/edit-gamerules/">
+<link rel="alternate" hreflang="en" href="https://w1zardz.github.io/bedrock-nbt-editor/guides/edit-gamerules/">
+<link rel="alternate" hreflang="ru" href="https://w1zardz.github.io/bedrock-nbt-editor/ru/guides/edit-gamerules/">
+<link rel="alternate" hreflang="es" href="https://w1zardz.github.io/bedrock-nbt-editor/es/guides/edit-gamerules/">
+<link rel="alternate" hreflang="pt-BR" href="https://w1zardz.github.io/bedrock-nbt-editor/pt-br/guides/edit-gamerules/">
+<link rel="alternate" hreflang="de" href="https://w1zardz.github.io/bedrock-nbt-editor/de/guides/edit-gamerules/">
+<link rel="alternate" hreflang="fr" href="https://w1zardz.github.io/bedrock-nbt-editor/fr/guides/edit-gamerules/">
+<link rel="alternate" hreflang="it" href="https://w1zardz.github.io/bedrock-nbt-editor/it/guides/edit-gamerules/">
+<link rel="alternate" hreflang="pl" href="https://w1zardz.github.io/bedrock-nbt-editor/pl/guides/edit-gamerules/">
+<link rel="alternate" hreflang="uk" href="https://w1zardz.github.io/bedrock-nbt-editor/uk/guides/edit-gamerules/">
+<link rel="alternate" hreflang="tr" href="https://w1zardz.github.io/bedrock-nbt-editor/tr/guides/edit-gamerules/">
+<link rel="alternate" hreflang="id" href="https://w1zardz.github.io/bedrock-nbt-editor/id/guides/edit-gamerules/">
+<link rel="alternate" hreflang="vi" href="https://w1zardz.github.io/bedrock-nbt-editor/vi/guides/edit-gamerules/">
+<link rel="alternate" hreflang="th" href="https://w1zardz.github.io/bedrock-nbt-editor/th/guides/edit-gamerules/">
+<link rel="alternate" hreflang="zh-Hans" href="https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/guides/edit-gamerules/">
+<link rel="alternate" hreflang="ja" href="https://w1zardz.github.io/bedrock-nbt-editor/ja/guides/edit-gamerules/">
+<link rel="alternate" hreflang="ko" href="https://w1zardz.github.io/bedrock-nbt-editor/ko/guides/edit-gamerules/">
+<link rel="alternate" hreflang="ar" href="https://w1zardz.github.io/bedrock-nbt-editor/ar/guides/edit-gamerules/">
 <link rel="alternate" hreflang="x-default" href="https://w1zardz.github.io/bedrock-nbt-editor/guides/edit-gamerules/">
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="../../../favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
 <link rel="manifest" href="../../../site.webmanifest">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Edit game rules in level.dat">
-<meta property="og:description" content="Change keepInventory, doDaylightCycle, mobGriefing and other game rules by editing level.dat, for Java and Bedrock. No commands, no cheats needed.">
+<meta property="og:title" content="level.datでゲームルールを編集">
+<meta property="og:description" content="level.datを編集し、keepInventory、doDaylightCycle、mobGriefingなどのゲームルールを変更します。JavaではGameRules内の文字列、Bedrockではルート直下の小文字ByteまたはIntとして保存されます。正しいタグ名と型、サーバー停止手順を説明します。">
 <meta property="og:url" content="https://w1zardz.github.io/bedrock-nbt-editor/ja/guides/edit-gamerules/">
-<meta property="og:site_name" content="Minecraft NBT Editor">
+<meta property="og:site_name" content="Minecraft NBT エディター">
 <meta property="og:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/gamerules.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Edit game rules in level.dat">
-<meta name="twitter:description" content="Change keepInventory, doDaylightCycle, mobGriefing and other game rules by editing level.dat, for Java and Bedrock. No commands, no cheats needed.">
+<meta name="twitter:title" content="level.datでゲームルールを編集">
+<meta name="twitter:description" content="level.datを編集し、keepInventory、doDaylightCycle、mobGriefingなどのゲームルールを変更します。JavaではGameRules内の文字列、Bedrockではルート直下の小文字ByteまたはIntとして保存されます。正しいタグ名と型、サーバー停止手順を説明します。">
 <meta name="twitter:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/gamerules.png">
-<meta property="article:modified_time" content="2026-08-26">
-<meta property="og:updated_time" content="2026-08-26">
+<meta property="article:modified_time" content="2026-09-21">
+<meta property="og:updated_time" content="2026-09-21">
 <meta name="theme-color" content="#0d1117">
-<meta name="application-name" content="Minecraft NBT Editor">
-<meta name="apple-mobile-web-app-title" content="NBT Editor">
-<link rel="preload" href="../../../assets/nbt.js?v=da7967b1" as="script">
-<script>window.__LANG_URLS__={"en":"../../../guides/edit-gamerules/","ru":"../../../ru/guides/edit-gamerules/","es":"../../../es/guides/edit-gamerules/","pt-br":"../../../pt-br/guides/edit-gamerules/","de":"../../../de/guides/edit-gamerules/","fr":"../../../fr/guides/edit-gamerules/","it":"../../../it/guides/edit-gamerules/","pl":"../../../pl/guides/edit-gamerules/","uk":"../../../uk/guides/edit-gamerules/","tr":"../../../tr/guides/edit-gamerules/","id":"../../../id/guides/edit-gamerules/","vi":"../../../vi/guides/edit-gamerules/","th":"../../../th/guides/edit-gamerules/","zh-hans":"../../../zh-hans/guides/edit-gamerules/","ja":"./","ko":"../../../ko/guides/edit-gamerules/","ar":"../../../ar/guides/edit-gamerules/"};window.__NBT_STRINGS__={"loaded":"Loaded as {0}","trailing":"{0} trailing byte(s) after the root tag were ignored","error":"Error: {0}","readfail":"Could not read the file","nofile":"No file loaded","saved":"Saved {0} ({1}, {2})","savefail":"Save error: {0}","exported":"Exported {0}","snbtfail":"SNBT error: {0}","tagadded":"Tag added","tagremoved":"Tag removed","arrayupdated":"Array updated","badvalue":"Invalid value: {0}","badarray":"Invalid array: {0}","nameneeded":"Tag name is required","nametaken":"A tag named {0} already exists here","listtype":"List already holds {0} entries","editlevelname":"✎ Edit LevelName","showmore":"Show {0} more of {1} …","matches":"{0} match(es)","nomatch":"No tag matches \"{0}\"","arraytoobig":"Array has {0} entries — expand it and edit elements individually","uncompressed":"uncompressed","storage":"storage v{0}","entries":"{0} entries","langprompt":"Open this page in {0}?","langyes":"Switch","langno":"Stay"};</script>
-<script src="../../../assets/lang.js?v=a3a1db0e" defer></script>
+<meta name="application-name" content="Minecraft NBT エディター">
+<meta name="apple-mobile-web-app-title" content="NBT エディター">
+<link rel="preload" href="../../../assets/nbt.js?v=6f125422" as="script">
+<script>window.__LANG_URLS__={"en":"../../../guides/edit-gamerules/","ru":"../../../ru/guides/edit-gamerules/","es":"../../../es/guides/edit-gamerules/","pt-br":"../../../pt-br/guides/edit-gamerules/","de":"../../../de/guides/edit-gamerules/","fr":"../../../fr/guides/edit-gamerules/","it":"../../../it/guides/edit-gamerules/","pl":"../../../pl/guides/edit-gamerules/","uk":"../../../uk/guides/edit-gamerules/","tr":"../../../tr/guides/edit-gamerules/","id":"../../../id/guides/edit-gamerules/","vi":"../../../vi/guides/edit-gamerules/","th":"../../../th/guides/edit-gamerules/","zh-hans":"../../../zh-hans/guides/edit-gamerules/","ja":"./","ko":"../../../ko/guides/edit-gamerules/","ar":"../../../ar/guides/edit-gamerules/"};window.__NBT_STRINGS__={"loaded":"{0} として読み込みました","trailing":"ルートタグ後の末尾バイト {0} 個を無視しました","error":"エラー: {0}","readfail":"ファイルを読み取れませんでした","nofile":"ファイルが読み込まれていません","saved":"{0} を保存しました（{1}、{2}）","savefail":"保存エラー: {0}","exported":"{0} をエクスポートしました","snbtfail":"SNBTエラー: {0}","tagadded":"タグを追加しました","tagremoved":"タグを削除しました","arrayupdated":"配列を更新しました","badvalue":"無効な値: {0}","badarray":"無効な配列: {0}","nameneeded":"タグ名が必要です","nametaken":"{0} というタグはここにすでに存在します","listtype":"このListにはすでに {0} 型の要素があります","editlevelname":"✎ LevelNameを編集","showmore":"さらに {0} 件を表示（全 {1} 件）…","matches":"{0} 件一致","nomatch":"「{0}」に一致するタグはありません","arraytoobig":"配列には {0} 件あります。展開して各要素を個別に編集してください","uncompressed":"非圧縮","storage":"ストレージ v{0}","entries":"{0} 件","langprompt":"このページを{0}で開きますか？","langyes":"切り替える","langno":"このまま","nav_editor":"エディター","nav_format":"NBT 形式","language":"言語：{0}","beta":"ベータ版","skip_editor":"エディターに移動","brand_editor":"NBT エディター","guides":"ガイド","updated":"最終更新日：{0}。","drop":"ここに{0}をドロップ","choose_file":"ファイルを選択","file_hint":"level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · チャンクのダンプ","output_format":"出力形式","format_java":"Java — ビッグエンディアン、名前付きルート","format_java_network":"Java ネットワーク — ビッグエンディアン、名前なしルート","format_bedrock_level":"Bedrock level.dat — リトルエンディアン + 8 バイトのヘッダー","format_bedrock":"Bedrock 生データ — リトルエンディアン","format_bedrock_network":"Bedrock ネットワーク — リトルエンディアンの可変長整数","compression":"圧縮","compression_none":"なし（生データ）","search_placeholder":"タグ名または値を検索…","search":"検索","collapse":"すべて折りたたむ","add_tag":"+ タグを追加","save_download":"保存してダウンロード","export_snbt":"SNBT をエクスポート","close":"閉じる","add_new_tag":"新しいタグを追加","tag_name":"タグ名","tag_type":"タグの型","tag_example":"例：MyTag","value":"値","list_element_type":"リスト要素の型","cancel":"キャンセル","add":"追加","edit_array":"配列を編集","comma_values":"カンマ区切りの値","apply":"適用","format_label_java":"Java ビッグエンディアン","format_label_java_network":"Java ネットワーク（名前なしルート）","format_label_bedrock_level":"Bedrock level.dat（8 バイトのヘッダー）","format_label_bedrock":"Bedrock リトルエンディアン","format_label_bedrock_network":"Bedrock ネットワーク（可変長整数）","err_decompress":"このブラウザーでは {0} を展開できません（Compression Streams API に未対応）","err_compress":"このブラウザーでは {0} で圧縮できません（Compression Streams API に未対応）","err_stream":"{0} 形式の圧縮処理に失敗しました","err_end":"オフセット {0} でデータが予期せず終了しました","err_tag_limit":"タグ数の上限を超えています","err_varint":"VarInt が長すぎます","err_varlong":"VarLong が長すぎます","err_negative_array":"配列の長さが負の値です：{0}","err_array_length":"配列の長さ {0} が残りのデータ量を超えています","err_negative_list":"リストの長さが負の値です","err_end_list":"TAG_End のリストに {0} 個の要素があります","err_list_type":"不明なリスト要素の型です：{0}","err_tag_type":"不明なタグの型です：{0}","err_root":"ルートタグは TAG_Compound である必要がありますが、{0} でした","err_string_length":"文字列がこの形式の長さ制限を超えています：{0} バイト","err_write_type":"型 {0} のタグは書き込めません","err_header_short":"データが短すぎてヘッダーを読み取れません","err_storage_version":"不正と思われる保存形式のバージョンです：{0}","err_header_length":"ヘッダーで指定された長さ {0} がペイロードを超えています","err_unknown_file":"NBT ファイルとして認識できません（Java、Bedrock、ネットワーク、ヘッダー付きの形式を確認済み）","err_file_small":"ファイルが小さすぎて NBT データを格納できません","err_byte":"Byte は -128..127 の範囲にしてください","err_short":"Short は -32768..32767 の範囲にしてください","err_int":"Int は -2147483648..2147483647 の範囲にしてください","err_long":"Long が 64 ビットの範囲外です","err_float":"無効な float 値です","err_double":"無効な double 値です","err_not_inline":"この型のタグはその場で編集できません","err_array_byte":"無効な byte 値です：{0}","err_array_int":"無効な int 値です：{0}","err_array_long":"無効な 64 ビット整数です：{0}","root":"（ルート）","add_child":"子タグを追加","remove_tag":"タグを削除","array":"配列","array_bytes":"[{0} バイト]","array_ints":"[int 型の要素 {0} 個]","array_longs":"[long 型の要素 {0} 個]","entries_type":"{1} 型の要素 {0} 個","unknown_error":"操作を完了できませんでした","software_name":"Minecraft NBT エディター","software_alternate_online":"オンライン NBT エディター","software_alternate_bedrock":"Bedrock NBT エディター","software_alternate_level":"level.dat エディター","software_subcategory":"ゲームファイルエディター","software_os":"すべての OS（ブラウザー）","software_browser":"BigInt と Compression Streams に対応した最新のブラウザー","feature_java":"Java Edition のビッグエンディアン NBT","feature_bedrock":"Bedrock Edition のリトルエンディアン NBT","feature_bedrock_network":"Bedrock ネットワーク NBT（可変長整数）","feature_java_network":"Java ネットワーク NBT（名前なしルート）","feature_compression":"gzip と zlib による圧縮","feature_types":"全 13 種類の NBT タグに対応し、64 ビットの精度を保持","feature_snbt":"SNBT のエクスポート","feature_local":"すべての処理をクライアント側で実行","schema_about":"Minecraft の NBT データ形式","not_found_title":"ページが見つかりません — {0}","not_found_heading":"404 — このページは移動したか、存在しません","not_found_intro":"エディターはワンクリックで開けます。各ツールへの固定リンクは以下にあります。","not_found_footer":"{0} — 無料のオープンソースソフトウェア。","aria_bedrock_gamerules":"Bedrock のゲームルール","aria_bedrock_level_dat_header":"Bedrock の level.dat ヘッダー","aria_bedrock_tags":"Bedrock のタグ","aria_breadcrumb":"パンくずリスト","aria_byte_walkthrough":"バイトごとの解説","aria_causes":"原因","aria_common_repairs":"よくある修復作業","aria_comparison":"比較","aria_compatibility":"互換性","aria_compression":"圧縮","aria_core_specifics":"サーバーソフトウェアごとの違い","aria_dataversion":"DataVersion","aria_drop_an_nbt_file_here_or_click_to_browse":"ここに NBT ファイルをドロップするか、クリックして選択","aria_duplicate_world_names":"重複するワールド名","aria_editing_schematics":"スケマティックの編集","aria_encodings":"エンコーディング","aria_features":"機能","aria_file_types":"ファイルの種類","aria_frequently_asked_questions":"よくある質問","aria_how_to_use":"使い方","aria_inside_a_mcstructure_file":"mcstructure ファイルの内部構造","aria_introduction":"はじめに","aria_java_nbt_encoding":"Java NBT のエンコーディング","aria_java_nbt_files":"Java NBT ファイル","aria_java_gamerules":"Java のゲームルール","aria_migrating":"他のツールからの移行","aria_other_bedrock_nbt":"その他の Bedrock NBT","aria_other_tools":"その他のツール","aria_per_platform":"プラットフォーム別の説明","aria_prevention":"予防","aria_related_tools":"関連ツール","aria_snbt":"SNBT","aria_safety":"安全上の注意","aria_salvage":"データの復旧","aria_schematic_formats":"スケマティックの形式","aria_scripting":"スクリプトでの利用","aria_search_nbt_tags":"NBT タグを検索","aria_server_cores":"サーバーソフトウェア","aria_server_safety":"サーバーでの安全上の注意","aria_server_workflow":"サーバーでの作業手順","aria_strings":"文字列","aria_supported_files":"対応ファイル","aria_supported_server_software":"対応サーバーソフトウェア","aria_tag_types":"タグの型","aria_tags_in_level_dat":"level.dat 内のタグ","aria_tools":"ツール","aria_troubleshooting":"トラブルシューティング","aria_typical_edits":"よく行う編集","aria_what_you_can_inspect":"確認できる内容","aria_where_bedrock_files_live":"Bedrock ファイルの場所","aria_where_mcstructure_files_live":"mcstructure ファイルの場所","aria_where_to_find_level_dat":"level.dat の場所","aria_why_edit_the_file":"ファイルを編集する理由","aria_why_the_folder_name_is_not_the_world_name":"フォルダー名とワールド名が異なる理由","aria_playerdata_tags":"playerdata のタグ","toggle":"展開または折りたたむ"};</script>
+<script src="../../../assets/lang.js?v=23a64b2c" defer></script>
 <link rel="stylesheet" href="../../../assets/app.css?v=f5bdcb0f">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Edit Minecraft Game Rules in level.dat \u2014 Java & Bedrock","headline":"Editing Game Rules in level.dat","description":"Change keepInventory, doDaylightCycle, mobGriefing and other game rules by editing level.dat, for Java and Bedrock. No commands, no cheats needed.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ja/guides/edit-gamerules/","inLanguage":"ja","datePublished":"2026-05-29","dateModified":"2026-08-26","isPartOf":{"@type":"WebSite","name":"Minecraft NBT Editor","url":"https://w1zardz.github.io/bedrock-nbt-editor/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/gamerules.png"},"about":{"@type":"Thing","name":"Minecraft NBT data format"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT Editor","item":"https://w1zardz.github.io/bedrock-nbt-editor/ja/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://w1zardz.github.io/bedrock-nbt-editor/ja/guides/"},{"@type":"ListItem","position":3,"name":"Editing Game Rules in level.dat","item":"https://w1zardz.github.io/bedrock-nbt-editor/ja/guides/edit-gamerules/"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why is my game rule stored as a string in Java?","acceptedAnswer":{"@type":"Answer","text":"Java's game rule storage is string-based for every rule, including booleans and numbers. Write \"true\", not a byte of 1."}},{"@type":"Question","name":"Why is it a byte in Bedrock?","acceptedAnswer":{"@type":"Answer","text":"Bedrock stores toggles as byte tags at the root and numeric rules as ints. There is no GameRules compound."}},{"@type":"Question","name":"A rule is missing from the file entirely.","acceptedAnswer":{"@type":"Answer","text":"That means it is at its default. Add the tag with the exact name and correct type and the world will use your value."}},{"@type":"Question","name":"Do game rules copy with a world folder?","acceptedAnswer":{"@type":"Answer","text":"Yes \u2014 they live in level.dat, so a copied world inherits them along with its stale world name."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"level.datでMinecraftゲームルールを編集 — Java・Bedrock","headline":"level.dat のゲームルールを編集する","description":"level.datを編集し、keepInventory、doDaylightCycle、mobGriefingなどのゲームルールを変更します。JavaではGameRules内の文字列、Bedrockではルート直下の小文字ByteまたはIntとして保存されます。正しいタグ名と型、サーバー停止手順を説明します。","url":"https://w1zardz.github.io/bedrock-nbt-editor/ja/guides/edit-gamerules/","inLanguage":"ja","datePublished":"2026-05-29","dateModified":"2026-09-21","isPartOf":{"@type":"WebSite","name":"Minecraft NBT エディター","url":"https://w1zardz.github.io/bedrock-nbt-editor/ja/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/gamerules.png"},"about":{"@type":"Thing","name":"Minecraft の NBT データ形式"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT エディター","item":"https://w1zardz.github.io/bedrock-nbt-editor/ja/"},{"@type":"ListItem","position":2,"name":"ガイド","item":"https://w1zardz.github.io/bedrock-nbt-editor/ja/guides/"},{"@type":"ListItem","position":3,"name":"level.dat のゲームルールを編集する","item":"https://w1zardz.github.io/bedrock-nbt-editor/ja/guides/edit-gamerules/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Javaでゲームルールが文字列なのはなぜですか？","acceptedAnswer":{"@type":"Answer","text":"Javaは真偽値や数値を含むすべてのゲームルールを文字列として保存します。byteの1ではなく \"true\" と書いてください。"}},{"@type":"Question","name":"Bedrockではbyteなのはなぜですか？","acceptedAnswer":{"@type":"Answer","text":"Bedrockは切り替えをルート直下のbyteタグ、数値ルールをintとして保存します。GameRules Compoundはありません。"}},{"@type":"Question","name":"ルールがファイルに存在しません。","acceptedAnswer":{"@type":"Answer","text":"そのルールは既定値を使用しています。正確な名前と正しい型でタグを追加すると、指定した値が使われます。"}},{"@type":"Question","name":"ワールドフォルダーをコピーするとゲームルールもコピーされますか？","acceptedAnswer":{"@type":"Answer","text":"はい。ゲームルールは level.dat にあるため、古いワールド名と同様にコピー先へ引き継がれます。"}}]}</script>
 </head>
 <body>
-<a class="skip-link" href="#editor">Skip to the editor</a>
+<a class="skip-link" href="#editor">エディターに移動</a>
 <header class="site-header">
 <div class="container">
-<a class="brand" href="../../"><span>Minecraft</span> NBT Editor</a>
+<a class="brand" href="../../"><span>Minecraft</span> NBT エディター</a>
 <span class="badge">Java + Bedrock</span>
-<nav class="site-nav" aria-label="Tools">
-<a href="../../">Editor</a>
+<nav class="site-nav" aria-label="ツール">
+<a href="../../">エディター</a>
 <a href="../../level-dat-editor/">level.dat</a>
 <a href="../../java-nbt-editor/">Java</a>
 <a href="../../mcpe-nbt-editor/">Bedrock</a>
 <a href="../../mcstructure-editor/">.mcstructure</a>
 <a href="../../schematic-editor/">.schem</a>
 <a href="../../playerdata-editor/">playerdata</a>
-<a href="../../nbt-format/">NBT format</a>
+<a href="../../nbt-format/">NBT 形式</a>
 </nav>
-<details class="lang-switch"><summary title="Language: 日本語" aria-label="Language: 日本語"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">Language: 日本語</span></summary><div class="lang-menu"><a href="./" hreflang="ja" data-lang="ja" aria-current="true" class="current">日本語</a><a href="../../../guides/edit-gamerules/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../../ru/guides/edit-gamerules/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../../es/guides/edit-gamerules/" hreflang="es" data-lang="es" rel="alternate">Español (beta)</a><a href="../../../pt-br/guides/edit-gamerules/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR) (beta)</a><a href="../../../de/guides/edit-gamerules/" hreflang="de" data-lang="de" rel="alternate">Deutsch (beta)</a><a href="../../../fr/guides/edit-gamerules/" hreflang="fr" data-lang="fr" rel="alternate">Français (beta)</a><a href="../../../it/guides/edit-gamerules/" hreflang="it" data-lang="it" rel="alternate">Italiano (beta)</a><a href="../../../pl/guides/edit-gamerules/" hreflang="pl" data-lang="pl" rel="alternate">Polski (beta)</a><a href="../../../uk/guides/edit-gamerules/" hreflang="uk" data-lang="uk" rel="alternate">Українська (beta)</a><a href="../../../tr/guides/edit-gamerules/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe (beta)</a><a href="../../../id/guides/edit-gamerules/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia (beta)</a><a href="../../../vi/guides/edit-gamerules/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt (beta)</a><a href="../../../th/guides/edit-gamerules/" hreflang="th" data-lang="th" rel="alternate">ไทย (beta)</a><a href="../../../zh-hans/guides/edit-gamerules/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文 (beta)</a><a href="../../../ko/guides/edit-gamerules/" hreflang="ko" data-lang="ko" rel="alternate">한국어 (beta)</a><a href="../../../ar/guides/edit-gamerules/" hreflang="ar" data-lang="ar" rel="alternate">العربية (beta)</a></div></details>
+<details class="lang-switch"><summary title="言語：日本語" aria-label="言語：日本語"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">言語：日本語</span></summary><div class="lang-menu"><a href="./" hreflang="ja" data-lang="ja" aria-current="true" class="current">日本語</a><a href="../../../guides/edit-gamerules/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../../ru/guides/edit-gamerules/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../../es/guides/edit-gamerules/" hreflang="es" data-lang="es" rel="alternate">Español</a><a href="../../../pt-br/guides/edit-gamerules/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR)</a><a href="../../../de/guides/edit-gamerules/" hreflang="de" data-lang="de" rel="alternate">Deutsch</a><a href="../../../fr/guides/edit-gamerules/" hreflang="fr" data-lang="fr" rel="alternate">Français</a><a href="../../../it/guides/edit-gamerules/" hreflang="it" data-lang="it" rel="alternate">Italiano</a><a href="../../../pl/guides/edit-gamerules/" hreflang="pl" data-lang="pl" rel="alternate">Polski</a><a href="../../../uk/guides/edit-gamerules/" hreflang="uk" data-lang="uk" rel="alternate">Українська</a><a href="../../../tr/guides/edit-gamerules/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe</a><a href="../../../id/guides/edit-gamerules/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia</a><a href="../../../vi/guides/edit-gamerules/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt</a><a href="../../../th/guides/edit-gamerules/" hreflang="th" data-lang="th" rel="alternate">ไทย</a><a href="../../../zh-hans/guides/edit-gamerules/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文</a><a href="../../../ko/guides/edit-gamerules/" hreflang="ko" data-lang="ko" rel="alternate">한국어</a><a href="../../../ar/guides/edit-gamerules/" hreflang="ar" data-lang="ar" rel="alternate">العربية</a></div></details>
 </div>
 </header>
 <main>
-<nav class="breadcrumbs container" aria-label="Breadcrumb"><a href="../../">NBT Editor</a> <span class="sep">/</span> <span>Guides</span> <span class="sep">/</span> <span>Edit game rules</span></nav>
-<section class="hero" aria-label="Introduction">
+<nav class="breadcrumbs container" aria-label="パンくずリスト"><a href="../../">NBTエディター</a> <span class="sep">/</span> <span>ガイド</span> <span class="sep">/</span> <span>ゲームルールを編集</span></nav>
+<section class="hero" aria-label="はじめに">
 <div class="container">
-<h1>Editing Game Rules in <code>level.dat</code></h1>
-<p class="support-line"><strong>Supports Minecraft Bedrock Edition and Java Edition</strong> — and every server core for both, popular or obscure: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina and the rest. <a href="../../#server-software">Full list</a>.</p>
-<p class="lede">Game rules are stored in <code>level.dat</code>, so you can change them without loading the world or having cheats enabled — useful when a world will not start, when cheats are off, or when you are preparing a copied world before players join. Java keeps them in a <code>GameRules</code> compound as strings; Bedrock keeps each one as its own lowercase byte tag at the root.</p>
+<h1><code>level.dat</code> のゲームルールを編集する</h1>
+<p class="support-line"><strong>Minecraft Bedrock EditionとJava Editionに対応</strong>し、一般的なものから小規模なものまで両方の全サーバーコアを扱えます: Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLaminaなど。<a href="../../#server-software">全一覧</a>。</p>
+<p class="lede">ゲームルールは <code>level.dat</code> に保存されるため、ワールドを開かず、チートを有効にせず変更できます。ワールドを起動できない場合、チートが無効な場合、プレイヤー参加前にコピーしたワールドを準備する場合に使えます。Javaは <code>GameRules</code> Compound内の文字列、Bedrockはルート直下の小文字byteタグとして保存します。</p>
 <div class="chips"><span class="chip">keepInventory</span><span class="chip">doDaylightCycle</span><span class="chip">mobGriefing</span><span class="chip">commandBlockOutput</span><span class="chip">randomTickSpeed</span></div>
 </div>
 </section>
 <div id="editor">
 
-<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="Drop an NBT file here or click to browse">
+<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="ここに NBT ファイルをドロップするか、クリックして選択">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 16V4m0 0L8 8m4-4l4 4"/><path d="M20 16v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2"/></svg>
-<p>Drop <strong>level.dat</strong> here</p>
-<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">Choose File</button>
-<span class="hint">level.dat &middot; .nbt &middot; .mcstructure &middot; .schem &middot; .schematic &middot; .dat &middot; chunk dumps</span>
+<p>ここに<strong>level.dat</strong>をドロップ</p>
+<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">ファイルを選択</button>
+<span class="hint">level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · チャンクのダンプ</span>
 <input type="file" id="fileInput">
 </div>
 
@@ -83,18 +100,16 @@
 <div class="file-info" id="fileInfo"></div>
 
 <div class="out-bar" id="outBar">
-<label>Output format
-<select id="outFormat">
-<option value="java">Java — big-endian, named root</option>
-<option value="java-network">Java network — big-endian, nameless root</option>
-<option value="bedrock-level">Bedrock level.dat — little-endian + 8-byte header</option>
-<option value="bedrock">Bedrock raw — little-endian</option>
-<option value="bedrock-network">Bedrock network — little-endian varint</option>
+<label>出力形式<select id="outFormat">
+<option value="java">Java — ビッグエンディアン、名前付きルート</option>
+<option value="java-network">Java ネットワーク — ビッグエンディアン、名前なしルート</option>
+<option value="bedrock-level">Bedrock level.dat — リトルエンディアン + 8 バイトのヘッダー</option>
+<option value="bedrock">Bedrock 生データ — リトルエンディアン</option>
+<option value="bedrock-network">Bedrock ネットワーク — リトルエンディアンの可変長整数</option>
 </select>
 </label>
-<label>Compression
-<select id="outCompression">
-<option value="none">None (raw)</option>
+<label>圧縮<select id="outCompression">
+<option value="none">なし（生データ）</option>
 <option value="gzip">gzip</option>
 <option value="zlib">zlib (deflate)</option>
 </select>
@@ -102,9 +117,9 @@
 </div>
 
 <div class="search-bar">
-<input type="search" id="searchInput" placeholder="Search tag name or value…" autocomplete="off" spellcheck="false" aria-label="Search NBT tags">
-<button type="button" id="btnSearch">Search</button>
-<button type="button" id="btnCollapse">Collapse all</button>
+<input type="search" id="searchInput" placeholder="タグ名または値を検索…" autocomplete="off" spellcheck="false" aria-label="NBT タグを検索">
+<button type="button" id="btnSearch">検索</button>
+<button type="button" id="btnCollapse">すべて折りたたむ</button>
 </div>
 <div class="search-results" id="searchResults"></div>
 
@@ -112,79 +127,79 @@
 </div>
 
 <div class="bottom-bar" id="bottomBar">
-<button class="btn-add" id="btnAddRoot" type="button">+ Add Tag</button>
-<button class="btn-save" id="btnSave" type="button">Save &amp; Download</button>
-<button class="btn-snbt" id="btnSnbt" type="button">Export SNBT</button>
-<button class="btn-close" id="btnCloseFile" type="button">Close</button>
+<button class="btn-add" id="btnAddRoot" type="button">+ タグを追加</button>
+<button class="btn-save" id="btnSave" type="button">保存してダウンロード</button>
+<button class="btn-snbt" id="btnSnbt" type="button">SNBT をエクスポート</button>
+<button class="btn-close" id="btnCloseFile" type="button">閉じる</button>
 </div>
 
 </div>
 <div id="contentSections">
 
-<section class="content" aria-label="Java gamerules">
-<h2 id="java-a-gamerules-compound-of-strings">Java: a <code>GameRules</code> compound of strings</h2>
-<p>In Java Edition, <code>Data</code> → <code>GameRules</code> holds one <code>TAG_String</code> per rule, keyed by the exact name <code>/gamerule</code> uses, with the value written as text: <code>"true"</code>, <code>"false"</code> or a number. Rules the world has never set are simply absent and fall back to their defaults — adding the tag with the correct name and a string value works exactly like running the command.</p>
+<section class="content" aria-label="Java のゲームルール">
+<h2 id="java-a-gamerules-compound-of-strings">Java: 文字列を持つ <code>GameRules</code> Compound</h2>
+<p>Java Editionでは <code>Data</code> → <code>GameRules</code> にルールごとの <code>TAG_String</code> があり、キーは <code>/gamerule</code> で使う正確な名前、値は <code>"true"</code>、<code>"false"</code> または数値の文字列です。設定したことのないルールは存在せず既定値へ戻ります。正しい名前と文字列値でタグを追加すればコマンド実行と同じ結果になります。</p>
 <div class="table-wrap">
 <table class="matrix">
-<thead><tr><th>Rule</th><th>Value</th><th>Effect</th></tr></thead>
+<thead><tr><th>ルール</th><th>値</th><th>効果</th></tr></thead>
 <tbody>
-<tr><td><code>keepInventory</code></td><td><code>"true"</code></td><td>Keep items on death</td></tr>
-<tr><td><code>doDaylightCycle</code></td><td><code>"false"</code></td><td>Freeze the time of day</td></tr>
-<tr><td><code>doWeatherCycle</code></td><td><code>"false"</code></td><td>Freeze the weather</td></tr>
-<tr><td><code>mobGriefing</code></td><td><code>"false"</code></td><td>Stop creepers and endermen changing blocks</td></tr>
-<tr><td><code>doMobSpawning</code></td><td><code>"false"</code></td><td>Stop natural mob spawning</td></tr>
-<tr><td><code>doFireTick</code></td><td><code>"false"</code></td><td>Fire stops spreading</td></tr>
-<tr><td><code>commandBlockOutput</code></td><td><code>"false"</code></td><td>Silence command block chat spam</td></tr>
-<tr><td><code>randomTickSpeed</code></td><td><code>"3"</code></td><td>Crop growth and fire spread rate</td></tr>
-<tr><td><code>playersSleepingPercentage</code></td><td><code>"50"</code></td><td>Share of players needed to skip the night</td></tr>
-<tr><td><code>spawnRadius</code></td><td><code>"10"</code></td><td>Spread of the spawn area</td></tr>
+<tr><td><code>keepInventory</code></td><td><code>"true"</code></td><td>死亡時にアイテムを保持</td></tr>
+<tr><td><code>doDaylightCycle</code></td><td><code>"false"</code></td><td>時刻の進行を停止</td></tr>
+<tr><td><code>doWeatherCycle</code></td><td><code>"false"</code></td><td>天候変化を停止</td></tr>
+<tr><td><code>mobGriefing</code></td><td><code>"false"</code></td><td>クリーパーやエンダーマンによるブロック変更を停止</td></tr>
+<tr><td><code>doMobSpawning</code></td><td><code>"false"</code></td><td>自然なMobスポーンを停止</td></tr>
+<tr><td><code>doFireTick</code></td><td><code>"false"</code></td><td>炎の延焼を停止</td></tr>
+<tr><td><code>commandBlockOutput</code></td><td><code>"false"</code></td><td>コマンドブロックのチャット出力を停止</td></tr>
+<tr><td><code>randomTickSpeed</code></td><td><code>"3"</code></td><td>作物成長と延焼の速度</td></tr>
+<tr><td><code>playersSleepingPercentage</code></td><td><code>"50"</code></td><td>夜をスキップするために必要なプレイヤー割合</td></tr>
+<tr><td><code>spawnRadius</code></td><td><code>"10"</code></td><td>スポーン範囲の広さ</td></tr>
 </tbody>
 </table>
 </div>
-<p>Case matters. <code>keepinventory</code> in a Java file is not the same tag as <code>keepInventory</code> and will be ignored.</p>
+<p>大文字と小文字は区別されます。Javaファイル内の <code>keepinventory</code> は <code>keepInventory</code> と別タグなので無視されます。</p>
 </section>
 
-<section class="content" aria-label="Bedrock gamerules">
-<h2 id="bedrock-individual-lowercase-byte-tags">Bedrock: individual lowercase byte tags</h2>
-<p>Bedrock does not group rules. Each one is a <code>TAG_Byte</code> at the root of <code>level.dat</code>, named in lowercase, holding 1 or 0 — <code>keepinventory</code>, <code>domobspawning</code>, <code>domobloot</code>, <code>dodaylightcycle</code>, <code>doweathercycle</code>, <code>mobgriefing</code>, <code>firedamage</code>, <code>falldamage</code>, <code>drowningdamage</code>, <code>pvp</code>, <code>showcoordinates</code>, <code>commandblockoutput</code>, <code>sendcommandfeedback</code>, <code>naturalregeneration</code>, <code>tntexplodes</code>, <code>respawnblocksexplode</code>, <code>showdeathmessages</code>, <code>doimmediaterespawn</code>. Numeric rules such as <code>randomtickspeed</code> and <code>functioncommandlimit</code> are <code>TAG_Int</code> instead.</p>
-<p>Setting a rule that is not yet present means adding the tag with the right type: Byte for a toggle, Int for a number. A rule stored with the wrong type is ignored, or refuses to load.</p>
+<section class="content" aria-label="Bedrock のゲームルール">
+<h2 id="bedrock-individual-lowercase-byte-tags">Bedrock: 小文字の個別byteタグ</h2>
+<p>Bedrockはルールをまとめません。各ルールは小文字名の <code>TAG_Byte</code> で、<code>level.dat</code> のルート直下にあり、1または0を保持します。<code>keepinventory</code>、<code>domobspawning</code>、<code>domobloot</code>、<code>dodaylightcycle</code>、<code>doweathercycle</code>、<code>mobgriefing</code>、<code>firedamage</code>、<code>falldamage</code>、<code>drowningdamage</code>、<code>pvp</code>、<code>showcoordinates</code>、<code>commandblockoutput</code>、<code>sendcommandfeedback</code>、<code>naturalregeneration</code>、<code>tntexplodes</code>、<code>respawnblocksexplode</code>、<code>showdeathmessages</code>、<code>doimmediaterespawn</code> などです。<code>randomtickspeed</code> と <code>functioncommandlimit</code> などの数値ルールは <code>TAG_Int</code> です。</p>
+<p>まだ存在しないルールは正しい型で追加します。切り替えはByte、数値はIntです。誤った型で保存すると無視されるか、ワールドを読み込めなくなります。</p>
 </section>
 
-<section class="content" aria-label="Why edit the file">
-<h2 id="when-editing-the-file-beats-the-command">When editing the file beats the command</h2>
+<section class="content" aria-label="ファイルを編集する理由">
+<h2 id="when-editing-the-file-beats-the-command">コマンドよりファイル編集が適する場合</h2>
 <ul>
-<li><strong>Cheats are off</strong> and you do not want to toggle them on and off to run one command.</li>
-<li><strong>The world will not load</strong> — a rule such as <code>doImmediateRespawn</code> can be set before the first join.</li>
-<li><strong>You are preparing a template world</strong> to be copied for many servers, and want the rules baked into the copy.</li>
-<li><strong>A plugin changed a rule</strong> and you want to see what is actually stored rather than what a command reports.</li>
-<li><strong>Bulk edits.</strong> Setting a dozen rules across several worlds is faster in the file than in chat.</li>
+<li><strong>チートが無効</strong>で、1コマンドのために有効化と無効化を行いたくない場合。</li>
+<li><strong>ワールドを読み込めない</strong>ため、初回参加前に <code>doImmediateRespawn</code> などを設定する場合。</li>
+<li><strong>多数のサーバーへコピーするテンプレートワールド</strong>にルールを保存しておく場合。</li>
+<li><strong>プラグインがルールを変更した</strong>ため、コマンド表示ではなく実際の保存値を確認する場合。</li>
+<li><strong>一括編集。</strong>複数ワールドで多数のルールを変更する場合はチャットよりファイルの方が速く処理できます。</li>
 </ul>
-<p>Stop the server first, as with any <code>level.dat</code> edit — a running world rewrites the file on save and will discard the change.</p>
+<p>ほかの <code>level.dat</code> 編集と同様に、先にサーバーを停止してください。稼働中のワールドは保存時にファイルを書き直し、変更を破棄します。</p>
 </section>
 
-<section class="content" aria-label="Frequently asked questions"><h2>Frequently Asked Questions</h2><details><summary>Why is my game rule stored as a string in Java?</summary><div class="faq-body"><p>Java's game rule storage is string-based for every rule, including booleans and numbers. Write <code>"true"</code>, not a byte of 1.</p></div></details><details><summary>Why is it a byte in Bedrock?</summary><div class="faq-body"><p>Bedrock stores toggles as byte tags at the root and numeric rules as ints. There is no <code>GameRules</code> compound.</p></div></details><details><summary>A rule is missing from the file entirely.</summary><div class="faq-body"><p>That means it is at its default. Add the tag with the exact name and correct type and the world will use your value.</p></div></details><details><summary>Do game rules copy with a world folder?</summary><div class="faq-body"><p>Yes — they live in <code>level.dat</code>, so a copied world inherits them along with its stale <a href="../change-world-name/">world name</a>.</p></div></details></section>
-<section class="content" aria-label="Related tools"><h2>Related tools</h2><div class="rel-grid"><a class="rel-card" href="../../level-dat-editor/"><strong>level.dat editor</strong><span>World name, game mode, spawn, difficulty and game rules.</span></a><a class="rel-card" href="../change-world-name/"><strong>Rename a world</strong><span>Fix LevelName after copying a world folder.</span></a><a class="rel-card" href="../../mcpe-nbt-editor/"><strong>MCPE NBT editor</strong><span>Little-endian NBT and the 8-byte level.dat header.</span></a><a class="rel-card" href="../../java-nbt-editor/"><strong>Java Edition NBT editor</strong><span>Big-endian, gzip — Vanilla, Paper, Spigot, Fabric, Forge.</span></a><a class="rel-card" href="../../"><strong>Minecraft NBT editor</strong><span>The universal editor — every edition, every NBT file type.</span></a><a class="rel-card" href="../../pocketmine-nbt-editor/"><strong>PocketMine-MP editor</strong><span>Server-side level.dat for PMMP, Nukkit and BDS.</span></a></div></section>
+<section class="content" aria-label="よくある質問"><h2>よくある質問</h2><details><summary>Javaでゲームルールが文字列なのはなぜですか？</summary><div class="faq-body"><p>Javaは真偽値や数値を含むすべてのゲームルールを文字列として保存します。byteの1ではなく <code>"true"</code> と書いてください。</p></div></details><details><summary>Bedrockではbyteなのはなぜですか？</summary><div class="faq-body"><p>Bedrockは切り替えをルート直下のbyteタグ、数値ルールをintとして保存します。<code>GameRules</code> Compoundはありません。</p></div></details><details><summary>ルールがファイルに存在しません。</summary><div class="faq-body"><p>そのルールは既定値を使用しています。正確な名前と正しい型でタグを追加すると、指定した値が使われます。</p></div></details><details><summary>ワールドフォルダーをコピーするとゲームルールもコピーされますか？</summary><div class="faq-body"><p>はい。ゲームルールは <code>level.dat</code> にあるため、古い<a href="../change-world-name/">ワールド名</a>と同様にコピー先へ引き継がれます。</p></div></details></section>
+<section class="content" aria-label="関連ツール"><h2>関連ツール</h2><div class="rel-grid"><a class="rel-card" href="../../level-dat-editor/"><strong>level.datエディター</strong><span>ワールド名、ゲームモード、スポーン地点、難易度、ゲームルールを編集。</span></a><a class="rel-card" href="../change-world-name/"><strong>ワールド名を変更</strong><span>ワールドフォルダーのコピー後にLevelNameを修正。</span></a><a class="rel-card" href="../../mcpe-nbt-editor/"><strong>MCPE NBTエディター</strong><span>リトルエンディアンNBTと8バイトのlevel.datヘッダー。</span></a><a class="rel-card" href="../../java-nbt-editor/"><strong>Java Edition NBTエディター</strong><span>ビッグエンディアン、gzip — Vanilla、Paper、Spigot、Fabric、Forge。</span></a><a class="rel-card" href="../../"><strong>Minecraft NBTエディター</strong><span>全エディションと各種NBTファイルに対応する汎用エディター。</span></a><a class="rel-card" href="../../pocketmine-nbt-editor/"><strong>PocketMine-MPエディター</strong><span>PMMP、Nukkit、BDSのサーバー側level.datを編集。</span></a></div></section>
 </div>
 </main>
 
 <footer class="site-footer">
 <div class="container footer-grid">
-<div><h4>Editors</h4><a href="../../">Minecraft NBT editor</a><a href="../../level-dat-editor/">level.dat editor</a><a href="../../java-nbt-editor/">Java Edition NBT editor</a><a href="../../mcpe-nbt-editor/">MCPE NBT editor</a><a href="../../pocketmine-nbt-editor/">PocketMine-MP editor</a></div>
-<div><h4>File types</h4><a href="../../mcstructure-editor/">.mcstructure editor</a><a href="../../schematic-editor/">Schematic editor</a><a href="../../playerdata-editor/">playerdata editor</a><a href="../../nbt-viewer/">NBT viewer</a><a href="../../nbtexplorer-online/">NBTExplorer online</a></div>
-<div><h4>Reference</h4><a href="../../nbt-format/">NBT format reference</a><a href="../change-world-name/">Rename a world</a><a href="../fix-corrupted-level-dat/">Fix a broken level.dat</a><a href="./">Edit game rules</a></div>
-<div><h4>Source</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">Code on GitHub</a><a href="../../../llms.txt">llms.txt</a></div>
+<div><h4>エディター</h4><a href="../../">Minecraft NBTエディター</a><a href="../../level-dat-editor/">level.datエディター</a><a href="../../java-nbt-editor/">Java Edition NBTエディター</a><a href="../../mcpe-nbt-editor/">MCPE NBTエディター</a><a href="../../pocketmine-nbt-editor/">PocketMine-MPエディター</a></div>
+<div><h4>ファイル形式</h4><a href="../../mcstructure-editor/">.mcstructureエディター</a><a href="../../schematic-editor/">Schematicエディター</a><a href="../../playerdata-editor/">playerdataエディター</a><a href="../../nbt-viewer/">NBTビューア</a><a href="../../nbtexplorer-online/">NBTExplorerオンライン</a></div>
+<div><h4>リファレンス</h4><a href="../../nbt-format/">NBT形式リファレンス</a><a href="../change-world-name/">ワールド名を変更</a><a href="../fix-corrupted-level-dat/">壊れたlevel.datを修復</a><a href="./">ゲームルールを編集</a></div>
+<div><h4>ソース</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">GitHubのコード</a><a href="../../../llms.txt">llms.txt</a></div>
 </div>
-<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">最終更新日：2026-09-21。 Minecraft NBT エディター — 無料のオープンソース（MIT）で、すべてブラウザー内で動作します。Mojang StudiosおよびMicrosoftとは関係ありません。MinecraftはMojang Studiosの商標です。</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
 <div class="modal-overlay" id="addTagModal">
 <div class="modal">
-<h3>Add New Tag</h3>
-<label for="newTagName">Tag Name</label>
-<input type="text" id="newTagName" placeholder="e.g. MyTag" autocomplete="off">
-<label for="newTagType">Tag Type</label>
+<h3>新しいタグを追加</h3>
+<label for="newTagName">タグ名</label>
+<input type="text" id="newTagName" placeholder="例：MyTag" autocomplete="off">
+<label for="newTagType">タグの型</label>
 <select id="newTagType">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -199,10 +214,10 @@
 <option value="11">TAG_Int_Array</option>
 <option value="12">TAG_Long_Array</option>
 </select>
-<label for="newTagValue">Value</label>
-<input type="text" id="newTagValue" placeholder="Value" autocomplete="off">
+<label for="newTagValue">値</label>
+<input type="text" id="newTagValue" placeholder="値" autocomplete="off">
 <div id="listSubtypeRow" style="display:none">
-<label for="newListSubtype">List Element Type</label>
+<label for="newListSubtype">リスト要素の型</label>
 <select id="newListSubtype">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -219,24 +234,24 @@
 </select>
 </div>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="addTagCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="addTagConfirm">Add</button>
+<button class="btn-cancel" type="button" id="addTagCancel">キャンセル</button>
+<button class="btn-confirm" type="button" id="addTagConfirm">追加</button>
 </div>
 </div>
 </div>
 
 <div class="modal-overlay" id="arrayModal">
 <div class="modal">
-<h3 id="arrayModalTitle">Edit Array</h3>
-<label for="arrayModalText">Comma-separated values</label>
+<h3 id="arrayModalTitle">配列を編集</h3>
+<label for="arrayModalText">カンマ区切りの値</label>
 <textarea id="arrayModalText" spellcheck="false" autocomplete="off"></textarea>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="arrayModalCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="arrayModalConfirm">Apply</button>
+<button class="btn-cancel" type="button" id="arrayModalCancel">キャンセル</button>
+<button class="btn-confirm" type="button" id="arrayModalConfirm">適用</button>
 </div>
 </div>
 </div>
 
-<script src="../../../assets/nbt.js?v=da7967b1" defer></script>
+<script src="../../../assets/nbt.js?v=6f125422" defer></script>
 </body>
 </html>

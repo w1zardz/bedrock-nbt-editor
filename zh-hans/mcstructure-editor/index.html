@@ -3,79 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>.mcstructure Editor Online — Bedrock Structure Files</title>
-<meta name="description" content="Open and edit Bedrock .mcstructure files online: block palette, size, block indices and block entity data, saved back in the same encoding.">
-<meta name="keywords" content="mcstructure editor, mcstructure viewer, edit mcstructure, open mcstructure file, bedrock structure block file, mcstructure online, minecraft bedrock structure editor">
-<meta name="robots" content="noindex, follow">
+<title>.mcstructure 在线编辑器｜基岩版结构文件</title>
+<meta name="description" content="在线打开和编辑 Minecraft 基岩版 .mcstructure 文件，可查看结构尺寸、方块调色板、方块索引、方块实体及来源坐标。支持未压缩小端序 NBT，修改后按相同编码下载，适合附加包和地图制作者在不重新进入世界的情况下修复结构数据；文件仅在浏览器本地处理。">
+<meta name="keywords" content="mcstructure编辑器, mcstructure查看器, 在线修改mcstructure, 打开mcstructure文件, 基岩版结构方块文件, Minecraft基岩版结构编辑, mcstructure NBT">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="author" content="w1zardz">
 <link rel="canonical" href="https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/mcstructure-editor/">
+<link rel="alternate" hreflang="en" href="https://w1zardz.github.io/bedrock-nbt-editor/mcstructure-editor/">
+<link rel="alternate" hreflang="ru" href="https://w1zardz.github.io/bedrock-nbt-editor/ru/mcstructure-editor/">
+<link rel="alternate" hreflang="es" href="https://w1zardz.github.io/bedrock-nbt-editor/es/mcstructure-editor/">
+<link rel="alternate" hreflang="pt-BR" href="https://w1zardz.github.io/bedrock-nbt-editor/pt-br/mcstructure-editor/">
+<link rel="alternate" hreflang="de" href="https://w1zardz.github.io/bedrock-nbt-editor/de/mcstructure-editor/">
+<link rel="alternate" hreflang="fr" href="https://w1zardz.github.io/bedrock-nbt-editor/fr/mcstructure-editor/">
+<link rel="alternate" hreflang="it" href="https://w1zardz.github.io/bedrock-nbt-editor/it/mcstructure-editor/">
+<link rel="alternate" hreflang="pl" href="https://w1zardz.github.io/bedrock-nbt-editor/pl/mcstructure-editor/">
+<link rel="alternate" hreflang="uk" href="https://w1zardz.github.io/bedrock-nbt-editor/uk/mcstructure-editor/">
+<link rel="alternate" hreflang="tr" href="https://w1zardz.github.io/bedrock-nbt-editor/tr/mcstructure-editor/">
+<link rel="alternate" hreflang="id" href="https://w1zardz.github.io/bedrock-nbt-editor/id/mcstructure-editor/">
+<link rel="alternate" hreflang="vi" href="https://w1zardz.github.io/bedrock-nbt-editor/vi/mcstructure-editor/">
+<link rel="alternate" hreflang="th" href="https://w1zardz.github.io/bedrock-nbt-editor/th/mcstructure-editor/">
+<link rel="alternate" hreflang="zh-Hans" href="https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/mcstructure-editor/">
+<link rel="alternate" hreflang="ja" href="https://w1zardz.github.io/bedrock-nbt-editor/ja/mcstructure-editor/">
+<link rel="alternate" hreflang="ko" href="https://w1zardz.github.io/bedrock-nbt-editor/ko/mcstructure-editor/">
+<link rel="alternate" hreflang="ar" href="https://w1zardz.github.io/bedrock-nbt-editor/ar/mcstructure-editor/">
 <link rel="alternate" hreflang="x-default" href="https://w1zardz.github.io/bedrock-nbt-editor/mcstructure-editor/">
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="../../favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <link rel="manifest" href="../../site.webmanifest">
 <meta property="og:type" content="article">
-<meta property="og:title" content=".mcstructure editor — open and edit Bedrock structures">
-<meta property="og:description" content="Open and edit Bedrock .mcstructure files online: block palette, size, block indices and block entity data, saved back in the same encoding.">
+<meta property="og:title" content=".mcstructure 编辑器｜打开并修改基岩版结构">
+<meta property="og:description" content="在线打开和编辑 Minecraft 基岩版 .mcstructure 文件，可查看结构尺寸、方块调色板、方块索引、方块实体及来源坐标。支持未压缩小端序 NBT，修改后按相同编码下载，适合附加包和地图制作者在不重新进入世界的情况下修复结构数据；文件仅在浏览器本地处理。">
 <meta property="og:url" content="https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/mcstructure-editor/">
-<meta property="og:site_name" content="Minecraft NBT Editor">
+<meta property="og:site_name" content="Minecraft NBT 编辑器">
 <meta property="og:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/mcstructure.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="zh_CN">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content=".mcstructure editor — open and edit Bedrock structures">
-<meta name="twitter:description" content="Open and edit Bedrock .mcstructure files online: block palette, size, block indices and block entity data, saved back in the same encoding.">
+<meta name="twitter:title" content=".mcstructure 编辑器｜打开并修改基岩版结构">
+<meta name="twitter:description" content="在线打开和编辑 Minecraft 基岩版 .mcstructure 文件，可查看结构尺寸、方块调色板、方块索引、方块实体及来源坐标。支持未压缩小端序 NBT，修改后按相同编码下载，适合附加包和地图制作者在不重新进入世界的情况下修复结构数据；文件仅在浏览器本地处理。">
 <meta name="twitter:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/mcstructure.png">
-<meta property="article:modified_time" content="2026-08-26">
-<meta property="og:updated_time" content="2026-08-26">
+<meta property="article:modified_time" content="2026-09-21">
+<meta property="og:updated_time" content="2026-09-21">
 <meta name="theme-color" content="#0d1117">
-<meta name="application-name" content="Minecraft NBT Editor">
-<meta name="apple-mobile-web-app-title" content="NBT Editor">
-<link rel="preload" href="../../assets/nbt.js?v=da7967b1" as="script">
-<script>window.__LANG_URLS__={"en":"../../mcstructure-editor/","ru":"../../ru/mcstructure-editor/","es":"../../es/mcstructure-editor/","pt-br":"../../pt-br/mcstructure-editor/","de":"../../de/mcstructure-editor/","fr":"../../fr/mcstructure-editor/","it":"../../it/mcstructure-editor/","pl":"../../pl/mcstructure-editor/","uk":"../../uk/mcstructure-editor/","tr":"../../tr/mcstructure-editor/","id":"../../id/mcstructure-editor/","vi":"../../vi/mcstructure-editor/","th":"../../th/mcstructure-editor/","zh-hans":"./","ja":"../../ja/mcstructure-editor/","ko":"../../ko/mcstructure-editor/","ar":"../../ar/mcstructure-editor/"};window.__NBT_STRINGS__={"loaded":"Loaded as {0}","trailing":"{0} trailing byte(s) after the root tag were ignored","error":"Error: {0}","readfail":"Could not read the file","nofile":"No file loaded","saved":"Saved {0} ({1}, {2})","savefail":"Save error: {0}","exported":"Exported {0}","snbtfail":"SNBT error: {0}","tagadded":"Tag added","tagremoved":"Tag removed","arrayupdated":"Array updated","badvalue":"Invalid value: {0}","badarray":"Invalid array: {0}","nameneeded":"Tag name is required","nametaken":"A tag named {0} already exists here","listtype":"List already holds {0} entries","editlevelname":"✎ Edit LevelName","showmore":"Show {0} more of {1} …","matches":"{0} match(es)","nomatch":"No tag matches \"{0}\"","arraytoobig":"Array has {0} entries — expand it and edit elements individually","uncompressed":"uncompressed","storage":"storage v{0}","entries":"{0} entries","langprompt":"Open this page in {0}?","langyes":"Switch","langno":"Stay"};</script>
-<script src="../../assets/lang.js?v=a3a1db0e" defer></script>
+<meta name="application-name" content="Minecraft NBT 编辑器">
+<meta name="apple-mobile-web-app-title" content="NBT 编辑器">
+<link rel="preload" href="../../assets/nbt.js?v=6f125422" as="script">
+<script>window.__LANG_URLS__={"en":"../../mcstructure-editor/","ru":"../../ru/mcstructure-editor/","es":"../../es/mcstructure-editor/","pt-br":"../../pt-br/mcstructure-editor/","de":"../../de/mcstructure-editor/","fr":"../../fr/mcstructure-editor/","it":"../../it/mcstructure-editor/","pl":"../../pl/mcstructure-editor/","uk":"../../uk/mcstructure-editor/","tr":"../../tr/mcstructure-editor/","id":"../../id/mcstructure-editor/","vi":"../../vi/mcstructure-editor/","th":"../../th/mcstructure-editor/","zh-hans":"./","ja":"../../ja/mcstructure-editor/","ko":"../../ko/mcstructure-editor/","ar":"../../ar/mcstructure-editor/"};window.__NBT_STRINGS__={"loaded":"已按 {0} 加载","trailing":"已忽略根标签后的 {0} 个尾随字节","error":"错误：{0}","readfail":"无法读取文件","nofile":"未加载文件","saved":"已保存 {0}（{1}，{2}）","savefail":"保存错误：{0}","exported":"已导出 {0}","snbtfail":"SNBT 错误：{0}","tagadded":"已添加标签","tagremoved":"已删除标签","arrayupdated":"已更新数组","badvalue":"无效值：{0}","badarray":"无效数组：{0}","nameneeded":"必须填写标签名称","nametaken":"此处已存在名为 {0} 的标签","listtype":"列表已包含 {0} 类型的项目","editlevelname":"✎ 编辑 LevelName","showmore":"再显示 {1} 项中的 {0} 项…","matches":"{0} 个匹配项","nomatch":"没有标签匹配“{0}”","arraytoobig":"数组包含 {0} 项，请展开并逐项编辑","uncompressed":"未压缩","storage":"存储版本 v{0}","entries":"{0} 项","langprompt":"要使用{0}打开此页面吗？","langyes":"切换","langno":"保留当前语言","nav_editor":"编辑器","nav_format":"NBT 格式","language":"语言：{0}","beta":"测试版","skip_editor":"跳转到编辑器","brand_editor":"NBT 编辑器","guides":"指南","updated":"最后更新：{0}。","drop":"将{0}拖放到这里","choose_file":"选择文件","file_hint":"level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · 区块转储数据","output_format":"输出格式","format_java":"Java — 大端序，根标签有名称","format_java_network":"Java 网络 — 大端序，根标签无名称","format_bedrock_level":"Bedrock level.dat — 小端序 + 8 字节文件头","format_bedrock":"Bedrock 原始数据 — 小端序","format_bedrock_network":"Bedrock 网络 — 小端序变长整数","compression":"压缩","compression_none":"不压缩（原始数据）","search_placeholder":"搜索标签名称或值…","search":"搜索","collapse":"全部折叠","add_tag":"+ 添加标签","save_download":"保存并下载","export_snbt":"导出 SNBT","close":"关闭","add_new_tag":"添加新标签","tag_name":"标签名称","tag_type":"标签类型","tag_example":"例如 MyTag","value":"值","list_element_type":"列表元素类型","cancel":"取消","add":"添加","edit_array":"编辑数组","comma_values":"以逗号分隔的值","apply":"应用","format_label_java":"Java 大端序","format_label_java_network":"Java 网络（根标签无名称）","format_label_bedrock_level":"Bedrock level.dat（8 字节文件头）","format_label_bedrock":"Bedrock 小端序","format_label_bedrock_network":"Bedrock 网络（变长整数）","err_decompress":"此浏览器无法解压 {0}（不支持 Compression Streams API）","err_compress":"此浏览器无法压缩为 {0}（不支持 Compression Streams API）","err_stream":"无法处理 {0} 压缩","err_end":"数据在偏移量 {0} 处意外结束","err_tag_limit":"标签数量超出限制","err_varint":"VarInt 过长","err_varlong":"VarLong 过长","err_negative_array":"数组长度为负数：{0}","err_array_length":"数组长度 {0} 超出剩余数据范围","err_negative_list":"列表长度为负数","err_end_list":"TAG_End 列表包含 {0} 个元素","err_list_type":"未知的列表元素类型：{0}","err_tag_type":"未知的标签类型：{0}","err_root":"根标签必须为 TAG_Compound，实际为 {0}","err_string_length":"字符串超出此格式的长度限制：{0} 字节","err_write_type":"无法写入类型为 {0} 的标签","err_header_short":"数据过短，无法包含文件头","err_storage_version":"不合理的存储版本：{0}","err_header_length":"文件头中声明的长度 {0} 超出有效载荷大小","err_unknown_file":"无法识别此 NBT 文件（已尝试 Java、Bedrock、网络和带文件头的变体）","err_file_small":"文件过小，无法包含 NBT 数据","err_byte":"Byte 必须在 -128..127 范围内","err_short":"Short 必须在 -32768..32767 范围内","err_int":"Int 必须在 -2147483648..2147483647 范围内","err_long":"Long 超出 64 位整数范围","err_float":"无效的 float 值","err_double":"无效的 double 值","err_not_inline":"此标签类型无法直接编辑","err_array_byte":"无效的 byte 值：{0}","err_array_int":"无效的 int 值：{0}","err_array_long":"无效的 64 位整数：{0}","root":"（根）","add_child":"添加子标签","remove_tag":"删除标签","array":"数组","array_bytes":"[{0} 个字节]","array_ints":"[{0} 个 int]","array_longs":"[{0} 个 long]","entries_type":"{0} 个 {1} 类型的元素","unknown_error":"无法完成此操作","software_name":"Minecraft NBT 编辑器","software_alternate_online":"在线 NBT 编辑器","software_alternate_bedrock":"Bedrock NBT 编辑器","software_alternate_level":"level.dat 编辑器","software_subcategory":"游戏文件编辑器","software_os":"任意系统（浏览器）","software_browser":"支持 BigInt 和 Compression Streams 的现代浏览器","feature_java":"Java Edition 大端序 NBT","feature_bedrock":"Bedrock Edition 小端序 NBT","feature_bedrock_network":"Bedrock 网络 NBT（变长整数）","feature_java_network":"Java 网络 NBT（根标签无名称）","feature_compression":"gzip 和 zlib 压缩","feature_types":"全部 13 种 NBT 标签类型，保留 64 位精度","feature_snbt":"导出 SNBT","feature_local":"完全在本地客户端运行","schema_about":"Minecraft NBT 数据格式","not_found_title":"找不到页面 — {0}","not_found_heading":"404 — 此页面已移动或从未存在","not_found_intro":"点击即可打开编辑器，下方提供了各工具的固定链接。","not_found_footer":"{0} — 免费且开源。","aria_bedrock_gamerules":"Bedrock 游戏规则","aria_bedrock_level_dat_header":"Bedrock level.dat 文件头","aria_bedrock_tags":"Bedrock 标签","aria_breadcrumb":"面包屑导航","aria_byte_walkthrough":"逐字节讲解","aria_causes":"原因","aria_common_repairs":"常见修复方法","aria_comparison":"对比","aria_compatibility":"兼容性","aria_compression":"压缩","aria_core_specifics":"各服务端的特点","aria_dataversion":"DataVersion","aria_drop_an_nbt_file_here_or_click_to_browse":"将 NBT 文件拖放到这里，或点击选择文件","aria_duplicate_world_names":"世界名称重复","aria_editing_schematics":"编辑原理图","aria_encodings":"编码方式","aria_features":"功能","aria_file_types":"文件类型","aria_frequently_asked_questions":"常见问题","aria_how_to_use":"使用方法","aria_inside_a_mcstructure_file":"mcstructure 文件内部结构","aria_introduction":"简介","aria_java_nbt_encoding":"Java NBT 编码","aria_java_nbt_files":"Java NBT 文件","aria_java_gamerules":"Java 游戏规则","aria_migrating":"从其他工具迁移","aria_other_bedrock_nbt":"其他 Bedrock NBT","aria_other_tools":"其他工具","aria_per_platform":"各平台说明","aria_prevention":"预防措施","aria_related_tools":"相关工具","aria_snbt":"SNBT","aria_safety":"安全注意事项","aria_salvage":"数据恢复","aria_schematic_formats":"原理图格式","aria_scripting":"脚本调用","aria_search_nbt_tags":"搜索 NBT 标签","aria_server_cores":"服务端核心","aria_server_safety":"服务端安全","aria_server_workflow":"服务端操作流程","aria_strings":"字符串","aria_supported_files":"支持的文件","aria_supported_server_software":"支持的服务端软件","aria_tag_types":"标签类型","aria_tags_in_level_dat":"level.dat 中的标签","aria_tools":"工具","aria_troubleshooting":"故障排查","aria_typical_edits":"常见编辑操作","aria_what_you_can_inspect":"可检查的内容","aria_where_bedrock_files_live":"Bedrock 文件位置","aria_where_mcstructure_files_live":"mcstructure 文件位置","aria_where_to_find_level_dat":"level.dat 的位置","aria_why_edit_the_file":"为什么要编辑文件","aria_why_the_folder_name_is_not_the_world_name":"为什么文件夹名称不等于世界名称","aria_playerdata_tags":"playerdata 标签","toggle":"展开或折叠"};</script>
+<script src="../../assets/lang.js?v=23a64b2c" defer></script>
 <link rel="stylesheet" href="../../assets/app.css?v=f5bdcb0f">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":".mcstructure Editor Online \u2014 Bedrock Structure Files","headline":".mcstructure Editor \u2014 Bedrock Structure Files","description":"Open and edit Bedrock .mcstructure files online: block palette, size, block indices and block entity data, saved back in the same encoding.","url":"https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/mcstructure-editor/","inLanguage":"zh-hans","datePublished":"2026-05-29","dateModified":"2026-08-26","isPartOf":{"@type":"WebSite","name":"Minecraft NBT Editor","url":"https://w1zardz.github.io/bedrock-nbt-editor/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/mcstructure.png"},"about":{"@type":"Thing","name":"Minecraft NBT data format"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT Editor","item":"https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/"},{"@type":"ListItem","position":2,"name":".mcstructure Editor \u2014 Bedrock Structure Files","item":"https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/mcstructure-editor/"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I convert a .mcstructure to a Java .nbt structure?","acceptedAnswer":{"@type":"Answer","text":"The editor can re-encode the bytes to big-endian gzip, but the tag layout differs \u2014 Java structures use palette/blocks with different keys and block names. A re-encoded file is readable, not a valid Java structure."}},{"@type":"Question","name":"Why is my .mcstructure not compressed?","acceptedAnswer":{"@type":"Answer","text":"Bedrock writes structure files as raw little-endian NBT with no gzip wrapper. That is normal; the editor detects it as Bedrock raw."}},{"@type":"Question","name":"What does an index of -1 mean in block_indices?","acceptedAnswer":{"@type":"Answer","text":"It marks a position the structure does not touch, so the existing block in the world is kept when the structure is placed."}},{"@type":"Question","name":"Can I resize a structure by editing size?","acceptedAnswer":{"@type":"Answer","text":"Not on its own \u2014 block_indices has one entry per position, so the array length has to match the new volume exactly. Changing size alone produces a file the game refuses."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":".mcstructure 在线编辑器｜基岩版结构文件","headline":".mcstructure 编辑器｜基岩版结构文件","description":"在线打开和编辑 Minecraft 基岩版 .mcstructure 文件，可查看结构尺寸、方块调色板、方块索引、方块实体及来源坐标。支持未压缩小端序 NBT，修改后按相同编码下载，适合附加包和地图制作者在不重新进入世界的情况下修复结构数据；文件仅在浏览器本地处理。","url":"https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/mcstructure-editor/","inLanguage":"zh-hans","datePublished":"2026-05-29","dateModified":"2026-09-21","isPartOf":{"@type":"WebSite","name":"Minecraft NBT 编辑器","url":"https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/mcstructure.png"},"about":{"@type":"Thing","name":"Minecraft NBT 数据格式"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT 编辑器","item":"https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/"},{"@type":"ListItem","position":2,"name":".mcstructure 编辑器｜基岩版结构文件","item":"https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/mcstructure-editor/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"可以将 .mcstructure 转换为 Java .nbt 结构吗？","acceptedAnswer":{"@type":"Answer","text":"编辑器可以将字节重新编码为大端序 gzip，但标签布局不同；Java 结构使用 palette/blocks，键名和方块名称也不同。重新编码的文件可以读取，但不是有效的 Java 结构。"}},{"@type":"Question","name":"为什么 .mcstructure 没有压缩？","acceptedAnswer":{"@type":"Answer","text":"基岩版将结构文件写为原始小端序 NBT，不带 gzip 包装。这是正常格式；编辑器会将其识别为基岩版原始格式。"}},{"@type":"Question","name":"block_indices 中的 -1 表示什么？","acceptedAnswer":{"@type":"Answer","text":"它表示结构不会改动该位置，因此放置结构时会保留世界中已有的方块。"}},{"@type":"Question","name":"可以通过编辑 size 调整结构大小吗？","acceptedAnswer":{"@type":"Answer","text":"不能只改此项。block_indices 对每个位置都有一个项目，因此数组长度必须与新体积完全一致。只修改 size 会生成游戏拒绝的文件。"}}]}</script>
 </head>
 <body>
-<a class="skip-link" href="#editor">Skip to the editor</a>
+<a class="skip-link" href="#editor">跳转到编辑器</a>
 <header class="site-header">
 <div class="container">
-<a class="brand" href="../"><span>Minecraft</span> NBT Editor</a>
+<a class="brand" href="../"><span>Minecraft</span> NBT 编辑器</a>
 <span class="badge">Java + Bedrock</span>
-<nav class="site-nav" aria-label="Tools">
-<a href="../">Editor</a>
+<nav class="site-nav" aria-label="工具">
+<a href="../">编辑器</a>
 <a href="../level-dat-editor/">level.dat</a>
 <a href="../java-nbt-editor/">Java</a>
 <a href="../mcpe-nbt-editor/">Bedrock</a>
 <a href="./" class="active">.mcstructure</a>
 <a href="../schematic-editor/">.schem</a>
 <a href="../playerdata-editor/">playerdata</a>
-<a href="../nbt-format/">NBT format</a>
+<a href="../nbt-format/">NBT 格式</a>
 </nav>
-<details class="lang-switch"><summary title="Language: 简体中文" aria-label="Language: 简体中文"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">Language: 简体中文</span></summary><div class="lang-menu"><a href="./" hreflang="zh-Hans" data-lang="zh-hans" aria-current="true" class="current">简体中文</a><a href="../../mcstructure-editor/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../ru/mcstructure-editor/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../es/mcstructure-editor/" hreflang="es" data-lang="es" rel="alternate">Español (beta)</a><a href="../../pt-br/mcstructure-editor/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR) (beta)</a><a href="../../de/mcstructure-editor/" hreflang="de" data-lang="de" rel="alternate">Deutsch (beta)</a><a href="../../fr/mcstructure-editor/" hreflang="fr" data-lang="fr" rel="alternate">Français (beta)</a><a href="../../it/mcstructure-editor/" hreflang="it" data-lang="it" rel="alternate">Italiano (beta)</a><a href="../../pl/mcstructure-editor/" hreflang="pl" data-lang="pl" rel="alternate">Polski (beta)</a><a href="../../uk/mcstructure-editor/" hreflang="uk" data-lang="uk" rel="alternate">Українська (beta)</a><a href="../../tr/mcstructure-editor/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe (beta)</a><a href="../../id/mcstructure-editor/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia (beta)</a><a href="../../vi/mcstructure-editor/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt (beta)</a><a href="../../th/mcstructure-editor/" hreflang="th" data-lang="th" rel="alternate">ไทย (beta)</a><a href="../../ja/mcstructure-editor/" hreflang="ja" data-lang="ja" rel="alternate">日本語 (beta)</a><a href="../../ko/mcstructure-editor/" hreflang="ko" data-lang="ko" rel="alternate">한국어 (beta)</a><a href="../../ar/mcstructure-editor/" hreflang="ar" data-lang="ar" rel="alternate">العربية (beta)</a></div></details>
+<details class="lang-switch"><summary title="语言：简体中文" aria-label="语言：简体中文"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">语言：简体中文</span></summary><div class="lang-menu"><a href="./" hreflang="zh-Hans" data-lang="zh-hans" aria-current="true" class="current">简体中文</a><a href="../../mcstructure-editor/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../ru/mcstructure-editor/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../es/mcstructure-editor/" hreflang="es" data-lang="es" rel="alternate">Español</a><a href="../../pt-br/mcstructure-editor/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR)</a><a href="../../de/mcstructure-editor/" hreflang="de" data-lang="de" rel="alternate">Deutsch</a><a href="../../fr/mcstructure-editor/" hreflang="fr" data-lang="fr" rel="alternate">Français</a><a href="../../it/mcstructure-editor/" hreflang="it" data-lang="it" rel="alternate">Italiano</a><a href="../../pl/mcstructure-editor/" hreflang="pl" data-lang="pl" rel="alternate">Polski</a><a href="../../uk/mcstructure-editor/" hreflang="uk" data-lang="uk" rel="alternate">Українська</a><a href="../../tr/mcstructure-editor/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe</a><a href="../../id/mcstructure-editor/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia</a><a href="../../vi/mcstructure-editor/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt</a><a href="../../th/mcstructure-editor/" hreflang="th" data-lang="th" rel="alternate">ไทย</a><a href="../../ja/mcstructure-editor/" hreflang="ja" data-lang="ja" rel="alternate">日本語</a><a href="../../ko/mcstructure-editor/" hreflang="ko" data-lang="ko" rel="alternate">한국어</a><a href="../../ar/mcstructure-editor/" hreflang="ar" data-lang="ar" rel="alternate">العربية</a></div></details>
 </div>
 </header>
 <main>
-<nav class="breadcrumbs container" aria-label="Breadcrumb"><a href="../">NBT Editor</a> <span class="sep">/</span> <span>.mcstructure</span></nav>
-<section class="hero" aria-label="Introduction">
+<nav class="breadcrumbs container" aria-label="面包屑导航"><a href="../">NBT 编辑器</a> <span class="sep">/</span> <span>.mcstructure</span></nav>
+<section class="hero" aria-label="简介">
 <div class="container">
-<h1>.mcstructure Editor — Bedrock Structure Files</h1>
-<p class="support-line"><strong>Supports Minecraft Bedrock Edition and Java Edition</strong> — and every server core for both, popular or obscure: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina and the rest. <a href="../#server-software">Full list</a>.</p>
-<p class="lede">A <code>.mcstructure</code> file is uncompressed little-endian NBT written by a Bedrock structure block. Drop one below to read its size, block palette, block indices and block entity data, edit any of it, and download the file back in the same encoding — which is what add-on and map makers need when a structure has to be patched without reopening the world.</p>
-<div class="chips"><span class="chip">Structure blocks</span><span class="chip">Bedrock add-ons</span><span class="chip">Behavior packs</span><span class="chip">Little-endian NBT</span></div>
+<h1>.mcstructure 编辑器｜基岩版结构文件</h1>
+<p class="support-line"><strong>支持 Minecraft 基岩版和 Java 版</strong>，也支持两者所有常见或少见的服务端核心：Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLamina 等。<a href="../#server-software">完整列表</a>。</p>
+<p class="lede"><code>.mcstructure</code> 文件是基岩版结构方块写入的未压缩小端序 NBT。将文件拖入下方，可读取并编辑结构尺寸、方块调色板、方块索引和方块实体数据，再以相同编码下载。附加包或地图制作者因此无需重新打开世界即可修补结构。</p>
+<div class="chips"><span class="chip">结构方块</span><span class="chip">基岩版附加包</span><span class="chip">行为包</span><span class="chip">小端序 NBT</span></div>
 </div>
 </section>
 <div id="editor">
 
-<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="Drop an NBT file here or click to browse">
+<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="将 NBT 文件拖放到这里，或点击选择文件">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 16V4m0 0L8 8m4-4l4 4"/><path d="M20 16v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2"/></svg>
-<p>Drop <strong>a .mcstructure file</strong> here</p>
-<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">Choose File</button>
-<span class="hint">level.dat &middot; .nbt &middot; .mcstructure &middot; .schem &middot; .schematic &middot; .dat &middot; chunk dumps</span>
+<p>将<strong>.mcstructure 文件</strong>拖放到这里</p>
+<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">选择文件</button>
+<span class="hint">level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · 区块转储数据</span>
 <input type="file" id="fileInput">
 </div>
 
@@ -83,18 +100,16 @@
 <div class="file-info" id="fileInfo"></div>
 
 <div class="out-bar" id="outBar">
-<label>Output format
-<select id="outFormat">
-<option value="java">Java — big-endian, named root</option>
-<option value="java-network">Java network — big-endian, nameless root</option>
-<option value="bedrock-level">Bedrock level.dat — little-endian + 8-byte header</option>
-<option value="bedrock">Bedrock raw — little-endian</option>
-<option value="bedrock-network">Bedrock network — little-endian varint</option>
+<label>输出格式<select id="outFormat">
+<option value="java">Java — 大端序，根标签有名称</option>
+<option value="java-network">Java 网络 — 大端序，根标签无名称</option>
+<option value="bedrock-level">Bedrock level.dat — 小端序 + 8 字节文件头</option>
+<option value="bedrock">Bedrock 原始数据 — 小端序</option>
+<option value="bedrock-network">Bedrock 网络 — 小端序变长整数</option>
 </select>
 </label>
-<label>Compression
-<select id="outCompression">
-<option value="none">None (raw)</option>
+<label>压缩<select id="outCompression">
+<option value="none">不压缩（原始数据）</option>
 <option value="gzip">gzip</option>
 <option value="zlib">zlib (deflate)</option>
 </select>
@@ -102,9 +117,9 @@
 </div>
 
 <div class="search-bar">
-<input type="search" id="searchInput" placeholder="Search tag name or value…" autocomplete="off" spellcheck="false" aria-label="Search NBT tags">
-<button type="button" id="btnSearch">Search</button>
-<button type="button" id="btnCollapse">Collapse all</button>
+<input type="search" id="searchInput" placeholder="搜索标签名称或值…" autocomplete="off" spellcheck="false" aria-label="搜索 NBT 标签">
+<button type="button" id="btnSearch">搜索</button>
+<button type="button" id="btnCollapse">全部折叠</button>
 </div>
 <div class="search-results" id="searchResults"></div>
 
@@ -112,75 +127,75 @@
 </div>
 
 <div class="bottom-bar" id="bottomBar">
-<button class="btn-add" id="btnAddRoot" type="button">+ Add Tag</button>
-<button class="btn-save" id="btnSave" type="button">Save &amp; Download</button>
-<button class="btn-snbt" id="btnSnbt" type="button">Export SNBT</button>
-<button class="btn-close" id="btnCloseFile" type="button">Close</button>
+<button class="btn-add" id="btnAddRoot" type="button">+ 添加标签</button>
+<button class="btn-save" id="btnSave" type="button">保存并下载</button>
+<button class="btn-snbt" id="btnSnbt" type="button">导出 SNBT</button>
+<button class="btn-close" id="btnCloseFile" type="button">关闭</button>
 </div>
 
 </div>
 <div id="contentSections">
 
-<section class="content" aria-label="Inside a mcstructure file">
-<h2 id="what-is-inside-a-mcstructure">What is inside a <code>.mcstructure</code></h2>
+<section class="content" aria-label="mcstructure 文件内部结构">
+<h2 id="what-is-inside-a-mcstructure"><code>.mcstructure</code> 内部内容</h2>
 <div class="table-wrap">
 <table class="matrix">
-<thead><tr><th>Tag</th><th>Type</th><th>What it holds</th></tr></thead>
+<thead><tr><th>标签</th><th>类型</th><th>保存内容</th></tr></thead>
 <tbody>
-<tr><td><code>format_version</code></td><td>Int</td><td>Structure format revision, 1 in current files</td></tr>
-<tr><td><code>size</code></td><td>List of Int</td><td>X, Y, Z dimensions of the captured volume</td></tr>
-<tr><td><code>structure_world_origin</code></td><td>List of Int</td><td>Where the structure was captured in the world</td></tr>
-<tr><td><code>structure</code></td><td>Compound</td><td>Everything below lives here</td></tr>
-<tr><td><code>structure.block_indices</code></td><td>List of Int[]</td><td>Two layers of palette indices — normally blocks and waterlogging; <code>-1</code> means "leave whatever is there"</td></tr>
-<tr><td><code>structure.entities</code></td><td>List of Compound</td><td>Entities captured with the structure</td></tr>
-<tr><td><code>structure.palette.default.block_palette</code></td><td>List of Compound</td><td>Every distinct block state: <code>name</code>, <code>states</code>, <code>version</code></td></tr>
-<tr><td><code>structure.palette.default.block_position_data</code></td><td>Compound</td><td>Block entity NBT keyed by the flat index of the position</td></tr>
+<tr><td><code>format_version</code></td><td>Int</td><td>结构格式修订版本，当前文件为 1</td></tr>
+<tr><td><code>size</code></td><td>Int 列表</td><td>捕获区域的 X、Y、Z 尺寸</td></tr>
+<tr><td><code>structure_world_origin</code></td><td>Int 列表</td><td>结构在世界中的捕获位置</td></tr>
+<tr><td><code>structure</code></td><td>Compound</td><td>以下全部内容都位于此处</td></tr>
+<tr><td><code>structure.block_indices</code></td><td>Int[] 列表</td><td>两层调色板索引，通常为方块层和含水层；<code>-1</code> 表示“保留当前位置原有内容”</td></tr>
+<tr><td><code>structure.entities</code></td><td>Compound 列表</td><td>随结构捕获的实体</td></tr>
+<tr><td><code>structure.palette.default.block_palette</code></td><td>Compound 列表</td><td>每种不同的方块状态：<code>name</code>、<code>states</code>、<code>version</code></td></tr>
+<tr><td><code>structure.palette.default.block_position_data</code></td><td>Compound</td><td>以位置的一维索引为键的方块实体 NBT</td></tr>
 </tbody>
 </table>
 </div>
-<p>Indices in <code>block_indices</code> run X, then Z, then Y — a flat index of <code>(x * sizeZ + z) * sizeY + y</code> into the palette list. That mapping is what lets you fix a single mis-set block without regenerating the structure.</p>
+<p><code>block_indices</code> 中的索引顺序依次为 X、Z、Y，即调色板列表中的一维索引 <code>(x * sizeZ + z) * sizeY + y</code>。利用这一映射，可修复单个错误方块而无需重新生成结构。</p>
 </section>
 
-<section class="content" aria-label="Typical edits">
-<h2 id="what-people-change-here">What people change here</h2>
+<section class="content" aria-label="常见编辑操作">
+<h2 id="what-people-change-here">常见修改</h2>
 <ul>
-<li><strong>Swap a block type everywhere</strong> by editing one entry in <code>block_palette</code> — every position pointing at that index changes with it.</li>
-<li><strong>Fix a block state</strong> such as a wrong <code>facing</code> or an accidental <code>waterlogged</code> in the <code>states</code> compound.</li>
-<li><strong>Strip entities</strong> that were caught by accident, by removing entries from the <code>entities</code> list.</li>
-<li><strong>Repair block entity data</strong> — chest contents, sign text, spawner settings — inside <code>block_position_data</code>.</li>
-<li><strong>Check the version stamp</strong> on palette entries when a structure imports with the wrong blocks after a game update.</li>
+<li><strong>替换所有同类方块</strong>：编辑 <code>block_palette</code> 中的一项，所有指向该索引的位置都会随之改变。</li>
+<li><strong>修正方块状态</strong>：修改错误的 <code>facing</code> 或意外的 <code>waterlogged</code>，这些值位于 <code>states</code> 复合标签中。</li>
+<li><strong>移除实体</strong>：从 <code>entities</code> 列表删除意外捕获的项目。</li>
+<li><strong>修复方块实体数据</strong>：在 <code>block_position_data</code> 中修改箱子内容、告示牌文本和刷怪笼设置。</li>
+<li><strong>检查版本标记</strong>：游戏更新后导入结构出现错误方块时，检查调色板项目的版本。</li>
 </ul>
 </section>
 
-<section class="content" aria-label="Where mcstructure files live">
-<h2 id="where-the-files-are">Where the files are</h2>
-<p>Structure blocks save into the world's <code>structures/</code> folder inside the world directory, in files named <code>&lt;namespace&gt;_&lt;name&gt;.mcstructure</code>. Behaviour packs ship them under <code>structures/</code> in the pack, where the game loads them by namespace. Both are the same format and both open here.</p>
-<p>Java Edition's equivalent is the gzip big-endian <code>.nbt</code> structure file — a different encoding with a different tag layout. The <a href="../java-nbt-editor/">Java editor page</a> covers those, and this editor opens them too.</p>
+<section class="content" aria-label="mcstructure 文件位置">
+<h2 id="where-the-files-are">文件位置</h2>
+<p>结构方块会将文件保存到世界目录内的 <code>structures/</code> 文件夹，文件名为 <code>&lt;namespace&gt;_&lt;name&gt;.mcstructure</code>。行为包则将文件放在包内的 <code>structures/</code> 下，游戏按命名空间加载。两者格式相同，都能在此打开。</p>
+<p>Java 版对应格式是 gzip 压缩的大端序 <code>.nbt</code> 结构文件，其编码和标签布局均不同。<a href="../java-nbt-editor/">Java 编辑器页面</a>有详细说明，本编辑器也能打开它们。</p>
 </section>
 
-<section class="content" aria-label="Frequently asked questions"><h2>Frequently Asked Questions</h2><details><summary>Can I convert a .mcstructure to a Java .nbt structure?</summary><div class="faq-body"><p>The editor can re-encode the bytes to big-endian gzip, but the tag layout differs — Java structures use <code>palette</code>/<code>blocks</code> with different keys and block names. A re-encoded file is readable, not a valid Java structure.</p></div></details><details><summary>Why is my .mcstructure not compressed?</summary><div class="faq-body"><p>Bedrock writes structure files as raw little-endian NBT with no gzip wrapper. That is normal; the editor detects it as <em>Bedrock raw</em>.</p></div></details><details><summary>What does an index of -1 mean in block_indices?</summary><div class="faq-body"><p>It marks a position the structure does not touch, so the existing block in the world is kept when the structure is placed.</p></div></details><details><summary>Can I resize a structure by editing size?</summary><div class="faq-body"><p>Not on its own — <code>block_indices</code> has one entry per position, so the array length has to match the new volume exactly. Changing <code>size</code> alone produces a file the game refuses.</p></div></details></section>
-<section class="content" aria-label="Related tools"><h2>Related tools</h2><div class="rel-grid"><a class="rel-card" href="../mcpe-nbt-editor/"><strong>MCPE NBT editor</strong><span>Little-endian NBT and the 8-byte level.dat header.</span></a><a class="rel-card" href="../schematic-editor/"><strong>Schematic editor</strong><span>WorldEdit .schem and legacy MCEdit .schematic.</span></a><a class="rel-card" href="../"><strong>Minecraft NBT editor</strong><span>The universal editor — every edition, every NBT file type.</span></a><a class="rel-card" href="../nbt-format/"><strong>NBT format reference</strong><span>All 13 tag types, every encoding, byte by byte.</span></a><a class="rel-card" href="../pocketmine-nbt-editor/"><strong>PocketMine-MP editor</strong><span>Server-side level.dat for PMMP, Nukkit and BDS.</span></a><a class="rel-card" href="../nbt-viewer/"><strong>NBT viewer</strong><span>Read-only inspection, search and SNBT export.</span></a></div></section>
+<section class="content" aria-label="常见问题"><h2>常见问题</h2><details><summary>可以将 .mcstructure 转换为 Java .nbt 结构吗？</summary><div class="faq-body"><p>编辑器可以将字节重新编码为大端序 gzip，但标签布局不同；Java 结构使用 <code>palette</code>/<code>blocks</code>，键名和方块名称也不同。重新编码的文件可以读取，但不是有效的 Java 结构。</p></div></details><details><summary>为什么 .mcstructure 没有压缩？</summary><div class="faq-body"><p>基岩版将结构文件写为原始小端序 NBT，不带 gzip 包装。这是正常格式；编辑器会将其识别为<em>基岩版原始格式</em>。</p></div></details><details><summary>block_indices 中的 -1 表示什么？</summary><div class="faq-body"><p>它表示结构不会改动该位置，因此放置结构时会保留世界中已有的方块。</p></div></details><details><summary>可以通过编辑 size 调整结构大小吗？</summary><div class="faq-body"><p>不能只改此项。<code>block_indices</code> 对每个位置都有一个项目，因此数组长度必须与新体积完全一致。只修改 <code>size</code> 会生成游戏拒绝的文件。</p></div></details></section>
+<section class="content" aria-label="相关工具"><h2>相关工具</h2><div class="rel-grid"><a class="rel-card" href="../mcpe-nbt-editor/"><strong>MCPE NBT 编辑器</strong><span>支持小端序 NBT 和 level.dat 的 8 字节文件头。</span></a><a class="rel-card" href="../schematic-editor/"><strong>Schematic 编辑器</strong><span>支持 WorldEdit .schem 和旧版 MCEdit .schematic。</span></a><a class="rel-card" href="../"><strong>Minecraft NBT 编辑器</strong><span>通用编辑器，支持所有版本和各种 NBT 文件。</span></a><a class="rel-card" href="../nbt-format/"><strong>NBT 格式参考</strong><span>逐字节说明全部 13 种标签类型和各种编码。</span></a><a class="rel-card" href="../pocketmine-nbt-editor/"><strong>PocketMine-MP 编辑器</strong><span>编辑 PMMP、Nukkit 和 BDS 的服务端 level.dat。</span></a><a class="rel-card" href="../nbt-viewer/"><strong>NBT 查看器</strong><span>只读检查、搜索和 SNBT 导出。</span></a></div></section>
 </div>
 </main>
 
 <footer class="site-footer">
 <div class="container footer-grid">
-<div><h4>Editors</h4><a href="../">Minecraft NBT editor</a><a href="../level-dat-editor/">level.dat editor</a><a href="../java-nbt-editor/">Java Edition NBT editor</a><a href="../mcpe-nbt-editor/">MCPE NBT editor</a><a href="../pocketmine-nbt-editor/">PocketMine-MP editor</a></div>
-<div><h4>File types</h4><a href="./">.mcstructure editor</a><a href="../schematic-editor/">Schematic editor</a><a href="../playerdata-editor/">playerdata editor</a><a href="../nbt-viewer/">NBT viewer</a><a href="../nbtexplorer-online/">NBTExplorer online</a></div>
-<div><h4>Reference</h4><a href="../nbt-format/">NBT format reference</a><a href="../guides/change-world-name/">Rename a world</a><a href="../guides/fix-corrupted-level-dat/">Fix a broken level.dat</a><a href="../guides/edit-gamerules/">Edit game rules</a></div>
-<div><h4>Source</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">Code on GitHub</a><a href="../../llms.txt">llms.txt</a></div>
+<div><h4>编辑器</h4><a href="../">Minecraft NBT 编辑器</a><a href="../level-dat-editor/">level.dat 编辑器</a><a href="../java-nbt-editor/">Java 版 NBT 编辑器</a><a href="../mcpe-nbt-editor/">MCPE NBT 编辑器</a><a href="../pocketmine-nbt-editor/">PocketMine-MP 编辑器</a></div>
+<div><h4>文件类型</h4><a href="./">.mcstructure 编辑器</a><a href="../schematic-editor/">Schematic 编辑器</a><a href="../playerdata-editor/">playerdata 编辑器</a><a href="../nbt-viewer/">NBT 查看器</a><a href="../nbtexplorer-online/">NBTExplorer 在线版</a></div>
+<div><h4>参考资料</h4><a href="../nbt-format/">NBT 格式参考</a><a href="../guides/change-world-name/">重命名世界</a><a href="../guides/fix-corrupted-level-dat/">修复损坏的 level.dat</a><a href="../guides/edit-gamerules/">编辑游戏规则</a></div>
+<div><h4>源代码</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">GitHub 上的代码</a><a href="../../llms.txt">llms.txt</a></div>
 </div>
-<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">最后更新：2026-09-21。 Minecraft NBT 编辑器 — 免费并以 MIT 许可证开源，完全在浏览器中运行。与 Mojang Studios 或 Microsoft 无关联。Minecraft 是 Mojang Studios 的商标。</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
 <div class="modal-overlay" id="addTagModal">
 <div class="modal">
-<h3>Add New Tag</h3>
-<label for="newTagName">Tag Name</label>
-<input type="text" id="newTagName" placeholder="e.g. MyTag" autocomplete="off">
-<label for="newTagType">Tag Type</label>
+<h3>添加新标签</h3>
+<label for="newTagName">标签名称</label>
+<input type="text" id="newTagName" placeholder="例如 MyTag" autocomplete="off">
+<label for="newTagType">标签类型</label>
 <select id="newTagType">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -195,10 +210,10 @@
 <option value="11">TAG_Int_Array</option>
 <option value="12">TAG_Long_Array</option>
 </select>
-<label for="newTagValue">Value</label>
-<input type="text" id="newTagValue" placeholder="Value" autocomplete="off">
+<label for="newTagValue">值</label>
+<input type="text" id="newTagValue" placeholder="值" autocomplete="off">
 <div id="listSubtypeRow" style="display:none">
-<label for="newListSubtype">List Element Type</label>
+<label for="newListSubtype">列表元素类型</label>
 <select id="newListSubtype">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -215,24 +230,24 @@
 </select>
 </div>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="addTagCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="addTagConfirm">Add</button>
+<button class="btn-cancel" type="button" id="addTagCancel">取消</button>
+<button class="btn-confirm" type="button" id="addTagConfirm">添加</button>
 </div>
 </div>
 </div>
 
 <div class="modal-overlay" id="arrayModal">
 <div class="modal">
-<h3 id="arrayModalTitle">Edit Array</h3>
-<label for="arrayModalText">Comma-separated values</label>
+<h3 id="arrayModalTitle">编辑数组</h3>
+<label for="arrayModalText">以逗号分隔的值</label>
 <textarea id="arrayModalText" spellcheck="false" autocomplete="off"></textarea>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="arrayModalCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="arrayModalConfirm">Apply</button>
+<button class="btn-cancel" type="button" id="arrayModalCancel">取消</button>
+<button class="btn-confirm" type="button" id="arrayModalConfirm">应用</button>
 </div>
 </div>
 </div>
 
-<script src="../../assets/nbt.js?v=da7967b1" defer></script>
+<script src="../../assets/nbt.js?v=6f125422" defer></script>
 </body>
 </html>

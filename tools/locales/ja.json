@@ -1,0 +1,1280 @@
+{
+  "": {
+    "title": "Bedrock NBTエディター オンライン — level.dat・MCPE・Java対応",
+    "ogtitle": "Bedrock &amp; Java NBTエディター — オンライン・アップロード不要",
+    "desc": "Bedrock EditionとJava Edition対応の無料オンラインNBTエディターです。level.dat、.mcstructure、playerdata、.nbt、.schemを開き、タグを編集して元のバイナリ形式で保存できます。バイト順、ヘッダー、圧縮方式を自動判定し、ブラウザー内で処理します。",
+    "keywords": "NBTエディター, NBT編集 オンライン, Minecraft NBT 編集, Bedrock NBTエディター, level.dat 編集, MCPE セーブデータ 編集, NBTファイル 開く, NBTビューア, NBTExplorer オンライン",
+    "h1": "Bedrock NBTエディター — Java Editionにも対応",
+    "crumb": "エディター",
+    "reltitle": "Minecraft NBTエディター",
+    "reldesc": "全エディションと各種NBTファイルに対応する汎用エディター。",
+    "answer": "<strong>Bedrock Editionの全サーバーコアに対応し、Java Editionの一般的なものから小規模な実装まで扱えます。</strong>下の領域に <code>level.dat</code>、<code>playerdata</code>、<code>.nbt</code>、<code>.mcstructure</code>、<code>.schem</code>、<code>.schematic</code> をドロップし、ツリー内の任意のタグを編集して、同じバイナリ形式でダウンロードできます。バイト順、ヘッダー、圧縮方式は自動判定されます。処理はすべてブラウザー内で完結し、アップロード、アカウント、インストールは不要です。",
+    "droplabel": "任意のNBTファイル",
+    "body": "\n<section class=\"content\" aria-label=\"Supported files\">\n<h2>Minecraftが書き出すすべてのNBTファイル</h2>\n<p>NBT（Named Binary Tag）は複数のエンコードを持つ単一の形式で、Minecraftの各エディション、ランチャー、サーバーコアはそれぞれ異なる組み合わせを使います。このエディターはすべてを実装し、ファイルのバイト列から適切な形式を選ぶため、開く前に種類を調べる必要はありません。</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>ファイル</th><th>生成元</th><th>エンコード</th><th>圧縮</th></tr></thead>\n<tbody>\n<tr><td><code>level.dat</code></td><td>Javaワールド — Vanilla、Paper、Spigot、Fabric、Forge</td><td>ビッグエンディアン、名前付きルート</td><td>gzip</td></tr>\n<tr><td><code>level.dat</code></td><td>Bedrockワールド — BDS、PocketMine-MP、Nukkit、MCPE</td><td>リトルエンディアン + 8バイトヘッダー</td><td>なし</td></tr>\n<tr><td><code>&lt;uuid&gt;.dat</code></td><td>Java <code>playerdata/</code></td><td>ビッグエンディアン</td><td>gzip</td></tr>\n<tr><td><code>servers.dat</code>, <code>hotbar.nbt</code></td><td>Javaクライアント</td><td>ビッグエンディアン</td><td>なし</td></tr>\n<tr><td><code>idcounts.dat</code>, <code>raids.dat</code>, <code>map_*.dat</code></td><td>Javaワールドの <code>data/</code></td><td>ビッグエンディアン</td><td>gzip</td></tr>\n<tr><td><code>.nbt</code></td><td>ストラクチャーブロック、データパックの構造物</td><td>ビッグエンディアン</td><td>gzip</td></tr>\n<tr><td><code>.schem</code>, <code>.schematic</code></td><td>WorldEdit、Sponge、MCEdit</td><td>ビッグエンディアン</td><td>gzip</td></tr>\n<tr><td><code>.mcstructure</code></td><td>Bedrockのストラクチャーブロック</td><td>リトルエンディアン</td><td>なし</td></tr>\n<tr><td>チャンクペイロード</td><td>リージョン <code>.mca</code> の抽出データ、LevelDB値</td><td>どちらのバイト順も可</td><td>zlibまたはなし</td></tr>\n<tr><td>パケットダンプ</td><td>Bedrockプロトコル、Java 1.20.2+プロトコル</td><td>Varint LE / nameless BE</td><td>なし</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"How to use\">\n<h2>NBTファイルの編集方法</h2>\n<div class=\"card\">\n<ol class=\"steps\">\n<li><strong>サーバーまたは端末からファイルを取り出します。</strong>Javaサーバーでは <code>world/</code>、Bedrockサーバーでは <code>worlds/YourWorld/</code>、Androidでは <code>games/com.mojang/minecraftWorlds/&lt;id&gt;/</code> にあります。コピー中に書き込まれないよう、先にサーバーを停止してください。</li>\n<li><strong>エディターへドロップします。</strong>ツリー上部のバッジに、検出したエディション、エンコード、圧縮方式が表示されます。Bedrockではヘッダーのストレージバージョンも表示されます。</li>\n<li><strong>編集します。</strong>値を押すとその場で変更できます。検索で名前または値からタグへ移動し、<strong>+</strong> でCompoundやListへタグを追加、<strong>×</strong> で削除します。</li>\n<li><strong>保存してダウンロードします。</strong>出力形式と圧縮方式の初期値は入力ファイルと同じなので、通常の編集では元の形式が保たれます。</li>\n<li><strong>元の場所へ戻して再起動します。</strong>ワールドが一度正常に読み込まれるまで、元ファイルをバックアップとして残してください。</li>\n</ol>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Features\">\n<h2>このエディターの技術的な特徴</h2>\n<div class=\"features-grid\">\n<article class=\"feature-card\"><h3>5種類のエンコードを1か所で処理</h3><p>Javaビッグエンディアン、Bedrockリトルエンディアン、Bedrock varintネットワークNBT、Java 1.20.2+の名前なしルートネットワークNBT、ヘッダー付きBedrock <code>level.dat</code> に対応します。推測ではなく内容から判定します。</p></article>\n<article class=\"feature-card\"><h3>ブラウザー内でgzipとzlibを処理</h3><p>展開と再圧縮には標準のCompression Streams APIを使うため、Java <code>level.dat</code> を編集してもゲームがそのまま受け付けるファイルになります。</p></article>\n<article class=\"feature-card\"><h3>正確な64ビットlong</h3><p><code>TAG_Long</code> の値は <code>BigInt</code> で保持します。ワールドシードやUUIDの各半分が浮動小数点の丸めで壊れません。</p></article>\n<article class=\"feature-card\"><h3>正しい文字列エンコード</h3><p>Javaは修正版UTF-8（CESU-8）、Bedrockは標準UTF-8を使います。エディション別にエンコードするため、絵文字や非ラテン文字のワールド名も維持されます。</p></article>\n<article class=\"feature-card\"><h3>大きなファイル向けの実装</h3><p>配列は型付き配列で保持し、ツリーは200項目ずつ遅延描画します。数MBのチャンクNBTでもタブを停止させずに開けます。</p></article>\n<article class=\"feature-card\"><h3>ツリー全体を検索</h3><p>ファイル内の任意のタグを名前または値で検索し、経路を展開した状態で直接移動できます。</p></article>\n<article class=\"feature-card\"><h3>SNBTエクスポート</h3><p>ツリー全体を、<code>/data</code> やデータパックで使うテキスト形式のSNBTとして出力できます。比較、共有、コマンドへの貼り付けに使えます。</p></article>\n<article class=\"feature-card\"><h3>形式変換</h3><p>Bedrockファイルを読み、Javaビッグエンディアンgzipで書き出すことも、その逆も可能です。プロトコル開発、テスト、ツール作成に利用できます。</p></article>\n<article class=\"feature-card\"><h3>ファイルは端末外へ送信されない</h3><p>ファイルは <code>FileReader</code> で読み取り、JavaScriptで解析し、メモリー内のblobとして返します。アップロード用エンドポイントはありません。</p></article>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Supported server software\" id=\"server-software\">\n<h2>対応サーバーソフトウェア</h2>\n<p>NBTはサーバー実装ではなくゲーム形式によって定義されます。Minecraftワールドを保存するコアは、このエディターが読めるいずれかのエンコードを使います。以下は宣伝用の一覧ではなく技術的な互換範囲です。</p>\n<div class=\"card\">\n<h3>Bedrock Edition — リトルエンディアンNBT、8バイトの <code>level.dat</code> ヘッダー</h3>\n<p><strong>Bedrock Dedicated Server (BDS)</strong>、<strong>PocketMine-MP</strong>（PM3、PM4、PM5）、<strong>Nukkit</strong>、<strong>Nukkit-MOT</strong>、<strong>PowerNukkitX</strong>、<strong>Cloudburst Server</strong>、<strong>Dragonfly</strong>、<strong>Endstone</strong>、<strong>LeviLamina</strong>、<strong>BDSX</strong>、<strong>Allay</strong>、<strong>JukeboxMC</strong>、<strong>GoMint</strong>、<strong>Sculk</strong>、<strong>ElementZero</strong>、<strong>LiteLoaderBDS</strong>、およびAndroid、iOS、Windows、コンソール、Switch上の <strong>MCPE</strong> と <strong>MCBE</strong> クライアント。いずれも同じ <code>worlds/&lt;World&gt;/level.dat</code>、ヘッダー、タグを使います。<a href=\"pocketmine-nbt-editor/\">サーバー側の手順</a>も参照してください。</p>\n<h3>Java Edition — ビッグエンディアンNBT、gzip</h3>\n<p><strong>Vanilla</strong>、<strong>CraftBukkit</strong>、<strong>Spigot</strong>、<strong>Paper</strong>、<strong>Purpur</strong>、<strong>Pufferfish</strong>、<strong>Folia</strong>、<strong>Leaves</strong>、<strong>Gale</strong>、<strong>Petal</strong>、<strong>Airplane</strong>、<strong>Sponge</strong>（SpongeVanilla、SpongeForge）、<strong>Fabric</strong>、<strong>Quilt</strong>、<strong>Forge</strong>、<strong>NeoForge</strong>、<strong>Mohist</strong>、<strong>Arclight</strong>、<strong>Magma</strong>、<strong>Ketting</strong>、<strong>Banner</strong>、<strong>Cardboard</strong>、<strong>Glowstone</strong>、<strong>Thermos</strong>、<strong>Uberbukkit</strong>、その他すべてのフォーク、Modパックサーバー、旧ビルド。<code>world/level.dat</code> を書く実装なら開けます。<a href=\"java-nbt-editor/\">詳細はこちら</a>です。</p>\n<h3>プロキシとブリッジ</h3>\n<p><strong>Geyser</strong>、<strong>WaterdogPE</strong>、<strong>Waterfall</strong>、<strong>Velocity</strong>、<strong>BungeeCord</strong> はワールドを保持せず、通信上でNBTを転送します。ソケットから取得したデータはネットワークNBTで、Bedrock側はvarintリトルエンディアン、Java 1.20.2+側は名前なしルートのビッグエンディアンです。どちらも直接開けます。</p>\n<h3>一覧にない実装</h3>\n<p>独自フォーク、非公開コア、教材、自作サーバーでも、ファイルがNBTなら5種類のエンコードから判定して開きます。処理はコア名に依存しません。</p>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Scripting\">\n<h2>自分のコードからパーサーを使う</h2>\n<p>ページはエンジンを <code>window.NBT</code> として公開しています。UIと同じパーサーをブラウザーコンソールから操作したり、ユーザースクリプトで再利用したりできます。</p>\n<pre class=\"code\"><code>const bytes = new Uint8Array(await file.arrayBuffer());\nconst { root, format, compression, headerVersion } = await NBT.read(bytes);\n\nroot.value.find(t =&gt; t.name === \"LevelName\").value = \"New World\";\n\nconst out = await NBT.write(root, format, { compression, headerVersion });</code></pre>\n<p>タグは <code>{ type, name, value, listType }</code> 形式の通常のオブジェクトです。配列は <code>Int8Array</code>、<code>Int32Array</code>、<code>BigInt64Array</code>、longは <code>BigInt</code> です。完全な<a href=\"nbt-format/\">NBT形式リファレンス</a>に各タグ型とエンコードの違いを記載しています。</p>\n</section>\n",
+    "chips": [
+      "Bedrock Edition",
+      "Java Edition",
+      "Vanilla",
+      "Paper",
+      "Spigot",
+      "Purpur",
+      "Pufferfish",
+      "Folia",
+      "Leaves",
+      "Fabric",
+      "Quilt",
+      "Forge",
+      "NeoForge",
+      "Mohist",
+      "Arclight",
+      "Sponge",
+      "Bedrock Dedicated Server",
+      "PocketMine-MP",
+      "Nukkit",
+      "PowerNukkitX",
+      "Nukkit-MOT",
+      "Cloudburst",
+      "Dragonfly",
+      "Endstone",
+      "LeviLamina",
+      "Allay",
+      "JukeboxMC",
+      "GoMint",
+      "Geyser",
+      "WaterdogPE"
+    ],
+    "faq": [
+      [
+        "このNBTエディターは無料ですか？",
+        "<p>はい。MITライセンスのオープンソースです。有料プラン、登録、アップロード容量の制限はありません。サーバー側コンポーネントを使わず、静的ページと2つのアセットファイルだけで動作します。</p>"
+      ],
+      [
+        "Java EditionとBedrock Editionの両方で使えますか？",
+        "<p>両方に対応します。Javaファイルはビッグエンディアンで通常gzip圧縮、Bedrockファイルはリトルエンディアンで、<code>level.dat</code> には追加の8バイトヘッダーがあります。受け取った形式を判定し、保存時に同じ形式で書き戻します。</p>"
+      ],
+      [
+        "ワールドファイルはアップロードされますか？",
+        "<p>いいえ。ファイルはFileReader APIで端末内から読み取り、ダウンロードデータはメモリー内のblobから生成されます。ページ読み込み後はネットワークを切断しても動作します。</p>"
+      ],
+      [
+        "AndroidやiOSでも使えますか？",
+        "<p>はい。44&nbsp;pxのタップ領域と固定アクションバーを備えたモバイル優先の画面です。Androidではファイルマネージャーから選択できます。iOSではサンドボックス制限により、先に「ファイル」アプリへ保存してください。</p>"
+      ],
+      [
+        "NBTとSNBTの違いは何ですか？",
+        "<p>NBTはMinecraftがディスクへ保存するバイナリエンコードです。SNBTはそのテキスト表現で、<code>/data merge</code> などのコマンドに入力する構文です。このエディターはバイナリNBTを読み、比較やコマンドへの貼り付けに使えるSNBTを出力できます。</p>"
+      ],
+      [
+        "どのツールの代わりになりますか？",
+        "<p>NBTExplorerなどのデスクトップNBTエディターや、1エディションだけを扱うWebツールの代わりに使えます。対応機能の違いは<a href=\"nbtexplorer-online/\">NBTExplorerオンライン版との比較</a>を参照してください。</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "{0} として読み込みました",
+      "trailing": "ルートタグ後の末尾バイト {0} 個を無視しました",
+      "error": "エラー: {0}",
+      "readfail": "ファイルを読み取れませんでした",
+      "nofile": "ファイルが読み込まれていません",
+      "saved": "{0} を保存しました（{1}、{2}）",
+      "savefail": "保存エラー: {0}",
+      "exported": "{0} をエクスポートしました",
+      "snbtfail": "SNBTエラー: {0}",
+      "tagadded": "タグを追加しました",
+      "tagremoved": "タグを削除しました",
+      "arrayupdated": "配列を更新しました",
+      "badvalue": "無効な値: {0}",
+      "badarray": "無効な配列: {0}",
+      "nameneeded": "タグ名が必要です",
+      "nametaken": "{0} というタグはここにすでに存在します",
+      "listtype": "このListにはすでに {0} 型の要素があります",
+      "editlevelname": "✎ LevelNameを編集",
+      "showmore": "さらに {0} 件を表示（全 {1} 件）…",
+      "matches": "{0} 件一致",
+      "nomatch": "「{0}」に一致するタグはありません",
+      "arraytoobig": "配列には {0} 件あります。展開して各要素を個別に編集してください",
+      "uncompressed": "非圧縮",
+      "storage": "ストレージ v{0}",
+      "entries": "{0} 件",
+      "langprompt": "このページを{0}で開きますか？",
+      "langyes": "切り替える",
+      "langno": "このまま"
+    },
+    "support": "<strong>Minecraft Bedrock EditionとJava Editionに対応</strong>し、一般的なものから小規模なものまで両方の全サーバーコアを扱えます: Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLaminaなど。<a href=\"__HOME__#server-software\">全一覧</a>。",
+    "footernote": "無料のオープンソース（MIT）で、すべてブラウザー内で動作します。Mojang StudiosおよびMicrosoftとは関係ありません。MinecraftはMojang Studiosの商標です。",
+    "faqtitle": "よくある質問",
+    "toctitle": "このページの目次",
+    "relatedtitle": "関連ツール",
+    "homecrumb": "NBTエディター",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "エディター",
+      "ファイル形式",
+      "リファレンス"
+    ],
+    "sourcehead": "ソース",
+    "sourcelink": "GitHubのコード"
+  },
+  "level-dat-editor": {
+    "title": "level.datエディター オンライン — Minecraftワールド設定を編集",
+    "ogtitle": "level.datエディター — ワールド設定をオンライン編集",
+    "desc": "Minecraftのlevel.datをオンラインで編集し、ワールド名、ゲームモード、難易度、スポーン地点、シード値、ゲームルール、天候を変更できます。Javaのgzipビッグエンディアン形式と、8バイトヘッダー付きBedrock形式を自動判定し、元形式のまま保存します。ファイルはアップロードされません。",
+    "keywords": "level.dat 編集, level.dat エディター, Minecraft ワールド設定 変更, ワールド名 変更 level.dat, ゲームルール NBT, Minecraft シード値 編集, Bedrock の level.dat 編集",
+    "h1": "level.datエディター — Minecraftワールド設定をオンライン編集",
+    "crumb": "level.datエディター",
+    "reltitle": "level.datエディター",
+    "reldesc": "ワールド名、ゲームモード、スポーン地点、難易度、ゲームルールを編集。",
+    "answer": "<code>level.dat</code> にはMinecraftワールドの名前、ゲームモード、難易度、スポーン地点、ゲームルール、天候、最後に開いたバージョンが保存されています。下へドロップすると各値を直接編集できます。Java（gzip、ビッグエンディアン）とBedrock（8バイトヘッダー付きリトルエンディアン）の両方を処理し、入力時と同じ形式で書き戻します。",
+    "droplabel": "level.dat",
+    "body": "\n<section class=\"content\" aria-label=\"Tags in level.dat\">\n<h2>よく編集されるタグ</h2>\n<p>Javaの <code>level.dat</code> はほぼすべてを1つの <code>Data</code> Compound内に保持し、Bedrockの <code>level.dat</code> はルート直下にタグを保持します。以下の名前をツリーで検索すると該当位置へ移動できます。</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>タグ</th><th>型</th><th>エディション</th><th>制御内容</th></tr></thead>\n<tbody>\n<tr><td><code>LevelName</code></td><td>String</td><td>両方</td><td>ワールド一覧に表示される名前。フォルダーをコピーした後に古いままなら<a href=\"../guides/change-world-name/\">名前変更ガイド</a>を参照してください。</td></tr>\n<tr><td><code>GameType</code> / <code>gameType</code></td><td>Int</td><td>両方</td><td>0 サバイバル、1 クリエイティブ、2 アドベンチャー、3 スペクテイター。</td></tr>\n<tr><td><code>Difficulty</code></td><td>Byte / Int</td><td>両方</td><td>0 ピースフル、1 イージー、2 ノーマル、3 ハード。</td></tr>\n<tr><td><code>hardcore</code></td><td>Byte</td><td>両方</td><td>1にするとハードコアルールへ固定します。</td></tr>\n<tr><td><code>allowCommands</code> / <code>commandsEnabled</code></td><td>Byte</td><td>Java / Bedrock</td><td>チートを有効にするかどうか。</td></tr>\n<tr><td><code>SpawnX</code>, <code>SpawnY</code>, <code>SpawnZ</code></td><td>Int</td><td>両方</td><td>ワールドのスポーン座標。</td></tr>\n<tr><td><code>Time</code>, <code>DayTime</code></td><td>Long</td><td>Java</td><td>総ティック数と時刻。</td></tr>\n<tr><td><code>currentTick</code></td><td>Int</td><td>Bedrock</td><td>Bedrock側のワールド時計。</td></tr>\n<tr><td><code>RandomSeed</code> / <code>WorldGenSettings.seed</code></td><td>Long</td><td>Java</td><td>ワールドシード。丸めたdoubleではなく正確な64ビット値で保持します。</td></tr>\n<tr><td><code>GameRules</code> / 個別のゲームルールタグ</td><td>Compound / Byte</td><td>Java / Bedrock</td><td><code>/gamerule</code> で設定する項目。<a href=\"../guides/edit-gamerules/\">ゲームルールガイド</a>を参照してください。</td></tr>\n<tr><td><code>DataVersion</code></td><td>Int</td><td>Java</td><td>ワールド形式のバージョン。Minecraftのバージョン間で移動する前に確認します。</td></tr>\n<tr><td><code>lastOpenedWithVersion</code></td><td>Int のリスト</td><td>Bedrock</td><td>最後にワールドを書き込んだBedrockクライアントまたはサーバービルド。</td></tr>\n<tr><td><code>Player</code></td><td>Compound</td><td>両方</td><td>ワールドファイル内のシングルプレイ用インベントリ、位置、統計。</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Where to find level.dat\">\n<h2><code>level.dat</code> の保存場所</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>プラットフォーム</th><th>パス</th></tr></thead>\n<tbody>\n<tr><td>Javaサーバー（Vanilla、Paper、Spigot、Fabric、Forge）</td><td><code>world/level.dat</code>。<code>region/</code> と <code>playerdata/</code> の隣</td></tr>\n<tr><td>Javaクライアント、Windows</td><td><code>%APPDATA%\\.minecraft\\saves\\&lt;World&gt;\\level.dat</code></td></tr>\n<tr><td>Javaクライアント、macOS</td><td><code>~/Library/Application Support/minecraft/saves/&lt;World&gt;/level.dat</code></td></tr>\n<tr><td>Javaクライアント、Linux</td><td><code>~/.minecraft/saves/&lt;World&gt;/level.dat</code></td></tr>\n<tr><td>Bedrock Dedicated Server、PocketMine-MP、Nukkit</td><td><code>worlds/&lt;World&gt;/level.dat</code></td></tr>\n<tr><td>Android版Bedrock</td><td><code>Android/data/com.mojang.minecraftpe/files/games/com.mojang/minecraftWorlds/&lt;id&gt;/level.dat</code></td></tr>\n<tr><td>Windows版Bedrock</td><td><code>%LOCALAPPDATA%\\Packages\\Microsoft.MinecraftUWP_*\\LocalState\\games\\com.mojang\\minecraftWorlds\\&lt;id&gt;\\level.dat</code></td></tr>\n</tbody>\n</table>\n</div>\n<p>Minecraftは同じ場所に1つ前の保存データ <code>level.dat_old</code> も書き込みます。これも開けます。現在のファイルを読み込めない場合は最初に試してください。</p>\n</section>\n\n<section class=\"content\" aria-label=\"Safety\">\n<h2>安全に編集する</h2>\n<div class=\"card\">\n<ul>\n<li><strong>先にサーバーを停止するかゲームを終了してください。</strong>Minecraftは自動保存と終了時に <code>level.dat</code> を書き直します。稼働中のサーバーは編集を上書きし、コピー途中のファイルへ書き込む場合があります。</li>\n<li><strong>元ファイルを残してください。</strong>ドロップしたファイル自体は変更せず、新しいファイルをダウンロードします。ワールドが一度正常に読み込まれるまで元のコピーを保存してください。</li>\n<li><strong>タグ型を変更しないでください。</strong><code>Difficulty</code> をByteからIntへ変えたり、ゲームが必要とするタグ名を変更したりすると、ワールドを読み込めなくなります。理由が分からない場合は構造ではなく値だけを編集してください。</li>\n<li><strong>Bedrockヘッダーを維持してください。</strong>8バイトヘッダーにはストレージバージョンとペイロード長があります。エディターは長さを自動更新し、バージョンを保ちます。</li>\n</ul>\n</div>\n</section>\n",
+    "chips": [
+      "Java の level.dat",
+      "Bedrock の level.dat",
+      "level.dat_old",
+      "gzip",
+      "8バイトヘッダー"
+    ],
+    "faq": [
+      [
+        "ソフトウェアをダウンロードせずにlevel.datを編集できますか？",
+        "<p>はい。このページのパーサーはブラウザー内で動くため、インストールは不要です。対応する最新ブラウザーがあればOSを問いません。</p>"
+      ],
+      [
+        "ワールド名が古いままなのはなぜですか？",
+        "<p>ワールド一覧の名前には <code>LevelName</code> が使われ、このタグは <code>level.dat</code> 内にあります。フォルダーをコピーまたは変更してもタグは変わりません。タグを編集すると一覧も更新されます。</p>"
+      ],
+      [
+        "level.dat_oldにも対応しますか？",
+        "<p>はい。<code>level.dat_old</code> は同じ形式の1つ前の保存データです。現在のファイルが壊れている場合は <code>_old</code> を開いて内容を確認し、元の名前で復元できます。</p>"
+      ],
+      [
+        "ここでワールドシードを変更できますか？",
+        "<p>シードタグは編集できますが、変更後に生成される地形だけへ反映されます。保存済みのチャンクは元の形を保つため、新旧地形の境界が見える場合があります。</p>"
+      ],
+      [
+        "level.datを編集するとBANやワールド破損の原因になりますか？",
+        "<p>自分のセーブファイルを編集するだけなのでBAN対象ではありません。破損は、稼働中のサーバーで編集したり、値ではなくタグ型や名前を変えたりした場合に起きます。停止、値の編集、バックアップを守ってください。</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "{0} として読み込みました",
+      "trailing": "ルートタグ後の末尾バイト {0} 個を無視しました",
+      "error": "エラー: {0}",
+      "readfail": "ファイルを読み取れませんでした",
+      "nofile": "ファイルが読み込まれていません",
+      "saved": "{0} を保存しました（{1}、{2}）",
+      "savefail": "保存エラー: {0}",
+      "exported": "{0} をエクスポートしました",
+      "snbtfail": "SNBTエラー: {0}",
+      "tagadded": "タグを追加しました",
+      "tagremoved": "タグを削除しました",
+      "arrayupdated": "配列を更新しました",
+      "badvalue": "無効な値: {0}",
+      "badarray": "無効な配列: {0}",
+      "nameneeded": "タグ名が必要です",
+      "nametaken": "{0} というタグはここにすでに存在します",
+      "listtype": "このListにはすでに {0} 型の要素があります",
+      "editlevelname": "✎ LevelNameを編集",
+      "showmore": "さらに {0} 件を表示（全 {1} 件）…",
+      "matches": "{0} 件一致",
+      "nomatch": "「{0}」に一致するタグはありません",
+      "arraytoobig": "配列には {0} 件あります。展開して各要素を個別に編集してください",
+      "uncompressed": "非圧縮",
+      "storage": "ストレージ v{0}",
+      "entries": "{0} 件",
+      "langprompt": "このページを{0}で開きますか？",
+      "langyes": "切り替える",
+      "langno": "このまま"
+    },
+    "support": "<strong>Minecraft Bedrock EditionとJava Editionに対応</strong>し、一般的なものから小規模なものまで両方の全サーバーコアを扱えます: Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLaminaなど。<a href=\"__HOME__#server-software\">全一覧</a>。",
+    "footernote": "無料のオープンソース（MIT）で、すべてブラウザー内で動作します。Mojang StudiosおよびMicrosoftとは関係ありません。MinecraftはMojang Studiosの商標です。",
+    "faqtitle": "よくある質問",
+    "toctitle": "このページの目次",
+    "relatedtitle": "関連ツール",
+    "homecrumb": "NBTエディター",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "エディター",
+      "ファイル形式",
+      "リファレンス"
+    ],
+    "sourcehead": "ソース",
+    "sourcelink": "GitHubのコード"
+  },
+  "java-nbt-editor": {
+    "title": "Java Edition NBTエディター — level.dat・playerdata・.nbt",
+    "ogtitle": "Java Edition NBTエディター — ビッグエンディアン・gzip対応",
+    "desc": "Minecraft Java Edition向けオンラインNBTエディターです。Paper、Spigot、Fabric、Forgeのgzip圧縮ビッグエンディアンlevel.dat、playerdata、構造物.nbtを開き、タグを編集して元形式で保存できます。ファイルはブラウザー内だけで処理されます。",
+    "keywords": "Java NBTエディター, Minecraft Java NBT 編集, level.dat 編集 Java, playerdata 編集, Paper NBT, Spigot NBT, Fabric NBT, Forge NBT, gzip NBT 開く",
+    "h1": "Java Edition NBTエディター",
+    "crumb": "Java",
+    "reltitle": "Java Edition NBTエディター",
+    "reldesc": "ビッグエンディアン、gzip — Vanilla、Paper、Spigot、Fabric、Forge。",
+    "answer": "Minecraft Java EditionはデータをビッグエンディアンNBTで保存し、通常はgzipで圧縮します。<code>level.dat</code>、<code>playerdata</code> のUUIDファイル、<code>servers.dat</code>、構造物の <code>.nbt</code>、WorldEditスキーマティックを下へドロップすると、展開して解析し、ゲームがそのまま受け付けるgzip圧縮形式で書き戻します。",
+    "droplabel": "Java NBTファイル",
+    "body": "\n<section class=\"content\" aria-label=\"Java NBT files\">\n<h2>Javaワールドを構成するファイル</h2>\n<p>以下のファイルはすべて上のエディターで開けます。リージョンファイル（<code>.mca</code>）自体は単一NBTではなく複数の圧縮チャンクを収めるコンテナーなので、先にチャンクペイロードを抽出してください。抽出したzlib圧縮チャンクNBTは読み込めます。</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>パス</th><th>内容</th><th>圧縮</th></tr></thead>\n<tbody>\n<tr><td><code>world/level.dat</code></td><td>ワールド名、ゲームモード、ルール、スポーン、<code>DataVersion</code></td><td>gzip</td></tr>\n<tr><td><code>world/level.dat_old</code></td><td>同じファイルの1つ前の保存</td><td>gzip</td></tr>\n<tr><td><code>world/playerdata/&lt;uuid&gt;.dat</code></td><td>インベントリ、エンダーチェスト、位置、体力、XP、属性</td><td>gzip</td></tr>\n<tr><td><code>world/data/raids.dat</code>, <code>idcounts.dat</code>, <code>map_*.dat</code></td><td>襲撃状態、エンティティIDカウンター、地図アイテム</td><td>gzip</td></tr>\n<tr><td><code>world/data/scoreboard.dat</code></td><td>目標、チーム、スコア</td><td>gzip</td></tr>\n<tr><td><code>world/region/*.mca</code></td><td>リージョンコンテナー内のチャンクNBT</td><td>チャンクごとにzlib</td></tr>\n<tr><td><code>servers.dat</code></td><td>クライアントのマルチプレイサーバー一覧</td><td>なし</td></tr>\n<tr><td><code>hotbar.nbt</code></td><td>保存したクリエイティブホットバー</td><td>なし</td></tr>\n<tr><td>データパック内の <code>*.nbt</code></td><td>ストラクチャーブロックやジグソーで配置する構造物</td><td>gzip</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Java NBT encoding\">\n<h2>JavaのNBTエンコード</h2>\n<div class=\"card\">\n<ul>\n<li><strong>ビッグエンディアン。</strong>すべての整数と浮動小数点数は上位バイトから保存され、Javaの <code>DataOutputStream</code> と一致します。</li>\n<li><strong>名前付きルート。</strong>ファイルはタグ型 <code>0x0A</code>、UTF-8長付きルート名の順で始まります。<code>level.dat</code> のルート名は従来空です。</li>\n<li><strong>修正版UTF-8。</strong>文字列はJavaの <code>writeUTF</code> を使います。2バイト長、NULは <code>C0 80</code>、基本多言語面外の文字は3バイトのサロゲート2個（CESU-8）で表します。通常のUTF-8として扱うツールはワールド名の絵文字を壊します。</li>\n<li><strong>既定はgzip。</strong><code>NbtIo.readCompressed</code> はgzipストリームを想定します。非圧縮ファイルは一部ツールでは開けてもゲームでは開けません。</li>\n<li><strong>通信では名前なしルート。</strong>1.20.2以降のプロトコルはルート名を省略します。この形式のダンプはここで <em>Java ネットワーク</em> と判定されます。</li>\n</ul>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Server cores\">\n<h2>Paper、Spigot、Fabric、Forgeでも同じファイル</h2>\n<p>フォークやModローダーはサーバーの動作を変えますが、ワールドの保存形式は変えません。Paper、Purpur、Pufferfish、Folia、Fabric、Quilt、Forge、NeoForge、Mohist、Arclight、SpongeはいずれもVanillaのNBTレイアウトを使います。<code>paper-world.yml</code> やMod設定など追加ファイルはYAMLまたはTOMLで、NBTではありません。</p>\n<p>Modやプラグインは <code>level.dat</code> や <code>playerdata</code> 内に独自Compoundを追加する場合があります。通常のタグとして開けますが、用途が分からないものは変更しないでください。</p>\n</section>\n\n<section class=\"content\" aria-label=\"DataVersion\">\n<h2><code>DataVersion</code> とバージョン移行</h2>\n<p>Javaワールドには形式を示す整数 <code>DataVersion</code> があり、スナップショットごとに増えます。主な値は1.16.5が2586、1.17.1が2730、1.18.2が2975、1.19.4が3337、1.20.4が3700、1.21が3953です。書き込んだものより古いクライアントで開けないのはこのタグが理由です。手動で値を下げてもチャンクはダウングレードされず、安全確認だけが失われます。作成バージョンの確認に使い、強制ダウングレードには使わないでください。</p>\n</section>\n",
+    "chips": [
+      "Vanilla",
+      "Paper",
+      "Spigot",
+      "Purpur",
+      "Folia",
+      "Fabric",
+      "Quilt",
+      "Forge",
+      "NeoForge",
+      "Sponge"
+    ],
+    "faq": [
+      [
+        "ゲームで開けないJava の level.datを開けますか？",
+        "<p>多くの場合は開けます。エディターは末尾の余分なバイトに対してゲームより寛容で、切断されたファイルでは解析停止位置を報告します。ここでも失敗する場合は前回の自動保存 <code>level.dat_old</code> を試してください。</p>"
+      ],
+      [
+        "1.20.2以降のネットワークNBTに対応しますか？",
+        "<p>はい。1.20.2以降のプロトコルではルート名が省略されます。その形式のダンプは <em>Java ネットワーク</em> として検出され、ネットワークNBTまたは通常の名前付きルートとして保存できます。</p>"
+      ],
+      [
+        ".mcaリージョンファイルのチャンクを編集できますか？",
+        "<p>リージョンコンテナーから抽出した後ならチャンクNBTを編集できます。<code>.mca</code> 自体はインデックスと多数のzlib圧縮チャンクからなり、このエディターはコンテナーではなく単一NBTを扱います。</p>"
+      ],
+      [
+        "playerdataを編集するとプレイヤーが壊れますか？",
+        "<p>サーバー稼働中に編集した場合は、メモリー内の状態がログアウト時に書き戻され、編集が上書きされます。プレイヤーをオフラインにして編集し、その後再接続させてください。<a href=\"../playerdata-editor/\">playerdataエディター</a>も参照してください。</p>"
+      ],
+      [
+        "level.datはgzipである必要がありますか？",
+        "<p>Vanillaローダーはgzipを読みます。圧縮をgzipにして保存してください。入力がgzipならこれが初期値で、ゲームからそのまま読み込めます。</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "{0} として読み込みました",
+      "trailing": "ルートタグ後の末尾バイト {0} 個を無視しました",
+      "error": "エラー: {0}",
+      "readfail": "ファイルを読み取れませんでした",
+      "nofile": "ファイルが読み込まれていません",
+      "saved": "{0} を保存しました（{1}、{2}）",
+      "savefail": "保存エラー: {0}",
+      "exported": "{0} をエクスポートしました",
+      "snbtfail": "SNBTエラー: {0}",
+      "tagadded": "タグを追加しました",
+      "tagremoved": "タグを削除しました",
+      "arrayupdated": "配列を更新しました",
+      "badvalue": "無効な値: {0}",
+      "badarray": "無効な配列: {0}",
+      "nameneeded": "タグ名が必要です",
+      "nametaken": "{0} というタグはここにすでに存在します",
+      "listtype": "このListにはすでに {0} 型の要素があります",
+      "editlevelname": "✎ LevelNameを編集",
+      "showmore": "さらに {0} 件を表示（全 {1} 件）…",
+      "matches": "{0} 件一致",
+      "nomatch": "「{0}」に一致するタグはありません",
+      "arraytoobig": "配列には {0} 件あります。展開して各要素を個別に編集してください",
+      "uncompressed": "非圧縮",
+      "storage": "ストレージ v{0}",
+      "entries": "{0} 件",
+      "langprompt": "このページを{0}で開きますか？",
+      "langyes": "切り替える",
+      "langno": "このまま"
+    },
+    "support": "<strong>Minecraft Bedrock EditionとJava Editionに対応</strong>し、一般的なものから小規模なものまで両方の全サーバーコアを扱えます: Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLaminaなど。<a href=\"__HOME__#server-software\">全一覧</a>。",
+    "footernote": "無料のオープンソース（MIT）で、すべてブラウザー内で動作します。Mojang StudiosおよびMicrosoftとは関係ありません。MinecraftはMojang Studiosの商標です。",
+    "faqtitle": "よくある質問",
+    "toctitle": "このページの目次",
+    "relatedtitle": "関連ツール",
+    "homecrumb": "NBTエディター",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "エディター",
+      "ファイル形式",
+      "リファレンス"
+    ],
+    "sourcehead": "ソース",
+    "sourcelink": "GitHubのコード"
+  },
+  "mcpe-nbt-editor": {
+    "title": "MCPE NBTエディター — Pocket Edition level.dat対応",
+    "ogtitle": "Bedrock NBTエディター — level.dat・MCPE・MCBE対応",
+    "desc": "MCPEとBedrockのワールドファイルをオンライン編集できます。Android、iOS、Windows、サーバーのlevel.dat、.mcstructure、リトルエンディアンNBTに対応し、8バイトヘッダーのバージョンと長さを自動処理します。元形式で保存し、ファイルはアップロードしません。",
+    "keywords": "MCPE NBTエディター, Minecraft PE セーブデータ 編集, Bedrock の level.dat 編集, MCBE NBT, Android level.dat 変更, Bedrock ワールド 編集",
+    "h1": "MCPE NBTエディター — Minecraft Pocket Editionファイル",
+    "crumb": "MCPE",
+    "reltitle": "MCPE NBTエディター",
+    "reldesc": "リトルエンディアンNBTと8バイトのlevel.datヘッダー。",
+    "answer": "Bedrock EditionはNBTをリトルエンディアンで書き、<code>level.dat</code> の先頭にはストレージバージョンとペイロード長を持つ8バイトヘッダーがあります。<code>level.dat</code>、<code>.mcstructure</code>、LevelDB値、プロトコルダンプを下へドロップすると、ヘッダーを維持して読み込み、保存時に長さを再計算し、ワールドフォルダーへ戻せるファイルを出力します。",
+    "droplabel": "Bedrock の level.dat",
+    "body": "\n<section class=\"content\" aria-label=\"Bedrock level.dat header\">\n<h2>8バイトヘッダーとその役割</h2>\n<p>Bedrockの <code>level.dat</code> は生のNBTではありません。先頭4バイトはリトルエンディアンのストレージバージョン（実際のファイルでは8または10）、次の4バイトはNBTペイロードのバイト長で、その後に非圧縮タグが続きます。長さを修正せずペイロードだけを編集するとゲームが拒否します。Java専用NBTツールでBedrockセーブを開いた場合に起きる問題です。</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>オフセット</th><th>サイズ</th><th>フィールド</th></tr></thead>\n<tbody>\n<tr><td>0</td><td>4 バイト</td><td>ストレージバージョン、リトルエンディアンint</td></tr>\n<tr><td>4</td><td>4 バイト</td><td>ペイロードのバイト長、リトルエンディアンunsigned</td></tr>\n<tr><td>8</td><td>残り</td><td>リトルエンディアンNBT、ルートCompound、非圧縮</td></tr>\n</tbody>\n</table>\n</div>\n<p>このエディターはファイルバーへストレージバージョンを表示して維持し、保存するたびに長さを書き直します。</p>\n</section>\n\n<section class=\"content\" aria-label=\"Bedrock tags\">\n<h2>確認しておきたいBedrockタグ</h2>\n<p>Bedrockは設定を <code>level.dat</code> のルート直下へ保存し、Javaのように <code>Data</code> Compoundへ入れません。ゲームルールも <code>GameRules</code> の子ではなく個別タグです。</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>タグ</th><th>型</th><th>意味</th></tr></thead>\n<tbody>\n<tr><td><code>LevelName</code></td><td>String</td><td>ワールド一覧とサーバー出力に表示される名前</td></tr>\n<tr><td><code>GameType</code></td><td>Int</td><td>0 サバイバル、1 クリエイティブ、2 アドベンチャー</td></tr>\n<tr><td><code>Difficulty</code></td><td>Int</td><td>0 ピースフル … 3 ハード</td></tr>\n<tr><td><code>commandsEnabled</code></td><td>Byte</td><td>チートの有効・無効</td></tr>\n<tr><td><code>SpawnX</code>, <code>SpawnY</code>, <code>SpawnZ</code></td><td>Int</td><td>ワールドスポーン</td></tr>\n<tr><td><code>RandomSeed</code></td><td>Long</td><td>正確な64ビット値のワールドシード</td></tr>\n<tr><td><code>lastOpenedWithVersion</code></td><td>Int のリスト</td><td>最後にワールドを書いたクライアントまたはサーバービルド</td></tr>\n<tr><td><code>StorageVersion</code></td><td>Int</td><td>ヘッダーと対応するワールド保存リビジョン</td></tr>\n<tr><td><code>experiments</code></td><td>Compound</td><td>ワールドで有効な試験機能</td></tr>\n<tr><td><code>keepinventory</code>, <code>domobspawning</code>, …</td><td>Byte</td><td>小文字の個別タグとして保存されるゲームルール</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Where Bedrock files live\">\n<h2>プラットフォーム別の保存場所</h2>\n<ul>\n<li><strong>Android:</strong> <code>Android/data/com.mojang.minecraftpe/files/games/com.mojang/minecraftWorlds/&lt;id&gt;/level.dat</code>。新しいAndroidではフォルダーが制限されるため、ゲーム内のワールド出力または権限を持つファイルマネージャーを使います。</li>\n<li><strong>iOS:</strong> ゲームからワールドを <code>.mcworld</code> として出力し、「ファイル」アプリで開いて展開します。<code>level.dat</code> はアーカイブのルートにあります。</li>\n<li><strong>Windows:</strong> <code>%LOCALAPPDATA%\\Packages\\Microsoft.MinecraftUWP_8wekyb3d8bbwe\\LocalState\\games\\com.mojang\\minecraftWorlds\\&lt;id&gt;\\level.dat</code>。</li>\n<li><strong>Bedrock Dedicated Server:</strong> <code>worlds/&lt;World&gt;/level.dat</code>。</li>\n<li><strong>PocketMine-MP, Nukkit, PowerNukkitX:</strong> <code>worlds/&lt;World&gt;/level.dat</code>。<a href=\"../pocketmine-nbt-editor/\">サーバー側ガイド</a>も参照してください。</li>\n</ul>\n<p>ワールドフォルダー名はワールド名ではなくランダムIDです。更新日時で並べるか、いくつかの <code>level.dat</code> を開いて <code>LevelName</code> を読み、対象を確認してください。</p>\n</section>\n\n<section class=\"content\" aria-label=\"Other Bedrock NBT\">\n<h2><code>level.dat</code> 以外のBedrock NBT</h2>\n<p>Bedrockはチャンク、エンティティ、ブロックエンティティを <code>db/</code> フォルダーのLevelDBへ保存し、多くのキーの値にリトルエンディアンNBTを使います。値を抽出すると、ヘッダーも圧縮もない <em>Bedrock 生データ</em> として開けます。構造物ファイルも同じエンコードです。<a href=\"../mcstructure-editor/\">.mcstructureエディター</a>を参照してください。プロトコルキャプチャーはvarint形式で、<em>Bedrock ネットワーク</em> と判定されます。</p>\n</section>\n",
+    "chips": [
+      "MCPE",
+      "MCBE",
+      "Bedrock Dedicated Server",
+      "PocketMine-MP",
+      "Nukkit",
+      "PowerNukkitX",
+      "Cloudburst",
+      "Dragonfly",
+      "Endstone"
+    ],
+    "faq": [
+      [
+        "Bedrock の level.datをNBTExplorerで開けないのはなぜですか？",
+        "<p>NBTExplorerはJavaのビッグエンディアン配置を想定し、Bedrockの8バイトヘッダーを認識しないためです。このエディターは両方を処理し、保存時にヘッダー長を書き直します。</p>"
+      ],
+      [
+        "スマートフォンでMCPEワールドを編集できますか？",
+        "<p>はい。端末のブラウザーでこのページを開き、ファイルマネージャーから選択して編集・保存します。ダウンロードフォルダーに出力されたファイルを元ファイルへコピーしてください。</p>"
+      ],
+      [
+        "ストレージバージョン8と10の違いは何ですか？",
+        "<p>Bedrockワールド保存形式のリビジョンで、現在のクライアントは10を書きます。値だけを書き換えても背後のワールドデータは移行されないため、エディターは元の値を維持します。</p>"
+      ],
+      [
+        ".mcworldファイルに対応しますか？",
+        "<p>直接は開けません。<code>.mcworld</code> はzipアーカイブです。展開して <code>level.dat</code> を編集し、アーカイブへ戻して拡張子を <code>.mcworld</code> に戻してください。</p>"
+      ],
+      [
+        "Bedrockのゲームルールを編集できますか？",
+        "<p>はい。Bedrockは各ルールをルート直下の小文字byteタグとして保存します。<code>keepinventory</code>、<code>domobspawning</code>、<code>showcoordinates</code> などを1または0にします。<a href=\"../guides/edit-gamerules/\">ゲームルールガイド</a>に一覧があります。</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "{0} として読み込みました",
+      "trailing": "ルートタグ後の末尾バイト {0} 個を無視しました",
+      "error": "エラー: {0}",
+      "readfail": "ファイルを読み取れませんでした",
+      "nofile": "ファイルが読み込まれていません",
+      "saved": "{0} を保存しました（{1}、{2}）",
+      "savefail": "保存エラー: {0}",
+      "exported": "{0} をエクスポートしました",
+      "snbtfail": "SNBTエラー: {0}",
+      "tagadded": "タグを追加しました",
+      "tagremoved": "タグを削除しました",
+      "arrayupdated": "配列を更新しました",
+      "badvalue": "無効な値: {0}",
+      "badarray": "無効な配列: {0}",
+      "nameneeded": "タグ名が必要です",
+      "nametaken": "{0} というタグはここにすでに存在します",
+      "listtype": "このListにはすでに {0} 型の要素があります",
+      "editlevelname": "✎ LevelNameを編集",
+      "showmore": "さらに {0} 件を表示（全 {1} 件）…",
+      "matches": "{0} 件一致",
+      "nomatch": "「{0}」に一致するタグはありません",
+      "arraytoobig": "配列には {0} 件あります。展開して各要素を個別に編集してください",
+      "uncompressed": "非圧縮",
+      "storage": "ストレージ v{0}",
+      "entries": "{0} 件",
+      "langprompt": "このページを{0}で開きますか？",
+      "langyes": "切り替える",
+      "langno": "このまま"
+    },
+    "support": "<strong>Minecraft Bedrock EditionとJava Editionに対応</strong>し、一般的なものから小規模なものまで両方の全サーバーコアを扱えます: Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLaminaなど。<a href=\"__HOME__#server-software\">全一覧</a>。",
+    "footernote": "無料のオープンソース（MIT）で、すべてブラウザー内で動作します。Mojang StudiosおよびMicrosoftとは関係ありません。MinecraftはMojang Studiosの商標です。",
+    "faqtitle": "よくある質問",
+    "toctitle": "このページの目次",
+    "relatedtitle": "関連ツール",
+    "homecrumb": "NBTエディター",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "エディター",
+      "ファイル形式",
+      "リファレンス"
+    ],
+    "sourcehead": "ソース",
+    "sourcelink": "GitHubのコード"
+  },
+  "pocketmine-nbt-editor": {
+    "title": "PocketMine-MP level.datエディター — PMMP・Nukkit・BDS",
+    "ogtitle": "PocketMine-MP・Nukkit level.datエディター",
+    "desc": "PocketMine-MP、Nukkit、Bedrock Dedicated Serverのlevel.datをオンライン編集できます。コピー後に重複したLevelName、スポーン地点、ゲームルールを修正し、8バイトヘッダー付きリトルエンディアンNBTを元形式で保存します。作業前にサーバーを停止してください。",
+    "keywords": "PocketMine level.dat 編集, PMMP NBTエディター, PocketMine ワールド名 変更, Nukkit level.dat, PowerNukkitX NBT, BDS ワールド名 変更",
+    "h1": "PocketMine-MP・Bedrockサーバー level.datエディター",
+    "crumb": "PocketMine-MP",
+    "reltitle": "PocketMine-MPエディター",
+    "reldesc": "PMMP、Nukkit、BDSのサーバー側level.datを編集。",
+    "answer": "BedrockサーバーソフトウェアのPocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Bedrock Dedicated Serverは、いずれも8バイトヘッダー付きリトルエンディアン <code>level.dat</code> を <code>worlds/&lt;World&gt;/</code> から読みます。フォルダー複製後のワールド名、スポーン、ゲームルールを修正したり、最後に書き込んだビルドを確認したりできます。",
+    "droplabel": "worlds/&lt;World&gt;/level.dat",
+    "body": "\n<section class=\"content\" aria-label=\"Duplicate world names\">\n<h2>ワールド名が重複する問題</h2>\n<p>Bedrockサーバーではよく起きます。2つ目のアリーナを作るため <code>worlds/hub</code> を <code>worlds/hub2</code> へコピーしても、コンソール、ワールド管理機能、プラグインは両方を <em>hub</em> と表示します。フォルダー名は変わりましたが、<code>LevelName</code> は <code>level.dat</code> 内で変わっていないためです。</p>\n<p>表示だけの問題ではありません。内部名でワールドを検索するテレポート、ワールド別設定、保護プラグインは誤ったワールドを参照する可能性があり、管理コマンドも曖昧になります。上へファイルをドロップし、<code>LevelName</code> を新しい名前へ変更してください。</p>\n<div class=\"card\">\n<ol class=\"steps\">\n<li>サーバーを停止します。稼働中は保存時に <code>level.dat</code> を書き直し、編集を取り消します。</li>\n<li>SFTPまたはパネルのファイルマネージャーで <code>worlds/&lt;World&gt;/level.dat</code> をダウンロードします。</li>\n<li>エディターへドロップし、<code>LevelName</code> を新しい名前へ変更して保存します。</li>\n<li>元ファイルをバックアップした上で、ダウンロードしたファイルをアップロードします。</li>\n<li>サーバーを起動し、読み込まれたワールドを示すコンソール行を確認します。</li>\n</ol>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Core specifics\">\n<h2>コア別の注意点</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>コア</th><th>ワールドパス</th><th>注意点</th></tr></thead>\n<tbody>\n<tr><td>PocketMine-MP (PM5)</td><td><code>worlds/&lt;World&gt;/</code></td><td>既定ワールドは <code>level-name</code> を <code>server.properties</code> 内で設定して指定します。これはフォルダー名で、<code>LevelName</code> はワールド自身の名前です。</td></tr>\n<tr><td>Nukkit / PowerNukkitX</td><td><code>worlds/&lt;World&gt;/</code></td><td>同じBedrock配置を使い、PNXは同じ場所に独自設定ファイルを追加します。</td></tr>\n<tr><td>Bedrock Dedicated Server</td><td><code>worlds/&lt;World&gt;/</code></td><td><code>level-name</code> は <code>server.properties</code> 内でフォルダーを選び、ヘッダーのストレージバージョンは通常10です。</td></tr>\n<tr><td>Cloudburst / Dragonfly</td><td><code>worlds/&lt;World&gt;/</code></td><td>同じ <code>level.dat</code> を読みます。Dragonflyは独自データベースにも状態を保存する場合があります。</td></tr>\n<tr><td>WaterdogPE, Geyser</td><td>—</td><td>プロキシなのでワールドを保持せず、NBTはネットワークNBTとして通信を通過するだけです。</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Server workflow\">\n<h2>本番環境を壊さずに作業する</h2>\n<div class=\"card\">\n<ul>\n<li><strong>ワールドフォルダー全体をバックアップします。</strong><code>level.dat</code> だけのバックアップではなく、問題が起きたときに全体を戻せるようにします。</li>\n<li><strong>稼働中のファイルをSFTP上で直接編集しないでください。</strong>停止中にダウンロード、編集、アップロードします。</li>\n<li><strong>新しいモード用にワールドをコピーする場合、</strong>サーバーが読む前に <code>LevelName</code> を変更し、誤った名前をキャッシュさせないようにします。</li>\n<li><strong>読み込み後にファイルバーを確認します。</strong>検出形式とストレージバージョンを表示します。Bedrockファイルが <em>Bedrock の level.dat</em> 以外なら、誤ったファイルまたは破損の可能性があります。</li>\n</ul>\n</div>\n</section>\n",
+    "chips": [
+      "PocketMine-MP",
+      "Nukkit",
+      "PowerNukkitX",
+      "Cloudburst",
+      "Bedrock Dedicated Server",
+      "Dragonfly",
+      "Endstone",
+      "WaterdogPE"
+    ],
+    "faq": [
+      [
+        "PocketMine-MPはBedrockと同じlevel.datを使いますか？",
+        "<p>はい。PocketMine-MPはBedrockワールド形式を実装し、<code>level.dat</code> は8バイトヘッダー付きリトルエンディアンNBTです。VanillaのBedrockサーバーと同じバイト配置です。</p>"
+      ],
+      [
+        "2つのワールドがコンソールで同じ名前になるのはなぜですか？",
+        "<p>同じフォルダーからコピーされ、<code>LevelName</code> も同じためです。フォルダー名とタグは独立しているので、タグを変更してください。</p>"
+      ],
+      [
+        "サーバーを再起動せずにワールド名を変更できますか？",
+        "<p>できません。ワールドはメモリーに読み込まれ、保存時に書き直されるため、稼働中の編集は破棄されます。停止して編集し、再起動してください。</p>"
+      ],
+      [
+        "NukkitとPowerNukkitXでも使えますか？",
+        "<p>はい。形式、ファイルパス、作業手順は同じです。</p>"
+      ],
+      [
+        "BedrockワールドをJavaへ変換できますか？",
+        "<p>NBTエディターだけではできません。バイト順だけでなく、タグ配置、ブロックパレット、チャンク保存形式が大きく異なります。専用コンバーターを使い、残ったメタデータの修正にこのエディターを使ってください。</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "{0} として読み込みました",
+      "trailing": "ルートタグ後の末尾バイト {0} 個を無視しました",
+      "error": "エラー: {0}",
+      "readfail": "ファイルを読み取れませんでした",
+      "nofile": "ファイルが読み込まれていません",
+      "saved": "{0} を保存しました（{1}、{2}）",
+      "savefail": "保存エラー: {0}",
+      "exported": "{0} をエクスポートしました",
+      "snbtfail": "SNBTエラー: {0}",
+      "tagadded": "タグを追加しました",
+      "tagremoved": "タグを削除しました",
+      "arrayupdated": "配列を更新しました",
+      "badvalue": "無効な値: {0}",
+      "badarray": "無効な配列: {0}",
+      "nameneeded": "タグ名が必要です",
+      "nametaken": "{0} というタグはここにすでに存在します",
+      "listtype": "このListにはすでに {0} 型の要素があります",
+      "editlevelname": "✎ LevelNameを編集",
+      "showmore": "さらに {0} 件を表示（全 {1} 件）…",
+      "matches": "{0} 件一致",
+      "nomatch": "「{0}」に一致するタグはありません",
+      "arraytoobig": "配列には {0} 件あります。展開して各要素を個別に編集してください",
+      "uncompressed": "非圧縮",
+      "storage": "ストレージ v{0}",
+      "entries": "{0} 件",
+      "langprompt": "このページを{0}で開きますか？",
+      "langyes": "切り替える",
+      "langno": "このまま"
+    },
+    "support": "<strong>Minecraft Bedrock EditionとJava Editionに対応</strong>し、一般的なものから小規模なものまで両方の全サーバーコアを扱えます: Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLaminaなど。<a href=\"__HOME__#server-software\">全一覧</a>。",
+    "footernote": "無料のオープンソース（MIT）で、すべてブラウザー内で動作します。Mojang StudiosおよびMicrosoftとは関係ありません。MinecraftはMojang Studiosの商標です。",
+    "faqtitle": "よくある質問",
+    "toctitle": "このページの目次",
+    "relatedtitle": "関連ツール",
+    "homecrumb": "NBTエディター",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "エディター",
+      "ファイル形式",
+      "リファレンス"
+    ],
+    "sourcehead": "ソース",
+    "sourcelink": "GitHubのコード"
+  },
+  "mcstructure-editor": {
+    "title": ".mcstructureエディター オンライン — Bedrock構造物ファイル",
+    "ogtitle": ".mcstructureエディター — Bedrock構造物を開いて編集",
+    "desc": "Bedrockの.mcstructureファイルをオンラインで開き、サイズ、ブロックパレット、ブロックインデックス、ブロックエンティティNBTを確認・編集できます。非圧縮リトルエンディアン形式を自動判定し、タグを変更した後も同じ形式で保存するため、アドオンや配布マップの構造物修正に利用できます。",
+    "keywords": ".mcstructure 編集, mcstructure エディター, mcstructure 開く, Bedrock 構造物 編集, ストラクチャーブロック ファイル, Minecraft Bedrock NBT",
+    "h1": ".mcstructureエディター — Bedrock構造物ファイル",
+    "crumb": ".mcstructure",
+    "reltitle": ".mcstructureエディター",
+    "reldesc": "Bedrockストラクチャーブロックのパレット、サイズ、ブロックエンティティ。",
+    "answer": "<code>.mcstructure</code> はBedrockのストラクチャーブロックが書き出す非圧縮リトルエンディアンNBTです。下へドロップすると、サイズ、ブロックパレット、ブロックインデックス、ブロックエンティティデータを確認・編集し、同じエンコードでダウンロードできます。ワールドを開き直さずに構造物を修正したいアドオン作者やマップ制作者向けです。",
+    "droplabel": ".mcstructureファイル",
+    "body": "\n<section class=\"content\" aria-label=\"Inside a mcstructure file\">\n<h2><code>.mcstructure</code> の内部</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>タグ</th><th>型</th><th>内容</th></tr></thead>\n<tbody>\n<tr><td><code>format_version</code></td><td>Int</td><td>構造物形式のリビジョン。現在のファイルでは1</td></tr>\n<tr><td><code>size</code></td><td>Int のリスト</td><td>取得範囲のX、Y、Z寸法</td></tr>\n<tr><td><code>structure_world_origin</code></td><td>Int のリスト</td><td>ワールド内で構造物を取得した位置</td></tr>\n<tr><td><code>structure</code></td><td>Compound</td><td>以下の全データを格納</td></tr>\n<tr><td><code>structure.block_indices</code></td><td>Int[] のリスト</td><td>通常はブロックと水没状態を表す2層のパレットインデックス。<code>-1</code> は「その位置を変更しない」</td></tr>\n<tr><td><code>structure.entities</code></td><td>Compound のリスト</td><td>構造物と一緒に取得したエンティティ</td></tr>\n<tr><td><code>structure.palette.default.block_palette</code></td><td>Compound のリスト</td><td>個別のブロック状態: <code>name</code>、<code>states</code>、<code>version</code></td></tr>\n<tr><td><code>structure.palette.default.block_position_data</code></td><td>Compound</td><td>位置のフラットインデックスをキーにしたブロックエンティティNBT</td></tr>\n</tbody>\n</table>\n</div>\n<p><code>block_indices</code> はX、Z、Yの順で、パレット一覧へのフラットインデックスは <code>(x * sizeZ + z) * sizeY + y</code> です。この対応を使うと、構造物を作り直さずに1ブロックだけ修正できます。</p>\n</section>\n\n<section class=\"content\" aria-label=\"Typical edits\">\n<h2>一般的な編集内容</h2>\n<ul>\n<li><strong>すべての同種ブロックを置換する:</strong> <code>block_palette</code> の1項目を編集すると、そのインデックスを参照する全位置が変わります。</li>\n<li><strong>ブロック状態を修正する:</strong> 誤った <code>facing</code> や意図しない <code>waterlogged</code> を <code>states</code> Compound内で変更します。</li>\n<li><strong>エンティティを除去する:</strong> 誤って含まれた項目を <code>entities</code> Listから削除します。</li>\n<li><strong>ブロックエンティティデータを修復する:</strong> チェスト内容、看板テキスト、スポナー設定を <code>block_position_data</code> 内で編集します。</li>\n<li><strong>バージョン情報を確認する:</strong> 更新後に誤ったブロックとして読み込まれる場合は、パレット項目のバージョンを確認します。</li>\n</ul>\n</section>\n\n<section class=\"content\" aria-label=\"Where mcstructure files live\">\n<h2>ファイルの保存場所</h2>\n<p>ストラクチャーブロックはワールドディレクトリー内の <code>structures/</code> フォルダーへ <code>&lt;namespace&gt;_&lt;name&gt;.mcstructure</code> という名前で保存します。ビヘイビアーパックではパック内の <code>structures/</code> に配置し、ゲームが名前空間で読み込みます。どちらも同じ形式です。</p>\n<p>Java Editionで対応する形式はgzip圧縮ビッグエンディアンの構造物 <code>.nbt</code> で、エンコードもタグ配置も異なります。<a href=\"../java-nbt-editor/\">Javaエディターページ</a>で説明しており、このエディターでも開けます。</p>\n</section>\n",
+    "chips": [
+      "ストラクチャーブロック",
+      "Bedrockアドオン",
+      "ビヘイビアーパック",
+      "リトルエンディアンNBT"
+    ],
+    "faq": [
+      [
+        ".mcstructureをJavaの.nbt構造物へ変換できますか？",
+        "<p>バイト列をビッグエンディアンgzipへ再エンコードできますが、タグ配置が異なります。Java構造物は別のキーとブロック名を持つ <code>palette</code>/<code>blocks</code> を使うため、再エンコードしただけでは有効なJava構造物になりません。</p>"
+      ],
+      [
+        ".mcstructureが圧縮されていないのはなぜですか？",
+        "<p>Bedrockは構造物ファイルをgzipなしの生のリトルエンディアンNBTとして保存します。正常な形式で、エディターでは <em>Bedrock 生データ</em> と判定されます。</p>"
+      ],
+      [
+        "block_indicesの-1は何を意味しますか？",
+        "<p>構造物が変更しない位置を示します。配置時にはワールド内の既存ブロックがそのまま残ります。</p>"
+      ],
+      [
+        "sizeを編集して構造物の大きさを変えられますか？",
+        "<p><code>block_indices</code> は各位置に1項目必要なため、配列長を新しい体積へ正確に合わせる必要があります。<code>size</code> だけを変えるとゲームが拒否するファイルになります。</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "{0} として読み込みました",
+      "trailing": "ルートタグ後の末尾バイト {0} 個を無視しました",
+      "error": "エラー: {0}",
+      "readfail": "ファイルを読み取れませんでした",
+      "nofile": "ファイルが読み込まれていません",
+      "saved": "{0} を保存しました（{1}、{2}）",
+      "savefail": "保存エラー: {0}",
+      "exported": "{0} をエクスポートしました",
+      "snbtfail": "SNBTエラー: {0}",
+      "tagadded": "タグを追加しました",
+      "tagremoved": "タグを削除しました",
+      "arrayupdated": "配列を更新しました",
+      "badvalue": "無効な値: {0}",
+      "badarray": "無効な配列: {0}",
+      "nameneeded": "タグ名が必要です",
+      "nametaken": "{0} というタグはここにすでに存在します",
+      "listtype": "このListにはすでに {0} 型の要素があります",
+      "editlevelname": "✎ LevelNameを編集",
+      "showmore": "さらに {0} 件を表示（全 {1} 件）…",
+      "matches": "{0} 件一致",
+      "nomatch": "「{0}」に一致するタグはありません",
+      "arraytoobig": "配列には {0} 件あります。展開して各要素を個別に編集してください",
+      "uncompressed": "非圧縮",
+      "storage": "ストレージ v{0}",
+      "entries": "{0} 件",
+      "langprompt": "このページを{0}で開きますか？",
+      "langyes": "切り替える",
+      "langno": "このまま"
+    },
+    "support": "<strong>Minecraft Bedrock EditionとJava Editionに対応</strong>し、一般的なものから小規模なものまで両方の全サーバーコアを扱えます: Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLaminaなど。<a href=\"__HOME__#server-software\">全一覧</a>。",
+    "footernote": "無料のオープンソース（MIT）で、すべてブラウザー内で動作します。Mojang StudiosおよびMicrosoftとは関係ありません。MinecraftはMojang Studiosの商標です。",
+    "faqtitle": "よくある質問",
+    "toctitle": "このページの目次",
+    "relatedtitle": "関連ツール",
+    "homecrumb": "NBTエディター",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "エディター",
+      "ファイル形式",
+      "リファレンス"
+    ],
+    "sourcehead": "ソース",
+    "sourcelink": "GitHubのコード"
+  },
+  "schematic-editor": {
+    "title": ".schem・.schematicエディター — WorldEdit・MCEdit対応",
+    "ogtitle": ".schem / .schematicエディター — WorldEdit・MCEditファイル",
+    "desc": "WorldEditの.schemとMCEditの.schematicファイルをオンラインで開き、パレット、寸法、オフセット、ブロックエンティティ、メタデータを確認・編集できます。gzip圧縮ビッグエンディアンNBTを自動判定し、変更後も同じスキーマティック形式で保存してWorldEditへ戻せます。",
+    "keywords": ".schem 編集, schematic エディター, WorldEdit schematic 編集, schem ファイル 開く, MCEdit schematic ビューア, Minecraft schematic NBT",
+    "h1": "Schematicエディター — .schemと.schematicをオンライン編集",
+    "crumb": ".schem",
+    "reltitle": "Schematicエディター",
+    "reldesc": "WorldEdit .schemと旧MCEdit .schematicに対応。",
+    "answer": "スキーマティックはgzip圧縮ビッグエンディアンNBTです。最新のWorldEdit <code>.schem</code>（Sponge Schematic形式）または旧MCEdit <code>.schematic</code> を下へドロップすると、パレット、寸法、オフセット、ブロックエンティティ一覧、メタデータを確認・編集し、<code>//paste</code> で使える形式のままダウンロードできます。",
+    "droplabel": ".schemまたは.schematicファイル",
+    "body": "\n<section class=\"content\" aria-label=\"Schematic formats\">\n<h2>2つのスキーマティック形式</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>形式</th><th>拡張子</th><th>主要タグ</th></tr></thead>\n<tbody>\n<tr><td>Sponge Schematic v2 (WorldEdit 7)</td><td><code>.schem</code></td><td><code>Version</code>, <code>DataVersion</code>, <code>Width</code>, <code>Height</code>, <code>Length</code>, <code>Palette</code>, <code>BlockData</code>, <code>BlockEntities</code>, <code>Offset</code>, <code>Metadata</code></td></tr>\n<tr><td>Sponge Schematic v3</td><td><code>.schem</code></td><td>同じデータを <code>Schematic</code> Compound内に格納し、<code>Blocks</code> が <code>Palette</code> と <code>Data</code> を保持</td></tr>\n<tr><td>旧形式の MCEdit</td><td><code>.schematic</code></td><td><code>Width</code>, <code>Height</code>, <code>Length</code>, <code>Blocks</code>, <code>Data</code>, <code>Entities</code>, <code>TileEntities</code>, <code>Materials</code></td></tr>\n</tbody>\n</table>\n</div>\n<p>Sponge形式の <code>BlockData</code> は1ブロック1バイトではなく、varintパレットインデックスのバイト配列です。大きいIDは複数バイトにまたがります。旧形式は <code>Blocks</code> に数値ブロックID、対応する <code>Data</code> 配列にメタデータニブルを保存するため、現行バージョンでは情報が失われる場合があります。</p>\n</section>\n\n<section class=\"content\" aria-label=\"Editing schematics\">\n<h2>手動編集に適した項目</h2>\n<ul>\n<li><strong>パレット項目。</strong><code>minecraft:oak_planks</code> を <code>minecraft:spruce_planks</code> へ <code>Palette</code> 内で変更すると、一致する全ブロックをまとめて置換できます。</li>\n<li><strong>オフセットと原点。</strong><code>Offset</code> は貼り付け位置をプレイヤー位置に対して決めます。常に数ブロックずれる建築物を修正できます。</li>\n<li><strong>ブロックエンティティ。</strong>チェストのインベントリ、看板の行、スポナーのデータは <code>BlockEntities</code> にあり、共有前に整理できます。</li>\n<li><strong>メタデータ。</strong><code>Metadata</code> には作者とWorldEdit原点があり、公開前に変更または削除できます。</li>\n<li><strong>DataVersion。</strong>スキーマティックを作成したMinecraftバージョンを示し、貼り付け時の「不明なブロック」エラーの確認に使えます。</li>\n</ul>\n</section>\n\n<section class=\"content\" aria-label=\"Compatibility\">\n<h2>ローダーとの互換性</h2>\n<p>WorldEditとFastAsyncWorldEditは <code>.schem</code> を <code>plugins/WorldEdit/schematics/</code> から読みます。旧 <code>.schematic</code> も読み込めますが、その際に変換されます。Litematicaは独自の <code>.litematic</code> コンテナーを使います。これもNBTなので開けますが、Sponge形式とは配置が異なります。いずれもNBTとして読み、gzip圧縮で書き戻すため、ローダーが期待する形式を維持します。</p>\n</section>\n",
+    "chips": [
+      "WorldEdit",
+      "FastAsyncWorldEdit",
+      "Sponge Schematic v2/v3",
+      "旧MCEdit",
+      "Litematica関連形式"
+    ],
+    "faq": [
+      [
+        "サーバーやWorldEditなしで.schemを開けますか？",
+        "<p>はい。<code>.schem</code> はgzip圧縮ビッグエンディアンNBTなので、ほかのソフトをインストールせずブラウザーで開けます。</p>"
+      ],
+      [
+        "スキーマティックを貼り付けるとブロックが変わるのはなぜですか？",
+        "<p>多くはバージョン不一致です。<code>DataVersion</code> とパレットを確認してください。新しいバージョンで出力したスキーマティックには、古いサーバーが知らないブロック状態が含まれる場合があります。</p>"
+      ],
+      [
+        "スキーマティックのサイズを変更できますか？",
+        "<p><code>Width</code>/<code>Height</code>/<code>Length</code> だけでは変更できません。<code>BlockData</code> のサイズは体積に対応するため、寸法とデータを同時に変える必要があります。この操作にはタグエディターではなくWorldEditを使ってください。</p>"
+      ],
+      [
+        ".litematicファイルを開けますか？",
+        "<p>NBTとして開けます。Litematica独自のタグ配置はSponge形式と異なるため、スキーマティック用パレットではなく元の構造が表示されます。</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "{0} として読み込みました",
+      "trailing": "ルートタグ後の末尾バイト {0} 個を無視しました",
+      "error": "エラー: {0}",
+      "readfail": "ファイルを読み取れませんでした",
+      "nofile": "ファイルが読み込まれていません",
+      "saved": "{0} を保存しました（{1}、{2}）",
+      "savefail": "保存エラー: {0}",
+      "exported": "{0} をエクスポートしました",
+      "snbtfail": "SNBTエラー: {0}",
+      "tagadded": "タグを追加しました",
+      "tagremoved": "タグを削除しました",
+      "arrayupdated": "配列を更新しました",
+      "badvalue": "無効な値: {0}",
+      "badarray": "無効な配列: {0}",
+      "nameneeded": "タグ名が必要です",
+      "nametaken": "{0} というタグはここにすでに存在します",
+      "listtype": "このListにはすでに {0} 型の要素があります",
+      "editlevelname": "✎ LevelNameを編集",
+      "showmore": "さらに {0} 件を表示（全 {1} 件）…",
+      "matches": "{0} 件一致",
+      "nomatch": "「{0}」に一致するタグはありません",
+      "arraytoobig": "配列には {0} 件あります。展開して各要素を個別に編集してください",
+      "uncompressed": "非圧縮",
+      "storage": "ストレージ v{0}",
+      "entries": "{0} 件",
+      "langprompt": "このページを{0}で開きますか？",
+      "langyes": "切り替える",
+      "langno": "このまま"
+    },
+    "support": "<strong>Minecraft Bedrock EditionとJava Editionに対応</strong>し、一般的なものから小規模なものまで両方の全サーバーコアを扱えます: Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLaminaなど。<a href=\"__HOME__#server-software\">全一覧</a>。",
+    "footernote": "無料のオープンソース（MIT）で、すべてブラウザー内で動作します。Mojang StudiosおよびMicrosoftとは関係ありません。MinecraftはMojang Studiosの商標です。",
+    "faqtitle": "よくある質問",
+    "toctitle": "このページの目次",
+    "relatedtitle": "関連ツール",
+    "homecrumb": "NBTエディター",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "エディター",
+      "ファイル形式",
+      "リファレンス"
+    ],
+    "sourcehead": "ソース",
+    "sourcelink": "GitHubのコード"
+  },
+  "playerdata-editor": {
+    "title": "Minecraft playerdataエディター — プレイヤー.datをオンライン編集",
+    "ogtitle": "playerdataエディター — インベントリ・位置・統計を編集",
+    "desc": "Minecraft Java Editionのplayerdata .datをオンラインで編集できます。地形内に埋まったプレイヤーの位置、ログインを落とす破損アイテム、インベントリ、体力、経験値、ゲームモード、属性を修正します。gzip圧縮ビッグエンディアン形式を維持し、ファイルはブラウザー内だけで処理されます。",
+    "keywords": "playerdata 編集, Minecraft player.dat エディター, インベントリ NBT 編集, UUID dat 編集, プレイヤー位置 修正, Minecraft インベントリ 編集 オンライン",
+    "h1": "playerdataエディター — Minecraftプレイヤー.datファイル",
+    "crumb": "playerdata",
+    "reltitle": "playerdataエディター",
+    "reldesc": "プレイヤーごとのインベントリ、位置、体力、統計を編集。",
+    "answer": "Java Editionはプレイヤーごとにgzip圧縮ビッグエンディアンNBTを <code>world/playerdata/&lt;uuid&gt;.dat</code> へ保存します。インベントリ、エンダーチェスト、位置、ディメンション、体力、空腹度、XP、属性が含まれます。地形内に埋まった位置やクラッシュを起こすアイテム、統計を修正できます。サーバーを停止するか、対象プレイヤーをオフラインにしてください。",
+    "droplabel": "playerdata .datファイル",
+    "body": "\n<section class=\"content\" aria-label=\"playerdata tags\">\n<h2>プレイヤーファイル内のタグ</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>タグ</th><th>型</th><th>内容</th></tr></thead>\n<tbody>\n<tr><td><code>Pos</code></td><td>Double のリスト</td><td>X、Y、Z。壁の中や岩盤下にいるプレイヤーの修正に使います。</td></tr>\n<tr><td><code>Rotation</code></td><td>Float のリスト</td><td>ヨーとピッチ。</td></tr>\n<tr><td><code>Dimension</code></td><td>String / Int</td><td>ログイン時に入るディメンション。</td></tr>\n<tr><td><code>Inventory</code></td><td>Compound のリスト</td><td>スタックごとの項目: <code>id</code>、<code>Count</code>、<code>Slot</code>、<code>components</code> または <code>tag</code>。</td></tr>\n<tr><td><code>EnderItems</code></td><td>Compound のリスト</td><td>同じ形式のエンダーチェスト内容。</td></tr>\n<tr><td><code>Health</code>, <code>foodLevel</code>, <code>XpLevel</code>, <code>XpTotal</code></td><td>Float / Int</td><td>体力、空腹度、経験値。</td></tr>\n<tr><td><code>playerGameType</code></td><td>Int</td><td>プレイヤー単位のゲームモード。</td></tr>\n<tr><td><code>abilities</code></td><td>Compound</td><td>飛行、無敵、歩行速度、飛行速度。</td></tr>\n<tr><td><code>Attributes</code></td><td>Compound のリスト</td><td>最大体力、移動速度、その他の補正。</td></tr>\n<tr><td><code>SpawnX</code>/<code>SpawnY</code>/<code>SpawnZ</code> または <code>respawn</code></td><td>Int / Compound</td><td>バージョンに応じた個人リスポーン地点。</td></tr>\n<tr><td><code>UUID</code></td><td>Int[4]</td><td>現行バージョンで4つのintとして保存されるUUID。</td></tr>\n</tbody>\n</table>\n</div>\n<p>1.20.5でアイテムスタックの形式が変わり、カスタムデータは単一の <code>tag</code> Compoundから個別の <code>components</code> へ移動しました。どちらも開けるため、使用中のバージョンが書く形式を編集してください。</p>\n</section>\n\n<section class=\"content\" aria-label=\"Common repairs\">\n<h2>一般的な修復</h2>\n<div class=\"card\">\n<ul>\n<li><strong>地形内に埋まった、または落下し続ける。</strong><code>Pos</code> を安全なX、Y、Zの3つのdoubleへ変更し、<code>Motion</code> に極端な値があれば消去します。</li>\n<li><strong>ログイン時にクライアントがクラッシュする。</strong>不正なアイテムが主な原因です。<code>Inventory</code> 全体ではなく該当項目だけを削除します。</li>\n<li><strong>ポータル不具合で誤ったディメンションにいる。</strong><code>Dimension</code> を <code>minecraft:overworld</code> へ戻し、<code>Pos</code> も対応する座標へ変更します。</li>\n<li><strong>スペクテイターから戻れない。</strong><code>playerGameType</code> をサバイバルなら0、クリエイティブなら1にします。</li>\n<li><strong>削除済みプラグインの属性補正が残る。</strong><code>Attributes</code> 内の不要な項目を削除します。</li>\n</ul>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Server safety\">\n<h2>プレイヤーをオフラインにして編集する</h2>\n<p>サーバーはプレイヤー状態をメモリーに保持し、ログアウト時と自動保存時に書き出します。オンライン中の編集は必ず上書きされ、保存中の編集はファイルを切断する可能性があります。プレイヤーをオフラインにするかサーバーを停止し、コピーを編集して、再接続前に戻してください。ログイン成功まで元ファイルを残します。</p>\n<p>Bedrockサーバーはこの配置を使いません。プレイヤーデータはワールドのLevelDB内で <code>player_&lt;uuid&gt;</code> などのキーに保存され、値はリトルエンディアンNBTです。抽出すれば <em>Bedrock 生データ</em> として開けます。</p>\n</section>\n",
+    "chips": [
+      "Java のプレイヤーデータ",
+      "エンダーチェスト",
+      "インベントリ",
+      "位置",
+      "属性",
+      "進捗関連"
+    ],
+    "faq": [
+      [
+        "自分のプレイヤーファイルはどれですか？",
+        "<p>ファイル名はUUIDです。Mojang APIの確認ツールでUUIDを調べるか、<code>playerdata/</code> を更新日時で並べて最終ログイン時刻と照合してください。</p>"
+      ],
+      [
+        "playerdataを編集してアイテムを追加できますか？",
+        "<p>自分のサーバーなら、<code>Inventory</code> Listへ <code>id</code>、<code>Count</code>、<code>Slot</code> を持つ項目を追加できます。他人のサーバーでは不正アクセスに当たり、稼働中のサーバーがファイルを書き直すため動作もしません。</p>"
+      ],
+      [
+        "編集内容が消えたのはなぜですか？",
+        "<p>編集時にサーバーまたはプレイヤーがオンラインだったためです。次の保存ではメモリー内のプレイヤー状態が優先されます。</p>"
+      ],
+      [
+        "Bedrockでもplayerdataは同じですか？",
+        "<p>いいえ。BedrockはプレイヤーをUUID別ファイルではなくワールドのLevelDB内に保存します。値を抽出すると、その中のリトルエンディアンNBTをここで開けます。</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "{0} として読み込みました",
+      "trailing": "ルートタグ後の末尾バイト {0} 個を無視しました",
+      "error": "エラー: {0}",
+      "readfail": "ファイルを読み取れませんでした",
+      "nofile": "ファイルが読み込まれていません",
+      "saved": "{0} を保存しました（{1}、{2}）",
+      "savefail": "保存エラー: {0}",
+      "exported": "{0} をエクスポートしました",
+      "snbtfail": "SNBTエラー: {0}",
+      "tagadded": "タグを追加しました",
+      "tagremoved": "タグを削除しました",
+      "arrayupdated": "配列を更新しました",
+      "badvalue": "無効な値: {0}",
+      "badarray": "無効な配列: {0}",
+      "nameneeded": "タグ名が必要です",
+      "nametaken": "{0} というタグはここにすでに存在します",
+      "listtype": "このListにはすでに {0} 型の要素があります",
+      "editlevelname": "✎ LevelNameを編集",
+      "showmore": "さらに {0} 件を表示（全 {1} 件）…",
+      "matches": "{0} 件一致",
+      "nomatch": "「{0}」に一致するタグはありません",
+      "arraytoobig": "配列には {0} 件あります。展開して各要素を個別に編集してください",
+      "uncompressed": "非圧縮",
+      "storage": "ストレージ v{0}",
+      "entries": "{0} 件",
+      "langprompt": "このページを{0}で開きますか？",
+      "langyes": "切り替える",
+      "langno": "このまま"
+    },
+    "support": "<strong>Minecraft Bedrock EditionとJava Editionに対応</strong>し、一般的なものから小規模なものまで両方の全サーバーコアを扱えます: Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLaminaなど。<a href=\"__HOME__#server-software\">全一覧</a>。",
+    "footernote": "無料のオープンソース（MIT）で、すべてブラウザー内で動作します。Mojang StudiosおよびMicrosoftとは関係ありません。MinecraftはMojang Studiosの商標です。",
+    "faqtitle": "よくある質問",
+    "toctitle": "このページの目次",
+    "relatedtitle": "関連ツール",
+    "homecrumb": "NBTエディター",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "エディター",
+      "ファイル形式",
+      "リファレンス"
+    ],
+    "sourcehead": "ソース",
+    "sourcelink": "GitHubのコード"
+  },
+  "nbt-viewer": {
+    "title": "NBTビューア オンライン — .nbt・.datファイルを開く",
+    "ogtitle": "NBTビューア — ブラウザーで.nbt・.datファイルを表示",
+    "desc": "MinecraftのNBTファイルをオンラインで開いて内容を確認できます。.nbt、.dat、.mcstructure、.schemのタグツリーを型と値付きで表示し、名前や値を検索してSNBTテキストへ出力します。JavaとBedrockのバイト順や圧縮方式を自動判定し、ファイルは端末内だけで処理されます。",
+    "keywords": "NBTビューア, NBTファイル 開く, Minecraft dat ファイル 見る, NBT 閲覧 オンライン, .nbt 読み方, SNBT 変換, Minecraft NBT 解析",
+    "h1": "NBTビューア — MinecraftのNBTファイルを開く",
+    "crumb": "NBTビューア",
+    "reltitle": "NBTビューア",
+    "reldesc": "読み取り確認、検索、SNBTエクスポート。",
+    "answer": "Minecraftファイルを変更せず中身だけ確認する場合は、<code>.nbt</code>、<code>.dat</code>、<code>.mcstructure</code>、<code>.schem</code>、生のNBTダンプを下へドロップしてください。型と値を含むタグツリー全体を表示し、名前または値で検索してSNBTテキストへ出力できます。保存を押さない限り書き込みは行われず、アップロードもされません。",
+    "droplabel": ".nbtまたは.datファイル",
+    "body": "\n<section class=\"content\" aria-label=\"What you can inspect\">\n<h2>作成元が不明なファイルを確認する</h2>\n<p>NBTを開く主な用途は診断です。どのバージョンが書いたか、なぜワールドを読み込めないか、受け取ったスキーマティックに何があるかを確認できます。各タグの正確な型を表示するため、Minecraftでは区別が必要な値1の <code>TAG_Byte</code> と値1の <code>TAG_Int</code> を判別できます。</p>\n<ul>\n<li><strong>全行の型バッジ</strong> — Byte、Short、Int、Long、Float、Double、Byte[]、String、List、Compound、Int[]、Long[]。</li>\n<li><strong>正確な64ビットlong</strong> — シードやUUIDの半分を丸めず表示します。</li>\n<li><strong>検索</strong> — ツリー全体をタグ名または値で検索し、一致位置へ移動します。</li>\n<li><strong>形式判定</strong> — エディション、バイト順、圧縮、Bedrockストレージバージョンをファイルバーに表示します。</li>\n<li><strong>SNBTエクスポート</strong> — 文書全体をテキストにし、比較、コマンドへの貼り付け、別ツールへの受け渡しに使えます。</li>\n</ul>\n</section>\n\n<section class=\"content\" aria-label=\"SNBT\">\n<h2>NBTとSNBT</h2>\n<p>SNBTはNBTのテキスト表現で、<code>/data get</code> の出力やコマンド入力に使われます。接尾辞で型を保持し、<code>3b</code> はbyte、<code>3s</code> はshort、<code>3L</code> はlong、<code>3.0f</code> はfloat、<code>3.0d</code> はdouble、<code>[I;1,2,3]</code> はint配列です。エクスポートすると、バイナリファイルをコマンドブロックへ貼り付けたりgitで行単位に比較したりできます。</p>\n<p>JSONは代替になりません。数値型が1つしかなくbyte配列もないため、NBTからJSONへの変換ではMinecraftが必要とする区別が失われます。そのため、このツールはJSONではなくSNBTを出力します。</p>\n</section>\n\n<section class=\"content\" aria-label=\"File types\">\n<h2>開けるファイル</h2>\n<p>ペイロードが単一NBT文書であるファイルに対応します。JavaとBedrockの<a href=\"../level-dat-editor/\">level.dat</a>、<a href=\"../playerdata-editor/\">playerdata</a>、<code>servers.dat</code>、<code>hotbar.nbt</code>、<code>idcounts.dat</code>、<code>raids.dat</code>、<code>scoreboard.dat</code>、地図データ、構造物 <code>.nbt</code>、<a href=\"../schematic-editor/\">.schemと.schematic</a>、<a href=\"../mcstructure-editor/\">.mcstructure</a>、<code>.litematic</code>、抽出済みチャンク、パケットダンプを開けます。<code>.mca</code> リージョン、<code>.mcworld</code> アーカイブ、LevelDBフォルダーなどのコンテナーは先に1文書を抽出してください。</p>\n</section>\n",
+    "chips": [
+      ".nbt",
+      ".dat",
+      ".mcstructure",
+      ".schem",
+      ".schematic",
+      "SNBTエクスポート",
+      "検索"
+    ],
+    "faq": [
+      [
+        "編集せずにNBTファイルを表示できますか？",
+        "<p>はい。Save &amp; Downloadを押した場合だけ新しいファイルを書き出し、ドロップした元ファイルには触れません。</p>"
+      ],
+      [
+        "NBTをJSONへ変換できますか？",
+        "<p>タグ型を保持するSNBTを出力します。JSONはbyte、short、int、long、floatを1つの数値型にまとめ、byte配列も失うため、Minecraftデータの往復変換先には適しません。</p>"
+      ],
+      [
+        "想定と異なるエディションとして表示されるのはなぜですか？",
+        "<p>形式は拡張子ではなくバイト列から判定します。BedrockのつもりでJavaと表示される場合は別エディションのファイルか、偶然解析できる断片です。末尾バイト警告のオフセットも確認してください。</p>"
+      ],
+      [
+        "どの程度の大きさまで開けますか？",
+        "<p>数MBの文書を扱えます。配列は型付き配列で保持し、ツリーは遅延描画するため、展開した行だけがページ上に作られます。</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "{0} として読み込みました",
+      "trailing": "ルートタグ後の末尾バイト {0} 個を無視しました",
+      "error": "エラー: {0}",
+      "readfail": "ファイルを読み取れませんでした",
+      "nofile": "ファイルが読み込まれていません",
+      "saved": "{0} を保存しました（{1}、{2}）",
+      "savefail": "保存エラー: {0}",
+      "exported": "{0} をエクスポートしました",
+      "snbtfail": "SNBTエラー: {0}",
+      "tagadded": "タグを追加しました",
+      "tagremoved": "タグを削除しました",
+      "arrayupdated": "配列を更新しました",
+      "badvalue": "無効な値: {0}",
+      "badarray": "無効な配列: {0}",
+      "nameneeded": "タグ名が必要です",
+      "nametaken": "{0} というタグはここにすでに存在します",
+      "listtype": "このListにはすでに {0} 型の要素があります",
+      "editlevelname": "✎ LevelNameを編集",
+      "showmore": "さらに {0} 件を表示（全 {1} 件）…",
+      "matches": "{0} 件一致",
+      "nomatch": "「{0}」に一致するタグはありません",
+      "arraytoobig": "配列には {0} 件あります。展開して各要素を個別に編集してください",
+      "uncompressed": "非圧縮",
+      "storage": "ストレージ v{0}",
+      "entries": "{0} 件",
+      "langprompt": "このページを{0}で開きますか？",
+      "langyes": "切り替える",
+      "langno": "このまま"
+    },
+    "support": "<strong>Minecraft Bedrock EditionとJava Editionに対応</strong>し、一般的なものから小規模なものまで両方の全サーバーコアを扱えます: Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLaminaなど。<a href=\"__HOME__#server-software\">全一覧</a>。",
+    "footernote": "無料のオープンソース（MIT）で、すべてブラウザー内で動作します。Mojang StudiosおよびMicrosoftとは関係ありません。MinecraftはMojang Studiosの商標です。",
+    "faqtitle": "よくある質問",
+    "toctitle": "このページの目次",
+    "relatedtitle": "関連ツール",
+    "homecrumb": "NBTエディター",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "エディター",
+      "ファイル形式",
+      "リファレンス"
+    ],
+    "sourcehead": "ソース",
+    "sourcelink": "GitHubのコード"
+  },
+  "nbtexplorer-online": {
+    "title": "NBTExplorerオンライン — ダウンロード不要のブラウザー版",
+    "ogtitle": "NBTExplorerオンライン — ブラウザーで使える代替ツール",
+    "desc": "NBTExplorerの代わりにブラウザーでMinecraftのNBTタグツリーを編集できます。.NETやMonoは不要です。Javaのビッグエンディアンgzipに加え、Bedrockのリトルエンディアン、8バイトlevel.datヘッダー、ネットワークNBTにも対応し、ファイルはアップロードしません。",
+    "keywords": "NBTExplorer オンライン, NBTExplorer 代替, NBTエディター ダウンロード不要, NBTExplorer Bedrock, NBT 編集 ブラウザー, NBTExplorer Mac",
+    "h1": "NBTExplorerオンライン — ブラウザーで使える代替ツール",
+    "crumb": "NBTExplorerオンライン",
+    "reltitle": "NBTExplorerオンライン",
+    "reldesc": "デスクトップ版から引き継げる機能と相違点。",
+    "answer": "NBTExplorerは広く使われるデスクトップNBTタグエディターですが、.NETまたはMonoとインストール環境が必要です。このページはタグツリー、インライン編集、タグの追加・削除をブラウザーで実行し、スマートフォンを含む各OSで動作します。また、NBTExplorerが扱わないBedrockのリトルエンディアンファイルにも対応します。",
+    "droplabel": "任意のNBTファイル",
+    "body": "\n<section class=\"content\" aria-label=\"Comparison\">\n<h2>機能比較</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>機能</th><th>NBTExplorer（デスクトップ）</th><th>このエディター（ブラウザー）</th></tr></thead>\n<tbody>\n<tr><td>インストール</td><td>必要 — .NET / Monoランタイム</td><td>不要</td></tr>\n<tr><td>JavaビッグエンディアンNBT</td><td>対応</td><td>対応</td></tr>\n<tr><td>gzip / zlib</td><td>対応</td><td>対応。ブラウザー標準の圧縮ストリームを使用</td></tr>\n<tr><td>BedrockリトルエンディアンNBT</td><td>非対応</td><td>対応。8バイトの <code>level.dat</code> ヘッダーも処理</td></tr>\n<tr><td>Bedrockネットワーク / varint NBT</td><td>非対応</td><td>対応</td></tr>\n<tr><td><code>.mca</code> リージョンとフォルダーの参照</td><td>対応 — 主な利点</td><td>非対応。1文書ずつ処理</td></tr>\n<tr><td>Bedrock LevelDBの参照</td><td>非対応</td><td>非対応。先に値を抽出</td></tr>\n<tr><td>ツリー全体の検索</td><td>対応</td><td>対応</td></tr>\n<tr><td>SNBTエクスポート</td><td>非対応</td><td>対応</td></tr>\n<tr><td>スマートフォンで動作</td><td>非対応</td><td>対応</td></tr>\n<tr><td>ファイルを外部送信</td><td>しない</td><td>しない</td></tr>\n</tbody>\n</table>\n</div>\n<p>リージョンフォルダー全体を参照し、座標でチャンクを開く用途ではデスクトップ版が適します。<code>level.dat</code>、プレイヤーファイル、スキーマティック、Bedrockワールドなど1ファイルを任意の端末で開く用途では、このページが各エディションをまとめて扱えます。</p>\n</section>\n\n<section class=\"content\" aria-label=\"Migrating\">\n<h2>デスクトップ版との操作対応</h2>\n<ul>\n<li><strong>ツリー操作は同じです。</strong>CompoundとListを展開し、値をクリックして編集し、+と×で構造を変更します。</li>\n<li><strong>型を維持します。</strong>byteはbyteのままで、範囲外の値は切り捨てずエラーにします。</li>\n<li><strong>保存はダウンロードです。</strong>入力ファイルを直接変更しないため、元ファイルは残ります。</li>\n<li><strong>圧縮方式を維持します。</strong>gzipファイルはgzipで出力するため、手動の再圧縮なしでゲームが読み込めます。</li>\n<li><strong>Bedrockもそのまま開けます。</strong>別ツールや、編集後にヘッダー長を直す16進エディターは不要です。</li>\n</ul>\n</section>\n\n<section class=\"content\" aria-label=\"Other tools\">\n<h2>ほかのツールが適する用途</h2>\n<p>リージョンの一括参照には <strong>NBTExplorer</strong> または <strong>NBTStudio</strong>、チャンク単位の修復やワールド縮小には <strong>Amulet</strong> または <strong>MCA Selector</strong>、形状編集には <strong>WorldEdit</strong> を使います。このページは「1ファイルを開き、特定のタグを変更して戻す」作業や、デスクトップツールが拒否するBedrockファイルに適します。</p>\n</section>\n",
+    "chips": [
+      "インストール不要",
+      "Windows",
+      "macOS",
+      "Linux",
+      "Android",
+      "ChromeOS"
+    ],
+    "faq": [
+      [
+        "公式のNBTExplorer Web版はありますか？",
+        "<p>ありません。NBTExplorerはデスクトップアプリです。このツールは独立したエディターで、日常的な操作をブラウザーで行い、Bedrock対応も追加しています。</p>"
+      ],
+      [
+        "MonoなしでmacOSやLinuxでも動きますか？",
+        "<p>はい。Webページなので、macOS、Linux、Windows、Android、ChromeOSの最新ブラウザーで動作します。</p>"
+      ],
+      [
+        "NBTExplorerのようにリージョンファイル全体を開けますか？",
+        "<p>いいえ。単一NBT文書を1つずつ編集します。先に <code>.mca</code> からチャンクを抽出し、そのペイロードをドロップしてください。</p>"
+      ],
+      [
+        "唯一のセーブデータに使っても安全ですか？",
+        "<p>開いたファイルへ直接書き込まず、編集結果を新しいダウンロードとして返します。それでもほかのエディターと同様にバックアップを保持してください。</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "{0} として読み込みました",
+      "trailing": "ルートタグ後の末尾バイト {0} 個を無視しました",
+      "error": "エラー: {0}",
+      "readfail": "ファイルを読み取れませんでした",
+      "nofile": "ファイルが読み込まれていません",
+      "saved": "{0} を保存しました（{1}、{2}）",
+      "savefail": "保存エラー: {0}",
+      "exported": "{0} をエクスポートしました",
+      "snbtfail": "SNBTエラー: {0}",
+      "tagadded": "タグを追加しました",
+      "tagremoved": "タグを削除しました",
+      "arrayupdated": "配列を更新しました",
+      "badvalue": "無効な値: {0}",
+      "badarray": "無効な配列: {0}",
+      "nameneeded": "タグ名が必要です",
+      "nametaken": "{0} というタグはここにすでに存在します",
+      "listtype": "このListにはすでに {0} 型の要素があります",
+      "editlevelname": "✎ LevelNameを編集",
+      "showmore": "さらに {0} 件を表示（全 {1} 件）…",
+      "matches": "{0} 件一致",
+      "nomatch": "「{0}」に一致するタグはありません",
+      "arraytoobig": "配列には {0} 件あります。展開して各要素を個別に編集してください",
+      "uncompressed": "非圧縮",
+      "storage": "ストレージ v{0}",
+      "entries": "{0} 件",
+      "langprompt": "このページを{0}で開きますか？",
+      "langyes": "切り替える",
+      "langno": "このまま"
+    },
+    "support": "<strong>Minecraft Bedrock EditionとJava Editionに対応</strong>し、一般的なものから小規模なものまで両方の全サーバーコアを扱えます: Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLaminaなど。<a href=\"__HOME__#server-software\">全一覧</a>。",
+    "footernote": "無料のオープンソース（MIT）で、すべてブラウザー内で動作します。Mojang StudiosおよびMicrosoftとは関係ありません。MinecraftはMojang Studiosの商標です。",
+    "faqtitle": "よくある質問",
+    "toctitle": "このページの目次",
+    "relatedtitle": "関連ツール",
+    "homecrumb": "NBTエディター",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "エディター",
+      "ファイル形式",
+      "リファレンス"
+    ],
+    "sourcehead": "ソース",
+    "sourcelink": "GitHubのコード"
+  },
+  "nbt-format": {
+    "title": "NBT形式リファレンス — タグ型・エンコード・バイト配置",
+    "ogtitle": "NBT形式リファレンス — タグ、エンコード、バイト配置",
+    "desc": "MinecraftのNBT形式リファレンスです。13種類のタグ型と各ペイロード、SNBT表記、Javaのビッグエンディアン、Bedrockのリトルエンディアン、varintネットワークNBT、文字列エンコード、gzip・zlib圧縮、level.datヘッダーをバイト単位で説明します。",
+    "keywords": "NBT 形式, NBT ファイル 構造, Minecraft NBT 仕様, NBT タグ 種類, TAG_Compound, リトルエンディアン NBT, varint NBT, SNBT 構文",
+    "h1": "NBT形式リファレンス",
+    "crumb": "NBT形式",
+    "reltitle": "NBT形式リファレンス",
+    "reldesc": "13種類のタグ型と各エンコードをバイト単位で説明。",
+    "answer": "NBT（Named Binary Tag）はMinecraftのバイナリツリー形式です。タグは1バイトの型、長さ付きの名前、ペイロードからなり、Compoundは <code>TAG_End</code> で閉じるまで入れ子になります。JavaとBedrockでは13種類のタグ型と5種類のエンコードが使われています。このページで各形式を説明し、上のエディターで実ファイルを確認できます。",
+    "droplabel": "確認するNBTファイル",
+    "body": "\n<section class=\"content\" aria-label=\"Tag types\">\n<h2>13種類のタグ型</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>Id</th><th>タグ</th><th>ペイロード</th><th>SNBT</th></tr></thead>\n<tbody>\n<tr><td>0</td><td><code>TAG_End</code></td><td>なし — Compoundを閉じる</td><td>—</td></tr>\n<tr><td>1</td><td><code>TAG_Byte</code></td><td>1バイト、符号付き −128…127</td><td><code>1b</code></td></tr>\n<tr><td>2</td><td><code>TAG_Short</code></td><td>2バイト、符号付き</td><td><code>1s</code></td></tr>\n<tr><td>3</td><td><code>TAG_Int</code></td><td>4バイト、符号付き</td><td><code>1</code></td></tr>\n<tr><td>4</td><td><code>TAG_Long</code></td><td>8バイト、符号付き</td><td><code>1L</code></td></tr>\n<tr><td>5</td><td><code>TAG_Float</code></td><td>4バイト、IEEE 754</td><td><code>1.0f</code></td></tr>\n<tr><td>6</td><td><code>TAG_Double</code></td><td>8バイト、IEEE 754</td><td><code>1.0d</code></td></tr>\n<tr><td>7</td><td><code>TAG_Byte_Array</code></td><td>int長、その後に指定数のbyte</td><td><code>[B;1b,2b]</code></td></tr>\n<tr><td>8</td><td><code>TAG_String</code></td><td>unsigned short長、その後にUTF-8バイト列</td><td><code>\"text\"</code></td></tr>\n<tr><td>9</td><td><code>TAG_List</code></td><td>要素型byte、int長、その後に名前なしペイロード</td><td><code>[1,2]</code></td></tr>\n<tr><td>10</td><td><code>TAG_Compound</code></td><td><code>TAG_End</code> まで型 + 名前 + ペイロードを反復</td><td><code>{a:1}</code></td></tr>\n<tr><td>11</td><td><code>TAG_Int_Array</code></td><td>int長、その後に指定数の4バイトint</td><td><code>[I;1,2]</code></td></tr>\n<tr><td>12</td><td><code>TAG_Long_Array</code></td><td>int長、その後に指定数の8バイトlong</td><td><code>[L;1L,2L]</code></td></tr>\n</tbody>\n</table>\n</div>\n<p>1ファイルは単一のルート <code>TAG_Compound</code> です。型byte <code>0x0A</code>、名前、Compound内容の順です。名前付きタグが現れるのはCompound内だけで、List要素はペイロードだけを持つため、List内の型はすべて同じです。</p>\n</section>\n\n<section class=\"content\" aria-label=\"Encodings\">\n<h2>実際に使われる5種類のエンコード</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>エンコード</th><th>整数</th><th>文字列長</th><th>ルート</th><th>用途</th></tr></thead>\n<tbody>\n<tr><td>Java（従来形式）</td><td>固定長ビッグエンディアン</td><td>2バイトビッグエンディアン</td><td>名前付き</td><td>Javaワールド、構造物、スキーマティック</td></tr>\n<tr><td>Java ネットワーク (1.20.2+)</td><td>固定長ビッグエンディアン</td><td>2バイトビッグエンディアン</td><td>名前なし</td><td>Javaプロトコル</td></tr>\n<tr><td>Bedrock</td><td>固定長リトルエンディアン</td><td>2バイトリトルエンディアン</td><td>名前付き</td><td>Bedrockワールド、<code>.mcstructure</code>、LevelDB値</td></tr>\n<tr><td>Bedrock <code>level.dat</code></td><td>固定長リトルエンディアン</td><td>2バイトリトルエンディアン</td><td>8バイトヘッダー後に名前付き</td><td>Bedrockワールドメタデータ</td></tr>\n<tr><td>Bedrock ネットワーク</td><td>intとlongはZigzag varint</td><td>符号なし可変長整数</td><td>名前付き</td><td>Bedrockプロトコル</td></tr>\n</tbody>\n</table>\n</div>\n<p>varint形式でも <code>TAG_Short</code>、<code>TAG_Float</code>、<code>TAG_Double</code> は固定長リトルエンディアンです。<code>TAG_Int</code> と <code>TAG_Long</code> だけがzigzag varintになり、配列とListの長さも <code>TAG_Int</code> と同じ方式です。文字列長はunsigned varintなので、固定長形式の65535バイト上限もありません。</p>\n</section>\n\n<section class=\"content\" aria-label=\"Strings\">\n<h2>文字列: 修正版UTF-8とUTF-8</h2>\n<p>Javaは <code>DataOutputStream.writeUTF</code> の<em>修正版</em>UTF-8を使います。NULは <code>C0 80</code> として書かれ、通常の <code>00</code> は使いません。基本多言語面外の文字は1つの4バイト列ではなく2つの3バイトサロゲート（CESU-8）で書きます。Bedrockは標準UTF-8です。両方を同じエンコードとして扱うツールは、保存時に絵文字や一部のCJK文字を壊します。このエディターは形式ごとに正しくエンコードします。</p>\n</section>\n\n<section class=\"content\" aria-label=\"Compression\">\n<h2>圧縮</h2>\n<p>NBT自体は圧縮されず、コンテナーが圧縮方式を決めます。Javaファイルは通常gzip（マジック <code>1F 8B</code>）、リージョン内のチャンクはzlib（<code>78 01</code>、<code>78 9C</code>、<code>78 DA</code>）、Bedrockの <code>level.dat</code> と構造物ファイルは非圧縮です。マジックバイトで判定するため同じパーサーで処理できます。誤った圧縮方式で保存すると、手動編集したワールドを読み込めない主な原因になります。</p>\n</section>\n\n<section class=\"content\" aria-label=\"Byte walkthrough\">\n<h2>最小ファイルをバイト単位で確認</h2>\n<p>標準例 <code>hello_world.nbt</code> は、名前 <code>hello world</code> のルートCompoundに、文字列タグ <code>name</code> が1つあり、その値は <code>Bananrama</code> です。Javaのビッグエンディアン形式では次のとおりです。</p>\n<pre class=\"code\"><code>0A                          TAG_Compound\n00 0B 68 65 6C 6C 6F 20 77 6F 72 6C 64   name length 11, \"hello world\"\n   08                       TAG_String\n   00 04 6E 61 6D 65        name length 4, \"name\"\n   00 09 42 61 6E 61 6E 72 61 6D 61      value length 9, \"Bananrama\"\n00                          TAG_End</code></pre>\n<p>同じ文書のBedrockリトルエンディアン形式では、2つの長さフィールドのバイト順だけが異なり、<code>0B 00</code> となり、Javaの <code>00 0B</code> とは逆です。BedrockネットワークNBTでは長さが1バイトvarintの <code>0B</code> と <code>04</code> になり、パディングはありません。3形式のいずれをドロップしても自動判定します。</p>\n</section>\n\n<section class=\"content\" aria-label=\"SNBT\">\n<h2>SNBT</h2>\n<p>SNBTはNBTのテキスト表現で、コマンドが受け取る形式です: <code>/data merge entity @s {Invulnerable:1b}</code>。型を失わないよう、byteは <code>b</code>、shortは <code>s</code>、longは <code>L</code>、floatは <code>f</code>、doubleは <code>d</code>、intは接尾辞なしで表し、型付き配列は <code>[B;…]</code>、<code>[I;…]</code>、<code>[L;…]</code> と書きます。任意のファイルをSNBTへ出力すると、通常のテキストdiffでワールドの2バージョンを比較できます。</p>\n</section>\n",
+    "chips": [
+      "13種類のタグ型",
+      "ビッグエンディアン",
+      "リトルエンディアン",
+      "Varint",
+      "gzip",
+      "zlib",
+      "SNBT"
+    ],
+    "faq": [
+      [
+        "公式のNBT仕様はありますか？",
+        "<p>Mojangによる正式仕様はありません。2010年にNotchが記録し、その後コミュニティが維持しています。このページのタグIDと配置は現在のゲームが読み書きする形式に対応します。</p>"
+      ],
+      [
+        "Bedrockがリトルエンディアンなのはなぜですか？",
+        "<p>BedrockエンジンはC++でリトルエンディアンのハードウェアを対象とし、値をネイティブ順で保存します。JavaはDataOutputの仕様に従いビッグエンディアンです。</p>"
+      ],
+      [
+        "zigzag varintエンコードとは何ですか？",
+        "<p>負数も短く保ちながら整数を少ないバイトで書く方式です。符号を最下位ビットへ折り込むため、−1は1、1は2としてエンコードされます。Bedrockプロトコルはintとlongに使います。</p>"
+      ],
+      [
+        "TAG_Listに複数の型を混在できますか？",
+        "<p>できません。Listは1つの要素型を宣言し、すべての項目が一致する必要があります。混合データにはCompoundのListを使います。</p>"
+      ],
+      [
+        "文字列の最大長は？",
+        "<p>固定長形式では長さフィールドがunsigned shortなので65535バイトです。varintネットワーク形式には実用上の制限がありません。</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "{0} として読み込みました",
+      "trailing": "ルートタグ後の末尾バイト {0} 個を無視しました",
+      "error": "エラー: {0}",
+      "readfail": "ファイルを読み取れませんでした",
+      "nofile": "ファイルが読み込まれていません",
+      "saved": "{0} を保存しました（{1}、{2}）",
+      "savefail": "保存エラー: {0}",
+      "exported": "{0} をエクスポートしました",
+      "snbtfail": "SNBTエラー: {0}",
+      "tagadded": "タグを追加しました",
+      "tagremoved": "タグを削除しました",
+      "arrayupdated": "配列を更新しました",
+      "badvalue": "無効な値: {0}",
+      "badarray": "無効な配列: {0}",
+      "nameneeded": "タグ名が必要です",
+      "nametaken": "{0} というタグはここにすでに存在します",
+      "listtype": "このListにはすでに {0} 型の要素があります",
+      "editlevelname": "✎ LevelNameを編集",
+      "showmore": "さらに {0} 件を表示（全 {1} 件）…",
+      "matches": "{0} 件一致",
+      "nomatch": "「{0}」に一致するタグはありません",
+      "arraytoobig": "配列には {0} 件あります。展開して各要素を個別に編集してください",
+      "uncompressed": "非圧縮",
+      "storage": "ストレージ v{0}",
+      "entries": "{0} 件",
+      "langprompt": "このページを{0}で開きますか？",
+      "langyes": "切り替える",
+      "langno": "このまま"
+    },
+    "support": "<strong>Minecraft Bedrock EditionとJava Editionに対応</strong>し、一般的なものから小規模なものまで両方の全サーバーコアを扱えます: Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLaminaなど。<a href=\"__HOME__#server-software\">全一覧</a>。",
+    "footernote": "無料のオープンソース（MIT）で、すべてブラウザー内で動作します。Mojang StudiosおよびMicrosoftとは関係ありません。MinecraftはMojang Studiosの商標です。",
+    "faqtitle": "よくある質問",
+    "toctitle": "このページの目次",
+    "relatedtitle": "関連ツール",
+    "homecrumb": "NBTエディター",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "エディター",
+      "ファイル形式",
+      "リファレンス"
+    ],
+    "sourcehead": "ソース",
+    "sourcelink": "GitHubのコード"
+  },
+  "guides/change-world-name": {
+    "title": "Minecraftワールド名の変更方法 — Java・Bedrock対応",
+    "ogtitle": "Minecraftワールド名を変更する方法",
+    "desc": "Minecraftのワールド名を正しく変更する手順です。フォルダー名ではなくlevel.dat内のLevelNameを編集し、Java・Bedrock、シングルプレイ、サーバーで表示名を更新します。コピー後に同じ名前が残る問題、サーバー稼働中の上書き、level-name設定との違い、バックアップ方法も説明します。",
+    "keywords": "Minecraft ワールド名 変更, ワールド 名前 変え方, LevelName level.dat, Bedrock ワールド名 変更, サーバー ワールド名 重複, Minecraft フォルダー名 変更",
+    "h1": "Minecraftワールド名を変更する方法",
+    "crumb": "ワールド名を変更",
+    "reltitle": "ワールド名を変更",
+    "reldesc": "ワールドフォルダーのコピー後にLevelNameを修正。",
+    "answer": "ワールドの表示名は <code>LevelName</code> タグに保存され、このタグはフォルダー名ではなく <code>level.dat</code> 内にあります。そのためフォルダー名を変えてもゲーム表示は変わらず、コピーしたワールドも元の名前を使います。編集するには <code>level.dat</code> を下へドロップします。エディターが <code>LevelName</code> へ移動するので、値を変更して保存し、元の場所へ戻してください。",
+    "droplabel": "level.dat",
+    "body": "\n<section class=\"content\" aria-label=\"Why the folder name is not the world name\">\n<h2>フォルダー名を変えても表示名が変わらない理由</h2>\n<p>Minecraftはフォルダーを保存場所、<code>LevelName</code> を表示名として扱います。ワールド一覧、サーバーコンソール、ワールド管理プラグイン、チャットへワールド名を出す機能はタグを読みます。そのため <code>cp -r worlds/hub worlds/hub2</code> でコピーすると、両方が <em>hub</em> と名乗ります。修正箇所はファイル内です。</p>\n<p>サーバーでは混乱だけでなく誤動作につながります。内部名で検索するテレポート、ワールド別設定、保護領域、経済倍率が別ワールドへ作用する可能性があります。コピー直後、何かが名前をキャッシュする前にタグを変更してください。</p>\n</section>\n\n<section class=\"content\" aria-label=\"Per platform\">\n<h2>プラットフォーム別の方法</h2>\n<div class=\"card\">\n<h3>Javaシングルプレイ</h3>\n<p>クライアントのワールド設定画面に名前変更があり、<code>LevelName</code> を編集します。ファイルを直接編集するのは、ワールドを読み込めない場合、コピーを作業中の場合、フォルダー名と表示名を意図的に分ける場合です。</p>\n<h3>Javaサーバー</h3>\n<p><code>level-name</code> は <code>server.properties</code> 内で読み込む <em>フォルダー</em> を選ぶ設定で、名前変更ではありません。表示名は <code>LevelName</code> を <code>world/level.dat</code> 内で変更します。</p>\n<h3>BedrockとMCPE</h3>\n<p>ゲーム内のワールド編集画面で名前を変更できます。サーバー上のワールドや、出力済み <code>.mcworld</code> を修正する場合は <code>LevelName</code> を <code>level.dat</code> のルート直下で編集します。8バイトヘッダーはエディターが処理します。</p>\n<h3>Bedrockサーバー（PocketMine-MP、Nukkit、BDS）</h3>\n<p>同じファイルとタグを使い、先にサーバーを停止する点も同じです。フォルダーコピーを含む手順は<a href=\"../../pocketmine-nbt-editor/\">サーバーページ</a>を参照してください。</p>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Troubleshooting\">\n<h2>名前が変わらない場合</h2>\n<ul>\n<li><strong>サーバーが稼働していた。</strong>次の保存でメモリー内のコピーがファイルへ書き戻されました。停止して再編集してください。</li>\n<li><strong>別のワールドを編集した。</strong>Bedrockのフォルダー名はランダムIDです。編集前に <code>LevelName</code> を読んで対象を確認してください。</li>\n<li><strong><code>level.dat_old</code> を編集した。</strong>これは1つ前の保存で、現在使われるファイルではありません。</li>\n<li><strong>ランチャーやパネルが名前をキャッシュしている。</strong>一部のホスティングパネルはワールドファイルではなく独自データベースの名前を表示します。ゲーム内では変更されています。</li>\n<li><strong>ワールド自体を読み込めなくなった。</strong>バックアップを復元し、<a href=\"../fix-corrupted-level-dat/\">壊れたlevel.datの修復</a>を参照してください。</li>\n</ul>\n</section>\n",
+    "chips": [
+      "Java",
+      "Bedrock",
+      "サーバー",
+      "シングルプレイ",
+      "2分"
+    ],
+    "faq": [
+      [
+        "名前を変更するとデータが削除されますか？",
+        "<p>いいえ。<code>LevelName</code> は表示用ラベルです。地形、プレイヤー、インベントリ、エンティティは別ファイルにあり、変更されません。</p>"
+      ],
+      [
+        "ワールド名に空白、色、絵文字を使えますか？",
+        "<p>空白は使えます。セクション記号の色コードは対応サーバーでは機能しますが、ほかでは文字として表示されます。絵文字はエディション別の正しい文字エンコードで維持されますが、コンソールやログで正しく表示されない場合があります。</p>"
+      ],
+      [
+        "フォルダー名も変更する必要がありますか？",
+        "<p>不要です。サーバーの <code>level-name</code> やプラグイン設定がフォルダーパスを参照している場合があるため、通常は変更しない方が安全です。一度に1項目ずつ変更してください。</p>"
+      ],
+      [
+        "プレイヤーには新しい名前がすぐ表示されますか？",
+        "<p>ワールドを再読み込みした後は表示されます。サーバー一覧をキャッシュしたクライアントでは更新が必要な場合があります。</p>"
+      ]
+    ],
+    "howto": {
+      "name": "level.datを編集してMinecraftワールド名を変更",
+      "time": "PT3M",
+      "steps": [
+        [
+          "ゲームまたはサーバーを停止",
+          "ワールドを閉じるかサーバーを停止します。Minecraftは自動保存と終了時にlevel.datを書き直すため、稼働中は編集が上書きされます。"
+        ],
+        [
+          "level.datを探す",
+          "Javaサーバーではworld/level.dat、クライアントではsaves/<World>/level.datです。Bedrockサーバーではworlds/<World>/level.dat、端末ではminecraftWorlds内のワールドIDフォルダーにあります。"
+        ],
+        [
+          "エディターで開く",
+          "ファイルをNBTエディターへドロップします。エディションとエンコードを判定し、LevelNameタグへ自動的に移動します。"
+        ],
+        [
+          "LevelNameを編集",
+          "値をクリックし、新しい名前を入力してEnterを押します。コンソールへ表示する場合は一般的な文字に限定すると安全です。"
+        ],
+        [
+          "保存してダウンロード",
+          "Save & Downloadを押します。出力形式と圧縮方式は入力ファイルと同じなので、ほかの内容は変わりません。"
+        ],
+        [
+          "元ファイルを置換",
+          "バックアップを残してダウンロードしたファイルを元の場所へコピーし、ゲームまたはサーバーを起動してワールド一覧の名前を確認します。"
+        ]
+      ]
+    },
+    "ui": {
+      "loaded": "{0} として読み込みました",
+      "trailing": "ルートタグ後の末尾バイト {0} 個を無視しました",
+      "error": "エラー: {0}",
+      "readfail": "ファイルを読み取れませんでした",
+      "nofile": "ファイルが読み込まれていません",
+      "saved": "{0} を保存しました（{1}、{2}）",
+      "savefail": "保存エラー: {0}",
+      "exported": "{0} をエクスポートしました",
+      "snbtfail": "SNBTエラー: {0}",
+      "tagadded": "タグを追加しました",
+      "tagremoved": "タグを削除しました",
+      "arrayupdated": "配列を更新しました",
+      "badvalue": "無効な値: {0}",
+      "badarray": "無効な配列: {0}",
+      "nameneeded": "タグ名が必要です",
+      "nametaken": "{0} というタグはここにすでに存在します",
+      "listtype": "このListにはすでに {0} 型の要素があります",
+      "editlevelname": "✎ LevelNameを編集",
+      "showmore": "さらに {0} 件を表示（全 {1} 件）…",
+      "matches": "{0} 件一致",
+      "nomatch": "「{0}」に一致するタグはありません",
+      "arraytoobig": "配列には {0} 件あります。展開して各要素を個別に編集してください",
+      "uncompressed": "非圧縮",
+      "storage": "ストレージ v{0}",
+      "entries": "{0} 件",
+      "langprompt": "このページを{0}で開きますか？",
+      "langyes": "切り替える",
+      "langno": "このまま"
+    },
+    "support": "<strong>Minecraft Bedrock EditionとJava Editionに対応</strong>し、一般的なものから小規模なものまで両方の全サーバーコアを扱えます: Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLaminaなど。<a href=\"__HOME__#server-software\">全一覧</a>。",
+    "footernote": "無料のオープンソース（MIT）で、すべてブラウザー内で動作します。Mojang StudiosおよびMicrosoftとは関係ありません。MinecraftはMojang Studiosの商標です。",
+    "faqtitle": "よくある質問",
+    "toctitle": "このページの目次",
+    "relatedtitle": "関連ツール",
+    "homecrumb": "NBTエディター",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "エディター",
+      "ファイル形式",
+      "リファレンス"
+    ],
+    "sourcehead": "ソース",
+    "sourcelink": "GitHubのコード"
+  },
+  "guides/fix-corrupted-level-dat": {
+    "title": "破損したlevel.datを修復 — Minecraftワールドが開かない場合",
+    "ogtitle": "破損したlevel.datを修復する方法",
+    "desc": "Minecraftワールドが読み込めない場合のlevel.dat修復手順です。level.dat_oldの復元、NBT解析エラーの確認、gzip圧縮とバイト順、Bedrockの8バイトヘッダー長、誤ったタグ型を診断します。切断ファイルで失われたバイトと、regionまたはdbから地形を救出する方法も説明します。",
+    "keywords": "level.dat 破損 修復, Minecraft ワールド 開けない, level.dat_old 復元, ワールドデータ 破損, level.dat エラー, Minecraft セーブデータ 修復",
+    "h1": "破損した <code>level.dat</code> を修復する",
+    "crumb": "壊れたlevel.datを修復",
+    "reltitle": "壊れたlevel.datを修復",
+    "reldesc": "ワールドを読み込めない原因を診断して修復。",
+    "answer": "ワールドを読み込めない主な原因は、保存中のクラッシュで切断された <code>level.dat</code>、手動編集後の誤った圧縮方式、壊れたBedrockヘッダー長、変更されたタグ型です。ファイルを下へドロップすると解析停止位置が表示され、4種類のどれかを短時間で絞り込めます。",
+    "droplabel": "level.datまたはlevel.dat_old",
+    "body": "\n<section class=\"content\" aria-label=\"Causes\">\n<h2>実際に壊れる箇所</h2>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>症状</th><th>原因</th><th>対処</th></tr></thead>\n<tbody>\n<tr><td>エディターが「Unexpected end of data」と表示</td><td>ファイル切断 — 保存中にプロセスが終了したかディスクが満杯</td><td><code>level.dat_old</code> またはバックアップを復元。失われたバイトは戻せない</td></tr>\n<tr><td>ゲームは破損と表示するがエディターでは開ける</td><td>別ツールが誤った圧縮方式またはバイト順で保存</td><td>エディションに合う形式でここから再保存</td></tr>\n<tr><td>Bedrockワールドが一覧にない</td><td>ヘッダー長とペイロード長が不一致</td><td>ここで開いて保存。長さは自動再計算</td></tr>\n<tr><td>サーバーログにclass-castまたは型エラー</td><td>手動編集でタグ型を変更（Intが必要な箇所にByteなど）</td><td>ゲームが期待する型へ戻す</td></tr>\n<tr><td>読み込めるが新しい空のワールドにスポーン</td><td><code>level.dat</code> が新規生成ファイルへ置換された</td><td>バックアップを復元。<code>region/</code> または <code>db/</code> のチャンクは残っている場合が多い</td></tr>\n<tr><td><code>_old</code> を含め何も解析できない</td><td>ストレージ障害で両方がゼロまたは不正データ</td><td>別マシンのバックアップを復元し、ホストのディスクを確認</td></tr>\n</tbody>\n</table>\n</div>\n</section>\n\n<section class=\"content\" aria-label=\"Salvage\">\n<h2><code>level.dat</code> なしでワールドを救出する</h2>\n<p>地形、チェスト、プレイヤーは <code>level.dat</code> ではなく、Javaでは <code>region/</code>、Bedrockでは <code>db/</code> にあります。メタデータを修復できない場合は同じバージョンと設定で新規ワールドを作り、チャンクデータを移して、新しいファイルの <code>LevelName</code>、スポーン座標、ゲームルールを設定します。失うのは建築物ではなくメタデータです。Javaでは先に <code>DataVersion</code> を確認し、新規ファイルが移行するチャンクより古くならないようにしてください。</p>\n</section>\n\n<section class=\"content\" aria-label=\"Prevention\">\n<h2>再発防止</h2>\n<ul>\n<li><strong>コピーや編集の前にサーバーを停止します。</strong>書き込み中のファイルをコピーすると破損しやすくなります。</li>\n<li><strong>定期スナップショットを別マシンへ保存します。</strong>同じディスクのバックアップはストレージ障害で同時に失われます。</li>\n<li><strong>稼働中のスナップショットでは <code>save-off</code> / <code>save-all</code> を使います。</strong>書き込みを止めた状態でコピーします。</li>\n<li><strong>空き容量を監視します。</strong>ディスク満杯は保存を切断し、<code>level.dat</code> は最後に書かれます。</li>\n<li><strong>構造ではなく値を編集します。</strong>タグ名や型の変更はゲームが復旧できない編集です。</li>\n</ul>\n</section>\n",
+    "chips": [
+      "診断",
+      "level.dat_old",
+      "ヘッダー",
+      "圧縮",
+      "切断"
+    ],
+    "faq": [
+      [
+        "level.dat_oldとは何ですか？",
+        "<p>1つ前の保存です。Minecraftは新しいファイルを書く前に現在のファイルを <code>level.dat_old</code> へ変更するため、最初に試せる1世代分のバックアップです。</p>"
+      ],
+      [
+        "NBTエディターで切断ファイルを修復できますか？",
+        "<p>データが止まった位置は確認できますが、失われたバイトは復元できません。途中までしか解析できない場合はバックアップが必要です。</p>"
+      ],
+      [
+        "建築物は失われますか？",
+        "<p><code>level.dat</code> だけが壊れた場合は失われません。チャンクは <code>region/</code> または <code>db/</code> にあり、同じバージョンの新しいワールドファイルから利用できます。</p>"
+      ],
+      [
+        "level.datは正常なのにワールドが空です。",
+        "<p>メタデータではなくチャンク保存領域に問題があります。<code>region/</code> または <code>db/</code> がコピーされているか、<code>level.dat</code> のスポーン座標が想定位置か確認してください。</p>"
+      ]
+    ],
+    "howto": {
+      "name": "破損したlevel.datを診断して修復",
+      "time": "PT10M",
+      "steps": [
+        [
+          "ワールドフォルダーをバックアップ",
+          "作業前にワールドディレクトリー全体をコピーします。以下の手順を戻せるのはこのコピーがある場合だけです。"
+        ],
+        [
+          "level.dat_oldを試す",
+          "前回の保存level.dat_oldをNBTエディターで開きます。正常に解析できればlevel.datへ上書きしてワールドを起動します。"
+        ],
+        [
+          "破損ファイルを開く",
+          "level.datをドロップします。正常に解析できる場合、問題はチャンク、Mod、サーバー本体など別の場所です。"
+        ],
+        [
+          "エラーを読む",
+          "unexpected end of dataは切断、不自然なストレージバージョンはBedrockヘッダー破損、形式を認識できない場合はNBTではないことを示します。"
+        ],
+        [
+          "圧縮方式と形式を確認",
+          "ファイルバーを確認します。Java の level.datはgzipビッグエンディアン、Bedrockはヘッダー付きリトルエンディアンです。正しい設定で再保存すると別ツールによる形式破損を直せます。"
+        ],
+        [
+          "不足部分だけを再構築",
+          "1タグだけなら正しい型で追加します。切断されている場合はlevel.dat_oldまたはバックアップを優先します。欠落データをエディターで作ることはできません。"
+        ]
+      ]
+    },
+    "ui": {
+      "loaded": "{0} として読み込みました",
+      "trailing": "ルートタグ後の末尾バイト {0} 個を無視しました",
+      "error": "エラー: {0}",
+      "readfail": "ファイルを読み取れませんでした",
+      "nofile": "ファイルが読み込まれていません",
+      "saved": "{0} を保存しました（{1}、{2}）",
+      "savefail": "保存エラー: {0}",
+      "exported": "{0} をエクスポートしました",
+      "snbtfail": "SNBTエラー: {0}",
+      "tagadded": "タグを追加しました",
+      "tagremoved": "タグを削除しました",
+      "arrayupdated": "配列を更新しました",
+      "badvalue": "無効な値: {0}",
+      "badarray": "無効な配列: {0}",
+      "nameneeded": "タグ名が必要です",
+      "nametaken": "{0} というタグはここにすでに存在します",
+      "listtype": "このListにはすでに {0} 型の要素があります",
+      "editlevelname": "✎ LevelNameを編集",
+      "showmore": "さらに {0} 件を表示（全 {1} 件）…",
+      "matches": "{0} 件一致",
+      "nomatch": "「{0}」に一致するタグはありません",
+      "arraytoobig": "配列には {0} 件あります。展開して各要素を個別に編集してください",
+      "uncompressed": "非圧縮",
+      "storage": "ストレージ v{0}",
+      "entries": "{0} 件",
+      "langprompt": "このページを{0}で開きますか？",
+      "langyes": "切り替える",
+      "langno": "このまま"
+    },
+    "support": "<strong>Minecraft Bedrock EditionとJava Editionに対応</strong>し、一般的なものから小規模なものまで両方の全サーバーコアを扱えます: Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLaminaなど。<a href=\"__HOME__#server-software\">全一覧</a>。",
+    "footernote": "無料のオープンソース（MIT）で、すべてブラウザー内で動作します。Mojang StudiosおよびMicrosoftとは関係ありません。MinecraftはMojang Studiosの商標です。",
+    "faqtitle": "よくある質問",
+    "toctitle": "このページの目次",
+    "relatedtitle": "関連ツール",
+    "homecrumb": "NBTエディター",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "エディター",
+      "ファイル形式",
+      "リファレンス"
+    ],
+    "sourcehead": "ソース",
+    "sourcelink": "GitHubのコード"
+  },
+  "guides/edit-gamerules": {
+    "title": "level.datでMinecraftゲームルールを編集 — Java・Bedrock",
+    "ogtitle": "level.datでゲームルールを編集",
+    "desc": "level.datを編集し、keepInventory、doDaylightCycle、mobGriefingなどのゲームルールを変更します。JavaではGameRules内の文字列、Bedrockではルート直下の小文字ByteまたはIntとして保存されます。正しいタグ名と型、サーバー停止手順を説明します。",
+    "keywords": "Minecraft ゲームルール 変更, keepInventory NBT, level.dat gamerule 編集, チートなし ゲームルール, Bedrock ゲームルール level.dat, doDaylightCycle 設定",
+    "h1": "<code>level.dat</code> のゲームルールを編集する",
+    "crumb": "ゲームルールを編集",
+    "reltitle": "ゲームルールを編集",
+    "reldesc": "ワールドを開かずにkeepInventoryなどを変更。",
+    "answer": "ゲームルールは <code>level.dat</code> に保存されるため、ワールドを開かず、チートを有効にせず変更できます。ワールドを起動できない場合、チートが無効な場合、プレイヤー参加前にコピーしたワールドを準備する場合に使えます。Javaは <code>GameRules</code> Compound内の文字列、Bedrockはルート直下の小文字byteタグとして保存します。",
+    "droplabel": "level.dat",
+    "body": "\n<section class=\"content\" aria-label=\"Java gamerules\">\n<h2>Java: 文字列を持つ <code>GameRules</code> Compound</h2>\n<p>Java Editionでは <code>Data</code> → <code>GameRules</code> にルールごとの <code>TAG_String</code> があり、キーは <code>/gamerule</code> で使う正確な名前、値は <code>\"true\"</code>、<code>\"false\"</code> または数値の文字列です。設定したことのないルールは存在せず既定値へ戻ります。正しい名前と文字列値でタグを追加すればコマンド実行と同じ結果になります。</p>\n<div class=\"table-wrap\">\n<table class=\"matrix\">\n<thead><tr><th>ルール</th><th>値</th><th>効果</th></tr></thead>\n<tbody>\n<tr><td><code>keepInventory</code></td><td><code>\"true\"</code></td><td>死亡時にアイテムを保持</td></tr>\n<tr><td><code>doDaylightCycle</code></td><td><code>\"false\"</code></td><td>時刻の進行を停止</td></tr>\n<tr><td><code>doWeatherCycle</code></td><td><code>\"false\"</code></td><td>天候変化を停止</td></tr>\n<tr><td><code>mobGriefing</code></td><td><code>\"false\"</code></td><td>クリーパーやエンダーマンによるブロック変更を停止</td></tr>\n<tr><td><code>doMobSpawning</code></td><td><code>\"false\"</code></td><td>自然なMobスポーンを停止</td></tr>\n<tr><td><code>doFireTick</code></td><td><code>\"false\"</code></td><td>炎の延焼を停止</td></tr>\n<tr><td><code>commandBlockOutput</code></td><td><code>\"false\"</code></td><td>コマンドブロックのチャット出力を停止</td></tr>\n<tr><td><code>randomTickSpeed</code></td><td><code>\"3\"</code></td><td>作物成長と延焼の速度</td></tr>\n<tr><td><code>playersSleepingPercentage</code></td><td><code>\"50\"</code></td><td>夜をスキップするために必要なプレイヤー割合</td></tr>\n<tr><td><code>spawnRadius</code></td><td><code>\"10\"</code></td><td>スポーン範囲の広さ</td></tr>\n</tbody>\n</table>\n</div>\n<p>大文字と小文字は区別されます。Javaファイル内の <code>keepinventory</code> は <code>keepInventory</code> と別タグなので無視されます。</p>\n</section>\n\n<section class=\"content\" aria-label=\"Bedrock gamerules\">\n<h2>Bedrock: 小文字の個別byteタグ</h2>\n<p>Bedrockはルールをまとめません。各ルールは小文字名の <code>TAG_Byte</code> で、<code>level.dat</code> のルート直下にあり、1または0を保持します。<code>keepinventory</code>、<code>domobspawning</code>、<code>domobloot</code>、<code>dodaylightcycle</code>、<code>doweathercycle</code>、<code>mobgriefing</code>、<code>firedamage</code>、<code>falldamage</code>、<code>drowningdamage</code>、<code>pvp</code>、<code>showcoordinates</code>、<code>commandblockoutput</code>、<code>sendcommandfeedback</code>、<code>naturalregeneration</code>、<code>tntexplodes</code>、<code>respawnblocksexplode</code>、<code>showdeathmessages</code>、<code>doimmediaterespawn</code> などです。<code>randomtickspeed</code> と <code>functioncommandlimit</code> などの数値ルールは <code>TAG_Int</code> です。</p>\n<p>まだ存在しないルールは正しい型で追加します。切り替えはByte、数値はIntです。誤った型で保存すると無視されるか、ワールドを読み込めなくなります。</p>\n</section>\n\n<section class=\"content\" aria-label=\"Why edit the file\">\n<h2>コマンドよりファイル編集が適する場合</h2>\n<ul>\n<li><strong>チートが無効</strong>で、1コマンドのために有効化と無効化を行いたくない場合。</li>\n<li><strong>ワールドを読み込めない</strong>ため、初回参加前に <code>doImmediateRespawn</code> などを設定する場合。</li>\n<li><strong>多数のサーバーへコピーするテンプレートワールド</strong>にルールを保存しておく場合。</li>\n<li><strong>プラグインがルールを変更した</strong>ため、コマンド表示ではなく実際の保存値を確認する場合。</li>\n<li><strong>一括編集。</strong>複数ワールドで多数のルールを変更する場合はチャットよりファイルの方が速く処理できます。</li>\n</ul>\n<p>ほかの <code>level.dat</code> 編集と同様に、先にサーバーを停止してください。稼働中のワールドは保存時にファイルを書き直し、変更を破棄します。</p>\n</section>\n",
+    "chips": [
+      "keepInventory",
+      "doDaylightCycle",
+      "mobGriefing",
+      "commandBlockOutput",
+      "randomTickSpeed"
+    ],
+    "faq": [
+      [
+        "Javaでゲームルールが文字列なのはなぜですか？",
+        "<p>Javaは真偽値や数値を含むすべてのゲームルールを文字列として保存します。byteの1ではなく <code>\"true\"</code> と書いてください。</p>"
+      ],
+      [
+        "Bedrockではbyteなのはなぜですか？",
+        "<p>Bedrockは切り替えをルート直下のbyteタグ、数値ルールをintとして保存します。<code>GameRules</code> Compoundはありません。</p>"
+      ],
+      [
+        "ルールがファイルに存在しません。",
+        "<p>そのルールは既定値を使用しています。正確な名前と正しい型でタグを追加すると、指定した値が使われます。</p>"
+      ],
+      [
+        "ワールドフォルダーをコピーするとゲームルールもコピーされますか？",
+        "<p>はい。ゲームルールは <code>level.dat</code> にあるため、古い<a href=\"../change-world-name/\">ワールド名</a>と同様にコピー先へ引き継がれます。</p>"
+      ]
+    ],
+    "ui": {
+      "loaded": "{0} として読み込みました",
+      "trailing": "ルートタグ後の末尾バイト {0} 個を無視しました",
+      "error": "エラー: {0}",
+      "readfail": "ファイルを読み取れませんでした",
+      "nofile": "ファイルが読み込まれていません",
+      "saved": "{0} を保存しました（{1}、{2}）",
+      "savefail": "保存エラー: {0}",
+      "exported": "{0} をエクスポートしました",
+      "snbtfail": "SNBTエラー: {0}",
+      "tagadded": "タグを追加しました",
+      "tagremoved": "タグを削除しました",
+      "arrayupdated": "配列を更新しました",
+      "badvalue": "無効な値: {0}",
+      "badarray": "無効な配列: {0}",
+      "nameneeded": "タグ名が必要です",
+      "nametaken": "{0} というタグはここにすでに存在します",
+      "listtype": "このListにはすでに {0} 型の要素があります",
+      "editlevelname": "✎ LevelNameを編集",
+      "showmore": "さらに {0} 件を表示（全 {1} 件）…",
+      "matches": "{0} 件一致",
+      "nomatch": "「{0}」に一致するタグはありません",
+      "arraytoobig": "配列には {0} 件あります。展開して各要素を個別に編集してください",
+      "uncompressed": "非圧縮",
+      "storage": "ストレージ v{0}",
+      "entries": "{0} 件",
+      "langprompt": "このページを{0}で開きますか？",
+      "langyes": "切り替える",
+      "langno": "このまま"
+    },
+    "support": "<strong>Minecraft Bedrock EditionとJava Editionに対応</strong>し、一般的なものから小規模なものまで両方の全サーバーコアを扱えます: Vanilla、Paper、Spigot、Purpur、Folia、Fabric、Forge、NeoForge、Mohist、Sponge、Bedrock Dedicated Server、PocketMine-MP、Nukkit、PowerNukkitX、Cloudburst、Dragonfly、Endstone、LeviLaminaなど。<a href=\"__HOME__#server-software\">全一覧</a>。",
+    "footernote": "無料のオープンソース（MIT）で、すべてブラウザー内で動作します。Mojang StudiosおよびMicrosoftとは関係ありません。MinecraftはMojang Studiosの商標です。",
+    "faqtitle": "よくある質問",
+    "toctitle": "このページの目次",
+    "relatedtitle": "関連ツール",
+    "homecrumb": "NBTエディター",
+    "badge": "Java + Bedrock",
+    "footerheads": [
+      "エディター",
+      "ファイル形式",
+      "リファレンス"
+    ],
+    "sourcehead": "ソース",
+    "sourcelink": "GitHubのコード"
+  }
+}

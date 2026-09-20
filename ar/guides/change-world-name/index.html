@@ -3,80 +3,97 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>How to Change a Minecraft World Name (Java &amp;amp; Bedrock)</title>
-<meta name="description" content="Rename a Minecraft world properly by editing LevelName in level.dat: Java and Bedrock, single player and servers, plus the duplicate-name fix.">
-<meta name="keywords" content="how to change minecraft world name, rename minecraft world, change world name server, levelname level.dat, rename bedrock world, minecraft world still shows old name, duplicate world name server">
-<meta name="robots" content="noindex, follow">
+<title>كيفية تغيير اسم عالم Minecraft في Java وBedrock</title>
+<meta name="description" content="أعد تسمية عالم Minecraft بصورة صحيحة بتعديل LevelName في level.dat، على Java وBedrock وللعب الفردي والخوادم، مع حل مشكلة تكرار الاسم.">
+<meta name="keywords" content="تغيير اسم عالم ماين كرافت, اعادة تسمية عالم ماين كرافت, تغيير اسم العالم في السيرفر, تعديل LevelName, اسم العالم القديم ما زال يظهر, تكرار اسم العالم">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="author" content="w1zardz">
 <link rel="canonical" href="https://w1zardz.github.io/bedrock-nbt-editor/ar/guides/change-world-name/">
+<link rel="alternate" hreflang="en" href="https://w1zardz.github.io/bedrock-nbt-editor/guides/change-world-name/">
+<link rel="alternate" hreflang="ru" href="https://w1zardz.github.io/bedrock-nbt-editor/ru/guides/change-world-name/">
+<link rel="alternate" hreflang="es" href="https://w1zardz.github.io/bedrock-nbt-editor/es/guides/change-world-name/">
+<link rel="alternate" hreflang="pt-BR" href="https://w1zardz.github.io/bedrock-nbt-editor/pt-br/guides/change-world-name/">
+<link rel="alternate" hreflang="de" href="https://w1zardz.github.io/bedrock-nbt-editor/de/guides/change-world-name/">
+<link rel="alternate" hreflang="fr" href="https://w1zardz.github.io/bedrock-nbt-editor/fr/guides/change-world-name/">
+<link rel="alternate" hreflang="it" href="https://w1zardz.github.io/bedrock-nbt-editor/it/guides/change-world-name/">
+<link rel="alternate" hreflang="pl" href="https://w1zardz.github.io/bedrock-nbt-editor/pl/guides/change-world-name/">
+<link rel="alternate" hreflang="uk" href="https://w1zardz.github.io/bedrock-nbt-editor/uk/guides/change-world-name/">
+<link rel="alternate" hreflang="tr" href="https://w1zardz.github.io/bedrock-nbt-editor/tr/guides/change-world-name/">
+<link rel="alternate" hreflang="id" href="https://w1zardz.github.io/bedrock-nbt-editor/id/guides/change-world-name/">
+<link rel="alternate" hreflang="vi" href="https://w1zardz.github.io/bedrock-nbt-editor/vi/guides/change-world-name/">
+<link rel="alternate" hreflang="th" href="https://w1zardz.github.io/bedrock-nbt-editor/th/guides/change-world-name/">
+<link rel="alternate" hreflang="zh-Hans" href="https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/guides/change-world-name/">
+<link rel="alternate" hreflang="ja" href="https://w1zardz.github.io/bedrock-nbt-editor/ja/guides/change-world-name/">
+<link rel="alternate" hreflang="ko" href="https://w1zardz.github.io/bedrock-nbt-editor/ko/guides/change-world-name/">
+<link rel="alternate" hreflang="ar" href="https://w1zardz.github.io/bedrock-nbt-editor/ar/guides/change-world-name/">
 <link rel="alternate" hreflang="x-default" href="https://w1zardz.github.io/bedrock-nbt-editor/guides/change-world-name/">
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="../../../favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
 <link rel="manifest" href="../../../site.webmanifest">
 <meta property="og:type" content="article">
-<meta property="og:title" content="How to change a Minecraft world name">
-<meta property="og:description" content="Rename a Minecraft world properly by editing LevelName in level.dat: Java and Bedrock, single player and servers, plus the duplicate-name fix.">
+<meta property="og:title" content="كيفية تغيير اسم عالم Minecraft">
+<meta property="og:description" content="أعد تسمية عالم Minecraft بصورة صحيحة بتعديل LevelName في level.dat، على Java وBedrock وللعب الفردي والخوادم، مع حل مشكلة تكرار الاسم.">
 <meta property="og:url" content="https://w1zardz.github.io/bedrock-nbt-editor/ar/guides/change-world-name/">
-<meta property="og:site_name" content="Minecraft NBT Editor">
+<meta property="og:site_name" content="محرر NBT لـ Minecraft">
 <meta property="og:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/rename.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="ar_AR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="How to change a Minecraft world name">
-<meta name="twitter:description" content="Rename a Minecraft world properly by editing LevelName in level.dat: Java and Bedrock, single player and servers, plus the duplicate-name fix.">
+<meta name="twitter:title" content="كيفية تغيير اسم عالم Minecraft">
+<meta name="twitter:description" content="أعد تسمية عالم Minecraft بصورة صحيحة بتعديل LevelName في level.dat، على Java وBedrock وللعب الفردي والخوادم، مع حل مشكلة تكرار الاسم.">
 <meta name="twitter:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/rename.png">
-<meta property="article:modified_time" content="2026-08-26">
-<meta property="og:updated_time" content="2026-08-26">
+<meta property="article:modified_time" content="2026-09-21">
+<meta property="og:updated_time" content="2026-09-21">
 <meta name="theme-color" content="#0d1117">
-<meta name="application-name" content="Minecraft NBT Editor">
-<meta name="apple-mobile-web-app-title" content="NBT Editor">
-<link rel="preload" href="../../../assets/nbt.js?v=da7967b1" as="script">
-<script>window.__LANG_URLS__={"en":"../../../guides/change-world-name/","ru":"../../../ru/guides/change-world-name/","es":"../../../es/guides/change-world-name/","pt-br":"../../../pt-br/guides/change-world-name/","de":"../../../de/guides/change-world-name/","fr":"../../../fr/guides/change-world-name/","it":"../../../it/guides/change-world-name/","pl":"../../../pl/guides/change-world-name/","uk":"../../../uk/guides/change-world-name/","tr":"../../../tr/guides/change-world-name/","id":"../../../id/guides/change-world-name/","vi":"../../../vi/guides/change-world-name/","th":"../../../th/guides/change-world-name/","zh-hans":"../../../zh-hans/guides/change-world-name/","ja":"../../../ja/guides/change-world-name/","ko":"../../../ko/guides/change-world-name/","ar":"./"};window.__NBT_STRINGS__={"loaded":"Loaded as {0}","trailing":"{0} trailing byte(s) after the root tag were ignored","error":"Error: {0}","readfail":"Could not read the file","nofile":"No file loaded","saved":"Saved {0} ({1}, {2})","savefail":"Save error: {0}","exported":"Exported {0}","snbtfail":"SNBT error: {0}","tagadded":"Tag added","tagremoved":"Tag removed","arrayupdated":"Array updated","badvalue":"Invalid value: {0}","badarray":"Invalid array: {0}","nameneeded":"Tag name is required","nametaken":"A tag named {0} already exists here","listtype":"List already holds {0} entries","editlevelname":"✎ Edit LevelName","showmore":"Show {0} more of {1} …","matches":"{0} match(es)","nomatch":"No tag matches \"{0}\"","arraytoobig":"Array has {0} entries — expand it and edit elements individually","uncompressed":"uncompressed","storage":"storage v{0}","entries":"{0} entries","langprompt":"Open this page in {0}?","langyes":"Switch","langno":"Stay"};</script>
-<script src="../../../assets/lang.js?v=a3a1db0e" defer></script>
+<meta name="application-name" content="محرر NBT لـ Minecraft">
+<meta name="apple-mobile-web-app-title" content="محرر NBT">
+<link rel="preload" href="../../../assets/nbt.js?v=6f125422" as="script">
+<script>window.__LANG_URLS__={"en":"../../../guides/change-world-name/","ru":"../../../ru/guides/change-world-name/","es":"../../../es/guides/change-world-name/","pt-br":"../../../pt-br/guides/change-world-name/","de":"../../../de/guides/change-world-name/","fr":"../../../fr/guides/change-world-name/","it":"../../../it/guides/change-world-name/","pl":"../../../pl/guides/change-world-name/","uk":"../../../uk/guides/change-world-name/","tr":"../../../tr/guides/change-world-name/","id":"../../../id/guides/change-world-name/","vi":"../../../vi/guides/change-world-name/","th":"../../../th/guides/change-world-name/","zh-hans":"../../../zh-hans/guides/change-world-name/","ja":"../../../ja/guides/change-world-name/","ko":"../../../ko/guides/change-world-name/","ar":"./"};window.__NBT_STRINGS__={"loaded":"تم التحميل بصيغة {0}","trailing":"تم تجاهل {0} بايت لاحق بعد وسم الجذر","error":"خطأ: {0}","readfail":"تعذرت قراءة الملف","nofile":"لم يتم تحميل ملف","saved":"تم حفظ {0} ({1}, {2})","savefail":"خطأ في الحفظ: {0}","exported":"تم تصدير {0}","snbtfail":"خطأ SNBT: {0}","tagadded":"تمت إضافة الوسم","tagremoved":"تمت إزالة الوسم","arrayupdated":"تم تحديث المصفوفة","badvalue":"قيمة غير صالحة: {0}","badarray":"مصفوفة غير صالحة: {0}","nameneeded":"اسم الوسم مطلوب","nametaken":"يوجد هنا وسم باسم {0} بالفعل","listtype":"تحتوي القائمة بالفعل على عناصر من النوع {0}","editlevelname":"✎ تعديل LevelName","showmore":"إظهار {0} أخرى من {1} …","matches":"{0} نتيجة مطابقة","nomatch":"لا يوجد وسم يطابق \"{0}\"","arraytoobig":"تحتوي المصفوفة على {0} عنصرًا — وسّعها وعدّل العناصر منفردة","uncompressed":"غير مضغوط","storage":"إصدار التخزين v{0}","entries":"{0} عنصرًا","langprompt":"هل تريد فتح هذه الصفحة باللغة {0}؟","langyes":"تبديل","langno":"البقاء","nav_editor":"المحرر","nav_format":"صيغة NBT","language":"اللغة: {0}","beta":"تجريبية","skip_editor":"الانتقال إلى المحرر","brand_editor":"محرر NBT","guides":"الأدلة","updated":"آخر تحديث: {0}.","drop":"أفلت {0} هنا","choose_file":"اختر ملفًا","file_hint":"level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · بيانات مقاطع مستخرجة","output_format":"صيغة الإخراج","format_java":"Java — بترتيب big-endian وجذر ذي اسم","format_java_network":"شبكة Java — بترتيب big-endian وجذر بلا اسم","format_bedrock_level":"Bedrock level.dat — بترتيب little-endian مع ترويسة من 8 بايت","format_bedrock":"Bedrock الخام — بترتيب little-endian","format_bedrock_network":"شبكة Bedrock — أعداد varint بترتيب little-endian","compression":"الضغط","compression_none":"بلا ضغط (بيانات خام)","search_placeholder":"ابحث عن اسم وسم أو قيمته…","search":"بحث","collapse":"طي الكل","add_tag":"+ إضافة وسم","save_download":"حفظ وتنزيل","export_snbt":"تصدير SNBT","close":"إغلاق","add_new_tag":"إضافة وسم جديد","tag_name":"اسم الوسم","tag_type":"نوع الوسم","tag_example":"مثلًا MyTag","value":"القيمة","list_element_type":"نوع عناصر القائمة","cancel":"إلغاء","add":"إضافة","edit_array":"تعديل المصفوفة","comma_values":"قيم مفصولة بفواصل","apply":"تطبيق","format_label_java":"Java بترتيب big-endian","format_label_java_network":"شبكة Java (جذر بلا اسم)","format_label_bedrock_level":"Bedrock level.dat (ترويسة من 8 بايت)","format_label_bedrock":"Bedrock بترتيب little-endian","format_label_bedrock_network":"شبكة Bedrock (varint)","err_decompress":"لا يستطيع هذا المتصفح فك ضغط {0} (واجهة Compression Streams API غير متوفرة)","err_compress":"لا يستطيع هذا المتصفح الضغط بصيغة {0} (واجهة Compression Streams API غير متوفرة)","err_stream":"تعذرت معالجة الضغط بصيغة {0}","err_end":"انتهت البيانات بشكل غير متوقع عند الإزاحة {0}","err_tag_limit":"تم تجاوز الحد الأقصى لعدد الوسوم","err_varint":"قيمة VarInt أطول من المسموح","err_varlong":"قيمة VarLong أطول من المسموح","err_negative_array":"طول المصفوفة سالب: {0}","err_array_length":"طول المصفوفة {0} يتجاوز البيانات المتبقية","err_negative_list":"طول القائمة سالب","err_end_list":"قائمة TAG_End تحتوي على {0} عنصرًا","err_list_type":"نوع عناصر القائمة غير معروف: {0}","err_tag_type":"نوع الوسم غير معروف: {0}","err_root":"يجب أن يكون وسم الجذر TAG_Compound، لكن النوع الفعلي هو {0}","err_string_length":"السلسلة النصية أطول مما تسمح به هذه الصيغة: {0} بايت","err_write_type":"لا يمكن كتابة وسم من النوع {0}","err_header_short":"البيانات أقصر من أن تحتوي على ترويسة","err_storage_version":"إصدار تخزين غير منطقي: {0}","err_header_length":"الطول المحدد في الترويسة، {0}، يتجاوز حجم البيانات","err_unknown_file":"تعذر التعرف على ملف NBT (جُرّبت صيغ Java وBedrock والشبكة والصيغ ذات الترويسة)","err_file_small":"الملف أصغر من أن يحتوي على بيانات NBT","err_byte":"يجب أن تكون قيمة Byte ضمن النطاق -128..127","err_short":"يجب أن تكون قيمة Short ضمن النطاق -32768..32767","err_int":"يجب أن تكون قيمة Int ضمن النطاق -2147483648..2147483647","err_long":"قيمة Long خارج نطاق 64 بت","err_float":"قيمة float غير صالحة","err_double":"قيمة double غير صالحة","err_not_inline":"لا يمكن تعديل هذا النوع من الوسوم مباشرة","err_array_byte":"قيمة byte غير صالحة: {0}","err_array_int":"قيمة int غير صالحة: {0}","err_array_long":"عدد صحيح من 64 بت غير صالح: {0}","root":"(الجذر)","add_child":"إضافة وسم فرعي","remove_tag":"إزالة الوسم","array":"مصفوفة","array_bytes":"[{0} بايت]","array_ints":"[{0} قيمة int]","array_longs":"[{0} قيمة long]","entries_type":"{0} عنصرًا من النوع {1}","unknown_error":"تعذر إكمال العملية","software_name":"محرر NBT لـ Minecraft","software_alternate_online":"محرر NBT عبر الإنترنت","software_alternate_bedrock":"محرر NBT لـ Bedrock","software_alternate_level":"محرر level.dat","software_subcategory":"محرر ملفات الألعاب","software_os":"أي نظام (عبر المتصفح)","software_browser":"متصفح حديث يدعم BigInt وCompression Streams","feature_java":"NBT بترتيب big-endian في Java Edition","feature_bedrock":"NBT بترتيب little-endian في Bedrock Edition","feature_bedrock_network":"NBT لشبكة Bedrock (varint)","feature_java_network":"NBT لشبكة Java (جذر بلا اسم)","feature_compression":"ضغط gzip وzlib","feature_types":"أنواع وسوم NBT الثلاثة عشر كلها بدقة 64 بت","feature_snbt":"تصدير SNBT","feature_local":"يعمل بالكامل على جهازك","schema_about":"صيغة بيانات NBT في Minecraft","not_found_title":"الصفحة غير موجودة — {0}","not_found_heading":"404 — نُقلت هذه الصفحة أو لم تكن موجودة أصلًا","not_found_intro":"لا يزال المحرر متاحًا بنقرة واحدة، ولكل أداة رابط دائم أدناه.","not_found_footer":"{0} — مجاني ومفتوح المصدر.","aria_bedrock_gamerules":"قواعد اللعب في Bedrock","aria_bedrock_level_dat_header":"ترويسة level.dat في Bedrock","aria_bedrock_tags":"وسوم Bedrock","aria_breadcrumb":"مسار التنقل","aria_byte_walkthrough":"شرح بايتًا ببايت","aria_causes":"الأسباب","aria_common_repairs":"الإصلاحات الشائعة","aria_comparison":"المقارنة","aria_compatibility":"التوافق","aria_compression":"الضغط","aria_core_specifics":"تفاصيل برامج الخوادم","aria_dataversion":"DataVersion","aria_drop_an_nbt_file_here_or_click_to_browse":"أفلت ملف NBT هنا أو انقر لاختيار ملف","aria_duplicate_world_names":"أسماء العوالم المكررة","aria_editing_schematics":"تعديل المخططات","aria_encodings":"طرق الترميز","aria_features":"الميزات","aria_file_types":"أنواع الملفات","aria_frequently_asked_questions":"الأسئلة الشائعة","aria_how_to_use":"طريقة الاستخدام","aria_inside_a_mcstructure_file":"محتويات ملف mcstructure","aria_introduction":"مقدمة","aria_java_nbt_encoding":"ترميز NBT في Java","aria_java_nbt_files":"ملفات NBT في Java","aria_java_gamerules":"قواعد اللعب في Java","aria_migrating":"الانتقال من أدوات أخرى","aria_other_bedrock_nbt":"بيانات NBT الأخرى في Bedrock","aria_other_tools":"أدوات أخرى","aria_per_platform":"حسب المنصة","aria_prevention":"الوقاية","aria_related_tools":"أدوات ذات صلة","aria_snbt":"SNBT","aria_safety":"السلامة","aria_salvage":"استعادة البيانات","aria_schematic_formats":"صيغ المخططات","aria_scripting":"استخدام السكربتات","aria_search_nbt_tags":"البحث في وسوم NBT","aria_server_cores":"برامج الخوادم","aria_server_safety":"سلامة الخادم","aria_server_workflow":"خطوات العمل على الخادم","aria_strings":"السلاسل النصية","aria_supported_files":"الملفات المدعومة","aria_supported_server_software":"برامج الخوادم المدعومة","aria_tag_types":"أنواع الوسوم","aria_tags_in_level_dat":"الوسوم داخل level.dat","aria_tools":"الأدوات","aria_troubleshooting":"استكشاف المشكلات وإصلاحها","aria_typical_edits":"التعديلات المعتادة","aria_what_you_can_inspect":"البيانات التي يمكنك فحصها","aria_where_bedrock_files_live":"أماكن ملفات Bedrock","aria_where_mcstructure_files_live":"أماكن ملفات mcstructure","aria_where_to_find_level_dat":"مكان العثور على level.dat","aria_why_edit_the_file":"لماذا نعدل الملف","aria_why_the_folder_name_is_not_the_world_name":"لماذا يختلف اسم المجلد عن اسم العالم","aria_playerdata_tags":"وسوم playerdata","toggle":"توسيع أو طي"};</script>
+<script src="../../../assets/lang.js?v=23a64b2c" defer></script>
 <link rel="stylesheet" href="../../../assets/app.css?v=f5bdcb0f">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"How to Change a Minecraft World Name (Java & Bedrock)","headline":"How to Change a Minecraft World Name","description":"Rename a Minecraft world properly by editing LevelName in level.dat: Java and Bedrock, single player and servers, plus the duplicate-name fix.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ar/guides/change-world-name/","inLanguage":"ar","datePublished":"2026-05-29","dateModified":"2026-08-26","isPartOf":{"@type":"WebSite","name":"Minecraft NBT Editor","url":"https://w1zardz.github.io/bedrock-nbt-editor/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/rename.png"},"about":{"@type":"Thing","name":"Minecraft NBT data format"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT Editor","item":"https://w1zardz.github.io/bedrock-nbt-editor/ar/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://w1zardz.github.io/bedrock-nbt-editor/ar/guides/"},{"@type":"ListItem","position":3,"name":"How to Change a Minecraft World Name","item":"https://w1zardz.github.io/bedrock-nbt-editor/ar/guides/change-world-name/"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does renaming a world delete anything?","acceptedAnswer":{"@type":"Answer","text":"No. LevelName is a label. Terrain, players, inventories and entities live in other files and are untouched."}},{"@type":"Question","name":"Can I use spaces, colours or emoji in a world name?","acceptedAnswer":{"@type":"Answer","text":"Spaces are fine. Section-sign colour codes work on some server software and show as literal characters elsewhere. Emoji survive the round trip here because the editor uses the right string encoding per edition, but consoles and log files may render them badly."}},{"@type":"Question","name":"Do I have to rename the folder too?","acceptedAnswer":{"@type":"Answer","text":"No, and often you should not \u2014 a server's level-name setting or a plugin config may point at the folder path. Change one thing at a time."}},{"@type":"Question","name":"Will players see the new name immediately?","acceptedAnswer":{"@type":"Answer","text":"After the world reloads, yes. Clients that cached a server list entry may need a refresh."}}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"Change a Minecraft world name by editing level.dat","description":"Rename a Minecraft world properly by editing LevelName in level.dat: Java and Bedrock, single player and servers, plus the duplicate-name fix.","totalTime":"PT3M","tool":[{"@type":"HowToTool","name":"Minecraft NBT Editor"}],"step":[{"@type":"HowToStep","position":1,"name":"Stop the game or server","text":"Close the world or stop the server. Minecraft rewrites level.dat on autosave and shutdown, and a running instance will overwrite the edit.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ar/guides/change-world-name/#step-1"},{"@type":"HowToStep","position":2,"name":"Locate level.dat","text":"Java: world/level.dat on a server, or saves/<World>/level.dat in the client. Bedrock: worlds/<World>/level.dat on a server, or the world id folder under minecraftWorlds on a device.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ar/guides/change-world-name/#step-2"},{"@type":"HowToStep","position":3,"name":"Open it in the editor","text":"Drop the file into the NBT editor. It detects the edition and encoding and jumps to the LevelName tag automatically.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ar/guides/change-world-name/#step-3"},{"@type":"HowToStep","position":4,"name":"Edit LevelName","text":"Click the value, type the new name, press Enter. Keep it to plain characters if the name has to survive being printed in a console.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ar/guides/change-world-name/#step-4"},{"@type":"HowToStep","position":5,"name":"Save and download","text":"Click Save & Download. The output format and compression stay exactly as the file arrived, so nothing else about the file changes.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ar/guides/change-world-name/#step-5"},{"@type":"HowToStep","position":6,"name":"Replace the original","text":"Copy the downloaded file over the original, keeping a backup, then start the game or server and confirm the new name in the world list.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ar/guides/change-world-name/#step-6"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"كيفية تغيير اسم عالم Minecraft في Java وBedrock","headline":"كيفية تغيير اسم عالم Minecraft","description":"أعد تسمية عالم Minecraft بصورة صحيحة بتعديل LevelName في level.dat، على Java وBedrock وللعب الفردي والخوادم، مع حل مشكلة تكرار الاسم.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ar/guides/change-world-name/","inLanguage":"ar","datePublished":"2026-05-29","dateModified":"2026-09-21","isPartOf":{"@type":"WebSite","name":"محرر NBT لـ Minecraft","url":"https://w1zardz.github.io/bedrock-nbt-editor/ar/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/rename.png"},"about":{"@type":"Thing","name":"صيغة بيانات NBT في Minecraft"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"محرر NBT","item":"https://w1zardz.github.io/bedrock-nbt-editor/ar/"},{"@type":"ListItem","position":2,"name":"الأدلة","item":"https://w1zardz.github.io/bedrock-nbt-editor/ar/guides/"},{"@type":"ListItem","position":3,"name":"كيفية تغيير اسم عالم Minecraft","item":"https://w1zardz.github.io/bedrock-nbt-editor/ar/guides/change-world-name/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"هل تؤدي إعادة تسمية العالم إلى حذف أي شيء؟","acceptedAnswer":{"@type":"Answer","text":"لا. LevelName مجرد تسمية. توجد التضاريس واللاعبون والمخزونات والكيانات في ملفات أخرى ولا تتأثر."}},{"@type":"Question","name":"هل يمكنني استخدام مسافات أو ألوان أو رموز تعبيرية في اسم العالم؟","acceptedAnswer":{"@type":"Answer","text":"يمكن استخدام المسافات. تعمل رموز الألوان بعلامة القسم في بعض برمجيات الخوادم وتظهر كمحارف عادية في غيرها. تبقى الرموز التعبيرية سليمة بعد فتح الملف وحفظه هنا لأن المحرر يستخدم ترميز السلاسل الصحيح لكل إصدار، لكن قد تعرضها وحدات التحكم وملفات السجل بصورة سيئة."}},{"@type":"Question","name":"هل يجب أن أعيد تسمية المجلد أيضًا؟","acceptedAnswer":{"@type":"Answer","text":"لا، وغالبًا ينبغي ألا تفعل ذلك، فقد يشير إعداد level-name في الخادم أو إعداد إضافة إلى مسار المجلد. غيّر شيئًا واحدًا في كل مرة."}},{"@type":"Question","name":"هل سيرى اللاعبون الاسم الجديد فورًا؟","acceptedAnswer":{"@type":"Answer","text":"نعم، بعد إعادة تحميل العالم. قد يحتاج العملاء الذين خزّنوا إدخال قائمة الخوادم مؤقتًا إلى تحديثها."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"تغيير اسم عالم Minecraft بتعديل level.dat","description":"أعد تسمية عالم Minecraft بصورة صحيحة بتعديل LevelName في level.dat، على Java وBedrock وللعب الفردي والخوادم، مع حل مشكلة تكرار الاسم.","totalTime":"PT3M","tool":[{"@type":"HowToTool","name":"Minecraft NBT Editor"}],"step":[{"@type":"HowToStep","position":1,"name":"أوقف اللعبة أو الخادم","text":"أغلق العالم أو أوقف الخادم. تعيد Minecraft كتابة level.dat عند الحفظ التلقائي والإيقاف، وستستبدل النسخة قيد التشغيل تعديلك.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ar/guides/change-world-name/#step-1"},{"@type":"HowToStep","position":2,"name":"حدد موقع level.dat","text":"Java: المسار world/level.dat على الخادم، أو saves/\u003cWorld>/level.dat في العميل. Bedrock: المسار worlds/\u003cWorld>/level.dat على الخادم، أو مجلد معرّف العالم تحت minecraftWorlds على الجهاز.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ar/guides/change-world-name/#step-2"},{"@type":"HowToStep","position":3,"name":"افتحه في المحرر","text":"ضع الملف في محرر NBT. سيكتشف الإصدار والترميز وينتقل تلقائيًا إلى الوسم LevelName.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ar/guides/change-world-name/#step-3"},{"@type":"HowToStep","position":4,"name":"عدّل LevelName","text":"انقر القيمة، واكتب الاسم الجديد، ثم اضغط Enter. استخدم محارف عادية إذا كان يجب أن يظهر الاسم بصورة سليمة في وحدة التحكم.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ar/guides/change-world-name/#step-4"},{"@type":"HowToStep","position":5,"name":"احفظ ونزّل","text":"انقر «حفظ وتنزيل». سيبقى تنسيق الإخراج والضغط مطابقين تمامًا للملف عند إدخاله، فلا يتغير أي شيء آخر فيه.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ar/guides/change-world-name/#step-5"},{"@type":"HowToStep","position":6,"name":"استبدل الملف الأصلي","text":"انسخ الملف المنزّل فوق الملف الأصلي مع الاحتفاظ بنسخة احتياطية، ثم شغّل اللعبة أو الخادم وتأكد من الاسم الجديد في قائمة العوالم.","url":"https://w1zardz.github.io/bedrock-nbt-editor/ar/guides/change-world-name/#step-6"}]}</script>
 </head>
 <body>
-<a class="skip-link" href="#editor">Skip to the editor</a>
+<a class="skip-link" href="#editor">الانتقال إلى المحرر</a>
 <header class="site-header">
 <div class="container">
-<a class="brand" href="../../"><span>Minecraft</span> NBT Editor</a>
+<a class="brand" href="../../"><span>Minecraft</span> محرر NBT</a>
 <span class="badge">Java + Bedrock</span>
-<nav class="site-nav" aria-label="Tools">
-<a href="../../">Editor</a>
+<nav class="site-nav" aria-label="الأدوات">
+<a href="../../">المحرر</a>
 <a href="../../level-dat-editor/">level.dat</a>
 <a href="../../java-nbt-editor/">Java</a>
 <a href="../../mcpe-nbt-editor/">Bedrock</a>
 <a href="../../mcstructure-editor/">.mcstructure</a>
 <a href="../../schematic-editor/">.schem</a>
 <a href="../../playerdata-editor/">playerdata</a>
-<a href="../../nbt-format/">NBT format</a>
+<a href="../../nbt-format/">صيغة NBT</a>
 </nav>
-<details class="lang-switch"><summary title="Language: العربية" aria-label="Language: العربية"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">Language: العربية</span></summary><div class="lang-menu"><a href="./" hreflang="ar" data-lang="ar" aria-current="true" class="current">العربية</a><a href="../../../guides/change-world-name/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../../ru/guides/change-world-name/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../../es/guides/change-world-name/" hreflang="es" data-lang="es" rel="alternate">Español (beta)</a><a href="../../../pt-br/guides/change-world-name/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR) (beta)</a><a href="../../../de/guides/change-world-name/" hreflang="de" data-lang="de" rel="alternate">Deutsch (beta)</a><a href="../../../fr/guides/change-world-name/" hreflang="fr" data-lang="fr" rel="alternate">Français (beta)</a><a href="../../../it/guides/change-world-name/" hreflang="it" data-lang="it" rel="alternate">Italiano (beta)</a><a href="../../../pl/guides/change-world-name/" hreflang="pl" data-lang="pl" rel="alternate">Polski (beta)</a><a href="../../../uk/guides/change-world-name/" hreflang="uk" data-lang="uk" rel="alternate">Українська (beta)</a><a href="../../../tr/guides/change-world-name/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe (beta)</a><a href="../../../id/guides/change-world-name/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia (beta)</a><a href="../../../vi/guides/change-world-name/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt (beta)</a><a href="../../../th/guides/change-world-name/" hreflang="th" data-lang="th" rel="alternate">ไทย (beta)</a><a href="../../../zh-hans/guides/change-world-name/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文 (beta)</a><a href="../../../ja/guides/change-world-name/" hreflang="ja" data-lang="ja" rel="alternate">日本語 (beta)</a><a href="../../../ko/guides/change-world-name/" hreflang="ko" data-lang="ko" rel="alternate">한국어 (beta)</a></div></details>
+<details class="lang-switch"><summary title="اللغة: العربية" aria-label="اللغة: العربية"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">اللغة: العربية</span></summary><div class="lang-menu"><a href="./" hreflang="ar" data-lang="ar" aria-current="true" class="current">العربية</a><a href="../../../guides/change-world-name/" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../../../ru/guides/change-world-name/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../../../es/guides/change-world-name/" hreflang="es" data-lang="es" rel="alternate">Español</a><a href="../../../pt-br/guides/change-world-name/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR)</a><a href="../../../de/guides/change-world-name/" hreflang="de" data-lang="de" rel="alternate">Deutsch</a><a href="../../../fr/guides/change-world-name/" hreflang="fr" data-lang="fr" rel="alternate">Français</a><a href="../../../it/guides/change-world-name/" hreflang="it" data-lang="it" rel="alternate">Italiano</a><a href="../../../pl/guides/change-world-name/" hreflang="pl" data-lang="pl" rel="alternate">Polski</a><a href="../../../uk/guides/change-world-name/" hreflang="uk" data-lang="uk" rel="alternate">Українська</a><a href="../../../tr/guides/change-world-name/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe</a><a href="../../../id/guides/change-world-name/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia</a><a href="../../../vi/guides/change-world-name/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt</a><a href="../../../th/guides/change-world-name/" hreflang="th" data-lang="th" rel="alternate">ไทย</a><a href="../../../zh-hans/guides/change-world-name/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文</a><a href="../../../ja/guides/change-world-name/" hreflang="ja" data-lang="ja" rel="alternate">日本語</a><a href="../../../ko/guides/change-world-name/" hreflang="ko" data-lang="ko" rel="alternate">한국어</a></div></details>
 </div>
 </header>
 <main>
-<nav class="breadcrumbs container" aria-label="Breadcrumb"><a href="../../">NBT Editor</a> <span class="sep">/</span> <span>Guides</span> <span class="sep">/</span> <span>Change world name</span></nav>
-<section class="hero" aria-label="Introduction">
+<nav class="breadcrumbs container" aria-label="مسار التنقل"><a href="../../">محرر NBT</a> <span class="sep">/</span> <span>الأدلة</span> <span class="sep">/</span> <span>تغيير اسم العالم</span></nav>
+<section class="hero" aria-label="مقدمة">
 <div class="container">
-<h1>How to Change a Minecraft World Name</h1>
-<p class="support-line"><strong>Supports Minecraft Bedrock Edition and Java Edition</strong> — and every server core for both, popular or obscure: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina and the rest. <a href="../../#server-software">Full list</a>.</p>
-<p class="lede">A world's display name lives in the <code>LevelName</code> tag inside <code>level.dat</code>, not in the folder name. Renaming the folder changes nothing the game shows, which is why a copied world keeps announcing itself under the original name. Drop <code>level.dat</code> into the editor below — it jumps straight to <code>LevelName</code> — change the value, save, and put the file back.</p>
-<div class="chips"><span class="chip">Java</span><span class="chip">Bedrock</span><span class="chip">Servers</span><span class="chip">Single player</span><span class="chip">2 minutes</span></div>
+<h1>كيفية تغيير اسم عالم Minecraft</h1>
+<p class="support-line"><strong>يدعم Minecraft Bedrock Edition وJava Edition</strong> — وجميع برمجيات الخوادم لكليهما، الشائعة والنادرة: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina وغيرها. <a href="../../#server-software">القائمة الكاملة</a>.</p>
+<p class="lede">يوجد اسم العرض الخاص بالعالم في الوسم <code>LevelName</code> داخل <code>level.dat</code>، وليس في اسم المجلد. لا يغيّر إعادة تسمية المجلد أي شيء تعرضه اللعبة، ولهذا يستمر العالم المنسوخ في استخدام اسمه الأصلي. ضع <code>level.dat</code> في المحرر أدناه؛ سينتقل مباشرة إلى <code>LevelName</code>. غيّر القيمة واحفظ الملف ثم أعده إلى مكانه.</p>
+<div class="chips"><span class="chip">Java</span><span class="chip">Bedrock</span><span class="chip">الخوادم</span><span class="chip">اللعب الفردي</span><span class="chip">2 دقيقة</span></div>
 </div>
 </section>
 <div id="editor">
 
-<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="Drop an NBT file here or click to browse">
+<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="أفلت ملف NBT هنا أو انقر لاختيار ملف">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 16V4m0 0L8 8m4-4l4 4"/><path d="M20 16v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2"/></svg>
-<p>Drop <strong>level.dat</strong> here</p>
-<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">Choose File</button>
-<span class="hint">level.dat &middot; .nbt &middot; .mcstructure &middot; .schem &middot; .schematic &middot; .dat &middot; chunk dumps</span>
+<p>أفلت <strong>level.dat</strong> هنا</p>
+<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">اختر ملفًا</button>
+<span class="hint">level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · بيانات مقاطع مستخرجة</span>
 <input type="file" id="fileInput">
 </div>
 
@@ -84,18 +101,16 @@
 <div class="file-info" id="fileInfo"></div>
 
 <div class="out-bar" id="outBar">
-<label>Output format
-<select id="outFormat">
-<option value="java">Java — big-endian, named root</option>
-<option value="java-network">Java network — big-endian, nameless root</option>
-<option value="bedrock-level">Bedrock level.dat — little-endian + 8-byte header</option>
-<option value="bedrock">Bedrock raw — little-endian</option>
-<option value="bedrock-network">Bedrock network — little-endian varint</option>
+<label>صيغة الإخراج<select id="outFormat">
+<option value="java">Java — بترتيب big-endian وجذر ذي اسم</option>
+<option value="java-network">شبكة Java — بترتيب big-endian وجذر بلا اسم</option>
+<option value="bedrock-level">Bedrock level.dat — بترتيب little-endian مع ترويسة من 8 بايت</option>
+<option value="bedrock">Bedrock الخام — بترتيب little-endian</option>
+<option value="bedrock-network">شبكة Bedrock — أعداد varint بترتيب little-endian</option>
 </select>
 </label>
-<label>Compression
-<select id="outCompression">
-<option value="none">None (raw)</option>
+<label>الضغط<select id="outCompression">
+<option value="none">بلا ضغط (بيانات خام)</option>
 <option value="gzip">gzip</option>
 <option value="zlib">zlib (deflate)</option>
 </select>
@@ -103,9 +118,9 @@
 </div>
 
 <div class="search-bar">
-<input type="search" id="searchInput" placeholder="Search tag name or value…" autocomplete="off" spellcheck="false" aria-label="Search NBT tags">
-<button type="button" id="btnSearch">Search</button>
-<button type="button" id="btnCollapse">Collapse all</button>
+<input type="search" id="searchInput" placeholder="ابحث عن اسم وسم أو قيمته…" autocomplete="off" spellcheck="false" aria-label="البحث في وسوم NBT">
+<button type="button" id="btnSearch">بحث</button>
+<button type="button" id="btnCollapse">طي الكل</button>
 </div>
 <div class="search-results" id="searchResults"></div>
 
@@ -113,69 +128,69 @@
 </div>
 
 <div class="bottom-bar" id="bottomBar">
-<button class="btn-add" id="btnAddRoot" type="button">+ Add Tag</button>
-<button class="btn-save" id="btnSave" type="button">Save &amp; Download</button>
-<button class="btn-snbt" id="btnSnbt" type="button">Export SNBT</button>
-<button class="btn-close" id="btnCloseFile" type="button">Close</button>
+<button class="btn-add" id="btnAddRoot" type="button">+ إضافة وسم</button>
+<button class="btn-save" id="btnSave" type="button">حفظ وتنزيل</button>
+<button class="btn-snbt" id="btnSnbt" type="button">تصدير SNBT</button>
+<button class="btn-close" id="btnCloseFile" type="button">إغلاق</button>
 </div>
 
 </div>
 <div id="contentSections">
 
-<section class="content" aria-label="Why the folder name is not the world name">
-<h2 id="why-renaming-the-folder-does-nothing">Why renaming the folder does nothing</h2>
-<p>Minecraft treats the folder as an address and <code>LevelName</code> as the label. The world list, the server console, world-manager plugins and anything printing "world" to chat read the tag. So a folder copy — <code>cp -r worlds/hub worlds/hub2</code> — produces two worlds that insist they are both <em>hub</em>, and the only fix is inside the file.</p>
-<p>On a server the duplicate is worse than confusing. Plugins that resolve worlds by internal name can act on the wrong one: teleport pads, per-world configs, protection regions, economy multipliers. Rename the tag the moment you copy a world, before anything caches it.</p>
+<section class="content" aria-label="لماذا يختلف اسم المجلد عن اسم العالم">
+<h2 id="why-renaming-the-folder-does-nothing">لماذا لا تفيد إعادة تسمية المجلد</h2>
+<p>تعامل Minecraft المجلد بوصفه عنوانًا، وتعامل <code>LevelName</code> بوصفه التسمية. تقرأ قائمة العوالم ووحدة تحكم الخادم وإضافات إدارة العوالم وأي وظيفة تطبع كلمة "world" في الدردشة هذا الوسم. لذلك يؤدي نسخ مجلد، مثل <code>cp -r worlds/hub worlds/hub2</code>، إلى عالمين يصرّ كلاهما على أن اسمه <em>hub</em>، ولا يوجد حل إلا من داخل الملف.</p>
+<p>على الخادم، لا يقتصر ضرر التكرار على الالتباس. قد تعمل الإضافات التي تحدد العوالم بالاسم الداخلي على العالم الخطأ، ومنها منصات النقل وإعدادات كل عالم ومناطق الحماية ومضاعفات الاقتصاد. أعد تسمية الوسم فور نسخ عالم وقبل أن تخزن أي أداة اسمه مؤقتًا.</p>
 </section>
 
-<section class="content" aria-label="Per platform">
-<h2 id="per-platform">Per platform</h2>
+<section class="content" aria-label="حسب المنصة">
+<h2 id="per-platform">حسب المنصة</h2>
 <div class="card">
-<h3>Java single player</h3>
-<p>The client offers a rename in the world options screen and it edits <code>LevelName</code> for you. Editing the file by hand matters when the world will not load, when you are working on a copy, or when you want the folder and the label to differ deliberately.</p>
-<h3>Java server</h3>
-<p><code>level-name</code> in <code>server.properties</code> selects the <em>folder</em> to load. It does not rename anything. Change <code>LevelName</code> in <code>world/level.dat</code> for the label.</p>
-<h3>Bedrock and MCPE</h3>
-<p>The in-game world edit screen renames the world. When the world lives on a server, or you are patching an exported <code>.mcworld</code>, edit <code>LevelName</code> in <code>level.dat</code> directly — Bedrock stores it flat at the root, uncompressed, behind the 8-byte header the editor handles for you.</p>
-<h3>Bedrock servers (PocketMine-MP, Nukkit, BDS)</h3>
-<p>Same file, same tag, and the same warning about stopping the server first. The <a href="../../pocketmine-nbt-editor/">server page</a> has the full workflow including the folder-copy case.</p>
+<h3>Java في اللعب الفردي</h3>
+<p>يتيح العميل إعادة التسمية في شاشة خيارات العالم، ويعدّل <code>LevelName</code> نيابة عنك. يصبح تعديل الملف يدويًا مهمًا عندما يتعذر تحميل العالم، أو عند العمل على نسخة، أو عندما تريد أن يختلف اسم المجلد عن التسمية عمدًا.</p>
+<h3>خادم Java</h3>
+<p>يحدد <code>level-name</code> في <code>server.properties</code> <em>المجلد</em> الذي سيُحمّل، ولا يعيد تسمية أي شيء. غيّر <code>LevelName</code> في <code>world/level.dat</code> لتعديل التسمية.</p>
+<h3>Bedrock وMCPE</h3>
+<p>تعيد شاشة تعديل العالم داخل اللعبة تسمية العالم. عندما يكون العالم على خادم، أو عندما تعدّل ملف <code>.mcworld</code> مصدّرًا، عدّل <code>LevelName</code> في <code>level.dat</code> مباشرة؛ يخزنه Bedrock مسطحًا في الجذر، بلا ضغط، بعد الترويسة ذات 8 بايت التي يعالجها المحرر نيابة عنك.</p>
+<h3>خوادم Bedrock (PocketMine-MP وNukkit وBDS)</h3>
+<p>الملف نفسه والوسم نفسه، وينطبق التحذير نفسه بضرورة إيقاف الخادم أولًا. تتضمن <a href="../../pocketmine-nbt-editor/">صفحة الخادم</a> سير العمل كاملًا، بما في ذلك حالة نسخ المجلد.</p>
 </div>
 </section>
 
-<section class="content" aria-label="Troubleshooting">
-<h2 id="if-the-name-does-not-change">If the name does not change</h2>
+<section class="content" aria-label="استكشاف المشكلات وإصلاحها">
+<h2 id="if-the-name-does-not-change">إذا لم يتغير الاسم</h2>
 <ul>
-<li><strong>The server was running.</strong> Its in-memory copy was written back over your file on the next save. Stop it and redo the edit.</li>
-<li><strong>You edited the wrong world.</strong> Bedrock world folders are random ids. Open the file and read <code>LevelName</code> to confirm you have the right one before editing.</li>
-<li><strong>You edited <code>level.dat_old</code>.</strong> That is the previous save, not the live file.</li>
-<li><strong>A launcher or panel caches the name.</strong> Some hosting panels show a name from their own database rather than the world file; the game itself will be correct.</li>
-<li><strong>The world will not load at all now.</strong> Restore the backup and see <a href="../fix-corrupted-level-dat/">fixing a broken level.dat</a>.</li>
+<li><strong>كان الخادم قيد التشغيل.</strong> أعاد كتابة نسخته الموجودة في الذاكرة فوق ملفك عند الحفظ التالي. أوقفه وأعد التعديل.</li>
+<li><strong>عدّلت العالم الخطأ.</strong> تحمل مجلدات عوالم Bedrock معرّفات عشوائية. افتح الملف واقرأ <code>LevelName</code> للتأكد من اختيار العالم الصحيح قبل التعديل.</li>
+<li><strong>عدّلت <code>level.dat_old</code>.</strong> هذا هو الحفظ السابق، وليس الملف المستخدم حاليًا.</li>
+<li><strong>يخزن المشغّل أو لوحة التحكم الاسم مؤقتًا.</strong> تعرض بعض لوحات الاستضافة اسمًا من قاعدة بياناتها بدلًا من ملف العالم؛ أما الاسم داخل اللعبة فسيكون صحيحًا.</li>
+<li><strong>لم يعد العالم يُحمّل إطلاقًا.</strong> استعد النسخة الاحتياطية وراجع <a href="../fix-corrupted-level-dat/">إصلاح ملف level.dat تالف</a>.</li>
 </ul>
 </section>
 
-<section class="content" aria-label="Frequently asked questions"><h2>Frequently Asked Questions</h2><details><summary>Does renaming a world delete anything?</summary><div class="faq-body"><p>No. <code>LevelName</code> is a label. Terrain, players, inventories and entities live in other files and are untouched.</p></div></details><details><summary>Can I use spaces, colours or emoji in a world name?</summary><div class="faq-body"><p>Spaces are fine. Section-sign colour codes work on some server software and show as literal characters elsewhere. Emoji survive the round trip here because the editor uses the right string encoding per edition, but consoles and log files may render them badly.</p></div></details><details><summary>Do I have to rename the folder too?</summary><div class="faq-body"><p>No, and often you should not — a server's <code>level-name</code> setting or a plugin config may point at the folder path. Change one thing at a time.</p></div></details><details><summary>Will players see the new name immediately?</summary><div class="faq-body"><p>After the world reloads, yes. Clients that cached a server list entry may need a refresh.</p></div></details></section>
-<section class="content" aria-label="Related tools"><h2>Related tools</h2><div class="rel-grid"><a class="rel-card" href="../../level-dat-editor/"><strong>level.dat editor</strong><span>World name, game mode, spawn, difficulty and game rules.</span></a><a class="rel-card" href="../../pocketmine-nbt-editor/"><strong>PocketMine-MP editor</strong><span>Server-side level.dat for PMMP, Nukkit and BDS.</span></a><a class="rel-card" href="../../mcpe-nbt-editor/"><strong>MCPE NBT editor</strong><span>Little-endian NBT and the 8-byte level.dat header.</span></a><a class="rel-card" href="../fix-corrupted-level-dat/"><strong>Fix a broken level.dat</strong><span>Diagnose why a world refuses to load, and repair it.</span></a><a class="rel-card" href="../../"><strong>Minecraft NBT editor</strong><span>The universal editor — every edition, every NBT file type.</span></a><a class="rel-card" href="../edit-gamerules/"><strong>Edit game rules</strong><span>keepInventory and friends, without loading the world.</span></a></div></section>
+<section class="content" aria-label="الأسئلة الشائعة"><h2>الأسئلة الشائعة</h2><details><summary>هل تؤدي إعادة تسمية العالم إلى حذف أي شيء؟</summary><div class="faq-body"><p>لا. <code>LevelName</code> مجرد تسمية. توجد التضاريس واللاعبون والمخزونات والكيانات في ملفات أخرى ولا تتأثر.</p></div></details><details><summary>هل يمكنني استخدام مسافات أو ألوان أو رموز تعبيرية في اسم العالم؟</summary><div class="faq-body"><p>يمكن استخدام المسافات. تعمل رموز الألوان بعلامة القسم في بعض برمجيات الخوادم وتظهر كمحارف عادية في غيرها. تبقى الرموز التعبيرية سليمة بعد فتح الملف وحفظه هنا لأن المحرر يستخدم ترميز السلاسل الصحيح لكل إصدار، لكن قد تعرضها وحدات التحكم وملفات السجل بصورة سيئة.</p></div></details><details><summary>هل يجب أن أعيد تسمية المجلد أيضًا؟</summary><div class="faq-body"><p>لا، وغالبًا ينبغي ألا تفعل ذلك، فقد يشير إعداد <code>level-name</code> في الخادم أو إعداد إضافة إلى مسار المجلد. غيّر شيئًا واحدًا في كل مرة.</p></div></details><details><summary>هل سيرى اللاعبون الاسم الجديد فورًا؟</summary><div class="faq-body"><p>نعم، بعد إعادة تحميل العالم. قد يحتاج العملاء الذين خزّنوا إدخال قائمة الخوادم مؤقتًا إلى تحديثها.</p></div></details></section>
+<section class="content" aria-label="أدوات ذات صلة"><h2>أدوات مرتبطة</h2><div class="rel-grid"><a class="rel-card" href="../../level-dat-editor/"><strong>محرر level.dat</strong><span>اسم العالم ونمط اللعب ونقطة الظهور والصعوبة وقواعد اللعب.</span></a><a class="rel-card" href="../../pocketmine-nbt-editor/"><strong>محرر PocketMine-MP</strong><span>ملف level.dat على الخادم لـ PMMP وNukkit وBDS.</span></a><a class="rel-card" href="../../mcpe-nbt-editor/"><strong>محرر NBT لـ MCPE</strong><span>NBT صغير النهاية وترويسة level.dat ذات 8 بايت.</span></a><a class="rel-card" href="../fix-corrupted-level-dat/"><strong>إصلاح level.dat تالف</strong><span>شخّص سبب رفض العالم للتحميل وأصلحه.</span></a><a class="rel-card" href="../../"><strong>محرر NBT لـ Minecraft</strong><span>محرر شامل لكل إصدارات Minecraft وجميع أنواع ملفات NBT.</span></a><a class="rel-card" href="../edit-gamerules/"><strong>تعديل قواعد اللعب</strong><span>تعديل keepInventory وغيرها دون تحميل العالم.</span></a></div></section>
 </div>
 </main>
 
 <footer class="site-footer">
 <div class="container footer-grid">
-<div><h4>Editors</h4><a href="../../">Minecraft NBT editor</a><a href="../../level-dat-editor/">level.dat editor</a><a href="../../java-nbt-editor/">Java Edition NBT editor</a><a href="../../mcpe-nbt-editor/">MCPE NBT editor</a><a href="../../pocketmine-nbt-editor/">PocketMine-MP editor</a></div>
-<div><h4>File types</h4><a href="../../mcstructure-editor/">.mcstructure editor</a><a href="../../schematic-editor/">Schematic editor</a><a href="../../playerdata-editor/">playerdata editor</a><a href="../../nbt-viewer/">NBT viewer</a><a href="../../nbtexplorer-online/">NBTExplorer online</a></div>
-<div><h4>Reference</h4><a href="../../nbt-format/">NBT format reference</a><a href="./">Rename a world</a><a href="../fix-corrupted-level-dat/">Fix a broken level.dat</a><a href="../edit-gamerules/">Edit game rules</a></div>
-<div><h4>Source</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">Code on GitHub</a><a href="../../../llms.txt">llms.txt</a></div>
+<div><h4>المحررات</h4><a href="../../">محرر NBT لـ Minecraft</a><a href="../../level-dat-editor/">محرر level.dat</a><a href="../../java-nbt-editor/">محرر NBT لإصدار Java</a><a href="../../mcpe-nbt-editor/">محرر NBT لـ MCPE</a><a href="../../pocketmine-nbt-editor/">محرر PocketMine-MP</a></div>
+<div><h4>أنواع الملفات</h4><a href="../../mcstructure-editor/">محرر .mcstructure</a><a href="../../schematic-editor/">محرر Schematic</a><a href="../../playerdata-editor/">محرر playerdata</a><a href="../../nbt-viewer/">عارض NBT</a><a href="../../nbtexplorer-online/">NBTExplorer عبر الإنترنت</a></div>
+<div><h4>المرجع</h4><a href="../../nbt-format/">مرجع تنسيق NBT</a><a href="./">إعادة تسمية عالم</a><a href="../fix-corrupted-level-dat/">إصلاح level.dat تالف</a><a href="../edit-gamerules/">تعديل قواعد اللعب</a></div>
+<div><h4>المصدر</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">الكود على GitHub</a><a href="../../../llms.txt">llms.txt</a></div>
 </div>
-<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">آخر تحديث: 2026-09-21. محرر NBT لـ Minecraft — مجاني ومفتوح المصدر (MIT)، ويعمل بالكامل داخل المتصفح. لا يتبع Mojang Studios أو Microsoft. Minecraft علامة تجارية لـ Mojang Studios.</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
 <div class="modal-overlay" id="addTagModal">
 <div class="modal">
-<h3>Add New Tag</h3>
-<label for="newTagName">Tag Name</label>
-<input type="text" id="newTagName" placeholder="e.g. MyTag" autocomplete="off">
-<label for="newTagType">Tag Type</label>
+<h3>إضافة وسم جديد</h3>
+<label for="newTagName">اسم الوسم</label>
+<input type="text" id="newTagName" placeholder="مثلًا MyTag" autocomplete="off">
+<label for="newTagType">نوع الوسم</label>
 <select id="newTagType">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -190,10 +205,10 @@
 <option value="11">TAG_Int_Array</option>
 <option value="12">TAG_Long_Array</option>
 </select>
-<label for="newTagValue">Value</label>
-<input type="text" id="newTagValue" placeholder="Value" autocomplete="off">
+<label for="newTagValue">القيمة</label>
+<input type="text" id="newTagValue" placeholder="القيمة" autocomplete="off">
 <div id="listSubtypeRow" style="display:none">
-<label for="newListSubtype">List Element Type</label>
+<label for="newListSubtype">نوع عناصر القائمة</label>
 <select id="newListSubtype">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -210,24 +225,24 @@
 </select>
 </div>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="addTagCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="addTagConfirm">Add</button>
+<button class="btn-cancel" type="button" id="addTagCancel">إلغاء</button>
+<button class="btn-confirm" type="button" id="addTagConfirm">إضافة</button>
 </div>
 </div>
 </div>
 
 <div class="modal-overlay" id="arrayModal">
 <div class="modal">
-<h3 id="arrayModalTitle">Edit Array</h3>
-<label for="arrayModalText">Comma-separated values</label>
+<h3 id="arrayModalTitle">تعديل المصفوفة</h3>
+<label for="arrayModalText">قيم مفصولة بفواصل</label>
 <textarea id="arrayModalText" spellcheck="false" autocomplete="off"></textarea>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="arrayModalCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="arrayModalConfirm">Apply</button>
+<button class="btn-cancel" type="button" id="arrayModalCancel">إلغاء</button>
+<button class="btn-confirm" type="button" id="arrayModalConfirm">تطبيق</button>
 </div>
 </div>
 </div>
 
-<script src="../../../assets/nbt.js?v=da7967b1" defer></script>
+<script src="../../../assets/nbt.js?v=6f125422" defer></script>
 </body>
 </html>

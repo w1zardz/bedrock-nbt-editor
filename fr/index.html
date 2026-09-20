@@ -3,81 +3,98 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Bedrock NBT Editor Online — level.dat, MCPE, Java Too</title>
-<meta name="description" content="Free online NBT editor for Minecraft Bedrock and Java. Open level.dat, .mcstructure, playerdata, .nbt or .schem, edit any tag, download it back.">
-<meta name="keywords" content="bedrock nbt editor, nbt editor, online nbt editor, minecraft nbt editor, mcpe nbt editor, bedrock level.dat editor, nbt editor online free, level.dat editor, nbt file editor, nbt viewer, edit nbt online, minecraft save editor, nbtexplorer online">
-<meta name="robots" content="noindex, follow">
+<title>Éditeur NBT Bedrock en ligne — level.dat et Java</title>
+<meta name="description" content="Éditeur NBT en ligne pour Minecraft Bedrock et Java. Ouvrez level.dat, .mcstructure, playerdata, .nbt ou .schem, modifiez les balises et téléchargez.">
+<meta name="keywords" content="éditeur nbt minecraft, éditeur nbt en ligne, modifier level.dat, éditeur level.dat bedrock, éditeur nbt bedrock, éditeur nbt java, ouvrir fichier nbt, visionneuse nbt, modifier nbt en ligne, éditeur monde minecraft, nbtexplorer en ligne">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="author" content="w1zardz">
 <link rel="canonical" href="https://w1zardz.github.io/bedrock-nbt-editor/fr/">
+<link rel="alternate" hreflang="en" href="https://w1zardz.github.io/bedrock-nbt-editor/">
+<link rel="alternate" hreflang="ru" href="https://w1zardz.github.io/bedrock-nbt-editor/ru/">
+<link rel="alternate" hreflang="es" href="https://w1zardz.github.io/bedrock-nbt-editor/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://w1zardz.github.io/bedrock-nbt-editor/pt-br/">
+<link rel="alternate" hreflang="de" href="https://w1zardz.github.io/bedrock-nbt-editor/de/">
+<link rel="alternate" hreflang="fr" href="https://w1zardz.github.io/bedrock-nbt-editor/fr/">
+<link rel="alternate" hreflang="it" href="https://w1zardz.github.io/bedrock-nbt-editor/it/">
+<link rel="alternate" hreflang="pl" href="https://w1zardz.github.io/bedrock-nbt-editor/pl/">
+<link rel="alternate" hreflang="uk" href="https://w1zardz.github.io/bedrock-nbt-editor/uk/">
+<link rel="alternate" hreflang="tr" href="https://w1zardz.github.io/bedrock-nbt-editor/tr/">
+<link rel="alternate" hreflang="id" href="https://w1zardz.github.io/bedrock-nbt-editor/id/">
+<link rel="alternate" hreflang="vi" href="https://w1zardz.github.io/bedrock-nbt-editor/vi/">
+<link rel="alternate" hreflang="th" href="https://w1zardz.github.io/bedrock-nbt-editor/th/">
+<link rel="alternate" hreflang="zh-Hans" href="https://w1zardz.github.io/bedrock-nbt-editor/zh-hans/">
+<link rel="alternate" hreflang="ja" href="https://w1zardz.github.io/bedrock-nbt-editor/ja/">
+<link rel="alternate" hreflang="ko" href="https://w1zardz.github.io/bedrock-nbt-editor/ko/">
+<link rel="alternate" hreflang="ar" href="https://w1zardz.github.io/bedrock-nbt-editor/ar/">
 <link rel="alternate" hreflang="x-default" href="https://w1zardz.github.io/bedrock-nbt-editor/">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="../favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="manifest" href="../site.webmanifest">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Bedrock &amp; Java NBT Editor — online, no upload">
-<meta property="og:description" content="Free online NBT editor for Minecraft Bedrock and Java. Open level.dat, .mcstructure, playerdata, .nbt or .schem, edit any tag, download it back.">
+<meta property="og:title" content="Éditeur NBT Bedrock &amp; Java — en ligne, sans envoi">
+<meta property="og:description" content="Éditeur NBT en ligne pour Minecraft Bedrock et Java. Ouvrez level.dat, .mcstructure, playerdata, .nbt ou .schem, modifiez les balises et téléchargez.">
 <meta property="og:url" content="https://w1zardz.github.io/bedrock-nbt-editor/fr/">
-<meta property="og:site_name" content="Minecraft NBT Editor">
+<meta property="og:site_name" content="Éditeur NBT Minecraft">
 <meta property="og:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/home.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Bedrock &amp; Java NBT Editor — online, no upload">
-<meta name="twitter:description" content="Free online NBT editor for Minecraft Bedrock and Java. Open level.dat, .mcstructure, playerdata, .nbt or .schem, edit any tag, download it back.">
+<meta name="twitter:title" content="Éditeur NBT Bedrock &amp; Java — en ligne, sans envoi">
+<meta name="twitter:description" content="Éditeur NBT en ligne pour Minecraft Bedrock et Java. Ouvrez level.dat, .mcstructure, playerdata, .nbt ou .schem, modifiez les balises et téléchargez.">
 <meta name="twitter:image" content="https://w1zardz.github.io/bedrock-nbt-editor/og/home.png">
-<meta property="article:modified_time" content="2026-08-26">
-<meta property="og:updated_time" content="2026-08-26">
+<meta property="article:modified_time" content="2026-09-21">
+<meta property="og:updated_time" content="2026-09-21">
 <meta name="theme-color" content="#0d1117">
-<meta name="application-name" content="Minecraft NBT Editor">
-<meta name="apple-mobile-web-app-title" content="NBT Editor">
-<link rel="preload" href="../assets/nbt.js?v=da7967b1" as="script">
-<script>window.__LANG_URLS__={"en":"../","ru":"../ru/","es":"../es/","pt-br":"../pt-br/","de":"../de/","fr":"./","it":"../it/","pl":"../pl/","uk":"../uk/","tr":"../tr/","id":"../id/","vi":"../vi/","th":"../th/","zh-hans":"../zh-hans/","ja":"../ja/","ko":"../ko/","ar":"../ar/"};window.__NBT_STRINGS__={"loaded":"Loaded as {0}","trailing":"{0} trailing byte(s) after the root tag were ignored","error":"Error: {0}","readfail":"Could not read the file","nofile":"No file loaded","saved":"Saved {0} ({1}, {2})","savefail":"Save error: {0}","exported":"Exported {0}","snbtfail":"SNBT error: {0}","tagadded":"Tag added","tagremoved":"Tag removed","arrayupdated":"Array updated","badvalue":"Invalid value: {0}","badarray":"Invalid array: {0}","nameneeded":"Tag name is required","nametaken":"A tag named {0} already exists here","listtype":"List already holds {0} entries","editlevelname":"✎ Edit LevelName","showmore":"Show {0} more of {1} …","matches":"{0} match(es)","nomatch":"No tag matches \"{0}\"","arraytoobig":"Array has {0} entries — expand it and edit elements individually","uncompressed":"uncompressed","storage":"storage v{0}","entries":"{0} entries","langprompt":"Open this page in {0}?","langyes":"Switch","langno":"Stay"};</script>
-<script src="../assets/lang.js?v=a3a1db0e" defer></script>
+<meta name="application-name" content="Éditeur NBT Minecraft">
+<meta name="apple-mobile-web-app-title" content="Éditeur NBT">
+<link rel="preload" href="../assets/nbt.js?v=6f125422" as="script">
+<script>window.__LANG_URLS__={"en":"../","ru":"../ru/","es":"../es/","pt-br":"../pt-br/","de":"../de/","fr":"./","it":"../it/","pl":"../pl/","uk":"../uk/","tr":"../tr/","id":"../id/","vi":"../vi/","th":"../th/","zh-hans":"../zh-hans/","ja":"../ja/","ko":"../ko/","ar":"../ar/"};window.__NBT_STRINGS__={"loaded":"Chargé au format {0}","trailing":"{0} octet(s) final(aux) après la balise racine ont été ignorés","error":"Erreur : {0}","readfail":"Impossible de lire le fichier","nofile":"Aucun fichier chargé","saved":"{0} enregistré ({1}, {2})","savefail":"Erreur d'enregistrement : {0}","exported":"{0} exporté","snbtfail":"Erreur SNBT : {0}","tagadded":"Balise ajoutée","tagremoved":"Balise supprimée","arrayupdated":"Tableau mis à jour","badvalue":"Valeur non valide : {0}","badarray":"Tableau non valide : {0}","nameneeded":"Le nom de la balise est obligatoire","nametaken":"Une balise nommée {0} existe déjà ici","listtype":"La liste contient déjà des entrées de type {0}","editlevelname":"✎ Modifier LevelName","showmore":"Afficher {0} éléments supplémentaires sur {1}…","matches":"{0} résultat(s)","nomatch":"Aucune balise ne correspond à \"{0}\"","arraytoobig":"Le tableau contient {0} entrées — développez-le et modifiez chaque élément séparément","uncompressed":"non compressé","storage":"stockage v{0}","entries":"{0} entrées","langprompt":"Ouvrir cette page en {0} ?","langyes":"Changer","langno":"Rester","nav_editor":"Éditeur","nav_format":"Format NBT","language":"Langue : {0}","beta":"bêta","skip_editor":"Aller à l’éditeur","brand_editor":"Éditeur NBT","guides":"Guides","updated":"Dernière mise à jour : {0}.","drop":"Déposez {0} ici","choose_file":"Choisir un fichier","file_hint":"level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · extractions de chunks","output_format":"Format de sortie","format_java":"Java — big-endian, racine nommée","format_java_network":"Réseau Java — big-endian, racine sans nom","format_bedrock_level":"Bedrock level.dat — little-endian + en-tête de 8 octets","format_bedrock":"Bedrock brut — little-endian","format_bedrock_network":"Réseau Bedrock — little-endian, varint","compression":"Compression","compression_none":"Aucune (données brutes)","search_placeholder":"Rechercher un nom de balise ou une valeur…","search":"Rechercher","collapse":"Tout replier","add_tag":"+ Ajouter une balise","save_download":"Enregistrer et télécharger","export_snbt":"Exporter en SNBT","close":"Fermer","add_new_tag":"Ajouter une balise","tag_name":"Nom de la balise","tag_type":"Type de balise","tag_example":"p. ex. MyTag","value":"Valeur","list_element_type":"Type des éléments de la liste","cancel":"Annuler","add":"Ajouter","edit_array":"Modifier le tableau","comma_values":"Valeurs séparées par des virgules","apply":"Appliquer","format_label_java":"Java big-endian","format_label_java_network":"Réseau Java (racine sans nom)","format_label_bedrock_level":"Bedrock level.dat (en-tête de 8 octets)","format_label_bedrock":"Bedrock little-endian","format_label_bedrock_network":"Réseau Bedrock (varint)","err_decompress":"Ce navigateur ne peut pas décompresser {0} (API Compression Streams absente)","err_compress":"Ce navigateur ne peut pas compresser {0} (API Compression Streams absente)","err_stream":"Impossible de traiter la compression {0}","err_end":"Fin inattendue des données à la position {0}","err_tag_limit":"Nombre maximal de balises dépassé","err_varint":"VarInt trop long","err_varlong":"VarLong trop long","err_negative_array":"Longueur de tableau négative : {0}","err_array_length":"La longueur {0} du tableau dépasse les données restantes","err_negative_list":"Longueur de liste négative","err_end_list":"Liste de TAG_End contenant {0} éléments","err_list_type":"Type d’élément de liste inconnu : {0}","err_tag_type":"Type de balise inconnu : {0}","err_root":"La balise racine doit être TAG_Compound, type reçu : {0}","err_string_length":"Chaîne trop longue pour ce format : {0} octets","err_write_type":"Impossible d’écrire le type de balise {0}","err_header_short":"Données trop courtes pour un en-tête","err_storage_version":"Version de stockage invraisemblable : {0}","err_header_length":"La longueur {0} indiquée dans l’en-tête dépasse les données","err_unknown_file":"Fichier NBT non reconnu (variantes Java, Bedrock, réseau et avec en-tête testées)","err_file_small":"Le fichier est trop petit pour contenir des données NBT","err_byte":"Byte doit être compris entre -128 et 127","err_short":"Short doit être compris entre -32768 et 32767","err_int":"Int doit être compris entre -2147483648 et 2147483647","err_long":"Long dépasse la plage des entiers sur 64 bits","err_float":"Float invalide","err_double":"Double invalide","err_not_inline":"Ce type de balise ne peut pas être modifié directement","err_array_byte":"Byte invalide : {0}","err_array_int":"Int invalide : {0}","err_array_long":"Entier sur 64 bits invalide : {0}","root":"(racine)","add_child":"Ajouter une balise enfant","remove_tag":"Supprimer la balise","array":"Tableau","array_bytes":"[{0} octets]","array_ints":"[{0} entiers]","array_longs":"[{0} entiers sur 64 bits]","entries_type":"{0} éléments de type {1}","unknown_error":"L’opération n’a pas pu être effectuée","software_name":"Éditeur NBT Minecraft","software_alternate_online":"Éditeur NBT en ligne","software_alternate_bedrock":"Éditeur NBT Bedrock","software_alternate_level":"Éditeur level.dat","software_subcategory":"Éditeur de fichiers de jeu","software_os":"Tous (navigateur)","software_browser":"Navigateur moderne prenant en charge BigInt et Compression Streams","feature_java":"NBT big-endian de Java Edition","feature_bedrock":"NBT little-endian de Bedrock Edition","feature_bedrock_network":"NBT réseau de Bedrock (varint)","feature_java_network":"NBT réseau de Java (racine sans nom)","feature_compression":"Compression gzip et zlib","feature_types":"Les 13 types de balises NBT avec une précision de 64 bits","feature_snbt":"Exportation SNBT","feature_local":"Fonctionne entièrement côté client","schema_about":"Format de données NBT de Minecraft","not_found_title":"Page introuvable — {0}","not_found_heading":"404 — cette page a été déplacée ou n’a jamais existé","not_found_intro":"L’éditeur reste accessible en un clic. Chaque outil possède un lien permanent ci-dessous.","not_found_footer":"{0} — gratuit et à code source ouvert.","aria_bedrock_gamerules":"Règles de jeu Bedrock","aria_bedrock_level_dat_header":"En-tête level.dat de Bedrock","aria_bedrock_tags":"Balises Bedrock","aria_breadcrumb":"Fil d’Ariane","aria_byte_walkthrough":"Explication octet par octet","aria_causes":"Causes","aria_common_repairs":"Réparations courantes","aria_comparison":"Comparaison","aria_compatibility":"Compatibilité","aria_compression":"Compression","aria_core_specifics":"Particularités des logiciels serveurs","aria_dataversion":"DataVersion","aria_drop_an_nbt_file_here_or_click_to_browse":"Déposez un fichier NBT ici ou cliquez pour le sélectionner","aria_duplicate_world_names":"Noms de mondes identiques","aria_editing_schematics":"Modification des schémas","aria_encodings":"Encodages","aria_features":"Fonctionnalités","aria_file_types":"Types de fichiers","aria_frequently_asked_questions":"Questions fréquentes","aria_how_to_use":"Mode d’emploi","aria_inside_a_mcstructure_file":"Contenu d’un fichier mcstructure","aria_introduction":"Introduction","aria_java_nbt_encoding":"Encodage NBT de Java","aria_java_nbt_files":"Fichiers NBT de Java","aria_java_gamerules":"Règles de jeu Java","aria_migrating":"Migration","aria_other_bedrock_nbt":"Autres données NBT Bedrock","aria_other_tools":"Autres outils","aria_per_platform":"Par plateforme","aria_prevention":"Prévention","aria_related_tools":"Outils associés","aria_snbt":"SNBT","aria_safety":"Précautions","aria_salvage":"Récupération","aria_schematic_formats":"Formats de schémas","aria_scripting":"Utilisation de scripts","aria_search_nbt_tags":"Rechercher des balises NBT","aria_server_cores":"Logiciels serveurs","aria_server_safety":"Précautions pour les serveurs","aria_server_workflow":"Procédure sur serveur","aria_strings":"Chaînes de caractères","aria_supported_files":"Fichiers pris en charge","aria_supported_server_software":"Logiciels serveurs pris en charge","aria_tag_types":"Types de balises","aria_tags_in_level_dat":"Balises dans level.dat","aria_tools":"Outils","aria_troubleshooting":"Dépannage","aria_typical_edits":"Modifications courantes","aria_what_you_can_inspect":"Ce que vous pouvez examiner","aria_where_bedrock_files_live":"Emplacement des fichiers Bedrock","aria_where_mcstructure_files_live":"Emplacement des fichiers mcstructure","aria_where_to_find_level_dat":"Où trouver level.dat","aria_why_edit_the_file":"Pourquoi modifier le fichier","aria_why_the_folder_name_is_not_the_world_name":"Pourquoi le nom du dossier n’est pas le nom du monde","aria_playerdata_tags":"Balises de playerdata","toggle":"Développer ou réduire"};</script>
+<script src="../assets/lang.js?v=23a64b2c" defer></script>
 <link rel="stylesheet" href="../assets/app.css?v=f5bdcb0f">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Bedrock NBT Editor Online \u2014 level.dat, MCPE, Java Too","headline":"Bedrock NBT Editor \u2014 and Java Edition Too","description":"Free online NBT editor for Minecraft Bedrock and Java. Open level.dat, .mcstructure, playerdata, .nbt or .schem, edit any tag, download it back.","url":"https://w1zardz.github.io/bedrock-nbt-editor/fr/","inLanguage":"fr","datePublished":"2026-05-29","dateModified":"2026-08-26","isPartOf":{"@type":"WebSite","name":"Minecraft NBT Editor","url":"https://w1zardz.github.io/bedrock-nbt-editor/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/home.png"},"about":{"@type":"Thing","name":"Minecraft NBT data format"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NBT Editor","item":"https://w1zardz.github.io/bedrock-nbt-editor/fr/"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is this NBT editor free?","acceptedAnswer":{"@type":"Answer","text":"Yes, and open source under the MIT licence. There is no paid tier, no sign-up and no upload quota, because there is no server component at all \u2014 the whole editor is one static page plus two asset files."}},{"@type":"Question","name":"Does it work with Java Edition and Bedrock Edition?","acceptedAnswer":{"@type":"Answer","text":"Both. Java Edition files are big-endian and usually gzip-compressed; Bedrock files are little-endian, and level.dat carries an extra 8-byte header. The editor detects which one it received and writes the same variant back on save."}},{"@type":"Question","name":"Is my world file uploaded anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. The file is read locally with the FileReader API and the download is produced from an in-memory blob. Once the page has loaded you can disconnect from the network and it still works."}},{"@type":"Question","name":"Can I use it on Android or iOS?","acceptedAnswer":{"@type":"Answer","text":"Yes. The layout is mobile-first with 44&nbsp;px tap targets and a fixed action bar. On Android you can pick a world file straight out of a file manager; on iOS the file has to be in the Files app first because of sandboxing."}},{"@type":"Question","name":"What is the difference between NBT and SNBT?","acceptedAnswer":{"@type":"Answer","text":"NBT is the binary encoding Minecraft stores on disk. SNBT is its text form, the syntax you type into commands like /data merge. This editor reads binary NBT and can export SNBT, which makes it easy to diff two files or paste a structure into a command."}},{"@type":"Question","name":"Which tools does this replace?","acceptedAnswer":{"@type":"Answer","text":"Desktop NBT editors such as NBTExplorer, plus the various single-purpose web tools that only handle one edition. See the NBTExplorer online comparison for what carries over and what does not."}}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Minecraft NBT Editor","alternateName":["NBT Editor Online","Bedrock NBT Editor","level.dat editor"],"url":"https://w1zardz.github.io/bedrock-nbt-editor/","applicationCategory":"DeveloperApplication","applicationSubCategory":"Game file editor","operatingSystem":"Any (browser)","browserRequirements":"Modern browser with BigInt and Compression Streams support","softwareVersion":"2.0","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"publisher":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"license":"https://opensource.org/licenses/MIT","codeRepository":"https://github.com/w1zardz/bedrock-nbt-editor","featureList":["Java Edition big-endian NBT","Bedrock Edition little-endian NBT","Bedrock network NBT (varint)","Java network NBT (nameless root)","gzip and zlib compression","All 13 NBT tag types with 64-bit precision","SNBT export","Runs fully client-side"]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Minecraft NBT Editor","url":"https://w1zardz.github.io/bedrock-nbt-editor/","inLanguage":"fr","publisher":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Éditeur NBT Bedrock en ligne — level.dat et Java","headline":"Éditeur NBT Bedrock — compatible aussi avec Java Edition","description":"Éditeur NBT en ligne pour Minecraft Bedrock et Java. Ouvrez level.dat, .mcstructure, playerdata, .nbt ou .schem, modifiez les balises et téléchargez.","url":"https://w1zardz.github.io/bedrock-nbt-editor/fr/","inLanguage":"fr","datePublished":"2026-05-29","dateModified":"2026-09-21","isPartOf":{"@type":"WebSite","name":"Éditeur NBT Minecraft","url":"https://w1zardz.github.io/bedrock-nbt-editor/fr/"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://w1zardz.github.io/bedrock-nbt-editor/og/home.png"},"about":{"@type":"Thing","name":"Format de données NBT de Minecraft"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Éditeur NBT","item":"https://w1zardz.github.io/bedrock-nbt-editor/fr/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Cet éditeur NBT est-il gratuit ?","acceptedAnswer":{"@type":"Answer","text":"Oui, et son code source est disponible sous licence MIT. Il n'existe ni offre payante, ni inscription, ni quota d'envoi, car aucun composant serveur n'est utilisé : l'éditeur complet se compose d'une page statique et de deux fichiers de ressources."}},{"@type":"Question","name":"Fonctionne-t-il avec Java Edition et Bedrock Edition ?","acceptedAnswer":{"@type":"Answer","text":"Avec les deux. Les fichiers Java Edition sont gros-boutistes et généralement compressés avec gzip ; ceux de Bedrock sont petit-boutistes, et level.dat contient un en-tête supplémentaire de 8 octets. L'éditeur détecte la variante reçue et réécrit la même lors de l'enregistrement."}},{"@type":"Question","name":"Mon fichier de monde est-il envoyé quelque part ?","acceptedAnswer":{"@type":"Answer","text":"Non. Le fichier est lu localement avec l'API FileReader, et le téléchargement est produit à partir d'un blob en mémoire. Une fois la page chargée, vous pouvez vous déconnecter du réseau : elle continue de fonctionner."}},{"@type":"Question","name":"Puis-je l'utiliser sur Android ou iOS ?","acceptedAnswer":{"@type":"Answer","text":"Oui. La mise en page est conçue d'abord pour les mobiles, avec des zones tactiles de 44&nbsp;px et une barre d'actions fixe. Sous Android, vous pouvez choisir un fichier de monde directement dans un gestionnaire de fichiers. Sous iOS, il doit d'abord se trouver dans l'app Fichiers en raison du cloisonnement."}},{"@type":"Question","name":"Quelle est la différence entre NBT et SNBT ?","acceptedAnswer":{"@type":"Answer","text":"NBT est l'encodage binaire que Minecraft stocke sur le disque. SNBT est sa forme textuelle, dont la syntaxe est utilisée dans des commandes comme /data merge. Cet éditeur lit le NBT binaire et peut exporter du SNBT, ce qui facilite la comparaison de deux fichiers ou le collage d'une structure dans une commande."}},{"@type":"Question","name":"Quels outils cet éditeur remplace-t-il ?","acceptedAnswer":{"@type":"Answer","text":"Les éditeurs NBT de bureau tels que NBTExplorer, ainsi que les outils web spécialisés qui ne traitent qu'une seule édition. Consultez la comparaison avec NBTExplorer en ligne pour connaître les fonctions reprises et les différences."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Éditeur NBT Minecraft","inLanguage":"fr","alternateName":["Éditeur NBT en ligne","Éditeur NBT Bedrock","Éditeur level.dat"],"url":"https://w1zardz.github.io/bedrock-nbt-editor/fr/","applicationCategory":"DeveloperApplication","applicationSubCategory":"Éditeur de fichiers de jeu","operatingSystem":"Tous (navigateur)","browserRequirements":"Navigateur moderne prenant en charge BigInt et Compression Streams","softwareVersion":"2.0","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"publisher":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"},"license":"https://opensource.org/licenses/MIT","codeRepository":"https://github.com/w1zardz/bedrock-nbt-editor","featureList":["NBT big-endian de Java Edition","NBT little-endian de Bedrock Edition","NBT réseau de Bedrock (varint)","NBT réseau de Java (racine sans nom)","Compression gzip et zlib","Les 13 types de balises NBT avec une précision de 64 bits","Exportation SNBT","Fonctionne entièrement côté client"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Éditeur NBT Minecraft","url":"https://w1zardz.github.io/bedrock-nbt-editor/","inLanguage":"fr","publisher":{"@type":"Person","name":"w1zardz","url":"https://github.com/w1zardz"}}</script>
 </head>
 <body>
-<a class="skip-link" href="#editor">Skip to the editor</a>
+<a class="skip-link" href="#editor">Aller à l’éditeur</a>
 <header class="site-header">
 <div class="container">
-<a class="brand" href="./"><span>Minecraft</span> NBT Editor</a>
+<a class="brand" href="./"><span>Minecraft</span> Éditeur NBT</a>
 <span class="badge">Java + Bedrock</span>
-<nav class="site-nav" aria-label="Tools">
-<a href="./" class="active">Editor</a>
+<nav class="site-nav" aria-label="Outils">
+<a href="./" class="active">Éditeur</a>
 <a href="level-dat-editor/">level.dat</a>
 <a href="java-nbt-editor/">Java</a>
 <a href="mcpe-nbt-editor/">Bedrock</a>
 <a href="mcstructure-editor/">.mcstructure</a>
 <a href="schematic-editor/">.schem</a>
 <a href="playerdata-editor/">playerdata</a>
-<a href="nbt-format/">NBT format</a>
+<a href="nbt-format/">Format NBT</a>
 </nav>
-<details class="lang-switch"><summary title="Language: Français" aria-label="Language: Français"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">Language: Français</span></summary><div class="lang-menu"><a href="./" hreflang="fr" data-lang="fr" aria-current="true" class="current">Français</a><a href="../" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../ru/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../es/" hreflang="es" data-lang="es" rel="alternate">Español (beta)</a><a href="../pt-br/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR) (beta)</a><a href="../de/" hreflang="de" data-lang="de" rel="alternate">Deutsch (beta)</a><a href="../it/" hreflang="it" data-lang="it" rel="alternate">Italiano (beta)</a><a href="../pl/" hreflang="pl" data-lang="pl" rel="alternate">Polski (beta)</a><a href="../uk/" hreflang="uk" data-lang="uk" rel="alternate">Українська (beta)</a><a href="../tr/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe (beta)</a><a href="../id/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia (beta)</a><a href="../vi/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt (beta)</a><a href="../th/" hreflang="th" data-lang="th" rel="alternate">ไทย (beta)</a><a href="../zh-hans/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文 (beta)</a><a href="../ja/" hreflang="ja" data-lang="ja" rel="alternate">日本語 (beta)</a><a href="../ko/" hreflang="ko" data-lang="ko" rel="alternate">한국어 (beta)</a><a href="../ar/" hreflang="ar" data-lang="ar" rel="alternate">العربية (beta)</a></div></details>
+<details class="lang-switch"><summary title="Langue : Français" aria-label="Langue : Français"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 010 18a15 15 0 010-18"/></svg><span class="sr-only">Langue : Français</span></summary><div class="lang-menu"><a href="./" hreflang="fr" data-lang="fr" aria-current="true" class="current">Français</a><a href="../" hreflang="en" data-lang="en" rel="alternate">English</a><a href="../ru/" hreflang="ru" data-lang="ru" rel="alternate">Русский</a><a href="../es/" hreflang="es" data-lang="es" rel="alternate">Español</a><a href="../pt-br/" hreflang="pt-BR" data-lang="pt-br" rel="alternate">Português (BR)</a><a href="../de/" hreflang="de" data-lang="de" rel="alternate">Deutsch</a><a href="../it/" hreflang="it" data-lang="it" rel="alternate">Italiano</a><a href="../pl/" hreflang="pl" data-lang="pl" rel="alternate">Polski</a><a href="../uk/" hreflang="uk" data-lang="uk" rel="alternate">Українська</a><a href="../tr/" hreflang="tr" data-lang="tr" rel="alternate">Türkçe</a><a href="../id/" hreflang="id" data-lang="id" rel="alternate">Bahasa Indonesia</a><a href="../vi/" hreflang="vi" data-lang="vi" rel="alternate">Tiếng Việt</a><a href="../th/" hreflang="th" data-lang="th" rel="alternate">ไทย</a><a href="../zh-hans/" hreflang="zh-Hans" data-lang="zh-hans" rel="alternate">简体中文</a><a href="../ja/" hreflang="ja" data-lang="ja" rel="alternate">日本語</a><a href="../ko/" hreflang="ko" data-lang="ko" rel="alternate">한국어</a><a href="../ar/" hreflang="ar" data-lang="ar" rel="alternate">العربية</a></div></details>
 </div>
 </header>
 <main>
 
 <section class="hero" aria-label="Introduction">
 <div class="container">
-<h1>Bedrock NBT Editor — and Java Edition Too</h1>
-<p class="support-line"><strong>Supports Minecraft Bedrock Edition and Java Edition</strong> — and every server core for both, popular or obscure: Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina and the rest. <a href="./#server-software">Full list</a>.</p>
-<p class="lede"><strong>Bedrock Edition is supported, with every Bedrock server core — and so is Java Edition, with every Java server core, down to the obscure ones.</strong> Drop a <code>level.dat</code>, <code>playerdata</code>, <code>.nbt</code>, <code>.mcstructure</code>, <code>.schem</code> or <code>.schematic</code> file into the box below, edit any tag in the tree, and download it back in exactly the same binary format. Byte order, header and compression are detected automatically. Everything runs in your browser — no upload, no account, no install.</p>
+<h1>Éditeur NBT Bedrock — compatible aussi avec Java Edition</h1>
+<p class="support-line"><strong>Compatible avec Minecraft Bedrock Edition et Java Edition</strong>, ainsi qu'avec tous leurs logiciels serveur, courants ou non : Vanilla, Paper, Spigot, Purpur, Folia, Fabric, Forge, NeoForge, Mohist, Sponge, Bedrock Dedicated Server, PocketMine-MP, Nukkit, PowerNukkitX, Cloudburst, Dragonfly, Endstone, LeviLamina et les autres. <a href="./#server-software">Liste complète</a>.</p>
+<p class="lede"><strong>Bedrock Edition est prise en charge avec tous ses logiciels serveur, tout comme Java Edition, y compris avec les logiciels les moins courants.</strong> Déposez un fichier <code>level.dat</code>, <code>playerdata</code>, <code>.nbt</code>, <code>.mcstructure</code>, <code>.schem</code> ou <code>.schematic</code> dans la zone ci-dessous, modifiez n'importe quelle balise dans l'arborescence, puis téléchargez-le dans exactement le même format binaire. L'ordre des octets, l'en-tête et la compression sont détectés automatiquement. Tout s'exécute dans votre navigateur : aucun envoi, aucun compte et aucune installation.</p>
 <div class="chips"><span class="chip">Bedrock Edition</span><span class="chip">Java Edition</span><span class="chip">Vanilla</span><span class="chip">Paper</span><span class="chip">Spigot</span><span class="chip">Purpur</span><span class="chip">Pufferfish</span><span class="chip">Folia</span><span class="chip">Leaves</span><span class="chip">Fabric</span><span class="chip">Quilt</span><span class="chip">Forge</span><span class="chip">NeoForge</span><span class="chip">Mohist</span><span class="chip">Arclight</span><span class="chip">Sponge</span><span class="chip">Bedrock Dedicated Server</span><span class="chip">PocketMine-MP</span><span class="chip">Nukkit</span><span class="chip">PowerNukkitX</span><span class="chip">Nukkit-MOT</span><span class="chip">Cloudburst</span><span class="chip">Dragonfly</span><span class="chip">Endstone</span><span class="chip">LeviLamina</span><span class="chip">Allay</span><span class="chip">JukeboxMC</span><span class="chip">GoMint</span><span class="chip">Geyser</span><span class="chip">WaterdogPE</span></div>
 </div>
 </section>
 <div id="editor">
 
-<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="Drop an NBT file here or click to browse">
+<div class="dropzone" id="dropZone" role="button" tabindex="0" aria-label="Déposez un fichier NBT ici ou cliquez pour le sélectionner">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 16V4m0 0L8 8m4-4l4 4"/><path d="M20 16v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2"/></svg>
-<p>Drop <strong>any NBT file</strong> here</p>
-<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">Choose File</button>
-<span class="hint">level.dat &middot; .nbt &middot; .mcstructure &middot; .schem &middot; .schematic &middot; .dat &middot; chunk dumps</span>
+<p>Déposez <strong>n'importe quel fichier NBT</strong> ici</p>
+<button class="btn-pick" type="button" onclick="document.getElementById('fileInput').click()">Choisir un fichier</button>
+<span class="hint">level.dat · .nbt · .mcstructure · .schem · .schematic · .dat · extractions de chunks</span>
 <input type="file" id="fileInput">
 </div>
 
@@ -85,18 +102,16 @@
 <div class="file-info" id="fileInfo"></div>
 
 <div class="out-bar" id="outBar">
-<label>Output format
-<select id="outFormat">
-<option value="java">Java — big-endian, named root</option>
-<option value="java-network">Java network — big-endian, nameless root</option>
-<option value="bedrock-level">Bedrock level.dat — little-endian + 8-byte header</option>
-<option value="bedrock">Bedrock raw — little-endian</option>
-<option value="bedrock-network">Bedrock network — little-endian varint</option>
+<label>Format de sortie<select id="outFormat">
+<option value="java">Java — big-endian, racine nommée</option>
+<option value="java-network">Réseau Java — big-endian, racine sans nom</option>
+<option value="bedrock-level">Bedrock level.dat — little-endian + en-tête de 8 octets</option>
+<option value="bedrock">Bedrock brut — little-endian</option>
+<option value="bedrock-network">Réseau Bedrock — little-endian, varint</option>
 </select>
 </label>
-<label>Compression
-<select id="outCompression">
-<option value="none">None (raw)</option>
+<label>Compression<select id="outCompression">
+<option value="none">Aucune (données brutes)</option>
 <option value="gzip">gzip</option>
 <option value="zlib">zlib (deflate)</option>
 </select>
@@ -104,9 +119,9 @@
 </div>
 
 <div class="search-bar">
-<input type="search" id="searchInput" placeholder="Search tag name or value…" autocomplete="off" spellcheck="false" aria-label="Search NBT tags">
-<button type="button" id="btnSearch">Search</button>
-<button type="button" id="btnCollapse">Collapse all</button>
+<input type="search" id="searchInput" placeholder="Rechercher un nom de balise ou une valeur…" autocomplete="off" spellcheck="false" aria-label="Rechercher des balises NBT">
+<button type="button" id="btnSearch">Rechercher</button>
+<button type="button" id="btnCollapse">Tout replier</button>
 </div>
 <div class="search-results" id="searchResults"></div>
 
@@ -114,115 +129,115 @@
 </div>
 
 <div class="bottom-bar" id="bottomBar">
-<button class="btn-add" id="btnAddRoot" type="button">+ Add Tag</button>
-<button class="btn-save" id="btnSave" type="button">Save &amp; Download</button>
-<button class="btn-snbt" id="btnSnbt" type="button">Export SNBT</button>
-<button class="btn-close" id="btnCloseFile" type="button">Close</button>
+<button class="btn-add" id="btnAddRoot" type="button">+ Ajouter une balise</button>
+<button class="btn-save" id="btnSave" type="button">Enregistrer et télécharger</button>
+<button class="btn-snbt" id="btnSnbt" type="button">Exporter en SNBT</button>
+<button class="btn-close" id="btnCloseFile" type="button">Fermer</button>
 </div>
 
 </div>
 <div id="contentSections">
-<nav class="toc" aria-label="On this page"><h2 id="on-this-page">On this page</h2><ul><li><a href="#every-nbt-file-minecraft-writes">Every NBT file Minecraft writes</a></li><li><a href="#how-to-edit-an-nbt-file">How to edit an NBT file</a></li><li><a href="#what-makes-this-editor-different">What makes this editor different</a></li><li><a href="#supported-server-software-all-of-it">Supported server software — all of it</a></li><li><a href="#use-the-parser-from-your-own-code">Use the parser from your own code</a></li></ul></nav>
-<section class="content" aria-label="Supported files">
-<h2 id="every-nbt-file-minecraft-writes">Every NBT file Minecraft writes</h2>
-<p>NBT (Named Binary Tag) is one format with several encodings, and every Minecraft edition, launcher and server core uses a different combination of them. This editor implements all of them and picks the right one from the bytes themselves, so you never have to know which variant a file is before you open it.</p>
+<nav class="toc" aria-label="Sur cette page"><h2 id="on-this-page">Sur cette page</h2><ul><li><a href="#every-nbt-file-minecraft-writes">Tous les fichiers NBT écrits par Minecraft</a></li><li><a href="#how-to-edit-an-nbt-file">Comment modifier un fichier NBT</a></li><li><a href="#what-makes-this-editor-different">Ce qui distingue cet éditeur</a></li><li><a href="#supported-server-software-all-of-it">Tous les logiciels serveur sont pris en charge</a></li><li><a href="#use-the-parser-from-your-own-code">Utiliser l'analyseur depuis votre propre code</a></li></ul></nav>
+<section class="content" aria-label="Fichiers pris en charge">
+<h2 id="every-nbt-file-minecraft-writes">Tous les fichiers NBT écrits par Minecraft</h2>
+<p>NBT (Named Binary Tag) est un format qui possède plusieurs encodages. Chaque édition, lanceur et logiciel serveur Minecraft en utilise une combinaison différente. Cet éditeur les prend tous en charge et détermine le bon directement à partir des octets : vous n'avez donc pas besoin de connaître la variante d'un fichier avant de l'ouvrir.</p>
 <div class="table-wrap">
 <table class="matrix">
-<thead><tr><th>File</th><th>Comes from</th><th>Encoding</th><th>Compression</th></tr></thead>
+<thead><tr><th>Fichier</th><th>Provenance</th><th>Encodage</th><th>Compression</th></tr></thead>
 <tbody>
-<tr><td><code>level.dat</code></td><td>Java world — Vanilla, Paper, Spigot, Fabric, Forge</td><td>Big-endian, named root</td><td>gzip</td></tr>
-<tr><td><code>level.dat</code></td><td>Bedrock world — BDS, PocketMine-MP, Nukkit, MCPE</td><td>Little-endian + 8-byte header</td><td>None</td></tr>
-<tr><td><code>&lt;uuid&gt;.dat</code></td><td>Java <code>playerdata/</code></td><td>Big-endian</td><td>gzip</td></tr>
-<tr><td><code>servers.dat</code>, <code>hotbar.nbt</code></td><td>Java client</td><td>Big-endian</td><td>None</td></tr>
-<tr><td><code>idcounts.dat</code>, <code>raids.dat</code>, <code>map_*.dat</code></td><td>Java world <code>data/</code></td><td>Big-endian</td><td>gzip</td></tr>
-<tr><td><code>.nbt</code></td><td>Structure blocks, datapack structures</td><td>Big-endian</td><td>gzip</td></tr>
-<tr><td><code>.schem</code>, <code>.schematic</code></td><td>WorldEdit, Sponge, MCEdit</td><td>Big-endian</td><td>gzip</td></tr>
-<tr><td><code>.mcstructure</code></td><td>Bedrock structure blocks</td><td>Little-endian</td><td>None</td></tr>
-<tr><td>Chunk payload</td><td>Region <code>.mca</code> extract, LevelDB value</td><td>Either byte order</td><td>zlib or none</td></tr>
-<tr><td>Packet dump</td><td>Bedrock protocol, Java 1.20.2+ protocol</td><td>Varint LE / nameless BE</td><td>None</td></tr>
+<tr><td><code>level.dat</code></td><td>Monde Java — Vanilla, Paper, Spigot, Fabric, Forge</td><td>Gros-boutiste, racine nommée</td><td>gzip</td></tr>
+<tr><td><code>level.dat</code></td><td>Monde Bedrock — BDS, PocketMine-MP, Nukkit, MCPE</td><td>Petit-boutiste + en-tête de 8 octets</td><td>Aucune</td></tr>
+<tr><td><code>&lt;uuid&gt;.dat</code></td><td><code>playerdata/</code> Java</td><td>Gros-boutiste</td><td>gzip</td></tr>
+<tr><td><code>servers.dat</code>, <code>hotbar.nbt</code></td><td>Client Java</td><td>Gros-boutiste</td><td>Aucune</td></tr>
+<tr><td><code>idcounts.dat</code>, <code>raids.dat</code>, <code>map_*.dat</code></td><td><code>data/</code> d'un monde Java</td><td>Gros-boutiste</td><td>gzip</td></tr>
+<tr><td><code>.nbt</code></td><td>Blocs de structure, structures de datapack</td><td>Gros-boutiste</td><td>gzip</td></tr>
+<tr><td><code>.schem</code>, <code>.schematic</code></td><td>WorldEdit, Sponge, MCEdit</td><td>Gros-boutiste</td><td>gzip</td></tr>
+<tr><td><code>.mcstructure</code></td><td>Blocs de structure Bedrock</td><td>Petit-boutiste</td><td>Aucune</td></tr>
+<tr><td>Charge utile de chunk</td><td>Extraction d'une région <code>.mca</code>, valeur LevelDB</td><td>L'un ou l'autre ordre des octets</td><td>zlib ou aucune</td></tr>
+<tr><td>Capture de paquet</td><td>Protocole Bedrock, protocole Java 1.20.2+</td><td>Varint LE / BE sans nom</td><td>Aucune</td></tr>
 </tbody>
 </table>
 </div>
 </section>
 
-<section class="content" aria-label="How to use">
-<h2 id="how-to-edit-an-nbt-file">How to edit an NBT file</h2>
+<section class="content" aria-label="Mode d’emploi">
+<h2 id="how-to-edit-an-nbt-file">Comment modifier un fichier NBT</h2>
 <div class="card">
 <ol class="steps">
-<li><strong>Get the file off the server or device.</strong> Java servers keep it in <code>world/</code>, Bedrock servers in <code>worlds/YourWorld/</code>, Android in <code>games/com.mojang/minecraftWorlds/&lt;id&gt;/</code>. Stop the server first so the file is not being written while you copy it.</li>
-<li><strong>Drop it into the editor.</strong> The badge above the tree tells you what was detected — edition, encoding, compression and, for Bedrock, the storage version from the header.</li>
-<li><strong>Edit.</strong> Tap a value to change it in place. Use search to jump to a tag by name or value, <strong>+</strong> to add tags to any compound or list, <strong>×</strong> to remove them.</li>
-<li><strong>Save &amp; Download.</strong> The output format and compression selectors default to whatever the file arrived as, so a plain edit is a byte-faithful round trip.</li>
-<li><strong>Put it back and restart.</strong> Keep the original as a backup until the world has loaded once and looks right.</li>
+<li><strong>Récupérez le fichier sur le serveur ou l'appareil.</strong> Les serveurs Java le placent dans <code>world/</code>, les serveurs Bedrock dans <code>worlds/YourWorld/</code> et Android dans <code>games/com.mojang/minecraftWorlds/&lt;id&gt;/</code>. Arrêtez d'abord le serveur pour éviter toute écriture pendant la copie.</li>
+<li><strong>Déposez-le dans l'éditeur.</strong> Le badge au-dessus de l'arborescence indique ce qui a été détecté : édition, encodage, compression et, pour Bedrock, version de stockage extraite de l'en-tête.</li>
+<li><strong>Modifiez.</strong> Touchez une valeur pour la changer sur place. Utilisez la recherche pour atteindre une balise par son nom ou sa valeur, <strong>+</strong> pour ajouter des balises à un composé ou une liste, et <strong>×</strong> pour les supprimer.</li>
+<li><strong>Enregistrez et téléchargez.</strong> Les sélecteurs de format de sortie et de compression reprennent par défaut ceux du fichier d'origine. Une simple modification produit donc un aller-retour fidèle au niveau des octets.</li>
+<li><strong>Remettez le fichier en place et redémarrez.</strong> Conservez l'original comme sauvegarde jusqu'à ce que le monde ait été chargé une fois et vérifié.</li>
 </ol>
 </div>
 </section>
 
-<section class="content" aria-label="Features">
-<h2 id="what-makes-this-editor-different">What makes this editor different</h2>
+<section class="content" aria-label="Fonctionnalités">
+<h2 id="what-makes-this-editor-different">Ce qui distingue cet éditeur</h2>
 <div class="features-grid">
-<article class="feature-card"><h3>Five encodings, one drop zone</h3><p>Java big-endian, Bedrock little-endian, Bedrock varint network NBT, nameless-root network NBT from Java 1.20.2+, and Bedrock's headered <code>level.dat</code>. Detected, not guessed.</p></article>
-<article class="feature-card"><h3>gzip and zlib in the browser</h3><p>Decompression and recompression use the native Compression Streams API, so a Java <code>level.dat</code> round-trips into a file the game accepts unchanged.</p></article>
-<article class="feature-card"><h3>Real 64-bit longs</h3><p><code>TAG_Long</code> values are held as <code>BigInt</code>. World seeds and UUID halves survive editing instead of being mangled by floating-point rounding, which is where most browser NBT tools break.</p></article>
-<article class="feature-card"><h3>Correct string encoding</h3><p>Java writes modified UTF-8 (CESU-8), Bedrock writes standard UTF-8. The editor encodes per edition, so emoji and non-Latin world names come out intact.</p></article>
-<article class="feature-card"><h3>Built for big files</h3><p>Arrays live in typed arrays and the tree renders lazily, 200 entries at a time. A megabyte of chunk NBT opens without freezing the tab.</p></article>
-<article class="feature-card"><h3>Search across the tree</h3><p>Find any tag by name or value anywhere in the file and jump straight to it with the path expanded.</p></article>
-<article class="feature-card"><h3>SNBT export</h3><p>Dump the whole tree as SNBT — the text form used by <code>/data</code> and datapacks — for diffing, sharing or pasting into a command.</p></article>
-<article class="feature-card"><h3>Format conversion</h3><p>Read a Bedrock file, write Java big-endian gzip, or the reverse. Useful for protocol work, tests and tooling.</p></article>
-<article class="feature-card"><h3>Nothing leaves your device</h3><p>The file is read with <code>FileReader</code>, parsed in JavaScript, and handed back as an in-memory blob. No upload endpoint exists.</p></article>
+<article class="feature-card"><h3>Cinq encodages dans une seule zone</h3><p>Java gros-boutiste, Bedrock petit-boutiste, NBT réseau Bedrock en varint, NBT réseau à racine sans nom de Java 1.20.2+, et <code>level.dat</code> Bedrock avec en-tête. Ils sont détectés, pas devinés.</p></article>
+<article class="feature-card"><h3>gzip et zlib dans le navigateur</h3><p>La décompression et la recompression utilisent l'API native Compression Streams. Un <code>level.dat</code> Java ressort donc sous une forme acceptée telle quelle par le jeu.</p></article>
+<article class="feature-card"><h3>Vrais entiers longs sur 64 bits</h3><p>Les valeurs <code>TAG_Long</code> sont conservées sous forme de <code>BigInt</code>. Les graines de monde et les moitiés d'UUID ne sont pas altérées par l'arrondi des nombres à virgule flottante, contrairement à de nombreux outils NBT pour navigateur.</p></article>
+<article class="feature-card"><h3>Encodage correct des chaînes</h3><p>Java utilise l'UTF-8 modifié (CESU-8), tandis que Bedrock utilise l'UTF-8 standard. L'éditeur choisit l'encodage de l'édition, ce qui préserve les emoji et les noms de monde non latins.</p></article>
+<article class="feature-card"><h3>Conçu pour les fichiers volumineux</h3><p>Les tableaux sont stockés dans des tableaux typés et l'arborescence est rendue à la demande, par groupes de 200 entrées. Un mégaoctet de NBT de chunk s'ouvre sans bloquer l'onglet.</p></article>
+<article class="feature-card"><h3>Recherche dans toute l'arborescence</h3><p>Recherchez une balise par son nom ou sa valeur partout dans le fichier et accédez-y directement avec son chemin développé.</p></article>
+<article class="feature-card"><h3>Export SNBT</h3><p>Exportez toute l'arborescence en SNBT, la forme textuelle utilisée par <code>/data</code> et les datapacks, afin de comparer, partager ou coller les données dans une commande.</p></article>
+<article class="feature-card"><h3>Conversion de format</h3><p>Lisez un fichier Bedrock et écrivez-le en gzip gros-boutiste Java, ou inversement. Utile pour les protocoles, les tests et les outils.</p></article>
+<article class="feature-card"><h3>Aucune donnée ne quitte votre appareil</h3><p>Le fichier est lu avec <code>FileReader</code>, analysé en JavaScript, puis rendu sous forme de blob en mémoire. Aucun point de terminaison d'envoi n'existe.</p></article>
 </div>
 </section>
 
-<section class="content" aria-label="Supported server software" id="server-software">
-<h2 id="supported-server-software-all-of-it">Supported server software — all of it</h2>
-<p>NBT is written by the game, not by the server implementation, so any core that stores a Minecraft world stores it in one of the encodings this editor reads. That is the whole list below, and it is not a marketing list: a core that writes a world writes it in Vanilla's shape, because the client on the other end has to read it.</p>
+<section class="content" aria-label="Logiciels serveurs pris en charge" id="server-software">
+<h2 id="supported-server-software-all-of-it">Tous les logiciels serveur sont pris en charge</h2>
+<p>Le NBT est écrit par le jeu, pas par l'implémentation du serveur. Tout logiciel qui stocke un monde Minecraft emploie donc l'un des encodages lus par cet éditeur. La liste complète figure ci-dessous. Il ne s'agit pas d'une liste commerciale : un logiciel qui écrit un monde reprend la structure de Vanilla, car le client situé à l'autre extrémité doit pouvoir la lire.</p>
 <div class="card">
-<h3>Bedrock Edition — little-endian NBT, 8-byte <code>level.dat</code> header</h3>
-<p><strong>Bedrock Dedicated Server (BDS)</strong>, <strong>PocketMine-MP</strong> (PM3, PM4, PM5), <strong>Nukkit</strong>, <strong>Nukkit-MOT</strong>, <strong>PowerNukkitX</strong>, <strong>Cloudburst Server</strong>, <strong>Dragonfly</strong>, <strong>Endstone</strong>, <strong>LeviLamina</strong> and <strong>BDSX</strong>, <strong>Allay</strong>, <strong>JukeboxMC</strong>, <strong>GoMint</strong>, <strong>Sculk</strong>, <strong>ElementZero</strong>, <strong>LiteLoaderBDS</strong>, plus the <strong>MCPE</strong> and <strong>MCBE</strong> clients themselves on Android, iOS, Windows, console and Switch. Same <code>worlds/&lt;World&gt;/level.dat</code>, same header, same tags — see the <a href="pocketmine-nbt-editor/">server-side workflow</a>.</p>
-<h3>Java Edition — big-endian NBT, gzip</h3>
-<p><strong>Vanilla</strong>, <strong>CraftBukkit</strong>, <strong>Spigot</strong>, <strong>Paper</strong>, <strong>Purpur</strong>, <strong>Pufferfish</strong>, <strong>Folia</strong>, <strong>Leaves</strong>, <strong>Gale</strong>, <strong>Petal</strong>, <strong>Airplane</strong>, <strong>Sponge</strong> (SpongeVanilla, SpongeForge), <strong>Fabric</strong>, <strong>Quilt</strong>, <strong>Forge</strong>, <strong>NeoForge</strong>, <strong>Mohist</strong>, <strong>Arclight</strong>, <strong>Magma</strong>, <strong>Ketting</strong>, <strong>Banner</strong>, <strong>Cardboard</strong>, <strong>Glowstone</strong>, <strong>Thermos</strong>, <strong>Uberbukkit</strong> and every other fork, modpack server or ancient legacy build. If it writes <code>world/level.dat</code>, this editor opens it — <a href="java-nbt-editor/">details here</a>.</p>
-<h3>Proxies and bridges</h3>
-<p><strong>Geyser</strong>, <strong>WaterdogPE</strong>, <strong>Waterfall</strong>, <strong>Velocity</strong> and <strong>BungeeCord</strong> do not own worlds; they move NBT over the wire. Captures from those sockets are network NBT — varint little-endian on the Bedrock side, nameless-root big-endian on Java 1.20.2+ — and both open here directly.</p>
-<h3>Anything not on this list</h3>
-<p>Custom forks, private cores, teaching projects, a server you wrote yourself: if the file is NBT, the editor detects which of the five encodings it is and opens it. Nothing here is keyed to a core's name.</p>
+<h3>Bedrock Edition — NBT petit-boutiste, en-tête <code>level.dat</code> de 8 octets</h3>
+<p><strong>Bedrock Dedicated Server (BDS)</strong>, <strong>PocketMine-MP</strong> (PM3, PM4, PM5), <strong>Nukkit</strong>, <strong>Nukkit-MOT</strong>, <strong>PowerNukkitX</strong>, <strong>Cloudburst Server</strong>, <strong>Dragonfly</strong>, <strong>Endstone</strong>, <strong>LeviLamina</strong> et <strong>BDSX</strong>, <strong>Allay</strong>, <strong>JukeboxMC</strong>, <strong>GoMint</strong>, <strong>Sculk</strong>, <strong>ElementZero</strong>, <strong>LiteLoaderBDS</strong>, ainsi que les clients <strong>MCPE</strong> et <strong>MCBE</strong> eux-mêmes sur Android, iOS, Windows, console et Switch. Même <code>worlds/&lt;World&gt;/level.dat</code>, même en-tête, mêmes balises : consultez la <a href="pocketmine-nbt-editor/">procédure côté serveur</a>.</p>
+<h3>Java Edition — NBT gros-boutiste, gzip</h3>
+<p><strong>Vanilla</strong>, <strong>CraftBukkit</strong>, <strong>Spigot</strong>, <strong>Paper</strong>, <strong>Purpur</strong>, <strong>Pufferfish</strong>, <strong>Folia</strong>, <strong>Leaves</strong>, <strong>Gale</strong>, <strong>Petal</strong>, <strong>Airplane</strong>, <strong>Sponge</strong> (SpongeVanilla, SpongeForge), <strong>Fabric</strong>, <strong>Quilt</strong>, <strong>Forge</strong>, <strong>NeoForge</strong>, <strong>Mohist</strong>, <strong>Arclight</strong>, <strong>Magma</strong>, <strong>Ketting</strong>, <strong>Banner</strong>, <strong>Cardboard</strong>, <strong>Glowstone</strong>, <strong>Thermos</strong>, <strong>Uberbukkit</strong> et tout autre dérivé, serveur de modpack ou ancienne version. S'il écrit <code>world/level.dat</code>, cet éditeur l'ouvre : <a href="java-nbt-editor/">voir les détails</a>.</p>
+<h3>Proxys et passerelles</h3>
+<p><strong>Geyser</strong>, <strong>WaterdogPE</strong>, <strong>Waterfall</strong>, <strong>Velocity</strong> et <strong>BungeeCord</strong> ne possèdent pas les mondes ; ils transportent le NBT sur le réseau. Les captures issues de leurs connexions sont du NBT réseau : varint petit-boutiste côté Bedrock et racine sans nom gros-boutiste côté Java 1.20.2+. Les deux s'ouvrent directement ici.</p>
+<h3>Logiciels absents de cette liste</h3>
+<p>Dérivés personnalisés, logiciels privés, projets pédagogiques ou serveur écrit par vos soins : si le fichier est en NBT, l'éditeur détecte lequel des cinq encodages il utilise et l'ouvre. Rien ici ne dépend du nom du logiciel.</p>
 </div>
 </section>
 
-<section class="content" aria-label="Scripting">
-<h2 id="use-the-parser-from-your-own-code">Use the parser from your own code</h2>
-<p>The page exposes its engine on <code>window.NBT</code>, so the same parser that powers the UI can be driven from the browser console or reused in a userscript:</p>
+<section class="content" aria-label="Utilisation de scripts">
+<h2 id="use-the-parser-from-your-own-code">Utiliser l'analyseur depuis votre propre code</h2>
+<p>La page expose son moteur dans <code>window.NBT</code>. Le même analyseur que celui de l'interface peut donc être piloté depuis la console du navigateur ou réutilisé dans un script utilisateur :</p>
 <pre class="code"><code>const bytes = new Uint8Array(await file.arrayBuffer());
 const { root, format, compression, headerVersion } = await NBT.read(bytes);
 
 root.value.find(t =&gt; t.name === "LevelName").value = "New World";
 
 const out = await NBT.write(root, format, { compression, headerVersion });</code></pre>
-<p>Tags are plain objects — <code>{ type, name, value, listType }</code> — arrays are <code>Int8Array</code>, <code>Int32Array</code> and <code>BigInt64Array</code>, and longs are <code>BigInt</code>. The full <a href="nbt-format/">NBT format reference</a> documents every tag type and how each encoding differs.</p>
+<p>Les balises sont des objets simples — <code>{ type, name, value, listType }</code> —, les tableaux sont des <code>Int8Array</code>, <code>Int32Array</code> et <code>BigInt64Array</code>, et les entiers longs des <code>BigInt</code>. La <a href="nbt-format/">référence du format NBT</a> décrit chaque type de balise et les différences entre les encodages.</p>
 </section>
 
-<section class="content" aria-label="Frequently asked questions"><h2>Frequently Asked Questions</h2><details><summary>Is this NBT editor free?</summary><div class="faq-body"><p>Yes, and open source under the MIT licence. There is no paid tier, no sign-up and no upload quota, because there is no server component at all — the whole editor is one static page plus two asset files.</p></div></details><details><summary>Does it work with Java Edition and Bedrock Edition?</summary><div class="faq-body"><p>Both. Java Edition files are big-endian and usually gzip-compressed; Bedrock files are little-endian, and <code>level.dat</code> carries an extra 8-byte header. The editor detects which one it received and writes the same variant back on save.</p></div></details><details><summary>Is my world file uploaded anywhere?</summary><div class="faq-body"><p>No. The file is read locally with the FileReader API and the download is produced from an in-memory blob. Once the page has loaded you can disconnect from the network and it still works.</p></div></details><details><summary>Can I use it on Android or iOS?</summary><div class="faq-body"><p>Yes. The layout is mobile-first with 44&nbsp;px tap targets and a fixed action bar. On Android you can pick a world file straight out of a file manager; on iOS the file has to be in the Files app first because of sandboxing.</p></div></details><details><summary>What is the difference between NBT and SNBT?</summary><div class="faq-body"><p>NBT is the binary encoding Minecraft stores on disk. SNBT is its text form, the syntax you type into commands like <code>/data merge</code>. This editor reads binary NBT and can export SNBT, which makes it easy to diff two files or paste a structure into a command.</p></div></details><details><summary>Which tools does this replace?</summary><div class="faq-body"><p>Desktop NBT editors such as NBTExplorer, plus the various single-purpose web tools that only handle one edition. See the <a href="nbtexplorer-online/">NBTExplorer online comparison</a> for what carries over and what does not.</p></div></details></section>
-<section class="content" aria-label="Related tools"><h2>Related tools</h2><div class="rel-grid"><a class="rel-card" href="level-dat-editor/"><strong>level.dat editor</strong><span>World name, game mode, spawn, difficulty and game rules.</span></a><a class="rel-card" href="java-nbt-editor/"><strong>Java Edition NBT editor</strong><span>Big-endian, gzip — Vanilla, Paper, Spigot, Fabric, Forge.</span></a><a class="rel-card" href="mcpe-nbt-editor/"><strong>MCPE NBT editor</strong><span>Little-endian NBT and the 8-byte level.dat header.</span></a><a class="rel-card" href="nbt-format/"><strong>NBT format reference</strong><span>All 13 tag types, every encoding, byte by byte.</span></a><a class="rel-card" href="mcstructure-editor/"><strong>.mcstructure editor</strong><span>Bedrock structure blocks: palette, size, block entities.</span></a><a class="rel-card" href="guides/change-world-name/"><strong>Rename a world</strong><span>Fix LevelName after copying a world folder.</span></a></div></section>
+<section class="content" aria-label="Questions fréquentes"><h2>Questions fréquentes</h2><details><summary>Cet éditeur NBT est-il gratuit ?</summary><div class="faq-body"><p>Oui, et son code source est disponible sous licence MIT. Il n'existe ni offre payante, ni inscription, ni quota d'envoi, car aucun composant serveur n'est utilisé : l'éditeur complet se compose d'une page statique et de deux fichiers de ressources.</p></div></details><details><summary>Fonctionne-t-il avec Java Edition et Bedrock Edition ?</summary><div class="faq-body"><p>Avec les deux. Les fichiers Java Edition sont gros-boutistes et généralement compressés avec gzip ; ceux de Bedrock sont petit-boutistes, et <code>level.dat</code> contient un en-tête supplémentaire de 8 octets. L'éditeur détecte la variante reçue et réécrit la même lors de l'enregistrement.</p></div></details><details><summary>Mon fichier de monde est-il envoyé quelque part ?</summary><div class="faq-body"><p>Non. Le fichier est lu localement avec l'API FileReader, et le téléchargement est produit à partir d'un blob en mémoire. Une fois la page chargée, vous pouvez vous déconnecter du réseau : elle continue de fonctionner.</p></div></details><details><summary>Puis-je l'utiliser sur Android ou iOS ?</summary><div class="faq-body"><p>Oui. La mise en page est conçue d'abord pour les mobiles, avec des zones tactiles de 44&nbsp;px et une barre d'actions fixe. Sous Android, vous pouvez choisir un fichier de monde directement dans un gestionnaire de fichiers. Sous iOS, il doit d'abord se trouver dans l'app Fichiers en raison du cloisonnement.</p></div></details><details><summary>Quelle est la différence entre NBT et SNBT ?</summary><div class="faq-body"><p>NBT est l'encodage binaire que Minecraft stocke sur le disque. SNBT est sa forme textuelle, dont la syntaxe est utilisée dans des commandes comme <code>/data merge</code>. Cet éditeur lit le NBT binaire et peut exporter du SNBT, ce qui facilite la comparaison de deux fichiers ou le collage d'une structure dans une commande.</p></div></details><details><summary>Quels outils cet éditeur remplace-t-il ?</summary><div class="faq-body"><p>Les éditeurs NBT de bureau tels que NBTExplorer, ainsi que les outils web spécialisés qui ne traitent qu'une seule édition. Consultez la <a href="nbtexplorer-online/">comparaison avec NBTExplorer en ligne</a> pour connaître les fonctions reprises et les différences.</p></div></details></section>
+<section class="content" aria-label="Outils associés"><h2>Outils associés</h2><div class="rel-grid"><a class="rel-card" href="level-dat-editor/"><strong>Éditeur level.dat</strong><span>Nom du monde, mode de jeu, spawn, difficulté et règles de jeu.</span></a><a class="rel-card" href="java-nbt-editor/"><strong>Éditeur NBT Java Edition</strong><span>Gros-boutiste et gzip — Vanilla, Paper, Spigot, Fabric, Forge.</span></a><a class="rel-card" href="mcpe-nbt-editor/"><strong>Éditeur NBT MCPE</strong><span>NBT petit-boutiste et en-tête de 8 octets de level.dat.</span></a><a class="rel-card" href="nbt-format/"><strong>Référence du format NBT</strong><span>Les 13 types de balises et tous les encodages, octet par octet.</span></a><a class="rel-card" href="mcstructure-editor/"><strong>Éditeur .mcstructure</strong><span>Blocs de structure Bedrock : palette, dimensions, entités de bloc.</span></a><a class="rel-card" href="guides/change-world-name/"><strong>Renommer un monde</strong><span>Corriger LevelName après la copie d'un dossier de monde.</span></a></div></section>
 </div>
 </main>
 
 <footer class="site-footer">
 <div class="container footer-grid">
-<div><h4>Editors</h4><a href="./">Minecraft NBT editor</a><a href="level-dat-editor/">level.dat editor</a><a href="java-nbt-editor/">Java Edition NBT editor</a><a href="mcpe-nbt-editor/">MCPE NBT editor</a><a href="pocketmine-nbt-editor/">PocketMine-MP editor</a></div>
-<div><h4>File types</h4><a href="mcstructure-editor/">.mcstructure editor</a><a href="schematic-editor/">Schematic editor</a><a href="playerdata-editor/">playerdata editor</a><a href="nbt-viewer/">NBT viewer</a><a href="nbtexplorer-online/">NBTExplorer online</a></div>
-<div><h4>Reference</h4><a href="nbt-format/">NBT format reference</a><a href="guides/change-world-name/">Rename a world</a><a href="guides/fix-corrupted-level-dat/">Fix a broken level.dat</a><a href="guides/edit-gamerules/">Edit game rules</a></div>
-<div><h4>Source</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">Code on GitHub</a><a href="../llms.txt">llms.txt</a></div>
+<div><h4>Éditeurs</h4><a href="./">Éditeur NBT Minecraft</a><a href="level-dat-editor/">Éditeur level.dat</a><a href="java-nbt-editor/">Éditeur NBT Java Edition</a><a href="mcpe-nbt-editor/">Éditeur NBT MCPE</a><a href="pocketmine-nbt-editor/">Éditeur PocketMine-MP</a></div>
+<div><h4>Types de fichiers</h4><a href="mcstructure-editor/">Éditeur .mcstructure</a><a href="schematic-editor/">Éditeur de schémas</a><a href="playerdata-editor/">Éditeur playerdata</a><a href="nbt-viewer/">Visionneuse NBT</a><a href="nbtexplorer-online/">NBTExplorer en ligne</a></div>
+<div><h4>Référence</h4><a href="nbt-format/">Référence du format NBT</a><a href="guides/change-world-name/">Renommer un monde</a><a href="guides/fix-corrupted-level-dat/">Réparer level.dat</a><a href="guides/edit-gamerules/">Modifier les règles de jeu</a></div>
+<div><h4>Source</h4><a href="https://github.com/w1zardz/bedrock-nbt-editor" rel="noopener">Code sur GitHub</a><a href="../llms.txt">llms.txt</a></div>
 </div>
-<p class="footer-note">Last updated 2026-08-26. Minecraft NBT Editor — free, open source (MIT), runs entirely in your browser. Not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
+<p class="footer-note">Dernière mise à jour : 2026-09-21. Éditeur NBT Minecraft — gratuit, open source (MIT) et entièrement exécuté dans votre navigateur. Sans affiliation avec Mojang Studios ou Microsoft. Minecraft est une marque de Mojang Studios.</p>
 </footer>
 
 <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
 <div class="modal-overlay" id="addTagModal">
 <div class="modal">
-<h3>Add New Tag</h3>
-<label for="newTagName">Tag Name</label>
-<input type="text" id="newTagName" placeholder="e.g. MyTag" autocomplete="off">
-<label for="newTagType">Tag Type</label>
+<h3>Ajouter une balise</h3>
+<label for="newTagName">Nom de la balise</label>
+<input type="text" id="newTagName" placeholder="p. ex. MyTag" autocomplete="off">
+<label for="newTagType">Type de balise</label>
 <select id="newTagType">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -237,10 +252,10 @@ const out = await NBT.write(root, format, { compression, headerVersion });</code
 <option value="11">TAG_Int_Array</option>
 <option value="12">TAG_Long_Array</option>
 </select>
-<label for="newTagValue">Value</label>
-<input type="text" id="newTagValue" placeholder="Value" autocomplete="off">
+<label for="newTagValue">Valeur</label>
+<input type="text" id="newTagValue" placeholder="Valeur" autocomplete="off">
 <div id="listSubtypeRow" style="display:none">
-<label for="newListSubtype">List Element Type</label>
+<label for="newListSubtype">Type des éléments de la liste</label>
 <select id="newListSubtype">
 <option value="1">TAG_Byte</option>
 <option value="2">TAG_Short</option>
@@ -257,24 +272,24 @@ const out = await NBT.write(root, format, { compression, headerVersion });</code
 </select>
 </div>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="addTagCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="addTagConfirm">Add</button>
+<button class="btn-cancel" type="button" id="addTagCancel">Annuler</button>
+<button class="btn-confirm" type="button" id="addTagConfirm">Ajouter</button>
 </div>
 </div>
 </div>
 
 <div class="modal-overlay" id="arrayModal">
 <div class="modal">
-<h3 id="arrayModalTitle">Edit Array</h3>
-<label for="arrayModalText">Comma-separated values</label>
+<h3 id="arrayModalTitle">Modifier le tableau</h3>
+<label for="arrayModalText">Valeurs séparées par des virgules</label>
 <textarea id="arrayModalText" spellcheck="false" autocomplete="off"></textarea>
 <div class="modal-btns">
-<button class="btn-cancel" type="button" id="arrayModalCancel">Cancel</button>
-<button class="btn-confirm" type="button" id="arrayModalConfirm">Apply</button>
+<button class="btn-cancel" type="button" id="arrayModalCancel">Annuler</button>
+<button class="btn-confirm" type="button" id="arrayModalConfirm">Appliquer</button>
 </div>
 </div>
 </div>
 
-<script src="../assets/nbt.js?v=da7967b1" defer></script>
+<script src="../assets/nbt.js?v=6f125422" defer></script>
 </body>
 </html>
