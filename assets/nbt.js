@@ -676,13 +676,17 @@ function parseArrayText(type,text){
     const a=new Int32Array(parts.length);
     for(let i=0;i<parts.length;i++){
       const n=parseInt(parts[i],10);
-      if(isNaN(n))throw new NbtError(t("err_array_int","Invalid int: {0}",parts[i]));
+      if(isNaN(n)||n<-2147483648||n>2147483647)throw new NbtError(t("err_array_int","Invalid int: {0}",parts[i]));
       a[i]=n;
     }
     return a;
   }
   const a=new BigInt64Array(parts.length);
-  for(let i=0;i<parts.length;i++)a[i]=parseLongValue(parts[i].replace(/[lL]$/,""));
+  for(let i=0;i<parts.length;i++){
+    const b=parseLongValue(parts[i].replace(/[lL]$/,""));
+    if(b<-(2n**63n)||b>2n**63n-1n)throw new NbtError(t("err_long","Long out of 64-bit range"));
+    a[i]=b;
+  }
   return a;
 }
 function typedArrayWithout(arr,index){
@@ -1250,3 +1254,4 @@ window.NBT={
 };
 
 })();
+
